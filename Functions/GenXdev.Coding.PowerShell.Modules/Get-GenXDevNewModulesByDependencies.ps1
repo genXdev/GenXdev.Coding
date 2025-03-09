@@ -60,7 +60,7 @@ function Get-GenXDevNewModulesByDependencies {
         $null = $results.Add((findModule GenXdev.Webbrowser))
         $null = $results.Add((findModule GenXdev.Queries))
         $null = $results.Add((findModule GenXdev.Console))
-        $null = $results.Add((findModule GenXdev.Coding.Git))
+        $null = $results.Add((findModule GenXdev.Coding))
         $null = $results.Add((findModule GenXdev.AI))
         $null = $results.Add((findModule GenXdev))
 
