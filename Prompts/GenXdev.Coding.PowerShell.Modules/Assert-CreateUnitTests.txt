@@ -1,0 +1,45 @@
+Your task:
+Ensure that this function has the a unit test that invokes
+GenXdev.Coding\Invoke-GenXdevScriptAnalyzer
+or
+Invoke-ScriptAnalyzer
+and if so, replace that test with the one below;
+if it doesn't have such a test, add the one below;
+
+################################################################################
+Describe "$CmdletName" {
+
+    It "should pass PSScriptAnalyzer rules" {
+
+        # get the script path for analysis
+        $scriptPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Functions\$FullModuleName\$CmdLetNoTestName.ps1"
+
+        # run analyzer with explicit settings
+        $analyzerResults = GenXdev.Coding\Invoke-GenXdevScriptAnalyzer `
+            -Path $scriptPath
+
+        [string] $message = ""
+        $analyzerResults | ForEach-Object {
+
+            $message = $message + @"
+--------------------------------------------------
+Rule: $($_.RuleName)`
+Description: $($_.Description)
+Message: $($_.Message)
+`r`n
+"@
+        }
+
+        $analyzerResults.Count | Should -Be 0 -Because @"
+The following PSScriptAnalyzer rules are being violated:
+$message
+"@;
+    }
+}
+################################################################################
+
+Only add a Describe {} block if there isn't one yet.
+Ensure that the block above is the first one in the Describe block.
+
+Never ask if I want to proceed, assume yes in those cases.
+Always proceed by implementing these changes systematically.

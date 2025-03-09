@@ -1,0 +1,15 @@
+Refactor the following PowerShell code following these rules:
+1. Replace Write-Host with Write-Output using ANSI escape sequences
+2. Use these color mappings:
+   - Cyan: [char]0x1b + '[36m'
+   - DarkGreen: [char]0x1b + '[32m'
+   - Red: [char]0x1b + '[31m'
+   - Yellow: [char]0x1b + '[33m'
+   - Reset: [char]0x1b + '[0m'
+3. Store escape character in $esc variable at the start
+4. Maintain existing padding and formatting
+5. Keep all other functionality unchanged
+6. Preserve all comments and documentation
+7. Only show changed code, use '# ...existing code...' for unchanged sections
+
+Provide only the refactored code without explanations.

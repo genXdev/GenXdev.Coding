@@ -1,0 +1,8 @@
+Primary task:
+Analyze and see if there is anything wrong with the module definition of this
+module that failed to load with the following message:
+
+$Prompt
+
+Never ask if I want to proceed, assume yes in those cases.
+Always proceed by implementing these changes systematically.

@@ -1,0 +1,220 @@
+################################################################################
+<#
+.SYNOPSIS
+Asserts and improves unit-tests of a specified GenXdev cmdlet.
+
+.DESCRIPTION
+This function helps maintain and improve unit tests for GenXdev cmdlets by:
+1. Creating test files if they don't exist
+2. Opening the cmdlet in VS Code
+3. Preparing and applying AI prompts for test generation/improvement
+4. Managing test execution workflow
+
+.PARAMETER CmdletName
+The name of the cmdlet to improve unit-tests for. Required.
+
+.PARAMETER Prompt
+Custom AI prompt text to use for test generation. Optional.
+
+.PARAMETER EditPrompt
+Switch to only edit the AI prompt without modifying the cmdlet. Optional.
+
+.PARAMETER AssertFailedTest
+Switch to indicate assertion of a failed test. Optional.
+
+.EXAMPLE
+Assert-GenXdevCmdletTests -CmdletName "Get-GenXDevModuleInfo" -EditPrompt
+
+.EXAMPLE
+improvecmdlettests Get-GenXDevModuleInfo -AssertFailedTest
+#>
+function Assert-GenXdevCmdletTests {
+
+    [CmdletBinding()]
+    [Alias("improvecmdlettests")]
+
+    param(
+        ########################################################################
+        [Alias("cmd")]
+        [parameter(
+            Mandatory = $true,
+            Position = 0,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = "The name of the cmdlet to improve unit-tests for"
+        )]
+        [ValidateNotNullOrEmpty()]
+        [string] $CmdletName,
+
+        ########################################################################
+        [parameter(
+            Position = 1,
+            Mandatory = $false,
+            HelpMessage = "Custom AI prompt text to use"
+        )]
+        [AllowEmptyString()]
+        [string] $Prompt = "",
+
+        ########################################################################
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "Switch to only edit the AI prompt"
+        )]
+        [switch] $EditPrompt,
+
+        ########################################################################
+        [parameter(
+            Mandatory = $false,
+            HelpMessage = "Indicates to assert a failed test"
+        )]
+        [switch] $AssertFailedTest
+    )
+
+    begin {
+
+        # get target cmdlet information including script position
+        $cmdlet = Get-GenXDevCmdlets -CmdletName $CmdletName
+
+        # validate cmdlet exists
+        if ($null -eq $cmdlet) {
+            throw "Could not find GenXdev cmdlet $CmdletName"
+        }
+
+        # store cmdlet name for later use
+        $CmdletName = $cmdlet.Name
+
+        # determine which prompt template to use based on test file existence
+        $PromptKey = "CreateUnitTests"
+        $functionDefinition = [System.IO.File]::ReadAllText($cmdlet.ScriptFilePath)
+
+        if ([IO.File]::Exists($cmdlet.ScriptTestFilePath) -and
+            (-not [string]::IsNullOrWhiteSpace($functionDefinition))) {
+
+            $PromptKey = $AssertFailedTest ? "ImprovementFailedTest" : "ImproveUnitTests"
+        }
+
+        # process prompt template if key provided
+        if (-not [string]::IsNullOrWhiteSpace($PromptKey)) {
+
+            # construct path to prompt template file
+            $promptFilePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Prompts\GenXdev.Coding.PowerShell.Modules\Assert-$PromptKey.txt"
+
+            # ensure prompt directory exists and expand path
+            $promptFilePath = GenXdev.FileSystem\Expand-Path -FilePath $promptFilePath `
+                -CreateDirectory
+
+            # load template and replace placeholder
+            $Prompt = [System.IO.File]::ReadAllText($promptFilePath).Replace(
+                "`$Prompt",
+                $Prompt
+            )
+        }
+
+        # populate template variables
+        $Prompt = $Prompt.Replace("`$CmdletName", $cmdlet.Name)
+        $Prompt = $Prompt.Replace("`$CmdLetNoTestName", $cmdlet.Name)
+        $Prompt = $Prompt.Replace(
+            "`$ScriptTestFileName",
+            [System.IO.Path]::GetFileName($cmdlet.ScriptTestFilePath)
+        )
+        $Prompt = $Prompt.Replace(
+            "`$FullModuleName",
+            $cmdlet.ModuleName
+        )
+        $Prompt = $Prompt.Replace(
+            "`$BaseModuleName",
+
+            [string]::Join(".", ($cmdlet.ModuleName.Split(".") | Select-Object -First 2 -ErrorAction SilentlyContinue))
+        )
+        $Prompt = $Prompt.Replace(
+            "`$ScriptFileName",
+            [System.IO.Path]::GetFileName($cmdlet.ScriptFilePath)
+        )
+        $Prompt = $Prompt.Replace(
+            "`$FunctionDefinition",
+            $functionDefinition
+        )
+        $Prompt = $Prompt.Replace("`t", "  ")
+
+        # copy final prompt for use
+        $previousClipboard = Get-Clipboard
+        $null = Set-Clipboard -Value $Prompt
+    }
+
+    process {
+
+        # handle prompt editing request
+        if ($EditPrompt) {
+            p -c
+            code $promptFilePath
+            return
+        }
+
+        $found = $true
+
+        # create test file if missing
+        if (-not [IO.File]::Exists($cmdlet.ScriptTestFilePath) -or
+            ([IO.File]::ReadAllText($cmdlet.ScriptTestFilePath).Trim() -eq [string]::Empty)) {
+
+            $found = $false
+            Write-Verbose "Creating new unit test file"
+            $null = GenXdev.FileSystem\Expand-Path -FilePath ($cmdlet.ScriptTestFilePath) -CreateFile
+        }
+
+        # ensure copilot keyboard shortcut is configured
+        AssureCopilotKeyboardShortCut
+
+        # open cmdlet in vscode and activate copilot
+        # open cmdlet in vscode and insert prompt
+        # open cmdlet in vscode and insert prompt
+        $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
+            -FunctionName "GenXdev.Coding\Show-GenXdevCmdLetInIde" `
+            -BoundParameters $PSBoundParameters
+        $invocationParams.UnitTests = $true
+        $invocationParams.CmdletName = $CmdletName
+        $invocationParams.Code = $true
+        $keysToSendFirst = @("^``", "^+i", "^l", "^a", "{DELETE}", "^+i", "{ESCAPE}", "^{F12}", "^+i")
+        $keysToSendLast = @("^{F12}", "^v", "{ENTER}")
+        $invocationParams.KeysToSend = $keysToSendFirst;
+        Show-GenXdevCmdLetInIde @invocationParams
+
+        # switch to test file and paste prompt
+        Write-Verbose "Applying AI prompt from clipboard"
+        $invocationParams.KeysToSend = $keysToSendLast
+        $invocationParams.UnitTests = $false
+        Show-GenXdevCmdLetInIde @invocationParams
+        Start-Sleep 4;
+        # handle workflow based on whether test file existed
+        if (-not $found) {
+
+            switch ($host.ui.PromptForChoice(
+                    "Make a choice",
+                    "What to do next?",
+                    @("&Stop", "&Test the new unit tests", "Redo &Last"),
+                    0)) {
+                0 { throw "Stopped"; return }
+                1 { return (Run-UnitTests.ps1 -CmdletName $CmdletName -DebugFailedTests) }
+                2 { return Assert-GenXdevCmdletTests @PSBoundParameters }
+            }
+        }
+        else {
+
+            switch ($host.ui.PromptForChoice(
+                    "Make a choice",
+                    "What to do next?",
+                    @("&Stop", "&Test the improved unit tests", "Redo &Last"),
+                    0)) {
+                0 { throw "Stopped"; return }
+                1 { return (Run-UnitTests.ps1 -CmdletName $CmdletName -DebugFailedTests) }
+                2 { return Assert-GenXdevCmdletTests @PSBoundParameters }
+            }
+        }
+    }
+
+    end {
+
+        # restore previous clipboard content
+        $null = Set-Clipboard -Value $previousClipboard
+    }
+}
+################################################################################
