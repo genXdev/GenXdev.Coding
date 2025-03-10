@@ -16,7 +16,6 @@
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Invoke-GenXdevScriptAnalyzer.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\New-GenXdevCmdlet.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\New-Refactor.ps1"
-. "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Open-SourceFileInIde.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Remove-Refactor.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Search-GenXdevCmdlet.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Search-NextGenXdevCmdlet.ps1"

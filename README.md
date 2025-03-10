@@ -63,9 +63,11 @@ Update-Module
 | [Add-IssueLineToREADME](#Add-IssueLineToREADME) | issue | Adds an issue item to the README.md file. |
 | [Add-LineToREADME](#Add-LineToREADME) |  | Adds a line to a README.md markdown file in a specified section. |
 | [Add-TodoLineToREADME](#Add-TodoLineToREADME) | todo | Adds a todo item to the README.md file. |
+| [AssureVSCodeInstallation](#AssureVSCodeInstallation) |  | Installs and configures Visual Studio Code with recommended extensions. |
 | [Features](#Features) |  | Displays features from a README.md file. |
 | [Ideas](#Ideas) |  | Displays ideas from a README.md file. |
 | [Issues](#Issues) |  | Displays issues from a README.md file. |
+| [Open-SourceFileInIde](#Open-SourceFileInIde) | editcode | Opens a source file in the preferred IDE (Visual Studio Code or Visual Studio). |
 | [Todoos](#Todoos) |  | Displays todo items from a README.md file. |
 | [VSCode](#VSCode) |  | Opens one or more files in Visual Studio Code. |
 
@@ -102,7 +104,6 @@ Update-Module
 | [Invoke-GenXdevScriptAnalyzer](#Invoke-GenXdevScriptAnalyzer) |  |  |
 | [New-GenXdevCmdlet](#New-GenXdevCmdlet) | gcmd | Creates a new GenXdev PowerShell cmdlet with proper structure and validation. |
 | [New-Refactor](#New-Refactor) | newrefactor | Creates a new refactoring set for code transformation tasks. |
-| [Open-SourceFileInIde](#Open-SourceFileInIde) | editcode | Opens a source file in the preferred IDE (Visual Studio Code or Visual Studio). |
 | [Remove-Refactor](#Remove-Refactor) |  | Removes refactor sets from GenXdev preferences system. |
 | [Search-GenXdevCmdlet](#Search-GenXdevCmdlet) | searchcmdlet |  |
 | [Search-NextGenXdevCmdlet](#Search-NextGenXdevCmdlet) | nextcmdlet |  |
@@ -340,7 +341,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Add-LineToREADME [[-Line] <String>] [-Section] <String> [-Prefix] <String> [-Code] [-Show] [-Done] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>]  
+   Add-LineToREADME [[-Line] <String>] [-Section] <String> [-Prefix] <String> [-Code] [-Show] [-Done] [-UseHomeREADME]   
+   [-UseOneDriveREADME] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -502,6 +504,37 @@ Update-Module
 <br/><hr/><hr/><br/>
  
 
+##	AssureVSCodeInstallation 
+````PowerShell 
+
+   AssureVSCodeInstallation  
+```` 
+
+### SYNOPSIS 
+    Installs and configures Visual Studio Code with recommended extensions.  
+
+### SYNTAX 
+````PowerShell 
+
+   AssureVSCodeInstallation [<CommonParameters>]  
+```` 
+
+### DESCRIPTION 
+    Checks if Visual Studio Code is installed and if not, installs it using WinGet.  
+    Configures user settings, keybindings, and installs recommended extensions from  
+    the workspace configuration. Also sets up PSGallery as a trusted repository and  
+    configures specific extension settings.  
+
+### PARAMETERS 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+
+<br/><hr/><hr/><br/>
+ 
+
 ##	Features 
 ````PowerShell 
 
@@ -628,6 +661,83 @@ Update-Module
         Required?                    false  
         Position?                    2  
         Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+
+<br/><hr/><hr/><br/>
+ 
+
+##	Open-SourceFileInIde 
+````PowerShell 
+
+   Open-SourceFileInIde                 --> editcode  
+```` 
+
+### SYNOPSIS 
+    Opens a source file in the preferred IDE (Visual Studio Code or Visual Studio).  
+
+### SYNTAX 
+````PowerShell 
+
+   Open-SourceFileInIde [-Path] <String> [[-LineNo] <Int32>] [-Code] [-VisualStudio] [-KeysToSend <String[]>] [<CommonParameters>]  
+```` 
+
+### DESCRIPTION 
+    This function opens a specified source file in either Visual Studio Code or  
+    Visual Studio. It can navigate directly to a specific line number and optionally  
+    send keyboard inputs to the IDE after opening the file. The function will  
+    attempt to determine which IDE to use based on the current host process, running  
+    applications, or user selection.  
+
+### PARAMETERS 
+    -Path <String>  
+        The path to the source file that should be opened in the IDE. Accepts both  
+        relative and absolute paths, as well as paths with environment variables.  
+        Required?                    true  
+        Position?                    1  
+        Default value                  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -LineNo <Int32>  
+        The line number to navigate to when opening the file. Default is 0, which opens  
+        the file without positioning to a specific line.  
+        Required?                    false  
+        Position?                    2  
+        Default value                0  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -Code [<SwitchParameter>]  
+        Switch parameter to force opening the file in Visual Studio Code regardless  
+        of the current host process or other running IDEs.  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -VisualStudio [<SwitchParameter>]  
+        Switch parameter to force opening the file in Visual Studio regardless of the  
+        current host process or other running IDEs.  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -KeysToSend <String[]>  
+        Array of keyboard inputs to send to the application after opening. The function  
+        will wait 2 seconds before sending the keys to ensure the IDE has loaded.  
+        Required?                    false  
+        Position?                    named  
+        Default value                @()  
         Accept pipeline input?       false  
         Aliases                        
         Accept wildcard characters?  false  
@@ -874,8 +984,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Assert-GenXdevCmdlet [[-CmdletName] <String>] [-BaseModuleName <String[]>] [[-PromptKey] <String>] [[-Prompt] <String>] [-NoLocal] [-OnlyPublished]   
-   [-FromScripts] [-Code] [-VisualStudio] [-EditPrompt] [-Integrate] [<CommonParameters>]  
+   Assert-GenXdevCmdlet [[-CmdletName] <String>] [-BaseModuleName <String[]>] [[-PromptKey] <String>] [[-Prompt] <String>] [-NoLocal]   
+   [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-EditPrompt] [-Integrate] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -1110,8 +1220,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Assert-NextGenXdevCmdlet [[-ModuleName] <String>] [[-Key] <String>] [[-PromptKey] <String>] [[-Prompt] <String>] [-EditPrompt] [-FromScripts] [-Integrate]   
-   [-OnlyNonExisting] [<CommonParameters>]  
+   Assert-NextGenXdevCmdlet [[-ModuleName] <String>] [[-Key] <String>] [[-PromptKey] <String>] [[-Prompt] <String>] [-EditPrompt]   
+   [-FromScripts] [-Integrate] [-OnlyNonExisting] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -1205,8 +1315,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Assert-NextGenXdevCmdletTests [[-ModuleName] <String>] [[-Reset]] [[-RedoLast]] [[-Key] <String>] [[-Prompt] <String>] [-EditPrompt] [-OnlyNonExisting]   
-   [<CommonParameters>]  
+   Assert-NextGenXdevCmdletTests [[-ModuleName] <String>] [[-Reset]] [[-RedoLast]] [[-Key] <String>] [[-Prompt] <String>]   
+   [-EditPrompt] [-OnlyNonExisting] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -1538,8 +1648,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Get-GenXDevNextCmdLet [[-CmdletName] <String>] [[-BaseModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Reset] [-RedoLast] [-Key <String>]   
-   [-OnlyNonExisting] [<CommonParameters>]  
+   Get-GenXDevNextCmdLet [[-CmdletName] <String>] [[-BaseModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Reset]   
+   [-RedoLast] [-Key <String>] [-OnlyNonExisting] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -1928,10 +2038,11 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>] [[-SelectionScript] <String>] [-AutoAddModifiedFiles] [[-SelectionPrompt] <String>]   
-   [[-Model] <String>] [[-ModelLMSGetIdentifier] <String>] [[-Temperature] <Double>] [[-MaxToken] <Int32>] [[-TTLSeconds] <Int32>] [[-Gpu] <Int32>] [-Force]   
-   [-ApiEndpoint <String>] [-ApiKey <String>] [[-Priority] <Int32>] [[-ExposedCmdLets] <ExposedCmdletDefinition[]>] [-Code] [-VisualStudio] [-KeysToSend   
-   <String[]>] [-FilesToAdd <FileInfo[]>] [-WhatIf] [-Confirm] [<CommonParameters>]  
+   New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>] [[-SelectionScript] <String>] [-AutoAddModifiedFiles]   
+   [[-SelectionPrompt] <String>] [[-Model] <String>] [[-ModelLMSGetIdentifier] <String>] [[-Temperature] <Double>] [[-MaxToken]   
+   <Int32>] [[-TTLSeconds] <Int32>] [[-Gpu] <Int32>] [-Force] [-ApiEndpoint <String>] [-ApiKey <String>] [[-Priority] <Int32>]   
+   [[-ExposedCmdLets] <ExposedCmdletDefinition[]>] [-Code] [-VisualStudio] [-KeysToSend <String[]>] [-FilesToAdd <FileInfo[]>]   
+   [-WhatIf] [-Confirm] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -2135,83 +2246,6 @@ Update-Module
 <br/><hr/><hr/><br/>
  
 
-##	Open-SourceFileInIde 
-````PowerShell 
-
-   Open-SourceFileInIde                 --> editcode  
-```` 
-
-### SYNOPSIS 
-    Opens a source file in the preferred IDE (Visual Studio Code or Visual Studio).  
-
-### SYNTAX 
-````PowerShell 
-
-   Open-SourceFileInIde [-Path] <String> [[-LineNo] <Int32>] [-Code] [-VisualStudio] [-KeysToSend <String[]>] [<CommonParameters>]  
-```` 
-
-### DESCRIPTION 
-    This function opens a specified source file in either Visual Studio Code or  
-    Visual Studio. It can navigate directly to a specific line number and optionally  
-    send keyboard inputs to the IDE after opening the file. The function will  
-    attempt to determine which IDE to use based on the current host process, running  
-    applications, or user selection.  
-
-### PARAMETERS 
-    -Path <String>  
-        The path to the source file that should be opened in the IDE. Accepts both  
-        relative and absolute paths, as well as paths with environment variables.  
-        Required?                    true  
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -LineNo <Int32>  
-        The line number to navigate to when opening the file. Default is 0, which opens  
-        the file without positioning to a specific line.  
-        Required?                    false  
-        Position?                    2  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Switch parameter to force opening the file in Visual Studio Code regardless  
-        of the current host process or other running IDEs.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -VisualStudio [<SwitchParameter>]  
-        Switch parameter to force opening the file in Visual Studio regardless of the  
-        current host process or other running IDEs.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -KeysToSend <String[]>  
-        Array of keyboard inputs to send to the application after opening. The function  
-        will wait 2 seconds before sending the keys to ensure the IDE has loaded.  
-        Required?                    false  
-        Position?                    named  
-        Default value                @()  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><hr/><br/>
- 
-
 ##	Remove-Refactor 
 ````PowerShell 
 
@@ -2285,8 +2319,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Search-GenXdevCmdlet [[-CmdletName] <string>] [[-BaseModuleName] <string[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio]   
-   [<CommonParameters>]  
+   Search-GenXdevCmdlet [[-CmdletName] <string>] [[-BaseModuleName] <string[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code]   
+   [-VisualStudio] [<CommonParameters>]  
 ```` 
 
 ### PARAMETERS 
@@ -2478,8 +2512,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Show-GenXdevCmdLetInIde [[-CmdletName] <String>] [[-BaseModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio]   
-   [-UnitTests] [-KeysToSend <String[]>] [<CommonParameters>]  
+   Show-GenXdevCmdLetInIde [[-CmdletName] <String>] [[-BaseModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code]   
+   [-VisualStudio] [-UnitTests] [-KeysToSend <String[]>] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -2613,8 +2647,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [[-CleanUpDeletedFiles]] [-Reset] [-ResetLMSelections]   
-   [-MarkAllCompleted] [-RedoLast] [-EditPrompt] [-Speak] [<CommonParameters>]  
+   Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [[-CleanUpDeletedFiles]]   
+   [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-EditPrompt] [-Speak] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -2770,20 +2804,22 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Update-Refactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection]   
-   [-PerformLLMSelections] [-PerformAllLLMSelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted]   
-   [-SelectByModifiedDateFrom <DateTime>] [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>] [-SelectByCreationDateTo <DateTime>]   
-   [-RedoLast] [-PromptKey <String>] [-Prompt <String>] [-SelectionScript <String>] [-AutoAddModifiedFiles] [-SelectionPrompt <String>] [-Model <String>]   
-   [-ModelLMSGetIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>] [-TTLSeconds <Int32>] [-Gpu <Int32>] [-Force] [-ApiEndpoint <String>] [-ApiKey   
-   <String>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-Code] [-VisualStudio] [-KeysToSend <String[]>] [-Speak] [-WhatIf] [-Confirm]   
-   [<CommonParameters>]  
-   Update-Refactor [[-Refactor] <RefactorDefinition[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-CleanUpDeletedFiles]   
-   [-AskBeforeLLMSelection] [-PerformLLMSelections] [-PerformAllLLMSelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections]   
-   [-MarkAllCompleted] [-SelectByModifiedDateFrom <DateTime>] [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>]   
-   [-SelectByCreationDateTo <DateTime>] [-RedoLast] [-PromptKey <String>] [-Prompt <String>] [-SelectionScript <String>] [-AutoAddModifiedFiles]   
-   [-SelectionPrompt <String>] [-Model <String>] [-ModelLMSGetIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>] [-TTLSeconds <Int32>] [-Gpu   
-   <Int32>] [-Force] [-ApiEndpoint <String>] [-ApiKey <String>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-Code] [-VisualStudio]   
-   [-KeysToSend <String[]>] [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>]  
+   Update-Refactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-CleanUpDeletedFiles]   
+   [-AskBeforeLLMSelection] [-PerformLLMSelections] [-PerformAllLLMSelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog]   
+   [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-SelectByModifiedDateFrom <DateTime>] [-SelectByModifiedDateTo <DateTime>]   
+   [-SelectByCreationDateFrom <DateTime>] [-SelectByCreationDateTo <DateTime>] [-RedoLast] [-PromptKey <String>] [-Prompt <String>]   
+   [-SelectionScript <String>] [-AutoAddModifiedFiles] [-SelectionPrompt <String>] [-Model <String>] [-ModelLMSGetIdentifier <String>]   
+   [-Temperature <Double>] [-MaxToken <Int32>] [-TTLSeconds <Int32>] [-Gpu <Int32>] [-Force] [-ApiEndpoint <String>] [-ApiKey   
+   <String>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-Code] [-VisualStudio] [-KeysToSend <String[]>]   
+   [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>]  
+   Update-Refactor [[-Refactor] <RefactorDefinition[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>]   
+   [-CleanUpDeletedFiles] [-AskBeforeLLMSelection] [-PerformLLMSelections] [-PerformAllLLMSelections] [-RetryFailedLLMSelections]   
+   [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-SelectByModifiedDateFrom <DateTime>]   
+   [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>] [-SelectByCreationDateTo <DateTime>] [-RedoLast]   
+   [-PromptKey <String>] [-Prompt <String>] [-SelectionScript <String>] [-AutoAddModifiedFiles] [-SelectionPrompt <String>] [-Model   
+   <String>] [-ModelLMSGetIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>] [-TTLSeconds <Int32>] [-Gpu <Int32>]   
+   [-Force] [-ApiEndpoint <String>] [-ApiKey <String>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-Code]   
+   [-VisualStudio] [-KeysToSend <String[]>] [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 

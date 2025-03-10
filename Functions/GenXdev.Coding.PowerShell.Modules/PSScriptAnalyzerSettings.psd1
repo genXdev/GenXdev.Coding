@@ -78,6 +78,6 @@
     IncludeDefaultRules   = $true
     RecurseCustomRulePath = $true
     CustomRulePath        = @(
-        "~\Documents\Powershell\Modules\GenXdev.Coding\1.118.2025\Functions\GenXdev.Coding.PowerShell.Modules\Measure-UseFullyQualifiedCmdletNames.psm1"
+        "~\Documents\Powershell\Modules\GenXdev.Coding\1.120.2025\Functions\GenXdev.Coding.PowerShell.Modules\Measure-UseFullyQualifiedCmdletNames.psm1"
     )
 }

@@ -206,6 +206,11 @@ function Open-SourceFileInIde {
                 }
             }
         }
+
+        if ($isCode) {
+
+            $null = AssureVSCodeInstallation
+        }
     }
 
     process {

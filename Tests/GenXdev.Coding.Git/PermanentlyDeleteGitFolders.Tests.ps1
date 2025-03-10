@@ -1,7 +1,7 @@
 ################################################################################
 Describe "PermanentlyDeleteGitFolders" {
 
-    It "should pass PSScriptAnalyzer rules" {
+    It "Should pass PSScriptAnalyzer rules" {
 
         # get the full path to the script that needs to be analyzed
         $Script:scriptPath = GenXdev.FileSystem\Expand-Path `

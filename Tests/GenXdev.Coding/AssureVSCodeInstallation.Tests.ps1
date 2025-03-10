@@ -1,16 +1,16 @@
 
 ################################################################################
-Describe "Open-SourceFileInIde" {
+Describe "AssureVSCodeInstallation" {
 
-    It "should pass PSScriptAnalyzer rules" {
+    It "Should pass PSScriptAnalyzer rules" {
 
         # get the script path for analysis
-        $scriptPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Functions\GenXdev.Coding.PowerShell.Modules\Open-SourceFileInIde.ps1"
+        $scriptPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Functions\GenXdev.Coding\AssureVSCodeInstallation.ps1"
 
         $analyzerResults = GenXdev.Coding\Invoke-GenXdevScriptAnalyzer `
             -Path $scriptPath
 
-        [string] $message = ""
+         [string] $message = ""
         $analyzerResults | ForEach-Object {
 
             $message = $message + @"

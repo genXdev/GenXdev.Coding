@@ -1,4 +1,4 @@
-     Unit test failed for unit test: Get-SpotifyLyrics.should pass PSScriptAnalyzer rules
+Unit test failed for unit test: Get-SpotifyLyrics.should pass PSScriptAnalyzer rules
 
 Primary task:
 Improve documentation and line comments in function '$CmdletName' in '$ScriptFileName'.

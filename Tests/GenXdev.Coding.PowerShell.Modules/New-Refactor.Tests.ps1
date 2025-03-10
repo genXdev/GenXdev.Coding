@@ -2,10 +2,10 @@
 
 Describe "New-Refactor" {
 
-    It "should pass PSScriptAnalyzer rules" {
+    It "Should pass PSScriptAnalyzer rules" {
 
         # run script analyzer on the function script
-        $scriptPath = "$PSScriptRoot\..\..\..\..\GenXdev.Coding\1.118.2025\Functions\GenXdev.Coding.PowerShell.Modules\" +
+        $scriptPath = "$PSScriptRoot\..\..\..\..\GenXdev.Coding\1.120.2025\Functions\GenXdev.Coding.PowerShell.Modules\" +
         "New-Refactor.ps1"
         $analyzerResults = GenXdev.Coding\Invoke-GenXdevScriptAnalyzer `
             -Path $scriptPath

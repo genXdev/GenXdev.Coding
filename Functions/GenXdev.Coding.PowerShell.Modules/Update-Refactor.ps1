@@ -1185,7 +1185,7 @@ function Update-Refactor {
                         }
 
                         # Register temporary verbose handler
-                        Register-EngineEvent -SourceIdentifier "Verbose" -Action $verboseScriptBlock
+                        $null = Register-EngineEvent -SourceIdentifier "Verbose" -Action $verboseScriptBlock
 
                         # Run the test and get the result
                         $result = Test-RefactorLLMSelection `
@@ -1205,7 +1205,7 @@ function Update-Refactor {
                     }
                     finally {
                         # Clean up verbose handling
-                        Unregister-Event -SourceIdentifier "Verbose" -ErrorAction SilentlyContinue
+                        $null = Unregister-Event -SourceIdentifier "Verbose" -ErrorAction SilentlyContinue
                     }
 
                     if ($result -eq $true) {

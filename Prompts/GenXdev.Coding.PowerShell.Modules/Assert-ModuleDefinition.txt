@@ -1,7 +1,25 @@
 Primary task:
-Analyze and see if there is anything wrong with the module definition of this
-module that failed to load with the following message:
+Analyze module definition issues in the provided PowerShell module that failed to load.
 
+Secondary task:
+Check for these common problems:
+1. Verify module manifest (*.psd1) syntax
+2. Confirm required module dependencies are listed
+3. Check function export declarations
+4. Validate nested module references
+5. Review module version specifications
+6. Check for path/location issues
+7. Verify PowerShell version compatibility
+8. Validate GUID uniqueness
+9. Check for file encoding issues
+10. Review root module path
+
+After analysis, please:
+1. List all identified issues
+2. Provide recommended fixes
+3. Note any potential compatibility impacts
+
+Context: Module failed with error message:
 $Prompt
 
 Never ask if I want to proceed, assume yes in those cases.

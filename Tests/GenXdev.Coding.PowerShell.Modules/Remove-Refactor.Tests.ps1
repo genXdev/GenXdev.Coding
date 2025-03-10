@@ -3,7 +3,7 @@ Describe "Remove-Refactor" {
     It "Should pass PSScriptAnalyzer rules" {
 
         $scriptPath = GenXdev.FileSystem\Expand-Path (
-            "$PSScriptRoot\..\..\..\..\GenXdev.Coding\1.118.2025\Functions\GenXdev.Coding.PowerShell.Modules\Remove-Refactor.ps1"
+            "$PSScriptRoot\..\..\..\..\GenXdev.Coding\1.120.2025\Functions\GenXdev.Coding.PowerShell.Modules\Remove-Refactor.ps1"
         )
 
         # run analyzer with explicit settings

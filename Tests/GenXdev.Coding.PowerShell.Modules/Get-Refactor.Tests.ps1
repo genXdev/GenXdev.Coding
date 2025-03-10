@@ -1,9 +1,9 @@
 Describe "Get-Refactor module function tests" {
 
-    It "should pass PSScriptAnalyzer rules" {
+    It "Should pass PSScriptAnalyzer rules" {
 
         # get the script path for analysis
-        $scriptPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\GenXdev.Coding\1.118.2025\Functions\GenXdev.Coding.PowerShell.Modules\Get-Refactor.ps1"
+        $scriptPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\GenXdev.Coding\1.120.2025\Functions\GenXdev.Coding.PowerShell.Modules\Get-Refactor.ps1"
 
         # run analyzer with explicit settings
         $analyzerResults = GenXdev.Coding\Invoke-GenXdevScriptAnalyzer `

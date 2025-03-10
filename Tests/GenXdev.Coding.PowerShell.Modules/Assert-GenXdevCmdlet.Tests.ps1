@@ -1,6 +1,6 @@
 Describe "Assert-GenXdevCmdlet" {
 
-    It "should pass PSScriptAnalyzer rules" {
+    It "Should pass PSScriptAnalyzer rules" {
         # get the script path for analysis
         $scriptPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Functions\GenXdev.Coding.PowerShell.Modules\Assert-GenXdevCmdlet.ps1"
 

@@ -1,5 +1,6 @@
 Refactor the following PowerShell code following these rules:
-1. Replace Write-Host with Write-Output using ANSI escape sequences
+1. Replace Write-Host with Write-Output if the function does not
+   output anything else and use ANSI escape sequences.
 2. Use these color mappings:
    - Cyan: [char]0x1b + '[36m'
    - DarkGreen: [char]0x1b + '[32m'
@@ -10,6 +11,7 @@ Refactor the following PowerShell code following these rules:
 4. Maintain existing padding and formatting
 5. Keep all other functionality unchanged
 6. Preserve all comments and documentation
-7. Only show changed code, use '# ...existing code...' for unchanged sections
+
+$Prompt
 
 Provide only the refactored code without explanations.
