@@ -62,12 +62,14 @@ Update-Module
 | [Add-IdeaLineToREADME](#Add-IdeaLineToREADME) | idea | Adds an idea item to the README.md file. |
 | [Add-IssueLineToREADME](#Add-IssueLineToREADME) | issue | Adds an issue item to the README.md file. |
 | [Add-LineToREADME](#Add-LineToREADME) |  | Adds a line to a README.md markdown file in a specified section. |
+| [Add-ReleaseNoteLineToREADME](#Add-ReleaseNoteLineToREADME) | releasenote | Adds a ReleaseNote line to the README file with a timestamp. |
 | [Add-TodoLineToREADME](#Add-TodoLineToREADME) | todo | Adds a todo item to the README.md file. |
 | [AssureVSCodeInstallation](#AssureVSCodeInstallation) |  | Installs and configures Visual Studio Code with recommended extensions. |
 | [Features](#Features) |  | Displays features from a README.md file. |
 | [Ideas](#Ideas) |  | Displays ideas from a README.md file. |
 | [Issues](#Issues) |  | Displays issues from a README.md file. |
 | [Open-SourceFileInIde](#Open-SourceFileInIde) | editcode | Opens a source file in the preferred IDE (Visual Studio Code or Visual Studio). |
+| [ReleaseNotes](#ReleaseNotes) |  | Displays ReleaseNotes from a README.md file. |
 | [Todoos](#Todoos) |  | Displays todo items from a README.md file. |
 | [VSCode](#VSCode) |  | Opens one or more files in Visual Studio Code. |
 
@@ -341,8 +343,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Add-LineToREADME [[-Line] <String>] [-Section] <String> [-Prefix] <String> [-Code] [-Show] [-Done] [-UseHomeREADME]   
-   [-UseOneDriveREADME] [<CommonParameters>]  
+   Add-LineToREADME [[-Line] <String>] [-Section] <String> [-Prefix] <String> [-Code] [-Show] [-Done] [-UseHomeREADME] [-UseOneDriveREADME]   
+   [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -411,6 +413,75 @@ Update-Module
         Accept wildcard characters?  false  
     -UseOneDriveREADME [<SwitchParameter>]  
         Switch to use README in OneDrive directory.  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+
+<br/><hr/><hr/><br/>
+ 
+
+##	Add-ReleaseNoteLineToREADME 
+````PowerShell 
+
+   Add-ReleaseNoteLineToREADME          --> ReleaseNote  
+```` 
+
+### SYNOPSIS 
+    Adds a ReleaseNote line to the README file with a timestamp.  
+
+### SYNTAX 
+````PowerShell 
+
+   Add-ReleaseNoteLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>]  
+```` 
+
+### DESCRIPTION 
+    Adds a ReleaseNote line to the specified README file, prefixed with the current date  
+    in yyyyMMdd format. The line can be formatted as code and optionally displayed.  
+
+### PARAMETERS 
+    -Line <String>  
+        The ReleaseNote description text to add to the README file.  
+        Required?                    false  
+        Position?                    1  
+        Default value                  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -Code [<SwitchParameter>]  
+        Switch to format the line as code in the README file.  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -Show [<SwitchParameter>]  
+        Switch to display the README file after adding the line.  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -UseHomeREADME [<SwitchParameter>]  
+        Switch to use the README file in the home directory.  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -UseOneDriveREADME [<SwitchParameter>]  
+        Switch to use the README file in the OneDrive directory.  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -750,6 +821,52 @@ Update-Module
 <br/><hr/><hr/><br/>
  
 
+##	ReleaseNotes 
+````PowerShell 
+
+   ReleaseNotes  
+```` 
+
+### SYNOPSIS 
+    Displays ReleaseNotes from a README.md file.  
+
+### SYNTAX 
+````PowerShell 
+
+   ReleaseNotes [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]  
+```` 
+
+### DESCRIPTION 
+    Shows all ReleaseNotes from the "## ReleaseNotes" section of a README.md file. Can use  
+    either the README in the current location, PowerShell profile directory, or  
+    OneDrive directory.  
+
+### PARAMETERS 
+    -UseHomeREADME [<SwitchParameter>]  
+        Use README.md from PowerShell profile directory instead of current location.  
+        Required?                    false  
+        Position?                    1  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -UseOneDriveREADME [<SwitchParameter>]  
+        Use README.md from OneDrive directory instead of current location.  
+        Required?                    false  
+        Position?                    2  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+
+<br/><hr/><hr/><br/>
+ 
+
 ##	Todoos 
 ````PowerShell 
 
@@ -984,8 +1101,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Assert-GenXdevCmdlet [[-CmdletName] <String>] [-BaseModuleName <String[]>] [[-PromptKey] <String>] [[-Prompt] <String>] [-NoLocal]   
-   [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-EditPrompt] [-Integrate] [<CommonParameters>]  
+   Assert-GenXdevCmdlet [[-CmdletName] <String>] [-BaseModuleName <String[]>] [[-PromptKey] <String>] [[-Prompt] <String>] [-NoLocal] [-OnlyPublished]   
+   [-FromScripts] [-Code] [-VisualStudio] [-EditPrompt] [-Integrate] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -1220,8 +1337,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Assert-NextGenXdevCmdlet [[-ModuleName] <String>] [[-Key] <String>] [[-PromptKey] <String>] [[-Prompt] <String>] [-EditPrompt]   
-   [-FromScripts] [-Integrate] [-OnlyNonExisting] [<CommonParameters>]  
+   Assert-NextGenXdevCmdlet [[-ModuleName] <String>] [[-Key] <String>] [[-PromptKey] <String>] [[-Prompt] <String>] [-EditPrompt] [-FromScripts] [-Integrate]   
+   [-OnlyNonExisting] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -1315,8 +1432,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Assert-NextGenXdevCmdletTests [[-ModuleName] <String>] [[-Reset]] [[-RedoLast]] [[-Key] <String>] [[-Prompt] <String>]   
-   [-EditPrompt] [-OnlyNonExisting] [<CommonParameters>]  
+   Assert-NextGenXdevCmdletTests [[-ModuleName] <String>] [[-Reset]] [[-RedoLast]] [[-Key] <String>] [[-Prompt] <String>] [-EditPrompt] [-OnlyNonExisting]   
+   [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -1648,8 +1765,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Get-GenXDevNextCmdLet [[-CmdletName] <String>] [[-BaseModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Reset]   
-   [-RedoLast] [-Key <String>] [-OnlyNonExisting] [<CommonParameters>]  
+   Get-GenXDevNextCmdLet [[-CmdletName] <String>] [[-BaseModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Reset] [-RedoLast] [-Key   
+   <String>] [-OnlyNonExisting] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -2038,11 +2155,10 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>] [[-SelectionScript] <String>] [-AutoAddModifiedFiles]   
-   [[-SelectionPrompt] <String>] [[-Model] <String>] [[-ModelLMSGetIdentifier] <String>] [[-Temperature] <Double>] [[-MaxToken]   
-   <Int32>] [[-TTLSeconds] <Int32>] [[-Gpu] <Int32>] [-Force] [-ApiEndpoint <String>] [-ApiKey <String>] [[-Priority] <Int32>]   
-   [[-ExposedCmdLets] <ExposedCmdletDefinition[]>] [-Code] [-VisualStudio] [-KeysToSend <String[]>] [-FilesToAdd <FileInfo[]>]   
-   [-WhatIf] [-Confirm] [<CommonParameters>]  
+   New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>] [[-SelectionScript] <String>] [-AutoAddModifiedFiles] [[-SelectionPrompt]   
+   <String>] [[-Model] <String>] [[-ModelLMSGetIdentifier] <String>] [[-Temperature] <Double>] [[-MaxToken] <Int32>] [[-TTLSeconds] <Int32>] [[-Gpu] <Int32>]   
+   [-Force] [-ApiEndpoint <String>] [-ApiKey <String>] [[-Priority] <Int32>] [[-ExposedCmdLets] <ExposedCmdletDefinition[]>] [-Code] [-VisualStudio]   
+   [-KeysToSend <String[]>] [-FilesToAdd <FileInfo[]>] [-WhatIf] [-Confirm] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -2319,8 +2435,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Search-GenXdevCmdlet [[-CmdletName] <string>] [[-BaseModuleName] <string[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code]   
-   [-VisualStudio] [<CommonParameters>]  
+   Search-GenXdevCmdlet [[-CmdletName] <string>] [[-BaseModuleName] <string[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio]   
+   [<CommonParameters>]  
 ```` 
 
 ### PARAMETERS 
@@ -2512,8 +2628,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Show-GenXdevCmdLetInIde [[-CmdletName] <String>] [[-BaseModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code]   
-   [-VisualStudio] [-UnitTests] [-KeysToSend <String[]>] [<CommonParameters>]  
+   Show-GenXdevCmdLetInIde [[-CmdletName] <String>] [[-BaseModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio]   
+   [-UnitTests] [-KeysToSend <String[]>] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -2647,8 +2763,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [[-CleanUpDeletedFiles]]   
-   [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-EditPrompt] [-Speak] [<CommonParameters>]  
+   Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [[-CleanUpDeletedFiles]] [-Reset]   
+   [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-EditPrompt] [-Speak] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -2804,22 +2920,20 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Update-Refactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-CleanUpDeletedFiles]   
-   [-AskBeforeLLMSelection] [-PerformLLMSelections] [-PerformAllLLMSelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog]   
-   [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-SelectByModifiedDateFrom <DateTime>] [-SelectByModifiedDateTo <DateTime>]   
-   [-SelectByCreationDateFrom <DateTime>] [-SelectByCreationDateTo <DateTime>] [-RedoLast] [-PromptKey <String>] [-Prompt <String>]   
-   [-SelectionScript <String>] [-AutoAddModifiedFiles] [-SelectionPrompt <String>] [-Model <String>] [-ModelLMSGetIdentifier <String>]   
-   [-Temperature <Double>] [-MaxToken <Int32>] [-TTLSeconds <Int32>] [-Gpu <Int32>] [-Force] [-ApiEndpoint <String>] [-ApiKey   
-   <String>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-Code] [-VisualStudio] [-KeysToSend <String[]>]   
-   [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>]  
-   Update-Refactor [[-Refactor] <RefactorDefinition[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>]   
-   [-CleanUpDeletedFiles] [-AskBeforeLLMSelection] [-PerformLLMSelections] [-PerformAllLLMSelections] [-RetryFailedLLMSelections]   
-   [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-SelectByModifiedDateFrom <DateTime>]   
-   [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>] [-SelectByCreationDateTo <DateTime>] [-RedoLast]   
-   [-PromptKey <String>] [-Prompt <String>] [-SelectionScript <String>] [-AutoAddModifiedFiles] [-SelectionPrompt <String>] [-Model   
-   <String>] [-ModelLMSGetIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>] [-TTLSeconds <Int32>] [-Gpu <Int32>]   
-   [-Force] [-ApiEndpoint <String>] [-ApiKey <String>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-Code]   
-   [-VisualStudio] [-KeysToSend <String[]>] [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>]  
+   Update-Refactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection]   
+   [-PerformLLMSelections] [-PerformAllLLMSelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted]   
+   [-SelectByModifiedDateFrom <DateTime>] [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>] [-SelectByCreationDateTo <DateTime>]   
+   [-RedoLast] [-PromptKey <String>] [-Prompt <String>] [-SelectionScript <String>] [-AutoAddModifiedFiles] [-SelectionPrompt <String>] [-Model <String>]   
+   [-ModelLMSGetIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>] [-TTLSeconds <Int32>] [-Gpu <Int32>] [-Force] [-ApiEndpoint <String>]   
+   [-ApiKey <String>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-Code] [-VisualStudio] [-KeysToSend <String[]>] [-Speak] [-WhatIf]   
+   [-Confirm] [<CommonParameters>]  
+   Update-Refactor [[-Refactor] <RefactorDefinition[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-CleanUpDeletedFiles]   
+   [-AskBeforeLLMSelection] [-PerformLLMSelections] [-PerformAllLLMSelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections]   
+   [-MarkAllCompleted] [-SelectByModifiedDateFrom <DateTime>] [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>]   
+   [-SelectByCreationDateTo <DateTime>] [-RedoLast] [-PromptKey <String>] [-Prompt <String>] [-SelectionScript <String>] [-AutoAddModifiedFiles]   
+   [-SelectionPrompt <String>] [-Model <String>] [-ModelLMSGetIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>] [-TTLSeconds <Int32>] [-Gpu   
+   <Int32>] [-Force] [-ApiEndpoint <String>] [-ApiKey <String>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-Code] [-VisualStudio]   
+   [-KeysToSend <String[]>] [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 

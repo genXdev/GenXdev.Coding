@@ -8,7 +8,7 @@ Describe "Update-Refactor" {
 
         # run analyzer with explicit settings
         $analyzerResults = GenXdev.Coding\Invoke-GenXdevScriptAnalyzer `
-            -Path $scriptPath
+            -Path $scriptPath -Verbose -Recurse -Debug -ReportSummary
 
         [string] $message = ""
         $analyzerResults | ForEach-Object {

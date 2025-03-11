@@ -53,15 +53,15 @@ function Get-GenXDevNewModulesByDependencies {
 
         # add modules in their correct dependency order
         Write-Verbose "Adding modules in dependency order..."
-        $null = $results.Add((findModule GenXdev.Helpers))
         $null = $results.Add((findModule GenXdev.FileSystem))
+        $null = $results.Add((findModule GenXdev.Helpers))
         $null = $results.Add((findModule GenXdev.Data))
         $null = $results.Add((findModule GenXdev.Windows))
         $null = $results.Add((findModule GenXdev.Webbrowser))
         $null = $results.Add((findModule GenXdev.Queries))
         $null = $results.Add((findModule GenXdev.Console))
-        $null = $results.Add((findModule GenXdev.Coding))
         $null = $results.Add((findModule GenXdev.AI))
+        $null = $results.Add((findModule GenXdev.Coding))
         $null = $results.Add((findModule GenXdev))
 
         # return the results array containing modules in dependency order

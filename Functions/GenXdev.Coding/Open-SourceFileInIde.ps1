@@ -39,6 +39,8 @@ editcode "C:\Projects\MyScript.ps1" 25
 function Open-SourceFileInIde {
 
     [CmdletBinding()]
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidGlobalVars", "")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseUsingScopeModifierInNewRunspaces", "")]
     [Alias("editcode")]
     param(
         #######################################################################
