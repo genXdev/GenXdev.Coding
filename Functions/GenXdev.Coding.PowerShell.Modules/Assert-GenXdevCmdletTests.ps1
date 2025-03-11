@@ -31,8 +31,8 @@ improvecmdlettests Get-GenXDevModuleInfo -AssertFailedTest
 function Assert-GenXdevCmdletTests {
 
     [CmdletBinding()]
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseSingularNouns", "")]
     [Alias("improvecmdlettests")]
-
     param(
         ########################################################################
         [Alias("cmd")]

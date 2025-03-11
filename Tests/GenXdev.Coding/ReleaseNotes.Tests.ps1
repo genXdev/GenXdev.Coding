@@ -1,12 +1,12 @@
-
 ################################################################################
-Describe "Get-GenXDevModules" {
+Describe "ReleaseNotes" {
 
-    It "Should pass PSScriptAnalyzer rules" {
+    It "should pass PSScriptAnalyzer rules" {
 
         # get the script path for analysis
-        $scriptPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Functions\GenXdev.Coding.PowerShell.Modules\Get-GenXDevModules.ps1"
+        $scriptPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Functions\GenXdev.Coding\ReleaseNotes.ps1"
 
+        # run analyzer with explicit settings
         $analyzerResults = GenXdev.Coding\Invoke-GenXdevScriptAnalyzer `
             -Path $scriptPath
 

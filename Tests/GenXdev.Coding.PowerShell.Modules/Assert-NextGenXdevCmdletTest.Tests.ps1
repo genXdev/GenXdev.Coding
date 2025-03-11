@@ -1,11 +1,11 @@
 
 ################################################################################
-Describe "Get-GenXDevNewModulesByDependencies" {
+Describe "Assert-NextGenXdevCmdletTest" {
 
     It "Should pass PSScriptAnalyzer rules" {
 
         # get the script path for analysis
-        $scriptPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Functions\GenXdev.Coding.PowerShell.Modules\Get-GenXDevNewModulesByDependencies.ps1"
+        $scriptPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Functions\GenXdev.Coding.PowerShell.Modules\Assert-NextGenXdevCmdletTest.ps1"
 
         $analyzerResults = GenXdev.Coding\Invoke-GenXdevScriptAnalyzer `
             -Path $scriptPath

@@ -35,7 +35,7 @@ gcmd Get-SystemInfo -EditPrompt
 #>
 function New-GenXdevCmdlet {
 
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess)]
     [Alias("gcmd")]
     param (
         ########################################################################
@@ -138,17 +138,28 @@ function New-GenXdevCmdlet {
             $null = $PSBoundParameters.Add('Prompt', $Prompt)
         }
 
-        # create the new cmdlet file in the appropriate location
-        $null = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\..\Scripts\$CmdletName.ps1" `
-            -CreateFile
+        # check if we should proceed with cmdlet creation
+        $target = "PowerShell Cmdlet '$CmdletName'"
+        $action = "Create new cmdlet file and validate structure"
 
-        # setup and execute the cmdlet assertion
-        $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
-            -BoundParameters $PSBoundParameters `
-            -FunctionName "Assert-GenXdevCmdlet" `
-            -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+        if ($PSCmdlet.ShouldProcess($target, $action)) {
 
-        Assert-GenXdevCmdlet @invocationParams
+            Write-Verbose "Creating cmdlet file at: $PSScriptRoot\$CmdletName.ps1"
+
+            # create the new cmdlet file in the appropriate location
+            $null = GenXdev.FileSystem\Expand-Path `
+                "$PSScriptRoot\..\..\..\..\..\Scripts\$CmdletName.ps1" `
+                -CreateFile
+
+            # setup and execute the cmdlet assertion
+            $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
+                -BoundParameters $PSBoundParameters `
+                -FunctionName "Assert-GenXdevCmdlet" `
+                -DefaultValues (Get-Variable -Scope Local -Name * `
+                    -ErrorAction SilentlyContinue)
+
+            Assert-GenXdevCmdlet @invocationParams
+        }
     }
 
     end {

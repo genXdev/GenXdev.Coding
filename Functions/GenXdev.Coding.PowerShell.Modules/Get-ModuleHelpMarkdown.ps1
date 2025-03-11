@@ -76,7 +76,6 @@ function Get-ModuleHelpMarkdown {
     process {
 
         # initialize tracking variables
-        [bool] $first = $true
         $lastModule = ""
 
         # process each cmdlet

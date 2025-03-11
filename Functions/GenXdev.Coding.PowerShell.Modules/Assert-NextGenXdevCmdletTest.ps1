@@ -33,17 +33,17 @@ When specified, allows editing of the AI prompt without processing the cmdlet.
 When specified, skips cmdlets that already have unit tests implemented.
 
 .EXAMPLE
-Assert-NextGenXdevCmdletTests -ModuleName "GenXdev.Helpers" `
+Assert-NextGenXdevCmdletTest -ModuleName "GenXdev.Helpers" `
                              -Reset `
                              -OnlyNonExisting
 
 .EXAMPLE
-nextcmdlettests GenXdev.Helpers -Reset
+nextcmdlettest GenXdev.Helpers -Reset
 #>
-function Assert-NextGenXdevCmdletTests {
+function Assert-NextGenXdevCmdletTest {
 
     [CmdletBinding()]
-    [Alias("nextcmdlettests")]
+    [Alias("nextcmdlettest")]
 
     param(
         ########################################################################

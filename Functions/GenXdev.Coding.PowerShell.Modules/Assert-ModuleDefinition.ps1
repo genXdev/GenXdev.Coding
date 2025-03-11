@@ -11,6 +11,9 @@ and orchestrates the refactoring workflow through keyboard automation.
 .PARAMETER ModuleName
 The name of the module which definition to refactor.
 
+.PARAMETER Prompt
+Custom AI prompt text to use. Optional.
+
 .PARAMETER EditPrompt
 When enabled, only opens the prompt template for editing without executing the
 actual refactoring process.
@@ -45,6 +48,11 @@ function Assert-ModuleDefinition {
     )
 
     begin {
+        # store IDE selection at script scope instead of global
+        if (-not (Test-Path variable:script:_IDEPreference)) {
+            $script:_IDEPreference = -1
+        }
+
         if ([string]::IsNullOrWhiteSpace($Prompt)) {
 
             $Prompt = "Could not load module definition for `$ModuleName"
@@ -115,15 +123,16 @@ function Assert-ModuleDefinition {
         if (-not ($isCode -bxor $isVisualStudio)) {
 
             Write-Verbose "Prompting user to select IDE"
-            $userAnswer = $null -ne $Global:_CodeOrVisualStudioRefactor ?
-            $Global:_CodeOrVisualStudioRefactor :
-            ($host.ui.PromptForChoice(
+            $userAnswer = $script:_IDEPreference -ge 0 ?
+            $script:_IDEPreference :
+                ($host.ui.PromptForChoice(
                 "Make a choice",
                 "What IDE to use for refactoring?",
                 @("Visual Studio &Code", "&Visual Studio"),
                 0))
 
-            $Global:_CodeOrVisualStudioRefactor = $userAnswer
+            # store selection for future use
+            $script:_IDEPreference = $userAnswer
 
             # set IDE flags based on user selection
             switch ($userAnswer) {

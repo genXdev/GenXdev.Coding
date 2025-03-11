@@ -92,13 +92,13 @@ Update-Module
 | [Assert-GenXdevCmdletTests](#Assert-GenXdevCmdletTests) | improvecmdlettests | Asserts and improves unit-tests of a specified GenXdev cmdlet. |
 | [Assert-ModuleDefinition](#Assert-ModuleDefinition) |  | Assists in refactoring PowerShell source code files using AI assistance. |
 | [Assert-NextGenXdevCmdlet](#Assert-NextGenXdevCmdlet) | nextcmdlet | Asserts and improves the next GenXdev cmdlet in sequence. |
-| [Assert-NextGenXdevCmdletTests](#Assert-NextGenXdevCmdletTests) | nextcmdlettests | Automates testing improvements for GenXdev cmdlets by managing test creation. |
+| [Assert-NextGenXdevCmdletTest](#Assert-NextGenXdevCmdletTest) | nextcmdlettest | Automates testing improvements for GenXdev cmdlets by managing test creation. |
 | [Assert-RefactorFile](#Assert-RefactorFile) |  | Assists in refactoring PowerShell source code files using AI assistance. |
 | [AssureCopilotKeyboardShortCut](#AssureCopilotKeyboardShortCut) |  | Configures the GitHub Copilot keyboard shortcut in Visual Studio Code. |
 | [Complete-GenXDevREADME](#Complete-GenXDevREADME) |  | Completes the README file for specified GenXDev modules by adding documentation. |
 | [Get-GenXDevModuleInfo](#Get-GenXDevModuleInfo) |  | Retrieves detailed information about GenXdev PowerShell modules. |
-| [Get-GenXDevModules](#Get-GenXDevModules) |  | Retrieves all GenXDev modules from a specified path. |
-| [Get-GenXDevNewModulesByDependencies](#Get-GenXDevNewModulesByDependencies) |  | Retrieves GenXDev modules in dependency order. |
+| [Get-GenXDevModule](#Get-GenXDevModule) |  | Retrieves all GenXDev modules from a specified path. |
+| [Get-GenXDevNewModulesInOrderOfDependency](#Get-GenXDevNewModulesInOrderOfDependency) |  | Retrieves GenXDev modules in dependency order. |
 | [Get-GenXDevNextCmdLet](#Get-GenXDevNextCmdLet) |  | Retrieves the next GenXdev cmdlet to be improved. |
 | [Get-ModuleHelpMarkdown](#Get-ModuleHelpMarkdown) | get-genxdevmodulehelp | Generates markdown help documentation for specified GenXDev modules. |
 | [Get-Refactor](#Get-Refactor) | refactor | Retrieves refactor definitions from GenXdev preferences based on name patterns. |
@@ -136,7 +136,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Add-FeatureLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>]  
+   Add-FeatureLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME]   
+   [-UseOneDriveREADME] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -205,7 +206,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Add-IdeaLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>]  
+   Add-IdeaLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME]   
+   [-UseOneDriveREADME] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -274,7 +276,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Add-IssueLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>]  
+   Add-IssueLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME]   
+   [-UseOneDriveREADME] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -343,8 +346,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Add-LineToREADME [[-Line] <String>] [-Section] <String> [-Prefix] <String> [-Code] [-Show] [-Done] [-UseHomeREADME] [-UseOneDriveREADME]   
-   [<CommonParameters>]  
+   Add-LineToREADME [[-Line] <String>] [-Section] <String> [-Prefix] <String> [-Code] [-Show]   
+   [-Done] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -440,7 +443,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Add-ReleaseNoteLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>]  
+   Add-ReleaseNoteLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME]   
+   [-UseOneDriveREADME] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -509,7 +513,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Add-TodoLineToREADME [[-Line] <String>] [-Code] [-Show] [-Done] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>]  
+   Add-TodoLineToREADME [[-Line] <String>] [-Code] [-Show] [-Done] [-UseHomeREADME]   
+   [-UseOneDriveREADME] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -756,7 +761,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Open-SourceFileInIde [-Path] <String> [[-LineNo] <Int32>] [-Code] [-VisualStudio] [-KeysToSend <String[]>] [<CommonParameters>]  
+   Open-SourceFileInIde [-Path] <String> [[-LineNo] <Int32>] [-Code] [-VisualStudio]   
+   [-KeysToSend <String[]>] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -1025,7 +1031,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   PermanentlyDeleteGitFolders [-RepoUri] <String> [-Folders] <String[]> [-WhatIf] [-Confirm] [<CommonParameters>]  
+   PermanentlyDeleteGitFolders [-RepoUri] <String> [-Folders] <String[]> [-WhatIf] [-Confirm]   
+   [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -1101,8 +1108,9 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Assert-GenXdevCmdlet [[-CmdletName] <String>] [-BaseModuleName <String[]>] [[-PromptKey] <String>] [[-Prompt] <String>] [-NoLocal] [-OnlyPublished]   
-   [-FromScripts] [-Code] [-VisualStudio] [-EditPrompt] [-Integrate] [<CommonParameters>]  
+   Assert-GenXdevCmdlet [[-CmdletName] <String>] [-BaseModuleName <String[]>] [[-PromptKey]   
+   <String>] [[-Prompt] <String>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code]   
+   [-VisualStudio] [-EditPrompt] [-Integrate] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -1219,7 +1227,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Assert-GenXdevCmdletTests [-CmdletName] <String> [[-Prompt] <String>] [-EditPrompt] [-AssertFailedTest] [<CommonParameters>]  
+   Assert-GenXdevCmdletTests [-CmdletName] <String> [[-Prompt] <String>] [-EditPrompt]   
+   [-AssertFailedTest] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -1283,7 +1292,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Assert-ModuleDefinition [-ModuleName] <String> [-Prompt <String>] [-EditPrompt] [<CommonParameters>]  
+   Assert-ModuleDefinition [-ModuleName] <String> [-Prompt <String>] [-EditPrompt]   
+   [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -1337,8 +1347,9 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Assert-NextGenXdevCmdlet [[-ModuleName] <String>] [[-Key] <String>] [[-PromptKey] <String>] [[-Prompt] <String>] [-EditPrompt] [-FromScripts] [-Integrate]   
-   [-OnlyNonExisting] [<CommonParameters>]  
+   Assert-NextGenXdevCmdlet [[-ModuleName] <String>] [[-Key] <String>] [[-PromptKey] <String>]   
+   [[-Prompt] <String>] [-EditPrompt] [-FromScripts] [-Integrate] [-OnlyNonExisting]   
+   [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -1420,10 +1431,10 @@ Update-Module
 <br/><hr/><hr/><br/>
  
 
-##	Assert-NextGenXdevCmdletTests 
+##	Assert-NextGenXdevCmdletTest 
 ````PowerShell 
 
-   Assert-NextGenXdevCmdletTests        --> nextcmdlettests  
+   Assert-NextGenXdevCmdletTest        --> nextcmdlettest  
 ```` 
 
 ### SYNOPSIS 
@@ -1432,8 +1443,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Assert-NextGenXdevCmdletTests [[-ModuleName] <String>] [[-Reset]] [[-RedoLast]] [[-Key] <String>] [[-Prompt] <String>] [-EditPrompt] [-OnlyNonExisting]   
-   [<CommonParameters>]  
+   Assert-NextGenXdevCmdletTest [[-ModuleName] <String>] [[-Reset]] [[-RedoLast]] [[-Key]   
+   <String>] [[-Prompt] <String>] [-EditPrompt] [-OnlyNonExisting] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -1522,7 +1533,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Assert-RefactorFile [-RefactorDefinition] <RefactorDefinition> [-Path] <String> [-EditPrompt] [<CommonParameters>]  
+   Assert-RefactorFile [-RefactorDefinition] <RefactorDefinition> [-Path] <String>   
+   [-EditPrompt] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -1675,10 +1687,10 @@ Update-Module
 <br/><hr/><hr/><br/>
  
 
-##	Get-GenXDevModules 
+##	Get-GenXDevModule 
 ````PowerShell 
 
-   Get-GenXDevModules  
+   Get-GenXDevModule  
 ```` 
 
 ### SYNOPSIS 
@@ -1687,7 +1699,7 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Get-GenXDevModules [[-Path] <String>] [<CommonParameters>]  
+   Get-GenXDevModule [[-Path] <String>] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -1715,10 +1727,10 @@ Update-Module
 <br/><hr/><hr/><br/>
  
 
-##	Get-GenXDevNewModulesByDependencies 
+##	Get-GenXDevNewModulesInOrderOfDependency 
 ````PowerShell 
 
-   Get-GenXDevNewModulesByDependencies  
+   Get-GenXDevNewModulesInOrderOfDependency  
 ```` 
 
 ### SYNOPSIS 
@@ -1727,7 +1739,7 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Get-GenXDevNewModulesByDependencies [[-ModuleName] <String[]>] [<CommonParameters>]  
+   Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName] <String[]>] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -1765,8 +1777,9 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Get-GenXDevNextCmdLet [[-CmdletName] <String>] [[-BaseModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Reset] [-RedoLast] [-Key   
-   <String>] [-OnlyNonExisting] [<CommonParameters>]  
+   Get-GenXDevNextCmdLet [[-CmdletName] <String>] [[-BaseModuleName] <String[]>] [-NoLocal]   
+   [-OnlyPublished] [-FromScripts] [-Reset] [-RedoLast] [-Key <String>] [-OnlyNonExisting]   
+   [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -1865,7 +1878,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Get-ModuleHelpMarkdown [[-ModuleName] <String[]>] [[-CommandNames] <String[]>] [<CommonParameters>]  
+   Get-ModuleHelpMarkdown [[-ModuleName] <String[]>] [[-CommandNames] <String[]>]   
+   [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -2000,8 +2014,10 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Invoke-GenXdevScriptAnalyzer [-Path] <string> [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<CommonParameters>]  
-   Invoke-GenXdevScriptAnalyzer -ScriptDefinition <string> [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<CommonParameters>]  
+   Invoke-GenXdevScriptAnalyzer [-Path] <string> [-EnableExit] [-Fix] [-Recurse]   
+   [-ReportSummary] [<CommonParameters>]  
+   Invoke-GenXdevScriptAnalyzer -ScriptDefinition <string> [-EnableExit] [-Fix] [-Recurse]   
+   [-ReportSummary] [<CommonParameters>]  
 ```` 
 
 ### PARAMETERS 
@@ -2080,8 +2096,10 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   New-GenXdevCmdlet [-CmdletName] <String> [[-PromptKey] <String>] [-Prompt <String>] [-EditPrompt] [-Integrate] [<CommonParameters>]  
-   New-GenXdevCmdlet [-CmdletName] <String> [-Prompt <String>] [-EditPrompt] [-Integrate] [<CommonParameters>]  
+   New-GenXdevCmdlet [-CmdletName] <String> [[-PromptKey] <String>] [-Prompt <String>]   
+   [-EditPrompt] [-Integrate] [<CommonParameters>]  
+   New-GenXdevCmdlet [-CmdletName] <String> [-Prompt <String>] [-EditPrompt] [-Integrate]   
+   [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -2114,7 +2132,8 @@ Update-Module
         a basic boilerplate request.  
         Required?                    false  
         Position?                    named  
-        Default value                Create a boilerplate GenXdev cmdlet that does what it's name suggests  
+        Default value                Create a boilerplate GenXdev cmdlet that does what it's   
+        name suggests  
         Accept pipeline input?       false  
         Aliases                        
         Accept wildcard characters?  false  
@@ -2155,10 +2174,13 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>] [[-SelectionScript] <String>] [-AutoAddModifiedFiles] [[-SelectionPrompt]   
-   <String>] [[-Model] <String>] [[-ModelLMSGetIdentifier] <String>] [[-Temperature] <Double>] [[-MaxToken] <Int32>] [[-TTLSeconds] <Int32>] [[-Gpu] <Int32>]   
-   [-Force] [-ApiEndpoint <String>] [-ApiKey <String>] [[-Priority] <Int32>] [[-ExposedCmdLets] <ExposedCmdletDefinition[]>] [-Code] [-VisualStudio]   
-   [-KeysToSend <String[]>] [-FilesToAdd <FileInfo[]>] [-WhatIf] [-Confirm] [<CommonParameters>]  
+   New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>]   
+   [[-SelectionScript] <String>] [-AutoAddModifiedFiles] [[-SelectionPrompt] <String>]   
+   [[-Model] <String>] [[-ModelLMSGetIdentifier] <String>] [[-Temperature] <Double>]   
+   [[-MaxToken] <Int32>] [[-TTLSeconds] <Int32>] [[-Gpu] <Int32>] [-Force] [-ApiEndpoint   
+   <String>] [-ApiKey <String>] [[-Priority] <Int32>] [[-ExposedCmdLets]   
+   <ExposedCmdletDefinition[]>] [-Code] [-VisualStudio] [-KeysToSend <String[]>] [-FilesToAdd   
+   <FileInfo[]>] [-WhatIf] [-Confirm] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -2374,7 +2396,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Remove-Refactor [-Name] <String[]> [[-RemoveDefault]] [-WhatIf] [-Confirm] [<CommonParameters>]  
+   Remove-Refactor [-Name] <String[]> [[-RemoveDefault]] [-WhatIf] [-Confirm]   
+   [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -2435,8 +2458,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Search-GenXdevCmdlet [[-CmdletName] <string>] [[-BaseModuleName] <string[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio]   
-   [<CommonParameters>]  
+   Search-GenXdevCmdlet [[-CmdletName] <string>] [[-BaseModuleName] <string[]>] [-NoLocal]   
+   [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [<CommonParameters>]  
 ```` 
 
 ### PARAMETERS 
@@ -2518,8 +2541,10 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Search-NextGenXdevCmdlet [[-ModuleName] <string>] [[-Key] <string>] [-OnlyNonExisting] [<CommonParameters>]  
-   Search-NextGenXdevCmdlet [[-Key] <string>] [-FromScripts] [-OnlyNonExisting] [<CommonParameters>]  
+   Search-NextGenXdevCmdlet [[-ModuleName] <string>] [[-Key] <string>] [-OnlyNonExisting]   
+   [<CommonParameters>]  
+   Search-NextGenXdevCmdlet [[-Key] <string>] [-FromScripts] [-OnlyNonExisting]   
+   [<CommonParameters>]  
 ```` 
 
 ### PARAMETERS 
@@ -2628,8 +2653,9 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Show-GenXdevCmdLetInIde [[-CmdletName] <String>] [[-BaseModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio]   
-   [-UnitTests] [-KeysToSend <String[]>] [<CommonParameters>]  
+   Show-GenXdevCmdLetInIde [[-CmdletName] <String>] [[-BaseModuleName] <String[]>] [-NoLocal]   
+   [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-UnitTests] [-KeysToSend   
+   <String[]>] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -2763,8 +2789,9 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [[-CleanUpDeletedFiles]] [-Reset]   
-   [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-EditPrompt] [-Speak] [<CommonParameters>]  
+   Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove]   
+   <FileInfo[]>] [[-CleanUpDeletedFiles]] [-Reset] [-ResetLMSelections] [-MarkAllCompleted]   
+   [-RedoLast] [-EditPrompt] [-Speak] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -2872,7 +2899,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Test-RefactorLLMSelection [-RefactorDefinition] <RefactorDefinition> [-Path] <String> [<CommonParameters>]  
+   Test-RefactorLLMSelection [-RefactorDefinition] <RefactorDefinition> [-Path] <String>   
+   [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -2920,19 +2948,27 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Update-Refactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection]   
-   [-PerformLLMSelections] [-PerformAllLLMSelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted]   
-   [-SelectByModifiedDateFrom <DateTime>] [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>] [-SelectByCreationDateTo <DateTime>]   
-   [-RedoLast] [-PromptKey <String>] [-Prompt <String>] [-SelectionScript <String>] [-AutoAddModifiedFiles] [-SelectionPrompt <String>] [-Model <String>]   
-   [-ModelLMSGetIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>] [-TTLSeconds <Int32>] [-Gpu <Int32>] [-Force] [-ApiEndpoint <String>]   
-   [-ApiKey <String>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-Code] [-VisualStudio] [-KeysToSend <String[]>] [-Speak] [-WhatIf]   
-   [-Confirm] [<CommonParameters>]  
-   Update-Refactor [[-Refactor] <RefactorDefinition[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-CleanUpDeletedFiles]   
-   [-AskBeforeLLMSelection] [-PerformLLMSelections] [-PerformAllLLMSelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections]   
-   [-MarkAllCompleted] [-SelectByModifiedDateFrom <DateTime>] [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>]   
-   [-SelectByCreationDateTo <DateTime>] [-RedoLast] [-PromptKey <String>] [-Prompt <String>] [-SelectionScript <String>] [-AutoAddModifiedFiles]   
-   [-SelectionPrompt <String>] [-Model <String>] [-ModelLMSGetIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>] [-TTLSeconds <Int32>] [-Gpu   
-   <Int32>] [-Force] [-ApiEndpoint <String>] [-ApiKey <String>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-Code] [-VisualStudio]   
+   Update-Refactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove]   
+   <FileInfo[]>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection] [-PerformLLMSelections]   
+   [-PerformAllLLMSelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset]   
+   [-ResetLMSelections] [-MarkAllCompleted] [-SelectByModifiedDateFrom <DateTime>]   
+   [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>]   
+   [-SelectByCreationDateTo <DateTime>] [-RedoLast] [-PromptKey <String>] [-Prompt <String>]   
+   [-SelectionScript <String>] [-AutoAddModifiedFiles] [-SelectionPrompt <String>] [-Model   
+   <String>] [-ModelLMSGetIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>]   
+   [-TTLSeconds <Int32>] [-Gpu <Int32>] [-Force] [-ApiEndpoint <String>] [-ApiKey <String>]   
+   [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-Code] [-VisualStudio]   
+   [-KeysToSend <String[]>] [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>]  
+   Update-Refactor [[-Refactor] <RefactorDefinition[]>] [[-FilesToAdd] <FileInfo[]>]   
+   [[-FilesToRemove] <FileInfo[]>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection]   
+   [-PerformLLMSelections] [-PerformAllLLMSelections] [-RetryFailedLLMSelections] [-Clear]   
+   [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-SelectByModifiedDateFrom   
+   <DateTime>] [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>]   
+   [-SelectByCreationDateTo <DateTime>] [-RedoLast] [-PromptKey <String>] [-Prompt <String>]   
+   [-SelectionScript <String>] [-AutoAddModifiedFiles] [-SelectionPrompt <String>] [-Model   
+   <String>] [-ModelLMSGetIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>]   
+   [-TTLSeconds <Int32>] [-Gpu <Int32>] [-Force] [-ApiEndpoint <String>] [-ApiKey <String>]   
+   [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-Code] [-VisualStudio]   
    [-KeysToSend <String[]>] [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>]  
 ```` 
 

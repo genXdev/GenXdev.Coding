@@ -39,7 +39,7 @@ function Get-GenXDevModuleInfo {
     begin {
         # get all available genxdev modules
         Write-Verbose "Retrieving all available GenXdev modules"
-        [System.IO.FileSystemInfo[]] $AllModules = @(Get-GenXDevModules)
+        [System.IO.FileSystemInfo[]] $AllModules = @(Get-GenXDevModule)
     }
 
     process {

@@ -14,12 +14,12 @@ The root directory to search for GenXdev modules. If not specified, defaults to
 the parent directory of the script's location.
 
 .EXAMPLE
-Get-GenXDevModules -Path "C:\PowerShell\Modules"
+Get-GenXDevModule -Path "C:\PowerShell\Modules"
 
 .EXAMPLE
-Get-GenXDevModules "C:\PowerShell\Modules"
+Get-GenXDevModule "C:\PowerShell\Modules"
 #>
-function Get-GenXDevModules {
+function Get-GenXDevModule {
 
     [CmdletBinding()]
 

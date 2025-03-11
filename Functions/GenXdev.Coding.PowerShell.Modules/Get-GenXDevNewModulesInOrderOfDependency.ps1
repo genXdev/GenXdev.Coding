@@ -12,12 +12,12 @@ Specifies one or more module names to filter the results. If not provided, all
 modules are returned in their dependency order.
 
 .EXAMPLE
-Get-GenXDevNewModulesByDependencies -ModuleName "GenXdev.Helpers"
+Get-GenXDevNewModulesInOrderOfDependency -ModuleName "GenXdev.Helpers"
 
 .EXAMPLE
-Get-GenXDevNewModulesByDependencies GenXdev.Console, GenXdev.Windows
+Get-GenXDevNewModulesInOrderOfDependency GenXdev.Console, GenXdev.Windows
 #>
-function Get-GenXDevNewModulesByDependencies {
+function Get-GenXDevNewModulesInOrderOfDependency {
 
     [CmdletBinding()]
 

@@ -1,33 +1,9 @@
 ################################################################################
-<#
-.SYNOPSIS
-Assists in refactoring PowerShell source code files using AI assistance.
+# helper variable to remember user's IDE choice between function calls
+[System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '_CodeOrVisualStudioRefactor')]
+param()
+$Script:_CodeOrVisualStudioRefactor = $null
 
-.DESCRIPTION
-This function automates the process of refactoring PowerShell code using AI.
-It manages prompt templates, detects the active IDE (VS Code or Visual Studio),
-and orchestrates the refactoring workflow through keyboard automation.
-
-.PARAMETER RefactorDefinition
-A configuration object that contains settings for the refactoring process,
-including prompt templates, IDE preferences, and keyboard commands.
-
-.PARAMETER Path
-The full file system path to the PowerShell source code file that needs to be
-refactored. Can be a relative or absolute path.
-
-.PARAMETER EditPrompt
-When enabled, only opens the prompt template for editing without executing the
-actual refactoring process.
-
-.EXAMPLE
-# Refactor a script with full parameter names
-Assert-RefactorFile -RefactorDefinition $def -Path "./MyScript.ps1"
-
-.EXAMPLE
-# Only edit the prompt template using positional parameters
-Assert-RefactorFile $def "./MyScript.ps1" -EditPrompt
-#>
 function Assert-RefactorFile {
 
     [CmdletBinding()]
@@ -115,15 +91,15 @@ function Assert-RefactorFile {
         if (-not ($isCode -bxor $isVisualStudio)) {
 
             Write-Verbose "Prompting user to select IDE"
-            $userAnswer = $null -ne $Global:_CodeOrVisualStudioRefactor ?
-            $Global:_CodeOrVisualStudioRefactor :
+            $userAnswer = $null -ne $Script:_CodeOrVisualStudioRefactor ?
+            $Script:_CodeOrVisualStudioRefactor :
             ($host.ui.PromptForChoice(
                 "Make a choice",
                 "What IDE to use for refactoring?",
                 @("Visual Studio &Code", "&Visual Studio"),
                 0))
 
-            $Global:_CodeOrVisualStudioRefactor = $userAnswer
+            $Script:_CodeOrVisualStudioRefactor = $userAnswer
 
             # set IDE flags based on user selection
             switch ($userAnswer) {
@@ -198,8 +174,8 @@ function Assert-RefactorFile {
         else {
 
             $baseModuleName = "$($Path.Substring($modulesPath.Length + 1).Split("\")[0])"
-            $functionsPath = GenXdev.FileSystem\Expand-Path "$modulesPath\$baseModuleName\1.124.2025\Functions\" -CreateDirectory
-            $testsPath = GenXdev.FileSystem\Expand-Path "$modulesPath\$baseModuleName\1.124.2025\Tests\" -CreateDirectory
+            $functionsPath = GenXdev.FileSystem\Expand-Path "$modulesPath\$baseModuleName\1.126.2025\Functions\" -CreateDirectory
+            $testsPath = GenXdev.FileSystem\Expand-Path "$modulesPath\$baseModuleName\1.126.2025\Tests\" -CreateDirectory
 
             if ($Path.ToLowerInvariant().StartsWith($functionsPath.ToLowerInvariant())) {
 
