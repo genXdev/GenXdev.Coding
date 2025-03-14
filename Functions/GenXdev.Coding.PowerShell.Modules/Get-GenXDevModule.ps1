@@ -69,7 +69,7 @@ function Get-GenXDevModule {
 
                 # verify existence of module manifest
                 if (Test-Path -Path "$($_.FullName)\$moduleName.psd1") {
-                    
+
                     Write-Verbose "Found valid module: $moduleName in $($_.FullName)"
                     $_
                 }

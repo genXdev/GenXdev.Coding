@@ -62,47 +62,47 @@ function Remove-Refactor {
 
         # retrieve all preference names matching the refactor_set pattern
         Get-GenXdevPreferenceNames |
-            Where-Object { $_ -like "refactor_set_*" } |
-            ForEach-Object {
+        Where-Object { $_ -like "refactor_set_*" } |
+        ForEach-Object {
 
-                # store current preference name for processing
-                $preferenceName = $_
-                Write-Verbose "Processing preference: $preferenceName"
+            # store current preference name for processing
+            $preferenceName = $_
+            Write-Verbose "Processing preference: $preferenceName"
 
-                # extract refactor name by removing the standard prefix
-                $refactorName = $preferenceName.Substring("refactor_set_".Length)
+            # extract refactor name by removing the standard prefix
+            $refactorName = $preferenceName.Substring("refactor_set_".Length)
 
-                # process each provided name pattern against current refactor
-                $Name | ForEach-Object {
+            # process each provided name pattern against current refactor
+            $Name | ForEach-Object {
 
-                    # skip if pattern doesn't match current refactor name
-                    if (-not ($refactorName -like $_)) {
-                        return
-                    }
+                # skip if pattern doesn't match current refactor name
+                if (-not ($refactorName -like $_)) {
+                    return
+                }
 
-                    # retrieve current preference value
-                    $preferenceValue = Get-GenXdevPreference `
-                        -Name $preferenceName
+                # retrieve current preference value
+                $preferenceValue = Get-GenXdevPreference `
+                    -Name $preferenceName
 
-                    # only process if preference exists and has a value
-                    if (-not [string]::IsNullOrWhiteSpace($preferenceValue)) {
+                # only process if preference exists and has a value
+                if (-not [string]::IsNullOrWhiteSpace($preferenceValue)) {
 
-                        # confirm removal with user before proceeding
-                        if ($PSCmdlet.ShouldProcess(
-                                "Refactor set: $refactorName",
-                                "Remove")) {
+                    # confirm removal with user before proceeding
+                    if ($PSCmdlet.ShouldProcess(
+                            "Refactor set: $refactorName",
+                            "Remove")) {
 
-                            Write-Verbose ("Removing refactor set: " +
-                                "$refactorName")
+                        Write-Verbose ("Removing refactor set: " +
+                            "$refactorName")
 
-                            # remove preference from system
-                            $null = Remove-GenXdevPreference `
-                                -Name $preferenceName `
-                                -RemoveDefault:$RemoveDefault
-                        }
+                        # remove preference from system
+                        $null = Remove-GenXdevPreference `
+                            -Name $preferenceName `
+                            -RemoveDefault:$RemoveDefault
                     }
                 }
             }
+        }
     }
 
     end {

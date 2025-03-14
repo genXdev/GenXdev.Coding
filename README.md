@@ -93,11 +93,11 @@ Update-Module
 | [Assert-ModuleDefinition](#Assert-ModuleDefinition) |  | Assists in refactoring PowerShell source code files using AI assistance. |
 | [Assert-NextGenXdevCmdlet](#Assert-NextGenXdevCmdlet) | nextcmdlet | Asserts and improves the next GenXdev cmdlet in sequence. |
 | [Assert-NextGenXdevCmdletTest](#Assert-NextGenXdevCmdletTest) | nextcmdlettest | Automates testing improvements for GenXdev cmdlets by managing test creation. |
-| [Assert-RefactorFile](#Assert-RefactorFile) |  | Assists in refactoring PowerShell source code files using AI assistance. |
+| [Assert-RefactorFile](#Assert-RefactorFile) |  |  |
 | [AssureCopilotKeyboardShortCut](#AssureCopilotKeyboardShortCut) |  | Configures the GitHub Copilot keyboard shortcut in Visual Studio Code. |
 | [Complete-GenXDevREADME](#Complete-GenXDevREADME) |  | Completes the README file for specified GenXDev modules by adding documentation. |
-| [Get-GenXDevModuleInfo](#Get-GenXDevModuleInfo) |  | Retrieves detailed information about GenXdev PowerShell modules. |
 | [Get-GenXDevModule](#Get-GenXDevModule) |  | Retrieves all GenXDev modules from a specified path. |
+| [Get-GenXDevModuleInfo](#Get-GenXDevModuleInfo) |  | Retrieves detailed information about GenXdev PowerShell modules. |
 | [Get-GenXDevNewModulesInOrderOfDependency](#Get-GenXDevNewModulesInOrderOfDependency) |  | Retrieves GenXDev modules in dependency order. |
 | [Get-GenXDevNextCmdLet](#Get-GenXDevNextCmdLet) |  | Retrieves the next GenXdev cmdlet to be improved. |
 | [Get-ModuleHelpMarkdown](#Get-ModuleHelpMarkdown) | get-genxdevmodulehelp | Generates markdown help documentation for specified GenXDev modules. |
@@ -109,7 +109,6 @@ Update-Module
 | [Remove-Refactor](#Remove-Refactor) |  | Removes refactor sets from GenXdev preferences system. |
 | [Search-GenXdevCmdlet](#Search-GenXdevCmdlet) | searchcmdlet |  |
 | [Search-NextGenXdevCmdlet](#Search-NextGenXdevCmdlet) | nextcmdlet |  |
-| [Set-GenXDevNextCmdLet](#Set-GenXDevNextCmdLet) |  | Sets the current cmdlet position for module development navigation. |
 | [Show-GenXdevCmdLetInIde](#Show-GenXdevCmdLetInIde) | editcmdlet | Opens the specified GenXdev cmdlet in Visual Studio Code. |
 | [Show-RefactorReport](#Show-RefactorReport) | refactors | Displays a formatted report of refactoring information for specified modules. |
 | [Start-NextRefactor](#Start-NextRefactor) | nextrefactor | Continues or restarts a code refactoring session. |
@@ -1311,6 +1310,7 @@ Update-Module
         Aliases                        
         Accept wildcard characters?  false  
     -Prompt <String>  
+        Custom AI prompt text to use. Optional.  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -1347,9 +1347,9 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Assert-NextGenXdevCmdlet [[-ModuleName] <String>] [[-Key] <String>] [[-PromptKey] <String>]   
-   [[-Prompt] <String>] [-EditPrompt] [-FromScripts] [-Integrate] [-OnlyNonExisting]   
-   [<CommonParameters>]  
+   Assert-NextGenXdevCmdlet [[-ModuleName] <String>] [[-Key] <String>] [[-PromptKey]   
+   <String>] [[-Prompt] <String>] [-EditPrompt] [-FromScripts] [-Integrate]   
+   [-OnlyNonExisting] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -1434,7 +1434,7 @@ Update-Module
 ##	Assert-NextGenXdevCmdletTest 
 ````PowerShell 
 
-   Assert-NextGenXdevCmdletTest        --> nextcmdlettest  
+   Assert-NextGenXdevCmdletTest         --> nextcmdlettest  
 ```` 
 
 ### SYNOPSIS 
@@ -1527,48 +1527,40 @@ Update-Module
    Assert-RefactorFile  
 ```` 
 
-### SYNOPSIS 
-    Assists in refactoring PowerShell source code files using AI assistance.  
-
 ### SYNTAX 
 ````PowerShell 
 
-   Assert-RefactorFile [-RefactorDefinition] <RefactorDefinition> [-Path] <String>   
+   Assert-RefactorFile [-RefactorDefinition] <RefactorDefinition> [-Path] <string>   
    [-EditPrompt] [<CommonParameters>]  
 ```` 
 
-### DESCRIPTION 
-    This function automates the process of refactoring PowerShell code using AI.  
-    It manages prompt templates, detects the active IDE (VS Code or Visual Studio),  
-    and orchestrates the refactoring workflow through keyboard automation.  
-
 ### PARAMETERS 
-    -RefactorDefinition <RefactorDefinition>  
-        A configuration object that contains settings for the refactoring process,  
-        including prompt templates, IDE preferences, and keyboard commands.  
+    -EditPrompt  
+        Switch to only edit the AI prompt  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Path <string>  
+        The path to the sourcefile to improve  
         Required?                    true  
         Position?                    1  
-        Default value                  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      FullName  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Path <String>  
-        The full file system path to the PowerShell source code file that needs to be  
-        refactored. Can be a relative or absolute path.  
+    -RefactorDefinition <RefactorDefinition>  
+        The refactor definition  
         Required?                    true  
-        Position?                    2  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -EditPrompt [<SwitchParameter>]  
-        When enabled, only opens the prompt template for editing without executing the  
-        actual refactoring process.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -1648,45 +1640,6 @@ Update-Module
 <br/><hr/><hr/><br/>
  
 
-##	Get-GenXDevModuleInfo 
-````PowerShell 
-
-   Get-GenXDevModuleInfo  
-```` 
-
-### SYNOPSIS 
-    Retrieves detailed information about GenXdev PowerShell modules.  
-
-### SYNTAX 
-````PowerShell 
-
-   Get-GenXDevModuleInfo [[-ModuleName] <String[]>] [<CommonParameters>]  
-```` 
-
-### DESCRIPTION 
-    This function examines GenXdev PowerShell modules and returns information about  
-    their configuration, versions, and presence of key files. It can process either  
-    specified modules or all available modules.  
-
-### PARAMETERS 
-    -ModuleName <String[]>  
-        Array of module names to analyze. If empty, processes all available modules.  
-        GenXdev.Local module is explicitly blocked from processing.  
-        Required?                    false  
-        Position?                    1  
-        Default value                @()  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><hr/><br/>
- 
-
 ##	Get-GenXDevModule 
 ````PowerShell 
 
@@ -1716,6 +1669,45 @@ Update-Module
         Position?                    1  
         Default value                  
         Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+
+<br/><hr/><hr/><br/>
+ 
+
+##	Get-GenXDevModuleInfo 
+````PowerShell 
+
+   Get-GenXDevModuleInfo  
+```` 
+
+### SYNOPSIS 
+    Retrieves detailed information about GenXdev PowerShell modules.  
+
+### SYNTAX 
+````PowerShell 
+
+   Get-GenXDevModuleInfo [[-ModuleName] <String[]>] [<CommonParameters>]  
+```` 
+
+### DESCRIPTION 
+    This function examines GenXdev PowerShell modules and returns information about  
+    their configuration, versions, and presence of key files. It can process either  
+    specified modules or all available modules.  
+
+### PARAMETERS 
+    -ModuleName <String[]>  
+        Array of module names to analyze. If empty, processes all available modules.  
+        GenXdev.Local module is explicitly blocked from processing.  
+        Required?                    false  
+        Position?                    1  
+        Default value                @()  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
         Aliases                        
         Accept wildcard characters?  false  
     <CommonParameters>  
@@ -2097,9 +2089,9 @@ Update-Module
 ````PowerShell 
 
    New-GenXdevCmdlet [-CmdletName] <String> [[-PromptKey] <String>] [-Prompt <String>]   
-   [-EditPrompt] [-Integrate] [<CommonParameters>]  
+   [-EditPrompt] [-Integrate] [-WhatIf] [-Confirm] [<CommonParameters>]  
    New-GenXdevCmdlet [-CmdletName] <String> [-Prompt <String>] [-EditPrompt] [-Integrate]   
-   [<CommonParameters>]  
+   [-WhatIf] [-Confirm] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -2150,6 +2142,20 @@ Update-Module
         Required?                    false  
         Position?                    named  
         Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -WhatIf [<SwitchParameter>]  
+        Required?                    false  
+        Position?                    named  
+        Default value                  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -Confirm [<SwitchParameter>]  
+        Required?                    false  
+        Position?                    named  
+        Default value                  
         Accept pipeline input?       false  
         Aliases                        
         Accept wildcard characters?  false  
@@ -2593,54 +2599,6 @@ Update-Module
 <br/><hr/><hr/><br/>
  
 
-##	Set-GenXDevNextCmdLet 
-````PowerShell 
-
-   Set-GenXDevNextCmdLet  
-```` 
-
-### SYNOPSIS 
-    Sets the current cmdlet position for module development navigation.  
-
-### SYNTAX 
-````PowerShell 
-
-   Set-GenXDevNextCmdLet [-CmdletName] <String> [[-Key] <String>] [<CommonParameters>]  
-```` 
-
-### DESCRIPTION 
-    This function stores the index position of a specified cmdlet in a module to  
-    enable efficient navigation between cmdlets during module development. It uses  
-    caching to improve performance and maintains state between sessions.  
-
-### PARAMETERS 
-    -CmdletName <String>  
-        The name of the cmdlet to set as the current position. This cmdlet will be the  
-        next one in the navigation sequence.  
-        Required?                    true  
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Key <String>  
-        Optional key to use for storing the cmdlet index position. If not specified,  
-        defaults to using just the module name as the storage key.  
-        Required?                    false  
-        Position?                    2  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><hr/><br/>
- 
-
 ##	Show-GenXdevCmdLetInIde 
 ````PowerShell 
 
@@ -2791,7 +2749,7 @@ Update-Module
 
    Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove]   
    <FileInfo[]>] [[-CleanUpDeletedFiles]] [-Reset] [-ResetLMSelections] [-MarkAllCompleted]   
-   [-RedoLast] [-EditPrompt] [-Speak] [<CommonParameters>]  
+   [-RedoLast] [-EditPrompt] [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -2875,6 +2833,20 @@ Update-Module
         Required?                    false  
         Position?                    named  
         Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -WhatIf [<SwitchParameter>]  
+        Required?                    false  
+        Position?                    named  
+        Default value                  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -Confirm [<SwitchParameter>]  
+        Required?                    false  
+        Position?                    named  
+        Default value                  
         Accept pipeline input?       false  
         Aliases                        
         Accept wildcard characters?  false  
