@@ -4,7 +4,7 @@
     PowerShellVersion     = '5.1'
 
     # Version number of this module.
-    ModuleVersion         = '1.128.2025'
+    ModuleVersion         = '1.130.2025'
 
     # Supported PSEditions
     CompatiblePSEditions  = 'Core'
