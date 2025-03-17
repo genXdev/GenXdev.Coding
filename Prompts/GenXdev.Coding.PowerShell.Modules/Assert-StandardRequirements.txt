@@ -62,7 +62,7 @@ Ensure compliance with these 21 requirements:
     lowercase, enforce this.
 20) For readibility enforce that all code have new lines after '|' pipeline
     symbols, and after parameters using back-ticks ` wraps.
-    Never use back-ticks to wrap items that are seperated by dots .
+    Never use back-ticks to wrap items that are seperated by dots or when concating strings with + symbols. .
     this would break the code.
 21) Enforce that each line is wrapped so that they dont exceed 80 characters,
     just like this prompt text.

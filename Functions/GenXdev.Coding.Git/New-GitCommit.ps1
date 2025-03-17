@@ -1,20 +1,22 @@
-###############################################################################
+################################################################################
 <#
 .SYNOPSIS
 Creates and pushes a new git commit with all changes.
 
 .DESCRIPTION
-Adds all changes, creates a commit with the specified title, and pushes to the
-current branch's remote origin.
+Stages all changes in the current git repository, creates a commit with the
+specified title, and pushes the changes to the remote origin. Automatically sets
+up upstream tracking if needed.
 
 .PARAMETER Title
-The commit message title to use. Defaults to "Improved scripts".
+The message to use for the git commit. If not specified, defaults to
+"Improved scripts".
 
 .EXAMPLE
-New-GitCommit -Title "Added new feature"
+New-GitCommit -Title "Added new authentication feature"
 
 .EXAMPLE
-commit "Fixed bug"
+commit "Hotfix for login issue"
 #>
 function New-GitCommit {
 
@@ -22,28 +24,28 @@ function New-GitCommit {
     [Alias("commit")]
 
     param(
-        #######################################################################
+        ########################################################################
         [parameter(
             Position = 0,
             Mandatory = $false,
             ValueFromRemainingArguments = $false,
-            HelpMessage = "The commit message title"
+            HelpMessage = "The commit message title to use"
         )]
         [string] $Title = "Improved scripts"
-        #######################################################################
+        ########################################################################
     )
 
     begin {
 
-        # get the current branch name from git
+        # extract the current branch name from git's symbolic reference
         $branch = (git symbolic-ref refs/remotes/origin/HEAD).split("/")[3]
-        Write-Verbose "Current branch: $branch"
+        Write-Verbose "Operating on git branch: $branch"
     }
 
     process {
 
-        # stage all changes
-        Write-Verbose "Staging all changes..."
+        # add all changed files to git staging area
+        Write-Verbose "Staging all modified files..."
         if ($PSCmdlet.ShouldProcess("all changes", "git add")) {
             $null = git add *
             if ($LASTEXITCODE -ne 0) {
@@ -52,8 +54,8 @@ function New-GitCommit {
             }
         }
 
-        # create the commit
-        Write-Verbose "Creating commit with title: $Title"
+        # create a new commit with the specified title
+        Write-Verbose ("Creating commit with message: $Title")
         if ($PSCmdlet.ShouldProcess("commit with title: $Title", "git commit")) {
             $null = git commit -m $Title
             if ($LASTEXITCODE -ne 0) {
@@ -62,9 +64,12 @@ function New-GitCommit {
             }
         }
 
-        # set upstream branch
-        Write-Verbose "Setting upstream branch to origin/$branch"
-        if ($PSCmdlet.ShouldProcess("upstream branch to origin/$branch", "git push -u")) {
+        # ensure branch is tracking upstream remote
+        Write-Verbose "Configuring upstream tracking to origin/$branch"
+        if ($PSCmdlet.ShouldProcess(
+                "upstream branch to origin/$branch",
+                "git push -u")) {
+
             $null = git push -u origin $branch
             if ($LASTEXITCODE -ne 0) {
                 Write-Error "Failed to set upstream branch"
@@ -72,8 +77,8 @@ function New-GitCommit {
             }
         }
 
-        # push changes
-        Write-Verbose "Pushing changes to remote"
+        # push committed changes to remote repository
+        Write-Verbose "Pushing changes to remote repository..."
         if ($PSCmdlet.ShouldProcess("changes to remote", "git push")) {
             $null = git push
             if ($LASTEXITCODE -ne 0) {
@@ -86,3 +91,4 @@ function New-GitCommit {
     end {
     }
 }
+################################################################################

@@ -1,10 +1,10 @@
 ################################################################################
-Describe "PermanentlyDeleteGitFolders" {
+Describe "Add-MissingGenXdevUnitTests" {
 
     It "should pass PSScriptAnalyzer rules" {
 
         # get the script path for analysis
-        $scriptPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Functions\GenXdev.Coding.Git\PermanentlyDeleteGitFolders.ps1"
+        $scriptPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Functions\GenXdev.Coding.PowerShell.Modules\Add-MissingGenXdevUnitTests.ps1"
 
         # run analyzer with explicit settings
         $analyzerResults = GenXdev.Coding\Invoke-GenXdevScriptAnalyzer `

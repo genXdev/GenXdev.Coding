@@ -7,20 +7,24 @@ Generates a detailed report of refactoring operations and their status.
 Analyzes and reports on the progress of refactoring operations by examining
 their current state, completion status, and affected functions. Provides output
 in either structured hashtable format or human-readable aligned text columns.
+The report includes refactor name, prompt key, priority, status, function count
+and completion percentage.
 
 .PARAMETER Name
-Specifies the name pattern to filter refactors. Supports wildcards.
-Default value is "*" to display all refactors.
+The name pattern to filter refactors. Supports wildcards. Multiple names can be
+specified. Default value is "*" to display all refactors.
 
 .PARAMETER AsText
-When specified, outputs the report in a human-readable text format with aligned
-columns instead of structured hashtable objects.
+Outputs the report in human-readable text format with aligned columns instead of
+structured hashtable objects. The text format includes headers and separators.
 
 .EXAMPLE
 Get-RefactorReport -Name "DatabaseRefactor" -AsText
+Generates a text report for refactors matching "DatabaseRefactor"
 
 .EXAMPLE
 refactorreport "*"
+Generates hashtable report for all refactors using alias
 #>
 function Get-RefactorReport {
 
@@ -29,8 +33,8 @@ function Get-RefactorReport {
     param (
         ########################################################################
         [Parameter(
-            Mandatory = $false,
             Position = 0,
+            Mandatory = $false,
             HelpMessage = "The name of the refactor, accepts wildcards",
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true
@@ -45,6 +49,7 @@ function Get-RefactorReport {
             HelpMessage = "Output report in text format instead of Hashtable"
         )]
         [switch] $AsText
+        ########################################################################
     )
 
     begin {
@@ -68,17 +73,17 @@ function Get-RefactorReport {
 
     process {
 
-        # output header and separator line for text format
+        # output header and separator for text format
         if ($AsText -and $script:textHeader) {
             Write-Output $script:textHeader
             Write-Output ("-" * $script:textHeader.Length)
             $script:textHeader = $null
         }
 
-        # process each matching refactor and generate report entries
+        # process each matching refactor
         Get-Refactor -Name $Name |
         ForEach-Object {
-            # calculate total number of affected functions
+            # calculate total functions affected by this refactor
             $totalFunctions = $PSItem.State.Selected.Count + `
                 $PSItem.State.Refactored.Count + `
                 $PSItem.State.Unselected.Count
@@ -87,7 +92,7 @@ function Get-RefactorReport {
                     "$totalFunctions items")
 
             if ($AsText) {
-                # truncate values to fit column widths
+                # format text output with truncated columns
                 $name = $PSItem.Name.Substring(0,
                     [Math]::Min(10, $PSItem.Name.Length))
                 $promptKey = $PSItem.RefactorSettings.PromptKey.Substring(0,
@@ -98,7 +103,7 @@ function Get-RefactorReport {
                 ).Substring(0, [Math]::Min(4,
                         $PSItem.State.PercentageComplete.ToString().Length))
 
-                # format and output text row with aligned columns
+                # output formatted text row
                 Write-Output (
                     "{0} {1} {2} {3} {4} {5}%" -f `
                         $name.PadRight(10),
@@ -110,7 +115,7 @@ function Get-RefactorReport {
                 )
             }
             else {
-                # return structured data as hashtable
+                # return hashtable with refactor details
                 Write-Output @{
                     Name               = $PSItem.Name
                     PromptKey          = $PSItem.RefactorSettings.PromptKey

@@ -25,60 +25,62 @@ Optional custom prompt text to override the template specified by PromptKey.
 PowerShell script defining selection criteria for items to refactor.
 
 .PARAMETER AutoAddModifiedFiles
-Switch to automatically add modified files to the refactoring queue.
+When enabled, automatically adds any modified files to the refactoring queue.
 
 .PARAMETER SelectionPrompt
-LLM-specific prompt used to guide the selection of items for refactoring.
+Custom prompt text used by the LLM to guide selection of items for refactoring.
 
 .PARAMETER Model
-Specific LLM model to use for processing.
+Name or identifier of the specific LLM model to use for processing.
 
 .PARAMETER ModelLMSGetIdentifier
-Identifier for retrieving specific model from LM Studio.
+Identifier used to retrieve a specific model from LM Studio.
 
 .PARAMETER Temperature
-Controls response randomness (0.0-1.0). Lower values are more deterministic.
+Controls randomness in LLM responses (0.0-1.0). Lower is more deterministic.
 
 .PARAMETER MaxToken
-Maximum token limit for LLM responses. Use -1 for model default.
+Maximum tokens allowed in LLM responses. Use -1 for model default.
 
 .PARAMETER TTLSeconds
-Time-to-live in seconds for API-loaded models. Use -1 for no TTL.
+Time-to-live in seconds for API-loaded models. Use -1 for no expiration.
 
 .PARAMETER Gpu
 GPU usage control: -2=Auto, -1=LM Studio default.
 
 .PARAMETER Force
-Forces LM Studio restart before initialization.
+Forces LM Studio to restart before initialization.
 
 .PARAMETER ApiEndpoint
-Custom API endpoint URL for the LLM service.
+Custom API endpoint URL for accessing the LLM service.
 
 .PARAMETER ApiKey
-Authentication key for API access.
+Authentication key required for API access.
 
 .PARAMETER Priority
 Processing priority for this refactor set (higher numbers = higher priority).
 
 .PARAMETER ExposedCmdLets
-Array of PowerShell command definitions exposed as tools to the LLM.
+Array of PowerShell cmdlet definitions to expose as tools to the LLM.
 
 .PARAMETER Code
-Switch to open files in Visual Studio Code.
+Opens files in Visual Studio Code when enabled.
 
 .PARAMETER VisualStudio
-Switch to open files in Visual Studio.
+Opens files in Visual Studio when enabled.
 
 .PARAMETER KeysToSend
 Array of keystrokes to send after opening files.
 
 .PARAMETER FilesToAdd
-Array of files to include in the refactoring set.
+Array of files to initially include in the refactoring set.
 
 .EXAMPLE
 New-Refactor -Name "UpdateLogging" -PromptKey "LoggingRefactor" `
-    -SelectionScript "Get-LoggingMethods" -Priority 1 -Temperature 0.7 `
-    -Code
+    -SelectionScript "Get-LoggingMethods" -Priority 1 -Code
+
+.EXAMPLE
+newrefactor UpdateLogging LoggingRefactor -p "Get-LoggingMethods" -c
 #>
 function New-Refactor {
 

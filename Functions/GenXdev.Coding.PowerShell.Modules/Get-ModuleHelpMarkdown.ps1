@@ -12,17 +12,20 @@ different help sections.
 
 .PARAMETER ModuleName
 Specifies the name(s) of the module(s) to generate help for. Accepts wildcards.
-If not specified, defaults to "GenXdev.*".
+If not specified, defaults to "GenXdev.*". Can be provided via pipeline.
 
 .PARAMETER CommandNames
 Optional array of cmdlet names to filter which commands to generate help for.
 If not specified, documentation will be generated for all cmdlets in the module.
+Supports wildcard patterns like "Get-*".
 
 .EXAMPLE
 Get-ModuleHelpMarkdown -ModuleName "GenXdev.Helpers" -CommandNames "Get-*"
+Generates markdown documentation for all Get-* cmdlets in GenXdev.Helpers.
 
 .EXAMPLE
-Get-GenXDevModuleHelp GenXdev.Helpers
+"GenXdev.Helpers" | Get-GenXDevModuleHelp
+Uses pipeline to generate documentation for all cmdlets in GenXdev.Helpers.
 #>
 function Get-ModuleHelpMarkdown {
 
@@ -35,6 +38,8 @@ function Get-ModuleHelpMarkdown {
         [parameter(
             Mandatory = $false,
             Position = 0,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true,
             HelpMessage = "The name(s) of the module(s) to generate help for"
         )]
         [SupportsWildcards()]
@@ -48,9 +53,11 @@ function Get-ModuleHelpMarkdown {
         )]
         [SupportsWildcards()]
         [string[]] $CommandNames = @()
+        ########################################################################
     )
 
     begin {
+
         # retrieve and sort all cmdlets from specified modules
         Write-Verbose "Retrieving cmdlets from modules: $($ModuleName -join ',')"
         $modules = $ModuleName | ForEach-Object {
@@ -75,21 +82,22 @@ function Get-ModuleHelpMarkdown {
 
     process {
 
-        # initialize tracking variables
+        # initialize tracking variables for module processing
         $lastModule = ""
 
-        # process each cmdlet
         foreach ($current in $modules) {
 
-            # emit module header when switching to a new module
+            # emit section header when switching to a new module
             if (($lastModule -eq "") -or ($lastModule -ne $current.ModuleName)) {
+
                 Write-Verbose "Processing module: $($current.ModuleName)"
                 "`r`n&nbsp;<hr/>`r`n###`t$($current.ModuleName)<hr/>"
             }
 
+            # track current module name
             $lastModule = $current.ModuleName
 
-            # filter cmdlets if specific ones were requested
+            # filter cmdlets if specific command names were requested
             if ($CommandNames.Length -gt 0) {
                 $found = $false
 
@@ -105,10 +113,11 @@ function Get-ModuleHelpMarkdown {
                 }
             }
 
+            # process current cmdlet
             $CmdletName = $current.Name
             Write-Verbose "Generating help for cmdlet: $CmdletName"
 
-            # get help content for current cmdlet
+            # retrieve full help content
             $lines = ""
             try {
                 $lines = (help $CmdletName -Full)
@@ -117,7 +126,7 @@ function Get-ModuleHelpMarkdown {
                 throw "Could not get help for command $CmdletName -> $PSItem"
             }
 
-            # initialize state tracking variables for help processing
+            # initialize state tracking for help content processing
             $inPowerShell = $false
             [bool] $hide = $false
             $lineBuffer = ""
@@ -218,7 +227,7 @@ function Get-ModuleHelpMarkdown {
                 }
             }
 
-            # add section separator
+            # add section separator after cmdlet documentation
             "`r`n<br/><hr/><hr/><br/>`r`n"
         }
     }

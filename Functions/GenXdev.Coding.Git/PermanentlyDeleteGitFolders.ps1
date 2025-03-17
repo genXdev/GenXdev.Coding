@@ -4,25 +4,25 @@
 Permanently deletes specified folders from all branches in a Git repository.
 
 .DESCRIPTION
-Clones a repository, removes specified folders from all branches and commits,
-then force pushes the changes back to origin. This permanently removes the
-folders from Git history.
-
-WARNING: This operation is destructive and cannot be undone. It rewrites Git history
-and requires a force push, which could cause data loss or conflicts for other users.
+Cleans a Git repository by removing specified folders from the entire commit
+history across all branches. This is done by cloning the repository, using
+git filter-branch to remove the folders, and force pushing the changes back.
+This operation is destructive and permanently rewrites Git history.
 
 .PARAMETER RepoUri
-The URI of the Git repository to clean.
+The Git repository URI to clean (HTTPS or SSH format).
 
 .PARAMETER Folders
-Array of folder paths to permanently remove from the repository history.
+Array of folder paths to remove from the repository history. Paths can be
+specified with forward or back slashes.
 
 .NOTES
-This function supports ShouldProcess and has a high confirmation impact level.
-You will be prompted to confirm before executing the operation.
+This operation is destructive and cannot be undone. It rewrites Git history and
+requires force pushing, which affects all repository users.
 
 .EXAMPLE
-PermanentlyDeleteGitFolders -RepoUri "https://github.com/user/repo.git" `
+PermanentlyDeleteGitFolders `
+    -RepoUri "https://github.com/user/repo.git" `
     -Folders "bin", "obj"
 #>
 function PermanentlyDeleteGitFolders {
@@ -30,41 +30,52 @@ function PermanentlyDeleteGitFolders {
     [CmdletBinding(SupportsShouldProcess = $true, ConfirmImpact = "High")]
     [OutputType([string[]])]
     param(
-        #######################################################################
+        ########################################################################
         [parameter(
             Position = 0,
             Mandatory = $true,
             HelpMessage = "The URI of the Git repository to clean"
         )]
         [string] $RepoUri,
-        #######################################################################
+        ########################################################################
         [parameter(
             Position = 1,
             Mandatory = $true,
             HelpMessage = "Array of folder paths to permanently remove"
         )]
         [string[]] $Folders
-        #######################################################################
+        ########################################################################
     )
 
     begin {
-        Write-Warning "!!! DANGER - PERMANENT DESTRUCTIVE OPERATION !!!"
-        Write-Warning "This operation will permanently delete the specified folders from ALL git history"
-        Write-Warning "It rewrites Git history and force pushes the changes, which CANNOT BE UNDONE"
-        Write-Warning "Other users of this repository will need to re-clone or reset their local copies"
 
-        # create a unique temporary directory using utc ticks
-        $tempPath = GenXdev.FileSystem\Expand-Path "$Env:TEMP\$([datetime]::UtcNow.Ticks)" -CreateDirectory
+        # display prominent warnings about the destructive nature of this operation
+        Write-Warning "!!! DANGER - PERMANENT DESTRUCTIVE OPERATION !!!"
+        Write-Warning ("This operation will permanently delete the specified " +
+            "folders from ALL git history")
+        Write-Warning ("It rewrites Git history and force pushes the changes, " +
+            "which CANNOT BE UNDONE")
+        Write-Warning ("Other users of this repository will need to re-clone " +
+            "or reset their local copies")
+
+        # create unique temp directory using UTC ticks for isolation
+        $tempPath = GenXdev.FileSystem\Expand-Path (
+            "$Env:TEMP\$([datetime]::UtcNow.Ticks)"
+        ) -CreateDirectory
         Write-Verbose "Using temp directory: $tempPath"
 
-        # store current location to restore later
+        # store current location to restore at end
         Push-Location
     }
 
     process {
+
+        # final confirmation before proceeding with destructive operation
         if (-not $PSCmdlet.ShouldProcess(
-                "Repository: $RepoUri - Permanently delete folders: $($Folders -join ', ')",
-                "Are you ABSOLUTELY SURE you want to permanently remove these folders from ALL git history?",
+                ("Repository: $RepoUri - Permanently delete folders: " +
+                "$($Folders -join ', ')"),
+                ("Are you ABSOLUTELY SURE you want to permanently remove " +
+                "these folders from ALL git history?"),
                 "DANGER: Permanent Git History Modification")) {
             Write-Verbose "Operation cancelled by user"
             return
@@ -141,7 +152,7 @@ function PermanentlyDeleteGitFolders {
             }
         }
         finally {
-            # restore original location
+            # restore original working directory
             Pop-Location
             Write-Verbose "Restored original location"
         }
@@ -150,3 +161,4 @@ function PermanentlyDeleteGitFolders {
     end {
     }
 }
+################################################################################

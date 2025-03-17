@@ -88,8 +88,10 @@ Update-Module
 ### GenXdev.Coding.PowerShell.Modules</hr>
 | Command&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | aliases&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Description |
 | --- | --- | --- |
+| [Add-MissingGenXdevUnitTests](#Add-MissingGenXdevUnitTests) |  |  |
 | [Assert-GenXdevCmdlet](#Assert-GenXdevCmdlet) | improvecmdlet |  |
 | [Assert-GenXdevCmdletTests](#Assert-GenXdevCmdletTests) | improvecmdlettests | Asserts and improves unit-tests of a specified GenXdev cmdlet. |
+| [Assert-GenXdevUnitTests](#Assert-GenXdevUnitTests) |  |  |
 | [Assert-ModuleDefinition](#Assert-ModuleDefinition) |  | Assists in refactoring PowerShell source code files using AI assistance. |
 | [Assert-NextGenXdevCmdlet](#Assert-NextGenXdevCmdlet) | nextcmdlet | Asserts and improves the next GenXdev cmdlet in sequence. |
 | [Assert-NextGenXdevCmdletTest](#Assert-NextGenXdevCmdletTest) | nextcmdlettest | Automates testing improvements for GenXdev cmdlets by managing test creation. |
@@ -135,7 +137,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Add-FeatureLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>]  
+   Add-FeatureLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME]   
+   [-UseOneDriveREADME] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -204,7 +207,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Add-IdeaLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>]  
+   Add-IdeaLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME]   
+   [-UseOneDriveREADME] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -273,7 +277,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Add-IssueLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>]  
+   Add-IssueLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME]   
+   [-UseOneDriveREADME] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -342,8 +347,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Add-LineToREADME [[-Line] <String>] [-Section] <String> [-Prefix] <String> [-Code] [-Show] [-Done] [-UseHomeREADME] [-UseOneDriveREADME]   
-   [<CommonParameters>]  
+   Add-LineToREADME [[-Line] <String>] [-Section] <String> [-Prefix] <String> [-Code] [-Show]   
+   [-Done] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -439,7 +444,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Add-ReleaseNoteLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>]  
+   Add-ReleaseNoteLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME]   
+   [-UseOneDriveREADME] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -508,7 +514,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Add-TodoLineToREADME [[-Line] <String>] [-Code] [-Show] [-Done] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>]  
+   Add-TodoLineToREADME [[-Line] <String>] [-Code] [-Show] [-Done] [-UseHomeREADME]   
+   [-UseOneDriveREADME] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -755,7 +762,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Open-SourceFileInIde [-Path] <String> [[-LineNo] <Int32>] [-Code] [-VisualStudio] [-KeysToSend <String[]>] [<CommonParameters>]  
+   Open-SourceFileInIde [-Path] <String> [[-LineNo] <Int32>] [-Code] [-VisualStudio]   
+   [-KeysToSend <String[]>] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -929,13 +937,14 @@ Update-Module
 
 ### DESCRIPTION 
     This function takes file paths and opens them in Visual Studio Code. It expands  
-    paths and validates file existence before attempting to open them.  
-    Ideal for in the terminal of Visual Studio Code, to quickly open a selection  
-    of files.  
+    paths and validates file existence before attempting to open them. The function  
+    supports both direct file paths and pipeline input, making it ideal for quickly  
+    opening multiple files from terminal searches.  
 
 ### PARAMETERS 
     -FilePath <String[]>  
-        Array of file paths to open in Visual Studio Code.  
+        One or more file paths to open in Visual Studio Code. Accepts pipeline input  
+        and wildcard patterns.  
         Required?                    true  
         Position?                    1  
         Default value                  
@@ -943,6 +952,8 @@ Update-Module
         Aliases                        
         Accept wildcard characters?  false  
     -Copilot [<SwitchParameter>]  
+        When specified, opens the file and triggers the Copilot keyboard shortcut to  
+        start an edit session.  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -977,12 +988,14 @@ Update-Module
 ```` 
 
 ### DESCRIPTION 
-    Adds all changes, creates a commit with the specified title, and pushes to the  
-    current branch's remote origin.  
+    Stages all changes in the current git repository, creates a commit with the  
+    specified title, and pushes the changes to the remote origin. Automatically sets  
+    up upstream tracking if needed.  
 
 ### PARAMETERS 
     -Title <String>  
-        The commit message title to use. Defaults to "Improved scripts".  
+        The message to use for the git commit. If not specified, defaults to  
+        "Improved scripts".  
         Required?                    false  
         Position?                    1  
         Default value                Improved scripts  
@@ -1024,19 +1037,19 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   PermanentlyDeleteGitFolders [-RepoUri] <String> [-Folders] <String[]> [-WhatIf] [-Confirm] [<CommonParameters>]  
+   PermanentlyDeleteGitFolders [-RepoUri] <String> [-Folders] <String[]> [-WhatIf] [-Confirm]   
+   [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
-    Clones a repository, removes specified folders from all branches and commits,  
-    then force pushes the changes back to origin. This permanently removes the  
-    folders from Git history.  
-    WARNING: This operation is destructive and cannot be undone. It rewrites Git history  
-    and requires a force push, which could cause data loss or conflicts for other users.  
+    Cleans a Git repository by removing specified folders from the entire commit  
+    history across all branches. This is done by cloning the repository, using  
+    git filter-branch to remove the folders, and force pushing the changes back.  
+    This operation is destructive and permanently rewrites Git history.  
 
 ### PARAMETERS 
     -RepoUri <String>  
-        The URI of the Git repository to clean.  
+        The Git repository URI to clean (HTTPS or SSH format).  
         Required?                    true  
         Position?                    1  
         Default value                  
@@ -1044,7 +1057,8 @@ Update-Module
         Aliases                        
         Accept wildcard characters?  false  
     -Folders <String[]>  
-        Array of folder paths to permanently remove from the repository history.  
+        Array of folder paths to remove from the repository history. Paths can be  
+        specified with forward or back slashes.  
         Required?                    true  
         Position?                    2  
         Default value                  
@@ -1074,10 +1088,11 @@ Update-Module
 ### NOTES 
 ````PowerShell 
 
-       This function supports ShouldProcess and has a high confirmation impact level.  
-       You will be prompted to confirm before executing the operation.  
+       This operation is destructive and cannot be undone. It rewrites Git history and  
+       requires force pushing, which affects all repository users.  
    -------------------------- EXAMPLE 1 --------------------------  
-   PS C:\> PermanentlyDeleteGitFolders -RepoUri "https://github.com/user/repo.git" `  
+   PS C:\> PermanentlyDeleteGitFolders `  
+       -RepoUri "https://github.com/user/repo.git" `  
        -Folders "bin", "obj"  
 ```` 
 
@@ -1086,6 +1101,24 @@ Update-Module
 
 &nbsp;<hr/>
 ###	GenXdev.Coding.PowerShell.Modules<hr/> 
+
+##	Add-MissingGenXdevUnitTests 
+````PowerShell 
+
+   Add-MissingGenXdevUnitTests  
+```` 
+
+### SYNTAX 
+````PowerShell 
+
+   Add-MissingGenXdevUnitTests   
+```` 
+
+### PARAMETERS 
+    None  
+
+<br/><hr/><hr/><br/>
+ 
 
 ##	Assert-GenXdevCmdlet 
 ````PowerShell 
@@ -1100,8 +1133,9 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Assert-GenXdevCmdlet [[-CmdletName] <String>] [-BaseModuleName <String[]>] [[-PromptKey] <String>] [[-Prompt] <String>] [-NoLocal] [-OnlyPublished]   
-   [-FromScripts] [-Code] [-VisualStudio] [-EditPrompt] [-Integrate] [<CommonParameters>]  
+   Assert-GenXdevCmdlet [[-CmdletName] <String>] [-BaseModuleName <String[]>] [[-PromptKey]   
+   <String>] [[-Prompt] <String>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code]   
+   [-VisualStudio] [-EditPrompt] [-Integrate] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -1218,7 +1252,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Assert-GenXdevCmdletTests [-CmdletName] <String> [[-Prompt] <String>] [-EditPrompt] [-AssertFailedTest] [<CommonParameters>]  
+   Assert-GenXdevCmdletTests [-CmdletName] <String> [[-Prompt] <String>] [-EditPrompt]   
+   [-AssertFailedTest] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -1270,6 +1305,134 @@ Update-Module
 <br/><hr/><hr/><br/>
  
 
+##	Assert-GenXdevUnitTests 
+````PowerShell 
+
+   Assert-GenXdevUnitTests  
+```` 
+
+### SYNOPSIS 
+    Executes unit tests for specified PowerShell modules and cmdlets with detailed  
+    reporting.  
+
+### SYNTAX 
+````PowerShell 
+
+   Assert-GenXdevUnitTests [[-BaseModuleName] <String[]>] [-ModuleFilter <String[]>]   
+   [-CmdletName <String>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Verbosity <String>]   
+   [-StackTraceVerbosity <String>] [-AllowLongRunningTests] [-DebugFailedTests] [-Passthru]   
+   [<CommonParameters>]  
+```` 
+
+### DESCRIPTION 
+    This script provides a comprehensive test runner for PowerShell modules and  
+    cmdlets. It offers configurable verbosity levels, interactive debugging of  
+    failed tests, and color-coded output. Results can be displayed directly or  
+    returned as objects for pipeline processing.  
+    The script supports filtering by module name or specific cmdlet, handling of  
+    local vs published modules, and various output formatting options.  
+
+### PARAMETERS 
+    -BaseModuleName <String[]>  
+        Target modules to test. Accepts wildcards and multiple module names.  
+        Default value: "GenXdev*"  
+        Required?                    false  
+        Position?                    1  
+        Default value                @("GenXdev*")  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -ModuleFilter <String[]>  
+        Optional filter to exclude certain modules from testing.  
+        Required?                    false  
+        Position?                    named  
+        Default value                  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -CmdletName <String>  
+        Name of specific cmdlet to test. Limits testing scope to just this cmdlet.  
+        Required?                    false  
+        Position?                    named  
+        Default value                  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -NoLocal [<SwitchParameter>]  
+        When specified, excludes local development versions of modules from testing.  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -OnlyPublished [<SwitchParameter>]  
+        When specified, only tests modules that have been published to repositories.  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -FromScripts [<SwitchParameter>]  
+        When specified, sources tests from script files rather than module files.  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -Verbosity <String>  
+        Controls detail level of test output.  
+        Valid values: None, Normal, Detailed, Diagnostic  
+        Required?                    false  
+        Position?                    named  
+        Default value                None  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -StackTraceVerbosity <String>  
+        Controls stack trace detail in error output.  
+        Valid values: None, FirstLine, Filtered, Full  
+        Required?                    false  
+        Position?                    named  
+        Default value                FirstLine  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -AllowLongRunningTests [<SwitchParameter>]  
+        When specified, includes tests marked as long-running in the test execution.  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -DebugFailedTests [<SwitchParameter>]  
+        When specified, enables interactive debugging of failed tests with retry option.  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -Passthru [<SwitchParameter>]  
+        When specified, returns test result objects instead of formatted console output.  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+
+<br/><hr/><hr/><br/>
+ 
+
 ##	Assert-ModuleDefinition 
 ````PowerShell 
 
@@ -1282,17 +1445,21 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Assert-ModuleDefinition [-ModuleName] <String> [-Prompt <String>] [-EditPrompt] [<CommonParameters>]  
+   Assert-ModuleDefinition [-ModuleName] <String> [-Prompt <String>] [-EditPrompt]   
+   [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
     This function automates the process of refactoring PowerShell code using AI.  
     It manages prompt templates, detects the active IDE (VS Code or Visual Studio),  
     and orchestrates the refactoring workflow through keyboard automation.  
+    The function can handle both module manifest (.psd1) and module script (.psm1)  
+    files.  
 
 ### PARAMETERS 
     -ModuleName <String>  
-        The name of the module which definition to refactor.  
+        The name of the PowerShell module to refactor. This module must be available  
+        in the PowerShell module path.  
         Required?                    true  
         Position?                    1  
         Default value                  
@@ -1300,7 +1467,8 @@ Update-Module
         Aliases                        
         Accept wildcard characters?  false  
     -Prompt <String>  
-        Custom AI prompt text to use. Optional.  
+        Custom AI prompt text to use for the refactoring process. If not specified,  
+        defaults to an error message if module loading fails.  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -1337,8 +1505,9 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Assert-NextGenXdevCmdlet [[-ModuleName] <String>] [[-Key] <String>] [[-PromptKey] <String>] [[-Prompt] <String>] [-EditPrompt] [-FromScripts]   
-   [-Integrate] [-OnlyNonExisting] [<CommonParameters>]  
+   Assert-NextGenXdevCmdlet [[-ModuleName] <String>] [[-Key] <String>] [[-PromptKey] <String>]   
+   [[-Prompt] <String>] [-EditPrompt] [-FromScripts] [-Integrate] [-OnlyNonExisting]   
+   [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -1432,8 +1601,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Assert-NextGenXdevCmdletTest [[-ModuleName] <String>] [[-Reset]] [[-RedoLast]] [[-Key] <String>] [[-Prompt] <String>] [-EditPrompt] [-OnlyNonExisting]   
-   [<CommonParameters>]  
+   Assert-NextGenXdevCmdletTest [[-ModuleName] <String>] [[-Reset]] [[-RedoLast]] [[-Key]   
+   <String>] [[-Prompt] <String>] [-EditPrompt] [-OnlyNonExisting] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -1519,7 +1688,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Assert-RefactorFile [-RefactorDefinition] <RefactorDefinition> [-Path] <string> [-EditPrompt] [<CommonParameters>]  
+   Assert-RefactorFile [-RefactorDefinition] <RefactorDefinition> [-Path] <string>   
+   [-EditPrompt] [<CommonParameters>]  
 ```` 
 
 ### PARAMETERS 
@@ -1607,12 +1777,15 @@ Update-Module
 ### DESCRIPTION 
     This function enhances README.md files for GenXDev modules by automatically  
     generating and inserting a cmdlet index and detailed cmdlet documentation. It  
-    processes either specified modules or all modules if none are specified.  
+    processes either specified modules or all modules if none are specified. The  
+    function updates existing README.md files with a standardized format including  
+    a command index and detailed help for each cmdlet.  
 
 ### PARAMETERS 
     -ModuleName <String[]>  
         Specifies which module(s) to process. If omitted, all modules will be processed.  
-        Can accept multiple module names and pipeline input.  
+        Can accept multiple module names and supports pipeline input. Accepts string array  
+        input.  
         Required?                    false  
         Position?                    1  
         Default value                @()  
@@ -1724,12 +1897,16 @@ Update-Module
 
 ### DESCRIPTION 
     This function returns a list of GenXDev modules arranged in the correct dependency  
-    order to ensure proper module loading. The modules can be filtered by name.  
+    order to ensure proper module loading. It first retrieves all module information  
+    and then orders them based on their dependencies, starting with core modules and  
+    ending with dependent modules. This ensures modules are loaded in the correct  
+    sequence.  
 
 ### PARAMETERS 
     -ModuleName <String[]>  
-        Specifies one or more module names to filter the results. If not provided, all  
-        modules are returned in their dependency order.  
+        One or more module names to filter the results. If not provided, all modules are  
+        returned in their dependency order. The function will maintain the correct  
+        dependency chain even when filtering specific modules.  
         Required?                    false  
         Position?                    1  
         Default value                @()  
@@ -1757,8 +1934,9 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Get-GenXDevNextCmdLet [[-CmdletName] <String>] [[-BaseModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Reset] [-RedoLast] [-Key   
-   <String>] [-OnlyNonExisting] [<CommonParameters>]  
+   Get-GenXDevNextCmdLet [[-CmdletName] <String>] [[-BaseModuleName] <String[]>] [-NoLocal]   
+   [-OnlyPublished] [-FromScripts] [-Reset] [-RedoLast] [-Key <String>] [-OnlyNonExisting]   
+   [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -1857,7 +2035,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Get-ModuleHelpMarkdown [[-ModuleName] <String[]>] [[-CommandNames] <String[]>] [<CommonParameters>]  
+   Get-ModuleHelpMarkdown [[-ModuleName] <String[]>] [[-CommandNames] <String[]>]   
+   [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -1870,16 +2049,17 @@ Update-Module
 ### PARAMETERS 
     -ModuleName <String[]>  
         Specifies the name(s) of the module(s) to generate help for. Accepts wildcards.  
-        If not specified, defaults to "GenXdev.*".  
+        If not specified, defaults to "GenXdev.*". Can be provided via pipeline.  
         Required?                    false  
         Position?                    1  
         Default value                GenXdev.*  
-        Accept pipeline input?       false  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
         Aliases                        
         Accept wildcard characters?  true  
     -CommandNames <String[]>  
         Optional array of cmdlet names to filter which commands to generate help for.  
         If not specified, documentation will be generated for all cmdlets in the module.  
+        Supports wildcard patterns like "Get-*".  
         Required?                    false  
         Position?                    2  
         Default value                @()  
@@ -1954,11 +2134,13 @@ Update-Module
     Analyzes and reports on the progress of refactoring operations by examining  
     their current state, completion status, and affected functions. Provides output  
     in either structured hashtable format or human-readable aligned text columns.  
+    The report includes refactor name, prompt key, priority, status, function count  
+    and completion percentage.  
 
 ### PARAMETERS 
     -Name <String[]>  
-        Specifies the name pattern to filter refactors. Supports wildcards.  
-        Default value is "*" to display all refactors.  
+        The name pattern to filter refactors. Supports wildcards. Multiple names can be  
+        specified. Default value is "*" to display all refactors.  
         Required?                    false  
         Position?                    1  
         Default value                *  
@@ -1966,8 +2148,8 @@ Update-Module
         Aliases                        
         Accept wildcard characters?  true  
     -AsText [<SwitchParameter>]  
-        When specified, outputs the report in a human-readable text format with aligned  
-        columns instead of structured hashtable objects.  
+        Outputs the report in human-readable text format with aligned columns instead of  
+        structured hashtable objects. The text format includes headers and separators.  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -1992,8 +2174,10 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Invoke-GenXdevScriptAnalyzer [-Path] <string> [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<CommonParameters>]  
-   Invoke-GenXdevScriptAnalyzer -ScriptDefinition <string> [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<CommonParameters>]  
+   Invoke-GenXdevScriptAnalyzer [-Path] <string> [-EnableExit] [-Fix] [-Recurse]   
+   [-ReportSummary] [<CommonParameters>]  
+   Invoke-GenXdevScriptAnalyzer -ScriptDefinition <string> [-EnableExit] [-Fix] [-Recurse]   
+   [-ReportSummary] [<CommonParameters>]  
 ```` 
 
 ### PARAMETERS 
@@ -2072,8 +2256,10 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   New-GenXdevCmdlet [-CmdletName] <String> [[-PromptKey] <String>] [-Prompt <String>] [-EditPrompt] [-Integrate] [-WhatIf] [-Confirm] [<CommonParameters>]  
-   New-GenXdevCmdlet [-CmdletName] <String> [-Prompt <String>] [-EditPrompt] [-Integrate] [-WhatIf] [-Confirm] [<CommonParameters>]  
+   New-GenXdevCmdlet [-CmdletName] <String> [[-PromptKey] <String>] [-Prompt <String>]   
+   [-EditPrompt] [-Integrate] [-WhatIf] [-Confirm] [<CommonParameters>]  
+   New-GenXdevCmdlet [-CmdletName] <String> [-Prompt <String>] [-EditPrompt] [-Integrate]   
+   [-WhatIf] [-Confirm] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -2106,7 +2292,8 @@ Update-Module
         a basic boilerplate request.  
         Required?                    false  
         Position?                    named  
-        Default value                Create a boilerplate GenXdev cmdlet that does what it's name suggests  
+        Default value                Create a boilerplate GenXdev cmdlet that does what it's   
+        name suggests  
         Accept pipeline input?       false  
         Aliases                        
         Accept wildcard characters?  false  
@@ -2161,10 +2348,13 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>] [[-SelectionScript] <String>] [-AutoAddModifiedFiles] [[-SelectionPrompt]   
-   <String>] [[-Model] <String>] [[-ModelLMSGetIdentifier] <String>] [[-Temperature] <Double>] [[-MaxToken] <Int32>] [[-TTLSeconds] <Int32>] [[-Gpu]   
-   <Int32>] [-Force] [-ApiEndpoint <String>] [-ApiKey <String>] [[-Priority] <Int32>] [[-ExposedCmdLets] <ExposedCmdletDefinition[]>] [-Code]   
-   [-VisualStudio] [-KeysToSend <String[]>] [-FilesToAdd <FileInfo[]>] [-WhatIf] [-Confirm] [<CommonParameters>]  
+   New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>]   
+   [[-SelectionScript] <String>] [-AutoAddModifiedFiles] [[-SelectionPrompt] <String>]   
+   [[-Model] <String>] [[-ModelLMSGetIdentifier] <String>] [[-Temperature] <Double>]   
+   [[-MaxToken] <Int32>] [[-TTLSeconds] <Int32>] [[-Gpu] <Int32>] [-Force] [-ApiEndpoint   
+   <String>] [-ApiKey <String>] [[-Priority] <Int32>] [[-ExposedCmdLets]   
+   <ExposedCmdletDefinition[]>] [-Code] [-VisualStudio] [-KeysToSend <String[]>] [-FilesToAdd   
+   <FileInfo[]>] [-WhatIf] [-Confirm] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -2210,7 +2400,7 @@ Update-Module
         Aliases                        
         Accept wildcard characters?  false  
     -AutoAddModifiedFiles [<SwitchParameter>]  
-        Switch to automatically add modified files to the refactoring queue.  
+        When enabled, automatically adds any modified files to the refactoring queue.  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -2218,7 +2408,7 @@ Update-Module
         Aliases                        
         Accept wildcard characters?  false  
     -SelectionPrompt <String>  
-        LLM-specific prompt used to guide the selection of items for refactoring.  
+        Custom prompt text used by the LLM to guide selection of items for refactoring.  
         Required?                    false  
         Position?                    5  
         Default value                  
@@ -2226,7 +2416,7 @@ Update-Module
         Aliases                        
         Accept wildcard characters?  false  
     -Model <String>  
-        Specific LLM model to use for processing.  
+        Name or identifier of the specific LLM model to use for processing.  
         Required?                    false  
         Position?                    6  
         Default value                  
@@ -2234,7 +2424,7 @@ Update-Module
         Aliases                        
         Accept wildcard characters?  false  
     -ModelLMSGetIdentifier <String>  
-        Identifier for retrieving specific model from LM Studio.  
+        Identifier used to retrieve a specific model from LM Studio.  
         Required?                    false  
         Position?                    7  
         Default value                  
@@ -2242,7 +2432,7 @@ Update-Module
         Aliases                        
         Accept wildcard characters?  false  
     -Temperature <Double>  
-        Controls response randomness (0.0-1.0). Lower values are more deterministic.  
+        Controls randomness in LLM responses (0.0-1.0). Lower is more deterministic.  
         Required?                    false  
         Position?                    8  
         Default value                0  
@@ -2250,7 +2440,7 @@ Update-Module
         Aliases                        
         Accept wildcard characters?  false  
     -MaxToken <Int32>  
-        Maximum token limit for LLM responses. Use -1 for model default.  
+        Maximum tokens allowed in LLM responses. Use -1 for model default.  
         Required?                    false  
         Position?                    9  
         Default value                -1  
@@ -2258,7 +2448,7 @@ Update-Module
         Aliases                        
         Accept wildcard characters?  false  
     -TTLSeconds <Int32>  
-        Time-to-live in seconds for API-loaded models. Use -1 for no TTL.  
+        Time-to-live in seconds for API-loaded models. Use -1 for no expiration.  
         Required?                    false  
         Position?                    10  
         Default value                -1  
@@ -2274,7 +2464,7 @@ Update-Module
         Aliases                        
         Accept wildcard characters?  false  
     -Force [<SwitchParameter>]  
-        Forces LM Studio restart before initialization.  
+        Forces LM Studio to restart before initialization.  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -2282,7 +2472,7 @@ Update-Module
         Aliases                        
         Accept wildcard characters?  false  
     -ApiEndpoint <String>  
-        Custom API endpoint URL for the LLM service.  
+        Custom API endpoint URL for accessing the LLM service.  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -2290,7 +2480,7 @@ Update-Module
         Aliases                        
         Accept wildcard characters?  false  
     -ApiKey <String>  
-        Authentication key for API access.  
+        Authentication key required for API access.  
         Required?                    false  
         Position?                    named  
         Default value                  
@@ -2306,7 +2496,7 @@ Update-Module
         Aliases                        
         Accept wildcard characters?  false  
     -ExposedCmdLets <ExposedCmdletDefinition[]>  
-        Array of PowerShell command definitions exposed as tools to the LLM.  
+        Array of PowerShell cmdlet definitions to expose as tools to the LLM.  
         Required?                    false  
         Position?                    13  
         Default value                @()  
@@ -2314,7 +2504,7 @@ Update-Module
         Aliases                        
         Accept wildcard characters?  false  
     -Code [<SwitchParameter>]  
-        Switch to open files in Visual Studio Code.  
+        Opens files in Visual Studio Code when enabled.  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -2322,7 +2512,7 @@ Update-Module
         Aliases                        
         Accept wildcard characters?  false  
     -VisualStudio [<SwitchParameter>]  
-        Switch to open files in Visual Studio.  
+        Opens files in Visual Studio when enabled.  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -2338,7 +2528,7 @@ Update-Module
         Aliases                        
         Accept wildcard characters?  false  
     -FilesToAdd <FileInfo[]>  
-        Array of files to include in the refactoring set.  
+        Array of files to initially include in the refactoring set.  
         Required?                    false  
         Position?                    named  
         Default value                @()  
@@ -2380,7 +2570,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Remove-Refactor [-Name] <String[]> [[-RemoveDefault]] [-WhatIf] [-Confirm] [<CommonParameters>]  
+   Remove-Refactor [-Name] <String[]> [[-RemoveDefault]] [-WhatIf] [-Confirm]   
+   [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -2441,8 +2632,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Search-GenXdevCmdlet [[-CmdletName] <string>] [[-BaseModuleName] <string[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio]   
-   [<CommonParameters>]  
+   Search-GenXdevCmdlet [[-CmdletName] <string>] [[-BaseModuleName] <string[]>] [-NoLocal]   
+   [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [<CommonParameters>]  
 ```` 
 
 ### PARAMETERS 
@@ -2524,8 +2715,10 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Search-NextGenXdevCmdlet [[-ModuleName] <string>] [[-Key] <string>] [-OnlyNonExisting] [<CommonParameters>]  
-   Search-NextGenXdevCmdlet [[-Key] <string>] [-FromScripts] [-OnlyNonExisting] [<CommonParameters>]  
+   Search-NextGenXdevCmdlet [[-ModuleName] <string>] [[-Key] <string>] [-OnlyNonExisting]   
+   [<CommonParameters>]  
+   Search-NextGenXdevCmdlet [[-Key] <string>] [-FromScripts] [-OnlyNonExisting]   
+   [<CommonParameters>]  
 ```` 
 
 ### PARAMETERS 
@@ -2586,8 +2779,9 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Show-GenXdevCmdLetInIde [[-CmdletName] <String>] [[-BaseModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio]   
-   [-UnitTests] [-KeysToSend <String[]>] [<CommonParameters>]  
+   Show-GenXdevCmdLetInIde [[-CmdletName] <String>] [[-BaseModuleName] <String[]>] [-NoLocal]   
+   [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-UnitTests] [-KeysToSend   
+   <String[]>] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -2689,11 +2883,13 @@ Update-Module
 
 ### DESCRIPTION 
     Shows a table containing refactoring status and metrics for PowerShell modules  
-    matching the specified name pattern.  
+    matching the specified name pattern. The report includes details like name,  
+    prompt key, status, function count, priority and completion percentage.  
 
 ### PARAMETERS 
     -Name <String[]>  
-        The name pattern to filter modules. Supports wildcards. Default value is '*'.  
+        One or more module name patterns to filter the report. Supports wildcards.  
+        If omitted, shows all modules.  
         Required?                    false  
         Position?                    1  
         Default value                *  
@@ -2721,8 +2917,9 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [[-CleanUpDeletedFiles]] [-Reset]   
-   [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-EditPrompt] [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>]  
+   Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove]   
+   <FileInfo[]>] [[-CleanUpDeletedFiles]] [-Reset] [-ResetLMSelections] [-MarkAllCompleted]   
+   [-RedoLast] [-EditPrompt] [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -2780,6 +2977,7 @@ Update-Module
         Aliases                        
         Accept wildcard characters?  false  
     -MarkAllCompleted [<SwitchParameter>]  
+        Marks all files in the refactor set as completed.  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -2803,6 +3001,7 @@ Update-Module
         Aliases                        
         Accept wildcard characters?  false  
     -Speak [<SwitchParameter>]  
+        Enables text-to-speech for refactoring progress and notifications.  
         Required?                    false  
         Position?                    named  
         Default value                False  
@@ -2844,7 +3043,8 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Test-RefactorLLMSelection [-RefactorDefinition] <RefactorDefinition> [-Path] <String> [<CommonParameters>]  
+   Test-RefactorLLMSelection [-RefactorDefinition] <RefactorDefinition> [-Path] <String>   
+   [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 
@@ -2892,20 +3092,28 @@ Update-Module
 ### SYNTAX 
 ````PowerShell 
 
-   Update-Refactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection]   
-   [-PerformLLMSelections] [-PerformAllLLMSelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted]   
-   [-SelectByModifiedDateFrom <DateTime>] [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>] [-SelectByCreationDateTo <DateTime>]   
-   [-RedoLast] [-PromptKey <String>] [-Prompt <String>] [-SelectionScript <String>] [-AutoAddModifiedFiles] [-SelectionPrompt <String>] [-Model <String>]   
-   [-ModelLMSGetIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>] [-TTLSeconds <Int32>] [-Gpu <Int32>] [-Force] [-ApiEndpoint <String>]   
-   [-ApiKey <String>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-Code] [-VisualStudio] [-KeysToSend <String[]>] [-Speak] [-WhatIf]   
-   [-Confirm] [<CommonParameters>]  
-   Update-Refactor [[-Refactor] <RefactorDefinition[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-CleanUpDeletedFiles]   
-   [-AskBeforeLLMSelection] [-PerformLLMSelections] [-PerformAllLLMSelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset]   
-   [-ResetLMSelections] [-MarkAllCompleted] [-SelectByModifiedDateFrom <DateTime>] [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom   
-   <DateTime>] [-SelectByCreationDateTo <DateTime>] [-RedoLast] [-PromptKey <String>] [-Prompt <String>] [-SelectionScript <String>]   
-   [-AutoAddModifiedFiles] [-SelectionPrompt <String>] [-Model <String>] [-ModelLMSGetIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>]   
-   [-TTLSeconds <Int32>] [-Gpu <Int32>] [-Force] [-ApiEndpoint <String>] [-ApiKey <String>] [-Priority <Int32>] [-ExposedCmdLets   
-   <ExposedCmdletDefinition[]>] [-Code] [-VisualStudio] [-KeysToSend <String[]>] [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>]  
+   Update-Refactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove]   
+   <FileInfo[]>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection] [-PerformLLMSelections]   
+   [-PerformAllLLMSelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset]   
+   [-ResetLMSelections] [-MarkAllCompleted] [-SelectByModifiedDateFrom <DateTime>]   
+   [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>]   
+   [-SelectByCreationDateTo <DateTime>] [-RedoLast] [-PromptKey <String>] [-Prompt <String>]   
+   [-SelectionScript <String>] [-AutoAddModifiedFiles] [-SelectionPrompt <String>] [-Model   
+   <String>] [-ModelLMSGetIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>]   
+   [-TTLSeconds <Int32>] [-Gpu <Int32>] [-Force] [-ApiEndpoint <String>] [-ApiKey <String>]   
+   [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-Code] [-VisualStudio]   
+   [-KeysToSend <String[]>] [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>]  
+   Update-Refactor [[-Refactor] <RefactorDefinition[]>] [[-FilesToAdd] <FileInfo[]>]   
+   [[-FilesToRemove] <FileInfo[]>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection]   
+   [-PerformLLMSelections] [-PerformAllLLMSelections] [-RetryFailedLLMSelections] [-Clear]   
+   [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-SelectByModifiedDateFrom   
+   <DateTime>] [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>]   
+   [-SelectByCreationDateTo <DateTime>] [-RedoLast] [-PromptKey <String>] [-Prompt <String>]   
+   [-SelectionScript <String>] [-AutoAddModifiedFiles] [-SelectionPrompt <String>] [-Model   
+   <String>] [-ModelLMSGetIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>]   
+   [-TTLSeconds <Int32>] [-Gpu <Int32>] [-Force] [-ApiEndpoint <String>] [-ApiKey <String>]   
+   [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-Code] [-VisualStudio]   
+   [-KeysToSend <String[]>] [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>]  
 ```` 
 
 ### DESCRIPTION 

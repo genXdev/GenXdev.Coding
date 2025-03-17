@@ -193,7 +193,7 @@ function Assert-GenXdevCmdletTests {
                     @("&Stop", "&Test the new unit tests", "Redo &Last"),
                     0)) {
                 0 { throw "Stopped"; return }
-                1 { return (Run-UnitTests.ps1 -CmdletName $CmdletName -DebugFailedTests) }
+                1 { return (Assert-GenXdevUnitTests -CmdletName $CmdletName -DebugFailedTests) }
                 2 { return Assert-GenXdevCmdletTests @PSBoundParameters }
             }
         }
@@ -205,7 +205,7 @@ function Assert-GenXdevCmdletTests {
                     @("&Stop", "&Test the improved unit tests", "Redo &Last"),
                     0)) {
                 0 { throw "Stopped"; return }
-                1 { return (Run-UnitTests.ps1 -CmdletName $CmdletName -DebugFailedTests) }
+                1 { return (Assert-GenXdevUnitTests -CmdletName $CmdletName -DebugFailedTests) }
                 2 { return Assert-GenXdevCmdletTests @PSBoundParameters }
             }
         }

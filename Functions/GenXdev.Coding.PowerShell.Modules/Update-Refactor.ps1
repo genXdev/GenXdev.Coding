@@ -151,8 +151,7 @@ function Update-Refactor {
             Position = 0,
             HelpMessage = "The name of the refactor, accepts wildcards",
             ValueFromPipeline = $true,
-            ValueFromPipelineByPropertyName = $true
-        )]
+            ValueFromPipelineByPropertyName = $true)]
         [ValidateNotNullOrEmpty()]
         [SupportsWildcards()]
         [string[]] $Name = @("*"),
@@ -161,255 +160,217 @@ function Update-Refactor {
             ParameterSetName = 'Refactor',
             Mandatory = $false,
             Position = 0,
-            HelpMessage = "The refactor set to update"
-        )]
+            HelpMessage = "The refactor set to update")]
         [ValidateNotNull()]
         [GenXdev.Helpers.RefactorDefinition[]]$Refactor,
         ########################################################################
         [Parameter(
             Mandatory = $false,
             Position = 1,
-            HelpMessage = "Filenames to add"
-        )]
+            HelpMessage = "Filenames to add")]
         [ValidateNotNull()]
         [System.IO.FileInfo[]] $FilesToAdd = @(),
         ########################################################################
         [Parameter(
             Mandatory = $false,
             Position = 2,
-            HelpMessage = "Filenames to remove"
-        )]
+            HelpMessage = "Filenames to remove")]
         [ValidateNotNull()]
         [System.IO.FileInfo[]] $FilesToRemove = @(),
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Clean up deleted files"
-        )]
+            HelpMessage = "Clean up deleted files")]
         [switch] $CleanUpDeletedFiles,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Switch to suppress user interaction"
-        )]
+            HelpMessage = "Switch to suppress user interaction")]
         [switch] $AskBeforeLLMSelection,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Switch to enable LLM-based file selection processing"
-        )]
+            HelpMessage = "Switch to enable LLM-based file selection processing")]
         [switch] $PerformLLMSelections,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Switch to process all files in the refactor set"
-        )]
+            HelpMessage = "Switch to process all files in the refactor set")]
         [switch] $PerformAllLLMSelections,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Switch to retry failed LLM selections"
-        )]
+            HelpMessage = "Switch to retry failed LLM selections")]
         [switch] $RetryFailedLLMSelections,
         ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Clear all files from the refactor set"
-        )]
+            HelpMessage = "Clear all files from the refactor set")]
         [switch] $Clear,
         ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Clear the log of the refactor set"
-        )]
+            HelpMessage = "Clear the log of the refactor set")]
         [switch] $ClearLog,
         ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Start from the beginning of the refactor set"
-        )]
+            HelpMessage = "Start from the beginning of the refactor set")]
         [switch] $Reset,
         ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Restart all LLMSelections"
-        )]
+            HelpMessage = "Restart all LLMSelections")]
         [switch] $ResetLMSelections,
         ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Mark all files as refactored"
-        )]
+            HelpMessage = "Mark all files as refactored")]
         [switch] $MarkAllCompleted,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Select files by modified date from"
-        )]
+            HelpMessage = "Select files by modified date from")]
         [ValidateNotNullOrEmpty()]
         [datetime] $SelectByModifiedDateFrom,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Select files by modified date to"
-        )]
+            HelpMessage = "Select files by modified date to")]
         [ValidateNotNullOrEmpty()]
         [datetime] $SelectByModifiedDateTo,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Select files by creation date from"
-        )]
+            HelpMessage = "Select files by creation date from")]
         [ValidateNotNullOrEmpty()]
         [datetime] $SelectByCreationDateFrom,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Select files by creation date to"
-        )]
+            HelpMessage = "Select files by creation date to")]
         [ValidateNotNullOrEmpty()]
         [datetime] $SelectByCreationDateTo,
         ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Redo the last refactor"
-        )]
+            HelpMessage = "Redo the last refactor")]
         [switch] $RedoLast,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The prompt key indicates which prompt script to use"
-        )]
+            HelpMessage = "The prompt key indicates which prompt script to use")]
         [ValidateNotNullOrEmpty()]
         [string] $PromptKey,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The prompt key indicates which prompt script to use"
-        )]
+            HelpMessage = "The prompt key indicates which prompt script to use")]
         [ValidateNotNullOrEmpty()]
         [string] $Prompt = "",
         ########################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "Powershell script for function to select items to " +
-            "refactor"
-        )]
+            "refactor")]
         [ValidateNotNullOrEmpty()]
         [string] $SelectionScript,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Will automatically add modified files to the queue"
-        )]
+            HelpMessage = "Will automatically add modified files to the queue")]
         [switch] $AutoAddModifiedFiles,
         ########################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "If provided, will invoke LLM to do the selection " +
-            "based on the content of the script"
-        )]
+            "based on the content of the script")]
         [ValidateNotNullOrEmpty()]
         [string] $SelectionPrompt,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The LM-Studio model to use"
-        )]
+            HelpMessage = "The LM-Studio model to use")]
         [SupportsWildcards()]
         [string] $Model,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Identifier for getting specific model from LM Studio"
-        )]
+            HelpMessage = "Identifier for getting specific model from LM Studio")]
         [string] $ModelLMSGetIdentifier,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Temperature for response randomness (0.0-1.0)"
-        )]
+            HelpMessage = "Temperature for response randomness (0.0-1.0)")]
         [ValidateRange(0.0, 1.0)]
         [double] $Temperature = 0.0,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Maximum tokens in response (-1 for default)"
-        )]
+            HelpMessage = "Maximum tokens in response (-1 for default)")]
         [Alias("MaxTokens")]
         [int] $MaxToken = -1,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Set a TTL (in seconds) for models via API requests"
-        )]
+            HelpMessage = "Set a TTL (in seconds) for models via API requests")]
         [Alias("ttl")]
         [int] $TTLSeconds = -1,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "GPU offloading control (-2=Auto, -1=LMStudio decide)"
-        )]
+            HelpMessage = "GPU offloading control (-2=Auto, -1=LMStudio decide)")]
         [int] $Gpu = -1,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Force stop LM Studio before initialization"
-        )]
+            HelpMessage = "Force stop LM Studio before initialization")]
         [switch] $Force,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Api endpoint url for LLM service"
-        )]
+            HelpMessage = "Api endpoint url for LLM service")]
         [string] $ApiEndpoint,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The API key to use for the request"
-        )]
+            HelpMessage = "The API key to use for the request")]
         [string] $ApiKey,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Priority for this refactor set"
-        )]
+            HelpMessage = "Priority for this refactor set")]
         [ValidateNotNullOrEmpty()]
         [int] $Priority,
         ########################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "Array of PowerShell command definitions to use as tools " +
-            "during LLM selection"
-        )]
+            "during LLM selection")]
         [GenXdev.Helpers.ExposedCmdletDefinition[]]
         $ExposedCmdLets = @(),
         #######################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The ide to open the file in"
-        )]
+            HelpMessage = "The ide to open the file in")]
         [Alias("c")]
         [switch] $Code,
         #######################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Open in Visual Studio"
-        )]
+            HelpMessage = "Open in Visual Studio")]
         [Alias("vs")]
         [switch] $VisualStudio,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The keys to invoke as key strokes after opening the file"
-        )]
+            HelpMessage = "The keys to invoke as key strokes after opening the file")]
         [Alias("keys")]
         [string[]] $KeysToSend = @(),
         ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Speak out the details of next refactor"
-        )]
+            HelpMessage = "Speak out the details of next refactor")]
         [switch] $Speak
         ########################################################################
     )

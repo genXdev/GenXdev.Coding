@@ -11,12 +11,6 @@ the sequence, customize prompts, and handle scripts integration.
 .PARAMETER ModuleName
 Name of the module to filter cmdlets by. Accepts wildcards. Default: "GenXdev.*"
 
-.PARAMETER Reset
-Switch to restart processing from the first cmdlet in the sequence.
-
-.PARAMETER RedoLast
-Switch to reprocess the previously handled cmdlet instead of advancing.
-
 .PARAMETER Key
 Storage key for tracking the current cmdlet index in the sequence.
 
@@ -38,6 +32,12 @@ Switch to integrate scripts from the script folder into the module.
 .PARAMETER OnlyNonExisting
 Switch to skip cmdlets that already have associated unit tests.
 
+.PARAMETER Reset
+Switch to restart processing from the first cmdlet in the sequence.
+
+.PARAMETER RedoLast
+Switch to reprocess the previously handled cmdlet instead of advancing.
+
 .EXAMPLE
 Assert-NextGenXdevCmdlet -ModuleName "GenXdev.Helpers" `
                         -PromptKey "CheckAllRequirements" `
@@ -50,7 +50,6 @@ function Assert-NextGenXdevCmdlet {
 
     [CmdletBinding()]
     [Alias("nextcmdlet")]
-
     param(
         ########################################################################
         [Alias("Name", "Module")]
@@ -72,7 +71,6 @@ function Assert-NextGenXdevCmdlet {
         )]
         [AllowEmptyString()]
         [string] $Key = "",
-
         ########################################################################
         [parameter(
             Mandatory = $false,
@@ -81,7 +79,6 @@ function Assert-NextGenXdevCmdlet {
         )]
         [ValidateNotNullOrEmpty()]
         [string] $PromptKey = "CheckAllRequirements",
-
         ########################################################################
         [parameter(
             Mandatory = $false,
@@ -98,26 +95,30 @@ function Assert-NextGenXdevCmdlet {
         [switch] $EditPrompt,
         ########################################################################
         [parameter(
+            Mandatory = $false,
             HelpMessage = "Switch to scripts from the script folder"
         )]
         [switch] $FromScripts,
         ########################################################################
         [parameter(
-            HelpMessage = "Switch to integrating scripts from the script folder"
+            Mandatory = $false,
+            HelpMessage = "Switch to integrating scripts from script folder"
         )]
         [switch] $Integrate,
         ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Indicates to skip cmdlets that already have unit-tests"
+            HelpMessage = "Skip cmdlets that already have unit-tests"
         )]
         [switch] $OnlyNonExisting
     )
 
+    begin {
+    }
+
     process {
 
-
-        # get the next cmdlet to process based on tracking state and filters
+        # retrieve the next cmdlet to process based on filters and state
         $cmdlet = Get-GenXDevNextCmdLet `
             -ModuleName $ModuleName `
             -Reset:$Reset `
@@ -125,28 +126,27 @@ function Assert-NextGenXdevCmdlet {
             -Key:$Key `
             -OnlyNonExisting:$OnlyNonExisting
 
-	if ($null -eq $cmdlet) {
+        # validate that we found a cmdlet to process
+        if ($null -eq $cmdlet) {
 
-	    Write-Error "Cmdlet not found"
-	    return;
-	}
+            Write-Error "Cmdlet not found"
+            return;
+        }
 
-        # log the current cmdlet being processed for diagnostics
-
+        # log verbose information about current cmdlet
         Write-Verbose "Processing cmdlet: $($cmdlet.Name)"
 
+        # copy matching parameters for Assert-GenXdevCmdlet function
         $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
             -FunctionName Assert-GenXdevCmdlet `
             -BoundParameters $PSBoundParameters `
             -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
 
-        # prepare parameters for test assertion call
+        # set required parameters for cmdlet assertion
         $invocationParams.CmdletName = $cmdlet.Name
-        $invocationParams.Prompt     = $Prompt
+        $invocationParams.Prompt = $Prompt
 
-
-
-        # execute the test assertion with prepared parameters
+        # execute the cmdlet assertion with prepared parameters
         Assert-GenXdevCmdlet @$invocationParams
     }
 

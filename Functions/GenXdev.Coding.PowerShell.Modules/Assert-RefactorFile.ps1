@@ -128,9 +128,9 @@ function Assert-RefactorFile {
 
             # use script-specific template if file is in scripts folder
             if ($Path -like "$scriptsPath\*.ps1") {
-                $promptFilePath = GenXdev.FileSystem\Expand-Path `
-                    "$PSScriptRoot\..\..\Prompts\GenXdev.Coding.PowerShell.Modules\" `
-                    "Assert-$PromptKey-script.txt" -CreateFile
+                $promptFilePath = GenXdev.FileSystem\Expand-Path (
+                    "$PSScriptRoot\..\..\Prompts\GenXdev.Coding.PowerShell.Modules\" +
+                    "Assert-$PromptKey-script.txt") -CreateFile
             }
 
             # load template and replace placeholder
@@ -174,8 +174,8 @@ function Assert-RefactorFile {
         else {
 
             $baseModuleName = "$($Path.Substring($modulesPath.Length + 1).Split("\")[0])"
-            $functionsPath = GenXdev.FileSystem\Expand-Path "$modulesPath\$baseModuleName\1.130.2025\Functions\" -CreateDirectory
-            $testsPath = GenXdev.FileSystem\Expand-Path "$modulesPath\$baseModuleName\1.130.2025\Tests\" -CreateDirectory
+            $functionsPath = GenXdev.FileSystem\Expand-Path "$modulesPath\$baseModuleName\1.134.2025\Functions\" -CreateDirectory
+            $testsPath = GenXdev.FileSystem\Expand-Path "$modulesPath\$baseModuleName\1.134.2025\Tests\" -CreateDirectory
 
             if ($Path.ToLowerInvariant().StartsWith($functionsPath.ToLowerInvariant())) {
 

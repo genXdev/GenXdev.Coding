@@ -5,25 +5,23 @@ Opens one or more files in Visual Studio Code.
 
 .DESCRIPTION
 This function takes file paths and opens them in Visual Studio Code. It expands
-paths and validates file existence before attempting to open them.
-Ideal for in the terminal of Visual Studio Code, to quickly open a selection
-of files.
+paths and validates file existence before attempting to open them. The function
+supports both direct file paths and pipeline input, making it ideal for quickly
+opening multiple files from terminal searches.
 
 .PARAMETER FilePath
-Array of file paths to open in Visual Studio Code.
+One or more file paths to open in Visual Studio Code. Accepts pipeline input
+and wildcard patterns.
+
+.PARAMETER Copilot
+When specified, opens the file and triggers the Copilot keyboard shortcut to
+start an edit session.
 
 .EXAMPLE
-VSCode -FilePath "C:\path\to\file.txt"
+VSCode -FilePath "C:\path\to\file.txt" -Copilot
 
 .EXAMPLE
-"C:\path\to\file.txt" | VSCode
-
-.EXAMPLE
-ls *.js -file -rec | VSCode
-
-.EXAMPLE
-l *.js -file -rec | VSCode
-
+Get-ChildItem *.js -Recurse | VSCode
 #>
 function VSCode {
 
@@ -31,20 +29,26 @@ function VSCode {
     param(
         ########################################################################
         [Parameter(
-            Mandatory = $true,
             Position = 0,
+            Mandatory = $true,
             ValueFromPipeline = $true,
-            HelpMessage = "The path to the file to open in VSCode."
+            HelpMessage = "The path to the file to open in VSCode"
         )]
         [string[]]$FilePath,
         ########################################################################
-        [switch] $Copilot
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Add sourcefile to Copilot edit-session"
+        )]
+        [switch]$Copilot
     )
 
     begin {
 
+        # inform user that function execution has started
         Write-Verbose "Starting VSCode function to open files"
 
+        # ensure copilot keyboard shortcut is configured if needed
         if ($Copilot) {
 
             $null = AssureCopilotKeyboardShortCut
@@ -53,26 +57,29 @@ function VSCode {
 
     process {
 
-
+        # process each file path provided through pipeline or parameter
         $FilePath | ForEach-Object {
 
             try {
-                # expand the provided path to full path
+                # expand relative or partial paths to full filesystem paths
                 $path = GenXdev.FileSystem\Expand-Path $_
 
                 Write-Verbose "Processing file: $path"
 
-                # verify file exists before attempting to open
+                # validate file exists before attempting to open
                 if (-not [System.IO.File]::Exists($path)) {
                     Write-Warning "File not found: $path"
                     return
                 }
 
-                # open file in vscode
+                # open file in vscode with or without copilot activation
                 Write-Verbose "Opening file in VSCode: $path"
                 if ($Copilot) {
 
-                    $null = Open-SourceFileInIde -Path $path -Code -KeysToSend @("^{F12}")
+                    $null = Open-SourceFileInIde `
+                        -Path $path `
+                        -Code `
+                        -KeysToSend @("^{F12}")
                 }
                 else {
                     $null = Open-SourceFileInIde -Path $path -Code

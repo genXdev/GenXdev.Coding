@@ -7,16 +7,26 @@ Assists in refactoring PowerShell source code files using AI assistance.
 This function automates the process of refactoring PowerShell code using AI.
 It manages prompt templates, detects the active IDE (VS Code or Visual Studio),
 and orchestrates the refactoring workflow through keyboard automation.
+The function can handle both module manifest (.psd1) and module script (.psm1)
+files.
 
 .PARAMETER ModuleName
-The name of the module which definition to refactor.
+The name of the PowerShell module to refactor. This module must be available
+in the PowerShell module path.
 
 .PARAMETER Prompt
-Custom AI prompt text to use. Optional.
+Custom AI prompt text to use for the refactoring process. If not specified,
+defaults to an error message if module loading fails.
 
 .PARAMETER EditPrompt
 When enabled, only opens the prompt template for editing without executing the
 actual refactoring process.
+
+.EXAMPLE
+Assert-ModuleDefinition -ModuleName "MyModule" -EditPrompt
+
+.EXAMPLE
+"MyModule" | Assert-ModuleDefinition
 #>
 function Assert-ModuleDefinition {
 
@@ -48,38 +58,38 @@ function Assert-ModuleDefinition {
     )
 
     begin {
-        # store IDE selection at script scope instead of global
+        # store IDE selection at script scope for persistence between calls
         if (-not (Test-Path variable:script:_IDEPreference)) {
             $script:_IDEPreference = -1
         }
 
+        # set default error prompt if none provided
         if ([string]::IsNullOrWhiteSpace($Prompt)) {
-
             $Prompt = "Could not load module definition for `$ModuleName"
         }
 
-        # catch the errors from the import-module operation
+        # attempt to import module and capture any errors
         try {
-
             $null = Import-Module $ModuleName `
                 -Scope Global `
                 -ErrorVariable ImportError `
                 -Force
 
             if (($null -ne $ImportError) -and ($importError.Length -gt 0)) {
-
-                throw ($ImportError | ConvertTo-Json -Depth 4 -ErrorAction SilentlyContinue -WarningAction SilentlyContinue)
+                throw ($ImportError |
+                    ConvertTo-Json -Depth 4 `
+                        -ErrorAction SilentlyContinue `
+                        -WarningAction SilentlyContinue)
             }
         }
         catch {
-
             $Prompt = $_.Exception.Message
         }
 
-        # extract settings from refactor definition
+        # setup refactoring environment
         $promptKey = "ModuleDefinition"
 
-        # detect which IDE is currently active
+        # detect active IDE process
         [System.Diagnostics.Process] $hostProcess = Get-PowershellMainWindowProcess
         $isCode = $hostProcess.Name -eq "Code"
         $isVisualStudio = $hostProcess.Name -eq "devenv"
@@ -170,7 +180,7 @@ function Assert-ModuleDefinition {
 
         $Prompt = $Prompt.Replace("`t", "  ")
 
-        # copy final prompt to clipboard
+        # save current clipboard content to restore later
         $previousClipboard = Get-Clipboard
         $null = Set-Clipboard -Value $prompt
 
@@ -179,16 +189,16 @@ function Assert-ModuleDefinition {
     }
 
     process {
-
-        # exit if only editing prompt
+        # exit early if only editing prompt
         if ($EditPrompt) {
-
             return
         }
 
         Write-Verbose "Opening file in IDE for refactoring"
 
-        . GenXdev.Helpers\foreach-genxdev-module-do -BaseModuleName $ModuleName -Script {
+        # process each module file
+        . Invoke-OnEachGenXdevModule -BaseModuleName $ModuleName `
+            -Script {
 
             $files = Get-ChildItem .\*.psm1, .\*.psd1 -File -ErrorAction SilentlyContinue;
 
@@ -266,8 +276,7 @@ function Assert-ModuleDefinition {
     }
 
     end {
-
-        # restore previous clipboard content
+        # restore original clipboard content
         $null = Set-Clipboard -Value $previousClipboard
     }
 }

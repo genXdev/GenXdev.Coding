@@ -26,17 +26,21 @@ Restart processing from the beginning of the refactor set.
 .PARAMETER ResetLMSelections
 Restart all LLM selections in the refactoring process.
 
+.PARAMETER MarkAllCompleted
+Marks all files in the refactor set as completed.
+
 .PARAMETER RedoLast
 Repeat the last refactoring operation.
 
 .PARAMETER EditPrompt
 Only modify the AI prompt for the refactoring.
 
-.EXAMPLE
-Start-NextRefactor -Name "RefactorProject" -Reset -CleanUpDeletedFiles
+.PARAMETER Speak
+Enables text-to-speech for refactoring progress and notifications.
 
 .EXAMPLE
-nextrefactor "*" -RedoLast
+Start-NextRefactor -Name "RefactorProject" -Reset -CleanUpDeletedFiles
+Restarts refactoring for "RefactorProject" and removes deleted files.
 #>
 function Start-NextRefactor {
 
@@ -118,18 +122,18 @@ function Start-NextRefactor {
 
     begin {
 
-        # log start of refactoring operation
-        Write-Verbose "Starting refactoring operation"
+        # output detailed module filter pattern for troubleshooting
+        Write-Verbose "Starting refactoring operation for patterns: $($Name -join ', ')"
 
-        # load refactor definitions and sort by priority in descending order
+        # load and sort refactor definitions by priority
         [GenXdev.Helpers.RefactorDefinition[]] $refactorSet = GenXdev.Coding\Get-Refactor `
             -Name $Name |
         Sort-Object -Property Priority -Descending
 
-        # exit if no refactors were found matching the criteria
+        # exit if no matching refactors found
         if ($null -eq $refactorSet) {
 
-            Write-Warning "No refactor set found"
+            Write-Warning "No refactor set found matching patterns: $($Name -join ', ')"
             return
         }
     }

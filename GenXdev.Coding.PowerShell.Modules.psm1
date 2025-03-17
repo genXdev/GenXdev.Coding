@@ -1,5 +1,7 @@
+. "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Add-MissingGenXdevUnitTests.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Assert-GenXdevCmdlet.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Assert-GenXdevCmdletTests.ps1"
+. "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Assert-GenXdevUnitTests.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Assert-ModuleDefinition.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Assert-NextGenXdevCmdlet.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Assert-NextGenXdevCmdletTest.ps1"

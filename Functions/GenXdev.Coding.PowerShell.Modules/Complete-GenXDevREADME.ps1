@@ -6,11 +6,14 @@ Completes the README file for specified GenXDev modules by adding documentation.
 .DESCRIPTION
 This function enhances README.md files for GenXDev modules by automatically
 generating and inserting a cmdlet index and detailed cmdlet documentation. It
-processes either specified modules or all modules if none are specified.
+processes either specified modules or all modules if none are specified. The
+function updates existing README.md files with a standardized format including
+a command index and detailed help for each cmdlet.
 
 .PARAMETER ModuleName
 Specifies which module(s) to process. If omitted, all modules will be processed.
-Can accept multiple module names and pipeline input.
+Can accept multiple module names and supports pipeline input. Accepts string array
+input.
 
 .EXAMPLE
 Complete-GenXDevREADME -ModuleName "GenXdev.Helpers"
@@ -32,10 +35,11 @@ function Complete-GenXDevREADME {
             HelpMessage = "The name(s) of the module(s) to complete the README for"
         )]
         [string[]] $ModuleName = @()
+        ########################################################################
     )
 
     begin {
-        # get information about target modules
+        # retrieve module information for target modules
         $modules = Get-GenXDevModuleInfo -ModuleName "$ModuleName"
     }
 
@@ -43,55 +47,63 @@ function Complete-GenXDevREADME {
 
         foreach ($module in $modules) {
 
-            # construct full path to the module's README.md file
-            $readmeFilePath = [System.IO.Path]::Combine($module.ModulePath,
+            # construct path to module's README file
+            $readmeFilePath = [System.IO.Path]::Combine(
+                $module.ModulePath,
                 "README.md")
 
-            # skip if README doesn't exist
+            # skip processing if README doesn't exist
             if (-not [System.IO.File]::Exists($readmeFilePath)) { continue }
 
-            # load the current README content
+            Write-Verbose "Processing README file: $readmeFilePath"
+
+            # load current README content for modification
             $readmeText = [System.IO.File]::ReadAllText($readmeFilePath)
 
-            # locate the sections we need to update
+            # locate section markers for updates
             $summaryIndex = $readmeText.IndexOf("`r`n# Cmdlet Index")
             $cmdsIndex = $readmeText.IndexOf("`r`n# Cmdlets")
 
-            # skip if required sections are not found
+            # validate required sections exist
             if ($cmdsIndex -lt 0) { continue }
             if ($summaryIndex -ge 0 -and $summaryIndex -lt $cmdsIndex) {
                 $cmdsIndex = $summaryIndex
             }
 
-            Write-Verbose "Updating documentation in $readmeFilePath"
+            Write-Verbose "Generating documentation for $($module.ModuleName)"
 
             # generate detailed cmdlet documentation
             $cmdlets = @(Get-ModuleHelpMarkdown -ModuleName @($module.ModuleName)) `
                 -join " `r`n"
 
-            # prepare variables for summary table generation
             $lastModule = ""
 
-            # generate the summary table header
-            $summary = "| Command&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
-            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
-            " | aliases&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
-            "&nbsp; | Description |`r`n| --- | --- | --- |`r`n"
+            # prepare summary table header with proper column spacing
+            $summary = (
+                "| Command&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                " | aliases&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                "&nbsp; | Description |`r`n| --- | --- | --- |`r`n"
+            )
 
-            # get all cmdlets and build summary table
+            # build cmdlet summary table with module sections
             $summary += @(Get-GenXDevCmdlets -ModuleName @($module.ModuleName) |
                 Sort-Object -Property ModuleName, Name |
                 ForEach-Object -ErrorAction SilentlyContinue {
 
-                    # add module header if switching to new module
+                    # insert module header when changing modules
                     if (($lastModule -ne "") -and
                         ($lastModule -ne $PSItem.ModuleName)) {
-                        "`r`n<hr/>`r`n&nbsp;`r`n`r`n### $($PSItem.ModuleName)" +
-                        "</hr>`r`n| Command&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
-                        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
-                        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | aliases&nbsp;&nbsp;" +
-                        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | " +
-                        "Description |`r`n| --- | --- | --- |"
+
+                        $moduleHeader = (
+                            "`r`n<hr/>`r`n&nbsp;`r`n`r`n### $($PSItem.ModuleName)" +
+                            "</hr>`r`n| Command&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | aliases&nbsp;&nbsp;" +
+                            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | " +
+                            "Description |`r`n| --- | --- | --- |"
+                        )
+                        $moduleHeader
                     }
 
                     $lastModule = $PSItem.ModuleName
@@ -102,15 +114,19 @@ function Complete-GenXDevREADME {
 
             $summary += "`r`n`r`n<br/><hr/><hr/><br/>`r`n`r`n`r`n"
 
-            # combine all sections into final content
-            $newHelp = "# Cmdlet Index`r`n### $($module.ModuleName)<hr/>`r`n" +
-            "$summary`r`n# Cmdlets`r`n$cmdlets"
+            # combine sections into final content
+            $newHelp = (
+                "# Cmdlet Index`r`n### $($module.ModuleName)<hr/>`r`n" +
+                "$summary`r`n# Cmdlets`r`n$cmdlets"
+            )
 
-            # update the README content
+            # update README content with new documentation
             $readmeText = ($readmeText.Substring(0, $cmdsIndex + 2) +
                 "`r`n$newHelp") -Replace "`r`n`r`n`r`n", "`r`n`r`n"
 
-            # save the updated README
+            Write-Verbose "Saving updated README file"
+
+            # save modified README
             [System.IO.File]::WriteAllText($readmeFilePath, $readmeText)
         }
     }

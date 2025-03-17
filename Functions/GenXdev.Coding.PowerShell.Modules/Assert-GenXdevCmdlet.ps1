@@ -198,7 +198,7 @@ function Assert-GenXdevCmdlet {
                 $baseDestinationParts = "$($($selected)[0].Label)".Split(".");
                 $baseDestinationModule = $baseDestinationParts[0] + "." + $baseDestinationParts[1];
                 $ModuleName = "$($($selected)[0].Label)"
-                $destination = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.130.2025\Functions\$ModuleName\$CmdletName.ps1" -CreateDirectory
+                $destination = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.134.2025\Functions\$ModuleName\$CmdletName.ps1" -CreateDirectory
 
                 # move the script file
                 Move-ItemWithTracking -Path $cmdlet.ScriptFilePath -Destination $destination
@@ -225,7 +225,7 @@ function Assert-GenXdevCmdlet {
                 }
 
                 # add dot source reference to corresponding psm1 file
-                SplitUpPsm1File -Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.130.2025\$ModuleName.psm1"
+                SplitUpPsm1File -Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.134.2025\$ModuleName.psm1"
 
                 . GenXdev.Helpers\Invoke-OnEachGenXdevModule {
 
@@ -348,7 +348,7 @@ function Assert-GenXdevCmdlet {
                         @("&Stop", "&Run unit-tests for $CmdletName", "Redo &Last"),
                         0)) {
                     0 { throw "Stopped" }
-                    1 { return Run-UnitTests.ps1 -CmdletName $CmdletName -DebugFailedTests }
+                    1 { return Assert-GenXdevUnitTests -CmdletName $CmdletName -DebugFailedTests }
                     2 {
                         return Assert-GenXdevCmdlet @PSBoundParameters
                     }
