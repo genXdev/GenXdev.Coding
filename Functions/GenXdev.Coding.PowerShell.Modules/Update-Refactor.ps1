@@ -1019,7 +1019,7 @@ function Update-Refactor {
                             [Version] $version = $null
                             if ([Version]::tryParse($parts[1], [ref]$version)) {
 
-                                $path = "$modulesPath\$($parts[0])\1.136.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
+                                $path = "$modulesPath\$($parts[0])\1.138.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
                                 $refactorDefinition.State.Refactored[$refactoredIndex] = $path
                             }
                         }
@@ -1046,7 +1046,7 @@ function Update-Refactor {
                                 [Version] $version = $null
                                 if ([Version]::tryParse($parts[1], [ref]$version)) {
 
-                                    $path = "$modulesPath\$($parts[0])\1.136.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
+                                    $path = "$modulesPath\$($parts[0])\1.138.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
                                     $refactorDefinition.State.Selected[$selectedIndex] = $path
                                 }
                             }
@@ -1073,7 +1073,7 @@ function Update-Refactor {
                             [Version] $version = $null
                             if ([Version]::tryParse($parts[1], [ref]$version)) {
 
-                                $path = "$modulesPath\$($parts[0])\1.136.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
+                                $path = "$modulesPath\$($parts[0])\1.138.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
                                 $refactorDefinition.State.Unselected[$unselectedIndex] = $path
                             }
                         }

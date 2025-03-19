@@ -141,7 +141,7 @@ function New-PullRequestForGenXdevModuleChange {
         GenXdev.Coding\Assert-GenXdevUnitTests -ModuleName $ModuleName -ErrorAction Stop
 
         # get full path to module
-        $modulePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\Modules\$ModuleName\1.136.2025\"
+        $modulePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\Modules\$ModuleName\1.138.2025\"
 
         Microsoft.PowerShell.Utility\Write-Verbose "Checking for module manifest at: $modulePath"
         if (!(Microsoft.PowerShell.Management\Test-Path -Path "$modulePath\$ModuleName.psd1")) {

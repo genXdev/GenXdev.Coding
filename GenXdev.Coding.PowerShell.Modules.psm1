@@ -25,6 +25,7 @@
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Search-NextGenXdevCmdlet.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Show-GenXdevCmdLetInIde.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Show-RefactorReport.ps1"
+. "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\SplitUpPsm1File.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Start-NextRefactor.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Test-RefactorLLMSelection.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Update-Refactor.ps1"

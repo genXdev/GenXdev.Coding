@@ -12,7 +12,7 @@
 RootModule = 'GenXdev.Coding.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.136.2025'
+ModuleVersion = '1.138.2025'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Core'
@@ -52,14 +52,14 @@ ProcessorArchitecture = 'Amd64'
 
 # Modules that must be imported into the global environment prior to importing this module
 RequiredModules = @(@{ModuleName = 'PSScriptAnalyzer'; ModuleVersion = '1.23.0'; }, 
-               @{ModuleName = 'GenXdev.AI'; ModuleVersion = '1.136.2025'; }, 
-               @{ModuleName = 'GenXdev.Data'; ModuleVersion = '1.136.2025'; }, 
-               @{ModuleName = 'GenXdev.Helpers'; ModuleVersion = '1.136.2025'; }, 
-               @{ModuleName = 'GenXdev.Windows'; ModuleVersion = '1.136.2025'; }, 
-               @{ModuleName = 'GenXdev.Webbrowser'; ModuleVersion = '1.136.2025'; }, 
-               @{ModuleName = 'GenXdev.Queries'; ModuleVersion = '1.136.2025'; }, 
-               @{ModuleName = 'GenXdev.Console'; ModuleVersion = '1.136.2025'; }, 
-               @{ModuleName = 'GenXdev.FileSystem'; ModuleVersion = '1.136.2025'; })
+               @{ModuleName = 'GenXdev.AI'; ModuleVersion = '1.138.2025'; }, 
+               @{ModuleName = 'GenXdev.Data'; ModuleVersion = '1.138.2025'; }, 
+               @{ModuleName = 'GenXdev.Helpers'; ModuleVersion = '1.138.2025'; }, 
+               @{ModuleName = 'GenXdev.Windows'; ModuleVersion = '1.138.2025'; }, 
+               @{ModuleName = 'GenXdev.Webbrowser'; ModuleVersion = '1.138.2025'; }, 
+               @{ModuleName = 'GenXdev.Queries'; ModuleVersion = '1.138.2025'; }, 
+               @{ModuleName = 'GenXdev.Console'; ModuleVersion = '1.138.2025'; }, 
+               @{ModuleName = 'GenXdev.FileSystem'; ModuleVersion = '1.138.2025'; })
 
 # Assemblies that must be loaded prior to importing this module
 # RequiredAssemblies = @()
@@ -95,7 +95,7 @@ FunctionsToExport = 'Add-FeatureLineToREADME', 'Add-IdeaLineToREADME',
                'New-PullRequestForGenXdevModuleChange', 'New-Refactor', 
                'Open-SourceFileInIde', 'PermanentlyDeleteGitFolders', 'ReleaseNotes', 
                'Remove-Refactor', 'Search-GenXdevCmdlet', 'Search-NextGenXdevCmdlet', 
-               'Show-GenXdevCmdLetInIde', 'Show-RefactorReport', 
+               'Show-GenXdevCmdLetInIde', 'Show-RefactorReport', 'SplitUpPsm1File', 
                'Start-NextRefactor', 'Test-RefactorLLMSelection', 'Todoos', 
                'Update-Refactor', 'VSCode'
 
@@ -111,7 +111,7 @@ AliasesToExport = 'checkgenxdevdependencies', 'commit', 'editcmdlet', 'editcode'
                'improvecmdlettests', 'issue', 'newrefactor', 'nextcmdlet', 
                'nextcmdlettest', 'nextrefactor', 'prgenxdevmodule', 'refactor', 
                'refactorreport', 'refactors', 'ReleaseNote', 'rungenxdevtests', 
-               'searchcmdlet', 'todo'
+               'searchcmdlet', 'split', 'todo'
 
 # DSC resources to export from this module
 # DscResourcesToExport = @()
@@ -152,6 +152,7 @@ FileList = 'GenXdev.Coding.Git.psm1', 'GenXdev.Coding.PowerShell.Modules.psm1',
                'Tests\GenXdev.Coding.PowerShell.Modules\Search-NextGenXdevCmdlet.Tests.ps1', 
                'Tests\GenXdev.Coding.PowerShell.Modules\Show-GenXdevCmdLetInIde.Tests.ps1', 
                'Tests\GenXdev.Coding.PowerShell.Modules\Show-RefactorReport.Tests.ps1', 
+               'Tests\GenXdev.Coding.PowerShell.Modules\SplitUpPsm1File.Tests.ps1', 
                'Tests\GenXdev.Coding.PowerShell.Modules\Start-NextRefactor.Tests.ps1', 
                'Tests\GenXdev.Coding.PowerShell.Modules\Test-RefactorLLMSelection.Tests.ps1', 
                'Tests\GenXdev.Coding.PowerShell.Modules\Update-Refactor.Tests.ps1', 
@@ -222,6 +223,7 @@ FileList = 'GenXdev.Coding.Git.psm1', 'GenXdev.Coding.PowerShell.Modules.psm1',
                'Functions\GenXdev.Coding.PowerShell.Modules\Search-NextGenXdevCmdlet.ps1', 
                'Functions\GenXdev.Coding.PowerShell.Modules\Show-GenXdevCmdLetInIde.ps1', 
                'Functions\GenXdev.Coding.PowerShell.Modules\Show-RefactorReport.ps1', 
+               'Functions\GenXdev.Coding.PowerShell.Modules\SplitUpPsm1File.ps1', 
                'Functions\GenXdev.Coding.PowerShell.Modules\Start-NextRefactor.ps1', 
                'Functions\GenXdev.Coding.PowerShell.Modules\Test-RefactorLLMSelection.ps1', 
                'Functions\GenXdev.Coding.PowerShell.Modules\Update-Refactor.ps1', 
