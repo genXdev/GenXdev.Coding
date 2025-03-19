@@ -63,9 +63,9 @@ function Search-NextGenXdevCmdlet {
         }
 
         # get next cmdlet to process using constructed parameters
-        $cmdlet = Get-GenXDevNextCmdLet @getNextParams
+        $cmdlet = GenXdev.Coding\Get-GenXDevNextCmdLet @getNextParams
 
-        Write-Verbose "Processing cmdlet: $($cmdlet.Name)"
+        Microsoft.PowerShell.Utility\Write-Verbose "Processing cmdlet: $($cmdlet.Name)"
 
         # prepare parameters for Assert-GenXdevCmdlet
         $params = @{
@@ -80,7 +80,7 @@ function Search-NextGenXdevCmdlet {
     process {
 
         # search the current cmdlet with prepared parameters
-        Search-GenXdevCmdlet @params
+        GenXdev.Coding\Search-GenXdevCmdlet @params
     }
 
     end {

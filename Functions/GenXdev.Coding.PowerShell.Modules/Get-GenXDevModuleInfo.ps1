@@ -38,8 +38,8 @@ function Get-GenXDevModuleInfo {
 
     begin {
         # get all available genxdev modules
-        Write-Verbose "Retrieving all available GenXdev modules"
-        [System.IO.FileSystemInfo[]] $AllModules = @(Get-GenXDevModule)
+        Microsoft.PowerShell.Utility\Write-Verbose "Retrieving all available GenXdev modules"
+        [System.IO.FileSystemInfo[]] $AllModules = @(GenXdev.Coding\Get-GenXDevModule)
     }
 
     process {
@@ -59,11 +59,11 @@ function Get-GenXDevModuleInfo {
 
                     # construct path to module configuration file
                     $configPath = "$($currentModule.FullName)\$currentModuleName.psd1"
-                    Write-Verbose "Processing config file: $configPath"
+                    Microsoft.PowerShell.Utility\Write-Verbose "Processing config file: $configPath"
 
                     # read and parse module configuration
                     $configText = [IO.File]::ReadAllText($configPath)
-                    $config = Invoke-Expression -Command ($configText)
+                    $config = Microsoft.PowerShell.Utility\Invoke-Expression -Command ($configText)
 
                     # calculate current and new version numbers
                     $currentVersion = [Version]::new($config.ModuleVersion)
@@ -100,14 +100,14 @@ function Get-GenXDevModuleInfo {
         foreach ($currentModule in $AllModules) {
 
             $currentModuleName = $currentModule.Parent.Name
-            Write-Verbose "Processing module: $currentModuleName"
+            Microsoft.PowerShell.Utility\Write-Verbose "Processing module: $currentModuleName"
 
             # construct path to module configuration file
             $configPath = "$($currentModule.FullName)\$currentModuleName.psd1"
 
             # read and parse module configuration
             $configText = [IO.File]::ReadAllText($configPath)
-            $config = Invoke-Expression -Command ($configText)
+            $config = Microsoft.PowerShell.Utility\Invoke-Expression -Command ($configText)
 
             # calculate current and new version numbers
             $currentVersion = [Version]::new($config.ModuleVersion)

@@ -59,24 +59,24 @@ function Get-ModuleHelpMarkdown {
     begin {
 
         # retrieve and sort all cmdlets from specified modules
-        Write-Verbose "Retrieving cmdlets from modules: $($ModuleName -join ',')"
-        $modules = $ModuleName | ForEach-Object {
+        Microsoft.PowerShell.Utility\Write-Verbose "Retrieving cmdlets from modules: $($ModuleName -join ',')"
+        $modules = $ModuleName | Microsoft.PowerShell.Core\ForEach-Object {
 
             # normalize module names by adding GenXdev prefix if not present
             $name = "GenXdev." + $PSItem.Replace("GenXdev.", "")
 
             # get all matching modules including their nested modules
-            Get-Module "$($name.TrimEnd("*"))*" -All |
-            ForEach-Object {
+            Microsoft.PowerShell.Core\Get-Module "$($name.TrimEnd("*"))*" -All |
+            Microsoft.PowerShell.Core\ForEach-Object {
                 $module = $PSItem
-                $module.NestedModules | ForEach-Object { $_ }
+                $module.NestedModules | Microsoft.PowerShell.Core\ForEach-Object { $_ }
                 $module
             }
         } |
-        Select-Object -Unique |
-        Sort-Object { $_.Name.Length.ToString().PadLeft(4, '0') + "_" + $_.Name } | ForEach-Object {
+        Microsoft.PowerShell.Utility\Select-Object -Unique |
+        Microsoft.PowerShell.Utility\Sort-Object { $_.Name.Length.ToString().PadLeft(4, '0') + "_" + $_.Name } | Microsoft.PowerShell.Core\ForEach-Object {
 
-            Get-GenXDevCmdlets -ModuleName ($_.Name) | ForEach-Object { $_ }
+            GenXdev.Helpers\Get-GenXDevCmdlets -ModuleName ($_.Name) | Microsoft.PowerShell.Core\ForEach-Object { $_ }
         }
     }
 
@@ -90,7 +90,7 @@ function Get-ModuleHelpMarkdown {
             # emit section header when switching to a new module
             if (($lastModule -eq "") -or ($lastModule -ne $current.ModuleName)) {
 
-                Write-Verbose "Processing module: $($current.ModuleName)"
+                Microsoft.PowerShell.Utility\Write-Verbose "Processing module: $($current.ModuleName)"
                 "`r`n&nbsp;<hr/>`r`n###`t$($current.ModuleName)<hr/>"
             }
 
@@ -115,7 +115,7 @@ function Get-ModuleHelpMarkdown {
 
             # process current cmdlet
             $CmdletName = $current.Name
-            Write-Verbose "Generating help for cmdlet: $CmdletName"
+            Microsoft.PowerShell.Utility\Write-Verbose "Generating help for cmdlet: $CmdletName"
 
             # retrieve full help content
             $lines = ""
@@ -152,9 +152,9 @@ function Get-ModuleHelpMarkdown {
                                 $inPowerShell = $true
 
                                 # get and format aliases
-                                $aliases = ((Get-Alias -Definition $CmdletName `
+                                $aliases = ((Microsoft.PowerShell.Utility\Get-Alias -Definition $CmdletName `
                                             -ErrorAction SilentlyContinue |
-                                        ForEach-Object name) -join ", ").Trim()
+                                        Microsoft.PowerShell.Core\ForEach-Object name) -join ", ").Trim()
 
                                 if (![string]::IsNullOrWhiteSpace($aliases)) {
                                     $linebuffer = $aliases
@@ -175,7 +175,7 @@ function Get-ModuleHelpMarkdown {
 
                         # handle transitions between powershell and regular text
                         if ($wasInPowerShell) {
-                            alignScript $lineBuffer.Trim("`r`n".ToCharArray()) 0
+                            GenXdev.Helpers\alignScript $lineBuffer.Trim("`r`n".ToCharArray()) 0
                             $lineBuffer = ""
                             "````````"
                         }

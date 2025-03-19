@@ -19,7 +19,7 @@ function AssureCopilotKeyboardShortCut {
     begin {
 
         # construct the full path to vscode's keybindings configuration file
-        $keybindingsPath = Join-Path $env:APPDATA "Code\User\keybindings.json"
+        $keybindingsPath = Microsoft.PowerShell.Management\Join-Path $env:APPDATA "Code\User\keybindings.json"
 
         # define the new keyboard shortcut configuration for copilot
         $newKeybinding = @{
@@ -40,30 +40,30 @@ function AssureCopilotKeyboardShortCut {
 
     process {
         # ensure the directory for keybindings exists
-        $keybindingsDir = Split-Path $keybindingsPath -Parent
-        if (-not (Test-Path $keybindingsDir)) {
-            Write-Verbose "Creating VS Code keybindings directory at: $keybindingsDir"
-            $null = New-Item -ItemType Directory -Path $keybindingsDir -Force
+        $keybindingsDir = Microsoft.PowerShell.Management\Split-Path $keybindingsPath -Parent
+        if (-not (Microsoft.PowerShell.Management\Test-Path $keybindingsDir)) {
+            Microsoft.PowerShell.Utility\Write-Verbose "Creating VS Code keybindings directory at: $keybindingsDir"
+            $null = Microsoft.PowerShell.Management\New-Item -ItemType Directory -Path $keybindingsDir -Force
         }
 
         # load existing keybindings or initialize new array if file doesn't exist
-        if (Test-Path $keybindingsPath) {
-            Write-Verbose "Loading existing keybindings configuration"
-            $keybindings = Get-Content $keybindingsPath -Raw |
-            ConvertFrom-Json
+        if (Microsoft.PowerShell.Management\Test-Path $keybindingsPath) {
+            Microsoft.PowerShell.Utility\Write-Verbose "Loading existing keybindings configuration"
+            $keybindings = Microsoft.PowerShell.Management\Get-Content $keybindingsPath -Raw |
+            Microsoft.PowerShell.Utility\ConvertFrom-Json
         }
         else {
-            Write-Verbose "Initializing new keybindings configuration"
+            Microsoft.PowerShell.Utility\Write-Verbose "Initializing new keybindings configuration"
             $keybindings = @()
         }
 
         # check if the copilot shortcut is already configured
-        $existsCopilot = $keybindings | Where-Object {
+        $existsCopilot = $keybindings | Microsoft.PowerShell.Core\Where-Object {
             $_.key -eq $newKeybinding.key -and $_.command -eq $newKeybinding.command
         }
 
         # check if the focus editor shortcut is already configured
-        $existsFocus = $keybindings | Where-Object {
+        $existsFocus = $keybindings | Microsoft.PowerShell.Core\Where-Object {
             $_.key -eq $secondNewKeybinding.key -and $_.command -eq $secondNewKeybinding.command
         }
 
@@ -71,28 +71,28 @@ function AssureCopilotKeyboardShortCut {
         $modified = $false
 
         if (-not $existsCopilot) {
-            Write-Verbose "Adding Copilot keyboard shortcut (Ctrl+F12)"
+            Microsoft.PowerShell.Utility\Write-Verbose "Adding Copilot keyboard shortcut (Ctrl+F12)"
             $keybindings += $newKeybinding
             $modified = $true
         }
         else {
-            Write-Verbose "Copilot keyboard shortcut already exists"
+            Microsoft.PowerShell.Utility\Write-Verbose "Copilot keyboard shortcut already exists"
         }
 
         if (-not $existsFocus) {
-            Write-Verbose "Adding Focus Editor keyboard shortcut (Ctrl+Shift+F12)"
+            Microsoft.PowerShell.Utility\Write-Verbose "Adding Focus Editor keyboard shortcut (Ctrl+Shift+F12)"
             $keybindings += $secondNewKeybinding
             $modified = $true
         }
         else {
-            Write-Verbose "Focus Editor keyboard shortcut already exists"
+            Microsoft.PowerShell.Utility\Write-Verbose "Focus Editor keyboard shortcut already exists"
         }
 
         # Save changes if any modifications were made
         if ($modified) {
             $keybindings |
-            ConvertTo-Json -Depth 10 |
-            Set-Content $keybindingsPath
+            Microsoft.PowerShell.Utility\ConvertTo-Json -Depth 10 |
+            Microsoft.PowerShell.Management\Set-Content $keybindingsPath
         }
     }
 

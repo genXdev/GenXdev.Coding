@@ -48,7 +48,7 @@ function Assert-RefactorFile {
         $promptKey = $RefactorDefinition.RefactorSettings.PromptKey
 
         # detect which IDE is currently active
-        [System.Diagnostics.Process] $hostProcess = Get-PowershellMainWindowProcess
+        [System.Diagnostics.Process] $hostProcess = GenXdev.Windows\Get-PowershellMainWindowProcess
         $isCode = $hostProcess.Name -eq "Code"
         $isVisualStudio = $hostProcess.Name -eq "devenv"
 
@@ -68,20 +68,20 @@ function Assert-RefactorFile {
             # attempt to find any running IDE as fallback
             if (-not ($isCode -or $isVisualStudio)) {
 
-                Write-Verbose "Attempting to detect running IDE instances"
+                Microsoft.PowerShell.Utility\Write-Verbose "Attempting to detect running IDE instances"
 
                 # try to find VS Code
-                [System.Diagnostics.Process] $hostProcess = Get-Process "Code" `
+                [System.Diagnostics.Process] $hostProcess = Microsoft.PowerShell.Management\Get-Process "Code" `
                     -ErrorAction SilentlyContinue |
-                Sort-Object |
-                Select-Object -First 1
+                Microsoft.PowerShell.Utility\Sort-Object |
+                Microsoft.PowerShell.Utility\Select-Object -First 1
 
                 $isCode = $null -ne $hostProcess
 
                 # try to find Visual Studio
-                $hostProcess = Get-Process "devenv" -ErrorAction SilentlyContinue |
-                Sort-Object |
-                Select-Object -First 1
+                $hostProcess = Microsoft.PowerShell.Management\Get-Process "devenv" -ErrorAction SilentlyContinue |
+                Microsoft.PowerShell.Utility\Sort-Object |
+                Microsoft.PowerShell.Utility\Select-Object -First 1
 
                 $isVisualStudio = $null -ne $hostProcess
             }
@@ -90,7 +90,7 @@ function Assert-RefactorFile {
         # prompt user to select IDE if no clear choice determined
         if (-not ($isCode -bxor $isVisualStudio)) {
 
-            Write-Verbose "Prompting user to select IDE"
+            Microsoft.PowerShell.Utility\Write-Verbose "Prompting user to select IDE"
             $userAnswer = $null -ne $Script:_CodeOrVisualStudioRefactor ?
             $Script:_CodeOrVisualStudioRefactor :
             ($host.ui.PromptForChoice(
@@ -124,7 +124,7 @@ function Assert-RefactorFile {
                 "$PSScriptRoot\..\..\Prompts\GenXdev.Coding.PowerShell.Modules\" `
                 -CreateDirectory
 
-            $promptFilePath = Join-Path $promptFilePath "Assert-$PromptKey.txt"
+            $promptFilePath = Microsoft.PowerShell.Management\Join-Path $promptFilePath "Assert-$PromptKey.txt"
 
             # use script-specific template if file is in scripts folder
             if ($Path -like "$scriptsPath\*.ps1") {
@@ -174,8 +174,8 @@ function Assert-RefactorFile {
         else {
 
             $baseModuleName = "$($Path.Substring($modulesPath.Length + 1).Split("\")[0])"
-            $functionsPath = GenXdev.FileSystem\Expand-Path "$modulesPath\$baseModuleName\1.134.2025\Functions\" -CreateDirectory
-            $testsPath = GenXdev.FileSystem\Expand-Path "$modulesPath\$baseModuleName\1.134.2025\Tests\" -CreateDirectory
+            $functionsPath = GenXdev.FileSystem\Expand-Path "$modulesPath\$baseModuleName\1.136.2025\Functions\" -CreateDirectory
+            $testsPath = GenXdev.FileSystem\Expand-Path "$modulesPath\$baseModuleName\1.136.2025\Tests\" -CreateDirectory
 
             if ($Path.ToLowerInvariant().StartsWith($functionsPath.ToLowerInvariant())) {
 
@@ -208,11 +208,11 @@ function Assert-RefactorFile {
         $Prompt = $Prompt.Replace("`t", "  ")
 
         # copy final prompt to clipboard
-        $previousClipboard = Get-Clipboard
-        $null = Set-Clipboard -Value $prompt
+        $previousClipboard = Microsoft.PowerShell.Management\Get-Clipboard
+        $null = Microsoft.PowerShell.Management\Set-Clipboard -Value $prompt
 
-        Write-Verbose "Prepared prompt and copied to clipboard:"
-        Write-Verbose $prompt
+        Microsoft.PowerShell.Utility\Write-Verbose "Prepared prompt and copied to clipboard:"
+        Microsoft.PowerShell.Utility\Write-Verbose $prompt
 
         # determine keyboard sequence based on IDE
         $keysToSend = $RefactorDefinition.RefactorSettings.KeysToSend
@@ -238,7 +238,7 @@ function Assert-RefactorFile {
             return
         }
 
-        Write-Verbose "Opening file in IDE for refactoring"
+        Microsoft.PowerShell.Utility\Write-Verbose "Opening file in IDE for refactoring"
 
         # prepare parameters for IDE invocation
         $invocationParams = @{
@@ -251,13 +251,13 @@ function Assert-RefactorFile {
         $invocationParams.VisualStudio = $VisualStudio
 
         # open file in selected IDE
-        Open-SourceFileInIde @invocationParams
+        GenXdev.Coding\Open-SourceFileInIde @invocationParams
     }
 
     end {
 
         # restore previous clipboard content
-        $null = Set-Clipboard -Value $previousClipboard
+        $null = Microsoft.PowerShell.Management\Set-Clipboard -Value $previousClipboard
     }
 }
 ################################################################################

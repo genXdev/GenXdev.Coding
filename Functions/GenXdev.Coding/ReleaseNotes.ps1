@@ -40,13 +40,13 @@ function ReleaseNotes {
 
     begin {
 
-        Write-Verbose "Starting ReleaseNotes function"
+        Microsoft.PowerShell.Utility\Write-Verbose "Starting ReleaseNotes function"
     }
 
     process {
 
         # display ReleaseNotes using base function
-        Add-ReleaseNoteLineToREADME `
+        GenXdev.Coding\Add-ReleaseNoteLineToREADME `
             -Show `
             -UseHomeREADME:$UseHomeREADME `
             -UseOneDriveREADME:$UseOneDriveREADME

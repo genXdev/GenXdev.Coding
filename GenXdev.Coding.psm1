@@ -4,6 +4,7 @@
 . "$PSScriptRoot\Functions\GenXdev.Coding\Add-LineToREADME.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding\Add-ReleaseNoteLineToREADME.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding\Add-TodoLineToREADME.ps1"
+. "$PSScriptRoot\Functions\GenXdev.Coding\AssureGithubCLIInstalled.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding\AssureVSCodeInstallation.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding\Features.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding\Ideas.ps1"

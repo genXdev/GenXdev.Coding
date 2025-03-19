@@ -47,13 +47,13 @@ function Get-Refactor {
 
     process {
         # get all preference names that could contain refactor definitions
-        Write-Verbose "Searching for refactor set preferences..."
-        $prefNames = Get-GenXdevPreferenceNames |
-        Where-Object { $_ -like "refactor_set_*" }
+        Microsoft.PowerShell.Utility\Write-Verbose "Searching for refactor set preferences..."
+        $prefNames = GenXdev.Data\Get-GenXdevPreferenceNames |
+        Microsoft.PowerShell.Core\Where-Object { $_ -like "refactor_set_*" }
         & {
             foreach ($prefName in $prefNames) {
 
-                Write-Verbose "Processing preference: $prefName"
+                Microsoft.PowerShell.Utility\Write-Verbose "Processing preference: $prefName"
 
                 # check each provided name pattern against current preference
                 foreach ($pattern in $Name) {
@@ -68,13 +68,13 @@ function Get-Refactor {
                     }
 
                     # attempt to load and parse the JSON content
-                    $existingJson = Get-GenXdevPreference -Name $prefName
+                    $existingJson = GenXdev.Data\Get-GenXdevPreference -Name $prefName
 
                     # process non-empty JSON content
                     if (-not [string]::IsNullOrWhiteSpace($existingJson)) {
                         try {
                             # deserialize JSON into refactor definition object
-                            [GenXdev.Helpers.RefactorDefinition] $refactorSet = (ConvertFrom-Json $existingJson) -as [GenXdev.Helpers.RefactorDefinition]
+                            [GenXdev.Helpers.RefactorDefinition] $refactorSet = (Microsoft.PowerShell.Utility\ConvertFrom-Json $existingJson) -as [GenXdev.Helpers.RefactorDefinition]
 
                             # check containers
                             if (($null -eq $refactorSet.State.Unselected) -or
@@ -91,21 +91,21 @@ function Get-Refactor {
                                 $refactorSet = $newSet
                             }
 
-                            Write-Verbose ("Successfully parsed refactor set from " +
+                            Microsoft.PowerShell.Utility\Write-Verbose ("Successfully parsed refactor set from " +
                                 "preference: $prefName")
-                            Write-Output $refactorSet
+                            Microsoft.PowerShell.Utility\Write-Output $refactorSet
                         }
                         catch {
                             $errorMsg = "Failed to parse refactor set from $prefName"
-                            Write-Error $errorMsg
-                            Write-Verbose "$errorMsg : $_"
+                            Microsoft.PowerShell.Utility\Write-Error $errorMsg
+                            Microsoft.PowerShell.Utility\Write-Verbose "$errorMsg : $_"
                         }
                     }
 
                     break;
                 }
             }
-        }.GetNewClosure() | Sort-Object -Property Priority -Descending
+        }.GetNewClosure() | Microsoft.PowerShell.Utility\Sort-Object -Property Priority -Descending
     }
 
     end {

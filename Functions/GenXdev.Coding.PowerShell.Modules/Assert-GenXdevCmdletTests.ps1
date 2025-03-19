@@ -73,7 +73,7 @@ function Assert-GenXdevCmdletTests {
     begin {
 
         # get target cmdlet information including script position
-        $cmdlet = Get-GenXDevCmdlets -CmdletName $CmdletName
+        $cmdlet = GenXdev.Helpers\Get-GenXDevCmdlets -CmdletName $CmdletName
 
         # validate cmdlet exists
         if ($null -eq $cmdlet) {
@@ -124,7 +124,7 @@ function Assert-GenXdevCmdletTests {
         $Prompt = $Prompt.Replace(
             "`$BaseModuleName",
 
-            [string]::Join(".", ($cmdlet.ModuleName.Split(".") | Select-Object -First 2 -ErrorAction SilentlyContinue))
+            [string]::Join(".", ($cmdlet.ModuleName.Split(".") | Microsoft.PowerShell.Utility\Select-Object -First 2 -ErrorAction SilentlyContinue))
         )
         $Prompt = $Prompt.Replace(
             "`$ScriptFileName",
@@ -137,8 +137,8 @@ function Assert-GenXdevCmdletTests {
         $Prompt = $Prompt.Replace("`t", "  ")
 
         # copy final prompt for use
-        $previousClipboard = Get-Clipboard
-        $null = Set-Clipboard -Value $Prompt
+        $previousClipboard = Microsoft.PowerShell.Management\Get-Clipboard
+        $null = Microsoft.PowerShell.Management\Set-Clipboard -Value $Prompt
     }
 
     process {
@@ -157,12 +157,12 @@ function Assert-GenXdevCmdletTests {
             ([IO.File]::ReadAllText($cmdlet.ScriptTestFilePath).Trim() -eq [string]::Empty)) {
 
             $found = $false
-            Write-Verbose "Creating new unit test file"
+            Microsoft.PowerShell.Utility\Write-Verbose "Creating new unit test file"
             $null = GenXdev.FileSystem\Expand-Path -FilePath ($cmdlet.ScriptTestFilePath) -CreateFile
         }
 
         # ensure copilot keyboard shortcut is configured
-        AssureCopilotKeyboardShortCut
+        GenXdev.Coding\AssureCopilotKeyboardShortCut
 
         # open cmdlet in vscode and activate copilot
         # open cmdlet in vscode and insert prompt
@@ -176,14 +176,14 @@ function Assert-GenXdevCmdletTests {
         $keysToSendFirst = @("^``", "^+i", "^l", "^a", "{DELETE}", "^+i", "{ESCAPE}", "^{F12}", "^+i")
         $keysToSendLast = @("^{F12}", "^v", "{ENTER}")
         $invocationParams.KeysToSend = $keysToSendFirst;
-        Show-GenXdevCmdLetInIde @invocationParams
+        GenXdev.Coding\Show-GenXdevCmdLetInIde @invocationParams
 
         # switch to test file and paste prompt
-        Write-Verbose "Applying AI prompt from clipboard"
+        Microsoft.PowerShell.Utility\Write-Verbose "Applying AI prompt from clipboard"
         $invocationParams.KeysToSend = $keysToSendLast
         $invocationParams.UnitTests = $false
-        Show-GenXdevCmdLetInIde @invocationParams
-        Start-Sleep 4;
+        GenXdev.Coding\Show-GenXdevCmdLetInIde @invocationParams
+        Microsoft.PowerShell.Utility\Start-Sleep 4;
         # handle workflow based on whether test file existed
         if (-not $found) {
 
@@ -193,8 +193,8 @@ function Assert-GenXdevCmdletTests {
                     @("&Stop", "&Test the new unit tests", "Redo &Last"),
                     0)) {
                 0 { throw "Stopped"; return }
-                1 { return (Assert-GenXdevUnitTests -CmdletName $CmdletName -DebugFailedTests) }
-                2 { return Assert-GenXdevCmdletTests @PSBoundParameters }
+                1 { return (GenXdev.Coding\Assert-GenXdevUnitTests -CmdletName $CmdletName -DebugFailedTests) }
+                2 { return GenXdev.Coding\Assert-GenXdevCmdletTests @PSBoundParameters }
             }
         }
         else {
@@ -205,8 +205,8 @@ function Assert-GenXdevCmdletTests {
                     @("&Stop", "&Test the improved unit tests", "Redo &Last"),
                     0)) {
                 0 { throw "Stopped"; return }
-                1 { return (Assert-GenXdevUnitTests -CmdletName $CmdletName -DebugFailedTests) }
-                2 { return Assert-GenXdevCmdletTests @PSBoundParameters }
+                1 { return (GenXdev.Coding\Assert-GenXdevUnitTests -CmdletName $CmdletName -DebugFailedTests) }
+                2 { return GenXdev.Coding\Assert-GenXdevCmdletTests @PSBoundParameters }
             }
         }
     }
@@ -214,7 +214,7 @@ function Assert-GenXdevCmdletTests {
     end {
 
         # restore previous clipboard content
-        $null = Set-Clipboard -Value $previousClipboard
+        $null = Microsoft.PowerShell.Management\Set-Clipboard -Value $previousClipboard
     }
 }
 ################################################################################

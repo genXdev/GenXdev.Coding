@@ -71,7 +71,7 @@ function Add-IdeaLineToREADME {
 
     begin {
 
-        Write-Verbose "Starting Add-IdeaLineToREADME"
+        Microsoft.PowerShell.Utility\Write-Verbose "Starting Add-IdeaLineToREADME"
     }
 
     process {
@@ -79,11 +79,11 @@ function Add-IdeaLineToREADME {
         if (![string]::IsNullOrWhiteSpace($Line)) {
             # prefix line with current date
             $Line = "$([DateTime]::Now.ToString('yyyyMMdd')) --> $Line"
-            Write-Verbose "Formatted idea line: $Line"
+            Microsoft.PowerShell.Utility\Write-Verbose "Formatted idea line: $Line"
         }
 
         # add line to readme using base function
-        Add-LineToREADME `
+        GenXdev.Coding\Add-LineToREADME `
             -Code:$Code `
             -Show:$Show `
             -Section "## Ideas" `

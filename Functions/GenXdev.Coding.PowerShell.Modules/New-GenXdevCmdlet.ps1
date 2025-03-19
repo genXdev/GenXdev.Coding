@@ -97,20 +97,20 @@ function New-GenXdevCmdlet {
             $noun = $CmdletName.Substring($verbNounSplit + 1)
         }
 
-        Write-Verbose "Processing cmdlet name: Verb='$verb', Noun='$noun'"
+        Microsoft.PowerShell.Utility\Write-Verbose "Processing cmdlet name: Verb='$verb', Noun='$noun'"
     }
 
     process {
 
         # validate the verb against the official powershell approved verbs list
-        $verbs = @(Get-Verb | ForEach-Object Verb)
+        $verbs = @(Microsoft.PowerShell.Utility\Get-Verb | Microsoft.PowerShell.Core\ForEach-Object Verb)
         if (-not ($verbs -contains $verb)) {
             throw "Invalid verb: $verb"
             return
         }
 
         # ensure the cmdlet doesn't already exist in the current session
-        if ($null -ne (Get-Command -Name $CmdletName -ErrorAction SilentlyContinue)) {
+        if ($null -ne (Microsoft.PowerShell.Core\Get-Command -Name $CmdletName -ErrorAction SilentlyContinue)) {
             throw "Cmdlet $CmdletName already exists"
             return
         }
@@ -127,7 +127,7 @@ function New-GenXdevCmdlet {
             $CmdletName = $verb
         }
 
-        Write-Verbose "Creating cmdlet with normalized name: $CmdletName"
+        Microsoft.PowerShell.Utility\Write-Verbose "Creating cmdlet with normalized name: $CmdletName"
 
         # ensure required parameters are present
         if (-not ($PSBoundParameters.ContainsKey('PromptKey'))) {
@@ -144,7 +144,7 @@ function New-GenXdevCmdlet {
 
         if ($PSCmdlet.ShouldProcess($target, $action)) {
 
-            Write-Verbose "Creating cmdlet file at: $PSScriptRoot\$CmdletName.ps1"
+            Microsoft.PowerShell.Utility\Write-Verbose "Creating cmdlet file at: $PSScriptRoot\$CmdletName.ps1"
 
             # create the new cmdlet file in the appropriate location
             $null = GenXdev.FileSystem\Expand-Path `
@@ -154,11 +154,11 @@ function New-GenXdevCmdlet {
             # setup and execute the cmdlet assertion
             $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
                 -BoundParameters $PSBoundParameters `
-                -FunctionName "Assert-GenXdevCmdlet" `
-                -DefaultValues (Get-Variable -Scope Local -Name * `
+                -FunctionName "GenXdev.Coding\Assert-GenXdevCmdlet" `
+                -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * `
                     -ErrorAction SilentlyContinue)
 
-            Assert-GenXdevCmdlet @invocationParams
+            GenXdev.Coding\Assert-GenXdevCmdlet @invocationParams
         }
     }
 

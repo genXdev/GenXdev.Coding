@@ -43,13 +43,13 @@ function Todoos {
 
     begin {
 
-        Write-Verbose "Starting Todoos function"
+        Microsoft.PowerShell.Utility\Write-Verbose "Starting Todoos function"
     }
 
     process {
 
         # display todos using base function
-        Add-TodoLineToREADME `
+        GenXdev.Coding\Add-TodoLineToREADME `
             -Show `
             -UseHomeREADME:$UseHomeREADME `
             -UseOneDriveREADME:$UseOneDriveREADME

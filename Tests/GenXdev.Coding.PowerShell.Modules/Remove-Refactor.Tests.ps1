@@ -1,9 +1,9 @@
-Describe "Remove-Refactor" {
+Pester\Describe "Remove-Refactor" {
 
-    It "Should pass PSScriptAnalyzer rules" {
+    Pester\It "Should pass PSScriptAnalyzer rules" {
 
         $scriptPath = GenXdev.FileSystem\Expand-Path (
-            "$PSScriptRoot\..\..\..\..\GenXdev.Coding\1.134.2025\Functions\GenXdev.Coding.PowerShell.Modules\Remove-Refactor.ps1"
+            "$PSScriptRoot\..\..\..\..\GenXdev.Coding\1.136.2025\Functions\GenXdev.Coding.PowerShell.Modules\Remove-Refactor.ps1"
         )
 
         # run analyzer with explicit settings
@@ -11,7 +11,7 @@ Describe "Remove-Refactor" {
             -Path $scriptPath
 
         [string] $message = ""
-        $analyzerResults | ForEach-Object {
+        $analyzerResults | Microsoft.PowerShell.Core\ForEach-Object {
 
             $message = $message + @"
 --------------------------------------------------
@@ -22,7 +22,7 @@ Message: $($_.Message)
 "@
         }
 
-        $analyzerResults.Count | Should -Be 0 -Because @"
+        $analyzerResults.Count | Pester\Should -Be 0 -Because @"
 The following PSScriptAnalyzer rules are being violated:
 $message
 "@;

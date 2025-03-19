@@ -87,10 +87,18 @@ function Show-GenXdevCmdLetInIde {
             HelpMessage = "The keys to send"
         )]
         [Alias("keys")]
-        [string[]] $KeysToSend = @()
+        [string[]] $KeysToSend = @(),
+        #######################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Add to Co-Pilot edit session"
+        )]
+        [switch] $CoPilot
     )
 
     begin {
+
+        $null = GenXdev.Coding\AssureCopilotKeyboardShortCut
 
         # retrieve and validate the target cmdlet exists
         $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
@@ -98,7 +106,7 @@ function Show-GenXdevCmdLetInIde {
             -BoundParameters $PSBoundParameters
 
         $cmdlet = GenXdev.Helpers\Get-GenXDevCmdlets @invocationParams |
-        Select-Object -First 1
+        Microsoft.PowerShell.Utility\Select-Object -First 1
 
         if ($null -eq $cmdlet) {
 
@@ -108,7 +116,7 @@ function Show-GenXdevCmdLetInIde {
         # initialize core variables
         $CmdletName = $cmdlet.Name
 
-        Write-Verbose "Processing cmdlet: $CmdletName"
+        Microsoft.PowerShell.Utility\Write-Verbose "Processing cmdlet: $CmdletName"
     }
 
     process {
@@ -120,8 +128,9 @@ function Show-GenXdevCmdLetInIde {
 
         $invocationParams.Path = $UnitTests ? $cmdlet.ScriptTestFilePath : $cmdlet.ScriptFilePath
         $invocationParams.LineNo = $UnitTests ? 0 : ($cmdlet.LineNo)
+        $invocationParams.KeysToSend = ($CoPilot ? @("+%E", "+%S", "^F12", "^+I") : @("+%E", "+%S")) + @($KeysToSend ? $KeysToSend : @())
 
-        Open-SourceFileInIde @invocationParams
+        GenXdev.Coding\Open-SourceFileInIde @invocationParams
     }
 
     end {

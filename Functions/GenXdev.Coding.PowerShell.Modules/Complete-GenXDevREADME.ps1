@@ -40,7 +40,7 @@ function Complete-GenXDevREADME {
 
     begin {
         # retrieve module information for target modules
-        $modules = Get-GenXDevModuleInfo -ModuleName "$ModuleName"
+        $modules = GenXdev.Coding\Get-GenXDevModuleInfo -ModuleName "$ModuleName"
     }
 
     process {
@@ -55,7 +55,7 @@ function Complete-GenXDevREADME {
             # skip processing if README doesn't exist
             if (-not [System.IO.File]::Exists($readmeFilePath)) { continue }
 
-            Write-Verbose "Processing README file: $readmeFilePath"
+            Microsoft.PowerShell.Utility\Write-Verbose "Processing README file: $readmeFilePath"
 
             # load current README content for modification
             $readmeText = [System.IO.File]::ReadAllText($readmeFilePath)
@@ -70,10 +70,10 @@ function Complete-GenXDevREADME {
                 $cmdsIndex = $summaryIndex
             }
 
-            Write-Verbose "Generating documentation for $($module.ModuleName)"
+            Microsoft.PowerShell.Utility\Write-Verbose "Generating documentation for $($module.ModuleName)"
 
             # generate detailed cmdlet documentation
-            $cmdlets = @(Get-ModuleHelpMarkdown -ModuleName @($module.ModuleName)) `
+            $cmdlets = @(GenXdev.Coding\Get-ModuleHelpMarkdown -ModuleName @($module.ModuleName)) `
                 -join " `r`n"
 
             $lastModule = ""
@@ -87,9 +87,9 @@ function Complete-GenXDevREADME {
             )
 
             # build cmdlet summary table with module sections
-            $summary += @(Get-GenXDevCmdlets -ModuleName @($module.ModuleName) |
-                Sort-Object -Property ModuleName, Name |
-                ForEach-Object -ErrorAction SilentlyContinue {
+            $summary += @(GenXdev.Helpers\Get-GenXDevCmdlets -ModuleName @($module.ModuleName) |
+                Microsoft.PowerShell.Utility\Sort-Object -Property ModuleName, Name |
+                Microsoft.PowerShell.Core\ForEach-Object -ErrorAction SilentlyContinue {
 
                     # insert module header when changing modules
                     if (($lastModule -ne "") -and
@@ -124,7 +124,7 @@ function Complete-GenXDevREADME {
             $readmeText = ($readmeText.Substring(0, $cmdsIndex + 2) +
                 "`r`n$newHelp") -Replace "`r`n`r`n`r`n", "`r`n`r`n"
 
-            Write-Verbose "Saving updated README file"
+            Microsoft.PowerShell.Utility\Write-Verbose "Saving updated README file"
 
             # save modified README
             [System.IO.File]::WriteAllText($readmeFilePath, $readmeText)

@@ -38,18 +38,18 @@ function Get-GenXDevModule {
 
         # if no path provided, navigate up 4 levels from script location
         if (-not $Path) {
-            $Path = (Get-Item $PSScriptRoot).Parent.Parent.Parent.Parent.FullName
+            $Path = (Microsoft.PowerShell.Management\Get-Item $PSScriptRoot).Parent.Parent.Parent.Parent.FullName
         }
 
         # log the path being searched
-        Write-Verbose "Searching for GenXdev modules in: $Path"
+        Microsoft.PowerShell.Utility\Write-Verbose "Searching for GenXdev modules in: $Path"
     }
 
     process {
 
         # enumerate all directories starting with 'GenXdev'
-        Get-ChildItem -Path "$Path\GenXdev*" -Directory |
-        ForEach-Object {
+        Microsoft.PowerShell.Management\Get-ChildItem -Path "$Path\GenXdev*" -Directory |
+        Microsoft.PowerShell.Core\ForEach-Object {
 
             # store module information for processing
             $moduleName = $_.Name
@@ -57,20 +57,20 @@ function Get-GenXDevModule {
 
             # skip modules containing '.local' in their name
             if ($moduleName.ToLowerInvariant().Contains('.local')) {
-                Write-Verbose "Skipping local module: $moduleName"
+                Microsoft.PowerShell.Utility\Write-Verbose "Skipping local module: $moduleName"
                 return
             }
 
             # find the highest numbered 1.x version directory with valid psd1
-            Get-ChildItem -Path "$moduleRootPath\1.*" -Directory |
-            Sort-Object -Property Name -Descending |
-            Select-Object -First 1 |
-            ForEach-Object {
+            Microsoft.PowerShell.Management\Get-ChildItem -Path "$moduleRootPath\1.*" -Directory |
+            Microsoft.PowerShell.Utility\Sort-Object -Property Name -Descending |
+            Microsoft.PowerShell.Utility\Select-Object -First 1 |
+            Microsoft.PowerShell.Core\ForEach-Object {
 
                 # verify existence of module manifest
-                if (Test-Path -Path "$($_.FullName)\$moduleName.psd1") {
+                if (Microsoft.PowerShell.Management\Test-Path -Path "$($_.FullName)\$moduleName.psd1") {
 
-                    Write-Verbose "Found valid module: $moduleName in $($_.FullName)"
+                    Microsoft.PowerShell.Utility\Write-Verbose "Found valid module: $moduleName in $($_.FullName)"
                     $_
                 }
             }

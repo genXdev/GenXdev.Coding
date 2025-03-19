@@ -123,17 +123,17 @@ function Start-NextRefactor {
     begin {
 
         # output detailed module filter pattern for troubleshooting
-        Write-Verbose "Starting refactoring operation for patterns: $($Name -join ', ')"
+        Microsoft.PowerShell.Utility\Write-Verbose "Starting refactoring operation for patterns: $($Name -join ', ')"
 
         # load and sort refactor definitions by priority
         [GenXdev.Helpers.RefactorDefinition[]] $refactorSet = GenXdev.Coding\Get-Refactor `
             -Name $Name |
-        Sort-Object -Property Priority -Descending
+        Microsoft.PowerShell.Utility\Sort-Object -Property Priority -Descending
 
         # exit if no matching refactors found
         if ($null -eq $refactorSet) {
 
-            Write-Warning "No refactor set found matching patterns: $($Name -join ', ')"
+            Microsoft.PowerShell.Utility\Write-Warning "No refactor set found matching patterns: $($Name -join ', ')"
             return
         }
     }
@@ -146,7 +146,7 @@ function Start-NextRefactor {
                     "Refactor set '$($refactorDefinition.Name)'",
                     "Process refactoring")) {
 
-                Write-Verbose "Processing refactor: $($refactorDefinition.Name)"
+                Microsoft.PowerShell.Utility\Write-Verbose "Processing refactor: $($refactorDefinition.Name)"
 
                 try {
                     # update configuration with new files and process settings
@@ -164,7 +164,7 @@ function Start-NextRefactor {
                         -Speak:$Speak
                 }
                 catch {
-                    Write-Warning "Failed to update refactor set: $_"
+                    Microsoft.PowerShell.Utility\Write-Warning "Failed to update refactor set: $_"
                 }
 
                 # main refactoring loop
@@ -202,10 +202,10 @@ function Start-NextRefactor {
 
                             if ($Speak) {
 
-                                Start-TextToSpeech "Completed refactoring set: '$($refactorDefinition.Name)'"
+                                GenXdev.Console\Start-TextToSpeech "Completed refactoring set: '$($refactorDefinition.Name)'"
                             }
 
-                            Write-Verbose "Completed refactoring $($refactorDefinition.Name)"
+                            Microsoft.PowerShell.Utility\Write-Verbose "Completed refactoring $($refactorDefinition.Name)"
                             $refactorDefinition.State.Status = "Refactored"
 
                             try {
@@ -213,7 +213,7 @@ function Start-NextRefactor {
                                 $null = GenXdev.Coding\Update-Refactor -Refactor @($refactorDefinition)
                             }
                             catch {
-                                Write-Warning "Failed to update refactor state: $_"
+                                Microsoft.PowerShell.Utility\Write-Warning "Failed to update refactor state: $_"
                             }
 
                             continue
@@ -252,11 +252,11 @@ function Start-NextRefactor {
                                     $refactorDefinition.RefactorSettings.PromptKey
                          )'"
 
-                        Write-Host -ForegroundColor Blue $infoText
+                        Microsoft.PowerShell.Utility\Write-Host -ForegroundColor Blue $infoText
 
                         if ($Speak) {
 
-                            Start-TextToSpeech $infoText
+                            GenXdev.Console\Start-TextToSpeech $infoText
                         }
 
                         $skipPostMenu = $false
@@ -281,14 +281,14 @@ function Start-NextRefactor {
                                 )
                             }
                             # log error detaails and timestamp
-                            $now = Get-Date
+                            $now = Microsoft.PowerShell.Utility\Get-Date
                             $null = $refactorDefinition.Log.Add(@{
                                     Timestamp = $now
                                     Message   = ("Error refactoring file $($next.FullName): " +
                                         "$($_.Exception.Message)")
                                 })
 
-                            Write-Error $_.Exception.Message
+                            Microsoft.PowerShell.Utility\Write-Error $_.Exception.Message
                             $refactorDefinition.State.Status = "Error"
 
                             if ($Speak) {
@@ -328,7 +328,7 @@ function Start-NextRefactor {
                             $null = GenXdev.Coding\Update-Refactor -Refactor @($refactorDefinition)
                         }
                         catch {
-                            Write-Warning "Failed to update refactor state: $_"
+                            Microsoft.PowerShell.Utility\Write-Warning "Failed to update refactor state: $_"
                         }
 
                         if ($skipPostMenu) {
@@ -340,7 +340,7 @@ function Start-NextRefactor {
 
                         GenXdev.Coding\Show-RefactorReport -Name:$Name
 
-                        Write-Host -ForegroundColor Green $infoText
+                        Microsoft.PowerShell.Utility\Write-Host -ForegroundColor Green $infoText
 
                         if ($Speak) {
 
@@ -380,7 +380,7 @@ function Start-NextRefactor {
             }
         }
 
-        Write-Host -ForegroundColor Green "All done."
+        Microsoft.PowerShell.Utility\Write-Host -ForegroundColor Green "All done."
 
         if ($Speak) {
 

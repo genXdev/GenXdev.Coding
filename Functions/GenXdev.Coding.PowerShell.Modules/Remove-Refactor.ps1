@@ -54,26 +54,26 @@ function Remove-Refactor {
     begin {
 
         # log operation start and search patterns for troubleshooting
-        Write-Verbose ("Starting refactor removal process")
-        Write-Verbose ("Search patterns to process: $($Name -join ', ')")
+        Microsoft.PowerShell.Utility\Write-Verbose ("Starting refactor removal process")
+        Microsoft.PowerShell.Utility\Write-Verbose ("Search patterns to process: $($Name -join ', ')")
     }
 
     process {
 
         # retrieve all preference names matching the refactor_set pattern
-        Get-GenXdevPreferenceNames |
-        Where-Object { $_ -like "refactor_set_*" } |
-        ForEach-Object {
+        GenXdev.Data\Get-GenXdevPreferenceNames |
+        Microsoft.PowerShell.Core\Where-Object { $_ -like "refactor_set_*" } |
+        Microsoft.PowerShell.Core\ForEach-Object {
 
             # store current preference name for processing
             $preferenceName = $_
-            Write-Verbose "Processing preference: $preferenceName"
+            Microsoft.PowerShell.Utility\Write-Verbose "Processing preference: $preferenceName"
 
             # extract refactor name by removing the standard prefix
             $refactorName = $preferenceName.Substring("refactor_set_".Length)
 
             # process each provided name pattern against current refactor
-            $Name | ForEach-Object {
+            $Name | Microsoft.PowerShell.Core\ForEach-Object {
 
                 # skip if pattern doesn't match current refactor name
                 if (-not ($refactorName -like $_)) {
@@ -81,7 +81,7 @@ function Remove-Refactor {
                 }
 
                 # retrieve current preference value
-                $preferenceValue = Get-GenXdevPreference `
+                $preferenceValue = GenXdev.Data\Get-GenXdevPreference `
                     -Name $preferenceName
 
                 # only process if preference exists and has a value
@@ -92,11 +92,11 @@ function Remove-Refactor {
                             "Refactor set: $refactorName",
                             "Remove")) {
 
-                        Write-Verbose ("Removing refactor set: " +
+                        Microsoft.PowerShell.Utility\Write-Verbose ("Removing refactor set: " +
                             "$refactorName")
 
                         # remove preference from system
-                        $null = Remove-GenXdevPreference `
+                        $null = GenXdev.Data\Remove-GenXdevPreference `
                             -Name $preferenceName `
                             -RemoveDefault:$RemoveDefault
                     }
@@ -107,7 +107,7 @@ function Remove-Refactor {
 
     end {
 
-        Write-Verbose "Refactor removal process completed"
+        Microsoft.PowerShell.Utility\Write-Verbose "Refactor removal process completed"
     }
 }
 ################################################################################

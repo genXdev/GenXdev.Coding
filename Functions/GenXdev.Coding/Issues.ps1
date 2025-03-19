@@ -43,13 +43,13 @@ function Issues {
 
     begin {
 
-        Write-Verbose "Starting Issues function"
+        Microsoft.PowerShell.Utility\Write-Verbose "Starting Issues function"
     }
 
     process {
 
         # display issues using base function
-        Add-IssueLineToREADME `
+        GenXdev.Coding\Add-IssueLineToREADME `
             -Show `
             -UseHomeREADME:$UseHomeREADME `
             -UseOneDriveREADME:$UseOneDriveREADME

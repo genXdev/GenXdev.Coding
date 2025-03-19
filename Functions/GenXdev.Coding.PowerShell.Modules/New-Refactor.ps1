@@ -248,9 +248,9 @@ function New-Refactor {
     begin {
 
         # capture current UTC timestamp for logging
-        $currentTime = UtcNow
+        $currentTime = GenXdev.Console\UtcNow
 
-        Write-Verbose "Initializing new refactor set '$Name' with priority $Priority"
+        Microsoft.PowerShell.Utility\Write-Verbose "Initializing new refactor set '$Name' with priority $Priority"
 
         # initialize new refactor definition object
         $refactorDefinition = [GenXdev.Helpers.RefactorDefinition]::new()
@@ -305,22 +305,22 @@ function New-Refactor {
         # create unique storage key for this refactor set
         $preferenceName = "refactor_set_$Name"
 
-        Write-Verbose "Validating refactor set '$Name' does not exist"
+        Microsoft.PowerShell.Utility\Write-Verbose "Validating refactor set '$Name' does not exist"
 
         # verify no existing refactor with same name exists
-        $existingDefinition = Get-GenXdevPreference -Name $preferenceName
+        $existingDefinition = GenXdev.Data\Get-GenXdevPreference -Name $preferenceName
 
         if ($existingDefinition) {
-            Write-Error "Refactor set '$Name' already exists"
+            Microsoft.PowerShell.Utility\Write-Error "Refactor set '$Name' already exists"
             return
         }
 
         if ($PSCmdlet.ShouldProcess($Name, "Create new refactor set")) {
 
-            Write-Verbose "Saving refactor set '$Name'"
+            Microsoft.PowerShell.Utility\Write-Verbose "Saving refactor set '$Name'"
 
             # initialize with provided files
-            Update-Refactor `
+            GenXdev.Coding\Update-Refactor `
                 -Refactor $refactorDefinition `
                 -FilesToAdd $FilesToAdd
         }

@@ -71,7 +71,7 @@ function Add-IssueLineToREADME {
 
     begin {
 
-        Write-Verbose "Starting Add-IssueLineToREADME"
+        Microsoft.PowerShell.Utility\Write-Verbose "Starting Add-IssueLineToREADME"
     }
 
     process {
@@ -79,11 +79,11 @@ function Add-IssueLineToREADME {
         if (![string]::IsNullOrWhiteSpace($Line)) {
             # prefix line with current date
             $Line = "$([DateTime]::Now.ToString('yyyyMMdd')) --> $Line"
-            Write-Verbose "Formatted issue line: $Line"
+            Microsoft.PowerShell.Utility\Write-Verbose "Formatted issue line: $Line"
         }
 
         # add line to readme using base function
-        Add-LineToREADME `
+        GenXdev.Coding\Add-LineToREADME `
             -Code:$Code `
             -Show:$Show `
             -Section "## Issues" `

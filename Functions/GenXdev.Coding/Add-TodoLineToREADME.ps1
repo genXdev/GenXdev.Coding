@@ -86,8 +86,8 @@ function Add-TodoLineToREADME {
 
     begin {
 
-        Write-Verbose "Starting Add-TodoLineToREADME with parameters: $($PSBoundParameters |
-            ConvertTo-Json)"
+        Microsoft.PowerShell.Utility\Write-Verbose "Starting Add-TodoLineToREADME with parameters: $($PSBoundParameters |
+            Microsoft.PowerShell.Utility\ConvertTo-Json)"
     }
 
     process {
@@ -97,11 +97,11 @@ function Add-TodoLineToREADME {
 
             # prefix line with current date in yyyyMMdd format
             $Line = "$([DateTime]::Now.ToString('yyyyMMdd')) --> $Line"
-            Write-Verbose "Formatted todo line: $Line"
+            Microsoft.PowerShell.Utility\Write-Verbose "Formatted todo line: $Line"
         }
 
         # add line to readme using base function with specified parameters
-        Add-LineToREADME `
+        GenXdev.Coding\Add-LineToREADME `
             -Code:$Code `
             -Show:$Show `
             -Section "## Todoos" `

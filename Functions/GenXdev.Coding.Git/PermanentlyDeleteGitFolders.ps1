@@ -50,22 +50,22 @@ function PermanentlyDeleteGitFolders {
     begin {
 
         # display prominent warnings about the destructive nature of this operation
-        Write-Warning "!!! DANGER - PERMANENT DESTRUCTIVE OPERATION !!!"
-        Write-Warning ("This operation will permanently delete the specified " +
+        Microsoft.PowerShell.Utility\Write-Warning "!!! DANGER - PERMANENT DESTRUCTIVE OPERATION !!!"
+        Microsoft.PowerShell.Utility\Write-Warning ("This operation will permanently delete the specified " +
             "folders from ALL git history")
-        Write-Warning ("It rewrites Git history and force pushes the changes, " +
+        Microsoft.PowerShell.Utility\Write-Warning ("It rewrites Git history and force pushes the changes, " +
             "which CANNOT BE UNDONE")
-        Write-Warning ("Other users of this repository will need to re-clone " +
+        Microsoft.PowerShell.Utility\Write-Warning ("Other users of this repository will need to re-clone " +
             "or reset their local copies")
 
         # create unique temp directory using UTC ticks for isolation
         $tempPath = GenXdev.FileSystem\Expand-Path (
             "$Env:TEMP\$([datetime]::UtcNow.Ticks)"
         ) -CreateDirectory
-        Write-Verbose "Using temp directory: $tempPath"
+        Microsoft.PowerShell.Utility\Write-Verbose "Using temp directory: $tempPath"
 
         # store current location to restore at end
-        Push-Location
+        Microsoft.PowerShell.Management\Push-Location
     }
 
     process {
@@ -77,26 +77,26 @@ function PermanentlyDeleteGitFolders {
                 ("Are you ABSOLUTELY SURE you want to permanently remove " +
                 "these folders from ALL git history?"),
                 "DANGER: Permanent Git History Modification")) {
-            Write-Verbose "Operation cancelled by user"
+            Microsoft.PowerShell.Utility\Write-Verbose "Operation cancelled by user"
             return
         }
 
         try {
             # change to temp directory
-            Set-Location $tempPath
-            Write-Verbose "Changed to temp directory"
+            Microsoft.PowerShell.Management\Set-Location $tempPath
+            Microsoft.PowerShell.Utility\Write-Verbose "Changed to temp directory"
 
             # clone the repository
-            Write-Verbose "Cloning repository: $RepoUri"
+            Microsoft.PowerShell.Utility\Write-Verbose "Cloning repository: $RepoUri"
             $null = git clone $RepoUri repo
 
             # change to repo directory
-            Set-Location repo
-            Write-Verbose "Changed to repository directory"
+            Microsoft.PowerShell.Management\Set-Location repo
+            Microsoft.PowerShell.Utility\Write-Verbose "Changed to repository directory"
 
             # create tracking branches for all remote branches except HEAD
-            Write-Verbose "Creating tracking branches"
-            git branch -r | ForEach-Object {
+            Microsoft.PowerShell.Utility\Write-Verbose "Creating tracking branches"
+            git branch -r | Microsoft.PowerShell.Core\ForEach-Object {
 
                 if (-not $PSItem.Contains("/HEAD")) {
                     $null = git checkout --track $PSItem.Trim()
@@ -113,7 +113,7 @@ function PermanentlyDeleteGitFolders {
 
                     if ($PSCmdlet.ShouldProcess($folderFixed, "Removing from Git history")) {
                         # remove folder from git history
-                        Write-Verbose "Removing $folderFixed from history"
+                        Microsoft.PowerShell.Utility\Write-Verbose "Removing $folderFixed from history"
                         $filterCommand = "git rm -rf --cached --ignore-unmatch $folderFixed/"
                         git filter-branch --index-filter $filterCommand --prune-empty --tag-name-filter cat -- --all
                     }
@@ -121,31 +121,31 @@ function PermanentlyDeleteGitFolders {
 
                 try {
                     # clean up refs
-                    Write-Verbose "Cleaning up refs"
+                    Microsoft.PowerShell.Utility\Write-Verbose "Cleaning up refs"
                     $refs = git for-each-ref --format="%(refname)" refs/original/
                     foreach ($ref in $refs) {
                         git update-ref -d $ref
                     }
 
                     # remove old refs and logs
-                    Get-ChildItem @(".git/logs", ".git/refs/original") `
+                    Microsoft.PowerShell.Management\Get-ChildItem @(".git/logs", ".git/refs/original") `
                         -ErrorAction SilentlyContinue -Directory |
-                    ForEach-Object -ErrorAction SilentlyContinue {
-                        Remove-Item -LiteralPath $PSItem.FullName -Force -Recurse `
+                    Microsoft.PowerShell.Core\ForEach-Object -ErrorAction SilentlyContinue {
+                        Microsoft.PowerShell.Management\Remove-Item -LiteralPath $PSItem.FullName -Force -Recurse `
                             -ErrorAction SilentlyContinue
                     }
                 }
                 catch {
-                    Write-Verbose "Error cleaning up refs (non-critical): $_"
+                    Microsoft.PowerShell.Utility\Write-Verbose "Error cleaning up refs (non-critical): $_"
                 }
 
                 # garbage collect to remove unreferenced commits
-                Write-Verbose "Running garbage collection"
+                Microsoft.PowerShell.Utility\Write-Verbose "Running garbage collection"
                 $null = git gc --prune=all --aggressive
 
                 # force push changes to remote
                 if ($PSCmdlet.ShouldProcess("Origin", "Force pushing all changes")) {
-                    Write-Verbose "Force pushing changes to remote"
+                    Microsoft.PowerShell.Utility\Write-Verbose "Force pushing changes to remote"
                     $null = git push origin --all --force
                     $null = git push origin --tags --force
                 }
@@ -153,8 +153,8 @@ function PermanentlyDeleteGitFolders {
         }
         finally {
             # restore original working directory
-            Pop-Location
-            Write-Verbose "Restored original location"
+            Microsoft.PowerShell.Management\Pop-Location
+            Microsoft.PowerShell.Utility\Write-Verbose "Restored original location"
         }
     }
 

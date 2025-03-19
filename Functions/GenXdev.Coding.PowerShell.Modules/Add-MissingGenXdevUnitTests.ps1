@@ -6,7 +6,7 @@ function Add-MissingGenXdevUnitTests {
     param()
 
     # get all cmdlets that need unit tests
-    Get-GenXDevCmdlets | ForEach-Object {
+    GenXdev.Helpers\Get-GenXDevCmdlets | Microsoft.PowerShell.Core\ForEach-Object {
 
         $genXdevCmdlet = $_
 
@@ -59,12 +59,12 @@ The following PSScriptAnalyzer rules are being violated:
         )
 
         # write test file
-        $null = $prompt | Out-File (
-            (Expand-Path ($genXdevCmdlet.ScriptTestFilePath) -CreateDirectory)
+        $null = $prompt | Microsoft.PowerShell.Utility\Out-File (
+            (GenXdev.FileSystem\Expand-Path ($genXdevCmdlet.ScriptTestFilePath) -CreateDirectory)
         ) -Force
 
-        Write-Verbose "Created test file: $($genXdevCmdlet.ScriptTestFilePath)"
-        Write-Output $prompt
+        Microsoft.PowerShell.Utility\Write-Verbose "Created test file: $($genXdevCmdlet.ScriptTestFilePath)"
+        Microsoft.PowerShell.Utility\Write-Output $prompt
     }
 }
 ################################################################################

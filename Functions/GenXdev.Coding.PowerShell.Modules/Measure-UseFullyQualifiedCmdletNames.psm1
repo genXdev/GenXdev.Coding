@@ -1,9 +1,6 @@
-using namespace System.Management.Automation.Language
-using namespace Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic
-
 <#
 .SYNOPSIS
-Measure-UseFullyQualifiedCmdletNames
+Detects invocations of non fully-qualified cmdlet names
 
 .DESCRIPTION
 Ensures all cmdlets and functions are called with their fully qualified module name
@@ -21,94 +18,171 @@ Invoke-ScriptAnalyzer -Path script.ps1 -CustomRulePath ./CustomPSScriptAnalyzerR
 PSScriptAnalyzer custom rules must follow specific patterns to be recognized
 #>
 function Measure-UseFullyQualifiedCmdletNames {
-    [Microsoft.Windows.PowerShell.ScriptAnalyzer.ScriptAnalyzer.RuleInfoAttribute(
-        "UseFullyQualifiedCmdletNames",
-        "Use fully qualified cmdlet names to improve clarity and avoid namespace collisions",
-        "Commands should be referenced with their fully qualified module name (e.g., 'ModuleName\\CommandName') to improve script clarity and avoid command name conflicts.",
-        "Error",
-        $true
-    )]
     [CmdletBinding()]
     [OutputType([Microsoft.Windows.Powershell.ScriptAnalyzer.Generic.DiagnosticRecord[]])]
 
-    Param (
-        [ScriptBlockAst]
+    Param
+    (
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
+        [System.Management.Automation.Language.ScriptBlockAst[]]
         $ScriptBlockAst
     )
 
     Process {
-        $results = @()
+        [Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord[]]$results = @()
+
         try {
             Write-Verbose "Starting analysis of script block for unqualified cmdlet names"
 
-            if (-not $ScriptBlockAst) {
-                Write-Verbose "No ScriptBlockAst provided - exiting"
+            if ($null -eq $ScriptBlockAst -or $ScriptBlockAst.Count -eq 0) {
+                Write-Verbose "No valid ScriptBlockAst provided - exiting"
                 return $results
             }
 
-            Write-Verbose "Searching for command invocations in the script block"
-            $commands = $ScriptBlockAst.FindAll({
-                    $args[0] -is [CommandAst]
-                }, $true)
+            foreach ($block in $ScriptBlockAst) {
+                if ($null -eq $block) { continue }
 
-            Write-Verbose "Found $($commands.Count) command invocations to analyze"
+                Write-Verbose "Searching for command invocations in the script block"
+                $commands = @($block.FindAll({
+                            param($ast)
+                            return $ast -is [System.Management.Automation.Language.CommandAst]
+                        }, $true))
 
-            foreach ($command in $commands) {
-                $commandName = $command.GetCommandName()
-                Write-Verbose "Processing command: $commandName"
+                Write-Verbose "Found $($commands.Count) command invocations to analyze"
 
-                if (-not $commandName) {
-                    Write-Verbose "Skipping: Unable to get command name"
-                    continue
-                }
+                foreach ($command in $commands) {
+                    if ($null -eq $command) { continue }
 
-                if ($commandName -notmatch '\\') {
-                    Write-Verbose "Command '$commandName' is not fully qualified - attempting to resolve"
+                    $commandName = $command.GetCommandName()
+                    Write-Verbose "Processing command: $commandName"
 
-                    Write-Verbose "Attempting to get command information for '$commandName'"
-                    $resolvedCommand = Get-Command -Name $commandName -ErrorAction SilentlyContinue
-                    if ($null -eq $resolvedCommand) {
-                        Write-Verbose "Get-Command failed, trying ExecutionContext"
-                        $resolvedCommand = $ExecutionContext.InvokeCommand.GetCommand($commandName, [CommandTypes]::All)
+                    if ([string]::IsNullOrEmpty($commandName)) {
+                        Write-Verbose "Skipping: Unable to get command name"
+                        continue
                     }
 
-                    if ($resolvedCommand) {
-                        Write-Verbose "Command resolved as $($resolvedCommand.CommandType) from module $($resolvedCommand.ModuleName)"
+                    if ($commandName -notmatch '\\') {
+                        Write-Verbose "Command '$commandName' is not fully qualified - attempting to resolve"
 
-                        if (($resolvedCommand.CommandType -eq 'Cmdlet' -or $resolvedCommand.CommandType -eq 'Function') -and
-                            $resolvedCommand.ModuleName) {
-                            $fullyQualifiedName = "$($resolvedCommand.ModuleName)\$commandName"
-                            Write-Verbose "Suggested fully qualified name: $fullyQualifiedName"
+                        Write-Verbose "Attempting to get command information for '$commandName'"
+                        $resolvedCommand = Get-Command -Name $commandName -ErrorAction SilentlyContinue
+                        if ($null -eq $resolvedCommand) {
+                            Write-Verbose "Get-Command failed, trying ExecutionContext"
+                            $resolvedCommand = $ExecutionContext.InvokeCommand.GetCommand($commandName, [System.Management.Automation.CommandTypes]::All)
+                        }
 
-                            Write-Verbose "Creating diagnostic record for $commandName"
-                            $result = [DiagnosticRecord]@{
-                                Message              = "Command '$commandName' should be fully qualified with its module name (e.g., '$fullyQualifiedName')."
-                                Extent               = $command.CommandElements[0].Extent
-                                RuleName             = $PSCmdlet.MyInvocation.InvocationName
-                                Severity             = 'Error'
-                                SuggestedCorrections = @(
-                                    [CorrectionExtent]@{
-                                        Text              = $fullyQualifiedName
-                                        StartLineNumber   = $command.CommandElements[0].Extent.StartLineNumber
-                                        EndLineNumber     = $command.CommandElements[0].Extent.EndLineNumber
-                                        StartColumnNumber = $command.CommandElements[0].Extent.StartColumnNumber
-                                        EndColumnNumber   = $command.CommandElements[0].Extent.EndColumnNumber
-                                        Description       = "Use fully qualified name: $fullyQualifiedName"
+                        if ($resolvedCommand) {
+                            Write-Verbose "Command resolved as $($resolvedCommand.CommandType) from module $($resolvedCommand.ModuleName)"
+
+                            if (($resolvedCommand.CommandType -eq 'Cmdlet' -or $resolvedCommand.CommandType -eq 'Function') -and
+                                $resolvedCommand.ModuleName) {
+                                $fullyQualifiedName = "$($resolvedCommand.ModuleName)\$commandName"
+                                Write-Verbose "Suggested fully qualified name: $fullyQualifiedName"
+
+                                Write-Verbose "Creating diagnostic record for $commandName"
+                                $extent = $command.CommandElements[0].Extent
+
+                                # Get file path from ScriptBlockAst first, then extent
+                                $filePath = $block.Extent.File
+                                if ([string]::IsNullOrEmpty($filePath)) {
+                                    $filePath = $extent.File
+                                    if ([string]::IsNullOrEmpty($filePath)) {
+                                        $currentAst = $command
+                                        while ($null -ne $currentAst.Parent) {
+                                            $currentAst = $currentAst.Parent
+                                            if (-not [string]::IsNullOrEmpty($currentAst.Extent.File)) {
+                                                $filePath = $currentAst.Extent.File
+                                                break
+                                            }
+                                        }
                                     }
+                                }
+
+                                # Only proceed if we have a valid file path
+                                if ([string]::IsNullOrEmpty($filePath)) {
+                                    Write-Verbose "Skipping: Unable to determine file path for command '$commandName'"
+                                    continue
+                                }
+
+                                $ss = @()
+                                $s = Expand-Path "$PSScriptRoot\..\..\..\..\..\modules\GenXdev.Local\ScriptAnalyzerFixes.json" -CreateDirectory
+                                $I = 0;
+                                if ([io.file]::Exists($s)) {
+
+                                    while ($i++ -lt 20) {
+                                        try {
+                                            $ss = @(Get-Content $s | ConvertFrom-Json)
+                                            break;
+                                        }
+                                        catch {
+                                            Start-Sleep -Milliseconds ([Math]::Round(([Random]::new().NextDouble()) * 1000, 0))
+                                            $ss = @()
+                                        }
+                                    }
+                                }
+                                $ss += @{
+                                    StartLineNumber    = $extent.StartLineNumber
+                                    EndLineNumber      = $extent.EndLineNumber
+                                    StartColumnNumber  = $extent.StartColumnNumber
+                                    EndColumnNumber    = $extent.EndColumnNumber
+                                    fullyQualifiedName = $fullyQualifiedName
+                                    FilePath           = $filePath
+                                }
+                                $I = 0;
+                                while ($i++ -lt 20) {
+                                    try {
+                                        $ss | ConvertTo-Json -Depth 99 | Out-File $s -Force
+                                        break;
+                                    }
+                                    catch {
+                                        Start-Sleep -Milliseconds ([Math]::Round(([Random]::new().NextDouble()) * 1000, 0))
+                                    }
+                                }
+
+                                # Create correction extent with the fully qualified command name
+                                $correction = [Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.CorrectionExtent]::new(
+                                    $extent.StartLineNumber,
+                                    $extent.EndLineNumber,
+                                    $extent.StartColumnNumber,
+                                    $extent.EndColumnNumber,
+                                    $fullyQualifiedName,
+                                    "Use fully qualified command name: $fullyQualifiedName"
                                 )
+
+                                # Create corrections array with the correction
+                                [Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.CorrectionExtent[]]$corrections = @()
+                                if ($null -ne $correction) {
+                                    $corrections += $correction
+                                }
+
+                                # Create diagnostic record with correct constructor parameters
+                                $result = [Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord]::new(
+                                    "Command '$commandName' should be fully qualified with its module name (e.g., '$fullyQualifiedName').",
+                                    $extent,
+                                    'UseFullyQualifiedCmdletNames',
+                                    'Error',
+                                    $filePath,
+                                    'UseFullyQualifiedCmdletNames',
+                                    $corrections
+                                )
+
+                                # Set corrections after creation
+                                $result.SuggestedCorrections = $corrections
+
+                                $results += $result
                             }
-                            $results += $result
+                            else {
+                                Write-Verbose "Skipping: Command is not a cmdlet or function, or has no module name"
+                            }
                         }
                         else {
-                            Write-Verbose "Skipping: Command is not a cmdlet or function, or has no module name"
+                            Write-Verbose "Skipping: Unable to resolve command '$commandName'"
                         }
                     }
                     else {
-                        Write-Verbose "Skipping: Unable to resolve command '$commandName'"
+                        Write-Verbose "Skipping: Command '$commandName' is already fully qualified"
                     }
-                }
-                else {
-                    Write-Verbose "Skipping: Command '$commandName' is already fully qualified"
                 }
             }
 
@@ -121,5 +195,3 @@ function Measure-UseFullyQualifiedCmdletNames {
         }
     }
 }
-
-Export-ModuleMember -Function Measure-UseFullyQualifiedCmdletNames

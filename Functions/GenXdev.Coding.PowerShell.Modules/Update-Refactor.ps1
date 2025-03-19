@@ -377,26 +377,28 @@ function Update-Refactor {
 
     begin {
 
+        $modulesPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\"
+
         # log start of operation
-        Write-Verbose "Starting Update-Refactor operation"
+        Microsoft.PowerShell.Utility\Write-Verbose "Starting Update-Refactor operation"
 
         # load refactor set by name if not provided directly
         if ($PSCmdlet.ParameterSetName -eq 'Name') {
             $Refactor = @(
-                Get-Refactor -Name $Name |
-                Sort-Object -Property Priority -Descending
+                GenXdev.Coding\Get-Refactor -Name $Name |
+                Microsoft.PowerShell.Utility\Sort-Object -Property Priority -Descending
             )
         }
 
         # exit if no refactor set found
         if ($null -eq $Refactor -or $Refactor.Count -eq 0) {
 
-            Write-Warning "No refactorset found"
+            Microsoft.PowerShell.Utility\Write-Warning "No refactorset found"
             return
         }
 
         # initialize tracking variables for file operations
-        $now = UtcNow
+        $now = GenXdev.Console\UtcNow
         $script:filesAdded = 0
         $script:filesRemoved = 0
         $script:onlyFirst = -not $PerformAllLLMSelections
@@ -705,7 +707,7 @@ function Update-Refactor {
 
                 # copy all refactored files to FilesToAdd
                 $FilesToAdd += @(
-                    $refactorDefinition.State.Refactored | ForEach-Object {
+                    $refactorDefinition.State.Refactored | Microsoft.PowerShell.Core\ForEach-Object {
 
                         if ([string]::IsNullOrWhiteSpace($_)) { return }
                         $fi = [System.IO.FileInfo]::new($_);
@@ -729,7 +731,7 @@ function Update-Refactor {
 
                 # copy all refactored files to FilesToAdd
                 $FilesToAdd += @(
-                    $refactorDefinition.State.Refactored | ForEach-Object {
+                    $refactorDefinition.State.Refactored | Microsoft.PowerShell.Core\ForEach-Object {
 
                         if ([string]::IsNullOrWhiteSpace($_)) { return }
 
@@ -754,7 +756,7 @@ function Update-Refactor {
 
                 # copy all refactored files to FilesToAdd
                 $FilesToAdd += @(
-                    $refactorDefinition.State.Refactored | ForEach-Object {
+                    $refactorDefinition.State.Refactored | Microsoft.PowerShell.Core\ForEach-Object {
 
                         if ([string]::IsNullOrWhiteSpace($_)) { return }
 
@@ -779,7 +781,7 @@ function Update-Refactor {
 
                 # copy all refactored files to FilesToAdd
                 $FilesToAdd += @(
-                    $refactorDefinition.State.Refactored | ForEach-Object {
+                    $refactorDefinition.State.Refactored | Microsoft.PowerShell.Core\ForEach-Object {
 
                         if ([string]::IsNullOrWhiteSpace($_)) { return }
 
@@ -824,7 +826,7 @@ function Update-Refactor {
                 $refactorDefinition.State.Selected = @(@(
                         $refactorDefinition.State.Selected +
                         $refactorDefinition.State.Refactored
-                    ) | Select-Object -Unique)
+                    ) | Microsoft.PowerShell.Utility\Select-Object -Unique)
                 $null = $refactorDefinition.State.Refactored.Clear();
             }
 
@@ -840,7 +842,7 @@ function Update-Refactor {
                 $refactorDefinition.State.Refactored = @(@(
                         $refactorDefinition.State.Refactored +
                         $refactorDefinition.State.Selected
-                    ) | Select-Object -Unique)
+                    ) | Microsoft.PowerShell.Utility\Select-Object -Unique)
                 $null = $refactorDefinition.State.Selected.Clear();
                 $refactorDefinition.State.SelectedIndex = $refactorDefinition.State.Selected.Count - 1;
                 $refactorDefinition.State.RefactoredIndex = $refactorDefinition.State.Refactored.Count - 1;
@@ -860,41 +862,41 @@ function Update-Refactor {
                 $refactorDefinition.State.Unselected = @(@(
                         $refactorDefinition.State.Unselected +
                         $refactorDefinition.State.Selected
-                    ) | Select-Object -Unique)
+                    ) | Microsoft.PowerShell.Utility\Select-Object -Unique)
                 $null = $refactorDefinition.State.Selected.Clear();
             }
 
-            Write-Verbose "Processing refactor definition: $($refactorDefinition.Name)"
+            Microsoft.PowerShell.Utility\Write-Verbose "Processing refactor definition: $($refactorDefinition.Name)"
 
             # execute selection script to get automatically selected files
             [System.IO.FileInfo[]] $automaticFiles = ($null = @(
                     if (-not [string]::IsNullOrWhiteSpace(
                             $refactorDefinition.SelectionSettings.Script)) {
 
-                        Write-Verbose "Executing selection script"
+                        Microsoft.PowerShell.Utility\Write-Verbose "Executing selection script"
                         if (-not $Clear) {
 
-                            Invoke-Expression -Command $refactorDefinition.SelectionSettings.Script
+                            Microsoft.PowerShell.Utility\Invoke-Expression -Command $refactorDefinition.SelectionSettings.Script
                         }
                     }
-                ) + @($FilesToAdd | ForEach-Object {
+                ) + @($FilesToAdd | Microsoft.PowerShell.Core\ForEach-Object {
 
                         if ($null -ne $_) {
 
-                            $item = Get-Item -Path (GenXdev.FileSystem\Expand-Path $_) -ErrorAction SilentlyContinue
+                            $item = Microsoft.PowerShell.Management\Get-Item -Path (GenXdev.FileSystem\Expand-Path $_) -ErrorAction SilentlyContinue
                             if ($null -ne $item) {
 
                                 $item
                             }
                         }
                     })) |
-            Sort-Object -Property FullName -Unique |
-            Sort-Object -Property LastWriteTimeUtc;
+            Microsoft.PowerShell.Utility\Sort-Object -Property FullName -Unique |
+            Microsoft.PowerShell.Utility\Sort-Object -Property LastWriteTimeUtc;
 
             if ($null -ne $automaticFiles) {
 
                 # process new files to be added
-                @($automaticFiles) | ForEach-Object {
+                @($automaticFiles) | Microsoft.PowerShell.Core\ForEach-Object {
 
                     if ($null -eq $_ ) { return }
 
@@ -947,7 +949,7 @@ function Update-Refactor {
             }
 
             # process files marked for removal
-            $FilesToRemove | ForEach-Object {
+            $FilesToRemove | Microsoft.PowerShell.Core\ForEach-Object {
 
                 # locate file in collections
                 $indexRefactored = $refactorDefinition.State.Refactored.IndexOf($_)
@@ -994,6 +996,88 @@ function Update-Refactor {
                             $refactorDefinition.State.UnselectedIndex - 1)
                     }
                     $indexUnselected = -1
+                }
+            }
+
+            # migrate folder names
+            for ($refactoredIndex = $refactorDefinition.State.Refactored.Count - 1;
+                $refactoredIndex -ge 0; $refactoredIndex--) {
+
+                if ($null -eq $refactorDefinition.State.Refactored[$refactoredIndex]) {
+
+                    $null = $refactorDefinition.State.Refactored.RemoveAt($refactoredIndex)
+
+                }
+                else {
+                    $path = (GenXdev.FileSystem\Expand-Path ($refactorDefinition.State.Refactored[$refactoredIndex]))
+
+                    if ($path.StartsWith("$modulesPath\GenXdev")) {
+
+                        $parts = $path.Substring($modulesPath.Length).Split("\", [System.StringSplitOptions]::RemoveEmptyEntries);
+
+                        if ($parts.Length -gt 1) {
+                            [Version] $version = $null
+                            if ([Version]::tryParse($parts[1], [ref]$version)) {
+
+                                $path = "$modulesPath\$($parts[0])\1.136.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
+                                $refactorDefinition.State.Refactored[$refactoredIndex] = $path
+                            }
+                        }
+                    }
+                }
+            }
+
+           # migrate folder names
+            for ($selectedIndex = $refactorDefinition.State.Selected.Count - 1;
+                $selectedIndex -ge 0; $selectedIndex--) {
+                if ($null -eq $refactorDefinition.State.Selected[$selectedIndex]) {
+
+                    $null = $refactorDefinition.State.Selected.RemoveAt($selectedIndex)
+
+                }
+                else {
+                    $path = (GenXdev.FileSystem\Expand-Path $refactorDefinition.State.Selected[$selectedIndex])
+
+                        if ($path.StartsWith("$modulesPath\GenXdev")) {
+
+                            $parts = $path.Substring($modulesPath.Length).Split("\", [System.StringSplitOptions]::RemoveEmptyEntries);
+
+                            if ($parts.Length -gt 1) {
+                                [Version] $version = $null
+                                if ([Version]::tryParse($parts[1], [ref]$version)) {
+
+                                    $path = "$modulesPath\$($parts[0])\1.136.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
+                                    $refactorDefinition.State.Selected[$selectedIndex] = $path
+                                }
+                            }
+                        }
+                    }
+            }
+
+            # migrate folder names
+            for ($unselectedIndex = $refactorDefinition.State.Unselected.Count - 1;
+                $unselectedIndex -ge 0; $unselectedIndex--) {
+
+                if ($null -eq $refactorDefinition.State.Unselected[$unselectedIndex]) {
+
+                    $null = $refactorDefinition.State.Unselected.RemoveAt($unselectedIndex)
+                }
+                else {
+                    $path = (GenXdev.FileSystem\Expand-Path $refactorDefinition.State.Unselected[$unselectedIndex])
+
+                    if ($path.StartsWith("$modulesPath\GenXdev")) {
+
+                        $parts = $path.Substring($modulesPath.Length).Split("\", [System.StringSplitOptions]::RemoveEmptyEntries);
+
+                        if ($parts.Length -gt 1) {
+                            [Version] $version = $null
+                            if ([Version]::tryParse($parts[1], [ref]$version)) {
+
+                                $path = "$modulesPath\$($parts[0])\1.136.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
+                                $refactorDefinition.State.Unselected[$unselectedIndex] = $path
+                            }
+                        }
+                    }
                 }
             }
 
@@ -1075,7 +1159,7 @@ function Update-Refactor {
 
                         if ($Speak) {
 
-                            Start-TextToSpeech "What to do next?"
+                            GenXdev.Console\Start-TextToSpeech "What to do next?"
                         }
 
                         $userAnswer = $host.ui.PromptForChoice(
@@ -1146,17 +1230,17 @@ function Update-Refactor {
                         }
 
                         # Register temporary verbose handler
-                        $null = Register-EngineEvent -SourceIdentifier "Verbose" -Action $verboseScriptBlock
+                        $null = Microsoft.PowerShell.Utility\Register-EngineEvent -SourceIdentifier "Verbose" -Action $verboseScriptBlock
 
                         # Run the test and get the result
-                        $result = Test-RefactorLLMSelection `
+                        $result = GenXdev.Coding\Test-RefactorLLMSelection `
                             -RefactorDefinition $refactorDefinition `
                             -Path ($script:nextFile)
 
                     }
                     catch {
                         $result = $false
-                        $now = UtcNow
+                        $now = GenXdev.Console\UtcNow
                         $refactorDefinition.Log.Add(
                             [GenXdev.Helpers.RefactorLogItem]@{
                                 Timestamp = $now
@@ -1166,12 +1250,12 @@ function Update-Refactor {
                     }
                     finally {
                         # Clean up verbose handling
-                        $null = Unregister-Event -SourceIdentifier "Verbose" -ErrorAction SilentlyContinue
+                        $null = Microsoft.PowerShell.Utility\Unregister-Event -SourceIdentifier "Verbose" -ErrorAction SilentlyContinue
                     }
 
                     if ($result -eq $true) {
 
-                        $now = UtcNow
+                        $now = GenXdev.Console\UtcNow
                         $refactorDefinition.Log.Add(
                             [GenXdev.Helpers.RefactorLogItem]@{
                                 Timestamp = $now
@@ -1214,17 +1298,17 @@ function Update-Refactor {
                                 "Refactor set: $($refactorDefinition.Name)",
                                 "Save changes")) {
 
-                            $json = $refactorDefinition | ConvertTo-Json -Depth 10 -Compress
-                            $latestJson = (Get-GenXdevPreference `
+                            $json = $refactorDefinition | Microsoft.PowerShell.Utility\ConvertTo-Json -Depth 10 -Compress
+                            $latestJson = (GenXdev.Data\Get-GenXdevPreference `
                                     -Name "refactor_set_$($refactorDefinition.Name)"
                             )
                             if ($null -eq $latestJson) {
 
-                                Write-Warning "Refactor set has been deleted"
+                                Microsoft.PowerShell.Utility\Write-Warning "Refactor set has been deleted"
                                 break;
                             }
 
-                            $latest = $latestJson | ConvertFrom-Json -ErrorAction SilentlyContinue
+                            $latest = $latestJson | Microsoft.PowerShell.Utility\ConvertFrom-Json -ErrorAction SilentlyContinue
                             if ($null -ne $latest -and ($latest.State.LastUpdated -gt $refactorDefinition.State.LastUpdated)) {
 
                                 $latest.State = $refactorDefinition.State;
@@ -1233,10 +1317,10 @@ function Update-Refactor {
                                 $refactorDefinition = $latest;
                             }
 
-                            $now = UtcNow
+                            $now = GenXdev.Console\UtcNow
                             $refactorDefinition.State.LastUpdated = $now
-                            $json = $refactorDefinition | ConvertTo-Json -Depth 10 -Compress
-                            Set-GenXdevPreference `
+                            $json = $refactorDefinition | Microsoft.PowerShell.Utility\ConvertTo-Json -Depth 10 -Compress
+                            GenXdev.Data\Set-GenXdevPreference `
                                 -Name "refactor_set_$($refactorDefinition.Name)" `
                                 -Value $json
                         }
@@ -1247,7 +1331,7 @@ function Update-Refactor {
                         }
                     }
                     else {
-                        $now = UtcNow
+                        $now = GenXdev.Console\UtcNow
                         $refactorDefinition.Log.Add(
                             [GenXdev.Helpers.RefactorLogItem]@{
                                 Timestamp = $now
@@ -1265,7 +1349,7 @@ function Update-Refactor {
             if (($null -ne $refactorDefinition) -and
                 ($refactorDefinition -is [GenXdev.Helpers.RefactorDefinition])) {
 
-                Write-Verbose ("Updating refactor set state with $script:filesAdded added " +
+                Microsoft.PowerShell.Utility\Write-Verbose ("Updating refactor set state with $script:filesAdded added " +
                     "and $script:filesRemoved removed")
 
                 # $totalFilesLeft = (
@@ -1301,7 +1385,7 @@ function Update-Refactor {
                         0
                     ))
 
-                $now = UtcNow
+                $now = GenXdev.Console\UtcNow
 
                 if ($script:filesAdded -gt 0 -or $script:filesRemoved -gt 0) {
 
@@ -1322,16 +1406,16 @@ function Update-Refactor {
                         "Refactor set: $($refactorDefinition.Name)",
                         "Save changes")) {
 
-                    $latestJson = (Get-GenXdevPreference `
+                    $latestJson = (GenXdev.Data\Get-GenXdevPreference `
                             -Name "refactor_set_$($refactorDefinition.Name)"
                     )
                     if ($null -eq $latestJson) {
 
-                        Write-Warning "Refactor set has been deleted"
+                        Microsoft.PowerShell.Utility\Write-Warning "Refactor set has been deleted"
                         break;
                     }
 
-                    $latest = $latestJson | ConvertFrom-Json -ErrorAction SilentlyContinue
+                    $latest = $latestJson | Microsoft.PowerShell.Utility\ConvertFrom-Json -ErrorAction SilentlyContinue
                     if ($null -ne $latest -and ($latest.State.LastUpdated -lt $refactorDefinition.State.LastUpdated)) {
 
                         $latest.State = $refactorDefinition.State;
@@ -1340,15 +1424,15 @@ function Update-Refactor {
                         $refactorDefinition = $latest;
                     }
 
-                    $now = UtcNow
+                    $now = GenXdev.Console\UtcNow
                     $refactorDefinition.State.LastUpdated = $now
-                    $json = $refactorDefinition | ConvertTo-Json -Depth 10 -Compress
-                    Set-GenXdevPreference `
+                    $json = $refactorDefinition | Microsoft.PowerShell.Utility\ConvertTo-Json -Depth 10 -Compress
+                    GenXdev.Data\Set-GenXdevPreference `
                         -Name "refactor_set_$($refactorDefinition.Name)" `
                         -Value $json
                 }
 
-                Write-Verbose "Refactor set updated successfully"
+                Microsoft.PowerShell.Utility\Write-Verbose "Refactor set updated successfully"
             }
         }
     }

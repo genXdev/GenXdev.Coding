@@ -111,12 +111,12 @@ param (
 begin {
 
     # store current location to restore it later
-    $originalLocation = (Get-Location).Path
-    Write-Verbose "Original location saved: $originalLocation"
+    $originalLocation = (Microsoft.PowerShell.Management\Get-Location).Path
+    Microsoft.PowerShell.Utility\Write-Verbose "Original location saved: $originalLocation"
 
     # initialize pester configuration
-    Write-Verbose "Initializing Pester configuration"
-    $config = New-PesterConfiguration
+    Microsoft.PowerShell.Utility\Write-Verbose "Initializing Pester configuration"
+    $config = Pester\New-PesterConfiguration
     $config.Output.Verbosity = $Verbosity
     $config.Output.StackTraceVerbosity = $StackTraceVerbosity
     $config.Run.Exit = $true
@@ -133,29 +133,29 @@ process {
 
     try {
         # ensure consistent test execution location
-        Write-Verbose "Setting location to solution root"
-        Set-Location "$PSScriptRoot\..\..\..\..\.."
+        Microsoft.PowerShell.Utility\Write-Verbose "Setting location to solution root"
+        Microsoft.PowerShell.Management\Set-Location "$PSScriptRoot\..\..\..\..\.."
 
         # process single cmdlet test if specified
         if (-not [string]::IsNullOrWhiteSpace($CmdletName)) {
 
-            Write-Verbose "Processing single cmdlet test for: $CmdletName"
+            Microsoft.PowerShell.Utility\Write-Verbose "Processing single cmdlet test for: $CmdletName"
 
             # locate the specified cmdlet
-            $cmdlet = Get-GenXDevCmdlets -CmdletName $CmdletName |
-            Select-Object -First 1
+            $cmdlet = GenXdev.Helpers\Get-GenXDevCmdlets -CmdletName $CmdletName |
+            Microsoft.PowerShell.Utility\Select-Object -First 1
 
             if ($null -eq $cmdlet) {
-                Write-Warning "Cmdlet $CmdletName not found"
+                Microsoft.PowerShell.Utility\Write-Warning "Cmdlet $CmdletName not found"
                 return
             }
 
-            Import-Module -Name ($cmdlet.BaseModule) -Force
+            Microsoft.PowerShell.Core\Import-Module -Name ($cmdlet.BaseModule) -Force
 
             # verify test file exists
             $testFilePath = $cmdlet.ScriptTestFilePath
-            if (-not (Test-Path $testFilePath)) {
-                Write-Warning "No test file found at $testFilePath"
+            if (-not (Microsoft.PowerShell.Management\Test-Path $testFilePath)) {
+                Microsoft.PowerShell.Utility\Write-Warning "No test file found at $testFilePath"
                 return
             }
 
@@ -163,17 +163,17 @@ process {
             $config.Run.Path = $null
             $config.TestResult.Enabled = $false
             $config.Run.Container = @(
-                New-PesterContainer -Path $testFilePath
+                Pester\New-PesterContainer -Path $testFilePath
             )
 
-            Write-Verbose ("Running tests for cmdlet $CmdletName from file " +
+            Microsoft.PowerShell.Utility\Write-Verbose ("Running tests for cmdlet $CmdletName from file " +
                 "$testFilePath")
 
             # execute tests
-            $results = Invoke-Pester -Configuration $config
+            $results = Pester\Invoke-Pester -Configuration $config
 
             # output results
-            @($results) | ForEach-Object -ErrorAction SilentlyContinue {
+            @($results) | Microsoft.PowerShell.Core\ForEach-Object -ErrorAction SilentlyContinue {
                 $_
             }
         }
@@ -192,7 +192,7 @@ process {
                 if ($null -ne $ModuleFilter) {
                     foreach ($filtr in $ModuleFilter) {
                         if ($module.Name -like $filtr) {
-                            Write-Verbose "Skipping filtered module $($module.Name)"
+                            Microsoft.PowerShell.Utility\Write-Verbose "Skipping filtered module $($module.Name)"
                             return
                         }
                     }
@@ -207,26 +207,26 @@ process {
                 $config.Run.Path = GenXdev.FileSystem\Expand-Path ".\Tests\"
 
                 # verify test files exist
-                if (@(Get-ChildItem .\Tests\*.Tests.ps1 -File -Recurse `
+                if (@(Microsoft.PowerShell.Management\Get-ChildItem .\Tests\*.Tests.ps1 -File -Recurse `
                             -ErrorAction SilentlyContinue).Count -eq 0) {
-                    Write-Warning "No tests found for module $($module.Name)"
+                    Microsoft.PowerShell.Utility\Write-Warning "No tests found for module $($module.Name)"
                     return
                 }
 
-                Write-Verbose "Running tests for module $($module.Name)"
+                Microsoft.PowerShell.Utility\Write-Verbose "Running tests for module $($module.Name)"
 
                 # execute module tests
-                Invoke-Pester -Configuration $config |
-                ForEach-Object -ErrorAction SilentlyContinue {
-                    Write-Output $_
+                Pester\Invoke-Pester -Configuration $config |
+                Microsoft.PowerShell.Core\ForEach-Object -ErrorAction SilentlyContinue {
+                    Microsoft.PowerShell.Utility\Write-Output $_
                 }
             }
         }
     }
     finally {
         # restore original location
-        Write-Verbose "Restoring original location: $originalLocation"
-        Set-Location $originalLocation
+        Microsoft.PowerShell.Utility\Write-Verbose "Restoring original location: $originalLocation"
+        Microsoft.PowerShell.Management\Set-Location $originalLocation
     }
 }
 

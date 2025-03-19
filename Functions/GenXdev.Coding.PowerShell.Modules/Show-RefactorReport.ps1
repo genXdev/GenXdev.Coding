@@ -39,20 +39,20 @@ function Show-RefactorReport {
     begin {
 
         # output detailed module filter pattern for troubleshooting
-        Write-Verbose ("Generating refactor report for modules matching: " +
+        Microsoft.PowerShell.Utility\Write-Verbose ("Generating refactor report for modules matching: " +
             "$($Name -join ', ')")
     }
 
     process {
 
         # retrieve report data and format as table with key metrics
-        $report = Get-RefactorReport -Name:$Name |
-        Select-Object -Property Name, PromptKey, Status, `
+        $report = GenXdev.Coding\Get-RefactorReport -Name:$Name |
+        Microsoft.PowerShell.Utility\Select-Object -Property Name, PromptKey, Status, `
             FunctionCount, Priority, PercentageComplete |
-        Format-Table
+        Microsoft.PowerShell.Utility\Format-Table
 
         # display the formatted report data in green for visibility
-        Write-Host -ForegroundColor Green ($report | Out-String)
+        Microsoft.PowerShell.Utility\Write-Host -ForegroundColor Green ($report | Microsoft.PowerShell.Utility\Out-String)
     }
 
     end {

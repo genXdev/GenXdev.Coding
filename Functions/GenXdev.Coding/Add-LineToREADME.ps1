@@ -112,7 +112,7 @@ function Add-LineToREADME {
         function findReadMePath([string] $startDir) {
 
             $startDir = GenXdev.FileSystem\Expand-Path $startDir
-            Push-Location $startDir
+            Microsoft.PowerShell.Management\Push-Location $startDir
 
             try {
                 # walk up directories looking for README.md
@@ -123,13 +123,13 @@ function Add-LineToREADME {
 
                     if ($startDir.Length -ge 2) {
 
-                        $startDir = Expand-Path "$((Get-Location).Path)\..\"
+                        $startDir = GenXdev.FileSystem\Expand-Path "$((Microsoft.PowerShell.Management\Get-Location).Path)\..\"
                     }
                 }
                 while (($startDir.Length -ge 2) -and ($startDir -ne $PWD))
             }
             finally {
-                Pop-Location
+                Microsoft.PowerShell.Management\Pop-Location
             }
 
             # fallback to onedrive readme
@@ -150,7 +150,7 @@ function Add-LineToREADME {
             $readmePath = findReadMePath $PWD
         }
 
-        Write-Verbose "Using README at: $readmePath"
+        Microsoft.PowerShell.Utility\Write-Verbose "Using README at: $readmePath"
 
         # verify readme exists
         if (![IO.File]::Exists($readmePath)) {
@@ -195,7 +195,7 @@ function Add-LineToREADME {
 
         # open in vscode if requested
         if ($Code) {
-            $codeCmd = Get-Command "code.cmd" -ErrorAction SilentlyContinue
+            $codeCmd = Microsoft.PowerShell.Core\Get-Command "code.cmd" -ErrorAction SilentlyContinue
             if ($null -ne $codeCmd) {
                 cmd.exe /c code.cmd $readmePath
             }

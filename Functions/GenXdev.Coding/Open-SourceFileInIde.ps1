@@ -89,47 +89,47 @@ function Open-SourceFileInIde {
         $Path = GenXdev.FileSystem\Expand-Path -FilePath $Path
 
         # get the process that's hosting the current PowerShell session
-        [System.Diagnostics.Process] $hostProcess = Get-PowershellMainWindowProcess
+        [System.Diagnostics.Process] $hostProcess = GenXdev.Windows\Get-PowershellMainWindowProcess
 
         # determine default IDE path based on host process availability
         $idePath = ($null -eq $hostProcess ? "code" : $hostProcess.Path)
 
         # output verbose message about initial host process path
-        Write-Verbose "Initial host process path: $idePath"
+        Microsoft.PowerShell.Utility\Write-Verbose "Initial host process path: $idePath"
 
         # check if current host is VS Code or Visual Studio
         $isCode = $hostProcess.Name -eq "Code"
         $isVisualStudio = $hostProcess.Name -eq "devenv"
 
         # output verbose message about initial IDE detection
-        Write-Verbose "Initial IDE detection: VSCode=$isCode, VS=$isVisualStudio"
+        Microsoft.PowerShell.Utility\Write-Verbose "Initial IDE detection: VSCode=$isCode, VS=$isVisualStudio"
 
         # if neither Code nor VS is hosting, try to find them running elsewhere
         if (-not ($isCode -or $isVisualStudio)) {
 
             # try to find a running VS Code process
-            [System.Diagnostics.Process] $hostProcess = Get-Process "Code" `
+            [System.Diagnostics.Process] $hostProcess = Microsoft.PowerShell.Management\Get-Process "Code" `
                 -ErrorAction SilentlyContinue |
-            Select-Object -First 1
+            Microsoft.PowerShell.Utility\Select-Object -First 1
 
             # update path if VS Code process was found
             $idePath = ($null -eq $hostProcess ? $idePath : $hostProcess.Path)
             $isCode = $null -ne $hostProcess
 
             # output verbose message about VS Code detection
-            Write-Verbose "Found running VS Code: $isCode"
+            Microsoft.PowerShell.Utility\Write-Verbose "Found running VS Code: $isCode"
 
             # try to find a running Visual Studio process
-            [System.Diagnostics.Process] $hostProcess = Get-Process "devenv" `
+            [System.Diagnostics.Process] $hostProcess = Microsoft.PowerShell.Management\Get-Process "devenv" `
                 -ErrorAction SilentlyContinue |
-            Select-Object -First 1
+            Microsoft.PowerShell.Utility\Select-Object -First 1
 
             # update path if Visual Studio process was found
             $idePath = ($null -eq $hostProcess ? $idePath : $hostProcess.Path)
             $isVisualStudio = $null -ne $hostProcess
 
             # output verbose message about Visual Studio detection
-            Write-Verbose "Found running Visual Studio: $isVisualStudio"
+            Microsoft.PowerShell.Utility\Write-Verbose "Found running Visual Studio: $isVisualStudio"
         }
 
         # if still can't determine which IDE to use, prompt the user
@@ -161,16 +161,16 @@ function Open-SourceFileInIde {
                     )
 
                     # find the VS Code executable
-                    $idePath = Get-ChildItem `
+                    $idePath = Microsoft.PowerShell.Management\Get-ChildItem `
                         -Path $locations `
                         -File `
                         -Recurse `
                         -ErrorAction SilentlyContinue |
-                    ForEach-Object { "$($_.FullName)" } |
-                    Select-Object -First 1
+                    Microsoft.PowerShell.Core\ForEach-Object { "$($_.FullName)" } |
+                    Microsoft.PowerShell.Utility\Select-Object -First 1
 
                     # output verbose message about selected VS Code path
-                    Write-Verbose "Selected VS Code at: $idePath"
+                    Microsoft.PowerShell.Utility\Write-Verbose "Selected VS Code at: $idePath"
                     break
                 }
                 1 {
@@ -185,12 +185,12 @@ function Open-SourceFileInIde {
                     )
 
                     # find the newest Visual Studio executable
-                    $idePath = Get-ChildItem `
+                    $idePath = Microsoft.PowerShell.Management\Get-ChildItem `
                         -Path $locations `
                         -File `
                         -Recurse `
                         -ErrorAction SilentlyContinue |
-                    Sort-Object {
+                    Microsoft.PowerShell.Utility\Sort-Object {
                         $_.Replace(
                             "${env:ProgramFiles(x86)}\Microsoft Visual Studio\",
                             ""
@@ -199,11 +199,11 @@ function Open-SourceFileInIde {
                             ""
                         )
                     } -Descending |
-                    ForEach-Object { "$($_.FullName)" } |
-                    Select-Object -First 1
+                    Microsoft.PowerShell.Core\ForEach-Object { "$($_.FullName)" } |
+                    Microsoft.PowerShell.Utility\Select-Object -First 1
 
                     # output verbose message about selected Visual Studio path
-                    Write-Verbose "Selected Visual Studio at: $idePath"
+                    Microsoft.PowerShell.Utility\Write-Verbose "Selected Visual Studio at: $idePath"
                     break
                 }
             }
@@ -211,7 +211,7 @@ function Open-SourceFileInIde {
 
         if ($isCode) {
 
-            $null = AssureVSCodeInstallation
+            $null = GenXdev.Coding\AssureVSCodeInstallation
         }
     }
 
@@ -230,38 +230,38 @@ function Open-SourceFileInIde {
         if ($Code -and $LineNo -gt 0) {
 
             # output verbose message about opening file in VS Code with line number
-            Write-Verbose "Opening in VS Code at line $($LineNo): $Path"
+            Microsoft.PowerShell.Utility\Write-Verbose "Opening in VS Code at line $($LineNo): $Path"
 
             # start file in VS Code at specific line number using background job
-            $null = Start-Job {
+            $null = Microsoft.PowerShell.Core\Start-Job {
                 param($idePath, $arguments)
-                Start-Process -FilePath $idePath -ArgumentList $arguments
-            } -ArgumentList @($idePath, @("-g", "$($Path):$LineNo")) | Wait-Job
+                Microsoft.PowerShell.Management\Start-Process -FilePath $idePath -ArgumentList $arguments
+            } -ArgumentList @($idePath, @("-g", "$($Path):$LineNo")) | Microsoft.PowerShell.Core\Wait-Job
         }
         else {
 
             # output verbose message about opening file in IDE
-            Write-Verbose "Opening file in IDE: $Path"
+            Microsoft.PowerShell.Utility\Write-Verbose "Opening file in IDE: $Path"
 
             # start file in IDE without line number using background job
-            $null = Start-Job {
+            $null = Microsoft.PowerShell.Core\Start-Job {
                 param($idePath, $arguments)
-                Start-Process -FilePath $idePath -ArgumentList $arguments
-            } -ArgumentList @($idePath, @($Path)) | Wait-Job
+                Microsoft.PowerShell.Management\Start-Process -FilePath $idePath -ArgumentList $arguments
+            } -ArgumentList @($idePath, @($Path)) | Microsoft.PowerShell.Core\Wait-Job
         }
 
         # send keyboard inputs if requested
         if (($null -ne $KeysToSend) -and ($KeysToSend.Length -gt 0)) {
 
             # wait for the application to start before sending keys
-            Write-Verbose "Waiting 2 seconds before sending keyboard inputs"
-            Start-Sleep 2
+            Microsoft.PowerShell.Utility\Write-Verbose "Waiting 2 seconds before sending keyboard inputs"
+            Microsoft.PowerShell.Utility\Start-Sleep 2
 
             # output verbose message about sending keyboard inputs
-            Write-Verbose "Sending keyboard inputs to IDE"
+            Microsoft.PowerShell.Utility\Write-Verbose "Sending keyboard inputs to IDE"
 
             # send keyboard inputs with delay between each
-            Send-Key `
+            GenXdev.Windows\Send-Key `
                 -KeysToSend $KeysToSend `
                 -DelayMilliSeconds 500
         }

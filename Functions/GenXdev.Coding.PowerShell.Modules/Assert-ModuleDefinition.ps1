@@ -59,7 +59,7 @@ function Assert-ModuleDefinition {
 
     begin {
         # store IDE selection at script scope for persistence between calls
-        if (-not (Test-Path variable:script:_IDEPreference)) {
+        if (-not (Microsoft.PowerShell.Management\Test-Path variable:script:_IDEPreference)) {
             $script:_IDEPreference = -1
         }
 
@@ -70,14 +70,14 @@ function Assert-ModuleDefinition {
 
         # attempt to import module and capture any errors
         try {
-            $null = Import-Module $ModuleName `
+            $null = Microsoft.PowerShell.Core\Import-Module $ModuleName `
                 -Scope Global `
                 -ErrorVariable ImportError `
                 -Force
 
             if (($null -ne $ImportError) -and ($importError.Length -gt 0)) {
                 throw ($ImportError |
-                    ConvertTo-Json -Depth 4 `
+                    Microsoft.PowerShell.Utility\ConvertTo-Json -Depth 4 `
                         -ErrorAction SilentlyContinue `
                         -WarningAction SilentlyContinue)
             }
@@ -90,7 +90,7 @@ function Assert-ModuleDefinition {
         $promptKey = "ModuleDefinition"
 
         # detect active IDE process
-        [System.Diagnostics.Process] $hostProcess = Get-PowershellMainWindowProcess
+        [System.Diagnostics.Process] $hostProcess = GenXdev.Windows\Get-PowershellMainWindowProcess
         $isCode = $hostProcess.Name -eq "Code"
         $isVisualStudio = $hostProcess.Name -eq "devenv"
 
@@ -110,20 +110,20 @@ function Assert-ModuleDefinition {
             # attempt to find any running IDE as fallback
             if (-not ($isCode -or $isVisualStudio)) {
 
-                Write-Verbose "Attempting to detect running IDE instances"
+                Microsoft.PowerShell.Utility\Write-Verbose "Attempting to detect running IDE instances"
 
                 # try to find VS Code
-                [System.Diagnostics.Process] $hostProcess = Get-Process "Code" `
+                [System.Diagnostics.Process] $hostProcess = Microsoft.PowerShell.Management\Get-Process "Code" `
                     -ErrorAction SilentlyContinue |
-                Sort-Object |
-                Select-Object -First 1
+                Microsoft.PowerShell.Utility\Sort-Object |
+                Microsoft.PowerShell.Utility\Select-Object -First 1
 
                 $isCode = $null -ne $hostProcess
 
                 # try to find Visual Studio
-                $hostProcess = Get-Process "devenv" -ErrorAction SilentlyContinue |
-                Sort-Object |
-                Select-Object -First 1
+                $hostProcess = Microsoft.PowerShell.Management\Get-Process "devenv" -ErrorAction SilentlyContinue |
+                Microsoft.PowerShell.Utility\Sort-Object |
+                Microsoft.PowerShell.Utility\Select-Object -First 1
 
                 $isVisualStudio = $null -ne $hostProcess
             }
@@ -132,7 +132,7 @@ function Assert-ModuleDefinition {
         # prompt user to select IDE if no clear choice determined
         if (-not ($isCode -bxor $isVisualStudio)) {
 
-            Write-Verbose "Prompting user to select IDE"
+            Microsoft.PowerShell.Utility\Write-Verbose "Prompting user to select IDE"
             $userAnswer = $script:_IDEPreference -ge 0 ?
             $script:_IDEPreference :
                 ($host.ui.PromptForChoice(
@@ -164,7 +164,7 @@ function Assert-ModuleDefinition {
             "$PSScriptRoot\..\..\Prompts\GenXdev.Coding.PowerShell.Modules\" `
             -CreateDirectory
 
-        $promptFilePath = Join-Path $promptFilePath "Assert-$PromptKey.txt"
+        $promptFilePath = Microsoft.PowerShell.Management\Join-Path $promptFilePath "Assert-$PromptKey.txt"
 
         # load template and replace placeholder
         $Prompt = [System.IO.File]::ReadAllText($promptFilePath).Replace(
@@ -181,11 +181,11 @@ function Assert-ModuleDefinition {
         $Prompt = $Prompt.Replace("`t", "  ")
 
         # save current clipboard content to restore later
-        $previousClipboard = Get-Clipboard
-        $null = Set-Clipboard -Value $prompt
+        $previousClipboard = Microsoft.PowerShell.Management\Get-Clipboard
+        $null = Microsoft.PowerShell.Management\Set-Clipboard -Value $prompt
 
-        Write-Verbose "Prepared prompt and copied to clipboard:"
-        Write-Verbose $prompt
+        Microsoft.PowerShell.Utility\Write-Verbose "Prepared prompt and copied to clipboard:"
+        Microsoft.PowerShell.Utility\Write-Verbose $prompt
     }
 
     process {
@@ -194,13 +194,13 @@ function Assert-ModuleDefinition {
             return
         }
 
-        Write-Verbose "Opening file in IDE for refactoring"
+        Microsoft.PowerShell.Utility\Write-Verbose "Opening file in IDE for refactoring"
 
         # process each module file
-        . Invoke-OnEachGenXdevModule -BaseModuleName $ModuleName `
+        . GenXdev.Helpers\Invoke-OnEachGenXdevModule -BaseModuleName $ModuleName `
             -Script {
 
-            $files = Get-ChildItem .\*.psm1, .\*.psd1 -File -ErrorAction SilentlyContinue;
+            $files = Microsoft.PowerShell.Management\Get-ChildItem .\*.psm1, .\*.psd1 -File -ErrorAction SilentlyContinue;
 
             foreach ($file in $files) {
 
@@ -254,9 +254,9 @@ function Assert-ModuleDefinition {
                 $invocationParams.VisualStudio = $VisualStudio
 
                 # open file in selected IDE
-                Open-SourceFileInIde @invocationParams
+                GenXdev.Coding\Open-SourceFileInIde @invocationParams
 
-                Start-Sleep 4;
+                Microsoft.PowerShell.Utility\Start-Sleep 4;
             }
 
             # set IDE flags based on user selection
@@ -269,7 +269,7 @@ function Assert-ModuleDefinition {
                     return;
                 }
                 1 {
-                    return (Assert-ModuleDefinition @PSBoundParameters)
+                    return (GenXdev.Coding\Assert-ModuleDefinition @PSBoundParameters)
                 }
             }
         }
@@ -277,7 +277,7 @@ function Assert-ModuleDefinition {
 
     end {
         # restore original clipboard content
-        $null = Set-Clipboard -Value $previousClipboard
+        $null = Microsoft.PowerShell.Management\Set-Clipboard -Value $previousClipboard
     }
 }
 ################################################################################

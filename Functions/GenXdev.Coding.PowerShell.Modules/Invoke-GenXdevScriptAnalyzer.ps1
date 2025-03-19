@@ -30,8 +30,7 @@ function Invoke-GenXdevScriptAnalyzer {
     )
 
     begin {
-
-        $settings = Invoke-Expression ([IO.File]::ReadAllText((Expand-Path "$PSScriptRoot\PSScriptAnalyzerSettings.psd1")))
+        $settings = Microsoft.PowerShell.Utility\Invoke-Expression ([IO.File]::ReadAllText((GenXdev.FileSystem\Expand-Path "$PSScriptRoot\PSScriptAnalyzerSettings.psd1")))
 
         #  Write-Verbose "Using Script Analyzer settings:`n$($invocationParams.Settings | ConvertTo-Json -Depth 5)"
     }
@@ -76,19 +75,25 @@ function Invoke-GenXdevScriptAnalyzer {
                 }
             }
 
-            $results = @(PSScriptAnalyzer\Invoke-ScriptAnalyzer @invocationParams)
+            try {
+                $results = @(& "PSScriptAnalyzer\Invoke-ScriptAnalyzer" @invocationParams)
+            }
+            catch {
+                Microsoft.PowerShell.Utility\Write-Warning "ScriptAnalyzer error: $($_.Exception.Message)"
+                return
+            }
 
             if ($results -and ($results.Length -gt 0)) {
 
-                $results | ForEach-Object {
-                    $r = $_ | ConvertTo-HashTable
-                    $r.Description = (Get-ScriptAnalyzerRule -Name $r.RuleName).Description
-                    Write-Output $r
+                $results | Microsoft.PowerShell.Core\ForEach-Object {
+                    $r = $_ | GenXdev.Helpers\ConvertTo-HashTable
+                    $r.Description = (PSScriptAnalyzer\Get-ScriptAnalyzerRule -Name $r.RuleName).Description
+                    Microsoft.PowerShell.Utility\Write-Output $r
                 }
             }
         }
         catch {
-            Write-Output @{
+            Microsoft.PowerShell.Utility\Write-Output @{
                 Message     = $_.Exception.Message
                 RuleName    = ($Null -eq $Path ? "?" : [IO.Path]::GetFileNameWithoutExtension($Path)) + " @ Invocation in Invoke-GenXdevScriptAnalyzer"
                 Description = "An error occurred while invoking the Script Analyzer."

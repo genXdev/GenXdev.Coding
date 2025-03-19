@@ -40,13 +40,13 @@ function Features {
 
     begin {
 
-        Write-Verbose "Starting Features function"
+        Microsoft.PowerShell.Utility\Write-Verbose "Starting Features function"
     }
 
     process {
 
         # display features using base function
-        Add-FeatureLineToREADME `
+        GenXdev.Coding\Add-FeatureLineToREADME `
             -Show `
             -UseHomeREADME:$UseHomeREADME `
             -UseOneDriveREADME:$UseOneDriveREADME

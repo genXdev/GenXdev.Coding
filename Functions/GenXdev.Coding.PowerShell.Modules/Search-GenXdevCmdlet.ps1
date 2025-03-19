@@ -61,7 +61,7 @@ function Search-GenXdevCmdlet {
             -BoundParameters $PSBoundParameters
 
         $cmdlet = GenXdev.Helpers\Get-GenXDevCmdlets @invocationParams |
-        Select-Object -First 1
+        Microsoft.PowerShell.Utility\Select-Object -First 1
 
         if ($null -eq $cmdlet) {
 
@@ -70,10 +70,10 @@ function Search-GenXdevCmdlet {
 
         # initialize core variables
         $CmdletName = $cmdlet.Name
-        $previousClipboard = Get-Clipboard
-        $CmdletName | Set-Clipboard
+        $previousClipboard = Microsoft.PowerShell.Management\Get-Clipboard
+        $CmdletName | Microsoft.PowerShell.Management\Set-Clipboard
 
-        Write-Verbose "Processing cmdlet: $CmdletName"
+        Microsoft.PowerShell.Utility\Write-Verbose "Processing cmdlet: $CmdletName"
     }
 
     process {
@@ -87,14 +87,14 @@ function Search-GenXdevCmdlet {
         $invocationParams.Path = $cmdlet.ScriptFilePath
         $invocationParams.LineNo = $cmdlet.LineNo
 
-        Open-SourceFileInIde @invocationParams
+        GenXdev.Coding\Open-SourceFileInIde @invocationParams
     }
 
     end {
 
-        Start-Sleep 3;
+        Microsoft.PowerShell.Utility\Start-Sleep 3;
         # copy final prompt for use
-        $null = Set-Clipboard -Value $previousClipboard
+        $null = Microsoft.PowerShell.Management\Set-Clipboard -Value $previousClipboard
     }
 }
 ################################################################################

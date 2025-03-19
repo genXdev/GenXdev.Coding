@@ -20,10 +20,10 @@ function AssureVSCodeInstallation {
 
     begin {
         # check if vscode executable is available in path
-        $VSCodeMissing = (([array] (Get-Command "code.cmd" -ErrorAction `
+        $VSCodeMissing = (([array] (Microsoft.PowerShell.Core\Get-Command "code.cmd" -ErrorAction `
                         SilentlyContinue)).Length -eq 0)
 
-        Write-Verbose "VSCode installation check: $(if($VSCodeMissing)
+        Microsoft.PowerShell.Utility\Write-Verbose "VSCode installation check: $(if($VSCodeMissing)
             {'Missing'} else {'Found'})"
     }
 
@@ -31,14 +31,14 @@ function AssureVSCodeInstallation {
 
         if ($VSCodeMissing) {
 
-            Write-Verbose "Installing Visual Studio Code..."
+            Microsoft.PowerShell.Utility\Write-Verbose "Installing Visual Studio Code..."
 
             # install vscode using winget
-            Install-WinGetPackage -Id "Microsoft.VisualStudioCode" `
+            Microsoft.WinGet.Client\Install-WinGetPackage -Id "Microsoft.VisualStudioCode" `
                 -Mode Silent -Force -Scope SystemOrUnknown
 
             # refresh environment paths
-            Initialize-SearchPaths
+            GenXdev.Helpers\Initialize-SearchPaths
 
             # try {
             #     # set path for vscode user settings

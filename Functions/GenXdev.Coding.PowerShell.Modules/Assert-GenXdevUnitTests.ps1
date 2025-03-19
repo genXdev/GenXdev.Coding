@@ -150,9 +150,9 @@ function Assert-GenXdevUnitTests {
         $Script:AllowLongRunningTests = ($Local:AllowLongRunningTests -eq $true)
 
         # load required modules
-        Import-GenXdevModules
+        GenXdev.Helpers\Import-GenXdevModules
 
-        Write-Verbose "Starting unit test execution"
+        Microsoft.PowerShell.Utility\Write-Verbose "Starting unit test execution"
 
         # remove debug parameter if present to avoid passing it downstream
         if ($PSBoundParameters.ContainsKey("DebugFailedTests")) {
@@ -181,7 +181,7 @@ function Assert-GenXdevUnitTests {
         try {
             do {
                 # execute the actual test runner script
-                Write-Verbose "Executing test runner script"
+                Microsoft.PowerShell.Utility\Write-Verbose "Executing test runner script"
                 try {
                     # copy parameter values to the internal script with matching parameters
                     $identicalParams = GenXdev.Helpers\Copy-IdenticalParamValues `
@@ -190,14 +190,14 @@ function Assert-GenXdevUnitTests {
 
                     $Script:testSuccess = $true
                     $results = (. "$PSScriptRoot\_AssertGenXdevUnitTests.ps1" @identicalParams |
-                        ForEach-Object {
+                        Microsoft.PowerShell.Core\ForEach-Object {
 
-                            $PSItem.Tests | ForEach-Object {
+                            $PSItem.Tests | Microsoft.PowerShell.Core\ForEach-Object {
 
                                 $PSItem
                                 # extract relevant test properties for display
                                 $null = $_ |
-                                Select-Object -Property @(
+                                Microsoft.PowerShell.Utility\Select-Object -Property @(
                                     "Block",
                                     "Name",
                                     "ErrorRecord",
@@ -205,7 +205,7 @@ function Assert-GenXdevUnitTests {
                                     "Duration",
                                     "Result"
                                 ) |
-                                ForEach-Object {
+                                Microsoft.PowerShell.Core\ForEach-Object {
                                     $test = @{
                                         Block       = $_.Block
                                         Name        = $_.Name
@@ -268,7 +268,7 @@ function Assert-GenXdevUnitTests {
                                 }
 
                                 # format and display test results
-                                $test | ForEach-Object {
+                                $test | Microsoft.PowerShell.Core\ForEach-Object {
                                     # calculate padding based on console width
                                     [int] $p = [Math]::Min(
                                     ([Console]::WindowWidth - 75) / 2,
@@ -294,13 +294,13 @@ function Assert-GenXdevUnitTests {
 
                                     $s
 
-                                } | Out-Host
+                                } | Microsoft.PowerShell.Core\Out-Host
                             }
                         }
                     )
                 }
                 catch {
-                    $results = @(New-Object PSObject -Property @{
+                    $results = @(Microsoft.PowerShell.Utility\New-Object PSObject -Property @{
                             Block        = "Error"
                             Name         = "Error"
                             ErrorRecord  = $_.ErrorRecord
@@ -317,7 +317,7 @@ function Assert-GenXdevUnitTests {
 
                             # extract failed command name for debugging
                             $nextFailedCommand = $result |
-                            ForEach-Object {
+                            Microsoft.PowerShell.Core\ForEach-Object {
                                 if (($null -eq $_) -or ($null -eq $_.ExpandedPath)) {
                                     return;
                                 }
@@ -326,7 +326,7 @@ function Assert-GenXdevUnitTests {
 
                             # show interactive debug prompt with test failure information
                             try {
-                                Assert-GenXdevCmdletTests `
+                                GenXdev.Coding\Assert-GenXdevCmdletTests `
                                     -AssertFailedTest `
                                     -CmdletName $nextFailedCommand `
                                     -Prompt @"
@@ -356,24 +356,24 @@ function Assert-GenXdevUnitTests {
         finally {
             # output results according to Passthru parameter
             if ($Passthru) {
-                Write-Output $results
+                Microsoft.PowerShell.Utility\Write-Output $results
             }
             else {
                 [int] $failures = 0
 
                 # count failed tests in results
                 $null = $results |
-                Select-Object -Unique |
-                ForEach-Object {
+                Microsoft.PowerShell.Utility\Select-Object -Unique |
+                Microsoft.PowerShell.Core\ForEach-Object {
                     $failures += $PSItem.Block.FailedCount
                 }
 
                 # show summary message with appropriate color
                 if ($failures -gt 0) {
-                    Write-Output "`e[91m There were $failures failed tests`e[0m"
+                    Microsoft.PowerShell.Utility\Write-Output "`e[91m There were $failures failed tests`e[0m"
                 }
                 else {
-                    Write-Output "`e[32m All tests passed`e[0m"
+                    Microsoft.PowerShell.Utility\Write-Output "`e[32m All tests passed`e[0m"
                 }
             }
         }

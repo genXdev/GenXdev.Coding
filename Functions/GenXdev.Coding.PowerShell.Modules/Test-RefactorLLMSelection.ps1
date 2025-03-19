@@ -48,7 +48,7 @@ function Test-RefactorLLMSelection {
 
     begin {
 
-        Write-Verbose "Starting refactor selection analysis for: $Path"
+        Microsoft.PowerShell.Utility\Write-Verbose "Starting refactor selection analysis for: $Path"
 
         # extract the selection criteria prompt from the refactor settings
         $prompt = $RefactorDefinition.SelectionSettings.LLM.Prompt
@@ -68,9 +68,9 @@ function Test-RefactorLLMSelection {
 
         # prepare the llm query parameters by matching available parameters
         $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
-            -BoundParameters ($RefactorDefinition.SelectionSettings.LLM | ConvertTo-HashTable) `
+            -BoundParameters ($RefactorDefinition.SelectionSettings.LLM | GenXdev.Helpers\ConvertTo-HashTable) `
             -FunctionName "GenXdev.AI\Invoke-LLMQuery" `
-            -DefaultValues (Get-Variable -Scope Local -Name * `
+            -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * `
                 -ErrorAction SilentlyContinue)
 
         # construct the complete instruction set for the llm query
@@ -93,10 +93,10 @@ $([System.IO.File]::ReadAllText($Path))
         $invocationParams.ChatOnce = $false
         $invocationParams.IncludeThoughts = $false
 
-        Write-Verbose "Invoking LLM analysis with selection criteria"
+        Microsoft.PowerShell.Utility\Write-Verbose "Invoking LLM analysis with selection criteria"
 
         # execute the llm query and convert response to boolean
-        return ("$((GenXdev.AI\Invoke-LLMQuery @invocationParams -ErrorAction SilentlyContinue -TTLSeconds 120 -Verbose:$false | Out-String))".ToLowerInvariant().Contains("true"))
+        return ("$((GenXdev.AI\Invoke-LLMQuery @invocationParams -ErrorAction SilentlyContinue -TTLSeconds 120 -Verbose:$false | Microsoft.PowerShell.Utility\Out-String))".ToLowerInvariant().Contains("true"))
     }
 
     end {

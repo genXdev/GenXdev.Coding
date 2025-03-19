@@ -73,18 +73,18 @@ function Add-FeatureLineToREADME {
     )
 
     begin {
-        Write-Verbose "Starting Add-FeatureLineToREADME with line: $Line"
+        Microsoft.PowerShell.Utility\Write-Verbose "Starting Add-FeatureLineToREADME with line: $Line"
     }
 
     process {
         # format the line with timestamp if not empty
         if ([string]::IsNullOrWhiteSpace($Line) -eq $false) {
             $Line = "$([DateTime]::Now.ToString('yyyyMMdd')) --> $Line"
-            Write-Verbose "Formatted line: $Line"
+            Microsoft.PowerShell.Utility\Write-Verbose "Formatted line: $Line"
         }
 
         # add the line to the README file
-        Add-LineToREADME `
+        GenXdev.Coding\Add-LineToREADME `
             -Code:$Code `
             -Show:$Show `
             -Section "## Features" `

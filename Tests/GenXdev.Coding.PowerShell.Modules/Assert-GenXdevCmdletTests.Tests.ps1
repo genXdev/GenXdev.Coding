@@ -1,20 +1,20 @@
 ################################################################################
-Describe "Assert-GenXdevCmdletTests" {
+Pester\Describe "Assert-GenXdevCmdletTests" {
 
-    BeforeAll {
+    Pester\BeforeAll {
         # set up test variables
         $Script:testCmdletName = "Get-GenXDevModuleInfo"
         $Script:scriptPath = GenXdev.FileSystem\Expand-Path `
             "$PSScriptRoot\..\..\Functions\GenXdev.Coding.PowerShell.Modules\Assert-GenXdevCmdletTests.ps1"
     }
 
-    It "Should pass PSScriptAnalyzer rules" {
+    Pester\It "Should pass PSScriptAnalyzer rules" {
 
         $analyzerResults = GenXdev.Coding\Invoke-GenXdevScriptAnalyzer `
             -Path $Script:scriptPath
 
         [string] $message = ""
-        $analyzerResults | ForEach-Object {
+        $analyzerResults | Microsoft.PowerShell.Core\ForEach-Object {
 
             $message = $message + @"
 --------------------------------------------------
@@ -25,7 +25,7 @@ Message: $($_.Message)
 "@
         }
 
-        $analyzerResults.Count | Should -Be 0 -Because @"
+        $analyzerResults.Count | Pester\Should -Be 0 -Because @"
 The following PSScriptAnalyzer rules are being violated:
 $message
 "@;

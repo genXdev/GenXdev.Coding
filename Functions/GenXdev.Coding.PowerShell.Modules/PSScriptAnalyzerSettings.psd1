@@ -1,6 +1,7 @@
 @{
     Severity              = @('Warning')
     IncludeRules          = @(
+        "Measure-UseFullyQualifiedCmdletNames",
         "UseFullyQualifiedCmdletNames",
         "PSAvoidDefaultValueSwitchParameter",
         "PSAvoidUsingCmdletAliases",
@@ -78,6 +79,6 @@
     IncludeDefaultRules   = $true
     RecurseCustomRulePath = $false
     CustomRulePath        = @(
-        "~\Documents\Powershell\Modules\GenXdev.Coding\1.134.2025\Functions\GenXdev.Coding.PowerShell.Modules\Measure-UseFullyQualifiedCmdletNames.psm1"
+        "~\Documents\Powershell\Modules\GenXdev.Coding\1.136.2025\Functions\GenXdev.Coding.PowerShell.Modules\Measure-UseFullyQualifiedCmdletNames.psm1"
     )
 }

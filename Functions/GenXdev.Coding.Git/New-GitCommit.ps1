@@ -39,50 +39,50 @@ function New-GitCommit {
 
         # extract the current branch name from git's symbolic reference
         $branch = (git symbolic-ref refs/remotes/origin/HEAD).split("/")[3]
-        Write-Verbose "Operating on git branch: $branch"
+        Microsoft.PowerShell.Utility\Write-Verbose "Operating on git branch: $branch"
     }
 
     process {
 
         # add all changed files to git staging area
-        Write-Verbose "Staging all modified files..."
+        Microsoft.PowerShell.Utility\Write-Verbose "Staging all modified files..."
         if ($PSCmdlet.ShouldProcess("all changes", "git add")) {
             $null = git add *
             if ($LASTEXITCODE -ne 0) {
-                Write-Error "Failed to stage changes"
+                Microsoft.PowerShell.Utility\Write-Error "Failed to stage changes"
                 return
             }
         }
 
         # create a new commit with the specified title
-        Write-Verbose ("Creating commit with message: $Title")
+        Microsoft.PowerShell.Utility\Write-Verbose ("Creating commit with message: $Title")
         if ($PSCmdlet.ShouldProcess("commit with title: $Title", "git commit")) {
             $null = git commit -m $Title
             if ($LASTEXITCODE -ne 0) {
-                Write-Error "Failed to create commit"
+                Microsoft.PowerShell.Utility\Write-Error "Failed to create commit"
                 return
             }
         }
 
         # ensure branch is tracking upstream remote
-        Write-Verbose "Configuring upstream tracking to origin/$branch"
+        Microsoft.PowerShell.Utility\Write-Verbose "Configuring upstream tracking to origin/$branch"
         if ($PSCmdlet.ShouldProcess(
                 "upstream branch to origin/$branch",
                 "git push -u")) {
 
             $null = git push -u origin $branch
             if ($LASTEXITCODE -ne 0) {
-                Write-Error "Failed to set upstream branch"
+                Microsoft.PowerShell.Utility\Write-Error "Failed to set upstream branch"
                 return
             }
         }
 
         # push committed changes to remote repository
-        Write-Verbose "Pushing changes to remote repository..."
+        Microsoft.PowerShell.Utility\Write-Verbose "Pushing changes to remote repository..."
         if ($PSCmdlet.ShouldProcess("changes to remote", "git push")) {
             $null = git push
             if ($LASTEXITCODE -ne 0) {
-                Write-Error "Failed to push changes"
+                Microsoft.PowerShell.Utility\Write-Error "Failed to push changes"
                 return
             }
         }

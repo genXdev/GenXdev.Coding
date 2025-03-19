@@ -119,7 +119,7 @@ function Assert-NextGenXdevCmdlet {
     process {
 
         # retrieve the next cmdlet to process based on filters and state
-        $cmdlet = Get-GenXDevNextCmdLet `
+        $cmdlet = GenXdev.Coding\Get-GenXDevNextCmdLet `
             -ModuleName $ModuleName `
             -Reset:$Reset `
             -RedoLast:$RedoLast `
@@ -129,25 +129,25 @@ function Assert-NextGenXdevCmdlet {
         # validate that we found a cmdlet to process
         if ($null -eq $cmdlet) {
 
-            Write-Error "Cmdlet not found"
+            Microsoft.PowerShell.Utility\Write-Error "Cmdlet not found"
             return;
         }
 
         # log verbose information about current cmdlet
-        Write-Verbose "Processing cmdlet: $($cmdlet.Name)"
+        Microsoft.PowerShell.Utility\Write-Verbose "Processing cmdlet: $($cmdlet.Name)"
 
         # copy matching parameters for Assert-GenXdevCmdlet function
         $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
-            -FunctionName Assert-GenXdevCmdlet `
+            -FunctionName "GenXdev.Coding\Assert-GenXdevCmdlet" `
             -BoundParameters $PSBoundParameters `
-            -DefaultValues (Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+            -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
 
         # set required parameters for cmdlet assertion
         $invocationParams.CmdletName = $cmdlet.Name
         $invocationParams.Prompt = $Prompt
 
         # execute the cmdlet assertion with prepared parameters
-        Assert-GenXdevCmdlet @$invocationParams
+        GenXdev.Coding\Assert-GenXdevCmdlet @$invocationParams
     }
 
     end {

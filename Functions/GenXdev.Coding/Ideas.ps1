@@ -43,13 +43,13 @@ function Ideas {
 
     begin {
 
-        Write-Verbose "Starting Ideas function"
+        Microsoft.PowerShell.Utility\Write-Verbose "Starting Ideas function"
     }
 
     process {
 
         # display ideas using base function
-        Add-IdeaLineToREADME `
+        GenXdev.Coding\Add-IdeaLineToREADME `
             -Show `
             -UseHomeREADME:$UseHomeREADME `
             -UseOneDriveREADME:$UseOneDriveREADME

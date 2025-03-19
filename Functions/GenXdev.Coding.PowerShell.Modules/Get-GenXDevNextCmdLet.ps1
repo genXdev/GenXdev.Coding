@@ -101,7 +101,7 @@ function Get-GenXDevNextCmdLet {
 
     begin {
 
-        Write-Verbose "Initializing cmdlet retrieval process"
+        Microsoft.PowerShell.Utility\Write-Verbose "Initializing cmdlet retrieval process"
 
         $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
             -FunctionName "GenXdev.Helpers\Get-GenXDevCmdlets" `
@@ -112,9 +112,9 @@ function Get-GenXDevNextCmdLet {
         if ($OnlyNonExisting) {
 
             # filter out cmdlets that already have tests
-            Write-Verbose "Filtering for cmdlets without unit tests"
+            Microsoft.PowerShell.Utility\Write-Verbose "Filtering for cmdlets without unit tests"
             $filteredCmdLets = $filteredCmdLets |
-                ForEach-Object {
+                Microsoft.PowerShell.Core\ForEach-Object {
 
                     if (-not [IO.File]::Exists($PSItem.ScriptTestFilePath)) {
 
@@ -134,8 +134,8 @@ function Get-GenXDevNextCmdLet {
         }
 
         # retrieve current position from store
-        Write-Verbose "Getting current index from store with key: $Key"
-        [int] $currentIndex = Get-ValueByKeyFromStore -StoreName ModelDev `
+        Microsoft.PowerShell.Utility\Write-Verbose "Getting current index from store with key: $Key"
+        [int] $currentIndex = GenXdev.Data\Get-ValueByKeyFromStore -StoreName ModelDev `
             -KeyName $Key -DefaultValue -1
 
         # determine next cmdlet index
@@ -148,7 +148,7 @@ function Get-GenXDevNextCmdLet {
             if ($index -ge $filteredCmdLets.Length) {
 
                 $index = -1
-                Set-ValueByKeyInStore -StoreName ModelDev -KeyName $Key -Value $index
+                GenXdev.Data\Set-ValueByKeyInStore -StoreName ModelDev -KeyName $Key -Value $index
 
                 throw "This was the last command in the list. Reissue the command to start from the beginning."
             }
@@ -170,8 +170,8 @@ function Get-GenXDevNextCmdLet {
         # update stored index unless redoing last cmdlet
         if (-not $RedoLast) {
 
-            Write-Verbose "Updating stored index to: $index"
-            Set-ValueByKeyInStore -StoreName ModelDev -KeyName $Key -Value $index
+            Microsoft.PowerShell.Utility\Write-Verbose "Updating stored index to: $index"
+            GenXdev.Data\Set-ValueByKeyInStore -StoreName ModelDev -KeyName $Key -Value $index
         }
 
         # get the selected cmdlet

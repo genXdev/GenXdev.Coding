@@ -54,7 +54,7 @@ function Get-RefactorReport {
 
     begin {
 
-        Write-Verbose "Starting refactor report generation for pattern: $Name"
+        Microsoft.PowerShell.Utility\Write-Verbose "Starting refactor report generation for pattern: $Name"
 
         # initialize text output header if AsText parameter is specified
         $script:textHeader = $null
@@ -75,20 +75,20 @@ function Get-RefactorReport {
 
         # output header and separator for text format
         if ($AsText -and $script:textHeader) {
-            Write-Output $script:textHeader
-            Write-Output ("-" * $script:textHeader.Length)
+            Microsoft.PowerShell.Utility\Write-Output $script:textHeader
+            Microsoft.PowerShell.Utility\Write-Output ("-" * $script:textHeader.Length)
             $script:textHeader = $null
         }
 
         # process each matching refactor
-        Get-Refactor -Name $Name |
-        ForEach-Object {
+        GenXdev.Coding\Get-Refactor -Name $Name |
+        Microsoft.PowerShell.Core\ForEach-Object {
             # calculate total functions affected by this refactor
             $totalFunctions = $PSItem.State.Selected.Count + `
                 $PSItem.State.Refactored.Count + `
                 $PSItem.State.Unselected.Count
 
-            Write-Verbose ("Processing refactor: $($PSItem.Name) with " + `
+            Microsoft.PowerShell.Utility\Write-Verbose ("Processing refactor: $($PSItem.Name) with " + `
                     "$totalFunctions items")
 
             if ($AsText) {
@@ -104,7 +104,7 @@ function Get-RefactorReport {
                         $PSItem.State.PercentageComplete.ToString().Length))
 
                 # output formatted text row
-                Write-Output (
+                Microsoft.PowerShell.Utility\Write-Output (
                     "{0} {1} {2} {3} {4} {5}%" -f `
                         $name.PadRight(10),
                     $promptKey.PadRight(10),
@@ -116,7 +116,7 @@ function Get-RefactorReport {
             }
             else {
                 # return hashtable with refactor details
-                Write-Output @{
+                Microsoft.PowerShell.Utility\Write-Output @{
                     Name               = $PSItem.Name
                     PromptKey          = $PSItem.RefactorSettings.PromptKey
                     Priority           = $PSItem.Priority
@@ -130,7 +130,7 @@ function Get-RefactorReport {
 
     end {
 
-        Write-Verbose "Completed refactor report generation"
+        Microsoft.PowerShell.Utility\Write-Verbose "Completed refactor report generation"
     }
 }
 ################################################################################
