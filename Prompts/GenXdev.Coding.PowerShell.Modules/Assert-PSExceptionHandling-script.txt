@@ -13,7 +13,7 @@ Follow these rules:
    - Error record details
    - Stack trace when relevant
    - Original exception preservation
-4. Use Write-Error for non-terminating errors
+4. Use Microsoft.PowerShell.Utility\Write-Error for non-terminating errors
 5. Use throw for terminating errors
 6. Add finally blocks for cleanup
 7. Include proper error stream handling
@@ -25,7 +25,7 @@ Example structure:
 try {
     # Risky operation
 } catch [System.IO.FileNotFoundException] {
-    Write-Error "File not found: $_"
+    Microsoft.PowerShell.Utility\Write-Error "File not found: $_"
 } catch {
     throw "Unexpected error: $_"
 } finally {

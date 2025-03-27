@@ -56,8 +56,9 @@ function Get-GenXDevNextCmdLet {
             Position = 1,
             HelpMessage = "GenXdev module names to search"
         )]
+        [ValidateNotNullOrEmpty()]
         [Alias("Module", "ModuleName")]
-        [SupportsWildcards()]
+        [ValidatePattern("^(GenXdev|GenXde[v]\*|GenXdev(\.\w+)+)+$")]
         [string[]] $BaseModuleName = @("GenXdev*"),
         ########################################################################
         [Parameter(Mandatory = $false)]
@@ -178,7 +179,8 @@ function Get-GenXDevNextCmdLet {
         $nextCmdLet = $filteredCmdLets[$index]
     }
 
-    process {
+
+process {
 
         $nextCmdLet
     }

@@ -138,7 +138,8 @@ function Start-NextRefactor {
         }
     }
 
-    process {
+
+process {
 
         # process each refactor definition in priority order
         foreach ($refactorDefinition in $refactorSet) {

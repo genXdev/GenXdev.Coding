@@ -8,7 +8,7 @@ foreach ($item in $items) {
     $current++
     $percentComplete = ($current / $totalItems) * 100
 
-    Write-Progress `
+    Microsoft.PowerShell.Utility\Write-Progress `
         -Activity $activity `
         -Status "Processing item $current of $totalItems" `
         -PercentComplete $percentComplete
@@ -18,7 +18,7 @@ foreach ($item in $items) {
 }
 
 # Clean up progress bar
-Write-Progress -Activity $activity -Completed
+Microsoft.PowerShell.Utility\Write-Progress -Activity $activity -Completed
 
 Notes:
 - Use descriptive activity names

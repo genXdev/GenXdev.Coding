@@ -55,7 +55,8 @@ function VSCode {
         }
     }
 
-    process {
+
+process {
 
         # process each file path provided through pipeline or parameter
         $FilePath | Microsoft.PowerShell.Core\ForEach-Object {

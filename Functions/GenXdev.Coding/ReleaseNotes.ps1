@@ -43,7 +43,8 @@ function ReleaseNotes {
         Microsoft.PowerShell.Utility\Write-Verbose "Starting ReleaseNotes function"
     }
 
-    process {
+
+process {
 
         # display ReleaseNotes using base function
         GenXdev.Coding\Add-ReleaseNoteLineToREADME `

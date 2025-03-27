@@ -73,9 +73,31 @@ function AssureGithubCLIInstalled {
         }
     }
 
-    process {
+
+process {
         $ErrorActionPreference = 'Stop'
         try {
+            # First check and install Git if needed
+            if (@(Microsoft.PowerShell.Core\Get-Command 'git.exe' -ErrorAction SilentlyContinue).Length -eq 0) {
+                Microsoft.PowerShell.Utility\Write-Verbose "Git not found, installing..."
+
+                if (-not (IsWinGetInstalled)) {
+                    InstallWinGet
+                }
+
+                try {
+                    $null = Microsoft.WinGet.Client\Install-WinGetPackage -Id 'Git.Git' -Force
+                }
+                catch {
+                    throw "Failed to install Git via WinGet: $_"
+                }
+
+                if (-not (Microsoft.PowerShell.Core\Get-Command 'git.exe' -ErrorAction SilentlyContinue)) {
+                    throw "Git installation failed: Command not found after installation"
+                }
+            }
+
+            # Then proceed with GitHub CLI installation
             if (@(Microsoft.PowerShell.Core\Get-Command 'gh.exe' -ErrorAction SilentlyContinue).Length -eq 0) {
                 Microsoft.PowerShell.Utility\Write-Verbose "GitHub CLI not found in PATH, checking installation..."
                 $githubCliPath = "$env:ProgramFiles\GitHub CLI"

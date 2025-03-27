@@ -24,9 +24,6 @@ Optional custom prompt text to override the template specified by PromptKey.
 .PARAMETER SelectionScript
 PowerShell script defining selection criteria for items to refactor.
 
-.PARAMETER AutoAddModifiedFiles
-When enabled, automatically adds any modified files to the refactoring queue.
-
 .PARAMETER SelectionPrompt
 Custom prompt text used by the LLM to guide selection of items for refactoring.
 
@@ -48,9 +45,6 @@ Time-to-live in seconds for API-loaded models. Use -1 for no expiration.
 .PARAMETER Gpu
 GPU usage control: -2=Auto, -1=LM Studio default.
 
-.PARAMETER Force
-Forces LM Studio to restart before initialization.
-
 .PARAMETER ApiEndpoint
 Custom API endpoint URL for accessing the LLM service.
 
@@ -63,6 +57,15 @@ Processing priority for this refactor set (higher numbers = higher priority).
 .PARAMETER ExposedCmdLets
 Array of PowerShell cmdlet definitions to expose as tools to the LLM.
 
+.PARAMETER FilesToAdd
+Array of files to initially include in the refactoring set.
+
+.PARAMETER AutoAddModifiedFiles
+When enabled, automatically adds any modified files to the refactoring queue.
+
+.PARAMETER Force
+Forces LM Studio to restart before initialization.
+
 .PARAMETER Code
 Opens files in Visual Studio Code when enabled.
 
@@ -72,12 +75,10 @@ Opens files in Visual Studio when enabled.
 .PARAMETER KeysToSend
 Array of keystrokes to send after opening files.
 
-.PARAMETER FilesToAdd
-Array of files to initially include in the refactoring set.
-
 .EXAMPLE
 New-Refactor -Name "UpdateLogging" -PromptKey "LoggingRefactor" `
-    -SelectionScript "Get-LoggingMethods" -Priority 1 -Code
+    -SelectionScript "Get-LoggingMethods" -Priority 1 `
+    -Model "qwen2.5-14b-instruct" -Code
 
 .EXAMPLE
 newrefactor UpdateLogging LoggingRefactor -p "Get-LoggingMethods" -c
@@ -89,103 +90,113 @@ function New-Refactor {
     param (
         ########################################################################
         [Parameter(
-            Mandatory = $true,
             Position = 0,
+            Mandatory = $true,
             HelpMessage = "The name of this new refactor set"
         )]
         [ValidateNotNullOrEmpty()]
         [string] $Name,
         ########################################################################
         [Parameter(
-            Mandatory = $true,
             Position = 1,
+            Mandatory = $true,
             HelpMessage = "The prompt key indicates which prompt script to use"
         )]
         [ValidateNotNullOrEmpty()]
         [string] $PromptKey,
         ########################################################################
         [Parameter(
-            Mandatory = $false,
             Position = 2,
-            HelpMessage = "The prompt key indicates which prompt script to use"
+            Mandatory = $false,
+            HelpMessage = "Custom prompt text to override the template"
         )]
         [ValidateNotNullOrEmpty()]
         [string] $Prompt = "",
         ########################################################################
         [Parameter(
-            Mandatory = $false,
             Position = 3,
-            HelpMessage = "Powershell script for function to select items to " +
-            "refactor"
+            Mandatory = $false,
+            HelpMessage = "Powershell script for selecting items to refactor"
         )]
         [ValidateNotNullOrEmpty()]
         [string] $SelectionScript,
         ########################################################################
         [Parameter(
-            Mandatory = $false,
-            HelpMessage = "Will automatically add modified files to the queue"
-        )]
-        [switch] $AutoAddModifiedFiles,
-        ########################################################################
-        [Parameter(
-            Mandatory = $false,
             Position = 4,
-            HelpMessage = "If provided, will invoke LLM to do the selection " +
-            "based on the content of the script"
+            Mandatory = $false,
+            HelpMessage = "LLM selection guidance prompt"
         )]
         [ValidateNotNullOrEmpty()]
         [string] $SelectionPrompt,
         ########################################################################
         [Parameter(
-            Mandatory = $false,
             Position = 5,
+            Mandatory = $false,
             HelpMessage = "The LM-Studio model to use"
         )]
         [string] $Model,
         ########################################################################
         [Parameter(
-            Mandatory = $false,
             Position = 6,
-            HelpMessage = "Identifier for getting specific model from LM Studio"
+            Mandatory = $false,
+            HelpMessage = "Model identifier for LM Studio"
         )]
         [string] $ModelLMSGetIdentifier,
         ########################################################################
         [Parameter(
-            Mandatory = $false,
             Position = 7,
+            Mandatory = $false,
             HelpMessage = "Temperature for response randomness (0.0-1.0)"
         )]
         [ValidateRange(0.0, 1.0)]
-        [double] $Temperature = 0.0,
+        [double] $Temperature = 0.2,
         ########################################################################
         [Parameter(
-            Mandatory = $false,
             Position = 8,
+            Mandatory = $false,
             HelpMessage = "Maximum tokens in response (-1 for default)"
         )]
         [Alias("MaxTokens")]
         [int] $MaxToken = -1,
         ########################################################################
         [Parameter(
-            Mandatory = $false,
             Position = 9,
-            HelpMessage = "Set a TTL (in seconds) for models via API requests"
+            Mandatory = $false,
+            HelpMessage = "Model TTL in seconds (-1 for no expiration)"
         )]
         [Alias("ttl")]
         [int] $TTLSeconds = -1,
         ########################################################################
         [Parameter(
-            Mandatory = $false,
             Position = 10,
+            Mandatory = $false,
             HelpMessage = "GPU offloading control (-2=Auto, -1=LMStudio decide)"
         )]
+        [ValidateRange(-2, 1)]
         [int] $Gpu = -1,
         ########################################################################
         [Parameter(
+            Position = 11,
             Mandatory = $false,
-            HelpMessage = "Force stop LM Studio before initialization"
+            HelpMessage = "Priority for this refactor set"
         )]
-        [switch] $Force,
+        [ValidateNotNullOrEmpty()]
+        [int] $Priority = 0,
+        ########################################################################
+        [Parameter(
+            Position = 12,
+            Mandatory = $false,
+            HelpMessage = "Array of PowerShell command definitions for LLM tools"
+        )]
+        [GenXdev.Helpers.ExposedCmdletDefinition[]]
+        $ExposedCmdLets = @(),
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Array of files to process"
+        )]
+        [ValidateNotNull()]
+        [System.IO.FileInfo[]] $FilesToAdd = @(),
         ########################################################################
         [Parameter(
             Mandatory = $false,
@@ -201,27 +212,23 @@ function New-Refactor {
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            Position = 11,
-            HelpMessage = "Priority for this refactor set"
+            HelpMessage = "Will automatically add modified files to the queue"
         )]
-        [ValidateNotNullOrEmpty()]
-        [int] $Priority = 0,
+        [switch] $AutoAddModifiedFiles,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            Position = 12,
-            HelpMessage = "Array of PowerShell command definitions for LLM tools"
+            HelpMessage = "Force stop LM Studio before initialization"
         )]
-        [GenXdev.Helpers.ExposedCmdletDefinition[]]
-        $ExposedCmdLets = @(),
-        #######################################################################
+        [switch] $Force,
+        ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The ide to open the file in"
+            HelpMessage = "Open files in Visual Studio Code"
         )]
         [Alias("c")]
         [switch] $Code,
-        #######################################################################
+        ########################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "Open in Visual Studio"
@@ -231,17 +238,10 @@ function New-Refactor {
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The keys to invoke as key strokes after opening the file"
+            HelpMessage = "Keystrokes to send after opening files"
         )]
         [Alias("keys")]
-        [string[]] $KeysToSend = @(),
-        ########################################################################
-        [Parameter(
-            Mandatory = $false,
-            HelpMessage = "Filenames to add"
-        )]
-        [ValidateNotNull()]
-        [System.IO.FileInfo[]] $FilesToAdd = @()
+        [string[]] $KeysToSend = @()
         ########################################################################
     )
 
@@ -250,7 +250,9 @@ function New-Refactor {
         # capture current UTC timestamp for logging
         $currentTime = GenXdev.Console\UtcNow
 
-        Microsoft.PowerShell.Utility\Write-Verbose "Initializing new refactor set '$Name' with priority $Priority"
+        Microsoft.PowerShell.Utility\Write-Verbose (
+            "Initializing new refactor set '$Name' with priority $Priority"
+        )
 
         # initialize new refactor definition object
         $refactorDefinition = [GenXdev.Helpers.RefactorDefinition]::new()
@@ -263,7 +265,8 @@ function New-Refactor {
 
         # setup selection criteria configuration
         $refactorDefinition.SelectionSettings.Script = $SelectionScript
-        $refactorDefinition.SelectionSettings.AutoAddModifiedFiles = $AutoAddModifiedFiles
+        $refactorDefinition.SelectionSettings.AutoAddModifiedFiles = `
+            $AutoAddModifiedFiles
         $refactorDefinition.SelectionSettings.LLM.Prompt = $SelectionPrompt
 
         # configure LLM processing settings
@@ -277,14 +280,15 @@ function New-Refactor {
         $refactorDefinition.SelectionSettings.LLM.Force = $Force
         $refactorDefinition.SelectionSettings.LLM.ApiEndpoint = $ApiEndpoint
         $refactorDefinition.SelectionSettings.LLM.ApiKey = $ApiKey
-        $refactorDefinition.SelectionSettings.LLM.ExposedCmdLets = $ExposedCmdLets
+        $refactorDefinition.SelectionSettings.LLM.ExposedCmdLets = `
+            $ExposedCmdLets
 
         # set IDE integration preferences
         $refactorDefinition.RefactorSettings.KeysToSend = $KeysToSend
-        $refactorDefinition.RefactorSettings.Code = $PSBoundParameters.ContainsKey(
-            "Code") ? ($Code ? 1 : 0) : -1
+        $refactorDefinition.RefactorSettings.Code = `
+            $PSBoundParameters.ContainsKey("Code") ? ($Code ? 1 : 0) : -1
         $refactorDefinition.RefactorSettings.VisualStudio = `
-            $PSBoundParameters.ContainsKey("VisualStudio") ?
+            $PSBoundParameters.ContainsKey("VisualStudio") ? `
             ($VisualStudio ? 1 : 0) : -1
 
         # record creation event in log
@@ -300,18 +304,24 @@ function New-Refactor {
         $refactorDefinition.State.LastUpdated = $currentTime
     }
 
-    process {
+
+process {
 
         # create unique storage key for this refactor set
         $preferenceName = "refactor_set_$Name"
 
-        Microsoft.PowerShell.Utility\Write-Verbose "Validating refactor set '$Name' does not exist"
+        Microsoft.PowerShell.Utility\Write-Verbose (
+            "Validating refactor set '$Name' does not exist"
+        )
 
         # verify no existing refactor with same name exists
-        $existingDefinition = GenXdev.Data\Get-GenXdevPreference -Name $preferenceName
+        $existingDefinition = GenXdev.Data\Get-GenXdevPreference `
+            -Name $preferenceName
 
         if ($existingDefinition) {
-            Microsoft.PowerShell.Utility\Write-Error "Refactor set '$Name' already exists"
+            Microsoft.PowerShell.Utility\Write-Error (
+                "Refactor set '$Name' already exists"
+            )
             return
         }
 

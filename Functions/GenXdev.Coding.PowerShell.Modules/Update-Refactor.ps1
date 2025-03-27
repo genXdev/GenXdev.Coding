@@ -139,6 +139,7 @@ Get-Refactor "MyRefactor" | Update-Refactor -Reset -Clear
 function Update-Refactor {
 
     [CmdletBinding(DefaultParameterSetName = 'Name', SupportsShouldProcess)]
+    [Alias("updaterefactor")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute(
         'PSAvoidUsingInvokeExpression',
         '',
@@ -303,7 +304,7 @@ function Update-Refactor {
             Mandatory = $false,
             HelpMessage = "Temperature for response randomness (0.0-1.0)")]
         [ValidateRange(0.0, 1.0)]
-        [double] $Temperature = 0.0,
+        [double] $Temperature = 0.2,
         ########################################################################
         [Parameter(
             Mandatory = $false,
@@ -405,7 +406,8 @@ function Update-Refactor {
         $script:last = $null;
     }
 
-    process {
+
+process {
 
         # process each refactor definition
         foreach ($refactorDefinition in $Refactor) {
@@ -703,7 +705,7 @@ function Update-Refactor {
                 $refactorDefinition.RefactorSettings.VisualStudio = $newVisualStudio
             }
 
-            if ($SelectByModifiedDateFrom -ne $null) {
+            if ($null -ne $SelectByModifiedDateFrom) {
 
                 # copy all refactored files to FilesToAdd
                 $FilesToAdd += @(
@@ -727,7 +729,7 @@ function Update-Refactor {
                 )
             }
 
-            if ($SelectByModifiedDateTo -ne $null) {
+            if ($null -ne $SelectByModifiedDateTo) {
 
                 # copy all refactored files to FilesToAdd
                 $FilesToAdd += @(
@@ -752,7 +754,7 @@ function Update-Refactor {
                 )
             }
 
-            if ($SelectByCreationDateFrom -ne $null) {
+            if ($null -ne $SelectByCreationDateFrom) {
 
                 # copy all refactored files to FilesToAdd
                 $FilesToAdd += @(
@@ -777,7 +779,7 @@ function Update-Refactor {
                 )
             }
 
-            if ($SelectByCreationDateTo -ne $null) {
+            if ($null -ne $SelectByCreationDateTo) {
 
                 # copy all refactored files to FilesToAdd
                 $FilesToAdd += @(
@@ -1019,8 +1021,21 @@ function Update-Refactor {
                             [Version] $version = $null
                             if ([Version]::tryParse($parts[1], [ref]$version)) {
 
-                                $path = "$modulesPath\$($parts[0])\1.138.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
-                                $refactorDefinition.State.Refactored[$refactoredIndex] = $path
+                                $path = "$modulesPath\$($parts[0])\1.156.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
+
+                                if ($refactorDefinition.State.Refactored.IndexOf($path) -lt 0) {
+
+                                    $refactorDefinition.State.Refactored[$refactoredIndex] = $path
+                                }
+                                else {
+                                    $null = $refactorDefinition.State.Refactored.RemoveAt($refactoredIndex)
+
+                                    if ($refactoredIndex -le $refactorDefinition.State.RefactoredIndex) {
+
+                                        $refactorDefinition.State.RefactoredIndex = [Math]::Max(-1,
+                                            $refactorDefinition.State.RefactoredIndex - 1)
+                                    }
+                                }
                             }
                         }
                     }
@@ -1044,10 +1059,24 @@ function Update-Refactor {
 
                             if ($parts.Length -gt 1) {
                                 [Version] $version = $null
+
                                 if ([Version]::tryParse($parts[1], [ref]$version)) {
 
-                                    $path = "$modulesPath\$($parts[0])\1.138.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
-                                    $refactorDefinition.State.Selected[$selectedIndex] = $path
+                                    $path = "$modulesPath\$($parts[0])\1.156.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
+
+                                    if ($refactorDefinition.State.Selected.IndexOf($path) -lt 0) {
+
+                                        $refactorDefinition.State.Selected[$selectedIndex] = $path
+                                    }
+                                    else {
+                                        $null = $refactorDefinition.State.Selected.RemoveAt($selectedIndex)
+
+                                        if ($selectedIndex -le $refactorDefinition.State.SelectedIndex) {
+
+                                            $refactorDefinition.State.SelectedIndex = [Math]::Max(-1,
+                                                $refactorDefinition.State.SelectedIndex - 1)
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -1073,8 +1102,21 @@ function Update-Refactor {
                             [Version] $version = $null
                             if ([Version]::tryParse($parts[1], [ref]$version)) {
 
-                                $path = "$modulesPath\$($parts[0])\1.138.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
-                                $refactorDefinition.State.Unselected[$unselectedIndex] = $path
+                                $path = "$modulesPath\$($parts[0])\1.156.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
+
+                                if ($refactorDefinition.State.Unselected.IndexOf($path) -lt 0) {
+
+                                    $refactorDefinition.State.Unselected[$unselectedIndex] = $path
+                                }
+                                else {
+                                    $null = $refactorDefinition.State.Unselected.RemoveAt($unselectedIndex)
+
+                                    if ($unselectedIndex -le $refactorDefinition.State.UnselectedIndex) {
+
+                                        $refactorDefinition.State.UnselectedIndex = [Math]::Max(-1,
+                                            $refactorDefinition.State.UnselectedIndex - 1)
+                                    }
+                                }
                             }
                         }
                     }

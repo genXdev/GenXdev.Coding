@@ -32,8 +32,9 @@ function Show-RefactorReport {
             HelpMessage = "The name pattern to filter modules (supports wildcards)"
         )]
         [SupportsWildcards()]
-        [string[]]$Name = "*"
+        [string[]]$Name = "*",
         ########################################################################
+        [switch] $Full
     )
 
     begin {
@@ -43,16 +44,56 @@ function Show-RefactorReport {
             "$($Name -join ', ')")
     }
 
-    process {
+
+process {
 
         # retrieve report data and format as table with key metrics
         $report = GenXdev.Coding\Get-RefactorReport -Name:$Name |
-        Microsoft.PowerShell.Utility\Select-Object -Property Name, PromptKey, Status, `
-            FunctionCount, Priority, PercentageComplete |
-        Microsoft.PowerShell.Utility\Format-Table
+            Microsoft.PowerShell.Core\ForEach-Object {
 
-        # display the formatted report data in green for visibility
-        Microsoft.PowerShell.Utility\Write-Host -ForegroundColor Green ($report | Microsoft.PowerShell.Utility\Out-String)
+            $reportObj = $_
+            $refactor = GenXdev.Coding\Get-Refactor -Name:$_.Name
+
+            if ($Full) {
+
+                @{
+                    Name               = $reportObj.Name
+                    PromptKey          = $reportObj.PromptKey
+                    P                  = $reportObj.Priority
+                    Fc                 = $reportObj.FunctionCount
+                    C                  = "$($reportObj.PercentageComplete)%"
+                    UsC                = $refactor.State.UnSelected.Count
+                    UsI                = $refactor.State.UnSelectedIndex
+                    SlC                = $refactor.State.Selected.Count
+                    SlI                = $refactor.State.SelectedIndex
+                    RfC                = $refactor.State.Refactored.Count
+                    RfI                = $refactor.State.RefactoredIndex
+                }
+
+                return;
+            }
+            @{
+                Name               = $reportObj.Name
+                PromptKey          = $reportObj.PromptKey
+                Priority           = $reportObj.Priority
+                Status             = $reportObj.Status
+                FunctionCount      = $reportObj.FunctionCount
+                Complete           = "$($reportObj.PercentageComplete)%"
+            }
+        } | Microsoft.PowerShell.Utility\ConvertTo-Json -Compress | Microsoft.PowerShell.Utility\ConvertFrom-Json | Microsoft.PowerShell.Utility\Format-Table -AutoSize | Microsoft.PowerShell.Utility\Out-String
+
+        $i = 0;
+        $report | Microsoft.PowerShell.Core\ForEach-Object {
+
+            if ($i++ -eq 0) {
+
+                Microsoft.PowerShell.Utility\Write-Host -ForegroundColor Green -Object $PSItem
+            }
+            else {
+
+                Microsoft.PowerShell.Utility\Write-Host -Object $PSItem
+            }
+        }
     }
 
     end {

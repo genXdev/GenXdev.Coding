@@ -45,7 +45,8 @@ function Get-GenXDevNewModulesInOrderOfDependency {
         $Modules = GenXdev.Coding\Get-GenXDevModuleInfo
     }
 
-    process {
+
+process {
 
         # create a new array list to store modules in their dependency order
         [System.Collections.ArrayList] $results = @()

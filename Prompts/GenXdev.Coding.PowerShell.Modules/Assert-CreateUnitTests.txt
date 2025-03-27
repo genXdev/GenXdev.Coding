@@ -7,19 +7,20 @@ and if so, replace that test with the one below;
 if it doesn't have such a test, add the one below;
 
 ################################################################################
-Describe "$CmdletName" {
+Pester\Describe "$CmdletName" {
 
-    It "should pass PSScriptAnalyzer rules" {
+    Pester\It "Should pass PSScriptAnalyzer rules" {
 
         # get the script path for analysis
-        $scriptPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Functions\$FullModuleName\$CmdLetNoTestName.ps1"
+        $scriptPath = GenXdev.FileSystem\Expand-Path `
+            "$PSScriptRoot\..\..\Functions\$FullModuleName\$CmdLetNoTestName.ps1"
 
         # run analyzer with explicit settings
         $analyzerResults = GenXdev.Coding\Invoke-GenXdevScriptAnalyzer `
             -Path $scriptPath
 
         [string] $message = ""
-        $analyzerResults | ForEach-Object {
+        $analyzerResults | Microsoft.PowerShell.Core\ForEach-Object {
 
             $message = $message + @"
 --------------------------------------------------
@@ -30,7 +31,7 @@ Message: $($_.Message)
 "@
         }
 
-        $analyzerResults.Count | Should -Be 0 -Because @"
+        $analyzerResults.Count | Pester\Should -Be 0 -Because @"
 The following PSScriptAnalyzer rules are being violated:
 $message
 "@;

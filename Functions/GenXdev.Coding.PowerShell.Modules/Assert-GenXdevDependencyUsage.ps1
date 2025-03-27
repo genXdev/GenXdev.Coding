@@ -12,7 +12,7 @@ function Assert-GenXdevDependencyUsage {
         )]
         [ValidateNotNullOrEmpty()]
         [Alias("Module", "ModuleName")]
-        [SupportsWildcards()]
+        [ValidatePattern("^(GenXdev|GenXde[v]\*|GenXdev(\.\w+)+)+$")]
         [string[]] $BaseModuleName = @("GenXdev*"),
 
         [Parameter(Mandatory = $false)]
@@ -24,7 +24,8 @@ function Assert-GenXdevDependencyUsage {
         $dependencies = @(GenXdev.Coding\Get-GenXDevNewModulesInOrderOfDependency | Microsoft.PowerShell.Core\ForEach-Object ModuleName) + @("GenXdev.Local")
     }
 
-    process {
+
+process {
         GenXdev.Helpers\Invoke-OnEachGenXdevModule -BaseModuleName:$BaseModuleName -FromScripts:$FromScripts -OnlyPublished -NoLocal -ScriptBlock {
 
             param($module)
@@ -32,8 +33,7 @@ function Assert-GenXdevDependencyUsage {
             $ModuleName = $module.Name;
             $ModuleManifestPath = GenXdev.FileSystem\Expand-Path ".\$ModuleName.psd1"
             $ModuleManifest = Microsoft.PowerShell.Utility\Import-PowerShellDataFile -Path $ModuleManifestPath
-            $GenXdevModule = $module
-
+            
             $index = $dependencies.IndexOf($ModuleName)
 
             if ($index -lt 0) {
@@ -64,9 +64,11 @@ function Assert-GenXdevDependencyUsage {
 
                     $references | Microsoft.PowerShell.Core\ForEach-Object {
 
-                        if ([IO.File]::ReadAllText($_).Contains("Install-Module $dependency")) {
+                        [string] $content = [IO.File]::ReadAllText($_)
 
-                            Microsoft.PowerShell.Utility\Write-Verbose "Module $ModuleName references $dependency in file, but has Install-Module $dependency in file. File: $_"
+                        if ($content.Contains("Install-Module $dependency") -or $content.Contains("GenXdev.Local\KeyValueStores") -or
+                            $content.Contains("`"`$PSScriptRoot\..\..\..\..\GenXdev.Local\")) {
+
                             return
                         }
 

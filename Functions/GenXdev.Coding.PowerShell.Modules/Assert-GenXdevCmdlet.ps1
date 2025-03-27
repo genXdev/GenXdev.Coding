@@ -1,34 +1,35 @@
 ################################################################################
 <#
 .SYNOPSIS
-Asserts and improves a specified GenXdev cmdlet by updating its documentation
-and AI prompts.
+Improves GenXdev cmdlet documentation and implementation through AI assistance.
 
 .DESCRIPTION
-Opens a specified GenXdev cmdlet in Visual Studio Code and updates its AI prompt.
-The function can integrate cmdlets into modules, use predefined prompt templates,
-apply custom prompts, or edit prompt templates directly.
+This function enhances GenXdev cmdlets by analyzing and improving their code
+through AI prompts. It can integrate cmdlets into modules, update documentation,
+and verify proper implementation. The function supports custom prompt templates
+and can open files in Visual Studio Code or Visual Studio.
 
-.PARAMETER Filter
-Search pattern to filter cmdlets for processing. Wildcards are supported.
+.PARAMETER CmdletName
+The name or search pattern of the cmdlet to improve. Supports wildcards.
 
 .PARAMETER BaseModuleName
-Array of GenXdev module names to search within.
+Array of GenXdev module names to search within. Must match pattern
+"GenXdev.*".
 
 .PARAMETER PromptKey
-The AI prompt template key to use for selecting the appropriate template.
+The key identifying which AI prompt template to use for improvements.
 
 .PARAMETER Prompt
-Custom AI prompt text to use instead of a template.
+Custom prompt text to override the template prompt.
 
 .PARAMETER NoLocal
-Skip local module versions when searching for cmdlets.
+Skip searching local module versions.
 
 .PARAMETER OnlyPublished
-Only include published module versions in search.
+Only search published module versions.
 
 .PARAMETER FromScripts
-Search in script files instead of module files.
+Search in script files rather than module files.
 
 .PARAMETER Code
 Opens the cmdlet in Visual Studio Code.
@@ -37,21 +38,16 @@ Opens the cmdlet in Visual Studio Code.
 Opens the cmdlet in Visual Studio.
 
 .PARAMETER EditPrompt
-Switch to only edit the AI prompt template.
+Only edit the AI prompt template without processing the cmdlet.
 
 .PARAMETER Integrate
-Switch to integrate the cmdlet into a module.
+Integrate the cmdlet into a module if it's currently a standalone script.
 
 .EXAMPLE
-Assert-GenXdevCmdlet -CmdletName "Get-Something" -PromptKey "CheckAllRequirements"
--Code
+Assert-GenXdevCmdlet -CmdletName "Get-Something" -PromptKey "CheckDocs" -Code
 
 .EXAMPLE
-improvecmdlet Get-Something CheckAllRequirements -c
-
-@see https://github.com/genXdev/GenXdev.Coding
-@author René Vaessen
-@version 1.0.0
+improvecmdlet Get-Something CheckDocs -c
 #>
 function Assert-GenXdevCmdlet {
 
@@ -75,8 +71,9 @@ function Assert-GenXdevCmdlet {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = "GenXdev module names to search"
         )]
+        [ValidateNotNullOrEmpty()]
         [Alias("Module", "ModuleName")]
-        [SupportsWildcards()]
+        [ValidatePattern("^(GenXdev|GenXde[v]\*|GenXdev(\.\w+)+)+$")]
         [string[]] $BaseModuleName = @("GenXdev*"),
         ########################################################################
         [parameter(
@@ -94,24 +91,31 @@ function Assert-GenXdevCmdlet {
         [AllowEmptyString()]
         [string] $Prompt = "",
         ########################################################################
-        [Parameter(Mandatory = $false)]
-        [switch] $NoLocal,
-        ########################################################################
-
-        [Parameter(Mandatory = $false)]
-        [switch] $OnlyPublished,
-        ########################################################################
-
-        [Parameter(Mandatory = $false)]
-        [switch] $FromScripts,
-        #######################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The ide to open the file in"
+            HelpMessage = "Skip local module versions"
+        )]
+        [switch] $NoLocal,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Only include published versions"
+        )]
+        [switch] $OnlyPublished,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Search in script files"
+        )]
+        [switch] $FromScripts,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Open in Visual Studio Code"
         )]
         [Alias("c")]
         [switch] $Code,
-        #######################################################################
+        ########################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "Open in Visual Studio"
@@ -121,12 +125,12 @@ function Assert-GenXdevCmdlet {
         ########################################################################
         [parameter(
             ParameterSetName = "PromptKey",
-            HelpMessage = "Switch to only edit the AI prompt"
+            HelpMessage = "Only edit the AI prompt"
         )]
         [switch] $EditPrompt,
         ########################################################################
         [parameter(
-            HelpMessage = "Switch to integrate the cmdlet into a module"
+            HelpMessage = "Integrate cmdlet into module"
         )]
         [switch] $Integrate
     )
@@ -198,7 +202,7 @@ function Assert-GenXdevCmdlet {
                 $baseDestinationParts = "$($($selected)[0].Label)".Split(".");
                 $baseDestinationModule = $baseDestinationParts[0] + "." + $baseDestinationParts[1];
                 $ModuleName = "$($($selected)[0].Label)"
-                $destination = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.138.2025\Functions\$ModuleName\$CmdletName.ps1" -CreateDirectory
+                $destination = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.156.2025\Functions\$ModuleName\$CmdletName.ps1" -CreateDirectory
 
                 # move the script file
                 GenXdev.FileSystem\Move-ItemWithTracking -Path $cmdlet.ScriptFilePath -Destination $destination
@@ -225,7 +229,7 @@ function Assert-GenXdevCmdlet {
                 }
 
                 # add dot source reference to corresponding psm1 file
-                GenXdev.Coding\SplitUpPsm1File -Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.138.2025\$ModuleName.psm1"
+                GenXdev.Coding\SplitUpPsm1File -Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.156.2025\$ModuleName.psm1"
 
                 . GenXdev.Helpers\Invoke-OnEachGenXdevModule {
 
@@ -319,7 +323,8 @@ function Assert-GenXdevCmdlet {
         }
     }
 
-    process {
+
+process {
         try {
             # handle prompt editing if requested
             if ($EditPrompt) {
@@ -335,7 +340,7 @@ function Assert-GenXdevCmdlet {
 
             $invocationParams.CmdletName = $CmdletName
             $invocationParams.KeysToSend = @(
-                "^``", "^+i", "^l", "^a", "{DELETE}", "^+i", "{ESCAPE}", "^{F12}", "^v", "{ENTER}"
+                "^``", "^+i", "^l", "^a", "{DELETE}", "^+i", "{ESCAPE}", "^{F12}", "^v", "{ENTER}", "^{ENTER}"
             )
 
             GenXdev.Coding\Show-GenXdevCmdLetInIde @invocationParams
@@ -348,7 +353,7 @@ function Assert-GenXdevCmdlet {
                         @("&Stop", "&Run unit-tests for $CmdletName", "Redo &Last"),
                         0)) {
                     0 { throw "Stopped" }
-                    1 { return GenXdev.Coding\Assert-GenXdevUnitTests -CmdletName $CmdletName -DebugFailedTests }
+                    1 { return GenXdev.Coding\Assert-GenXdevUnitTest -CmdletName $CmdletName -DebugFailedTests }
                     2 {
                         return GenXdev.Coding\Assert-GenXdevCmdlet @PSBoundParameters
                     }
@@ -375,6 +380,7 @@ function Assert-GenXdevCmdlet {
     }
 
     end {
+        # restore original clipboard content
         $null = Microsoft.PowerShell.Management\Set-Clipboard -Value $previousClipboard
     }
 }

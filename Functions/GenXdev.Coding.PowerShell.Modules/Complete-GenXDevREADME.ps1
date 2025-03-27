@@ -43,7 +43,8 @@ function Complete-GenXDevREADME {
         $modules = GenXdev.Coding\Get-GenXDevModuleInfo -ModuleName "$ModuleName"
     }
 
-    process {
+
+process {
 
         foreach ($module in $modules) {
 

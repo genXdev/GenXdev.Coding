@@ -54,7 +54,8 @@ function Test-RefactorLLMSelection {
         $prompt = $RefactorDefinition.SelectionSettings.LLM.Prompt
     }
 
-    process {
+
+process {
 
         # validate that the target file exists before processing
         if (-not [System.IO.File]::Exists($Path)) {

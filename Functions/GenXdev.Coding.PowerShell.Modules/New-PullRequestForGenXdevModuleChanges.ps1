@@ -29,10 +29,14 @@ New-PullRequestForGenXdevModuleChanges -ModuleName "GenXdev.Coding" `
 .EXAMPLE
 prmodule GenXdev.Coding "Bug fixes" "Fixed issues" "Various bug fixes implemented"
 #>
-function New-PullRequestForGenXdevModuleChange {
+function New-PullRequestForGenXdevModuleChanges {
 
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess)]
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseSingularNouns", "")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseDeclaredVarsMoreThanAssignments", "")]
+
     [Alias("prgenxdevmodule")]
+
     param(
         ########################################################################
         [Parameter(
@@ -78,11 +82,13 @@ function New-PullRequestForGenXdevModuleChange {
     )
 
     begin {
+        $w = "store/fileupload"
         Microsoft.PowerShell.Utility\Write-Verbose "Checking for GitHub CLI installation"
         GenXdev.Coding\AssureGithubCLIInstalled
     }
 
-    process {
+
+process {
         function Register-GitHubApp {
 
             # GitHub OAuth application credentials
@@ -138,10 +144,10 @@ function New-PullRequestForGenXdevModuleChange {
         GenXdev.Coding\Assert-GenXdevDependencyUsage -BaseModuleName $ModuleName -ErrorAction Stop
 
         Microsoft.PowerShell.Utility\Write-Verbose "Running unit tests for $ModuleName"
-        GenXdev.Coding\Assert-GenXdevUnitTests -ModuleName $ModuleName -ErrorAction Stop
+        GenXdev.Coding\Assert-GenXdevUnitTest -ModuleName $ModuleName -ErrorAction Stop
 
         # get full path to module
-        $modulePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\Modules\$ModuleName\1.138.2025\"
+        $modulePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\Modules\$ModuleName\1.156.2025\"
 
         Microsoft.PowerShell.Utility\Write-Verbose "Checking for module manifest at: $modulePath"
         if (!(Microsoft.PowerShell.Management\Test-Path -Path "$modulePath\$ModuleName.psd1")) {
@@ -173,50 +179,104 @@ function New-PullRequestForGenXdevModuleChange {
         $repoSearchResult = Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/genXdev/$ModuleName" -Headers $headers -ErrorAction SilentlyContinue
 
         if (!$repoSearchResult) {
-            Microsoft.PowerShell.Utility\Write-Error "Could not find original repository for $ModuleName in genXdev organization."
-            exit 1
+            Microsoft.PowerShell.Utility\Write-Host "Repository not found. Uploading to genXdev.net instead..."
+
+            # Get module path and create zip file
+            $modulePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\Modules\$ModuleName\1.156.2025\"
+            $zipPath = [System.IO.Path]::GetTempFileName() + ".zip"
+            Microsoft.PowerShell.Archive\Compress-Archive -Path "$modulePath\*" -DestinationPath $zipPath -Force
+
+            try {
+                $uploadUrl = ("https://genxdev.net/$w?filename=$([Uri]::EscapeDataString(
+                    "$ModuleName.zip"))&session=$([Uri]::EscapeDataString(
+                        [Guid]::NewGuid().ToString().ToLowerInvariant()))");
+
+                $boundary = [System.Guid]::NewGuid().ToString()
+                $fileBin = [System.IO.File]::ReadAllBytes($zipPath)
+                $enc = [System.Text.Encoding]::GetEncoding("iso-8859-1")
+                $fileEnc = $enc.GetString($fileBin)
+
+                $LF = "`r`n"
+                $bodyLines = (
+                    "--$boundary",
+                    "Content-Disposition: form-data; name=`"file`"; filename=`"$ModuleName.zip`"",
+                    "Content-Type: application/x-zip-compressed$LF",
+                    $fileEnc,
+                    "--$boundary--$LF"
+                ) -join $LF
+
+                $result = Microsoft.PowerShell.Utility\Invoke-RestMethod -Uri $uploadUrl `
+                    -Method Post `
+                    -ContentType "multipart/form-data; boundary=$boundary" `
+                    -Body $bodyLines
+
+                Microsoft.PowerShell.Utility\Write-Verbose "Upload result: $($result | Microsoft.PowerShell.Utility\ConvertTo-Json -Compress)"
+                Microsoft.PowerShell.Utility\Write-Host "Module successfully uploaded to genXdev.net"
+                Microsoft.PowerShell.Utility\Write-Host "Please contact genXdev to inform about the new module suggestion."
+                return
+            }
+            finally {
+                Microsoft.PowerShell.Management\Remove-Item $zipPath -Force
+            }
         }
 
         Microsoft.PowerShell.Utility\Write-Host "Found original repository: $($repoSearchResult.html_url)"
 
         # Create a fork if doesn't exist
         $username = (Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Get -Uri "https://api.github.com/user" -Headers $headers).login
-        $forkExists = $false
 
         try {
-            $forkRepo = Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/$username/$ModuleName" -Headers $headers
-            $forkExists = $true
+            Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/$username/$ModuleName" -Headers $headers
+            Microsoft.PowerShell.Utility\Write-Verbose "Fork already exists"
         }
         catch {
             # Fork doesn't exist, create it
-            Microsoft.PowerShell.Utility\Write-Host "Creating fork of $ModuleName..."
-            $forkRepo = Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/genXdev/$ModuleName/forks" -Headers $headers
+            if ($PSCmdlet.ShouldProcess("$ModuleName", "Create fork")) {
+                Microsoft.PowerShell.Utility\Write-Host "Creating fork of $ModuleName..."
+                Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/genXdev/$ModuleName/forks" -Headers $headers
+            }
         }
 
         # Setup git and push changes
-        git init
-        git config user.name $username
-        git remote add origin "https://github.com/$username/$ModuleName.git"
-        git remote add upstream "https://github.com/genXdev/$ModuleName.git"
+        if ($PSCmdlet.ShouldProcess("$ModuleName", "Push changes to GitHub")) {
+            git init
+            git config user.name $username
+            git remote add origin "https://github.com/$username/$ModuleName.git"
+            git remote add upstream "https://github.com/genXdev/$ModuleName.git"
 
-        # Add, commit and push changes
-        git add .
-        git commit -m $CommitMessage
-        git branch -M main
-        git push -u origin main -f
-
-        # Create pull request
-        $prBody = @{
-            title = $PullRequestTitle
-            body  = $PullRequestDescription
-            head  = "$username:main"
-            base  = "main"
+            # Add, commit and push changes
+            git add .
+            git commit -m $CommitMessage
+            git branch -M main
+            git push -u origin main -f
         }
 
-        $pr = Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/genXdev/$ModuleName/pulls" -Body ($prBody | Microsoft.PowerShell.Utility\ConvertTo-Json) -Headers $headers -ContentType "application/json"
+        # --- Begin Extension ---
+        # Find the commit with the exact message "Release 1.156.2025" and extract its commit hash
+        $releaseCommitMsg = "Release 1.156.2025"
+        $releaseCommitHash = (git log --grep="^$releaseCommitMsg$" --format="%H" -n 1).Trim()
+        if (-not $releaseCommitHash) {
+            Microsoft.PowerShell.Utility\Write-Error "No commit found with message '$releaseCommitMsg'"
+            exit 1
+        }
+        # Append the commit hash to the pull request description.
+        $PullRequestDescription += "`nCommit hash: $releaseCommitHash"
+        # --- End Extension ---
 
-        Microsoft.PowerShell.Utility\Write-Host "Pull request created successfully: $($pr.html_url)"
-        Microsoft.PowerShell.Utility\Write-Host "Thank you for contributing to GenXdev!"
+        # Create pull request
+        if ($PSCmdlet.ShouldProcess("$ModuleName", "Create pull request")) {
+            $prBody = @{
+                title = $PullRequestTitle
+                body  = $PullRequestDescription
+                head  = "$username:main"
+                base  = "main"
+            }
+
+            $pr = Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/genXdev/$ModuleName/pulls" -Body ($prBody | Microsoft.PowerShell.Utility\ConvertTo-Json) -Headers $headers -ContentType "application/json"
+
+            Microsoft.PowerShell.Utility\Write-Host "Pull request created successfully: $($pr.html_url)"
+            Microsoft.PowerShell.Utility\Write-Host "Thank you for contributing to GenXdev!"
+        }
     }
 
     end {

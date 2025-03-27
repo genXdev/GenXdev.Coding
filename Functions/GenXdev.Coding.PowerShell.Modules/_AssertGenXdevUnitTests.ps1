@@ -55,9 +55,10 @@ param (
         ValueFromPipelineByPropertyName = $true,
         HelpMessage = "Filter to apply to module names"
     )]
-    [ValidateNotNullOrEmpty()]
-    [Alias("Module", "ModuleName")]
-    [string[]] $BaseModuleName = @("GenXdev*"),
+        [ValidateNotNullOrEmpty()]
+        [Alias("Module", "ModuleName")]
+        [ValidatePattern("^(GenXdev|GenXde[v]\*|GenXdev(\.\w+)+)+$")]
+        [string[]] $BaseModuleName = @("GenXdev*"),
     ############################################################################
     [Parameter(
         Mandatory = $false,
@@ -114,17 +115,6 @@ begin {
     $originalLocation = (Microsoft.PowerShell.Management\Get-Location).Path
     Microsoft.PowerShell.Utility\Write-Verbose "Original location saved: $originalLocation"
 
-    # initialize pester configuration
-    Microsoft.PowerShell.Utility\Write-Verbose "Initializing Pester configuration"
-    $config = Pester\New-PesterConfiguration
-    $config.Output.Verbosity = $Verbosity
-    $config.Output.StackTraceVerbosity = $StackTraceVerbosity
-    $config.Run.Exit = $true
-    $config.Run.PassThru = $true
-    $config.TestResult.Enabled = $true
-    $config.TestResult.OutputFormat = "NUnitXml"
-    $config.Output.RenderMode = "Ansi"
-
     # initialize results tracking
     $results = $null
 }
@@ -160,6 +150,17 @@ process {
             }
 
             # configure single test execution
+            # initialize pester configuration
+            Microsoft.PowerShell.Utility\Write-Verbose "Initializing Pester configuration"
+            $config = Pester\New-PesterConfiguration
+            $config.Output.Verbosity = $Verbosity
+            $config.Output.StackTraceVerbosity = $StackTraceVerbosity
+            $config.Run.Exit = $true
+            $config.Run.PassThru = $true
+            $config.TestResult.Enabled = $true
+            $config.TestResult.OutputFormat = "NUnitXml"
+            $config.Output.RenderMode = "Ansi"
+            # $config.Run.TestExtension = "*.Tests.ps1"  # Add this line to only match *.Tests.ps1 files
             $config.Run.Path = $null
             $config.TestResult.Enabled = $false
             $config.Run.Container = @(
@@ -188,37 +189,56 @@ process {
 
                 param($module)
 
-                # apply module filters
-                if ($null -ne $ModuleFilter) {
-                    foreach ($filtr in $ModuleFilter) {
-                        if ($module.Name -like $filtr) {
-                            Microsoft.PowerShell.Utility\Write-Verbose "Skipping filtered module $($module.Name)"
-                            return
+                try {
+
+                    # apply module filters
+                    if ($null -ne $ModuleFilter) {
+                        foreach ($filtr in $ModuleFilter) {
+                            if ($module.Name -like $filtr) {
+                                Microsoft.PowerShell.Utility\Write-Verbose "Skipping filtered module $($module.Name)"
+                                return
+                            }
                         }
                     }
+
+                    # configure test settings
+                    # initialize pester configuration
+                    Microsoft.PowerShell.Utility\Write-Verbose "Initializing Pester configuration"
+                    $config = Pester\New-PesterConfiguration
+                    $config.Output.Verbosity = $Verbosity
+                    $config.Output.StackTraceVerbosity = $StackTraceVerbosity
+                    $config.Run.Exit = $true
+                    $config.Run.PassThru = $true
+                    $config.TestResult.Enabled = $true
+                    $config.TestResult.OutputFormat = "NUnitXml"
+                    $config.Output.RenderMode = "Ansi"
+                    # $config.Run.TestExtension = "*.Tests.ps1"  # Add this line to only match *.Tests.ps1 files
+                    $config.TestResult.Enabled = $true
+                    $config.TestResult.OutputPath = GenXdev.FileSystem\Expand-Path (
+                        ".\Tests\TestResults.xml"
+                    )
+                    $config.Run.Path = GenXdev.FileSystem\Expand-Path ".\Tests\"
+
+                    # verify test files exist
+                    if (@(Microsoft.PowerShell.Management\Get-ChildItem .\Tests\*.Tests.ps1 -File -Recurse `
+                                -ErrorAction SilentlyContinue).Count -eq 0) {
+
+                        Microsoft.PowerShell.Utility\Write-Warning "No tests found for module $($module.Name)"
+                        return
+                    }
+
+                    Microsoft.PowerShell.Utility\Write-Verbose "Running tests for module $($module.Name)"
+
+                    # execute module tests
+                    Pester\Invoke-Pester -Configuration $config |
+                    Microsoft.PowerShell.Core\ForEach-Object -ErrorAction SilentlyContinue {
+
+                        Microsoft.PowerShell.Utility\Write-Output $_
+                    }
                 }
+                catch {
 
-                # configure test settings
-                $config.TestResult.Enabled = $true
-                $config.TestResult.OutputPath = GenXdev.FileSystem\Expand-Path (
-                    ".\Tests\TestResults.xml"
-                )
-                $config.Run.Container = $null
-                $config.Run.Path = GenXdev.FileSystem\Expand-Path ".\Tests\"
-
-                # verify test files exist
-                if (@(Microsoft.PowerShell.Management\Get-ChildItem .\Tests\*.Tests.ps1 -File -Recurse `
-                            -ErrorAction SilentlyContinue).Count -eq 0) {
-                    Microsoft.PowerShell.Utility\Write-Warning "No tests found for module $($module.Name)"
-                    return
-                }
-
-                Microsoft.PowerShell.Utility\Write-Verbose "Running tests for module $($module.Name)"
-
-                # execute module tests
-                Pester\Invoke-Pester -Configuration $config |
-                Microsoft.PowerShell.Core\ForEach-Object -ErrorAction SilentlyContinue {
-                    Microsoft.PowerShell.Utility\Write-Output $_
+                    throw $_.Exception.Message
                 }
             }
         }

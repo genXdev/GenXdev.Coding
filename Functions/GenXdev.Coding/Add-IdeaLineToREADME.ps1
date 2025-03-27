@@ -74,7 +74,8 @@ function Add-IdeaLineToREADME {
         Microsoft.PowerShell.Utility\Write-Verbose "Starting Add-IdeaLineToREADME"
     }
 
-    process {
+
+process {
 
         if (![string]::IsNullOrWhiteSpace($Line)) {
             # prefix line with current date

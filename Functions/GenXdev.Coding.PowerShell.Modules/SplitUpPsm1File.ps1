@@ -22,7 +22,7 @@ split "C:\Modules\MyModule\MyModule.psm1"
 function SplitUpPsm1File {
 
     [CmdletBinding()]
-    [Alias("split")]
+    [Alias()]
     param(
         ########################################################################
         [Parameter(
@@ -54,7 +54,8 @@ function SplitUpPsm1File {
         Microsoft.PowerShell.Utility\Write-Verbose "Functions will be saved to: $functionsDir"
     }
 
-    process {
+
+process {
 
         # read all lines from the module file
         $psm1Content = [System.IO.File]::ReadAllLines($psm1FilePath)

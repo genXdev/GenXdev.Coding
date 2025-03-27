@@ -35,7 +35,8 @@ function Invoke-GenXdevScriptAnalyzer {
         #  Write-Verbose "Using Script Analyzer settings:`n$($invocationParams.Settings | ConvertTo-Json -Depth 5)"
     }
 
-    process {
+
+process {
         try {
             $invocationParams = $null
 

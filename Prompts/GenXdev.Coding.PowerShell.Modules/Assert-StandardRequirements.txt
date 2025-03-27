@@ -1,5 +1,3 @@
-     Unit test failed for unit test: Get-SpotifyLyrics.should pass PSScriptAnalyzer rules
-
 Primary task:
 Improve function '$CmdletName' in '$ScriptFileName'.
 
@@ -41,7 +39,7 @@ Ensure compliance with these 21 requirements:
 11) Use the latest best practices for PowerShell, .NET, Windows, or any other
     relevant API.
 12) Fix any code-smell issues.
-13) Use Write-Verbose to show essential informative messages without harming
+13) Use Microsoft.PowerShell.Utility\Write-Verbose to show essential informative messages without harming
     performance.
 14) Always insert exactly one empty line after each opening curly brace
    { before starting the code block's contents. Do not insert empty lines
@@ -53,17 +51,18 @@ Ensure compliance with these 21 requirements:
     line. And never commands on the same line, always above it.
 16) Always place at least one empty line between each code line or code line
     and comment for a preceeding code line..
-17) Treat this as a refactoring: do not add or rename parameters. Dependent
-    code should remain working.You can NOT introduce different beheiviors,
-    even if it are better code practices.
+17) Treat this as a refactoring: do not add, rename, or modify parameters or their
+    attributes (including ParameterSetName). Dependent code should remain working.
+    You can NOT introduce different behaviors, even if they are better code
+    practices. Only modify parameter documentation if it contains errors.
 18) Prefer [System.IO] file routines above the standard PowerShell ones,
     never use [System.IO.Path]::GetFullPath use 'GenXdev.FileSystem\Expand-Path $somevar' instead!
 19) function parameters start with Uppercase, internal variables start with
     lowercase, enforce this.
 20) For readibility enforce that all code have new lines after '|' pipeline
     symbols, and after parameters using back-ticks ` wraps.
-    Never use back-ticks to wrap items that are seperated by dots or when concating strings with + symbols. .
-    this would break the code.
+    Never use back-ticks to wrap items that are seperated by dots or when concating strings
+    this would break the code!!
 21) Enforce that each line is wrapped so that they dont exceed 80 characters,
     just like this prompt text.
     When wrapping string, make sure they are wrapped in parenthesis () !
@@ -115,10 +114,10 @@ function Show-GenXdevCmdLetInIde {
 
     begin {
         # retrieve the cmdlet with script position
-        $cmdLet = Get-GenXDevCmdlets -Filter $CmdletName
+        $cmdLet = GenXdev.Helpers\Get-GenXDevCmdlets -Filter $CmdletName
 
         # output verbose information about the cmdlet
-        Write-Verbose $cmdLet
+        Microsoft.PowerShell.Utility\Write-Verbose $cmdLet
     }
 
     process {
@@ -127,10 +126,10 @@ function Show-GenXdevCmdLetInIde {
         p -code
 
         # wait for vscode to open
-        Start-Sleep -Seconds 3
+        Microsoft.PowerShell.Utility\Start-Sleep -Seconds 3
 
         # output verbose information about the command to open the script file
-        Write-Verbose "code -g `"$($cmdLet.ScriptFilePath):$($cmdLet.LineNo)`""
+        Microsoft.PowerShell.Utility\Write-Verbose "code -g `"$($cmdLet.ScriptFilePath):$($cmdLet.LineNo)`""
 
         # open the script file at the function's location
         code -g "$($cmdLet.ScriptFilePath):$($cmdLet.LineNo)"

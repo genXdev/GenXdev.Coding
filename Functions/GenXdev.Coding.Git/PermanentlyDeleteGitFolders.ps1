@@ -68,7 +68,8 @@ function PermanentlyDeleteGitFolders {
         Microsoft.PowerShell.Management\Push-Location
     }
 
-    process {
+
+process {
 
         # final confirmation before proceeding with destructive operation
         if (-not $PSCmdlet.ShouldProcess(

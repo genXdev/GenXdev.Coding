@@ -42,7 +42,8 @@ function New-GitCommit {
         Microsoft.PowerShell.Utility\Write-Verbose "Operating on git branch: $branch"
     }
 
-    process {
+
+process {
 
         # add all changed files to git staging area
         Microsoft.PowerShell.Utility\Write-Verbose "Staging all modified files..."

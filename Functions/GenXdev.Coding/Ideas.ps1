@@ -46,7 +46,8 @@ function Ideas {
         Microsoft.PowerShell.Utility\Write-Verbose "Starting Ideas function"
     }
 
-    process {
+
+process {
 
         # display ideas using base function
         GenXdev.Coding\Add-IdeaLineToREADME `

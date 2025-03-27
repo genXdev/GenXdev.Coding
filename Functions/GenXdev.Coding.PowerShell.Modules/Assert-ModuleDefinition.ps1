@@ -188,7 +188,8 @@ function Assert-ModuleDefinition {
         Microsoft.PowerShell.Utility\Write-Verbose $prompt
     }
 
-    process {
+
+process {
         # exit early if only editing prompt
         if ($EditPrompt) {
             return
@@ -213,12 +214,12 @@ function Assert-ModuleDefinition {
 
                     if ($isFirst) {
 
-                        $keysToSend = @("^``", "^+i", "^l", "^a", "{DELETE}", "^+i", "{ESCAPE}")
+                        $keysToSend = @("^``", "^``", "^+i", "^l", "^a", "{DELETE}", "^+i", "{ESCAPE}")
                     }
 
                     if ($isLast) {
 
-                        $keysToSend = @("^{F12}", "^v", "{ENTER}")
+                        $keysToSend = @("^{F12}", "^v", "{ENTER}", "^{ENTER}")
                     }
                     else {
 
@@ -229,12 +230,12 @@ function Assert-ModuleDefinition {
 
                     if ($isFirst) {
 
-                        $keysToSend = @("^``", "^+i", "^n")
+                        $keysToSend = @("^``", "^``", "^+i", "^n")
                     }
 
                     if ($isLast) {
 
-                        $keysToSend = @("^``", "^+i", "^v", "{ENTER}")
+                        $keysToSend = @("^``", "^``", "^+i", "^v", "{ENTER}", "^{ENTER}")
                     }
                     else {
 

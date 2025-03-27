@@ -116,7 +116,8 @@ function Assert-NextGenXdevCmdlet {
     begin {
     }
 
-    process {
+
+process {
 
         # retrieve the next cmdlet to process based on filters and state
         $cmdlet = GenXdev.Coding\Get-GenXDevNextCmdLet `

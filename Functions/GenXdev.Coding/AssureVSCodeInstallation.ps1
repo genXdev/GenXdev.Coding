@@ -27,7 +27,8 @@ function AssureVSCodeInstallation {
             {'Missing'} else {'Found'})"
     }
 
-    process {
+
+process {
 
         if ($VSCodeMissing) {
 

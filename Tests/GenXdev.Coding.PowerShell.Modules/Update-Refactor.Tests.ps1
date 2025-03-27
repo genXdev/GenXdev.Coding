@@ -8,7 +8,7 @@ Pester\Describe "Update-Refactor" {
 
         # run analyzer with explicit settings
         $analyzerResults = GenXdev.Coding\Invoke-GenXdevScriptAnalyzer `
-            -Path $scriptPath 
+            -Path $scriptPath
 
         [string] $message = ""
         $analyzerResults | Microsoft.PowerShell.Core\ForEach-Object {

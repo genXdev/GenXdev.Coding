@@ -54,7 +54,14 @@ function Assert-GenXdevCmdletTests {
         )]
         [AllowEmptyString()]
         [string] $Prompt = "",
-
+        ########################################################################
+        [parameter(
+            Position = 2,
+            Mandatory = $false,
+            HelpMessage = "The AI prompt key to use for template selection"
+        )]
+        [AllowEmptyString()]
+        [string] $PromptKey,
         ########################################################################
         [parameter(
             Mandatory = $false,
@@ -67,13 +74,20 @@ function Assert-GenXdevCmdletTests {
             Mandatory = $false,
             HelpMessage = "Indicates to assert a failed test"
         )]
-        [switch] $AssertFailedTest
+        [switch] $AssertFailedTest,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Search in script files instead of modules"
+        )]
+        [switch] $FromScripts
+        ########################################################################
     )
 
     begin {
 
         # get target cmdlet information including script position
-        $cmdlet = GenXdev.Helpers\Get-GenXDevCmdlets -CmdletName $CmdletName
+        $cmdlet = GenXdev.Helpers\Get-GenXDevCmdlets -CmdletName $CmdletName -FromScripts:$FromScripts
 
         # validate cmdlet exists
         if ($null -eq $cmdlet) {
@@ -82,15 +96,19 @@ function Assert-GenXdevCmdletTests {
 
         # store cmdlet name for later use
         $CmdletName = $cmdlet.Name
+        $functionDefinition = "";
 
         # determine which prompt template to use based on test file existence
-        $PromptKey = "CreateUnitTests"
-        $functionDefinition = [System.IO.File]::ReadAllText($cmdlet.ScriptFilePath)
+        if (-not [string]::IsNullOrWhiteSpace($PromptKey)) {
 
-        if ([IO.File]::Exists($cmdlet.ScriptTestFilePath) -and
-            (-not [string]::IsNullOrWhiteSpace($functionDefinition))) {
+            $PromptKey = "CreateUnitTests"
+            $functionDefinition = [System.IO.File]::ReadAllText($cmdlet.ScriptFilePath)
 
-            $PromptKey = $AssertFailedTest ? "ImprovementFailedTest" : "ImproveUnitTests"
+            if ([IO.File]::Exists($cmdlet.ScriptTestFilePath) -and
+                (-not [string]::IsNullOrWhiteSpace($functionDefinition))) {
+
+                $PromptKey = $AssertFailedTest ? "ResolveFailedTest" : "ImproveUnitTest"
+            }
         }
 
         # process prompt template if key provided
@@ -141,7 +159,8 @@ function Assert-GenXdevCmdletTests {
         $null = Microsoft.PowerShell.Management\Set-Clipboard -Value $Prompt
     }
 
-    process {
+
+process {
 
         # handle prompt editing request
         if ($EditPrompt) {
@@ -173,8 +192,8 @@ function Assert-GenXdevCmdletTests {
         $invocationParams.UnitTests = $true
         $invocationParams.CmdletName = $CmdletName
         $invocationParams.Code = $true
-        $keysToSendFirst = @("^``", "^+i", "^l", "^a", "{DELETE}", "^+i", "{ESCAPE}", "^{F12}", "^+i")
-        $keysToSendLast = @("^{F12}", "^v", "{ENTER}")
+        $keysToSendFirst = @("^``", "^``", "^+i", "^l", "^a", "{DELETE}", "^+i", "{ESCAPE}", "^{F12}", "^+i")
+        $keysToSendLast = @("^{F12}", "^v", "{ENTER}", "^{ENTER}")
         $invocationParams.KeysToSend = $keysToSendFirst;
         GenXdev.Coding\Show-GenXdevCmdLetInIde @invocationParams
 
@@ -193,7 +212,7 @@ function Assert-GenXdevCmdletTests {
                     @("&Stop", "&Test the new unit tests", "Redo &Last"),
                     0)) {
                 0 { throw "Stopped"; return }
-                1 { return (GenXdev.Coding\Assert-GenXdevUnitTests -CmdletName $CmdletName -DebugFailedTests) }
+                1 { return (GenXdev.Coding\Assert-GenXdevUnitTest -CmdletName $CmdletName -DebugFailedTests) }
                 2 { return GenXdev.Coding\Assert-GenXdevCmdletTests @PSBoundParameters }
             }
         }
@@ -205,7 +224,7 @@ function Assert-GenXdevCmdletTests {
                     @("&Stop", "&Test the improved unit tests", "Redo &Last"),
                     0)) {
                 0 { throw "Stopped"; return }
-                1 { return (GenXdev.Coding\Assert-GenXdevUnitTests -CmdletName $CmdletName -DebugFailedTests) }
+                1 { return (GenXdev.Coding\Assert-GenXdevUnitTest -CmdletName $CmdletName -DebugFailedTests -Verbosity Normal) }
                 2 { return GenXdev.Coding\Assert-GenXdevCmdletTests @PSBoundParameters }
             }
         }

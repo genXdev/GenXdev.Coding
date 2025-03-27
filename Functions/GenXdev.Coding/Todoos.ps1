@@ -46,7 +46,8 @@ function Todoos {
         Microsoft.PowerShell.Utility\Write-Verbose "Starting Todoos function"
     }
 
-    process {
+
+process {
 
         # display todos using base function
         GenXdev.Coding\Add-TodoLineToREADME `

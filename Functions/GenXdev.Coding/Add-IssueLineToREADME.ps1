@@ -74,7 +74,8 @@ function Add-IssueLineToREADME {
         Microsoft.PowerShell.Utility\Write-Verbose "Starting Add-IssueLineToREADME"
     }
 
-    process {
+
+process {
 
         if (![string]::IsNullOrWhiteSpace($Line)) {
             # prefix line with current date

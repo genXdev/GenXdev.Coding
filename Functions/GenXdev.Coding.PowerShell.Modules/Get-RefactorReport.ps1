@@ -71,7 +71,8 @@ function Get-RefactorReport {
         }
     }
 
-    process {
+
+process {
 
         # output header and separator for text format
         if ($AsText -and $script:textHeader) {

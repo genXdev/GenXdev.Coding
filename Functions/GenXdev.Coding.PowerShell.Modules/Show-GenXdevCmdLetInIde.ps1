@@ -47,8 +47,9 @@ function Show-GenXdevCmdLetInIde {
             Position = 1,
             HelpMessage = "GenXdev module names to search"
         )]
+        [ValidateNotNullOrEmpty()]
         [Alias("Module", "ModuleName")]
-        [SupportsWildcards()]
+        [ValidatePattern("^(GenXdev|GenXde[v]\*|GenXdev(\.\w+)+)+$")]
         [string[]] $BaseModuleName = @("GenXdev*"),
         ########################################################################
         [Parameter(Mandatory = $false)]
@@ -93,7 +94,13 @@ function Show-GenXdevCmdLetInIde {
             Mandatory = $false,
             HelpMessage = "Add to Co-Pilot edit session"
         )]
-        [switch] $CoPilot
+        [switch] $CoPilot,
+        #######################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Also global search for the cmdlet"
+        )]
+        [switch] $Search
     )
 
     begin {
@@ -119,7 +126,8 @@ function Show-GenXdevCmdLetInIde {
         Microsoft.PowerShell.Utility\Write-Verbose "Processing cmdlet: $CmdletName"
     }
 
-    process {
+
+process {
 
         # open cmdlet in vscode and insert prompt
         $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
@@ -134,6 +142,15 @@ function Show-GenXdevCmdLetInIde {
     }
 
     end {
+
+        if ($Search) {
+
+            $invocationArgs = GenXdev.Helpers\Copy-IdenticalParamValues `
+                -BoundParameters $PSBoundParameters `
+                -FunctionName "GenXdev.Coding\Search-GenXdevCmdlet"
+
+            $null = GenXdev.Coding\Search-GenXdevCmdlet @invocationArgs
+        }
     }
 }
 ################################################################################

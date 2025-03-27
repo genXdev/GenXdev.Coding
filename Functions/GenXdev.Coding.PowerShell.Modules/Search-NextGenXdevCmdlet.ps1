@@ -77,7 +77,8 @@ function Search-NextGenXdevCmdlet {
         }
     }
 
-    process {
+
+process {
 
         # search the current cmdlet with prepared parameters
         GenXdev.Coding\Search-GenXdevCmdlet @params

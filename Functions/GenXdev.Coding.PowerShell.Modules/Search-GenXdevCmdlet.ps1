@@ -22,8 +22,9 @@ function Search-GenXdevCmdlet {
             Position = 1,
             HelpMessage = "GenXdev module names to search"
         )]
+        [ValidateNotNullOrEmpty()]
         [Alias("Module", "ModuleName")]
-        [SupportsWildcards()]
+        [ValidatePattern("^(GenXdev|GenXde[v]\*|GenXdev(\.\w+)+)+$")]
         [string[]] $BaseModuleName = @("GenXdev*"),
         ########################################################################
         [Parameter(Mandatory = $false)]
@@ -49,8 +50,13 @@ function Search-GenXdevCmdlet {
             HelpMessage = "Open in Visual Studio"
         )]
         [Alias("vs")]
-        [switch] $VisualStudio
+        [switch] $VisualStudio,
         #######################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Also opens the file in the editor"
+        )]
+        [switch] $EditCmdlet
     )
 
     begin {
@@ -76,14 +82,15 @@ function Search-GenXdevCmdlet {
         Microsoft.PowerShell.Utility\Write-Verbose "Processing cmdlet: $CmdletName"
     }
 
-    process {
+
+process {
 
         # open cmdlet in vscode and insert prompt
         $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
             -FunctionName "GenXdev.Coding\Open-SourceFileInIde" `
             -BoundParameters $PSBoundParameters
 
-        $invocationParams.KeysToSend = @("^+f", "^a", "{DELETE}", "^v", "{ENTER}")
+        $invocationParams.KeysToSend = @("^+f", "^a", "{DELETE}", "^v", "{ENTER}", "^{ENTER}")
         $invocationParams.Path = $cmdlet.ScriptFilePath
         $invocationParams.LineNo = $cmdlet.LineNo
 
@@ -95,6 +102,15 @@ function Search-GenXdevCmdlet {
         Microsoft.PowerShell.Utility\Start-Sleep 3;
         # copy final prompt for use
         $null = Microsoft.PowerShell.Management\Set-Clipboard -Value $previousClipboard
+
+        if ($EditCmdlet) {
+
+            $invocationArgs = GenXdev.Helpers\Copy-IdenticalParamValues `
+                -BoundParameters $PSBoundParameters `
+                -FunctionName "GenXdev.Coding\Show-GenXdevCmdLetInIde"
+
+            $null = GenXdev.Coding\Show-GenXdevCmdLetInIde @invocationArgs
+        }
     }
 }
 ################################################################################

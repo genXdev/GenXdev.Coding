@@ -80,7 +80,8 @@ function Get-ModuleHelpMarkdown {
         }
     }
 
-    process {
+
+process {
 
         # initialize tracking variables for module processing
         $lastModule = ""
@@ -120,7 +121,7 @@ function Get-ModuleHelpMarkdown {
             # retrieve full help content
             $lines = ""
             try {
-                $lines = (help $CmdletName -Full)
+                $lines = (Microsoft.PowerShell.Core\Get-Help $CmdletName -Full)
             }
             catch {
                 throw "Could not get help for command $CmdletName -> $PSItem"

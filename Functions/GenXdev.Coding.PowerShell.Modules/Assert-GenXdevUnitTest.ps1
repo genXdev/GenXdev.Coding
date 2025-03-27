@@ -50,18 +50,18 @@ When specified, enables interactive debugging of failed tests with retry option.
 When specified, returns test result objects instead of formatted console output.
 
 .EXAMPLE
-Assert-GenXdevUnitTests -BaseModuleName "MyModule" -Verbosity Detailed `
+Assert-GenXdevUnitTest -BaseModuleName "MyModule" -Verbosity Detailed `
     -StackTraceVerbosity Full -DebugFailedTests
 
 .EXAMPLE
-Assert-GenXdevUnitTests "MyModule*" -NoLocal -OnlyPublished
+Assert-GenXdevUnitTest "MyModule*" -NoLocal -OnlyPublished
 #>
 ################################################################################
-function Assert-GenXdevUnitTests {
+function Assert-GenXdevUnitTest {
 
     [CmdletBinding(DefaultParameterSetName = "Default")]
-    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseSingularNouns", "Assert-GenXdevUnitTests")]
-    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidGlobalVars", "Assert-GenXdevUnitTests")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseSingularNouns", "Assert-GenXdevUnitTest")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidGlobalVars", "Assert-GenXdevUnitTest")]
     [Alias("rungenxdevtests")]
     param (
         ################################################################################
@@ -74,6 +74,7 @@ function Assert-GenXdevUnitTests {
         )]
         [ValidateNotNullOrEmpty()]
         [Alias("Module", "ModuleName")]
+        [ValidatePattern("^(GenXdev|GenXde[v]\*|GenXdev(\.\w+)+)+$")]
         [string[]] $BaseModuleName = @("GenXdev*"),
         ################################################################################
         [Parameter(
@@ -144,7 +145,7 @@ function Assert-GenXdevUnitTests {
 
         GenXdev.FileSystem\AssurePester
 
-        & "$PSScriptRoot\Add-MissingGenXdevUnitTests.ps1"
+        GenXdev.Coding\Add-MissingGenXdevUnitTests
 
         # store allow long running tests setting in script scope
         $Script:AllowLongRunningTests = ($Local:AllowLongRunningTests -eq $true)
@@ -172,7 +173,8 @@ function Assert-GenXdevUnitTests {
         $origVerbosePref = $VerbosePreference
     }
 
-    process {
+
+process {
 
         $results = $null
         # track overall test success state
@@ -265,10 +267,9 @@ function Assert-GenXdevUnitTests {
                                             "$ansiStartForgroundDarkGreen[❗]$ansiEndForground"
                                         )
                                     }
-                                }
 
-                                # format and display test results
-                                $test | Microsoft.PowerShell.Core\ForEach-Object {
+                                    $test
+                                } | Microsoft.PowerShell.Core\ForEach-Object {
                                     # calculate padding based on console width
                                     [int] $p = [Math]::Min(
                                     ([Console]::WindowWidth - 75) / 2,
@@ -301,12 +302,17 @@ function Assert-GenXdevUnitTests {
                 }
                 catch {
                     $results = @(Microsoft.PowerShell.Utility\New-Object PSObject -Property @{
-                            Block        = "Error"
-                            Name         = "Error"
+                            Block        = @{FailedCount = 1}
+                            Name         = ($_.Exception -is [System.Management.Automation.ParseException]) ? [IO.Path]::GetFileName($_.InvocationInfo.ScriptName).Replace(".Tests.ps1", "") : "Error"
                             ErrorRecord  = $_.ErrorRecord
                             UserDuration = "0"
                             Result       = "Failed"
+                            ExpandedPath = ($_.Exception -is [System.Management.Automation.ParseException]) ? [IO.Path]::GetFileName($_.InvocationInfo.ScriptName).Replace(".Tests.ps1", "") : ""
                         })
+                    if (-not $DebugFailedTests) {
+
+                        throw $results
+                    }
                 }
 
                 # handle failed test debugging if requested
@@ -366,6 +372,7 @@ function Assert-GenXdevUnitTests {
                 Microsoft.PowerShell.Utility\Select-Object -Unique |
                 Microsoft.PowerShell.Core\ForEach-Object {
                     $failures += $PSItem.Block.FailedCount
+                    Microsoft.PowerShell.Utility\Write-Output $_
                 }
 
                 # show summary message with appropriate color

@@ -1,5 +1,3 @@
-Unit test failed for unit test: Get-SpotifyLyrics.should pass PSScriptAnalyzer rules
-
 Primary task:
 Improve documentation and line comments in function '$CmdletName' in '$ScriptFileName'.
 
@@ -31,7 +29,7 @@ Ensure compliance with these 17 requirements:
    Follow the guidelines from the book 'Code complete 2nd edition'
 7) By reading only the code comments, one should fully understand what the
     code does and how it does it.
-8) Use Write-Verbose to show essential informative messages without harming
+8) Use Microsoft.PowerShell.Utility\Write-Verbose to show essential informative messages without harming
     performance.
 9) Always insert exactly one empty line after each opening curly brace
    { before starting the code block's contents. Do not insert empty lines
@@ -50,8 +48,8 @@ Ensure compliance with these 17 requirements:
     lowercase, enforce this.
 14) For readibility enforce that all code have new lines after '|' pipeline
     symbols, and after parameters using back-ticks ` wraps.
-    Never use back-ticks to wrap items that are seperated by dots or when concating strings with + symbols. .
-    this would break the code.
+    Never use back-ticks to wrap items that are seperated by dots or when concating strings
+    this would break the code!!
 15) Enforce that each line is wrapped so that they dont exceed 80 characters,
     just like this prompt text.
     When wrapping string, make sure they are wrapped in parenthesis () !
@@ -99,10 +97,10 @@ function Show-GenXdevCmdLetInIde {
 
     begin {
         # retrieve the cmdlet with script position
-        $cmdLet = Get-GenXDevCmdlets -Filter $CmdletName
+        $cmdLet = GenXdev.Helpers\Get-GenXDevCmdlets -Filter $CmdletName
 
         # output verbose information about the cmdlet
-        Write-Verbose $cmdLet
+        Microsoft.PowerShell.Utility\Write-Verbose $cmdLet
     }
 
     process {
@@ -111,10 +109,10 @@ function Show-GenXdevCmdLetInIde {
         p -code
 
         # wait for vscode to open
-        Start-Sleep -Seconds 3
+        Microsoft.PowerShell.Utility\Start-Sleep -Seconds 3
 
         # output verbose information about the command to open the script file
-        Write-Verbose "code -g `"$($cmdLet.ScriptFilePath):$($cmdLet.LineNo)`""
+        Microsoft.PowerShell.Utility\Write-Verbose "code -g `"$($cmdLet.ScriptFilePath):$($cmdLet.LineNo)`""
 
         # open the script file at the function's location
         code -g "$($cmdLet.ScriptFilePath):$($cmdLet.LineNo)"

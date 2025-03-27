@@ -45,7 +45,8 @@ function Get-Refactor {
         # no initialization needed
     }
 
-    process {
+
+process {
         # get all preference names that could contain refactor definitions
         Microsoft.PowerShell.Utility\Write-Verbose "Searching for refactor set preferences..."
         $prefNames = GenXdev.Data\Get-GenXdevPreferenceNames |

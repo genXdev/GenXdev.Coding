@@ -58,7 +58,8 @@ function Remove-Refactor {
         Microsoft.PowerShell.Utility\Write-Verbose ("Search patterns to process: $($Name -join ', ')")
     }
 
-    process {
+
+process {
 
         # retrieve all preference names matching the refactor_set pattern
         GenXdev.Data\Get-GenXdevPreferenceNames |

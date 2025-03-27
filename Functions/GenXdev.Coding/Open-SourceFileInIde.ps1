@@ -215,7 +215,8 @@ function Open-SourceFileInIde {
         }
     }
 
-    process {
+
+process {
 
         # validate that an IDE was found
         if ($null -eq $idePath) {

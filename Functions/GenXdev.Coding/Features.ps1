@@ -43,7 +43,8 @@ function Features {
         Microsoft.PowerShell.Utility\Write-Verbose "Starting Features function"
     }
 
-    process {
+
+process {
 
         # display features using base function
         GenXdev.Coding\Add-FeatureLineToREADME `

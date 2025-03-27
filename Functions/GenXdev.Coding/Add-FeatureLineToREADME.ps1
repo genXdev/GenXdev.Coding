@@ -76,7 +76,8 @@ function Add-FeatureLineToREADME {
         Microsoft.PowerShell.Utility\Write-Verbose "Starting Add-FeatureLineToREADME with line: $Line"
     }
 
-    process {
+
+process {
         # format the line with timestamp if not empty
         if ([string]::IsNullOrWhiteSpace($Line) -eq $false) {
             $Line = "$([DateTime]::Now.ToString('yyyyMMdd')) --> $Line"

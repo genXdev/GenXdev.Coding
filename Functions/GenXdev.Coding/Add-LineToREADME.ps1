@@ -170,7 +170,8 @@ function Add-LineToREADME {
         $insertIndex += "$Section`r".Length
     }
 
-    process {
+
+process {
 
         if (![string]::IsNullOrWhiteSpace($Line)) {
             if ($Done) {

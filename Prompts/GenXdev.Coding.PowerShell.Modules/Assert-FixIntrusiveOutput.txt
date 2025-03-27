@@ -1,5 +1,5 @@
 Refactor the following PowerShell code following these rules:
-1. Replace Write-Host with Write-Output if the function does not
+1. Replace Microsoft.PowerShell.Utility\Write-Host with Microsoft.PowerShell.Utility\Write-Output if the function does not
    output anything else and use ANSI escape sequences.
 2. Use these color mappings:
    - Cyan: [char]0x1b + '[36m'

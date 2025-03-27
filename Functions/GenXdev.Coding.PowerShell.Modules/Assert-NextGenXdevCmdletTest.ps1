@@ -95,6 +95,14 @@ function Assert-NextGenXdevCmdletTest {
 
         ########################################################################
         [parameter(
+            Position = 5,
+            Mandatory = $false,
+            HelpMessage = "The AI prompt key to use for template selection"
+        )]
+        [AllowEmptyString()]
+        [string] $PromptKey,
+        ########################################################################
+        [parameter(
             Mandatory = $false,
             HelpMessage = "Switch to only edit the AI prompt"
         )]
@@ -108,7 +116,8 @@ function Assert-NextGenXdevCmdletTest {
         [switch] $OnlyNonExisting
     )
 
-    process {
+
+process {
 
         # append '.Tests' to the tracking key to differentiate from main cmdlets
         $Key = "$Key.Tests"

@@ -45,7 +45,8 @@ function Get-GenXDevModule {
         Microsoft.PowerShell.Utility\Write-Verbose "Searching for GenXdev modules in: $Path"
     }
 
-    process {
+
+process {
 
         # enumerate all directories starting with 'GenXdev'
         Microsoft.PowerShell.Management\Get-ChildItem -Path "$Path\GenXdev*" -Directory |

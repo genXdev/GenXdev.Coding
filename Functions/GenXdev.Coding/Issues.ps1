@@ -46,7 +46,8 @@ function Issues {
         Microsoft.PowerShell.Utility\Write-Verbose "Starting Issues function"
     }
 
-    process {
+
+process {
 
         # display issues using base function
         GenXdev.Coding\Add-IssueLineToREADME `

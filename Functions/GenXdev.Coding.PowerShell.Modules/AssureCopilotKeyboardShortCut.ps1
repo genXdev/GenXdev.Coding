@@ -38,7 +38,8 @@ function AssureCopilotKeyboardShortCut {
         }
     }
 
-    process {
+
+process {
         # ensure the directory for keybindings exists
         $keybindingsDir = Microsoft.PowerShell.Management\Split-Path $keybindingsPath -Parent
         if (-not (Microsoft.PowerShell.Management\Test-Path $keybindingsDir)) {

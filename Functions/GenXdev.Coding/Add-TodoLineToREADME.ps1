@@ -90,7 +90,8 @@ function Add-TodoLineToREADME {
             Microsoft.PowerShell.Utility\ConvertTo-Json)"
     }
 
-    process {
+
+process {
 
         # only add timestamp if line is not empty and not marking as done
         if (![string]::IsNullOrWhiteSpace($Line) -and !$Done) {

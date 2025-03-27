@@ -42,7 +42,8 @@ function Get-GenXDevModuleInfo {
         [System.IO.FileSystemInfo[]] $AllModules = @(GenXdev.Coding\Get-GenXDevModule)
     }
 
-    process {
+
+process {
 
         # process specified modules if any were provided
         if ($ModuleName.Count -gt 0) {
