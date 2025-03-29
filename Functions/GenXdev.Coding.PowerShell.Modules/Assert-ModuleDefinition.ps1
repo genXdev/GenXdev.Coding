@@ -219,11 +219,11 @@ process {
 
                     if ($isLast) {
 
-                        $keysToSend = @("^{F12}", "^v", "{ENTER}", "^{ENTER}")
+                        $keysToSend = @("^+%{F12}", "^v", "{ENTER}", "^{ENTER}")
                     }
                     else {
 
-                        $keysToSend = @("^{F12}", "^+i")
+                        $keysToSend = @("^+%{F12}")
                     }
                 }
                 elseif ($isVisualStudio) {

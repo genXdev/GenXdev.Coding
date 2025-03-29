@@ -147,7 +147,7 @@ process {
         GenXdev.Coding\Assert-GenXdevUnitTest -ModuleName $ModuleName -ErrorAction Stop
 
         # get full path to module
-        $modulePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\Modules\$ModuleName\1.158.2025\"
+        $modulePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\Modules\$ModuleName\1.162.2025\"
 
         Microsoft.PowerShell.Utility\Write-Verbose "Checking for module manifest at: $modulePath"
         if (!(Microsoft.PowerShell.Management\Test-Path -Path "$modulePath\$ModuleName.psd1")) {
@@ -182,7 +182,7 @@ process {
             Microsoft.PowerShell.Utility\Write-Host "Repository not found. Uploading to genXdev.net instead..."
 
             # Get module path and create zip file
-            $modulePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\Modules\$ModuleName\1.158.2025\"
+            $modulePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\Modules\$ModuleName\1.162.2025\"
             $zipPath = [System.IO.Path]::GetTempFileName() + ".zip"
             Microsoft.PowerShell.Archive\Compress-Archive -Path "$modulePath\*" -DestinationPath $zipPath -Force
 
@@ -252,8 +252,8 @@ process {
         }
 
         # --- Begin Extension ---
-        # Find the commit with the exact message "Release 1.158.2025" and extract its commit hash
-        $releaseCommitMsg = "Release 1.158.2025"
+        # Find the commit with the exact message "Release 1.162.2025" and extract its commit hash
+        $releaseCommitMsg = "Release 1.162.2025"
         $releaseCommitHash = (git log --grep="^$releaseCommitMsg$" --format="%H" -n 1).Trim()
         if (-not $releaseCommitHash) {
             Microsoft.PowerShell.Utility\Write-Error "No commit found with message '$releaseCommitMsg'"

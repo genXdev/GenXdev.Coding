@@ -19,81 +19,81 @@ function AssureCopilotKeyboardShortCut {
     begin {
 
         # construct the full path to vscode's keybindings configuration file
-        $keybindingsPath = Microsoft.PowerShell.Management\Join-Path $env:APPDATA "Code\User\keybindings.json"
-
-        # define the new keyboard shortcut configuration for copilot
-        $newKeybinding = @{
-            "key"     = "ctrl+f12"
-            "command" = "github.copilot.edits.attachFile"
-            "when"    = "resourceScheme == 'file' || resourceScheme == 'untitled'" +
-            " || resourceScheme == 'vscode-remote' || " +
-            "resourceScheme == 'vscode-userdata'"
-        }
+        $keybindingsPath = @(
+            (GenXdev.FileSystem\Expand-Path "$env:APPDATA\Code\User\keybindings.json" -CreateDirectory),
+            (GenXdev.FileSystem\Expand-Path "$env:APPDATA\Code - insiders\User\keybindings.json" -CreateDirectory)
+        )
 
         $secondNewKeybinding =
         @{
-           "key"     = "ctrl+shift+f12"
-           "command" = "workbench.action.focusActiveEditorGroup"
-           "when"    = "resourceScheme == 'file' || resourceScheme == 'untitled' || resourceScheme == 'vscode-remote' || resourceScheme == 'vscode-userdata' || terminalFocus"
+            "key"     = "alt+oem_3"
+            "command" = "workbench.action.toggleMaximizedPanel"
         }
     }
 
+    process {
 
-process {
+        $i = 0;
         # ensure the directory for keybindings exists
-        $keybindingsDir = Microsoft.PowerShell.Management\Split-Path $keybindingsPath -Parent
-        if (-not (Microsoft.PowerShell.Management\Test-Path $keybindingsDir)) {
-            Microsoft.PowerShell.Utility\Write-Verbose "Creating VS Code keybindings directory at: $keybindingsDir"
-            $null = Microsoft.PowerShell.Management\New-Item -ItemType Directory -Path $keybindingsDir -Force
-        }
+        foreach ($path in $keybindingsPath) {
 
-        # load existing keybindings or initialize new array if file doesn't exist
-        if (Microsoft.PowerShell.Management\Test-Path $keybindingsPath) {
-            Microsoft.PowerShell.Utility\Write-Verbose "Loading existing keybindings configuration"
-            $keybindings = Microsoft.PowerShell.Management\Get-Content $keybindingsPath -Raw |
-            Microsoft.PowerShell.Utility\ConvertFrom-Json
-        }
-        else {
-            Microsoft.PowerShell.Utility\Write-Verbose "Initializing new keybindings configuration"
-            $keybindings = @()
-        }
+            # define the new keyboard shortcut configuration for copilot
+            $newKeybinding = @{
+                "key"     = "ctrl+shift+alt+f12"
+                "command" = "github.copilot.$($i++ -eq 0 ? "edit": "chat").attachFile"
+                "when"    = "resourceScheme == 'file' || resourceScheme == 'untitled'" +
+                " || resourceScheme == 'vscode-remote' || " +
+                "resourceScheme == 'vscode-userdata'"
+            }
 
-        # check if the copilot shortcut is already configured
-        $existsCopilot = $keybindings | Microsoft.PowerShell.Core\Where-Object {
-            $_.key -eq $newKeybinding.key -and $_.command -eq $newKeybinding.command
-        }
+            # load existing keybindings or initialize new array if file doesn't exist
+            if (Microsoft.PowerShell.Management\Test-Path $path) {
+                Microsoft.PowerShell.Utility\Write-Verbose "Loading existing keybindings configuration"
+                $keybindings = @(Microsoft.PowerShell.Management\Get-Content $path -Raw |
+                    Microsoft.PowerShell.Utility\ConvertFrom-Json -ErrorAction SilentlyContinue)
+            }
+            else {
+                Microsoft.PowerShell.Utility\Write-Verbose "Initializing new keybindings configuration"
+                $keybindings = @()
+            }
 
-        # check if the focus editor shortcut is already configured
-        $existsFocus = $keybindings | Microsoft.PowerShell.Core\Where-Object {
-            $_.key -eq $secondNewKeybinding.key -and $_.command -eq $secondNewKeybinding.command
-        }
+            # check if the copilot shortcut is already configured
+            $existsCopilot = $keybindings | Microsoft.PowerShell.Core\Where-Object {
+                $_.key -eq $newKeybinding.key -and $_.command -eq $newKeybinding.command
+            }
 
-        # add the shortcuts if they're not already configured
-        $modified = $false
+            # check if the focus editor shortcut is already configured
+            $existsFocus = $keybindings | Microsoft.PowerShell.Core\Where-Object {
+                $_.key -eq $secondNewKeybinding.key -and $_.command -eq $secondNewKeybinding.command
+            }
 
-        if (-not $existsCopilot) {
-            Microsoft.PowerShell.Utility\Write-Verbose "Adding Copilot keyboard shortcut (Ctrl+F12)"
-            $keybindings += $newKeybinding
-            $modified = $true
-        }
-        else {
-            Microsoft.PowerShell.Utility\Write-Verbose "Copilot keyboard shortcut already exists"
-        }
+            # add the shortcuts if they're not already configured
+            $modified = $false
 
-        if (-not $existsFocus) {
-            Microsoft.PowerShell.Utility\Write-Verbose "Adding Focus Editor keyboard shortcut (Ctrl+Shift+F12)"
-            $keybindings += $secondNewKeybinding
-            $modified = $true
-        }
-        else {
-            Microsoft.PowerShell.Utility\Write-Verbose "Focus Editor keyboard shortcut already exists"
-        }
+            if (-not $existsCopilot) {
+                Microsoft.PowerShell.Utility\Write-Verbose "Adding Copilot keyboard shortcut (Ctrl+F12)"
+                $keybindings += $newKeybinding
+                $modified = $true
+            }
+            else {
+                Microsoft.PowerShell.Utility\Write-Verbose "Copilot keyboard shortcut already exists"
+            }
 
-        # Save changes if any modifications were made
-        if ($modified) {
-            $keybindings |
-            Microsoft.PowerShell.Utility\ConvertTo-Json -Depth 10 |
-            Microsoft.PowerShell.Management\Set-Content $keybindingsPath
+            if (-not $existsFocus) {
+                Microsoft.PowerShell.Utility\Write-Verbose "Adding Focus Editor keyboard shortcut (Ctrl+Shift+F12)"
+                $keybindings += $secondNewKeybinding
+                $modified = $true
+            }
+            else {
+                Microsoft.PowerShell.Utility\Write-Verbose "Focus Editor keyboard shortcut already exists"
+            }
+
+            # Save changes if any modifications were made
+            if ($modified) {
+                $keybindings |
+                Microsoft.PowerShell.Utility\ConvertTo-Json -Depth 10 |
+                Microsoft.PowerShell.Management\Set-Content $path
+            }
         }
     }
 

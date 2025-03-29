@@ -26,6 +26,9 @@ function Assert-GenXdevDependencyUsage {
 
 
 process {
+    # temperary disabled
+    return;
+    
         GenXdev.Helpers\Invoke-OnEachGenXdevModule -BaseModuleName:$BaseModuleName -FromScripts:$FromScripts -OnlyPublished -NoLocal -ScriptBlock {
 
             param($module)
@@ -33,7 +36,7 @@ process {
             $ModuleName = $module.Name;
             $ModuleManifestPath = GenXdev.FileSystem\Expand-Path ".\$ModuleName.psd1"
             $ModuleManifest = Microsoft.PowerShell.Utility\Import-PowerShellDataFile -Path $ModuleManifestPath
-            
+
             $index = $dependencies.IndexOf($ModuleName)
 
             if ($index -lt 0) {

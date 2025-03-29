@@ -192,8 +192,8 @@ process {
         $invocationParams.UnitTests = $true
         $invocationParams.CmdletName = $CmdletName
         $invocationParams.Code = $true
-        $keysToSendFirst = @("^``", "^``", "^+i", "^l", "^a", "{DELETE}", "^+i", "{ESCAPE}", "^{F12}", "^+i")
-        $keysToSendLast = @("^{F12}", "^v", "{ENTER}", "^{ENTER}")
+        $keysToSendFirst = @("^``", "^``", "^+i", "^l", "^a", "{DELETE}", "^+i", "{ESCAPE}", "^+%{F12}", "^+i")
+        $keysToSendLast = @("^+%{F12}", "^v", "{ENTER}", "^{ENTER}")
         $invocationParams.KeysToSend = $keysToSendFirst;
         GenXdev.Coding\Show-GenXdevCmdLetInIde @invocationParams
 

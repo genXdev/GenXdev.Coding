@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "PowerShell",
+      "request": "launch",
+      "name": "Debug workspace scripts",
+      "args": [],
+      "script": "${workspaceFolder}\\Microsoft.PowerShell.Debug_profile.ps1",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "PowerShell",
+      "request": "launch",
+      "name": "Run and debug GenXdev unit-tests",
+      "args": [],
+      "script": "import-module GenXdev.Coding ; Show-Command Assert-GenXdevUnitTests",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "PowerShell",
+      "request": "launch",
+      "name": "Debug workspace scripts",
+      "args": [],
+      "script": "${workspaceFolder}\\Microsoft.PowerShell.Debug_profile.ps1",
+      "cwd": "${workspaceFolder}"
+    },
+  ]
+}

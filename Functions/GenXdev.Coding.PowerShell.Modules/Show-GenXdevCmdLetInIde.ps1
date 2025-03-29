@@ -136,7 +136,7 @@ process {
 
         $invocationParams.Path = $UnitTests ? $cmdlet.ScriptTestFilePath : $cmdlet.ScriptFilePath
         $invocationParams.LineNo = $UnitTests ? 0 : ($cmdlet.LineNo)
-        $invocationParams.KeysToSend = ($CoPilot ? @("+%E", "+%S", "^F12", "^+I") : @("+%E", "+%S")) + @($KeysToSend ? $KeysToSend : @())
+        $invocationParams.KeysToSend = ($CoPilot ? @("+%E", "+%S", "^+%{F12}") : @("+%E", "+%S")) + @($KeysToSend ? $KeysToSend : @())
 
         GenXdev.Coding\Open-SourceFileInIde @invocationParams
     }

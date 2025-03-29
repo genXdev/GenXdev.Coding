@@ -81,7 +81,7 @@ function Get-ModuleHelpMarkdown {
     }
 
 
-process {
+    process {
 
         # initialize tracking variables for module processing
         $lastModule = ""
@@ -116,6 +116,9 @@ process {
 
             # process current cmdlet
             $CmdletName = $current.Name
+            if ($CmdletName -like "*AssureTypes*") {
+                return;
+            }
             Microsoft.PowerShell.Utility\Write-Verbose "Generating help for cmdlet: $CmdletName"
 
             # retrieve full help content
@@ -136,6 +139,7 @@ process {
             # process each line of help content
             foreach ($line in $lines) {
                 # normalize line endings and tabs
+                $line = $line | Microsoft.PowerShell.Utility\Out-String;
                 $line = $line.trim("`r`n").Replace("`t", "    ")
 
                 if ($line.Trim().Length -gt 0) {
@@ -226,6 +230,8 @@ process {
                         }
                     }
                 }
+
+                $line
             }
 
             # add section separator after cmdlet documentation

@@ -1,0 +1,76 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "command": "import-module GenXdev.Coding ; Import-GenXdevModules -DebugFailedModuleDefinitions",
+      "type": "shell",
+      "label": "Debug GenXdev module loading",
+      "group": "test",
+      "runOptions": {
+        "instanceLimit": 1
+      }
+    },
+    {
+      "command": "import-module GenXdev.Coding ; Assert-GenXdevUnitTest -Verbosity Normal -DebugFailedTests",
+      "type": "shell",
+      "label": "Run and debug GenXdev unit-tests",
+      "group": "test",
+      "runOptions": {
+        "instanceLimit": 1
+      }
+    },
+    {
+      "command": "import-module GenXdev.Coding ; Assert-GenXdevUnitTest -AllowLongRunningTests -Verbosity Normal -DebugFailedTests",
+      "type": "shell",
+      "label": "Run and debug GenXdev long-running unit-tests",
+      "group": "test",
+      "runOptions": {
+        "instanceLimit": 1
+      }
+    },
+    {
+      "command": "${workspaceFolder}\\Microsoft.PowerShell.Debug_profile.ps1",
+      "type": "shell",
+      "label": "Find exception location in debug profile script",
+      "group": "build",
+      "runOptions": {
+        "instanceLimit": 1
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "revealProblems": "onProblem",
+        "focus": true,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": true,
+        "group": "build"
+      },
+      "problemMatcher": [
+        {
+          "owner": "PowerShellCustom",
+          "fileLocation": "autoDetect",
+          "pattern": [
+            {
+              "regexp": " (.+) At (.*\\.psm?1):(\\d*) char:(\\d*)(.*)",
+              "message": 1,
+              "file": 2,
+              "line": 3,
+              "column": 4
+            },
+            {
+              "regexp": "\\+.*"
+            },
+            {
+              "regexp": "\\+.*"
+            },
+            {
+              "regexp": "(.+)",
+              "message": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

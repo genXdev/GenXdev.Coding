@@ -56,7 +56,7 @@ function Open-GenXdevCmdletsContainingClipboardTextInIde {
 
                 if ($Copilot) {
 
-                    $invocationArgs.KeysToSend = @("^{F12}")
+                    $invocationArgs.KeysToSend = @("^+%{F12}")
                 }
 
                 GenXdev.Coding\Open-SourceFileInIde @invocationArgs

@@ -34,7 +34,7 @@ function Get-GenXDevNewModulesInOrderOfDependency {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = "One or more module names to filter by"
         )]
-        [string[]] $ModuleName = @()
+        [string[]] $ModuleName = @('GenXdev*')
         ########################################################################
     )
 
@@ -45,31 +45,61 @@ function Get-GenXDevNewModulesInOrderOfDependency {
         $Modules = GenXdev.Coding\Get-GenXDevModuleInfo
     }
 
-
-process {
+    process {
 
         # create a new array list to store modules in their dependency order
-        [System.Collections.ArrayList] $results = @()
+        [System.Collections.Generic.List[object]] $results = @()
 
         # helper function to find a module by name in the modules collection
-        function findModule($ModuleName) {
+        function findModule($requested) {
+
+            $found = $false;
+            foreach ($m in $ModuleName) {
+                if ($requested -like "*$($m)*") {
+                    $found = $true
+                    break;
+                }
+            }
+
+            if (-not $found) {
+                return $null
+            }
 
             $Modules |
-            Microsoft.PowerShell.Core\Where-Object -Property "ModuleName" -EQ $ModuleName
+            Microsoft.PowerShell.Core\Where-Object -Property "ModuleName" -EQ $requested
         }
 
         # add modules in dependency order starting with core dependencies
         Microsoft.PowerShell.Utility\Write-Verbose "Adding modules in dependency order..."
-        $null = $results.Add((findModule GenXdev.FileSystem))
-        $null = $results.Add((findModule GenXdev.Helpers))
-        $null = $results.Add((findModule GenXdev.Data))
-        $null = $results.Add((findModule GenXdev.Windows))
-        $null = $results.Add((findModule GenXdev.Webbrowser))
-        $null = $results.Add((findModule GenXdev.Console))
-        $null = $results.Add((findModule GenXdev.Queries))
-        $null = $results.Add((findModule GenXdev.AI))
-        $null = $results.Add((findModule GenXdev.Coding))
-        $null = $results.Add((findModule GenXdev))
+        $module = findModule GenXdev.FileSystem
+        if ($module) { $null = $results.Add($module) }
+
+        $module = findModule GenXdev.Helpers
+        if ($module) { $null = $results.Add($module) }
+
+        $module = findModule GenXdev.Data
+        if ($module) { $null = $results.Add($module) }
+
+        $module = findModule GenXdev.Windows
+        if ($module) { $null = $results.Add($module) }
+
+        $module = findModule GenXdev.Webbrowser
+        if ($module) { $null = $results.Add($module) }
+
+        $module = findModule GenXdev.Console
+        if ($module) { $null = $results.Add($module) }
+
+        $module = findModule GenXdev.Queries
+        if ($module) { $null = $results.Add($module) }
+
+        $module = findModule GenXdev.AI
+        if ($module) { $null = $results.Add($module) }
+
+        $module = findModule GenXdev.Coding
+        if ($module) { $null = $results.Add($module) }
+
+        $module = findModule GenXdev
+        if ($module) { $null = $results.Add($module) }
 
         # return modules in their proper dependency order
         Microsoft.PowerShell.Utility\Write-Verbose "Returning $($results.Count) modules"

@@ -19,23 +19,35 @@ function AssureVSCodeInstallation {
     param()
 
     begin {
+        $null = GenXdev.Coding\AssureCopilotKeyboardShortCut
+
+        # get the process that's hosting the current PowerShell session
+        [System.Diagnostics.Process] $hostProcess = GenXdev.Windows\Get-PowershellMainWindowProcess
+
+        # determine default IDE path based on host process availability
+        $normalPath = Microsoft.PowerShell.Management\Join-Path $env:ProgramFiles "Microsoft VS Code\Code.exe"
+        $previewPath = Microsoft.PowerShell.Management\Join-Path $env:LOCALAPPDATA "Programs\Microsoft VS Code Insiders\Code - Insiders.exe"
+        $idePath = ($null -eq $hostProcess ? ([IO.File]::Exists($previewPath) ? $previewPath : (
+                    [IO.File]::Exists($normalPath) ? $normalPath : "code")) : $hostProcess.Path)
+
         # check if vscode executable is available in path
-        $VSCodeMissing = (([array] (Microsoft.PowerShell.Core\Get-Command "code.cmd" -ErrorAction `
-                        SilentlyContinue)).Length -eq 0)
+        $VSCodeMissing = $idePath -eq "code"
 
         Microsoft.PowerShell.Utility\Write-Verbose "VSCode installation check: $(if($VSCodeMissing)
             {'Missing'} else {'Found'})"
     }
 
 
-process {
+    process {
 
         if ($VSCodeMissing) {
 
             Microsoft.PowerShell.Utility\Write-Verbose "Installing Visual Studio Code..."
 
             # install vscode using winget
-            Microsoft.WinGet.Client\Install-WinGetPackage -Id "Microsoft.VisualStudioCode" `
+            # Microsoft.WinGet.Client\Install-WinGetPackage -Id "Microsoft.VisualStudioCode" `
+            #     -Mode Silent -Force -Scope SystemOrUnknown
+            Microsoft.WinGet.Client\Install-WinGetPackage -Id "Microsoft.VisualStudioCode.Insiders" `
                 -Mode Silent -Force -Scope SystemOrUnknown
 
             # refresh environment paths
@@ -112,6 +124,20 @@ process {
             # }
             # catch {
             # }
+        }
+
+        $sourcePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Assets\"
+        $targetPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\..\"
+
+        GenXdev.FileSystem\Find-Item "$sourcePath\*" -RelativeBasePath $sourcePath | Microsoft.PowerShell.Core\ForEach-Object {
+
+            $sourceFile = $_
+            $targetFile = "$targetPath\$PSItem".Replace(".asset.txt", "")
+
+            if ([IO.File]::Exists($targetFile)) { return }
+
+            # copy the file to the target directory
+            Microsoft.PowerShell.Management\Copy-Item -Path $sourceFile -Destination $targetFile
         }
     }
 

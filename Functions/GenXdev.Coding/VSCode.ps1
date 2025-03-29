@@ -80,7 +80,7 @@ process {
                     $null = GenXdev.Coding\Open-SourceFileInIde `
                         -Path $path `
                         -Code `
-                        -KeysToSend @("^{F12}")
+                        -KeysToSend @("^+%{F12}")
                 }
                 else {
                     $null = GenXdev.Coding\Open-SourceFileInIde -Path $path -Code

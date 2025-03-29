@@ -1,0 +1,138 @@
+{
+  "window.zoomLevel": 1,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "explorer.confirmDelete": false,
+  "debug.onTaskErrors": "showErrors",
+  "[html]": {
+    "editor.defaultFormatter": "NikolaosGeorgiou.html-fmt-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "files.autoSave": "afterDelay",
+  "files.trimTrailingWhitespace": true,
+  "files.defaultLanguage": "powershell",
+  "editor.formatOnSaveMode": "file",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.folding": true,
+  "editor.foldingStrategy": "auto",
+  "editor.foldingHighlight": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "terminal.integrated.allowMnemonics": true,
+  "terminal.integrated.defaultLocation": "view",
+  "powershell.scriptAnalysis.enable": true,
+  "powershell.enableProfileLoading": true,
+  "powershell.codeFolding.enable": true,
+  "powershell.buttons.showRunButtons": true,
+  "powershell.integratedConsole.suppressStartupBanner": true,
+  "powershell.codeFormatting.useCorrectCasing": true,
+  "workbench.panel.defaultLocation": "bottom",
+  "debug.console.closeOnEnd": true,
+  "powershell.codeFormatting.autoCorrectAliases": true,
+  "powershell.codeFormatting.whitespaceBetweenParameters": true,
+  "powershell.debugging.createTemporaryIntegratedConsole": false,
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.tabs.enabled": true,
+  "terminal.integrated.tabs.focusMode": "singleClick",
+  "terminal.integrated.tabs.location": "right",
+  "powershell.promptToUpdatePowerShell": false,
+  "workbench.settings.useSplitJSON": false,
+  "workbench.sideBar.location": "left",
+  "workbench.startupEditor": "readme",
+  "terminal.integrated.allowWorkspaceConfiguration": true,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "underline",
+  "terminal.integrated.cwd": ".\\",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell",
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    },
+    "Git Bash": {
+      "source": "Git Bash"
+    }
+  },
+  "powershell.codeFormatting.aliasesToExpand": [
+    "Microsoft.PowerShell.Management",
+    "Microsoft.PowerShell.Utility",
+    "GenXdev.Windows.psm1",
+    "GenXdev.Webbrowser.Playwright.psm1",
+    "GenXdev.Webbrowser.psm1",
+    "GenXdev.Queries.AI.psm1",
+    "GenXdev.Queries.psm1",
+    "GenXdev.Queries.Text.psm1",
+    "GenXdev.Queries.Webbrowser.psm1",
+    "GenXdev.Queries.Websites.psm1",
+    "GenXdev.PackageManagement.psm1",
+    "GenXdev.Local.AI.psm1",
+    "GenXdev.Local.Coding.psm1",
+    "GenXdev.Local.Console.psm1",
+    "GenXdev.Local.Dashboard.psm1",
+    "GenXdev.Local.Data.psm1",
+    "GenXdev.Local.FileSystem.psm1",
+    "GenXdev.Local.Git.psm1",
+    "GenXdev.Local.Helpers.psm1",
+    "GenXdev.Local.Hometools.psm1",
+    "GenXdev.Local.PackageManagement.psm1",
+    "GenXdev.Local.psm1",
+    "GenXdev.Local.Queries.psm1",
+    "GenXdev.Local.Webbrowser.psm1",
+    "GenXdev.Local.Windows.psm1",
+    "GenXdev.Helpers.Math.Physics.psm1",
+    "GenXdev.Helpers.psm1",
+    "GenXdev.FileSystem.psm1",
+    "GenXdev.Data.KeyValueStore.psm1",
+    "GenXdev.Data.Preferences.psm1",
+    "GenXdev.Data.psm1",
+    "GenXdev.Data.SQLite.psm1",
+    "GenXdev.Data.SqlServer.psm1",
+    "GenXdev.Console.psm1",
+    "GenXdev.Console.Spotify.psm1",
+    "GenXdev.Console.Vlc.psm1",
+    "GenXdev.Coding.Git.psm1",
+    "GenXdev.Coding.PowerShell.Modules.psm1",
+    "GenXdev.Coding.psm1",
+    "GenXdev.Local.AI.psm1",
+    "GenXdev.Local.Coding.psm1",
+    "GenXdev.Local.Console.psm1",
+    "GenXdev.Local.Dashboard.psm1",
+    "GenXdev.Local.Data.psm1",
+    "GenXdev.Local.FileSystem.psm1",
+    "GenXdev.Local.Git.psm1",
+    "GenXdev.Local.Helpers.psm1",
+    "GenXdev.Local.Hometools.psm1",
+    "GenXdev.Local.PackageManagement.psm1",
+    "GenXdev.Local.psm1",
+    "GenXdev.Local.Queries.psm1",
+    "GenXdev.Local.Webbrowser.psm1",
+    "GenXdev.Local.Windows.psm1",
+    "GenXdev.AI.LMStudio.psm1",
+    "GenXdev.AI.psm1",
+    "GenXdev.AI.Queries.psm1",
+    "GenXdev.psm1"
+  ],
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "driver": "SQLite",
+      "name": "KeyValueStore",
+      "database": "${workspaceFolder:powershell}/Modules/GenXdev.Local/KeyValueStores.sqllite.db"
+    }
+  ],
+  "sqltools.useNodeRuntime": true
+}

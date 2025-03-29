@@ -1,0 +1,12 @@
+{
+    "recommendations": [
+        "kakumei.ts-debug",
+        "yzhang.markdown-all-in-one",
+        "dotjoshjohnson.xml",
+        "github.copilot",
+        "github.copilot-chat",
+        "ms-vscode.vscode-speech",
+        "ms-vscode.powershell"
+    ],
+    "unwantedRecommendations": []
+}

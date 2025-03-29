@@ -44,7 +44,7 @@ function Complete-GenXDevREADME {
     }
 
 
-process {
+    process {
 
         foreach ($module in $modules) {
 
@@ -60,6 +60,37 @@ process {
 
             # load current README content for modification
             $readmeText = [System.IO.File]::ReadAllText($readmeFilePath)
+
+
+            if ($module.ModuleName -eq "GenXdev") {
+
+                $moduleIndex = $readmeText.IndexOf("`r`n# Modules`r`n") + 13;
+                if ($moduleIndex -lt 0) {
+
+                    throw (
+                        "Unable to locate module section in README file`r`n" +
+                        "see: $PSScriptRoot\Complete-GenXDev.README.ps1:67`r`n"
+                    )
+                }
+                [System.Text.StringBuilder] $newHelp = [System.Text.StringBuilder]::new()
+
+                GenXdev.Coding\Get-GenXDevNewModulesInOrderOfDependency | Microsoft.PowerShell.Core\ForEach-Object {
+
+                    if (-not $_.HasREADME) { return }
+                    $moduleReadmeFilePath = [System.IO.Path]::Combine(
+                        $_.ModulePath, "README.md")
+                    $null = $newHelp.Append("`r`n`r`n")
+                    $null = $newHelp.Append([IO.File]::ReadAllText($moduleReadmeFilePath))
+                    $null = $newHelp.Append("`r`n`r`n");
+                }
+
+                $readmeText = $readmeText.Substring(0, $moduleIndex) +
+                "`r`n$($newHelp.ToString())".Replace("`r`n`r`n`r`n", "`r`n`r`n")
+
+                [IO.File]::WriteAllText($readmeFilePath, $readmeText)
+
+                continue;
+            }
 
             # locate section markers for updates
             $summaryIndex = $readmeText.IndexOf("`r`n# Cmdlet Index")

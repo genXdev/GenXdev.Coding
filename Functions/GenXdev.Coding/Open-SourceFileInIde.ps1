@@ -47,6 +47,8 @@ function Open-SourceFileInIde {
         [Parameter(
             Mandatory = $true,
             Position = 0,
+            ValueFromPipeline = $true,
+            ValueFromPipelineByPropertyName = $true,
             HelpMessage = "The path to the sourcefile to open"
         )]
         [ValidateNotNullOrEmpty()]
@@ -89,17 +91,22 @@ function Open-SourceFileInIde {
         $Path = GenXdev.FileSystem\Expand-Path -FilePath $Path
 
         # get the process that's hosting the current PowerShell session
-        [System.Diagnostics.Process] $hostProcess = GenXdev.Windows\Get-PowershellMainWindowProcess
+        [System.Diagnostics.Process] $hostProcess = GenXdev.Windows\Get-PowershellMainWindowProcess |
+        Microsoft.PowerShell.Core\Where-Object { "$($_.Name)".ToLowerInvariant() -in @("code", "code - insiders", "vscodium", "vscodium - insiders", "devenv", "sublime_text", "atom", "idea64", "pycharm64") }
 
         # determine default IDE path based on host process availability
-        $idePath = ($null -eq $hostProcess ? "code" : $hostProcess.Path)
+        $normalPath = Microsoft.PowerShell.Management\Join-Path $env:ProgramFiles "Microsoft VS Code\Code.exe"
+        $previewPath = Microsoft.PowerShell.Management\Join-Path $env:LOCALAPPDATA "Programs\Microsoft VS Code Insiders\Code - Insiders.exe"
+        $idePath = ($null -eq $hostProcess ? ([IO.File]::Exists($previewPath) ? $previewPath : (
+                    [IO.File]::Exists($normalPath) ? $normalPath : "code")) : $hostProcess.Path)
 
         # output verbose message about initial host process path
         Microsoft.PowerShell.Utility\Write-Verbose "Initial host process path: $idePath"
 
         # check if current host is VS Code or Visual Studio
-        $isCode = $hostProcess.Name -eq "Code"
-        $isVisualStudio = $hostProcess.Name -eq "devenv"
+        $filename = ([IO.Path]::GetFileNameWithoutExtension($idePath)).ToLowerInvariant()
+        $isCode = ($filename -eq "code") -or ($filename -eq "code - insiders")
+        $isVisualStudio = $filename -eq "devenv"
 
         # output verbose message about initial IDE detection
         Microsoft.PowerShell.Utility\Write-Verbose "Initial IDE detection: VSCode=$isCode, VS=$isVisualStudio"
@@ -216,7 +223,7 @@ function Open-SourceFileInIde {
     }
 
 
-process {
+    process {
 
         # validate that an IDE was found
         if ($null -eq $idePath) {
