@@ -88,7 +88,7 @@ function Open-SourceFileInIde {
     begin {
 
         # expand any environment variables or relative paths in the file path
-        $Path = GenXdev.FileSystem\Expand-Path -FilePath $Path
+        $Path = GenXdev.FileSystem\Expand-Path $Path
 
         # get the process that's hosting the current PowerShell session
         [System.Diagnostics.Process] $hostProcess = GenXdev.Windows\Get-PowershellMainWindowProcess |

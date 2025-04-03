@@ -131,8 +131,8 @@ function AssureVSCodeInstallation {
 
         GenXdev.FileSystem\Find-Item "$sourcePath\*" -RelativeBasePath $sourcePath | Microsoft.PowerShell.Core\ForEach-Object {
 
-            $sourceFile = $_
-            $targetFile = "$targetPath\$PSItem".Replace(".asset.txt", "")
+            $sourceFile = GenXdev.FileSystem\Expand-Path "$sourcePath\$PSItem"
+            $targetFile = GenXdev.FileSystem\Expand-Path "$targetPath\$PSItem".Replace(".asset.txt", "") -CreateDirectory
 
             if ([IO.File]::Exists($targetFile)) { return }
 

@@ -77,18 +77,40 @@ function New-PullRequestForGenXdevModuleChanges {
             HelpMessage = "Description for the pull request"
         )]
         [string]$PullRequestDescription = "These changes improve functionality " +
-        "and fix issues I encountered."
+        "and fix issues I encountered.",
+        ########################################################################
+        [Parameter(
+            Position = 4,
+            Mandatory = $false,
+            HelpMessage = "Git username for commits"
+        )]
+        [string]$GitUserName = "Your Name",
+        ########################################################################
+        [Parameter(
+            Position = 5,
+            Mandatory = $false,
+            HelpMessage = "Git email for commits"
+        )]
+        [string]$GitUserEmail = "you@example.com"
         ########################################################################
     )
 
     begin {
+        Microsoft.PowerShell.Utility\Write-Host "This script is not yet fully functional and is a work in progress." -ForegroundColor Cyan
+        Microsoft.PowerShell.Utility\Write-Host "Feel free to fix it ;-)." -ForegroundColor Cyan
+        $null = git config --global --add safe.directory (GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\..\")
         $w = "store/fileupload"
         Microsoft.PowerShell.Utility\Write-Verbose "Checking for GitHub CLI installation"
         GenXdev.Coding\AssureGithubCLIInstalled
     }
 
 
-process {
+    process {
+        throw (
+            Microsoft.PowerShell.Utility\New-Object "System.NotImplementedException" `
+                -ArgumentList "This function is not yet fully functional and is a work in progress. Feel free to fix it ;-)."
+        )
+
         function Register-GitHubApp {
 
             # GitHub OAuth application credentials
@@ -96,9 +118,9 @@ process {
 
             # Start device flow authentication
             GenXdev.Webbrowser\Close-Webbrowser -Force
-            GenXdev.Webbrowser\Open-Webbrowser -nw -mon 0 -right
+            GenXdev.Webbrowser\Open-Webbrowser -nw -mon 0 -Right
             GenXdev.Webbrowser\Select-WebbrowserTab
-            GenXdev.Windows\Set-WindowPosition -left
+            GenXdev.Windows\Set-WindowPosition -Left
 
             $deviceCodeRequest = Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Post -Uri "https://github.com/login/device/code" -Body @{
                 client_id = $clientId
@@ -107,7 +129,7 @@ process {
                 Accept = "application/json"
             }
 
-            GenXdev.Webbrowser\Set-WebbrowserTabLocation (deviceCodeRequest.verification_uri)
+            GenXdev.Webbrowser\Set-WebbrowserTabLocation ($deviceCodeRequest.verification_uri)
 
             Microsoft.PowerShell.Utility\Write-Host "Please visit: $($deviceCodeRequest.verification_uri)"
             Microsoft.PowerShell.Utility\Write-Host "And enter code: $($deviceCodeRequest.user_code)"
@@ -130,11 +152,28 @@ process {
                         $token = $tokenResponse.access_token
                         break
                     }
+
+                    if ($tokenResponse.error -eq "authorization_pending") {
+                        Microsoft.PowerShell.Utility\Write-Verbose "Authorization pending. Waiting for user to authorize..."
+                    }
+                    elseif ($tokenResponse.error -eq "slow_down") {
+                        Microsoft.PowerShell.Utility\Write-Verbose "Rate limit hit. Slowing down polling..."
+                        Microsoft.PowerShell.Utility\Start-Sleep -Seconds 10
+                    }
+                    else {
+                        Microsoft.PowerShell.Utility\Write-Error "Unexpected error: $($tokenResponse.error)"
+                        break
+                    }
                 }
                 catch {
-                    # Still waiting for user to authorize
-                    Microsoft.PowerShell.Utility\Start-Sleep -Seconds 5
+                    Microsoft.PowerShell.Utility\Write-Verbose "Still waiting for user to authorize..."
                 }
+
+                Microsoft.PowerShell.Utility\Start-Sleep -Seconds 5
+            }
+
+            if (-not $token) {
+                Microsoft.PowerShell.Utility\Write-Error "Authentication failed or timed out"
             }
 
             return $token
@@ -144,15 +183,21 @@ process {
         GenXdev.Coding\Assert-GenXdevDependencyUsage -BaseModuleName $ModuleName -ErrorAction Stop
 
         Microsoft.PowerShell.Utility\Write-Verbose "Running unit tests for $ModuleName"
-        GenXdev.Coding\Assert-GenXdevUnitTest -ModuleName $ModuleName -ErrorAction Stop
+        try {
+            GenXdev.Coding\Assert-GenXdevUnitTest -ModuleName $ModuleName -ErrorAction Stop
+        }
+        catch {
+            Microsoft.PowerShell.Utility\Write-Error "Unit tests failed for $($ModuleName): $_"
+            return
+        }
 
         # get full path to module
-        $modulePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\Modules\$ModuleName\1.162.2025\"
+        $modulePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$ModuleName\1.164.2025\"
 
         Microsoft.PowerShell.Utility\Write-Verbose "Checking for module manifest at: $modulePath"
         if (!(Microsoft.PowerShell.Management\Test-Path -Path "$modulePath\$ModuleName.psd1")) {
-            Microsoft.PowerShell.Utility\Write-Error "No module manifest found in current directory"
-            exit 1
+            Microsoft.PowerShell.Utility\Write-Error "No module manifest found in module directory"
+            return
         }
 
         # load module version information
@@ -161,54 +206,47 @@ process {
 
         Microsoft.PowerShell.Utility\Write-Verbose "Processing $ModuleName version $moduleVersion"
 
+        $repoSearchResult = $null
+
         # authenticate with github
         Microsoft.PowerShell.Utility\Write-Verbose "Authenticating with GitHub"
         $token = Register-GitHubApp
-        if (!$token) {
-            Microsoft.PowerShell.Utility\Write-Error "Authentication failed or timed out"
-            exit 1
-        }
+        if ($null -ne $token) {
 
-        # Find the original repository
-        $headers = @{
-            Authorization = "token $token"
-            Accept        = "application/vnd.github.v3+json"
-        }
+            # Find the original repository
+            $headers = @{
+                Authorization = "token $token"
+                Accept        = "application/vnd.github.v3+json"
+            }
 
-        # Search for the repository in genXdev organization
-        $repoSearchResult = Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/genXdev/$ModuleName" -Headers $headers -ErrorAction SilentlyContinue
+            # Search for the repository in genXdev organization
+            $repoSearchResult = Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/genXdev/$ModuleName" -Headers $headers -ErrorAction SilentlyContinue
+        }
 
         if (!$repoSearchResult) {
             Microsoft.PowerShell.Utility\Write-Host "Repository not found. Uploading to genXdev.net instead..."
 
             # Get module path and create zip file
-            $modulePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\Modules\$ModuleName\1.162.2025\"
-            $zipPath = [System.IO.Path]::GetTempFileName() + ".zip"
-            Microsoft.PowerShell.Archive\Compress-Archive -Path "$modulePath\*" -DestinationPath $zipPath -Force
+            try {
+                $zipPath = [System.IO.Path]::GetTempFileName() + ".zip"
+                Microsoft.PowerShell.Archive\Compress-Archive -Path "$modulePath\*" -DestinationPath $zipPath -Force
+            }
+            catch {
+                Microsoft.PowerShell.Utility\Write-Error "Failed to compress module directory: $_"
+                return
+            }
 
             try {
                 $uploadUrl = ("https://genxdev.net/$w?filename=$([Uri]::EscapeDataString(
                     "$ModuleName.zip"))&session=$([Uri]::EscapeDataString(
                         [Guid]::NewGuid().ToString().ToLowerInvariant()))");
 
-                $boundary = [System.Guid]::NewGuid().ToString()
-                $fileBin = [System.IO.File]::ReadAllBytes($zipPath)
-                $enc = [System.Text.Encoding]::GetEncoding("iso-8859-1")
-                $fileEnc = $enc.GetString($fileBin)
-
-                $LF = "`r`n"
-                $bodyLines = (
-                    "--$boundary",
-                    "Content-Disposition: form-data; name=`"file`"; filename=`"$ModuleName.zip`"",
-                    "Content-Type: application/x-zip-compressed$LF",
-                    $fileEnc,
-                    "--$boundary--$LF"
-                ) -join $LF
+                $fileBytes = [System.IO.File]::ReadAllBytes($zipPath)
 
                 $result = Microsoft.PowerShell.Utility\Invoke-RestMethod -Uri $uploadUrl `
                     -Method Post `
-                    -ContentType "multipart/form-data; boundary=$boundary" `
-                    -Body $bodyLines
+                    -ContentType "application/octet-stream" `
+                    -Body $fileBytes
 
                 Microsoft.PowerShell.Utility\Write-Verbose "Upload result: $($result | Microsoft.PowerShell.Utility\ConvertTo-Json -Compress)"
                 Microsoft.PowerShell.Utility\Write-Host "Module successfully uploaded to genXdev.net"
@@ -216,7 +254,12 @@ process {
                 return
             }
             finally {
-                Microsoft.PowerShell.Management\Remove-Item $zipPath -Force
+                try {
+                    Microsoft.PowerShell.Management\Remove-Item $zipPath -Force
+                }
+                catch {
+                    Microsoft.PowerShell.Utility\Write-Error "Failed to remove temporary zip file: $_"
+                }
             }
         }
 
@@ -233,49 +276,247 @@ process {
             # Fork doesn't exist, create it
             if ($PSCmdlet.ShouldProcess("$ModuleName", "Create fork")) {
                 Microsoft.PowerShell.Utility\Write-Host "Creating fork of $ModuleName..."
-                Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/genXdev/$ModuleName/forks" -Headers $headers
+                try {
+                    Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/genXdev/$ModuleName/forks" -Headers $headers
+                }
+                catch {
+                    Microsoft.PowerShell.Utility\Write-Error "Failed to create fork: $_"
+                    return
+                }
             }
         }
 
         # Setup git and push changes
         if ($PSCmdlet.ShouldProcess("$ModuleName", "Push changes to GitHub")) {
-            git init
-            git config user.name $username
-            git remote add origin "https://github.com/$username/$ModuleName.git"
-            git remote add upstream "https://github.com/genXdev/$ModuleName.git"
+            Microsoft.PowerShell.Management\Push-Location $modulePath
+            try {
+                try {
+                    # Add the directory to Git's safe directory list
+                    Microsoft.PowerShell.Utility\Write-Verbose "Adding $modulePath to Git's safe directory list"
+                    git config --global --add safe.directory $modulePath
 
-            # Add, commit and push changes
-            git add .
-            git commit -m $CommitMessage
-            git branch -M main
-            git push -u origin main -f
+                    # Remove the .git folder if it exists
+                    $gitFolderPath = Microsoft.PowerShell.Management\Join-Path -Path $modulePath -ChildPath ".git"
+                    if (Microsoft.PowerShell.Management\Test-Path -Path $gitFolderPath) {
+                        Microsoft.PowerShell.Utility\Write-Verbose "Removing existing .git folder at $gitFolderPath"
+                        GenXdev.FileSystem\Remove-AllItems $gitFolderPath -DeleteFolder
+                    }
+
+                    # Initialize a new Git repository
+                    git init
+
+                    # Ensure the remote URLs are correctly formatted
+                    $originUrl = "https://$token@github.com/$username/$ModuleName.git/"
+                    $upstreamUrl = "https://$token@github.com/genXdev/$ModuleName.git/"
+
+                    # Check if remotes already exist
+                    if (-not (git remote | Microsoft.PowerShell.Utility\Select-String -Pattern "^origin$")) {
+                        git remote add origin $originUrl
+                        Microsoft.PowerShell.Utility\Write-Verbose "Added origin remote: $originUrl"
+                    }
+                    if (-not (git remote | Microsoft.PowerShell.Utility\Select-String -Pattern "^upstream$")) {
+                        git remote add upstream $upstreamUrl
+                        Microsoft.PowerShell.Utility\Write-Verbose "Added upstream remote: $upstreamUrl"
+                    }
+
+                    # Configure Git user identity using GitHub API details
+                    git config user.name $GitUserName
+                    Microsoft.PowerShell.Utility\Write-Verbose "Git user.name set to '$GitUserName'."
+                    git config user.email $GitUserEmail
+                    Microsoft.PowerShell.Utility\Write-Verbose "Git user.email set to '$GitUserEmail'."
+
+                    # Switch to the new branch
+                    git checkout -b $newBranchName
+
+                    # Add and commit changes
+                    git add .
+                    if (git diff --cached --quiet) {
+                        Microsoft.PowerShell.Utility\Write-Verbose "No changes to commit. Skipping commit step."
+                    }
+                    else {
+                        git commit -m $CommitMessage
+                    }
+
+                    # Push the new branch
+                    git push -u origin $newBranchName -f
+                }
+                catch {
+                    Microsoft.PowerShell.Utility\Write-Error "Git command failed: $($Error[0])"
+                    return
+                }
+            }
+            finally {
+                Microsoft.PowerShell.Management\Pop-Location
+            }
         }
 
-        # --- Begin Extension ---
-        # Find the commit with the exact message "Release 1.162.2025" and extract its commit hash
-        $releaseCommitMsg = "Release 1.162.2025"
-        $releaseCommitHash = (git log --grep="^$releaseCommitMsg$" --format="%H" -n 1).Trim()
+        # --- Begin Modification ---
+        # Find the commit with the exact message "Release 1.164.2025" in the GenXdev module repository using the GitHub API
+        $releaseCommitMsg = "Release 1.164.2025"
+        $commitsApiUrl = "https://api.github.com/repos/genXdev/$ModuleName/commits"
+        $releaseCommitHash = $null
+
+        try {
+            $commits = Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Get -Uri $commitsApiUrl -Headers $headers
+            foreach ($commit in $commits) {
+                if ($commit.commit.message -eq $releaseCommitMsg) {
+                    $releaseCommitHash = $commit.sha
+                    break
+                }
+            }
+        }
+        catch {
+            Microsoft.PowerShell.Utility\Write-Error "Failed to retrieve commits from the repository: $_"
+            return
+        }
+
         if (-not $releaseCommitHash) {
-            Microsoft.PowerShell.Utility\Write-Error "No commit found with message '$releaseCommitMsg'"
-            exit 1
+            Microsoft.PowerShell.Utility\Write-Error "No commit found with message '$releaseCommitMsg' in the repository"
+            return
         }
+
         # Append the commit hash to the pull request description.
         $PullRequestDescription += "`nCommit hash: $releaseCommitHash"
-        # --- End Extension ---
+
+        # Generate a unique branch name
+        $timestamp = (Microsoft.PowerShell.Utility\Get-Date -Format "yyyyMMddHHmmss")
+        $newBranchName = "release-branch-$timestamp"
+
+        # Create a branch in the user's fork pointing to the desired commit
+        try {
+            # Create the branch
+            $createBranchBody = @{
+                ref = "refs/heads/$newBranchName"
+                sha = $releaseCommitHash
+            }
+            Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/$username/$ModuleName/git/refs" -Body ($createBranchBody | Microsoft.PowerShell.Utility\ConvertTo-Json -Depth 10) -Headers $headers -ContentType "application/json"
+            Microsoft.PowerShell.Utility\Write-Verbose "Branch '$newBranchName' created in the user's fork."
+        }
+        catch {
+            Microsoft.PowerShell.Utility\Write-Error "Failed to create branch '$newBranchName' in the user's fork: $($Error[0])"
+            return
+        }
+
+        # Fetch GitHub user details
+        Microsoft.PowerShell.Utility\Write-Verbose "Fetching GitHub user details"
+        try {
+            $userDetails = Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Get -Uri "https://api.github.com/user" -Headers $headers -ErrorAction Stop
+            $GitUserName = $userDetails.name
+            $GitUserEmail = $userDetails.email
+
+            if (-not $GitUserName) {
+                $GitUserName = $userDetails.login
+                Microsoft.PowerShell.Utility\Write-Verbose "GitHub user name not set, using login: $GitUserName"
+            }
+
+            if (-not $GitUserEmail) {
+                $GitUserEmail = "$($userDetails.login)@users.noreply.github.com"
+                Microsoft.PowerShell.Utility\Write-Verbose "GitHub user email not set, using noreply email: $GitUserEmail"
+            }
+        }
+        catch {
+            Microsoft.PowerShell.Utility\Write-Error "Failed to fetch GitHub user details: $($Error[0])"
+            return
+        }
+
+        # Ensure changes are committed to the new branch
+        if ($PSCmdlet.ShouldProcess("$ModuleName", "Push changes to GitHub")) {
+            Microsoft.PowerShell.Management\Push-Location $modulePath
+            try {
+                try {
+                    # Add the directory to Git's safe directory list
+                    Microsoft.PowerShell.Utility\Write-Verbose "Adding $modulePath to Git's safe directory list"
+                    git config --global --add safe.directory $modulePath
+
+                    # Remove the .git folder if it exists
+                    $gitFolderPath = Microsoft.PowerShell.Management\Join-Path -Path $modulePath -ChildPath ".git"
+                    if (Microsoft.PowerShell.Management\Test-Path -Path $gitFolderPath) {
+                        Microsoft.PowerShell.Utility\Write-Verbose "Removing existing .git folder at $gitFolderPath"
+                        GenXdev.FileSystem\Remove-AllItems $gitFolderPath -DeleteFolder
+                    }
+
+                    # Initialize a new Git repository
+                    git init
+
+                    # Ensure the remote URLs are correctly formatted
+                    $originUrl = "https://$token@github.com/$username/$ModuleName.git/"
+                    $upstreamUrl = "https://$token@github.com/genXdev/$ModuleName.git/"
+
+                    # Check if remotes already exist
+                    if (-not (git remote | Microsoft.PowerShell.Utility\Select-String -Pattern "^origin$")) {
+                        git remote add origin $originUrl
+                        Microsoft.PowerShell.Utility\Write-Verbose "Added origin remote: $originUrl"
+                    }
+                    if (-not (git remote | Microsoft.PowerShell.Utility\Select-String -Pattern "^upstream$")) {
+                        git remote add upstream $upstreamUrl
+                        Microsoft.PowerShell.Utility\Write-Verbose "Added upstream remote: $upstreamUrl"
+                    }
+
+                    # Configure Git user identity using GitHub API details
+                    git config user.name $GitUserName
+                    Microsoft.PowerShell.Utility\Write-Verbose "Git user.name set to '$GitUserName'."
+                    git config user.email $GitUserEmail
+                    Microsoft.PowerShell.Utility\Write-Verbose "Git user.email set to '$GitUserEmail'."
+
+                    # Switch to the new branch
+                    git checkout -b $newBranchName
+
+                    # Add and commit changes
+                    git add .
+                    if (git diff --cached --quiet) {
+                        Microsoft.PowerShell.Utility\Write-Verbose "No changes to commit. Skipping commit step."
+                    }
+                    else {
+                        git commit -m $CommitMessage
+                    }
+
+                    # Push the new branch
+                    git push -u origin $newBranchName -f
+                }
+                catch {
+                    Microsoft.PowerShell.Utility\Write-Error "Git command failed: $($Error[0])"
+                    return
+                }
+            }
+            finally {
+                Microsoft.PowerShell.Management\Pop-Location
+            }
+        }
+
+        # # Ensure the branch contains changes before creating the pull request
+        # $compareUrl = "https://api.github.com/repos/genXdev/$ModuleName/compare/main...${username}:$newBranchName"
+        # try {
+        #     $compareResult = Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Get -Uri $compareUrl -Headers $headers -ErrorAction Stop
+        #     if ($compareResult.commits.Count -eq 0) {
+        #         Microsoft.PowerShell.Utility\Write-Error "No commits between genXdev:main and ${username}:$newBranchName. Ensure changes are committed before creating the pull request."
+        #         return
+        #     }
+        # }
+        # catch {
+        #     Microsoft.PowerShell.Utility\Write-Error "Failed to compare branches: $($Error[0])"
+        #     return
+        # }
 
         # Create pull request
         if ($PSCmdlet.ShouldProcess("$ModuleName", "Create pull request")) {
-            $prBody = @{
-                title = $PullRequestTitle
-                body  = $PullRequestDescription
-                head  = "$username:main"
-                base  = "main"
+            try {
+                $prBody = @{
+                    title = $PullRequestTitle
+                    body  = $PullRequestDescription
+                    head  = "${username}:${newBranchName}"  # Use the new branch in the user's fork
+                    base  = "main"
+                }
+
+                # Create the pull request
+                $pr = Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/genXdev/$ModuleName/pulls" -Body ($prBody | Microsoft.PowerShell.Utility\ConvertTo-Json -Depth 10) -Headers $headers -ContentType "application/json"
+
+                Microsoft.PowerShell.Utility\Write-Host "Pull request created successfully: $($pr.html_url)" -ForegroundColor Cyan
+                Microsoft.PowerShell.Utility\Write-Host "Thank you for contributing to GenXdev!" -ForegroundColor Green
             }
-
-            $pr = Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/genXdev/$ModuleName/pulls" -Body ($prBody | Microsoft.PowerShell.Utility\ConvertTo-Json) -Headers $headers -ContentType "application/json"
-
-            Microsoft.PowerShell.Utility\Write-Host "Pull request created successfully: $($pr.html_url)"
-            Microsoft.PowerShell.Utility\Write-Host "Thank you for contributing to GenXdev!"
+            catch {
+                Microsoft.PowerShell.Utility\Write-Error "Failed to create pull request: $($Error[0])"
+                return
+            }
         }
     }
 

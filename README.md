@@ -3586,7 +3586,7 @@ SYNOPSIS
     
     
 SYNTAX
-    New-PullRequestForGenXdevModuleChanges [-ModuleName] <String> [[-CommitMessage] <String>] [[-PullRequestTitle] <String>] [[-PullRequestDescription] <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
+    New-PullRequestForGenXdevModuleChanges [-ModuleName] <String> [[-CommitMessage] <String>] [[-PullRequestTitle] <String>] [[-PullRequestDescription] <String>] [[-GitUserName] <String>] [[-GitUserEmail] <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
     
     
 DESCRIPTION
@@ -3632,6 +3632,24 @@ PARAMETERS
         Required?                    false
         Position?                    4
         Default value                These changes improve functionality and fix issues I encountered.
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -GitUserName <String>
+        
+        Required?                    false
+        Position?                    5
+        Default value                Your Name
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -GitUserEmail <String>
+        
+        Required?                    false
+        Position?                    6
+        Default value                you@example.com
         Accept pipeline input?       false
         Aliases                      
         Accept wildcard characters?  false

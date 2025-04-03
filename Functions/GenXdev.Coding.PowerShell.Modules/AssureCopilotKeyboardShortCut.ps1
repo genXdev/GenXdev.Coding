@@ -40,7 +40,7 @@ function AssureCopilotKeyboardShortCut {
             # define the new keyboard shortcut configuration for copilot
             $newKeybinding = @{
                 "key"     = "ctrl+shift+alt+f12"
-                "command" = "github.copilot.$($i++ -eq 0 ? "edit": "chat").attachFile"
+                "command" = "github.copilot.$($i++ -eq 0 ? "edits": "chat").attachFile"
                 "when"    = "resourceScheme == 'file' || resourceScheme == 'untitled'" +
                 " || resourceScheme == 'vscode-remote' || " +
                 "resourceScheme == 'vscode-userdata'"
