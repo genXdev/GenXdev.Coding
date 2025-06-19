@@ -219,7 +219,7 @@ process {
 
                     if ($isLast) {
 
-                        $keysToSend = @("^+%{F12}", "^v", "{ENTER}", "^{ENTER}")
+                        $keysToSend = @("^+%{F12}", "{ENTER}", "^v", "{ENTER}", "^{ENTER}", "^``")
                     }
                     else {
 

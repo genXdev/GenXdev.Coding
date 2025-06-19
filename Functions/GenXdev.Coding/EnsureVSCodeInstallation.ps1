@@ -10,16 +10,16 @@ the workspace configuration. Also sets up PSGallery as a trusted repository and
 configures specific extension settings.
 
 .EXAMPLE
-AssureVSCodeInstallation
+EnsureVSCodeInstallation
 #>
-function AssureVSCodeInstallation {
+function EnsureVSCodeInstallation {
     [CmdletBinding()]
     [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseSingularNouns", "")]
     [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidGlobalVars", "")]
     param()
 
     begin {
-        $null = GenXdev.Coding\AssureCopilotKeyboardShortCut
+        $null = GenXdev.Coding\EnsureCopilotKeyboardShortCut
 
         # get the process that's hosting the current PowerShell session
         [System.Diagnostics.Process] $hostProcess = GenXdev.Windows\Get-PowershellMainWindowProcess
@@ -45,10 +45,10 @@ function AssureVSCodeInstallation {
             Microsoft.PowerShell.Utility\Write-Verbose "Installing Visual Studio Code..."
 
             # install vscode using winget
-            # Microsoft.WinGet.Client\Install-WinGetPackage -Id "Microsoft.VisualStudioCode" `
-            #     -Mode Silent -Force -Scope SystemOrUnknown
-            Microsoft.WinGet.Client\Install-WinGetPackage -Id "Microsoft.VisualStudioCode.Insiders" `
-                -Mode Silent -Force -Scope SystemOrUnknown
+             Microsoft.WinGet.Client\Install-WinGetPackage -Id "Microsoft.VisualStudioCode" `
+                 -Mode Silent -Force -Scope SystemOrUnknown
+            # Microsoft.WinGet.Client\Install-WinGetPackage -Id "Microsoft.VisualStudioCode.Insiders" `
+            #    -Mode Silent -Force -Scope SystemOrUnknown
 
             # refresh environment paths
             GenXdev.Helpers\Initialize-SearchPaths

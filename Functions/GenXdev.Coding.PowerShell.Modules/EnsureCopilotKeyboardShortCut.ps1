@@ -9,9 +9,9 @@ keyboard shortcut (Ctrl+F12) configured in Visual Studio Code. It checks the
 user's keybindings.json file and adds the shortcut if it doesn't exist.
 
 .EXAMPLE
-AssureCopilotKeyboardShortCut
+EnsureCopilotKeyboardShortCut
 #>
-function AssureCopilotKeyboardShortCut {
+function EnsureCopilotKeyboardShortCut {
 
     [CmdletBinding()]
     param()

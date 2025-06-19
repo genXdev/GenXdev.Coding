@@ -70,8 +70,7 @@ Update-Module
 | [Add-LineToREADME](#Add-LineToREADME) |  | Adds a line to a README.md markdown file in a specified section. |
 | [Add-ReleaseNoteLineToREADME](#Add-ReleaseNoteLineToREADME) | releasenote | Adds a ReleaseNote line to the README file with a timestamp. |
 | [Add-TodoLineToREADME](#Add-TodoLineToREADME) | todo | Adds a todo item to the README.md file. |
-| [AssureGithubCLIInstalled](#AssureGithubCLIInstalled) |  | Ensures GitHub CLI is properly installed and configured on the system. |
-| [AssureVSCodeInstallation](#AssureVSCodeInstallation) |  | Installs and configures Visual Studio Code with recommended extensions. |
+| [EnsureVSCodeInstallation](#EnsureVSCodeInstallation) |  | Installs and configures Visual Studio Code with recommended extensions. |
 | [Features](#Features) |  | Displays features from a README.md file. |
 | [Ideas](#Ideas) |  | Displays ideas from a README.md file. |
 | [Issues](#Issues) |  | Displays issues from a README.md file. |
@@ -104,9 +103,9 @@ Update-Module
 | [Assert-NextGenXdevCmdlet](#Assert-NextGenXdevCmdlet) | nextcmdlet | Asserts and improves the next GenXdev cmdlet in sequence. |
 | [Assert-NextGenXdevCmdletTest](#Assert-NextGenXdevCmdletTest) | nextcmdlettest | Automates testing improvements for GenXdev cmdlets by managing test creation. |
 | [Assert-RefactorFile](#Assert-RefactorFile) |  |  |
-| [AssureCopilotKeyboardShortCut](#AssureCopilotKeyboardShortCut) |  | Configures the GitHub Copilot keyboard shortcut in Visual Studio Code. |
 | [Clear-GenXdevModules](#Clear-GenXdevModules) | cleangenxdev | Cleans build artifacts from GenXdev PowerShell modules. |
 | [Complete-GenXDevREADME](#Complete-GenXDevREADME) |  | Completes the README file for specified GenXDev modules by adding documentation. |
+| [EnsureCopilotKeyboardShortCut](#EnsureCopilotKeyboardShortCut) |  | Configures the GitHub Copilot keyboard shortcut in Visual Studio Code. |
 | [Get-GenXDevModule](#Get-GenXDevModule) |  | Retrieves all GenXDev modules from a specified path. |
 | [Get-GenXDevModuleInfo](#Get-GenXDevModuleInfo) |  | Retrieves detailed information about GenXdev PowerShell modules. |
 | [Get-GenXDevNewModulesInOrderOfDependency](#Get-GenXDevNewModulesInOrderOfDependency) |  | Retrieves GenXDev modules in dependency order. |
@@ -783,61 +782,14 @@ RELATED LINKS
 <br/><hr/><hr/><br/>
  
 NAME
-    AssureGithubCLIInstalled
-    
-SYNOPSIS
-    Ensures GitHub CLI is properly installed and configured on the system.
-    
-    
-SYNTAX
-    AssureGithubCLIInstalled [<CommonParameters>]
-    
-    
-DESCRIPTION
-    Performs comprehensive checks and setup for GitHub CLI (gh):
-    - Verifies if GitHub CLI is installed and accessible in PATH
-    - Installs GitHub CLI via WinGet if not present
-    - Configures system PATH environment variable
-    - Installs GitHub Copilot extension
-    - Sets up GitHub authentication
-    The function handles all prerequisites and ensures a working GitHub CLI setup.
-    
-
-PARAMETERS
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216). 
-    
-INPUTS
-    
-OUTPUTS
-    
-    -------------------------- EXAMPLE 1 --------------------------
-    
-    PS > AssureGithubCLIInstalled
-    This will verify and setup GitHub CLI if needed.
-    
-    
-    
-    
-    
-    
-    
-RELATED LINKS 
-
-<br/><hr/><hr/><br/>
- 
-NAME
-    AssureVSCodeInstallation
+    EnsureVSCodeInstallation
     
 SYNOPSIS
     Installs and configures Visual Studio Code with recommended extensions.
     
     
 SYNTAX
-    AssureVSCodeInstallation [<CommonParameters>]
+    EnsureVSCodeInstallation [<CommonParameters>]
     
     
 DESCRIPTION
@@ -860,7 +812,7 @@ OUTPUTS
     
     -------------------------- EXAMPLE 1 --------------------------
     
-    PS > AssureVSCodeInstallation
+    PS > EnsureVSCodeInstallation
     
     
     
@@ -2516,48 +2468,6 @@ REMARKS
 <br/><hr/><hr/><br/>
  
 NAME
-    AssureCopilotKeyboardShortCut
-    
-SYNOPSIS
-    Configures the GitHub Copilot keyboard shortcut in Visual Studio Code.
-    
-    
-SYNTAX
-    AssureCopilotKeyboardShortCut [<CommonParameters>]
-    
-    
-DESCRIPTION
-    This function ensures that GitHub Copilot's file attachment feature has a proper
-    keyboard shortcut (Ctrl+F12) configured in Visual Studio Code. It checks the
-    user's keybindings.json file and adds the shortcut if it doesn't exist.
-    
-
-PARAMETERS
-    <CommonParameters>
-        This cmdlet supports the common parameters: Verbose, Debug,
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216). 
-    
-INPUTS
-    
-OUTPUTS
-    
-    -------------------------- EXAMPLE 1 --------------------------
-    
-    PS > AssureCopilotKeyboardShortCut
-    
-    
-    
-    
-    
-    
-    
-RELATED LINKS 
-
-<br/><hr/><hr/><br/>
- 
-NAME
     Clear-GenXdevModules
     
 SYNOPSIS
@@ -2654,6 +2564,48 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > "GenXdev.Helpers" | Complete-GenXDevREADME
+    
+    
+    
+    
+    
+    
+    
+RELATED LINKS 
+
+<br/><hr/><hr/><br/>
+ 
+NAME
+    EnsureCopilotKeyboardShortCut
+    
+SYNOPSIS
+    Configures the GitHub Copilot keyboard shortcut in Visual Studio Code.
+    
+    
+SYNTAX
+    EnsureCopilotKeyboardShortCut [<CommonParameters>]
+    
+    
+DESCRIPTION
+    This function ensures that GitHub Copilot's file attachment feature has a proper
+    keyboard shortcut (Ctrl+F12) configured in Visual Studio Code. It checks the
+    user's keybindings.json file and adds the shortcut if it doesn't exist.
+    
+
+PARAMETERS
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216). 
+    
+INPUTS
+    
+OUTPUTS
+    
+    -------------------------- EXAMPLE 1 --------------------------
+    
+    PS > EnsureCopilotKeyboardShortCut
     
     
     

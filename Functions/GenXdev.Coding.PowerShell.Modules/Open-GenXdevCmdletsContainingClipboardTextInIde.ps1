@@ -28,7 +28,7 @@ function Open-GenXdevCmdletsContainingClipboardTextInIde {
         $searchPattern = [System.Text.RegularExpressions.Regex]::Escape($clipboardText)
         if ($Copilot) {
 
-            $null = GenXdev.Coding\AssureCopilotKeyboardShortCut
+            $null = GenXdev.Coding\EnsureCopilotKeyboardShortCut
         }
     }
 

@@ -116,7 +116,7 @@ function Get-ModuleHelpMarkdown {
 
             # process current cmdlet
             $CmdletName = $current.Name
-            if ($CmdletName -like "*AssureTypes*") {
+            if ($CmdletName -like "*EnsureTypes*") {
                 return;
             }
             Microsoft.PowerShell.Utility\Write-Verbose "Generating help for cmdlet: $CmdletName"

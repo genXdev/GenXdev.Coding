@@ -51,7 +51,7 @@ function VSCode {
         # ensure copilot keyboard shortcut is configured if needed
         if ($Copilot) {
 
-            $null = GenXdev.Coding\AssureCopilotKeyboardShortCut
+            $null = GenXdev.Coding\EnsureCopilotKeyboardShortCut
         }
     }
 

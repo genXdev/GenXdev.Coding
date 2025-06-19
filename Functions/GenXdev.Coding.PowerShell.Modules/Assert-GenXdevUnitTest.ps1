@@ -143,7 +143,7 @@ function Assert-GenXdevUnitTest {
 
     begin {
 
-        GenXdev.FileSystem\AssurePester
+        GenXdev.FileSystem\EnsurePester
 
         GenXdev.Coding\Add-MissingGenXdevUnitTests
 

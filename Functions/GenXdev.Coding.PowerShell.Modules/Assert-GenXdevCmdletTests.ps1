@@ -160,7 +160,7 @@ function Assert-GenXdevCmdletTests {
     }
 
 
-process {
+    process {
 
         # handle prompt editing request
         if ($EditPrompt) {
@@ -181,7 +181,7 @@ process {
         }
 
         # ensure copilot keyboard shortcut is configured
-        GenXdev.Coding\AssureCopilotKeyboardShortCut
+        GenXdev.Coding\EnsureCopilotKeyboardShortCut
 
         # open cmdlet in vscode and activate copilot
         # open cmdlet in vscode and insert prompt
@@ -193,7 +193,7 @@ process {
         $invocationParams.CmdletName = $CmdletName
         $invocationParams.Code = $true
         $keysToSendFirst = @("^``", "^``", "^+i", "^l", "^a", "{DELETE}", "^+i", "{ESCAPE}", "^+%{F12}", "^+i")
-        $keysToSendLast = @("^+%{F12}", "^v", "{ENTER}", "^{ENTER}")
+        $keysToSendLast = @("^+%{F12}", "{ENTER}", "^v", "{ENTER}", "^{ENTER}")
         $invocationParams.KeysToSend = $keysToSendFirst;
         GenXdev.Coding\Show-GenXdevCmdLetInIde @invocationParams
 

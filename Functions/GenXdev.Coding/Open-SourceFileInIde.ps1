@@ -218,7 +218,7 @@ function Open-SourceFileInIde {
 
         if ($isCode) {
 
-            $null = GenXdev.Coding\AssureVSCodeInstallation
+            $null = GenXdev.Coding\EnsureVSCodeInstallation
         }
     }
 

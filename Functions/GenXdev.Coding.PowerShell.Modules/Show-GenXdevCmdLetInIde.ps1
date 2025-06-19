@@ -105,7 +105,7 @@ function Show-GenXdevCmdLetInIde {
 
     begin {
 
-        $null = GenXdev.Coding\AssureCopilotKeyboardShortCut
+        $null = GenXdev.Coding\EnsureCopilotKeyboardShortCut
 
         # retrieve and validate the target cmdlet exists
         $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
