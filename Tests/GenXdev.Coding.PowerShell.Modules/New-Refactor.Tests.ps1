@@ -5,7 +5,7 @@ Pester\Describe "New-Refactor" {
     Pester\It "Should pass PSScriptAnalyzer rules" {
 
         # run script analyzer on the function script
-        $scriptPath = "$PSScriptRoot\..\..\..\..\GenXdev.Coding\1.182.2025\Functions\GenXdev.Coding.PowerShell.Modules\" +
+        $scriptPath = "$PSScriptRoot\..\..\..\..\GenXdev.Coding\1.184.2025\Functions\GenXdev.Coding.PowerShell.Modules\" +
         "New-Refactor.ps1"
         $analyzerResults = GenXdev.Coding\Invoke-GenXdevScriptAnalyzer `
             -Path $scriptPath
