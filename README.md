@@ -105,7 +105,7 @@ Update-Module
 | [Assert-RefactorFile](#Assert-RefactorFile) |  |  |
 | [Clear-GenXdevModules](#Clear-GenXdevModules) | cleangenxdev | Cleans build artifacts from GenXdev PowerShell modules. |
 | [Complete-GenXDevREADME](#Complete-GenXDevREADME) |  | Completes the README file for specified GenXDev modules by adding documentation. |
-| [EnsureCopilotKeyboardShortCut](#EnsureCopilotKeyboardShortCut) |  | Configures the GitHub Copilot keyboard shortcut in Visual Studio Code. |
+| [EnsureCopilotKeyboardShortCut](#EnsureCopilotKeyboardShortCut) |  | Configures the GitHub Copilot Chat keyboard shortcuts in Visual Studio Code. |
 | [Get-GenXDevModule](#Get-GenXDevModule) |  | Retrieves all GenXDev modules from a specified path. |
 | [Get-GenXDevModuleInfo](#Get-GenXDevModuleInfo) |  | Retrieves detailed information about GenXdev PowerShell modules. |
 | [Get-GenXDevNewModulesInOrderOfDependency](#Get-GenXDevNewModulesInOrderOfDependency) |  | Retrieves GenXDev modules in dependency order. |
@@ -2579,7 +2579,7 @@ NAME
     EnsureCopilotKeyboardShortCut
     
 SYNOPSIS
-    Configures the GitHub Copilot keyboard shortcut in Visual Studio Code.
+    Configures the GitHub Copilot Chat keyboard shortcuts in Visual Studio Code.
     
     
 SYNTAX
@@ -2587,9 +2587,13 @@ SYNTAX
     
     
 DESCRIPTION
-    This function ensures that GitHub Copilot's file attachment feature has a proper
-    keyboard shortcut (Ctrl+F12) configured in Visual Studio Code. It checks the
-    user's keybindings.json file and adds the shortcut if it doesn't exist.
+    This function ensures that GitHub Copilot Chat's file attachment feature has a proper
+    keyboard shortcut (Ctrl+Shift+Alt+F12) configured in Visual Studio Code.
+    
+    It will remove any existing Copilot attachment shortcuts and replace them with the
+    current correct command (github.copilot.chat.attachFile).
+    
+    Also adds Alt+` (backtick) shortcut for toggling the maximized panel.
     
 
 PARAMETERS
