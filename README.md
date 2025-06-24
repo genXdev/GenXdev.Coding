@@ -85,6 +85,7 @@ Update-Module
 ### GenXdev.Coding.Git</hr>
 | Command&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | aliases&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Description |
 | --- | --- | --- |
+| [Get-GitChangedFiles](#Get-GitChangedFiles) | gitchanged, get-gitchangedfile | Get the list of changed files in a Git repository. |
 | [New-GitCommit](#New-GitCommit) | commit | Creates and pushes a new git commit with all changes. |
 | [PermanentlyDeleteGitFolders](#PermanentlyDeleteGitFolders) |  | Permanently deletes specified folders from all branches in a Git repository. |
 
@@ -1346,6 +1347,69 @@ RELATED LINKS
 
 &nbsp;<hr/>
 ###	GenXdev.Coding.Git<hr/> 
+NAME
+    Get-GitChangedFiles
+    
+SYNOPSIS
+    Get the list of changed files in a Git repository.
+    
+    
+SYNTAX
+    Get-GitChangedFiles [-PassThru] [<CommonParameters>]
+    
+    
+DESCRIPTION
+    This function retrieves the list of files that have been changed in the current Git repository.
+    It can be used to identify which files have been modified, added, or deleted.
+    By default, returns relative paths with .\ prefix. Use -PassThru to get FileInfo objects.
+    
+
+PARAMETERS
+    -PassThru [<SwitchParameter>]
+        Returns FileInfo objects (like Get-ChildItem) instead of path strings.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216). 
+    
+INPUTS
+    
+OUTPUTS
+    
+    -------------------------- EXAMPLE 1 --------------------------
+    
+    PS > Get-GitChangedFile
+    Returns relative paths like ".\Modules\GenXdev.AI\1.190.2025\README.md"
+    
+    
+    
+    
+    
+    
+    -------------------------- EXAMPLE 2 --------------------------
+    
+    PS > Get-GitChangedFile -PassThru
+    Returns FileInfo objects for each changed file
+    
+    
+    
+    
+    
+    
+    
+RELATED LINKS 
+
+<br/><hr/><hr/><br/>
+ 
 NAME
     New-GitCommit
     

@@ -1,10 +1,10 @@
-Pester\Describe "Remove-Refactor" {
+################################################################################
+Pester\Describe "Get-GitChangedFiles" {
 
-    Pester\It "Should pass PSScriptAnalyzer rules" {
+    Pester\It "should pass PSScriptAnalyzer rules" {
 
-        $scriptPath = GenXdev.FileSystem\Expand-Path (
-            "$PSScriptRoot\..\..\..\..\GenXdev.Coding\1.190.2025\Functions\GenXdev.Coding.PowerShell.Modules\Remove-Refactor.ps1"
-        )
+        # get the script path for analysis
+        $scriptPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Functions\GenXdev.Coding.Git\Get-GitChangedFiles.ps1"
 
         # run analyzer with explicit settings
         $analyzerResults = GenXdev.Coding\Invoke-GenXdevScriptAnalyzer `
@@ -28,3 +28,4 @@ $message
 "@;
     }
 }
+################################################################################
