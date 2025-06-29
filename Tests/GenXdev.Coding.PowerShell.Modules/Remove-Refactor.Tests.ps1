@@ -3,7 +3,7 @@ Pester\Describe "Remove-Refactor" {
     Pester\It "Should pass PSScriptAnalyzer rules" {
 
         $scriptPath = GenXdev.FileSystem\Expand-Path (
-            "$PSScriptRoot\..\..\..\..\GenXdev.Coding\1.194.2025\Functions\GenXdev.Coding.PowerShell.Modules\Remove-Refactor.ps1"
+            "$PSScriptRoot\..\..\..\..\GenXdev.Coding\1.196.2025\Functions\GenXdev.Coding.PowerShell.Modules\Remove-Refactor.ps1"
         )
 
         # run analyzer with explicit settings

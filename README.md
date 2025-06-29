@@ -1388,7 +1388,7 @@ OUTPUTS
     -------------------------- EXAMPLE 1 --------------------------
     
     PS > Get-GitChangedFile
-    Returns relative paths like ".\Modules\GenXdev.AI\1.194.2025\README.md"
+    Returns relative paths like ".\Modules\GenXdev.AI\1.196.2025\README.md"
     
     
     
