@@ -60,8 +60,8 @@ Assert-GenXdevUnitTest "MyModule*" -NoLocal -OnlyPublished
 function Assert-GenXdevUnitTest {
 
     [CmdletBinding(DefaultParameterSetName = "Default")]
-    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseSingularNouns", "Assert-GenXdevUnitTest")]
-    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidGlobalVars", "Assert-GenXdevUnitTest")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseSingularNouns", "")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidGlobalVars", "")]
     [Alias("rungenxdevtests")]
     param (
         ################################################################################
@@ -148,7 +148,7 @@ function Assert-GenXdevUnitTest {
         GenXdev.Coding\Add-MissingGenXdevUnitTests
 
         # store allow long running tests setting in script scope
-        $Script:AllowLongRunningTests = ($Local:AllowLongRunningTests -eq $true)
+        $Global:AllowLongRunningTests = $AllowLongRunningTests -eq $true
 
         # load required modules
         GenXdev.Helpers\Import-GenXdevModules

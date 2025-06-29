@@ -49,7 +49,7 @@ function Open-GenXdevCmdletsContainingClipboardTextInIde {
 
                 $invocationArgs = GenXdev.Helpers\Copy-IdenticalParamValues `
                     -BoundParameters $PSBoundParameters `
-                    -FunctionName Open-SourceFileInIde
+                    -FunctionName "GenXdev.Coding\Open-SourceFileInIde"
 
                 $invocationArgs.Path = $filePaths
                 $invocationArgs.Code = $true

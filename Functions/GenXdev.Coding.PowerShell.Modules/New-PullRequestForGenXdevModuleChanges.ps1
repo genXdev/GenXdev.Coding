@@ -192,7 +192,7 @@ function New-PullRequestForGenXdevModuleChanges {
         }
 
         # get full path to module
-        $modulePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$ModuleName\1.190.2025\"
+        $modulePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$ModuleName\1.192.2025\"
 
         Microsoft.PowerShell.Utility\Write-Verbose "Checking for module manifest at: $modulePath"
         if (!(Microsoft.PowerShell.Management\Test-Path -Path "$modulePath\$ModuleName.psd1")) {
@@ -351,8 +351,8 @@ function New-PullRequestForGenXdevModuleChanges {
         }
 
         # --- Begin Modification ---
-        # Find the commit with the exact message "Release 1.190.2025" in the GenXdev module repository using the GitHub API
-        $releaseCommitMsg = "Release 1.190.2025"
+        # Find the commit with the exact message "Release 1.192.2025" in the GenXdev module repository using the GitHub API
+        $releaseCommitMsg = "Release 1.192.2025"
         $commitsApiUrl = "https://api.github.com/repos/genXdev/$ModuleName/commits"
         $releaseCommitHash = $null
 
