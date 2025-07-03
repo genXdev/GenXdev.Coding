@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Installs and configures Visual Studio Code with recommended extensions.
@@ -11,7 +11,7 @@ configures specific extension settings.
 
 .EXAMPLE
 EnsureVSCodeInstallation
-#>
+        ###############################################################################>
 function EnsureVSCodeInstallation {
     [CmdletBinding()]
     [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseSingularNouns", "")]
@@ -144,4 +144,4 @@ function EnsureVSCodeInstallation {
     end {
     }
 }
-################################################################################
+        ###############################################################################

@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Evaluates source files for refactoring eligibility using LLM analysis.
@@ -21,7 +21,7 @@ Test-RefactorLLMSelection -RefactorDefinition $refDef -Path "C:\source.ps1"
 
 .EXAMPLE
 $def | Test-RefactorLLMSelection -Path source.ps1
-#>
+        ###############################################################################>
 function Test-RefactorLLMSelection {
 
     [CmdletBinding()]
@@ -103,4 +103,4 @@ $([System.IO.File]::ReadAllText($Path))
     end {
     }
 }
-################################################################################
+        ###############################################################################

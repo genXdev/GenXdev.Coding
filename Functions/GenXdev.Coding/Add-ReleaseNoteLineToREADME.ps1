@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Adds a ReleaseNote line to the README file with a timestamp.
@@ -27,7 +27,7 @@ Add-ReleaseNoteLineToREADME -Line "Added new Git ReleaseNote"
 
 .EXAMPLE
 ReleaseNote "Added new Git ReleaseNote" -Code -Show
-#>
+        ###############################################################################>
 function Add-ReleaseNoteLineToREADME {
 
     [CmdletBinding()]
@@ -98,4 +98,4 @@ process {
     end {
     }
 }
-################################################################################
+        ###############################################################################

@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Assists in refactoring PowerShell source code files using AI assistance.
@@ -27,7 +27,7 @@ Assert-ModuleDefinition -ModuleName "MyModule" -EditPrompt
 
 .EXAMPLE
 "MyModule" | Assert-ModuleDefinition
-#>
+        ###############################################################################>
 function Assert-ModuleDefinition {
 
     [CmdletBinding()]
@@ -235,7 +235,7 @@ process {
 
                     if ($isLast) {
 
-                        $keysToSend = @("^``", "^``", "^+i", "^v", "{ENTER}", "^{ENTER}")
+                        $keysToSend = @("^``", "^``", "^+i", "^v", "{ENTER}", "^{ENTER}","^``")
                     }
                     else {
 
@@ -281,4 +281,4 @@ process {
         $null = Microsoft.PowerShell.Management\Set-Clipboard -Value $previousClipboard
     }
 }
-################################################################################
+        ###############################################################################

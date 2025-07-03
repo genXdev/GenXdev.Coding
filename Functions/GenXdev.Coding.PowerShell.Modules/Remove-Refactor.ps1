@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Removes refactor sets from GenXdev preferences system.
@@ -20,11 +20,11 @@ standard refactor sets. By default, these sets are protected from deletion.
 
 .EXAMPLE
 Remove-Refactor -Name "CustomRefactor" -RemoveDefault
-# Removes a specific refactor set named "CustomRefactor" and allows removal
-# of default sets if matched
+        ###############################################################################Removes a specific refactor set named "CustomRefactor" and allows removal
+        ###############################################################################of default sets if matched
 
-# Removes all non-default refactor sets using the alias
-#>
+        ###############################################################################Removes all non-default refactor sets using the alias
+        ###############################################################################>
 function Remove-Refactor {
 
     [CmdletBinding(SupportsShouldProcess)]
@@ -47,7 +47,14 @@ function Remove-Refactor {
             ParameterSetName = 'All',
             HelpMessage = "Switch to also remove the standard refactor set"
         )]
-        [switch] $RemoveDefault
+        [switch] $RemoveDefault,
+        ########################################################################
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Database path for preference data files"
+        )]
+        [string] $PreferencesDatabasePath
         ########################################################################
     )
 
@@ -62,7 +69,7 @@ function Remove-Refactor {
 process {
 
         # retrieve all preference names matching the refactor_set pattern
-        GenXdev.Data\Get-GenXdevPreferenceNames |
+        GenXdev.Data\Get-GenXdevPreferenceNames -PreferencesDatabasePath $PreferencesDatabasePath  |
         Microsoft.PowerShell.Core\Where-Object { $_ -like "refactor_set_*" } |
         Microsoft.PowerShell.Core\ForEach-Object {
 
@@ -83,7 +90,9 @@ process {
 
                 # retrieve current preference value
                 $preferenceValue = GenXdev.Data\Get-GenXdevPreference `
-                    -Name $preferenceName
+                    -Name $preferenceName `
+                    -PreferencesDatabasePath $PreferencesDatabasePath `
+                    -ErrorAction SilentlyContinue
 
                 # only process if preference exists and has a value
                 if (-not [string]::IsNullOrWhiteSpace($preferenceValue)) {
@@ -111,4 +120,4 @@ process {
         Microsoft.PowerShell.Utility\Write-Verbose "Refactor removal process completed"
     }
 }
-################################################################################
+        ###############################################################################

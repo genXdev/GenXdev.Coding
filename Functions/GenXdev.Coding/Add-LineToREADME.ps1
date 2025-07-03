@@ -40,7 +40,7 @@ Add-LineToREADME -Line "New feature" -Section "## Features" -Prefix "- [ ] "
 
 .EXAMPLE
 Add-LineToREADME "New feature" "## Features" "* " -Show
-#>
+        ###############################################################################>
 function Add-LineToREADME {
 
     [CmdletBinding()]

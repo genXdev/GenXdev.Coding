@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Generates markdown help documentation for specified GenXDev modules.
@@ -26,7 +26,7 @@ Generates markdown documentation for all Get-* cmdlets in GenXdev.Helpers.
 .EXAMPLE
 "GenXdev.Helpers" | Get-GenXDevModuleHelp
 Uses pipeline to generate documentation for all cmdlets in GenXdev.Helpers.
-#>
+        ###############################################################################>
 function Get-ModuleHelpMarkdown {
 
     [CmdletBinding()]
@@ -242,4 +242,4 @@ function Get-ModuleHelpMarkdown {
     end {
     }
 }
-################################################################################
+        ###############################################################################

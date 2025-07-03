@@ -1,11 +1,11 @@
-################################################################################
+###############################################################################
 
 Pester\Describe "New-Refactor" {
 
     Pester\It "Should pass PSScriptAnalyzer rules" {
 
-        # run script analyzer on the function script
-        $scriptPath = "$PSScriptRoot\..\..\..\..\GenXdev.Coding\1.198.2025\Functions\GenXdev.Coding.PowerShell.Modules\" +
+# run script analyzer on the function script
+        $scriptPath = "$PSScriptRoot\..\..\..\..\GenXdev.Coding\1.200.2025\Functions\GenXdev.Coding.PowerShell.Modules\" +
         "New-Refactor.ps1"
         $analyzerResults = GenXdev.Coding\Invoke-GenXdevScriptAnalyzer `
             -Path $scriptPath
@@ -28,4 +28,4 @@ $message
 "@;
     }
 }
-################################################################################
+###############################################################################

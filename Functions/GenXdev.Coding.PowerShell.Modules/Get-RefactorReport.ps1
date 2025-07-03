@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Generates a detailed report of refactoring operations and their status.
@@ -25,7 +25,7 @@ Generates a text report for refactors matching "DatabaseRefactor"
 .EXAMPLE
 refactorreport "*"
 Generates hashtable report for all refactors using alias
-#>
+        ###############################################################################>
 function Get-RefactorReport {
 
     [CmdletBinding()]
@@ -134,4 +134,4 @@ process {
         Microsoft.PowerShell.Utility\Write-Verbose "Completed refactor report generation"
     }
 }
-################################################################################
+        ###############################################################################

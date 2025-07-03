@@ -27,7 +27,7 @@ Add-IdeaLineToREADME -Line "Create new PowerShell module" -Show
 
 .EXAMPLE
 idea "New feature idea" -UseOneDriveREADME
-#>
+        ###############################################################################>
 function Add-IdeaLineToREADME {
 
     [CmdletBinding()]

@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Displays a formatted report of refactoring information for specified modules.
@@ -19,7 +19,7 @@ Shows refactoring status for all GenXdev modules.
 .EXAMPLE
 refactors *
 Shows refactoring status for all modules using the alias.
-#>
+        ###############################################################################>
 function Show-RefactorReport {
 
     [CmdletBinding()]
@@ -99,4 +99,4 @@ process {
     end {
     }
 }
-################################################################################
+        ###############################################################################

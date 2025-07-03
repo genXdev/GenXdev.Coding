@@ -1,4 +1,4 @@
-################################################################################
+        ###############################################################################
 function Search-GenXdevCmdlet {
 
     [CmdletBinding(DefaultParameterSetName = "Default")]
@@ -90,7 +90,7 @@ process {
             -FunctionName "GenXdev.Coding\Open-SourceFileInIde" `
             -BoundParameters $PSBoundParameters
 
-        $invocationParams.KeysToSend = @("^+f", "^a", "{DELETE}", "^v", "{ENTER}", "^{ENTER}")
+        $invocationParams.KeysToSend = @("^+f", "^a", "{DELETE}", "^v", "{ENTER}", "^{ENTER}","^``")
         $invocationParams.Path = $cmdlet.ScriptFilePath
         $invocationParams.LineNo = $cmdlet.LineNo
 
@@ -113,4 +113,4 @@ process {
         }
     }
 }
-################################################################################
+        ###############################################################################

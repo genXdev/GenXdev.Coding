@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Retrieves refactor definitions from GenXdev preferences based on name patterns.
@@ -15,12 +15,12 @@ Supports wildcards. If omitted, returns all refactor sets.
 
 .EXAMPLE
 Get-Refactor -Name "CodeStyle*"
-# Returns refactor definitions matching pattern "CodeStyle*"
+        ###############################################################################Returns refactor definitions matching pattern "CodeStyle*"
 
 .EXAMPLE
 refactor "UnitTest"
-# Uses alias to find refactor definitions containing "UnitTest"
-#>
+        ###############################################################################Uses alias to find refactor definitions containing "UnitTest"
+        ###############################################################################>
 function Get-Refactor {
 
     [CmdletBinding()]
@@ -37,9 +37,15 @@ function Get-Refactor {
         )]
         [ValidateNotNullOrEmpty()]
         [SupportsWildcards()]
-        [string[]] $Name = @("*")
+        [string[]] $Name = @("*"),
         ########################################################################
-    )
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Database path for preference data files"
+        )]
+        [string] $PreferencesDatabasePath
+        ########################################################################
+        )
 
     begin {
         # no initialization needed
@@ -49,7 +55,7 @@ function Get-Refactor {
 process {
         # get all preference names that could contain refactor definitions
         Microsoft.PowerShell.Utility\Write-Verbose "Searching for refactor set preferences..."
-        $prefNames = GenXdev.Data\Get-GenXdevPreferenceNames |
+        $prefNames = GenXdev.Data\Get-GenXdevPreferenceNames -PreferencesDatabasePath $PreferencesDatabasePath |
         Microsoft.PowerShell.Core\Where-Object { $_ -like "refactor_set_*" }
         & {
             foreach ($prefName in $prefNames) {
@@ -69,7 +75,8 @@ process {
                     }
 
                     # attempt to load and parse the JSON content
-                    $existingJson = GenXdev.Data\Get-GenXdevPreference -Name $prefName
+                    $existingJson = GenXdev.Data\Get-GenXdevPreference -Name $prefName -PreferencesDatabasePath $PreferencesDatabasePath `
+                        -ErrorAction SilentlyContinue
 
                     # process non-empty JSON content
                     if (-not [string]::IsNullOrWhiteSpace($existingJson)) {
@@ -112,4 +119,4 @@ process {
     end {
     }
 }
-################################################################################
+        ###############################################################################

@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Opens a source file in the preferred IDE (Visual Studio Code or Visual Studio).
@@ -35,7 +35,7 @@ Open-SourceFileInIde -Path "C:\Projects\MyScript.ps1" -LineNo 25 -Code
 
 .EXAMPLE
 editcode "C:\Projects\MyScript.ps1" 25
-#>
+        ###############################################################################>
 function Open-SourceFileInIde {
 
     [CmdletBinding()]
@@ -278,4 +278,4 @@ function Open-SourceFileInIde {
     end {
     }
 }
-################################################################################
+        ###############################################################################

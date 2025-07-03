@@ -1,12 +1,11 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Opens files in IDE that contain clipboard text
 
 .DESCRIPTION
 The text in the clipboard is used to search in all GenXdev scripts and when found opens that file in Code or Visual Studio
-#>
-################################################################################
+###############################################################################>
 function Open-GenXdevCmdletsContainingClipboardTextInIde {
 
     ############################################################################

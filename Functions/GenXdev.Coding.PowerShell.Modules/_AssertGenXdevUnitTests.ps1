@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Executes Pester unit tests for specified PowerShell modules.
@@ -43,7 +43,7 @@ _AssertGenXdevUnitTests -BaseModuleName "GenXdev.Helpers" -Verbosity Detailed `
 
 .EXAMPLE
 _AssertGenXdevUnitTests "GenXdev*" -CmdletName "Get-Something" -Verbose
-#>
+###############################################################################>
 
 [CmdletBinding()]
 param (
@@ -122,16 +122,16 @@ begin {
 process {
 
     try {
-        # ensure consistent test execution location
+# ensure consistent test execution location
         Microsoft.PowerShell.Utility\Write-Verbose "Setting location to solution root"
         Microsoft.PowerShell.Management\Set-Location "$PSScriptRoot\..\..\..\..\.."
 
-        # process single cmdlet test if specified
+# process single cmdlet test if specified
         if (-not [string]::IsNullOrWhiteSpace($CmdletName)) {
 
             Microsoft.PowerShell.Utility\Write-Verbose "Processing single cmdlet test for: $CmdletName"
 
-            # locate the specified cmdlet
+    # locate the specified cmdlet
             $cmdlet = GenXdev.Helpers\Get-GenXDevCmdlets -CmdletName $CmdletName |
             Microsoft.PowerShell.Utility\Select-Object -First 1
 
@@ -142,15 +142,15 @@ process {
 
             Microsoft.PowerShell.Core\Import-Module -Name ($cmdlet.BaseModule) -Force
 
-            # verify test file exists
+    # verify test file exists
             $testFilePath = $cmdlet.ScriptTestFilePath
             if (-not (Microsoft.PowerShell.Management\Test-Path $testFilePath)) {
                 Microsoft.PowerShell.Utility\Write-Warning "No test file found at $testFilePath"
                 return
             }
 
-            # configure single test execution
-            # initialize pester configuration
+    # configure single test execution
+    # initialize pester configuration
             Microsoft.PowerShell.Utility\Write-Verbose "Initializing Pester configuration"
             $config = Pester\New-PesterConfiguration
             $config.Output.Verbosity = $Verbosity
@@ -160,7 +160,7 @@ process {
             $config.TestResult.Enabled = $true
             $config.TestResult.OutputFormat = "NUnitXml"
             $config.Output.RenderMode = "Ansi"
-            # $config.Run.TestExtension = "*.Tests.ps1"  # Add this line to only match *.Tests.ps1 files
+    # $config.Run.TestExtension = "*.Tests.ps1"  # Add this line to only match *.Tests.ps1 files
             $config.Run.Path = $null
             $config.TestResult.Enabled = $false
             $config.Run.Container = @(
@@ -170,28 +170,28 @@ process {
             Microsoft.PowerShell.Utility\Write-Verbose ("Running tests for cmdlet $CmdletName from file " +
                 "$testFilePath")
 
-            # execute tests
+    # execute tests
             $results = Pester\Invoke-Pester -Configuration $config
 
-            # output results
+    # output results
             @($results) | Microsoft.PowerShell.Core\ForEach-Object -ErrorAction SilentlyContinue {
                 $_
             }
         }
         else {
-            # copy parameters for module iteration
+    # copy parameters for module iteration
             $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
                 -FunctionName "GenXdev.Helpers\Invoke-OnEachGenXdevModule" `
                 -BoundParameters $PSBoundParameters
 
-            # process all modules
+    # process all modules
             . GenXdev.Helpers\Invoke-OnEachGenXdevModule @invocationParams -Script {
 
                 param($module)
 
                 try {
 
-                    # apply module filters
+            # apply module filters
                     if ($null -ne $ModuleFilter) {
                         foreach ($filtr in $ModuleFilter) {
                             if ($module.Name -like $filtr) {
@@ -201,8 +201,8 @@ process {
                         }
                     }
 
-                    # configure test settings
-                    # initialize pester configuration
+            # configure test settings
+            # initialize pester configuration
                     Microsoft.PowerShell.Utility\Write-Verbose "Initializing Pester configuration"
                     $config = Pester\New-PesterConfiguration
                     $config.Output.Verbosity = $Verbosity
@@ -212,14 +212,14 @@ process {
                     $config.TestResult.Enabled = $true
                     $config.TestResult.OutputFormat = "NUnitXml"
                     $config.Output.RenderMode = "Ansi"
-                    # $config.Run.TestExtension = "*.Tests.ps1"  # Add this line to only match *.Tests.ps1 files
+            # $config.Run.TestExtension = "*.Tests.ps1"  # Add this line to only match *.Tests.ps1 files
                     $config.TestResult.Enabled = $true
                     $config.TestResult.OutputPath = GenXdev.FileSystem\Expand-Path (
                         ".\Tests\TestResults.xml"
                     )
                     $config.Run.Path = GenXdev.FileSystem\Expand-Path ".\Tests\"
 
-                    # verify test files exist
+            # verify test files exist
                     if (@(Microsoft.PowerShell.Management\Get-ChildItem .\Tests\*.Tests.ps1 -File -Recurse `
                                 -ErrorAction SilentlyContinue).Count -eq 0) {
 
@@ -229,7 +229,7 @@ process {
 
                     Microsoft.PowerShell.Utility\Write-Verbose "Running tests for module $($module.Name)"
 
-                    # execute module tests
+            # execute module tests
                     Pester\Invoke-Pester -Configuration $config |
                     Microsoft.PowerShell.Core\ForEach-Object -ErrorAction SilentlyContinue {
 
@@ -244,7 +244,7 @@ process {
         }
     }
     finally {
-        # restore original location
+# restore original location
         Microsoft.PowerShell.Utility\Write-Verbose "Restoring original location: $originalLocation"
         Microsoft.PowerShell.Management\Set-Location $originalLocation
     }
@@ -252,4 +252,4 @@ process {
 
 end {
 }
-################################################################################
+###############################################################################

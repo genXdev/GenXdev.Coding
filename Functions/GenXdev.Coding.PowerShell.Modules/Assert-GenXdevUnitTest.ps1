@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Executes unit tests for specified PowerShell modules and cmdlets with detailed
@@ -55,8 +55,7 @@ Assert-GenXdevUnitTest -BaseModuleName "MyModule" -Verbosity Detailed `
 
 .EXAMPLE
 Assert-GenXdevUnitTest "MyModule*" -NoLocal -OnlyPublished
-#>
-################################################################################
+###############################################################################>
 function Assert-GenXdevUnitTest {
 
     [CmdletBinding(DefaultParameterSetName = "Default")]
@@ -391,4 +390,4 @@ process {
         $VerbosePreference = $origVerbosePref
     }
 }
-################################################################################
+        ###############################################################################

@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Creates a new GenXdev PowerShell cmdlet with proper structure and validation.
@@ -46,7 +46,7 @@ New-GenXdevCmdlet -CmdletName "Get-SystemInfo" -Synopsis "Gets system informatio
 
 .EXAMPLE
 gcmd Get-SystemInfo -EditPrompt
-#>
+        ###############################################################################>
 function New-GenXdevCmdlet {
 
     [CmdletBinding(SupportsShouldProcess)]
@@ -180,7 +180,7 @@ process {
 
                 $modulesPath = GenXdev.FileSystem\Expand-Path -Path "$PSScriptRoot\..\..\..\..\Modules\"
                 $moduleRootDirectory = GenXdev.FileSystem\Expand-Path `
-                    -Path "$modulesPath\$BaseModuleName\"
+                    "$modulesPath\$BaseModuleName\"
 
                 if (-not [IO.directory]::Exists($moduleRootDirectory)) {
 
@@ -228,11 +228,11 @@ process {
         if (-not [string]::IsNullOrWhiteSpace($BaseModuleName)) {
 
             $filePath = GenXdev.FileSystem\Expand-Path `
-                "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.198.2025\Functions\$ModuleName\$CmdletName.ps1" `
+                "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.200.2025\Functions\$ModuleName\$CmdletName.ps1" `
                 -DeleteExistingFile -CreateDirectory
 
             $testFilePath = GenXdev.FileSystem\Expand-Path `
-                "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.198.2025\Tests\$ModuleName\$CmdletName.Tests.ps1" `
+                "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.200.2025\Tests\$ModuleName\$CmdletName.Tests.ps1" `
                 -DeleteExistingFile -CreateDirectory
 
 @"
@@ -313,7 +313,7 @@ process {
     }
 "@ | Microsoft.PowerShell.Utility\Out-File -FilePath $filePath
 
-            $ModuleManifestPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.198.2025\$BaseModuleName.psd1"
+            $ModuleManifestPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.200.2025\$BaseModuleName.psd1"
             $ModuleManifest = Microsoft.PowerShell.Utility\Import-PowerShellDataFile -Path $ModuleManifestPath
             if ($BaseModuleName -ne $ModuleName) {
 
@@ -324,8 +324,8 @@ process {
             }
 
             $ModuleManifest.FunctionsToExport += $CmdletName
-            $ModuleManifest.FileList += (GenXdev.FileSystem\Find-Item $filePath -RelativeBasePath (GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.198.2025\")).Substring(2)
-            $ModuleManifest.FileList += (GenXdev.FileSystem\Find-Item $testFilePath -RelativeBasePath (GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.198.2025\")).Substring(2)
+            $ModuleManifest.FileList += (GenXdev.FileSystem\Find-Item $filePath -RelativeBasePath (GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.200.2025\")).Substring(2)
+            $ModuleManifest.FileList += (GenXdev.FileSystem\Find-Item $testFilePath -RelativeBasePath (GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.200.2025\")).Substring(2)
             $ModuleManifest.AliasesToExport += $CmdletAliases
 
             Microsoft.PowerShell.PSResourceGet\Update-PSModuleManifest `
@@ -335,7 +335,7 @@ process {
                 -AliasesToExport $ModuleManifest.AliasesToExport `
                 -NestedModules $ModuleManifest.NestedModules
 
-            $PsmFilePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.198.2025\$ModuleName.psm1"
+            $PsmFilePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.200.2025\$ModuleName.psm1"
 
             "`r`n. `"`$PSScriptRoot\Functions\$ModuleName\$CmdletName.ps1`"" | Microsoft.PowerShell.Utility\Out-File -FilePath $PsmFilePath -Append
         }
@@ -460,4 +460,4 @@ process {
     end {
     }
 } # Close function block
-################################################################################
+        ###############################################################################

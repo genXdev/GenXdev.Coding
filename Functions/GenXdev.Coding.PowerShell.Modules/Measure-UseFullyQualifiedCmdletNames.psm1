@@ -16,7 +16,7 @@ Invoke-ScriptAnalyzer -Path script.ps1 -CustomRulePath ./CustomPSScriptAnalyzerR
 
 .NOTES
 PSScriptAnalyzer custom rules must follow specific patterns to be recognized
-#>
+        ###############################################################################>
 function Measure-UseFullyQualifiedCmdletNames {
     [CmdletBinding()]
     [OutputType([Microsoft.Windows.Powershell.ScriptAnalyzer.Generic.DiagnosticRecord[]])]

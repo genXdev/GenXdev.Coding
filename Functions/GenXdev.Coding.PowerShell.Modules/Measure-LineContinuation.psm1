@@ -16,7 +16,7 @@
 .NOTES
     Copied (and improved) version of
     https://github.com/PowerShell/PSScriptAnalyzer/blob/master/Tests/Engine/CommunityAnalyzerRules/CommunityAnalyzerRules.psm1#L613.
-#>
+        ###############################################################################>
 function Measure-LineContinuation
 {
     [CmdletBinding()]

@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Retrieves GenXDev modules in dependency order.
@@ -20,7 +20,7 @@ Get-GenXDevNewModulesInOrderOfDependency -ModuleName "GenXdev.Helpers"
 
 .EXAMPLE
 "GenXdev.Console" | Get-GenXDevNewModulesInOrderOfDependency
-#>
+        ###############################################################################>
 function Get-GenXDevNewModulesInOrderOfDependency {
 
     [CmdletBinding()]
@@ -109,4 +109,4 @@ function Get-GenXDevNewModulesInOrderOfDependency {
     end {
     }
 }
-################################################################################
+        ###############################################################################

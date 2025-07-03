@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 function Add-MissingGenXdevUnitTests {
 
     [CmdletBinding()]
@@ -10,24 +10,24 @@ function Add-MissingGenXdevUnitTests {
 
         $genXdevCmdlet = $_
 
-        # skip if test file already exists and has content
+# skip if test file already exists and has content
         if ([IO.File]::Exists($_.ScriptTestFilePath) -and
             ([IO.File]::ReadAllText($_.ScriptTestFilePath).Trim() -ne "")) {
 
             return
         }
 
-        # create test file content
+# create test file content
         $prompt = (@"
-################################################################################
+###############################################################################
 Describe `"`$CmdletName`" {
 
     It `"should pass PSScriptAnalyzer rules`" {
 
-        # get the script path for analysis
+# get the script path for analysis
         `$scriptPath = GenXdev.FileSystem\Expand-Path `"`$PSScriptRoot\..\..\Functions\`$FullModuleName\`$CmdLetNoTestName.ps1`"
 
-        # run analyzer with explicit settings
+# run analyzer with explicit settings
         `$analyzerResults = GenXdev.Coding\Invoke-GenXdevScriptAnalyzer ``
             -Path `$scriptPath
 
@@ -49,7 +49,7 @@ The following PSScriptAnalyzer rules are being violated:
 `"@;
     }
 }
-################################################################################
+###############################################################################
 "@).Replace(
             "`$CmdletName", $genXdevCmdlet.Name
         ).Replace(
@@ -58,7 +58,7 @@ The following PSScriptAnalyzer rules are being violated:
             "`$CmdLetNoTestName", $genXdevCmdlet.Name
         )
 
-        # write test file
+# write test file
         $null = $prompt | Microsoft.PowerShell.Utility\Out-File (
             (GenXdev.FileSystem\Expand-Path ($genXdevCmdlet.ScriptTestFilePath) -CreateDirectory)
         ) -Force
@@ -67,4 +67,4 @@ The following PSScriptAnalyzer rules are being violated:
         Microsoft.PowerShell.Utility\Write-Output $prompt
     }
 }
-################################################################################
+###############################################################################

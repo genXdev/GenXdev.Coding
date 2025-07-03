@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Splits a PowerShell module (.psm1) file into individual function files.
@@ -18,7 +18,7 @@ SplitUpPsm1File -Psm1FilePath "C:\Modules\MyModule\MyModule.psm1"
 
 .EXAMPLE
 split "C:\Modules\MyModule\MyModule.psm1"
-#>
+        ###############################################################################>
 function SplitUpPsm1File {
 
     [CmdletBinding()]
@@ -149,4 +149,4 @@ process {
         Microsoft.PowerShell.Utility\Write-Verbose "Module splitting completed successfully"
     }
 }
-################################################################################
+        ###############################################################################

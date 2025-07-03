@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Asserts and improves unit-tests of a specified GenXdev cmdlet.
@@ -27,14 +27,14 @@ Assert-GenXdevCmdletTests -CmdletName "Get-GenXDevModuleInfo" -EditPrompt
 
 .EXAMPLE
 improvecmdlettests Get-GenXDevModuleInfo -AssertFailedTest
-#>
+###############################################################################>
 function Assert-GenXdevCmdletTests {
 
     [CmdletBinding()]
     [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseSingularNouns", "")]
     [Alias("improvecmdlettests")]
     param(
-        ########################################################################
+########################################################################
         [Alias("cmd")]
         [parameter(
             Mandatory = $true,
@@ -46,7 +46,7 @@ function Assert-GenXdevCmdletTests {
         [ValidateNotNullOrEmpty()]
         [string] $CmdletName,
 
-        ########################################################################
+########################################################################
         [parameter(
             Position = 1,
             Mandatory = $false,
@@ -54,7 +54,7 @@ function Assert-GenXdevCmdletTests {
         )]
         [AllowEmptyString()]
         [string] $Prompt = "",
-        ########################################################################
+########################################################################
         [parameter(
             Position = 2,
             Mandatory = $false,
@@ -62,43 +62,43 @@ function Assert-GenXdevCmdletTests {
         )]
         [AllowEmptyString()]
         [string] $PromptKey,
-        ########################################################################
+########################################################################
         [parameter(
             Mandatory = $false,
             HelpMessage = "Switch to only edit the AI prompt"
         )]
         [switch] $EditPrompt,
 
-        ########################################################################
+########################################################################
         [parameter(
             Mandatory = $false,
             HelpMessage = "Indicates to assert a failed test"
         )]
         [switch] $AssertFailedTest,
-        ########################################################################
+########################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = "Search in script files instead of modules"
         )]
         [switch] $FromScripts
-        ########################################################################
+########################################################################
     )
 
     begin {
 
-        # get target cmdlet information including script position
+# get target cmdlet information including script position
         $cmdlet = GenXdev.Helpers\Get-GenXDevCmdlets -CmdletName $CmdletName -FromScripts:$FromScripts
 
-        # validate cmdlet exists
+# validate cmdlet exists
         if ($null -eq $cmdlet) {
             throw "Could not find GenXdev cmdlet $CmdletName"
         }
 
-        # store cmdlet name for later use
+# store cmdlet name for later use
         $CmdletName = $cmdlet.Name
         $functionDefinition = "";
 
-        # determine which prompt template to use based on test file existence
+# determine which prompt template to use based on test file existence
         if (-not [string]::IsNullOrWhiteSpace($PromptKey)) {
 
             $PromptKey = "CreateUnitTests"
@@ -111,24 +111,24 @@ function Assert-GenXdevCmdletTests {
             }
         }
 
-        # process prompt template if key provided
+# process prompt template if key provided
         if (-not [string]::IsNullOrWhiteSpace($PromptKey)) {
 
-            # construct path to prompt template file
+    # construct path to prompt template file
             $promptFilePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Prompts\GenXdev.Coding.PowerShell.Modules\Assert-$PromptKey.txt"
 
-            # ensure prompt directory exists and expand path
+    # ensure prompt directory exists and expand path
             $promptFilePath = GenXdev.FileSystem\Expand-Path -FilePath $promptFilePath `
                 -CreateDirectory
 
-            # load template and replace placeholder
+    # load template and replace placeholder
             $Prompt = [System.IO.File]::ReadAllText($promptFilePath).Replace(
                 "`$Prompt",
                 $Prompt
             )
         }
 
-        # populate template variables
+# populate template variables
         $Prompt = $Prompt.Replace("`$CmdletName", $cmdlet.Name)
         $Prompt = $Prompt.Replace("`$CmdLetNoTestName", $cmdlet.Name)
         $Prompt = $Prompt.Replace(
@@ -154,7 +154,7 @@ function Assert-GenXdevCmdletTests {
         )
         $Prompt = $Prompt.Replace("`t", "  ")
 
-        # copy final prompt for use
+# copy final prompt for use
         $previousClipboard = Microsoft.PowerShell.Management\Get-Clipboard
         $null = Microsoft.PowerShell.Management\Set-Clipboard -Value $Prompt
     }
@@ -162,7 +162,7 @@ function Assert-GenXdevCmdletTests {
 
     process {
 
-        # handle prompt editing request
+# handle prompt editing request
         if ($EditPrompt) {
             p -c
             code $promptFilePath
@@ -171,7 +171,7 @@ function Assert-GenXdevCmdletTests {
 
         $found = $true
 
-        # create test file if missing
+# create test file if missing
         if (-not [IO.File]::Exists($cmdlet.ScriptTestFilePath) -or
             ([IO.File]::ReadAllText($cmdlet.ScriptTestFilePath).Trim() -eq [string]::Empty)) {
 
@@ -180,12 +180,12 @@ function Assert-GenXdevCmdletTests {
             $null = GenXdev.FileSystem\Expand-Path -FilePath ($cmdlet.ScriptTestFilePath) -CreateFile
         }
 
-        # ensure copilot keyboard shortcut is configured
+# ensure copilot keyboard shortcut is configured
         GenXdev.Coding\EnsureCopilotKeyboardShortCut
 
-        # open cmdlet in vscode and activate copilot
-        # open cmdlet in vscode and insert prompt
-        # open cmdlet in vscode and insert prompt
+# open cmdlet in vscode and activate copilot
+# open cmdlet in vscode and insert prompt
+# open cmdlet in vscode and insert prompt
         $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
             -FunctionName "GenXdev.Coding\Show-GenXdevCmdLetInIde" `
             -BoundParameters $PSBoundParameters
@@ -193,17 +193,17 @@ function Assert-GenXdevCmdletTests {
         $invocationParams.CmdletName = $CmdletName
         $invocationParams.Code = $true
         $keysToSendFirst = @("^``", "^``", "^+i", "^l", "^a", "{DELETE}", "^+i", "{ESCAPE}", "^+%{F12}", "^+i")
-        $keysToSendLast = @("^+%{F12}", "{ENTER}", "^v", "{ENTER}", "^{ENTER}")
+        $keysToSendLast = @("^+%{F12}", "{ENTER}", "^v", "{ENTER}", "^{ENTER}","^``")
         $invocationParams.KeysToSend = $keysToSendFirst;
         GenXdev.Coding\Show-GenXdevCmdLetInIde @invocationParams
 
-        # switch to test file and paste prompt
+# switch to test file and paste prompt
         Microsoft.PowerShell.Utility\Write-Verbose "Applying AI prompt from clipboard"
         $invocationParams.KeysToSend = $keysToSendLast
         $invocationParams.UnitTests = $false
         GenXdev.Coding\Show-GenXdevCmdLetInIde @invocationParams
         Microsoft.PowerShell.Utility\Start-Sleep 4;
-        # handle workflow based on whether test file existed
+# handle workflow based on whether test file existed
         if (-not $found) {
 
             switch ($host.ui.PromptForChoice(
@@ -232,8 +232,8 @@ function Assert-GenXdevCmdletTests {
 
     end {
 
-        # restore previous clipboard content
+# restore previous clipboard content
         $null = Microsoft.PowerShell.Management\Set-Clipboard -Value $previousClipboard
     }
 }
-################################################################################
+###############################################################################

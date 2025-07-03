@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Configures the GitHub Copilot Chat keyboard shortcuts in Visual Studio Code.
@@ -14,7 +14,7 @@ Also adds Alt+` (backtick) shortcut for toggling the maximized panel.
 
 .EXAMPLE
 EnsureCopilotKeyboardShortCut
-#>
+        ###############################################################################>
 function EnsureCopilotKeyboardShortCut {
 
     [CmdletBinding()]
@@ -117,4 +117,4 @@ function EnsureCopilotKeyboardShortCut {
     end {
     }
 }
-################################################################################
+        ###############################################################################

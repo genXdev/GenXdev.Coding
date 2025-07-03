@@ -1,8 +1,8 @@
-################################################################################
+###############################################################################
 Pester\Describe "Assert-GenXdevCmdletTests" {
 
     Pester\BeforeAll {
-        # set up test variables
+# set up test variables
         $Script:testCmdletName = "Get-GenXDevModuleInfo"
         $Script:scriptPath = GenXdev.FileSystem\Expand-Path `
             "$PSScriptRoot\..\..\Functions\GenXdev.Coding.PowerShell.Modules\Assert-GenXdevCmdletTests.ps1"
@@ -31,4 +31,4 @@ $message
 "@;
     }
 }
-################################################################################
+###############################################################################

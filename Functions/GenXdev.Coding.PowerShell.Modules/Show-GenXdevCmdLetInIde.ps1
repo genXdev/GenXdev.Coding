@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Opens the specified GenXdev cmdlet in Visual Studio Code.
@@ -23,7 +23,7 @@ Opens the implementation of Get-GenXDevModuleInfo in VSCode.
 .EXAMPLE
 editcmdlet Get-GenXDevModuleInfo -UnitTests
 Opens the unit tests for Get-GenXDevModuleInfo using the alias.
-#>
+        ###############################################################################>
 function Show-GenXdevCmdLetInIde {
 
     [CmdletBinding()]
@@ -153,4 +153,4 @@ process {
         }
     }
 }
-################################################################################
+        ###############################################################################

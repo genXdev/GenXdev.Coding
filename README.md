@@ -226,6 +226,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > feature "Added new Git feature" -Code -Show
+            ##############################################################################
     
     
     
@@ -326,6 +327,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > idea "New feature idea" -UseOneDriveREADME
+            ##############################################################################
     
     
     
@@ -426,6 +428,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > issue "Server connection fails" -Show
+            ##############################################################################
     
     
     
@@ -560,6 +563,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > Add-LineToREADME "New feature" "## Features" "* " -Show
+            ##############################################################################
     
     
     
@@ -660,6 +664,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > ReleaseNote "Added new Git ReleaseNote" -Code -Show
+            ##############################################################################
     
     
     
@@ -771,6 +776,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > todo "Fix bug" -Done
+            ##############################################################################
     
     
     
@@ -814,6 +820,7 @@ OUTPUTS
     -------------------------- EXAMPLE 1 --------------------------
     
     PS > EnsureVSCodeInstallation
+            ##############################################################################
     
     
     
@@ -876,6 +883,7 @@ OUTPUTS
     -------------------------- EXAMPLE 1 --------------------------
     
     PS > Features -UseHomeREADME
+            ##############################################################################
     
     
     
@@ -947,6 +955,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > Ideas -UseOneDriveREADME
+            ##############################################################################
     
     
     
@@ -1018,6 +1027,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > Issues -UseOneDriveREADME
+            ##############################################################################
     
     
     
@@ -1126,6 +1136,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > editcode "C:\Projects\MyScript.ps1" 25
+            ##############################################################################
     
     
     
@@ -1188,6 +1199,7 @@ OUTPUTS
     -------------------------- EXAMPLE 1 --------------------------
     
     PS > ReleaseNotes -UseHomeREADME
+            ##############################################################################
     
     
     
@@ -1259,6 +1271,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > Todoos -UseOneDriveREADME
+            ##############################################################################
     
     
     
@@ -1333,6 +1346,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > Get-ChildItem *.js -Recurse | VSCode
+            ##############################################################################
     
     
     
@@ -1388,7 +1402,7 @@ OUTPUTS
     -------------------------- EXAMPLE 1 --------------------------
     
     PS > Get-GitChangedFile
-    Returns relative paths like ".\Modules\GenXdev.AI\1.198.2025\README.md"
+    Returns relative paths like ".\Modules\GenXdev.AI\1.200.2025\README.md"
     
     
     
@@ -1479,6 +1493,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > commit "Hotfix for login issue"
+            ##############################################################################
     
     
     
@@ -1571,6 +1586,7 @@ NOTES
     PS > PermanentlyDeleteGitFolders `
         -RepoUri "https://github.com/user/repo.git" `
         -Folders "bin", "obj"
+            ##############################################################################
     
     
     
@@ -1768,6 +1784,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > improvecmdlet Get-Something CheckDocs -c
+            ##############################################################################
     
     
     
@@ -1879,6 +1896,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > improvecmdlettests Get-GenXDevModuleInfo -AssertFailedTest
+    ##############################################################################
     
     
     
@@ -2102,6 +2120,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > Assert-GenXdevUnitTest "MyModule*" -NoLocal -OnlyPublished
+    ##############################################################################
     
     
     
@@ -2188,6 +2207,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > "MyModule" | Assert-ModuleDefinition
+            ##############################################################################
     
     
     
@@ -2321,6 +2341,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > nextcmdlet GenXdev.Helpers -Reset
+            ##############################################################################
     
     
     
@@ -2456,6 +2477,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > nextcmdlettest GenXdev.Helpers -Reset
+            ##############################################################################
     
     
     
@@ -2628,6 +2650,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > "GenXdev.Helpers" | Complete-GenXDevREADME
+            ##############################################################################
     
     
     
@@ -2674,6 +2697,7 @@ OUTPUTS
     -------------------------- EXAMPLE 1 --------------------------
     
     PS > EnsureCopilotKeyboardShortCut
+            ##############################################################################
     
     
     
@@ -2737,6 +2761,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > Get-GenXDevModule "C:\PowerShell\Modules"
+            ##############################################################################
     
     
     
@@ -2799,6 +2824,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > "GenXdev.Console" | Get-GenXDevModuleInfo
+            ##############################################################################
     
     
     
@@ -2864,6 +2890,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > "GenXdev.Console" | Get-GenXDevNewModulesInOrderOfDependency
+            ##############################################################################
     
     
     
@@ -3002,6 +3029,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > Get-GenXDevNextCmdLet GenXdev.Helpers
+            ##############################################################################
     
     
     
@@ -3080,6 +3108,7 @@ OUTPUTS
     
     PS > "GenXdev.Helpers" | Get-GenXDevModuleHelp
     Uses pipeline to generate documentation for all cmdlets in GenXdev.Helpers.
+            ##############################################################################
     
     
     
@@ -3099,7 +3128,7 @@ SYNOPSIS
     
     
 SYNTAX
-    Get-Refactor [[-Name] <String[]>] [<CommonParameters>]
+    Get-Refactor [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [<CommonParameters>]
     
     
 DESCRIPTION
@@ -3121,6 +3150,15 @@ PARAMETERS
         Aliases                      
         Accept wildcard characters?  true
         
+    -PreferencesDatabasePath <String>
+        
+        Required?                    false
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
     <CommonParameters>
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
@@ -3136,7 +3174,7 @@ OUTPUTS
     -------------------------- EXAMPLE 1 --------------------------
     
     PS > Get-Refactor -Name "CodeStyle*"
-    # Returns refactor definitions matching pattern "CodeStyle*"
+            ###############################################################################Returns refactor definitions matching pattern "CodeStyle*"
     
     
     
@@ -3146,7 +3184,8 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > refactor "UnitTest"
-    # Uses alias to find refactor definitions containing "UnitTest"
+            ###############################################################################Uses alias to find refactor definitions containing "UnitTest"
+            ##############################################################################
     
     
     
@@ -3224,6 +3263,7 @@ OUTPUTS
     
     PS > refactorreport "*"
     Generates hashtable report for all refactors using alias
+            ##############################################################################
     
     
     
@@ -3488,6 +3528,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > gcmd Get-SystemInfo -EditPrompt
+            ##############################################################################
     
     
     
@@ -3587,6 +3628,7 @@ OUTPUTS
         -ModuleName "GenXdev.Example" `
         -Description "Example module demonstrating GenXdev standards" `
         -Tags @('GenXdev','Example','Demo')
+            ##############################################################################
     
     
     
@@ -3717,6 +3759,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > prmodule GenXdev.Coding "Bug fixes" "Fixed issues" "Various bug fixes implemented"
+            ##############################################################################
     
     
     
@@ -3736,7 +3779,7 @@ SYNOPSIS
     
     
 SYNTAX
-    New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>] [[-SelectionScript] <String>] [[-SelectionPrompt] <String>] [[-Model] <String>] [[-ModelLMSGetIdentifier] <String>] [[-Temperature] <Double>] [[-MaxToken] <Int32>] [[-TTLSeconds] <Int32>] [[-Gpu] <Int32>] [[-Priority] <Int32>] [[-ExposedCmdLets] <ExposedCmdletDefinition[]>] [-FilesToAdd <FileInfo[]>] [-ApiEndpoint <String>] [-ApiKey <String>] [-AutoAddModifiedFiles] [-Force] [-Code] [-VisualStudio] [-KeysToSend <String[]>] [-WhatIf] [-Confirm] [<CommonParameters>]
+    New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>] [[-SelectionScript] <String>] [[-SelectionPrompt] <String>] [[-LLMQueryType] <String>] [-Model <String>] [-HuggingFaceIdentifier <String>] [-MaxToken <Int32>] [-Cpu <Int32>] [-TTLSeconds <Int32>] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-Temperature <Double>] [-Gpu <Int32>] [-ApiEndpoint <String>] [-ApiKey <String>] [-TimeoutSeconds <Int32>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-FilesToAdd <FileInfo[]>] [-PreferencesDatabasePath <String>] [-AutoAddModifiedFiles] [-Force] [-SessionOnly] [-ClearSession] [-SkipSession] [-Code] [-VisualStudio] [-KeysToSend <String[]>] [-WhatIf] [-Confirm] [<CommonParameters>]
     
     
 DESCRIPTION
@@ -3800,32 +3843,32 @@ PARAMETERS
         Aliases                      
         Accept wildcard characters?  false
         
+    -LLMQueryType <String>
+        The type of LLM query to perform (SimpleIntelligence, Knowledge, Pictures, etc.).
+        
+        Required?                    false
+        Position?                    6
+        Default value                Coding
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
     -Model <String>
         Name or identifier of the specific LLM model to use for processing.
         
         Required?                    false
-        Position?                    6
+        Position?                    named
         Default value                
         Accept pipeline input?       false
         Aliases                      
         Accept wildcard characters?  false
         
-    -ModelLMSGetIdentifier <String>
+    -HuggingFaceIdentifier <String>
         Identifier used to retrieve a specific model from LM Studio.
         
         Required?                    false
-        Position?                    7
+        Position?                    named
         Default value                
-        Accept pipeline input?       false
-        Aliases                      
-        Accept wildcard characters?  false
-        
-    -Temperature <Double>
-        Controls randomness in LLM responses (0.0-1.0). Lower is more deterministic.
-        
-        Required?                    false
-        Position?                    8
-        Default value                0.2
         Accept pipeline input?       false
         Aliases                      
         Accept wildcard characters?  false
@@ -3834,8 +3877,18 @@ PARAMETERS
         Maximum tokens allowed in LLM responses. Use -1 for model default.
         
         Required?                    false
-        Position?                    9
-        Default value                -1
+        Position?                    named
+        Default value                0
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Cpu <Int32>
+        The number of CPU cores to dedicate to AI operations.
+        
+        Required?                    false
+        Position?                    named
+        Default value                0
         Accept pipeline input?       false
         Aliases                      
         Accept wildcard characters?  false
@@ -3844,8 +3897,38 @@ PARAMETERS
         Time-to-live in seconds for API-loaded models. Use -1 for no expiration.
         
         Required?                    false
-        Position?                    10
-        Default value                -1
+        Position?                    named
+        Default value                0
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SelectByFreeRam [<SwitchParameter>]
+        Select configuration by available system RAM.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SelectByFreeGpuRam [<SwitchParameter>]
+        Select configuration by available GPU RAM.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Temperature <Double>
+        Controls randomness in LLM responses (0.0-1.0). Lower is more deterministic.
+        
+        Required?                    false
+        Position?                    named
+        Default value                0.2
         Accept pipeline input?       false
         Aliases                      
         Accept wildcard characters?  false
@@ -3854,38 +3937,8 @@ PARAMETERS
         GPU usage control: -2=Auto, -1=LM Studio default.
         
         Required?                    false
-        Position?                    11
-        Default value                -1
-        Accept pipeline input?       false
-        Aliases                      
-        Accept wildcard characters?  false
-        
-    -Priority <Int32>
-        Processing priority for this refactor set (higher numbers = higher priority).
-        
-        Required?                    false
-        Position?                    12
-        Default value                0
-        Accept pipeline input?       false
-        Aliases                      
-        Accept wildcard characters?  false
-        
-    -ExposedCmdLets <ExposedCmdletDefinition[]>
-        Array of PowerShell cmdlet definitions to expose as tools to the LLM.
-        
-        Required?                    false
-        Position?                    13
-        Default value                @()
-        Accept pipeline input?       false
-        Aliases                      
-        Accept wildcard characters?  false
-        
-    -FilesToAdd <FileInfo[]>
-        Array of files to initially include in the refactoring set.
-        
-        Required?                    false
         Position?                    named
-        Default value                @()
+        Default value                -1
         Accept pipeline input?       false
         Aliases                      
         Accept wildcard characters?  false
@@ -3910,6 +3963,56 @@ PARAMETERS
         Aliases                      
         Accept wildcard characters?  false
         
+    -TimeoutSeconds <Int32>
+        The timeout in seconds for AI operations.
+        
+        Required?                    false
+        Position?                    named
+        Default value                0
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Priority <Int32>
+        Processing priority for this refactor set (higher numbers = higher priority).
+        
+        Required?                    false
+        Position?                    named
+        Default value                0
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -ExposedCmdLets <ExposedCmdletDefinition[]>
+        Array of PowerShell cmdlet definitions to expose as tools to the LLM.
+        
+        Required?                    false
+        Position?                    named
+        Default value                @()
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -FilesToAdd <FileInfo[]>
+        Array of files to initially include in the refactoring set.
+        
+        Required?                    false
+        Position?                    named
+        Default value                @()
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -PreferencesDatabasePath <String>
+        Database path for preference data files.
+        
+        Required?                    false
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
     -AutoAddModifiedFiles [<SwitchParameter>]
         When enabled, automatically adds any modified files to the refactoring queue.
         
@@ -3922,6 +4025,36 @@ PARAMETERS
         
     -Force [<SwitchParameter>]
         Forces LM Studio to restart before initialization.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SessionOnly [<SwitchParameter>]
+        Use alternative settings stored in session for AI preferences.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -ClearSession [<SwitchParameter>]
+        Clear alternative settings stored in session for AI preferences.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SkipSession [<SwitchParameter>]
+        Store settings only in persistent preferences without affecting session.
         
         Required?                    false
         Position?                    named
@@ -4026,6 +4159,7 @@ SYNTAX
     
 DESCRIPTION
     The text in the clipboard is used to search in all GenXdev scripts and when found opens that file in Code or Visual Studio
+    ##############################################################################
     
 
 PARAMETERS
@@ -4061,7 +4195,7 @@ SYNOPSIS
     
     
 SYNTAX
-    Remove-Refactor [-Name] <String[]> [[-RemoveDefault]] [-WhatIf] [-Confirm] [<CommonParameters>]
+    Remove-Refactor [-Name] <String[]> [[-RemoveDefault]] [-PreferencesDatabasePath <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
     
     
 DESCRIPTION
@@ -4091,6 +4225,15 @@ PARAMETERS
         Required?                    false
         Position?                    2
         Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -PreferencesDatabasePath <String>
+        
+        Required?                    false
+        Position?                    named
+        Default value                
         Accept pipeline input?       false
         Aliases                      
         Accept wildcard characters?  false
@@ -4126,10 +4269,11 @@ OUTPUTS
     -------------------------- EXAMPLE 1 --------------------------
     
     PS > Remove-Refactor -Name "CustomRefactor" -RemoveDefault
-    # Removes a specific refactor set named "CustomRefactor" and allows removal
-    # of default sets if matched
+            ###############################################################################Removes a specific refactor set named "CustomRefactor" and allows removal
+            ###############################################################################of default sets if matched
     
-    # Removes all non-default refactor sets using the alias
+    ###############################################################################Removes all non-default refactor sets using the alias
+            ##############################################################################
     
     
     
@@ -4479,6 +4623,7 @@ OUTPUTS
     
     PS > editcmdlet Get-GenXDevModuleInfo -UnitTests
     Opens the unit tests for Get-GenXDevModuleInfo using the alias.
+            ##############################################################################
     
     
     
@@ -4552,6 +4697,7 @@ OUTPUTS
     
     PS > refactors *
     Shows refactoring status for all modules using the alias.
+            ##############################################################################
     
     
     
@@ -4615,6 +4761,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > split "C:\Modules\MyModule\MyModule.psm1"
+            ##############################################################################
     
     
     
@@ -4776,6 +4923,7 @@ OUTPUTS
     
     PS > Start-NextRefactor -Name "RefactorProject" -Reset -CleanUpDeletedFiles
     Restarts refactoring for "RefactorProject" and removes deleted files.
+            ##############################################################################
     
     
     
@@ -4849,6 +4997,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > $def | Test-RefactorLLMSelection -Path source.ps1
+            ##############################################################################
     
     
     
@@ -4868,9 +5017,9 @@ SYNOPSIS
     
     
 SYNTAX
-    Update-Refactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection] [-PerformLLMSelections] [-PerformAllLLMSelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-SelectByModifiedDateFrom <DateTime>] [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>] [-SelectByCreationDateTo <DateTime>] [-RedoLast] [-PromptKey <String>] [-Prompt <String>] [-SelectionScript <String>] [-AutoAddModifiedFiles] [-SelectionPrompt <String>] [-Model <String>] [-ModelLMSGetIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>] [-TTLSeconds <Int32>] [-Gpu <Int32>] [-Force] [-ApiEndpoint <String>] [-ApiKey <String>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-Code] [-VisualStudio] [-KeysToSend <String[]>] [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>]
+    Update-Refactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-SelectByModifiedDateFrom <DateTime>] [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>] [-SelectByCreationDateTo <DateTime>] [-PromptKey <String>] [-Prompt <String>] [-SelectionScript <String>] [-SelectionPrompt <String>] [-LLMQueryType <String>] [-Model <String>] [-HuggingFaceIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>] [-TTLSeconds <Int32>] [-Cpu <Int32>] [-Gpu <Int32>] [-ApiEndpoint <String>] [-ApiKey <String>] [-TimeoutSeconds <Int32>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-KeysToSend <String[]>] [-PreferencesDatabasePath <String>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection] [-PerformLLMSelections] [-PerformAllLLMSelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-AutoAddModifiedFiles] [-Force] [-Code] [-VisualStudio] [-Speak] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>]
     
-    Update-Refactor [[-Refactor] <RefactorDefinition[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection] [-PerformLLMSelections] [-PerformAllLLMSelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-SelectByModifiedDateFrom <DateTime>] [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>] [-SelectByCreationDateTo <DateTime>] [-RedoLast] [-PromptKey <String>] [-Prompt <String>] [-SelectionScript <String>] [-AutoAddModifiedFiles] [-SelectionPrompt <String>] [-Model <String>] [-ModelLMSGetIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>] [-TTLSeconds <Int32>] [-Gpu <Int32>] [-Force] [-ApiEndpoint <String>] [-ApiKey <String>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-Code] [-VisualStudio] [-KeysToSend <String[]>] [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>]
+    Update-Refactor [[-Refactor] <RefactorDefinition[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-SelectByModifiedDateFrom <DateTime>] [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>] [-SelectByCreationDateTo <DateTime>] [-PromptKey <String>] [-Prompt <String>] [-SelectionScript <String>] [-SelectionPrompt <String>] [-LLMQueryType <String>] [-Model <String>] [-HuggingFaceIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>] [-TTLSeconds <Int32>] [-Cpu <Int32>] [-Gpu <Int32>] [-ApiEndpoint <String>] [-ApiKey <String>] [-TimeoutSeconds <Int32>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-KeysToSend <String[]>] [-PreferencesDatabasePath <String>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection] [-PerformLLMSelections] [-PerformAllLLMSelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-AutoAddModifiedFiles] [-Force] [-Code] [-VisualStudio] [-Speak] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>]
     
     
 DESCRIPTION
@@ -4898,7 +5047,7 @@ PARAMETERS
         Direct input of refactor set objects instead of loading by name.
         
         Required?                    false
-        Position?                    1
+        Position?                    2
         Default value                
         Accept pipeline input?       false
         Aliases                      
@@ -4908,7 +5057,7 @@ PARAMETERS
         Files to add to the processing queue.
         
         Required?                    false
-        Position?                    2
+        Position?                    3
         Default value                @()
         Accept pipeline input?       false
         Aliases                      
@@ -4918,8 +5067,238 @@ PARAMETERS
         Files to remove from the processing queue.
         
         Required?                    false
-        Position?                    3
+        Position?                    4
         Default value                @()
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SelectByModifiedDateFrom <DateTime>
+        Select files modified on or after this date.
+        
+        Required?                    false
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SelectByModifiedDateTo <DateTime>
+        Select files modified on or before this date.
+        
+        Required?                    false
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SelectByCreationDateFrom <DateTime>
+        Select files created on or after this date.
+        
+        Required?                    false
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SelectByCreationDateTo <DateTime>
+        Select files created on or before this date.
+        
+        Required?                    false
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -PromptKey <String>
+        Key identifying which prompt script to use.
+        
+        Required?                    false
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Prompt <String>
+        Direct prompt text to use for processing.
+        
+        Required?                    false
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SelectionScript <String>
+        PowerShell script for file selection logic.
+        
+        Required?                    false
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SelectionPrompt <String>
+        Content for LLM-based selection prompts.
+        
+        Required?                    false
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -LLMQueryType <String>
+        Type of LLM query to perform.
+        
+        Required?                    false
+        Position?                    named
+        Default value                Coding
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Model <String>
+        LLM model identifier for LM-Studio.
+        
+        Required?                    false
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -HuggingFaceIdentifier <String>
+        Model retrieval identifier for LM-Studio.
+        
+        Required?                    false
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Temperature <Double>
+        Temperature setting for response randomness (0.0-1.0).
+        
+        Required?                    false
+        Position?                    named
+        Default value                0.2
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -MaxToken <Int32>
+        Maximum tokens allowed in responses (-1 for default).
+        
+        Required?                    false
+        Position?                    named
+        Default value                0
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -TTLSeconds <Int32>
+        Time-to-live in seconds for API model requests.
+        
+        Required?                    false
+        Position?                    named
+        Default value                0
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Cpu <Int32>
+        Number of CPU cores to dedicate to AI operations.
+        
+        Required?                    false
+        Position?                    named
+        Default value                0
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Gpu <Int32>
+        GPU processing control (-2=Auto, -1=LM-Studio default).
+        
+        Required?                    false
+        Position?                    named
+        Default value                -1
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -ApiEndpoint <String>
+        API endpoint URL for LLM service.
+        
+        Required?                    false
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -ApiKey <String>
+        Authentication key for API access.
+        
+        Required?                    false
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -TimeoutSeconds <Int32>
+        The timeout in seconds for AI operations.
+        
+        Required?                    false
+        Position?                    named
+        Default value                0
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Priority <Int32>
+        Processing priority level for this refactor set.
+        
+        Required?                    false
+        Position?                    named
+        Default value                0
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -ExposedCmdLets <ExposedCmdletDefinition[]>
+        PowerShell commands available during LLM selection.
+        
+        Required?                    false
+        Position?                    named
+        Default value                @()
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -KeysToSend <String[]>
+        Keystrokes to send after opening file.
+        
+        Required?                    false
+        Position?                    named
+        Default value                @()
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -PreferencesDatabasePath <String>
+        Database path for preference data files.
+        
+        Required?                    false
+        Position?                    named
+        Default value                
         Accept pipeline input?       false
         Aliases                      
         Accept wildcard characters?  false
@@ -5024,82 +5403,12 @@ PARAMETERS
         Aliases                      
         Accept wildcard characters?  false
         
-    -SelectByModifiedDateFrom <DateTime>
-        Select files modified on or after this date.
-        
-        Required?                    false
-        Position?                    named
-        Default value                
-        Accept pipeline input?       false
-        Aliases                      
-        Accept wildcard characters?  false
-        
-    -SelectByModifiedDateTo <DateTime>
-        Select files modified on or before this date.
-        
-        Required?                    false
-        Position?                    named
-        Default value                
-        Accept pipeline input?       false
-        Aliases                      
-        Accept wildcard characters?  false
-        
-    -SelectByCreationDateFrom <DateTime>
-        Select files created on or after this date.
-        
-        Required?                    false
-        Position?                    named
-        Default value                
-        Accept pipeline input?       false
-        Aliases                      
-        Accept wildcard characters?  false
-        
-    -SelectByCreationDateTo <DateTime>
-        Select files created on or before this date.
-        
-        Required?                    false
-        Position?                    named
-        Default value                
-        Accept pipeline input?       false
-        Aliases                      
-        Accept wildcard characters?  false
-        
     -RedoLast [<SwitchParameter>]
         Reprocess the last refactoring operation.
         
         Required?                    false
         Position?                    named
         Default value                False
-        Accept pipeline input?       false
-        Aliases                      
-        Accept wildcard characters?  false
-        
-    -PromptKey <String>
-        Key identifying which prompt script to use.
-        
-        Required?                    false
-        Position?                    named
-        Default value                
-        Accept pipeline input?       false
-        Aliases                      
-        Accept wildcard characters?  false
-        
-    -Prompt <String>
-        Direct prompt text to use for processing.
-        
-        Required?                    false
-        Position?                    named
-        Default value                
-        Accept pipeline input?       false
-        Aliases                      
-        Accept wildcard characters?  false
-        
-    -SelectionScript <String>
-        PowerShell script for file selection logic.
-        
-        Required?                    false
-        Position?                    named
-        Default value                
         Accept pipeline input?       false
         Aliases                      
         Accept wildcard characters?  false
@@ -5114,122 +5423,12 @@ PARAMETERS
         Aliases                      
         Accept wildcard characters?  false
         
-    -SelectionPrompt <String>
-        Content for LLM-based selection prompts.
-        
-        Required?                    false
-        Position?                    named
-        Default value                
-        Accept pipeline input?       false
-        Aliases                      
-        Accept wildcard characters?  false
-        
-    -Model <String>
-        LLM model identifier for LM-Studio.
-        
-        Required?                    false
-        Position?                    named
-        Default value                
-        Accept pipeline input?       false
-        Aliases                      
-        Accept wildcard characters?  true
-        
-    -ModelLMSGetIdentifier <String>
-        Model retrieval identifier for LM-Studio.
-        
-        Required?                    false
-        Position?                    named
-        Default value                
-        Accept pipeline input?       false
-        Aliases                      
-        Accept wildcard characters?  false
-        
-    -Temperature <Double>
-        Temperature setting for response randomness (0.0-1.0).
-        
-        Required?                    false
-        Position?                    named
-        Default value                0.2
-        Accept pipeline input?       false
-        Aliases                      
-        Accept wildcard characters?  false
-        
-    -MaxToken <Int32>
-        Maximum tokens allowed in responses (-1 for default).
-        
-        Required?                    false
-        Position?                    named
-        Default value                -1
-        Accept pipeline input?       false
-        Aliases                      
-        Accept wildcard characters?  false
-        
-    -TTLSeconds <Int32>
-        Time-to-live in seconds for API model requests.
-        
-        Required?                    false
-        Position?                    named
-        Default value                -1
-        Accept pipeline input?       false
-        Aliases                      
-        Accept wildcard characters?  false
-        
-    -Gpu <Int32>
-        GPU processing control (-2=Auto, -1=LM-Studio default).
-        
-        Required?                    false
-        Position?                    named
-        Default value                -1
-        Accept pipeline input?       false
-        Aliases                      
-        Accept wildcard characters?  false
-        
     -Force [<SwitchParameter>]
         Force stop LM-Studio before initialization.
         
         Required?                    false
         Position?                    named
         Default value                False
-        Accept pipeline input?       false
-        Aliases                      
-        Accept wildcard characters?  false
-        
-    -ApiEndpoint <String>
-        API endpoint URL for LLM service.
-        
-        Required?                    false
-        Position?                    named
-        Default value                
-        Accept pipeline input?       false
-        Aliases                      
-        Accept wildcard characters?  false
-        
-    -ApiKey <String>
-        Authentication key for API access.
-        
-        Required?                    false
-        Position?                    named
-        Default value                
-        Accept pipeline input?       false
-        Aliases                      
-        Accept wildcard characters?  false
-        
-    -Priority <Int32>
-        Processing priority level for this refactor set.
-        
-        Required?                    false
-        Position?                    named
-        Default value                0
-        Accept pipeline input?       false
-        Aliases                      
-        Accept wildcard characters?  false
-        
-    -ExposedCmdLets <ExposedCmdletDefinition[]>
-        PowerShell commands available during LLM selection.
-        
-        Required?                    false
-        Position?                    named
-        Default value                @()
         Accept pipeline input?       false
         Aliases                      
         Accept wildcard characters?  false
@@ -5254,18 +5453,58 @@ PARAMETERS
         Aliases                      
         Accept wildcard characters?  false
         
-    -KeysToSend <String[]>
-        Keystrokes to send after opening file.
+    -Speak [<SwitchParameter>]
+        Enable text-to-speech for operation details.
         
         Required?                    false
         Position?                    named
-        Default value                @()
+        Default value                False
         Accept pipeline input?       false
         Aliases                      
         Accept wildcard characters?  false
         
-    -Speak [<SwitchParameter>]
-        Enable text-to-speech for operation details.
+    -SelectByFreeRam [<SwitchParameter>]
+        Select configuration by available system RAM.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SelectByFreeGpuRam [<SwitchParameter>]
+        Select configuration by available GPU RAM.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SessionOnly [<SwitchParameter>]
+        Use alternative settings stored in session for AI preferences.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -ClearSession [<SwitchParameter>]
+        Clear alternative settings stored in session for AI preferences.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SkipSession [<SwitchParameter>]
+        Store settings only in persistent preferences without affecting session.
         
         Required?                    false
         Position?                    named
@@ -5315,6 +5554,15 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > Get-Refactor "MyRefactor" | Update-Refactor -Reset -Clear
+    
+    
+    
+    
+    
+    
+    -------------------------- EXAMPLE 3 --------------------------
+    
+    PS > updaterefactor * -Clear -Reset
     
     
     

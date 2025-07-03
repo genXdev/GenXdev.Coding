@@ -16,7 +16,7 @@ Use README.md from OneDrive directory instead of current location.
 
 .EXAMPLE
 ReleaseNotes -UseHomeREADME
-#>
+        ###############################################################################>
 function ReleaseNotes {
 
     [CmdletBinding()]

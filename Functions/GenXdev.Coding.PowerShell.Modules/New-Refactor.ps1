@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Creates a new refactoring set for code transformation tasks.
@@ -27,20 +27,32 @@ PowerShell script defining selection criteria for items to refactor.
 .PARAMETER SelectionPrompt
 Custom prompt text used by the LLM to guide selection of items for refactoring.
 
+.PARAMETER LLMQueryType
+The type of LLM query to perform (SimpleIntelligence, Knowledge, Pictures, etc.).
+
 .PARAMETER Model
 Name or identifier of the specific LLM model to use for processing.
 
-.PARAMETER ModelLMSGetIdentifier
+.PARAMETER HuggingFaceIdentifier
 Identifier used to retrieve a specific model from LM Studio.
-
-.PARAMETER Temperature
-Controls randomness in LLM responses (0.0-1.0). Lower is more deterministic.
 
 .PARAMETER MaxToken
 Maximum tokens allowed in LLM responses. Use -1 for model default.
 
+.PARAMETER Cpu
+The number of CPU cores to dedicate to AI operations.
+
 .PARAMETER TTLSeconds
 Time-to-live in seconds for API-loaded models. Use -1 for no expiration.
+
+.PARAMETER SelectByFreeRam
+Select configuration by available system RAM.
+
+.PARAMETER SelectByFreeGpuRam
+Select configuration by available GPU RAM.
+
+.PARAMETER Temperature
+Controls randomness in LLM responses (0.0-1.0). Lower is more deterministic.
 
 .PARAMETER Gpu
 GPU usage control: -2=Auto, -1=LM Studio default.
@@ -50,6 +62,21 @@ Custom API endpoint URL for accessing the LLM service.
 
 .PARAMETER ApiKey
 Authentication key required for API access.
+
+.PARAMETER TimeoutSeconds
+The timeout in seconds for AI operations.
+
+.PARAMETER SessionOnly
+Use alternative settings stored in session for AI preferences.
+
+.PARAMETER ClearSession
+Clear alternative settings stored in session for AI preferences.
+
+.PARAMETER PreferencesDatabasePath
+Database path for preference data files.
+
+.PARAMETER SkipSession
+Store settings only in persistent preferences without affecting session.
 
 .PARAMETER Priority
 Processing priority for this refactor set (higher numbers = higher priority).
@@ -83,10 +110,12 @@ New-Refactor -Name "UpdateLogging" -PromptKey "LoggingRefactor" `
 .EXAMPLE
 newrefactor UpdateLogging LoggingRefactor -p "Get-LoggingMethods" -c
 #>
+###############################################################################
 function New-Refactor {
 
     [CmdletBinding(SupportsShouldProcess = $true)]
     [Alias("newrefactor")]
+
     param (
         ########################################################################
         [Parameter(
@@ -132,19 +161,62 @@ function New-Refactor {
         [Parameter(
             Position = 5,
             Mandatory = $false,
-            HelpMessage = "The LM-Studio model to use"
+            HelpMessage = "The type of LLM query"
+        )]
+        [ValidateSet(
+            "SimpleIntelligence",
+            "Knowledge",
+            "Pictures",
+            "TextTranslation",
+            "Coding",
+            "ToolUse"
+        )]
+        [string] $LLMQueryType = "Coding",
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "The model identifier or pattern to use for AI operations"
         )]
         [string] $Model,
         ########################################################################
         [Parameter(
-            Position = 6,
             Mandatory = $false,
-            HelpMessage = "Model identifier for LM Studio"
+            HelpMessage = "The LM Studio specific model identifier"
         )]
-        [string] $ModelLMSGetIdentifier,
+        [Alias("ModelLMSGetIdentifier")]
+        [string] $HuggingFaceIdentifier,
         ########################################################################
         [Parameter(
-            Position = 7,
+            Mandatory = $false,
+            HelpMessage = "The maximum number of tokens to use in AI operations"
+        )]
+        [int] $MaxToken,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "The number of CPU cores to dedicate to AI operations"
+        )]
+        [int] $Cpu,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Time-to-live in seconds for API-loaded models"
+        )]
+        [int] $TTLSeconds = 0,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Select configuration by available system RAM"
+        )]
+        [switch] $SelectByFreeRam,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "Select configuration by available GPU RAM"
+        )]
+        [switch] $SelectByFreeGpuRam,
+        ########################################################################
+        [Parameter(
             Mandatory = $false,
             HelpMessage = "Temperature for response randomness (0.0-1.0)"
         )]
@@ -152,31 +224,36 @@ function New-Refactor {
         [double] $Temperature = 0.2,
         ########################################################################
         [Parameter(
-            Position = 8,
             Mandatory = $false,
-            HelpMessage = "Maximum tokens in response (-1 for default)"
-        )]
-        [Alias("MaxTokens")]
-        [int] $MaxToken = -1,
-        ########################################################################
-        [Parameter(
-            Position = 9,
-            Mandatory = $false,
-            HelpMessage = "Model TTL in seconds (-1 for no expiration)"
-        )]
-        [Alias("ttl")]
-        [int] $TTLSeconds = -1,
-        ########################################################################
-        [Parameter(
-            Position = 10,
-            Mandatory = $false,
-            HelpMessage = "GPU offloading control (-2=Auto, -1=LMStudio decide)"
+            HelpMessage = ("How much to offload to the GPU. If 'off', GPU " +
+                           "offloading is disabled. If 'max', all layers are " +
+                           "offloaded to GPU. If a number between 0 and 1, " +
+                           "that fraction of layers will be offloaded to the " +
+                           "GPU. -1 = LM Studio will decide how much to " +
+                           "offload to the GPU. -2 = Auto")
         )]
         [ValidateRange(-2, 1)]
-        [int] $Gpu = -1,
+        [int]$Gpu = -1,
         ########################################################################
         [Parameter(
-            Position = 11,
+            Mandatory = $false,
+            HelpMessage = "The API endpoint URL for AI operations"
+        )]
+        [string] $ApiEndpoint,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "The API key for authenticated AI operations"
+        )]
+        [string] $ApiKey,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = "The timeout in seconds for AI operations"
+        )]
+        [int] $TimeoutSeconds,
+        ########################################################################
+        [Parameter(
             Mandatory = $false,
             HelpMessage = "Priority for this refactor set"
         )]
@@ -184,7 +261,6 @@ function New-Refactor {
         [int] $Priority = 0,
         ########################################################################
         [Parameter(
-            Position = 12,
             Mandatory = $false,
             HelpMessage = "Array of PowerShell command definitions for LLM tools"
         )]
@@ -200,15 +276,9 @@ function New-Refactor {
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Api endpoint url for LLM service"
+            HelpMessage = "Database path for preference data files"
         )]
-        [string] $ApiEndpoint,
-        ########################################################################
-        [Parameter(
-            Mandatory = $false,
-            HelpMessage = "The API key to use for the request"
-        )]
-        [string] $ApiKey,
+        [string] $PreferencesDatabasePath,
         ########################################################################
         [Parameter(
             Mandatory = $false,
@@ -221,6 +291,28 @@ function New-Refactor {
             HelpMessage = "Force stop LM Studio before initialization"
         )]
         [switch] $Force,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = ("Use alternative settings stored in session for AI " +
+                "preferences")
+        )]
+        [switch] $SessionOnly,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = ("Clear alternative settings stored in session for AI " +
+                "preferences")
+        )]
+        [switch] $ClearSession,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = ("Store settings only in persistent preferences without " +
+                "affecting session")
+        )]
+        [Alias("FromPreferences")]
+        [switch] $SkipSession,
         ########################################################################
         [Parameter(
             Mandatory = $false,
@@ -250,6 +342,7 @@ function New-Refactor {
         # capture current UTC timestamp for logging
         $currentTime = GenXdev.Console\UtcNow
 
+        # output verbose information about the refactor set being created
         Microsoft.PowerShell.Utility\Write-Verbose (
             "Initializing new refactor set '$Name' with priority $Priority"
         )
@@ -270,16 +363,18 @@ function New-Refactor {
         $refactorDefinition.SelectionSettings.LLM.Prompt = $SelectionPrompt
 
         # configure LLM processing settings
-        $refactorDefinition.SelectionSettings.LLM.Model = $Model
-        $refactorDefinition.SelectionSettings.LLM.ModelLMSGetIdentifier = `
-            $ModelLMSGetIdentifier
-        $refactorDefinition.SelectionSettings.LLM.Temperature = $Temperature
-        $refactorDefinition.SelectionSettings.LLM.MaxToken = $MaxToken
-        $refactorDefinition.SelectionSettings.LLM.TTLSeconds = $TTLSeconds
-        $refactorDefinition.SelectionSettings.LLM.Gpu = $Gpu
-        $refactorDefinition.SelectionSettings.LLM.Force = $Force
-        $refactorDefinition.SelectionSettings.LLM.ApiEndpoint = $ApiEndpoint
-        $refactorDefinition.SelectionSettings.LLM.ApiKey = $ApiKey
+        $llmConfigParams = GenXdev.Helpers\Copy-IdenticalParamValues `
+            -BoundParameters $PSBoundParameters `
+            -FunctionName "GenXdev.AI\Get-AILLMSettings" `
+            -DefaultValues  (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -ErrorAction SilentlyContinue)
+
+        $llmConfig = GenXdev.AI\Get-AILLMSettings @llmConfigParams
+
+        foreach ($param in $llmConfig.Keys) {
+
+            $refactorDefinition.SelectionSettings.LLM."$param" = $llmConfig."$param"
+        }
+
         $refactorDefinition.SelectionSettings.LLM.ExposedCmdLets = `
             $ExposedCmdLets
 
@@ -304,20 +399,22 @@ function New-Refactor {
         $refactorDefinition.State.LastUpdated = $currentTime
     }
 
-
-process {
+    process {
 
         # create unique storage key for this refactor set
         $preferenceName = "refactor_set_$Name"
 
+        # output verbose information about refactor set existence check
         Microsoft.PowerShell.Utility\Write-Verbose (
             "Validating refactor set '$Name' does not exist"
         )
 
         # verify no existing refactor with same name exists
         $existingDefinition = GenXdev.Data\Get-GenXdevPreference `
-            -Name $preferenceName
+            -Name $preferenceName -PreferencesDatabasePath $PreferencesDatabasePath `
+            -ErrorAction SilentlyContinue
 
+        # check for existing refactor set with same name
         if ($existingDefinition) {
             Microsoft.PowerShell.Utility\Write-Error (
                 "Refactor set '$Name' already exists"
@@ -325,8 +422,10 @@ process {
             return
         }
 
+        # confirm with user before creating new refactor set
         if ($PSCmdlet.ShouldProcess($Name, "Create new refactor set")) {
 
+            # output verbose information about saving the refactor set
             Microsoft.PowerShell.Utility\Write-Verbose "Saving refactor set '$Name'"
 
             # initialize with provided files
@@ -335,5 +434,8 @@ process {
                 -FilesToAdd $FilesToAdd
         }
     }
+
+    end {
+    }
 }
-################################################################################
+###############################################################################

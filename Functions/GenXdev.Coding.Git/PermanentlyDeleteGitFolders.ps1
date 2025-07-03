@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Permanently deletes specified folders from all branches in a Git repository.
@@ -24,7 +24,7 @@ requires force pushing, which affects all repository users.
 PermanentlyDeleteGitFolders `
     -RepoUri "https://github.com/user/repo.git" `
     -Folders "bin", "obj"
-#>
+        ###############################################################################>
 function PermanentlyDeleteGitFolders {
 
     [CmdletBinding(SupportsShouldProcess = $true, ConfirmImpact = "High")]
@@ -162,4 +162,4 @@ process {
     end {
     }
 }
-################################################################################
+        ###############################################################################

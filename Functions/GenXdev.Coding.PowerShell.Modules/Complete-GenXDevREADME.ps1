@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Completes the README file for specified GenXDev modules by adding documentation.
@@ -20,7 +20,7 @@ Complete-GenXDevREADME -ModuleName "GenXdev.Helpers"
 
 .EXAMPLE
 "GenXdev.Helpers" | Complete-GenXDevREADME
-#>
+        ###############################################################################>
 function Complete-GenXDevREADME {
 
     [CmdletBinding()]
@@ -166,4 +166,4 @@ function Complete-GenXDevREADME {
     end {
     }
 }
-################################################################################
+        ###############################################################################

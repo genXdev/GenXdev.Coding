@@ -27,7 +27,7 @@ Add-IssueLineToREADME -Line "Found critical bug" -Show -UseHomeREADME
 
 .EXAMPLE
 issue "Server connection fails" -Show
-#>
+        ###############################################################################>
 function Add-IssueLineToREADME {
 
     [CmdletBinding()]

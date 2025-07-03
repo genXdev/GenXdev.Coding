@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Continues or restarts a code refactoring session.
@@ -41,7 +41,7 @@ Enables text-to-speech for refactoring progress and notifications.
 .EXAMPLE
 Start-NextRefactor -Name "RefactorProject" -Reset -CleanUpDeletedFiles
 Restarts refactoring for "RefactorProject" and removes deleted files.
-#>
+        ###############################################################################>
 function Start-NextRefactor {
 
     [CmdletBinding(SupportsShouldProcess)]
@@ -392,4 +392,4 @@ process {
     end {
     }
 }
-################################################################################
+        ###############################################################################
