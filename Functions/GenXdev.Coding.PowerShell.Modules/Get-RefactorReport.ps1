@@ -1,4 +1,4 @@
-###############################################################################
+﻿###############################################################################
 <#
 .SYNOPSIS
 Generates a detailed report of refactoring operations and their status.
@@ -25,28 +25,58 @@ Generates a text report for refactors matching "DatabaseRefactor"
 .EXAMPLE
 refactorreport "*"
 Generates hashtable report for all refactors using alias
-        ###############################################################################>
+#>
 function Get-RefactorReport {
 
     [CmdletBinding()]
-    [Alias("refactorreport")]
+    [Alias('refactorreport')]
     param (
         ########################################################################
         [Parameter(
             Position = 0,
             Mandatory = $false,
-            HelpMessage = "The name of the refactor, accepts wildcards",
+            HelpMessage = 'The name of the refactor, accepts wildcards',
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true
         )]
         [ValidateNotNullOrEmpty()]
         [SupportsWildcards()]
-        [string[]] $Name = "*",
+        [string[]] $Name = '*',
+
+
+        ###############################################################################
+        [Alias('DatabasePath')]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Specifies the path to the preferences database file.'
+        )]
+        [string] $PreferencesDatabasePath,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'If set, only use the session cache for refactor data.'
+        )]
+        [switch] $SessionOnly,
+
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'If set, clear the session cache before running.'
+        )]
+        [switch] $ClearSession,
+        ###############################################################################
+        [Alias('FromPreferences')]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'If set, skip loading session cache.'
+        )]
+        [switch] $SkipSession,
 
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Output report in text format instead of Hashtable"
+            HelpMessage = 'Output report in text format instead of Hashtable'
         )]
         [switch] $AsText
         ########################################################################
@@ -61,77 +91,76 @@ function Get-RefactorReport {
         if ($AsText) {
             # create aligned column headers with proper spacing
             $script:textHeader = @(
-                "Name".PadRight(10),
-                "PromptKey".PadRight(10),
-                "Prio".PadRight(4),
-                "Status".PadRight(10),
-                "Num".PadRight(4),
-                "%"
-            ) -join " "
+                'Name'.PadRight(10),
+                'PromptKey'.PadRight(10),
+                'Prio'.PadRight(4),
+                'Status'.PadRight(10),
+                'Num'.PadRight(4),
+                '%'
+            ) -join ' '
         }
     }
 
 
-process {
+    process {
 
         # output header and separator for text format
         if ($AsText -and $script:textHeader) {
             Microsoft.PowerShell.Utility\Write-Output $script:textHeader
-            Microsoft.PowerShell.Utility\Write-Output ("-" * $script:textHeader.Length)
+            Microsoft.PowerShell.Utility\Write-Output ('-' * $script:textHeader.Length)
             $script:textHeader = $null
         }
 
         # process each matching refactor
         GenXdev.Coding\Get-Refactor -Name $Name |
-        Microsoft.PowerShell.Core\ForEach-Object {
-            # calculate total functions affected by this refactor
-            $totalFunctions = $PSItem.State.Selected.Count + `
-                $PSItem.State.Refactored.Count + `
-                $PSItem.State.Unselected.Count
+            Microsoft.PowerShell.Core\ForEach-Object {
+                # calculate total functions affected by this refactor
+                $totalFunctions = $PSItem.State.Selected.Count + `
+                    $PSItem.State.Refactored.Count + `
+                    $PSItem.State.Unselected.Count
 
-            Microsoft.PowerShell.Utility\Write-Verbose ("Processing refactor: $($PSItem.Name) with " + `
-                    "$totalFunctions items")
+                Microsoft.PowerShell.Utility\Write-Verbose ("Processing refactor: $($PSItem.Name) with " + `
+                        "$totalFunctions items")
 
-            if ($AsText) {
-                # format text output with truncated columns
-                $name = $PSItem.Name.Substring(0,
-                    [Math]::Min(10, $PSItem.Name.Length))
-                $promptKey = $PSItem.RefactorSettings.PromptKey.Substring(0,
-                    [Math]::Min(10, $PSItem.RefactorSettings.PromptKey.Length))
-                $status = $PSItem.State.Status.Substring(0,
-                    [Math]::Min(10, $PSItem.State.Status.Length))
-                $percent = $PSItem.State.PercentageComplete.ToString(
-                ).Substring(0, [Math]::Min(4,
-                        $PSItem.State.PercentageComplete.ToString().Length))
+                if ($AsText) {
+                    # format text output with truncated columns
+                    $name = $PSItem.Name.Substring(0,
+                        [Math]::Min(10, $PSItem.Name.Length))
+                    $promptKey = $PSItem.RefactorSettings.PromptKey.Substring(0,
+                        [Math]::Min(10, $PSItem.RefactorSettings.PromptKey.Length))
+                    $status = $PSItem.State.Status.Substring(0,
+                        [Math]::Min(10, $PSItem.State.Status.Length))
+                    $percent = $PSItem.State.PercentageComplete.ToString(
+                    ).Substring(0, [Math]::Min(4,
+                            $PSItem.State.PercentageComplete.ToString().Length))
 
-                # output formatted text row
-                Microsoft.PowerShell.Utility\Write-Output (
-                    "{0} {1} {2} {3} {4} {5}%" -f `
-                        $name.PadRight(10),
-                    $promptKey.PadRight(10),
-                    $PSItem.Priority.ToString().PadRight(4),
-                    $status.PadRight(10),
-                    $totalFunctions.ToString().PadRight(4),
-                    $percent
-                )
-            }
-            else {
-                # return hashtable with refactor details
-                Microsoft.PowerShell.Utility\Write-Output @{
-                    Name               = $PSItem.Name
-                    PromptKey          = $PSItem.RefactorSettings.PromptKey
-                    Priority           = $PSItem.Priority
-                    Status             = $PSItem.State.Status
-                    FunctionCount      = $totalFunctions
-                    PercentageComplete = $PSItem.State.PercentageComplete
+                    # output formatted text row
+                    Microsoft.PowerShell.Utility\Write-Output (
+                        '{0} {1} {2} {3} {4} {5}%' -f `
+                            $name.PadRight(10),
+                        $promptKey.PadRight(10),
+                        $PSItem.Priority.ToString().PadRight(4),
+                        $status.PadRight(10),
+                        $totalFunctions.ToString().PadRight(4),
+                        $percent
+                    )
+                }
+                else {
+                    # return hashtable with refactor details
+                    Microsoft.PowerShell.Utility\Write-Output @{
+                        Name               = $PSItem.Name
+                        PromptKey          = $PSItem.RefactorSettings.PromptKey
+                        Priority           = $PSItem.Priority
+                        Status             = $PSItem.State.Status
+                        FunctionCount      = $totalFunctions
+                        PercentageComplete = $PSItem.State.PercentageComplete
+                    }
                 }
             }
-        }
     }
 
     end {
 
-        Microsoft.PowerShell.Utility\Write-Verbose "Completed refactor report generation"
+        Microsoft.PowerShell.Utility\Write-Verbose 'Completed refactor report generation'
     }
 }
-        ###############################################################################

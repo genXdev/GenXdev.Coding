@@ -1,4 +1,4 @@
-###############################################################################
+﻿###############################################################################
 <#
 .SYNOPSIS
 Opens one or more files in Visual Studio Code.
@@ -22,7 +22,7 @@ VSCode -FilePath "C:\path\to\file.txt" -Copilot
 
 .EXAMPLE
 Get-ChildItem *.js -Recurse | VSCode
-        ###############################################################################>
+#>
 function VSCode {
 
     [CmdletBinding()]
@@ -32,13 +32,13 @@ function VSCode {
             Position = 0,
             Mandatory = $true,
             ValueFromPipeline = $true,
-            HelpMessage = "The path to the file to open in VSCode"
+            HelpMessage = 'The path to the file to open in VSCode'
         )]
         [string[]]$FilePath,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Add sourcefile to Copilot edit-session"
+            HelpMessage = 'Add sourcefile to Copilot edit-session'
         )]
         [switch]$Copilot
     )
@@ -46,7 +46,7 @@ function VSCode {
     begin {
 
         # inform user that function execution has started
-        Microsoft.PowerShell.Utility\Write-Verbose "Starting VSCode function to open files"
+        Microsoft.PowerShell.Utility\Write-Verbose 'Starting VSCode function to open files'
 
         # ensure copilot keyboard shortcut is configured if needed
         if ($Copilot) {
@@ -56,7 +56,7 @@ function VSCode {
     }
 
 
-process {
+    process {
 
         # process each file path provided through pipeline or parameter
         $FilePath | Microsoft.PowerShell.Core\ForEach-Object {
@@ -65,14 +65,6 @@ process {
                 # expand relative or partial paths to full filesystem paths
                 $path = GenXdev.FileSystem\Expand-Path $_
 
-                Microsoft.PowerShell.Utility\Write-Verbose "Processing file: $path"
-
-                # validate file exists before attempting to open
-                if (-not [System.IO.File]::Exists($path)) {
-                    Microsoft.PowerShell.Utility\Write-Warning "File not found: $path"
-                    return
-                }
-
                 # open file in vscode with or without copilot activation
                 Microsoft.PowerShell.Utility\Write-Verbose "Opening file in VSCode: $path"
                 if ($Copilot) {
@@ -80,7 +72,7 @@ process {
                     $null = GenXdev.Coding\Open-SourceFileInIde `
                         -Path $path `
                         -Code `
-                        -KeysToSend @("^+%{F12}")
+                        -KeysToSend @('^+%{F12}')
                 }
                 else {
                     $null = GenXdev.Coding\Open-SourceFileInIde -Path $path -Code
@@ -95,4 +87,3 @@ process {
     end {
     }
 }
-        ###############################################################################

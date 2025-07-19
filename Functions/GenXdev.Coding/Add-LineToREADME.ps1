@@ -1,4 +1,4 @@
-###############################################################################
+﻿###############################################################################
 <#
 .SYNOPSIS
 Adds a line to a README.md markdown file in a specified section.
@@ -40,7 +40,7 @@ Add-LineToREADME -Line "New feature" -Section "## Features" -Prefix "- [ ] "
 
 .EXAMPLE
 Add-LineToREADME "New feature" "## Features" "* " -Show
-        ###############################################################################>
+#>
 function Add-LineToREADME {
 
     [CmdletBinding()]
@@ -50,15 +50,15 @@ function Add-LineToREADME {
             Position = 0,
             Mandatory = $false,
             ValueFromRemainingArguments = $false,
-            HelpMessage = "The line to add to the README"
+            HelpMessage = 'The line to add to the README'
         )]
-        [string] $Line = "",
+        [string] $Line = '',
 
         #######################################################################
         [Parameter(
             Position = 1,
             Mandatory = $true,
-            HelpMessage = "The section to add the line to"
+            HelpMessage = 'The section to add the line to'
         )]
         [string] $Section,
 
@@ -66,42 +66,42 @@ function Add-LineToREADME {
         [Parameter(
             Position = 2,
             Mandatory = $true,
-            HelpMessage = "The prefix to use for the line"
+            HelpMessage = 'The prefix to use for the line'
         )]
-        [string] $Prefix = "* ",
+        [string] $Prefix = '* ',
 
         #######################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Open in Visual Studio Code after modifying"
+            HelpMessage = 'Open in Visual Studio Code after modifying'
         )]
         [switch] $Code,
 
         #######################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Show the modified section"
+            HelpMessage = 'Show the modified section'
         )]
         [switch] $Show,
 
         #######################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Mark the item as completed"
+            HelpMessage = 'Mark the item as completed'
         )]
         [switch] $Done,
 
         #######################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Use README in PowerShell profile directory"
+            HelpMessage = 'Use README in PowerShell profile directory'
         )]
         [switch] $UseHomeREADME,
 
         #######################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Use README in OneDrive directory"
+            HelpMessage = 'Use README in OneDrive directory'
         )]
         [switch] $UseOneDriveREADME
     )
@@ -133,7 +133,7 @@ function Add-LineToREADME {
             }
 
             # fallback to onedrive readme
-            return "$((GenXdev.FileSystem\Expand-Path -FilePath "~\Onedrive\README.md" -CreateDirectory))";
+            return "$((GenXdev.FileSystem\Expand-Path -FilePath '~\Onedrive\README.md' -CreateDirectory))";
         }
 
         # determine which readme file to use
@@ -143,7 +143,7 @@ function Add-LineToREADME {
         }
         elseif ($UseOneDriveREADME) {
             $readmePath = GenXdev.FileSystem\Expand-Path `
-                -FilePath "~\Onedrive\README.md" `
+                -FilePath '~\Onedrive\README.md' `
                 -CreateDirectory
         }
         else {
@@ -171,7 +171,7 @@ function Add-LineToREADME {
     }
 
 
-process {
+    process {
 
         if (![string]::IsNullOrWhiteSpace($Line)) {
             if ($Done) {
@@ -196,7 +196,7 @@ process {
 
         # open in vscode if requested
         if ($Code) {
-            $codeCmd = Microsoft.PowerShell.Core\Get-Command "code.cmd" -ErrorAction SilentlyContinue
+            $codeCmd = Microsoft.PowerShell.Core\Get-Command 'code.cmd' -ErrorAction SilentlyContinue
             if ($null -ne $codeCmd) {
                 cmd.exe /c code.cmd $readmePath
             }
@@ -204,10 +204,10 @@ process {
 
         # show modified section if requested
         if ($Show) {
-            $readmeMarkDown = ""
+            $readmeMarkDown = ''
             $inSection = $false
 
-            $ansiColorStart = [char]27 + "["
+            $ansiColorStart = [char]27 + '['
             $ansiColorYellow = "${ansiColorStart}33m"
             $ansiBackgroundColorBlue = "${ansiColorStart}44m"
             $ansiColorReset = "${ansiColorStart}0m"
@@ -220,7 +220,7 @@ process {
                     "$ansiColorReset`r`n`r`n"
                 }
                 elseif ($inSection) {
-                    if ($readmeLine.StartsWith("#")) {
+                    if ($readmeLine.StartsWith('#')) {
                         break
                     }
                     $readmeMarkDown = "$readmeMarkDown" +

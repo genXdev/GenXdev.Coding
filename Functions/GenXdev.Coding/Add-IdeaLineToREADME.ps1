@@ -1,4 +1,4 @@
-###############################################################################
+﻿###############################################################################
 <#
 .SYNOPSIS
 Adds an idea item to the README.md file.
@@ -27,43 +27,43 @@ Add-IdeaLineToREADME -Line "Create new PowerShell module" -Show
 
 .EXAMPLE
 idea "New feature idea" -UseOneDriveREADME
-        ###############################################################################>
+#>
 function Add-IdeaLineToREADME {
 
     [CmdletBinding()]
-    [Alias("idea")]
+    [Alias('idea')]
     param(
         #######################################################################
         [Parameter(
             Position = 0,
             Mandatory = $false,
             ValueFromRemainingArguments = $false,
-            HelpMessage = "The idea text to add"
+            HelpMessage = 'The idea text to add'
         )]
         [AllowEmptyString()]
-        [string] $Line = "",
+        [string] $Line = '',
         #######################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Open README in Visual Studio Code"
+            HelpMessage = 'Open README in Visual Studio Code'
         )]
         [switch] $Code,
         #######################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Show the modified section"
+            HelpMessage = 'Show the modified section'
         )]
         [switch] $Show,
         #######################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Use README in PowerShell profile directory"
+            HelpMessage = 'Use README in PowerShell profile directory'
         )]
         [switch] $UseHomeREADME,
         #######################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Use README in OneDrive directory"
+            HelpMessage = 'Use README in OneDrive directory'
         )]
         [switch] $UseOneDriveREADME
         #######################################################################
@@ -71,11 +71,11 @@ function Add-IdeaLineToREADME {
 
     begin {
 
-        Microsoft.PowerShell.Utility\Write-Verbose "Starting Add-IdeaLineToREADME"
+        Microsoft.PowerShell.Utility\Write-Verbose 'Starting Add-IdeaLineToREADME'
     }
 
 
-process {
+    process {
 
         if (![string]::IsNullOrWhiteSpace($Line)) {
             # prefix line with current date
@@ -87,8 +87,8 @@ process {
         GenXdev.Coding\Add-LineToREADME `
             -Code:$Code `
             -Show:$Show `
-            -Section "## Ideas" `
-            -Prefix "- [ ] " `
+            -Section '## Ideas' `
+            -Prefix '- [ ] ' `
             -Line $Line `
             -UseHomeREADME:$UseHomeREADME `
             -UseOneDriveREADME:$UseOneDriveREADME

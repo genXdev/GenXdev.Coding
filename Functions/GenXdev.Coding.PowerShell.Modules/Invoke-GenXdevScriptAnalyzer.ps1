@@ -1,47 +1,115 @@
+﻿################################################################################
+<#
+.SYNOPSIS
+Invokes PowerShell Script Analyzer to analyze PowerShell scripts for compliance
+and best practices.
+
+.DESCRIPTION
+This function provides a wrapper around PSScriptAnalyzer to analyze PowerShell
+scripts for compliance issues, best practices violations, and potential bugs.
+It supports both file-based analysis and string-based script analysis with
+customizable rules and settings.
+
+.PARAMETER Path
+Specifies the path to the script file to analyze. This parameter is mandatory
+when using the Path parameter set.
+
+.PARAMETER ScriptDefinition
+Specifies the script definition as a string to analyze. This parameter is
+mandatory when using the Script parameter set.
+
+.PARAMETER EnableExit
+Specifies that the tool should exit on error during analysis.
+
+.PARAMETER Fix
+Enables automatic fixing of violations where possible.
+
+.PARAMETER Recurse
+Recursively processes files in subdirectories when analyzing a directory path.
+
+.PARAMETER ReportSummary
+Reports a summary after analysis showing the total number of issues found.
+
+.EXAMPLE
+Invoke-GenXdevScriptAnalyzer -Path "C:\Scripts\MyScript.ps1"
+
+.EXAMPLE
+Invoke-GenXdevScriptAnalyzer -ScriptDefinition "Get-Process | Where-Object {$_.Name -eq 'notepad'}"
+
+.EXAMPLE
+Invoke-GenXdevScriptAnalyzer -Path "C:\Scripts\" -Recurse -Fix
+#>
 function Invoke-GenXdevScriptAnalyzer {
+
     [CmdletBinding(DefaultParameterSetName = 'Path')]
     param (
-        # Use -Path for file-based analysis and -ScriptDefinition for script content analysis.
+        #
         [Parameter(
             Position = 0,
             Mandatory = $true,
             ParameterSetName = 'Path',
-            HelpMessage = 'Specifies the path to the script file.')]
+            HelpMessage = 'Specifies the path to the script file.'
+        )]
         [string] $Path,
-
+        #
         [Parameter(
             Mandatory = $true,
             ParameterSetName = 'Script',
             HelpMessage = 'Specifies the script definition as a string.'
         )]
         [string] $ScriptDefinition,
-
-        [Parameter(HelpMessage = 'Specifies that the tool should exit on error.')]
+        #
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Specifies that the tool should exit on error.'
+        )]
         [switch] $EnableExit,
-
-        [Parameter(HelpMessage = 'Enables automatic fixing of violations.')]
+        #
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Enables automatic fixing of violations.'
+        )]
         [switch] $Fix,
-
-        [Parameter(HelpMessage = 'Recursively process files.')]
+        #
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Recursively process files.'
+        )]
         [switch] $Recurse,
-
-        [Parameter(HelpMessage = 'Reports a summary after analysis.')]
+        #
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Reports a summary after analysis.'
+        )]
         [switch] $ReportSummary
+        #
     )
 
     begin {
-        $settings = Microsoft.PowerShell.Utility\Invoke-Expression ([IO.File]::ReadAllText((GenXdev.FileSystem\Expand-Path "$PSScriptRoot\PSScriptAnalyzerSettings.psd1")))
 
-        #  Write-Verbose "Using Script Analyzer settings:`n$($invocationParams.Settings | ConvertTo-Json -Depth 5)"
+        # load script analyzer settings from configuration file
+        $settingsPath = GenXdev.FileSystem\Expand-Path `
+            "$PSScriptRoot\PSScriptAnalyzerSettings.psd1"
+
+        $settings = Microsoft.PowerShell.Utility\Invoke-Expression `
+        ([System.IO.File]::ReadAllText($settingsPath))
+
+        # output verbose information about loaded settings
+        Microsoft.PowerShell.Utility\Write-Verbose `
+            "Loaded PSScriptAnalyzer settings from: $settingsPath"
     }
 
+    process {
 
-process {
         try {
+
+            # initialize invocation parameters variable
             $invocationParams = $null
 
-            # check paramset
+            # check which parameter set is being used
             if ($PSCmdlet.ParameterSetName -eq 'Path') {
+
+                # configure parameters for path-based analysis
                 $invocationParams = @{
                     Path                  = $Path
                     IncludeRule           = $settings.IncludeRules
@@ -49,59 +117,93 @@ process {
                     CustomRulePath        = $settings.CustomRulePath
                     IncludeDefaultRules   = $settings.IncludeDefaultRules
                     RecurseCustomRulePath = $settings.RecurseCustomRulePath
-                    # Severity      = $settings.Severity
-                    Recurse               = !!$Recurse
-                    Fix                   = !!$Fix
-                    EnableExit            = !!$EnableExit
-                    ReportSummary         = !!$ReportSummary
-                    # Verbose       = $true
-                    # ErrorAction      = "Continue"
+                    Recurse               = [bool]$Recurse
+                    Fix                   = [bool]$Fix
+                    EnableExit            = [bool]$EnableExit
+                    ReportSummary         = [bool]$ReportSummary
                 }
+
+                # output verbose information about path analysis
+                Microsoft.PowerShell.Utility\Write-Verbose `
+                    "Analyzing script file: $Path"
             }
             else {
+
+                # configure parameters for script definition analysis
                 $invocationParams = @{
                     ScriptDefinition      = $ScriptDefinition
                     IncludeRule           = $settings.IncludeRules
                     ExcludeRule           = $settings.ExcludeRules
-                    # Severity         = $settings.Severity
-
                     CustomRulePath        = $settings.CustomRulePath
                     IncludeDefaultRules   = $settings.IncludeDefaultRules
                     RecurseCustomRulePath = $settings.RecurseCustomRulePath
-                    Recurse               = !!$Recurse
-                    Fix                   = !!$Fix
-                    EnableExit            = !!$EnableExit
-                    ReportSummary         = !!$ReportSummary
-                    # ErrorAction      = "Continue"
+                    Recurse               = [bool]$Recurse
+                    Fix                   = [bool]$Fix
+                    EnableExit            = [bool]$EnableExit
+                    ReportSummary         = [bool]$ReportSummary
                 }
+
+                # output verbose information about script definition analysis
+                Microsoft.PowerShell.Utility\Write-Verbose `
+                    'Analyzing script definition content'
             }
 
             try {
-                $results = @(& "PSScriptAnalyzer\Invoke-ScriptAnalyzer" @invocationParams)
+
+                # invoke script analyzer with configured parameters
+                $results = @(& 'PSScriptAnalyzer\Invoke-ScriptAnalyzer' `
+                        @invocationParams)
+
+                # output verbose information about analysis results
+                Microsoft.PowerShell.Utility\Write-Verbose `
+                    "Analysis completed with $($results.Count) results"
             }
             catch {
-                Microsoft.PowerShell.Utility\Write-Warning "ScriptAnalyzer error: $($_.Exception.Message)"
+
+                # output warning for script analyzer errors
+                Microsoft.PowerShell.Utility\Write-Warning `
+                    "ScriptAnalyzer error: $($_.Exception.Message)"
                 return
             }
 
+            # check if results were returned
             if ($results -and ($results.Length -gt 0)) {
 
-                $results | Microsoft.PowerShell.Core\ForEach-Object {
-                    $r = $_ | GenXdev.Helpers\ConvertTo-HashTable
-                    $r.Description = (PSScriptAnalyzer\Get-ScriptAnalyzerRule -Name $r.RuleName).Description
-                    Microsoft.PowerShell.Utility\Write-Output $r
-                }
+                # process each result to enhance with additional information
+                $results |
+                    Microsoft.PowerShell.Core\ForEach-Object {
+
+                        # convert result to hashtable for easier manipulation
+                        $resultHashTable = $_ |
+                            GenXdev.Helpers\ConvertTo-HashTable
+
+                            # add rule description to the result
+                            $resultHashTable.Description = `
+                            (PSScriptAnalyzer\Get-ScriptAnalyzerRule `
+                                    -Name $resultHashTable.RuleName).Description
+
+                            # output the enhanced result
+                            Microsoft.PowerShell.Utility\Write-Output $resultHashTable
+                        }
             }
         }
         catch {
-            Microsoft.PowerShell.Utility\Write-Output @{
+
+            # create error output for general exceptions
+            $errorResult = @{
                 Message     = $_.Exception.Message
-                RuleName    = ($Null -eq $Path ? "?" : [IO.Path]::GetFileNameWithoutExtension($Path)) + " @ Invocation in Invoke-GenXdevScriptAnalyzer"
-                Description = "An error occurred while invoking the Script Analyzer."
+                RuleName    = ($null -eq $Path ? '?' : `
+                        [System.IO.Path]::GetFileNameWithoutExtension($Path)) + `
+                    ' @ Invocation in Invoke-GenXdevScriptAnalyzer'
+                Description = 'An error occurred while invoking the Script Analyzer.'
             }
+
+            # output the error result
+            Microsoft.PowerShell.Utility\Write-Output $errorResult
         }
     }
 
     end {
     }
 }
+################################################################################

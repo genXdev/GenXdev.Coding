@@ -11,7 +11,7 @@
       }
     },
     {
-      "command": "import-module GenXdev.Coding ; Assert-GenXdevUnitTest -Verbosity Normal -DebugFailedTests",
+      "command": "import-module GenXdev.Coding ; Assert-GenXdevUnitTest -Verbosity Detailed -DebugFailedTests",
       "type": "shell",
       "label": "Run and debug GenXdev unit-tests",
       "group": "test",
@@ -20,7 +20,7 @@
       }
     },
     {
-      "command": "import-module GenXdev.Coding ; Assert-GenXdevUnitTest -AllowLongRunningTests -Verbosity Normal -DebugFailedTests",
+      "command": "import-module GenXdev.Coding ; Assert-GenXdevUnitTest -AllowLongRunningTests -Verbosity Detailed -DebugFailedTests",
       "type": "shell",
       "label": "Run and debug GenXdev long-running unit-tests",
       "group": "test",
@@ -71,6 +71,73 @@
           ]
         }
       ]
+    },
+    {
+      "command": "pwsh",
+      "args": [
+        "-noprofile",
+        "-NoLogo",
+        "-MTA",
+        "-NoExit",
+        "-Command",
+        "Import-Module GenXdev -Force; Start-GenXdevMCPServer -Verbose"
+      ],
+      "type": "process",
+      "label": "Start GenXdev MVP Server Verbose",
+      "group": "none",
+      "icon": {
+        "id": "server-process",
+        "color": "terminal.ansiCyan"
+      },
+      "runOptions": {
+        "instanceLimit": 1
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "revealProblems": "onProblem",
+        "focus": false,
+        "panel": "new",
+        "showReuseMessage": true,
+        "clear": true,
+        "group": "mvp-server"
+      },
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "command": "pwsh",
+      "args": [
+        "-noprofile",
+        "-NoLogo",
+        "-MTA",
+        "-NoExit",
+        "-Command",
+        "Import-Module GenXdev -Force; Start-GenXdevMCPServer"
+      ],
+      "type": "process",
+      "label": "Start GenXdev MVP Server",
+      "group": "none",
+      "icon": {
+        "id": "server-process",
+        "color": "terminal.ansiGreen"
+      },
+      "runOptions": {
+        "instanceLimit": 1,
+        "runOn": "folderOpen"
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "revealProblems": "onProblem",
+        "focus": false,
+        "panel": "new",
+        "showReuseMessage": true,
+        "clear": true,
+        "group": "mvp-server"
+      },
+      "isBackground": true,
+      "problemMatcher": []
     }
   ]
 }

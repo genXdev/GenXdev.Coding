@@ -1,4 +1,4 @@
-###############################################################################
+﻿###############################################################################
 <#
 .SYNOPSIS
 Displays issues from a README.md file.
@@ -19,7 +19,7 @@ Issues -UseHomeREADME
 
 .EXAMPLE
 Issues -UseOneDriveREADME
-        ###############################################################################>
+#>
 function Issues {
 
     [CmdletBinding()]
@@ -28,14 +28,14 @@ function Issues {
         [Parameter(
             Position = 0,
             Mandatory = $false,
-            HelpMessage = "Use README in PowerShell profile directory"
+            HelpMessage = 'Use README in PowerShell profile directory'
         )]
         [switch] $UseHomeREADME,
         #######################################################################
         [Parameter(
             Position = 1,
             Mandatory = $false,
-            HelpMessage = "Use README in OneDrive directory"
+            HelpMessage = 'Use README in OneDrive directory'
         )]
         [switch] $UseOneDriveREADME
         #######################################################################
@@ -43,11 +43,11 @@ function Issues {
 
     begin {
 
-        Microsoft.PowerShell.Utility\Write-Verbose "Starting Issues function"
+        Microsoft.PowerShell.Utility\Write-Verbose 'Starting Issues function'
     }
 
 
-process {
+    process {
 
         # display issues using base function
         GenXdev.Coding\Add-IssueLineToREADME `

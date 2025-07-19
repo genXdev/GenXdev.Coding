@@ -1,43 +1,43 @@
-        ###############################################################################
+﻿###############################################################################
 function Search-NextGenXdevCmdlet {
 
-    [CmdletBinding(DefaultParameterSetName = "Default")]
-    [Alias("nextcmdlet")]
+    [CmdletBinding(DefaultParameterSetName = 'Default')]
+    [Alias('nextcmdlet')]
 
     param(
         ########################################################################
-        [Alias("Name", "Module")]
+        [Alias('Name', 'Module')]
         [parameter(
-            ParameterSetName = "Default",
+            ParameterSetName = 'Default',
             Mandatory = $false,
             Position = 0,
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = "Optional module name to filter cmdlets by"
+            HelpMessage = 'Optional module name to filter cmdlets by'
         )]
         [ValidateNotNullOrEmpty()]
         [SupportsWildcards()]
-        [string] $ModuleName = "GenXdev.*",
+        [string] $ModuleName = 'GenXdev.*',
         ########################################################################
         [parameter(
             Mandatory = $false,
             Position = 3,
-            HelpMessage = "Key for storing the last cmdlet index"
+            HelpMessage = 'Key for storing the last cmdlet index'
         )]
         [AllowEmptyString()]
-        [string] $Key = "",
+        [string] $Key = '',
 
         ########################################################################
         [parameter(
-            ParameterSetName = "FromScripts",
-            HelpMessage = "Switch to scripts from the script folder"
+            ParameterSetName = 'FromScripts',
+            HelpMessage = 'Switch to scripts from the script folder'
         )]
         [switch] $FromScripts,
 
         ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Indicates to skip cmdlets that already have unit-tests"
+            HelpMessage = 'Indicates to skip cmdlets that already have unit-tests'
         )]
         [switch] $OnlyNonExisting
     )
@@ -78,7 +78,7 @@ function Search-NextGenXdevCmdlet {
     }
 
 
-process {
+    process {
 
         # search the current cmdlet with prepared parameters
         GenXdev.Coding\Search-GenXdevCmdlet @params
@@ -87,4 +87,3 @@ process {
     end {
     }
 }
-        ###############################################################################

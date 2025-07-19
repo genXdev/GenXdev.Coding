@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Detects the usages of the backtick (line continuation) character.
 .DESCRIPTION
@@ -16,9 +16,9 @@
 .NOTES
     Copied (and improved) version of
     https://github.com/PowerShell/PSScriptAnalyzer/blob/master/Tests/Engine/CommunityAnalyzerRules/CommunityAnalyzerRules.psm1#L613.
-        ###############################################################################>
-function Measure-LineContinuation
-{
+##############################################################################
+#>
+function Measure-LineContinuation {
     [CmdletBinding()]
     [OutputType([Microsoft.Windows.Powershell.ScriptAnalyzer.Generic.DiagnosticRecord[]])]
     Param
@@ -29,31 +29,27 @@ function Measure-LineContinuation
         $Token
     )
 
-    Process
-    {
+    Process {
         $results = @()
 
-        try
-        {
+        try {
             foreach ($lineContinuationToken in $Token | Where-Object {
-                    $PSItem.Kind -eq [System.Management.Automation.Language.TokenKind]::LineContinuation })
-            {
+                    $PSItem.Kind -eq [System.Management.Automation.Language.TokenKind]::LineContinuation }) {
                 $results += [Microsoft.Windows.Powershell.ScriptAnalyzer.Generic.DiagnosticRecord]@{
-                    'Extent' = $lineContinuationToken.Extent
-                    'Message' = @(
+                    'Extent'            = $lineContinuationToken.Extent
+                    'Message'           = @(
                         'Using backtick (line continuation) makes the code harder to read and maintain. Please use'
                         'parameter splatting instead.'
                     ) -join ' '
-                    'RuleName' = 'PSAvoidUsingLineContinuation'
+                    'RuleName'          = 'PSAvoidUsingLineContinuation'
                     'RuleSuppressionID' = 'PSAvoidUsingLineContinuation'
-                    'Severity' = 'Warning'
+                    'Severity'          = 'Warning'
                 }
             }
 
             return $results
         }
-        catch
-        {
+        catch {
             $PSCmdlet.ThrowTerminatingError($PSItem)
         }
     }

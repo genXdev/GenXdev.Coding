@@ -170,7 +170,7 @@ updaterefactor * -Clear -Reset
 function Update-Refactor {
 
     [CmdletBinding(DefaultParameterSetName = 'Name', SupportsShouldProcess)]
-    [Alias("updaterefactor")]
+    [Alias('updaterefactor')]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute(
         'PSAvoidUsingInvokeExpression',
         '',
@@ -182,19 +182,19 @@ function Update-Refactor {
             ParameterSetName = 'Name',
             Mandatory = $false,
             Position = 0,
-            HelpMessage = "The name of the refactor, accepts wildcards",
+            HelpMessage = 'The name of the refactor, accepts wildcards',
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true
         )]
         [ValidateNotNullOrEmpty()]
         [SupportsWildcards()]
-        [string[]] $Name = @("*"),
+        [string[]] $Name = @('*'),
         ###############################################################################
         [Parameter(
             ParameterSetName = 'Refactor',
             Mandatory = $false,
             Position = 1,
-            HelpMessage = "The refactor set to update"
+            HelpMessage = 'The refactor set to update'
         )]
         [ValidateNotNull()]
         [GenXdev.Helpers.RefactorDefinition[]] $Refactor,
@@ -202,7 +202,7 @@ function Update-Refactor {
         [Parameter(
             Mandatory = $false,
             Position = 2,
-            HelpMessage = "Filenames to add"
+            HelpMessage = 'Filenames to add'
         )]
         [ValidateNotNull()]
         [System.IO.FileInfo[]] $FilesToAdd = @(),
@@ -210,118 +210,118 @@ function Update-Refactor {
         [Parameter(
             Mandatory = $false,
             Position = 3,
-            HelpMessage = "Filenames to remove"
+            HelpMessage = 'Filenames to remove'
         )]
         [ValidateNotNull()]
         [System.IO.FileInfo[]] $FilesToRemove = @(),
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Select files by modified date from"
+            HelpMessage = 'Select files by modified date from'
         )]
         [ValidateNotNullOrEmpty()]
         [datetime] $SelectByModifiedDateFrom,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Select files by modified date to"
+            HelpMessage = 'Select files by modified date to'
         )]
         [ValidateNotNullOrEmpty()]
         [datetime] $SelectByModifiedDateTo,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Select files by creation date from"
+            HelpMessage = 'Select files by creation date from'
         )]
         [ValidateNotNullOrEmpty()]
         [datetime] $SelectByCreationDateFrom,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Select files by creation date to"
+            HelpMessage = 'Select files by creation date to'
         )]
         [ValidateNotNullOrEmpty()]
         [datetime] $SelectByCreationDateTo,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The prompt key indicates which prompt script to use"
+            HelpMessage = 'The prompt key indicates which prompt script to use'
         )]
         [ValidateNotNullOrEmpty()]
         [string] $PromptKey,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The prompt key indicates which prompt script to use"
+            HelpMessage = 'The prompt key indicates which prompt script to use'
         )]
         [ValidateNotNullOrEmpty()]
-        [string] $Prompt = "",
+        [string] $Prompt = '',
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = ("Powershell script for function to select items to " +
-                "refactor")
+            HelpMessage = ('Powershell script for function to select items to ' +
+                'refactor')
         )]
         [ValidateNotNullOrEmpty()]
         [string] $SelectionScript,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = ("If provided, will invoke LLM to do the selection " +
-                "based on the content of the script")
+            HelpMessage = ('If provided, will invoke LLM to do the selection ' +
+                'based on the content of the script')
         )]
         [ValidateNotNullOrEmpty()]
         [string] $SelectionPrompt,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The type of LLM query"
+            HelpMessage = 'The type of LLM query'
         )]
         [ValidateSet(
-            "SimpleIntelligence",
-            "Knowledge",
-            "Pictures",
-            "TextTranslation",
-            "Coding",
-            "ToolUse"
+            'SimpleIntelligence',
+            'Knowledge',
+            'Pictures',
+            'TextTranslation',
+            'Coding',
+            'ToolUse'
         )]
-        [string] $LLMQueryType = "Coding",
+        [string] $LLMQueryType = 'Coding',
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The model identifier or pattern to use for AI operations"
+            HelpMessage = 'The model identifier or pattern to use for AI operations'
         )]
         [string] $Model,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The LM Studio specific model identifier"
+            HelpMessage = 'The LM Studio specific model identifier'
         )]
-        [Alias("ModelLMSGetIdentifier")]
+        [Alias('ModelLMSGetIdentifier')]
         [string] $HuggingFaceIdentifier,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Temperature for response randomness (0.0-1.0)"
+            HelpMessage = 'Temperature for response randomness (0.0-1.0)'
         )]
         [ValidateRange(0.0, 1.0)]
         [double] $Temperature = 0.2,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The maximum number of tokens to use in AI operations"
+            HelpMessage = 'The maximum number of tokens to use in AI operations'
         )]
         [int] $MaxToken,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Time-to-live in seconds for API-loaded models"
+            HelpMessage = 'Time-to-live in seconds for API-loaded models'
         )]
         [int] $TTLSeconds,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The number of CPU cores to dedicate to AI operations"
+            HelpMessage = 'The number of CPU cores to dedicate to AI operations'
         )]
         [int] $Cpu,
         ###############################################################################
@@ -329,189 +329,190 @@ function Update-Refactor {
             Mandatory = $false,
             HelpMessage = ("How much to offload to the GPU. If 'off', GPU " +
                 "offloading is disabled. If 'max', all layers are " +
-                "offloaded to GPU. If a number between 0 and 1, " +
-                "that fraction of layers will be offloaded to the " +
-                "GPU. -1 = LM Studio will decide how much to " +
-                "offload to the GPU. -2 = Auto")
+                'offloaded to GPU. If a number between 0 and 1, ' +
+                'that fraction of layers will be offloaded to the ' +
+                'GPU. -1 = LM Studio will decide how much to ' +
+                'offload to the GPU. -2 = Auto')
         )]
         [ValidateRange(-2, 1)]
         [int] $Gpu = -1,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The API endpoint URL for AI operations"
+            HelpMessage = 'The API endpoint URL for AI operations'
         )]
         [string] $ApiEndpoint,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The API key for authenticated AI operations"
+            HelpMessage = 'The API key for authenticated AI operations'
         )]
         [string] $ApiKey,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The timeout in seconds for AI operations"
+            HelpMessage = 'The timeout in seconds for AI operations'
         )]
         [int] $TimeoutSeconds,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Priority for this refactor set"
+            HelpMessage = 'Priority for this refactor set'
         )]
         [ValidateNotNullOrEmpty()]
         [int] $Priority,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = ("Array of PowerShell command definitions to use as " +
-                "tools during LLM selection")
+            HelpMessage = ('Array of PowerShell command definitions to use as ' +
+                'tools during LLM selection')
         )]
         [GenXdev.Helpers.ExposedCmdletDefinition[]] $ExposedCmdLets = @(),
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The keys to invoke as key strokes after opening the file"
+            HelpMessage = 'The keys to invoke as key strokes after opening the file'
         )]
-        [Alias("keys")]
+        [Alias('keys')]
         [string[]] $KeysToSend = @(),
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Database path for preference data files"
+            HelpMessage = 'Database path for preference data files'
         )]
+        [Alias('DatabasePath')]
         [string] $PreferencesDatabasePath,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Clean up deleted files"
+            HelpMessage = 'Clean up deleted files'
         )]
         [switch] $CleanUpDeletedFiles,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Switch to suppress user interaction"
+            HelpMessage = 'Switch to suppress user interaction'
         )]
         [switch] $AskBeforeLLMSelection,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Switch to enable LLM-based file selection processing"
+            HelpMessage = 'Switch to enable LLM-based file selection processing'
         )]
         [switch] $PerformLLMSelections,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Switch to process all files in the refactor set"
+            HelpMessage = 'Switch to process all files in the refactor set'
         )]
         [switch] $PerformAllLLMSelections,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Switch to retry failed LLM selections"
+            HelpMessage = 'Switch to retry failed LLM selections'
         )]
         [switch] $RetryFailedLLMSelections,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Clear all files from the refactor set"
+            HelpMessage = 'Clear all files from the refactor set'
         )]
         [switch] $Clear,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Clear the log of the refactor set"
+            HelpMessage = 'Clear the log of the refactor set'
         )]
         [switch] $ClearLog,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Start from the beginning of the refactor set"
+            HelpMessage = 'Start from the beginning of the refactor set'
         )]
         [switch] $Reset,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Restart all LLMSelections"
+            HelpMessage = 'Restart all LLMSelections'
         )]
         [switch] $ResetLMSelections,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Mark all files as refactored"
+            HelpMessage = 'Mark all files as refactored'
         )]
         [switch] $MarkAllCompleted,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Redo the last refactor"
+            HelpMessage = 'Redo the last refactor'
         )]
         [switch] $RedoLast,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Will automatically add modified files to the queue"
+            HelpMessage = 'Will automatically add modified files to the queue'
         )]
         [switch] $AutoAddModifiedFiles,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Force stop LM Studio before initialization"
+            HelpMessage = 'Force stop LM Studio before initialization'
         )]
         [switch] $Force,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The ide to open the file in"
+            HelpMessage = 'The ide to open the file in'
         )]
-        [Alias("c")]
+        [Alias('c')]
         [switch] $Code,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Open in Visual Studio"
+            HelpMessage = 'Open in Visual Studio'
         )]
-        [Alias("vs")]
+        [Alias('vs')]
         [switch] $VisualStudio,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Speak out the details of next refactor"
+            HelpMessage = 'Speak out the details of next refactor'
         )]
         [switch] $Speak,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Select configuration by available system RAM"
+            HelpMessage = 'Select configuration by available system RAM'
         )]
         [switch] $SelectByFreeRam,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Select configuration by available GPU RAM"
+            HelpMessage = 'Select configuration by available GPU RAM'
         )]
         [switch] $SelectByFreeGpuRam,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = ("Use alternative settings stored in session for AI " +
-                "preferences")
+            HelpMessage = ('Use alternative settings stored in session for AI ' +
+                'preferences')
         )]
         [switch] $SessionOnly,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = ("Clear alternative settings stored in session for AI " +
-                "preferences")
+            HelpMessage = ('Clear alternative settings stored in session for AI ' +
+                'preferences')
         )]
         [switch] $ClearSession,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = ("Store settings only in persistent preferences " +
-                "without affecting session")
+            HelpMessage = ('Store settings only in persistent preferences ' +
+                'without affecting session')
         )]
-        [Alias("FromPreferences")]
+        [Alias('FromPreferences')]
         [switch] $SkipSession
         ###############################################################################
     )
@@ -522,7 +523,7 @@ function Update-Refactor {
         $modulesPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\"
 
         # log start of operation for debugging and tracking
-        Microsoft.PowerShell.Utility\Write-Verbose "Starting Update-Refactor operation"
+        Microsoft.PowerShell.Utility\Write-Verbose 'Starting Update-Refactor operation'
 
         # load refactor set by name if not provided directly via pipeline
         if ($PSCmdlet.ParameterSetName -eq 'Name') {
@@ -530,14 +531,14 @@ function Update-Refactor {
             # retrieve and sort refactor definitions by priority
             $Refactor = @(
                 GenXdev.Coding\Get-Refactor -Name $Name |
-                Microsoft.PowerShell.Utility\Sort-Object -Property Priority -Descending
+                    Microsoft.PowerShell.Utility\Sort-Object -Property Priority -Descending
             )
         }
 
         # exit early if no refactor set found to prevent further processing
         if ($null -eq $Refactor -or $Refactor.Count -eq 0) {
 
-            Microsoft.PowerShell.Utility\Write-Warning "No refactorset found"
+            Microsoft.PowerShell.Utility\Write-Warning 'No refactorset found'
             return
         }
 
@@ -588,7 +589,7 @@ function Update-Refactor {
                 $null = $refactorDefinition.Log.Add(
                     [GenXdev.Helpers.RefactorLogItem]@{
                         Timestamp = $now
-                        Message   = "Log cleared"
+                        Message   = 'Log cleared'
                     }
                 )
             }
@@ -605,7 +606,7 @@ function Update-Refactor {
                 $null = $refactorDefinition.Log.Add(
                     [GenXdev.Helpers.RefactorLogItem]@{
                         Timestamp = $now
-                        Message   = "Refactor set cleared"
+                        Message   = 'Refactor set cleared'
                     }
                 )
             }
@@ -619,7 +620,7 @@ function Update-Refactor {
                     $null = $refactorDefinition.Log.Add(
                         [GenXdev.Helpers.RefactorLogItem]@{
                             Timestamp = $now
-                            Message   = ("Prompt key changed from " +
+                            Message   = ('Prompt key changed from ' +
                                 "'$($refactorDefinition.RefactorSettings.PromptKey)' " +
                                 "to '$PromptKey'")
                         }
@@ -639,7 +640,7 @@ function Update-Refactor {
                     $null = $refactorDefinition.Log.Add(
                         [GenXdev.Helpers.RefactorLogItem]@{
                             Timestamp = $now
-                            Message   = ("Prompt changed from " +
+                            Message   = ('Prompt changed from ' +
                                 "'$($refactorDefinition.RefactorSettings.Prompt)' " +
                                 "to '$Prompt'")
                         }
@@ -659,7 +660,7 @@ function Update-Refactor {
                     $null = $refactorDefinition.Log.Add(
                         [GenXdev.Helpers.RefactorLogItem]@{
                             Timestamp = $now
-                            Message   = ("Selection script changed from " +
+                            Message   = ('Selection script changed from ' +
                                 "'$($refactorDefinition.SelectionSettings.Script)' " +
                                 "to '$SelectionScript'")
                         }
@@ -679,7 +680,7 @@ function Update-Refactor {
                     $null = $refactorDefinition.Log.Add(
                         [GenXdev.Helpers.RefactorLogItem]@{
                             Timestamp = $now
-                            Message   = ("AutoAddModifiedFiles changed from " +
+                            Message   = ('AutoAddModifiedFiles changed from ' +
                                 "'$($refactorDefinition.SelectionSettings.AutoAddModifiedFiles)' " +
                                 "to '$AutoAddModifiedFiles'")
                         }
@@ -897,7 +898,7 @@ function Update-Refactor {
                     $refactorDefinition.SelectionSettings.LLM.ExposedCmdLets = $ExposedCmdLets
                 }
             }
-            if ($PSBoundParameters.ContainsKey("Priority")) {
+            if ($PSBoundParameters.ContainsKey('Priority')) {
 
                 if ($refactorDefinition.Priority -ne $Priority) {
 
@@ -923,7 +924,7 @@ function Update-Refactor {
                     $refactorDefinition.RefactorSettings.KeysToSend = $KeysToSend
                 }
             }
-            $newCode = $PSBoundParameters.ContainsKey("Code") ? ($Code ? 1 : 0) : -1;
+            $newCode = $PSBoundParameters.ContainsKey('Code') ? ($Code ? 1 : 0) : -1;
             if ($refactorDefinition.RefactorSettings.Code -ne $newCode) {
 
                 $null = $refactorDefinition.Log.Add(
@@ -935,7 +936,7 @@ function Update-Refactor {
                 $refactorDefinition.RefactorSettings.Code = $newCode
             }
 
-            $newVisualStudio = $PSBoundParameters.ContainsKey("VisualStudio") ? ($VisualStudio ? 1 : 0) : -1;
+            $newVisualStudio = $PSBoundParameters.ContainsKey('VisualStudio') ? ($VisualStudio ? 1 : 0) : -1;
             if ($refactorDefinition.RefactorSettings.VisualStudio -ne $newVisualStudio) {
 
                 $null = $refactorDefinition.Log.Add(
@@ -1052,7 +1053,7 @@ function Update-Refactor {
                 $null = $refactorDefinition.Log.Add(
                     [GenXdev.Helpers.RefactorLogItem]@{
                         Timestamp = $now
-                        Message   = "Redoing last refactor"
+                        Message   = 'Redoing last refactor'
                     }
                 )
 
@@ -1064,7 +1065,7 @@ function Update-Refactor {
                 $null = $refactorDefinition.Log.Add(
                     [GenXdev.Helpers.RefactorLogItem]@{
                         Timestamp = $now
-                        Message   = "Resetting refactor set"
+                        Message   = 'Resetting refactor set'
                     }
                 )
                 $refactorDefinition.State.RefactoredIndex = -1
@@ -1080,7 +1081,7 @@ function Update-Refactor {
                 $null = $refactorDefinition.Log.Add(
                     [GenXdev.Helpers.RefactorLogItem]@{
                         Timestamp = $now
-                        Message   = "Marking all files as refactored"
+                        Message   = 'Marking all files as refactored'
                     }
                 )
 
@@ -1099,7 +1100,7 @@ function Update-Refactor {
                 $null = $refactorDefinition.Log.Add(
                     [GenXdev.Helpers.RefactorLogItem]@{
                         Timestamp = $now
-                        Message   = "Resetting LLM selections"
+                        Message   = 'Resetting LLM selections'
                     }
                 )
 
@@ -1118,7 +1119,7 @@ function Update-Refactor {
                     if (-not [string]::IsNullOrWhiteSpace(
                             $refactorDefinition.SelectionSettings.Script)) {
 
-                        Microsoft.PowerShell.Utility\Write-Verbose "Executing selection script"
+                        Microsoft.PowerShell.Utility\Write-Verbose 'Executing selection script'
                         if (-not $Clear) {
 
                             Microsoft.PowerShell.Utility\Invoke-Expression -Command $refactorDefinition.SelectionSettings.Script
@@ -1135,8 +1136,8 @@ function Update-Refactor {
                             }
                         }
                     })) |
-            Microsoft.PowerShell.Utility\Sort-Object -Property FullName -Unique |
-            Microsoft.PowerShell.Utility\Sort-Object -Property LastWriteTimeUtc;
+                Microsoft.PowerShell.Utility\Sort-Object -Property FullName -Unique |
+                Microsoft.PowerShell.Utility\Sort-Object -Property LastWriteTimeUtc;
 
             if ($null -ne $automaticFiles) {
 
@@ -1205,7 +1206,7 @@ function Update-Refactor {
                 if ($indexRefactored -ge 0) {
 
                     $target = "File: $($_)"
-                    $action = "Remove from refactored set"
+                    $action = 'Remove from refactored set'
 
                     if ($PSCmdlet.ShouldProcess($target, $action)) {
                         $null = $refactorDefinition.State.Refactored.RemoveAt($indexRefactored)
@@ -1258,13 +1259,13 @@ function Update-Refactor {
 
                     if ($path.StartsWith("$modulesPath\GenXdev")) {
 
-                        $parts = $path.Substring($modulesPath.Length).Split("\", [System.StringSplitOptions]::RemoveEmptyEntries);
+                        $parts = $path.Substring($modulesPath.Length).Split('\', [System.StringSplitOptions]::RemoveEmptyEntries);
 
                         if ($parts.Length -gt 1) {
                             [Version] $version = $null
                             if ([Version]::tryParse($parts[1], [ref]$version)) {
 
-                                $path = "$modulesPath\$($parts[0])\1.200.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
+                                $path = "$modulesPath\$($parts[0])\1.208.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
 
                                 if ($refactorDefinition.State.Refactored.IndexOf($path) -lt 0) {
 
@@ -1285,7 +1286,7 @@ function Update-Refactor {
                 }
             }
 
-           # migrate folder names
+            # migrate folder names
             for ($selectedIndex = $refactorDefinition.State.Selected.Count - 1;
                 $selectedIndex -ge 0; $selectedIndex--) {
                 if ($null -eq $refactorDefinition.State.Selected[$selectedIndex]) {
@@ -1296,34 +1297,34 @@ function Update-Refactor {
                 else {
                     $path = (GenXdev.FileSystem\Expand-Path $refactorDefinition.State.Selected[$selectedIndex])
 
-                        if ($path.StartsWith("$modulesPath\GenXdev")) {
+                    if ($path.StartsWith("$modulesPath\GenXdev")) {
 
-                            $parts = $path.Substring($modulesPath.Length).Split("\", [System.StringSplitOptions]::RemoveEmptyEntries);
+                        $parts = $path.Substring($modulesPath.Length).Split('\', [System.StringSplitOptions]::RemoveEmptyEntries);
 
-                            if ($parts.Length -gt 1) {
-                                [Version] $version = $null
+                        if ($parts.Length -gt 1) {
+                            [Version] $version = $null
 
-                                if ([Version]::tryParse($parts[1], [ref]$version)) {
+                            if ([Version]::tryParse($parts[1], [ref]$version)) {
 
-                                    $path = "$modulesPath\$($parts[0])\1.200.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
+                                $path = "$modulesPath\$($parts[0])\1.208.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
 
-                                    if ($refactorDefinition.State.Selected.IndexOf($path) -lt 0) {
+                                if ($refactorDefinition.State.Selected.IndexOf($path) -lt 0) {
 
-                                        $refactorDefinition.State.Selected[$selectedIndex] = $path
-                                    }
-                                    else {
-                                        $null = $refactorDefinition.State.Selected.RemoveAt($selectedIndex)
+                                    $refactorDefinition.State.Selected[$selectedIndex] = $path
+                                }
+                                else {
+                                    $null = $refactorDefinition.State.Selected.RemoveAt($selectedIndex)
 
-                                        if ($selectedIndex -le $refactorDefinition.State.SelectedIndex) {
+                                    if ($selectedIndex -le $refactorDefinition.State.SelectedIndex) {
 
-                                            $refactorDefinition.State.SelectedIndex = [Math]::Max(-1,
-                                                $refactorDefinition.State.SelectedIndex - 1)
-                                        }
+                                        $refactorDefinition.State.SelectedIndex = [Math]::Max(-1,
+                                            $refactorDefinition.State.SelectedIndex - 1)
                                     }
                                 }
                             }
                         }
                     }
+                }
             }
 
             # migrate folder names
@@ -1339,13 +1340,13 @@ function Update-Refactor {
 
                     if ($path.StartsWith("$modulesPath\GenXdev")) {
 
-                        $parts = $path.Substring($modulesPath.Length).Split("\", [System.StringSplitOptions]::RemoveEmptyEntries);
+                        $parts = $path.Substring($modulesPath.Length).Split('\', [System.StringSplitOptions]::RemoveEmptyEntries);
 
                         if ($parts.Length -gt 1) {
                             [Version] $version = $null
                             if ([Version]::tryParse($parts[1], [ref]$version)) {
 
-                                $path = "$modulesPath\$($parts[0])\1.200.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
+                                $path = "$modulesPath\$($parts[0])\1.208.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
 
                                 if ($refactorDefinition.State.Unselected.IndexOf($path) -lt 0) {
 
@@ -1444,13 +1445,13 @@ function Update-Refactor {
 
                         if ($Speak) {
 
-                            GenXdev.Console\Start-TextToSpeech "What to do next?"
+                            GenXdev.Console\Start-TextToSpeech 'What to do next?'
                         }
 
                         $userAnswer = $host.ui.PromptForChoice(
-                            "There are only files left that need an LLM invocation",
-                            "What to do next?",
-                            @("&Allways run invocations", "&Run all invocation now", "&Run invocation", "&Don't invoke now"),
+                            'There are only files left that need an LLM invocation',
+                            'What to do next?',
+                            @('&Allways run invocations', '&Run all invocation now', '&Run invocation', "&Don't invoke now"),
                             0
                         )
                     }
@@ -1515,7 +1516,7 @@ function Update-Refactor {
                         }
 
                         # Register temporary verbose handler
-                        $null = Microsoft.PowerShell.Utility\Register-EngineEvent -SourceIdentifier "Verbose" -Action $verboseScriptBlock
+                        $null = Microsoft.PowerShell.Utility\Register-EngineEvent -SourceIdentifier 'Verbose' -Action $verboseScriptBlock
 
                         # Run the test and get the result
                         $result = GenXdev.Coding\Test-RefactorLLMSelection `
@@ -1535,7 +1536,7 @@ function Update-Refactor {
                     }
                     finally {
                         # Clean up verbose handling
-                        $null = Microsoft.PowerShell.Utility\Unregister-Event -SourceIdentifier "Verbose" -ErrorAction SilentlyContinue
+                        $null = Microsoft.PowerShell.Utility\Unregister-Event -SourceIdentifier 'Verbose' -ErrorAction SilentlyContinue
                     }
 
                     if ($result -eq $true) {
@@ -1581,7 +1582,7 @@ function Update-Refactor {
                         # persist changes to preferences
                         if ($PSCmdlet.ShouldProcess(
                                 "Refactor set: $($refactorDefinition.Name)",
-                                "Save changes")) {
+                                'Save changes')) {
 
                             $json = $refactorDefinition | Microsoft.PowerShell.Utility\ConvertTo-Json -Depth 10 -Compress
                             $latestJson = (GenXdev.Data\Get-GenXdevPreference `
@@ -1591,7 +1592,7 @@ function Update-Refactor {
                             )
                             if ($null -eq $latestJson) {
 
-                                Microsoft.PowerShell.Utility\Write-Warning "Refactor set has been deleted"
+                                Microsoft.PowerShell.Utility\Write-Warning 'Refactor set has been deleted'
                                 break;
                             }
 
@@ -1685,7 +1686,7 @@ function Update-Refactor {
                             Message   = "Refactor set updated, $script:filesAdded files added, " +
                             "$script:filesRemoved files removed, " +
                             "($($refactorDefinition.State.PercentageComplete)% " +
-                            "complete)"
+                            'complete)'
                         }
                     )
                 }
@@ -1693,7 +1694,7 @@ function Update-Refactor {
                 # persist changes to preferences
                 if ($PSCmdlet.ShouldProcess(
                         "Refactor set: $($refactorDefinition.Name)",
-                        "Save changes")) {
+                        'Save changes')) {
 
                     $latestJson = (GenXdev.Data\Get-GenXdevPreference `
                             -Name "refactor_set_$($refactorDefinition.Name)" `
@@ -1702,7 +1703,7 @@ function Update-Refactor {
                     )
                     if ($null -eq $latestJson) {
 
-                        Microsoft.PowerShell.Utility\Write-Warning "Refactor set has been deleted"
+                        Microsoft.PowerShell.Utility\Write-Warning 'Refactor set has been deleted'
                         break;
                     }
 
@@ -1725,7 +1726,7 @@ function Update-Refactor {
                         -ErrorAction SilentlyContinue
                 }
 
-                Microsoft.PowerShell.Utility\Write-Verbose "Refactor set updated successfully"
+                Microsoft.PowerShell.Utility\Write-Verbose 'Refactor set updated successfully'
             }
         }
     }

@@ -1,0 +1,8 @@
+{
+    "servers": {
+        "GenXdev": {
+            "type": "http",
+            "url": "http://localhost:2175/mcp"
+        }
+    }
+}

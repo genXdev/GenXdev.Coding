@@ -17,7 +17,7 @@ Get-GenXDevModuleInfo -ModuleName "GenXdev.Console"
 
 .EXAMPLE
 "GenXdev.Console" | Get-GenXDevModuleInfo
-        ###############################################################################>
+#>
 function Get-GenXDevModuleInfo {
 
     [CmdletBinding()]
@@ -29,21 +29,21 @@ function Get-GenXDevModuleInfo {
             Position = 0,
             ValueFromPipeline,
             ValueFromPipelineByPropertyName,
-            HelpMessage = "Names of modules to analyze"
+            HelpMessage = 'Names of modules to analyze'
         )]
-        [Alias("Name", "Module")]
+        [Alias('Name', 'Module')]
         [string[]] $ModuleName = @()
         ########################################################################
     )
 
     begin {
         # get all available genxdev modules
-        Microsoft.PowerShell.Utility\Write-Verbose "Retrieving all available GenXdev modules"
+        Microsoft.PowerShell.Utility\Write-Verbose 'Retrieving all available GenXdev modules'
         [System.IO.FileSystemInfo[]] $AllModules = @(GenXdev.Coding\Get-GenXDevModule)
     }
 
 
-process {
+    process {
 
         # process specified modules if any were provided
         if ($ModuleName.Count -gt 0) {
@@ -142,4 +142,3 @@ process {
     end {
     }
 }
-        ###############################################################################

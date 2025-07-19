@@ -15,48 +15,88 @@ Supports wildcards. If omitted, returns all refactor sets.
 
 .EXAMPLE
 Get-Refactor -Name "CodeStyle*"
-        ###############################################################################Returns refactor definitions matching pattern "CodeStyle*"
+Returns refactor definitions matching pattern "CodeStyle*"
 
 .EXAMPLE
 refactor "UnitTest"
-        ###############################################################################Uses alias to find refactor definitions containing "UnitTest"
-        ###############################################################################>
+Uses alias to find refactor definitions containing "UnitTest"
+#>
 function Get-Refactor {
 
     [CmdletBinding()]
-    [Alias("refactor")]
+    [Alias('refactor')]
     [OutputType([GenXdev.Helpers.RefactorDefinition[]])]
     param (
         ########################################################################
         [Parameter(
             Mandatory = $false,
             Position = 0,
-            HelpMessage = "Pattern(s) to search for refactor definitions",
+            HelpMessage = 'Pattern(s) to search for refactor definitions',
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true
         )]
         [ValidateNotNullOrEmpty()]
         [SupportsWildcards()]
-        [string[]] $Name = @("*"),
+        [Alias('PreferenceName')]
+        [string[]] $Name = @('*'),
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Database path for preference data files"
+            HelpMessage = 'Database path for preference data files'
         )]
-        [string] $PreferencesDatabasePath
+        [Alias('DatabasePath')]
+        [string] $PreferencesDatabasePath,
         ########################################################################
-        )
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'The default value if preference is not found'
+        )]
+        [AllowNull()]
+        [AllowEmptyString()]
+        [Alias('DefaultPreference')]
+        [string] $DefaultValue,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = ('Use alternative settings stored in session for Data ' +
+                'preferences like Language, Database paths, etc')
+        )]
+        [switch] $SessionOnly,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = ('Clear the session setting (Global variable) before ' +
+                'retrieving')
+        )]
+        [switch] $ClearSession,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = ('Dont use alternative settings stored in session for ' +
+                'Data preferences like Language, Database paths, etc')
+        )]
+        [Alias('FromPreferences')]
+        [switch] $SkipSession
+        ########################################################################
+    )
 
     begin {
         # no initialization needed
     }
 
 
-process {
+    process {
         # get all preference names that could contain refactor definitions
-        Microsoft.PowerShell.Utility\Write-Verbose "Searching for refactor set preferences..."
-        $prefNames = GenXdev.Data\Get-GenXdevPreferenceNames -PreferencesDatabasePath $PreferencesDatabasePath |
-        Microsoft.PowerShell.Core\Where-Object { $_ -like "refactor_set_*" }
+        Microsoft.PowerShell.Utility\Write-Verbose 'Searching for refactor set preferences...'
+
+        # Copy identical parameters for Get-GenXdevPreferenceNames
+        $prefNamesParams = GenXdev.Helpers\Copy-IdenticalParamValues `
+            -BoundParameters $PSBoundParameters `
+            -FunctionName 'GenXdev.Data\Get-GenXdevPreferenceNames' `
+            -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -ErrorAction SilentlyContinue)
+
+        $prefNames = GenXdev.Data\Get-GenXdevPreferenceNames @prefNamesParams |
+            Microsoft.PowerShell.Core\Where-Object { $_ -like 'refactor_set_*' }
         & {
             foreach ($prefName in $prefNames) {
 
@@ -66,7 +106,7 @@ process {
                 foreach ($pattern in $Name) {
 
                     # extract name portion after refactor_set_ prefix
-                    $actualName = $prefName.Substring("refactor_set_".Length)
+                    $actualName = $prefName.Substring('refactor_set_'.Length)
 
                     # skip if pattern doesn't match the actual name
                     if (-not ($actualName -like $pattern)) {
@@ -75,8 +115,15 @@ process {
                     }
 
                     # attempt to load and parse the JSON content
-                    $existingJson = GenXdev.Data\Get-GenXdevPreference -Name $prefName -PreferencesDatabasePath $PreferencesDatabasePath `
-                        -ErrorAction SilentlyContinue
+                    # Copy identical parameters for Get-GenXdevPreference
+                    $prefParams = GenXdev.Helpers\Copy-IdenticalParamValues `
+                        -BoundParameters $PSBoundParameters `
+                        -FunctionName 'GenXdev.Data\Get-GenXdevPreference' `
+                        -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -ErrorAction SilentlyContinue)
+
+                        $prefParams.Name = $prefName
+                        $existingJson = GenXdev.Data\Get-GenXdevPreference @prefParams -ErrorAction SilentlyContinue
+                        $existingJson = GenXdev.Data\Get-GenXdevPreference @prefParams -ErrorAction SilentlyContinue
 
                     # process non-empty JSON content
                     if (-not [string]::IsNullOrWhiteSpace($existingJson)) {
@@ -92,14 +139,14 @@ process {
                                 ($null -eq $refactorSet.Log)) {
 
                                 $newSet = [GenXdev.Helpers.RefactorDefinition]::new()
-                                $new.Name = $refactorSet.Name
-                                $new.Priority = $refactorSet.Priority
-                                $new.SelectionSettings.Script = (!!$refactorSet.SelectionSettings ? $refactorSet.SelectionSettings.Script : "")
+                                $newSet.Name = $refactorSet.Name
+                                $newSet.Priority = $refactorSet.Priority
+                                $newSet.SelectionSettings.Script = (!!$refactorSet.SelectionSettings ? $refactorSet.SelectionSettings.Script : '')
 
                                 $refactorSet = $newSet
                             }
 
-                            Microsoft.PowerShell.Utility\Write-Verbose ("Successfully parsed refactor set from " +
+                            Microsoft.PowerShell.Utility\Write-Verbose ('Successfully parsed refactor set from ' +
                                 "preference: $prefName")
                             Microsoft.PowerShell.Utility\Write-Output $refactorSet
                         }
@@ -119,4 +166,3 @@ process {
     end {
     }
 }
-        ###############################################################################

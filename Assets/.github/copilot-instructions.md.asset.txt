@@ -1,0 +1,95 @@
+---
+applyTo: "**"
+description: "General frontend coding guidelines"
+---
+
+## Core Development Rules
+- **Never add parameter aliases** unless explicitly listed in user request or called function's definition
+- **Edit files directly** - never return generated output in chat if file is open
+- **Add conclusions** from PowerShell/GenXdev discussions as guidelines to this file
+- **Run unit tests** using Assert-GenXdevUnitTest after making changes to cmdlets
+- **Wait for completion** - CRITICAL: Never use isBackground=true for unit tests/MCP calls, always wait for full execution (3+ minutes)
+- **Offer changelog entries** after making changes to cmdlets/scripts
+- **Commit messages** - read and empty .\change-log.md to create professional commit messages
+- **PSScriptAnalyzer exceptions** - never rename functions, create rule exceptions below [CmdletBinding()]
+
+## Parameter Copying Pattern
+Use GenXdev.Helpers\Copy-IdenticalParamValues for cmdlets that invoke other GenXdev cmdlets:
+```powershell
+$params = GenXdev.Helpers\Copy-IdenticalParamValues `
+    -BoundParameters $PSBoundParameters `
+    -FunctionName 'GenXdev.AI\Get-AIMetaLanguage' `
+    -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -ErrorAction SilentlyContinue)
+$language = Get-AIMetaLanguage @params
+```
+Copy ALL parameters except those causing wrong behaviors. Remove default values and adapt HelpMessage context.
+---------
+## MCP Server Integration
+Add PowerShell cmdlets to `Start-GenXdevMCPServer` to make them available as MCP tools:
+- Enables AI integration and remote PowerShell execution
+- Source: `.\Modules\GenXdev.AI\1.208.2025\Functions\GenXdev.AI\Start-GenXdevMCPServer.ps1`
+- Use `[GenXdev.Helpers.ExposedCmdletDefinition]` with Name, Description, AllowedParams, JsonDepth
+- Set `Confirm: false` and `OutputText: true` for most cmdlets
+
+## Memory Properties (Win32_OperatingSystem)
+- Use `TotalVisibleMemorySize` (not TotalPhysicalMemory) for total RAM
+- Values in KB - divide by 1024² for GB: `(Get-CimInstance Win32_OperatingSystem).TotalVisibleMemorySize / 1024 / 1024`
+- Include error handling and unit validation
+
+## Data Processing Guidelines (Home/Get-LatestData)
+- **Cache**: Store plain text only (no ANSI codes), clean with `\x1b\[[0-9;]*m` regex
+- **Display**: Apply colors at display time, return with `\r\n` newlines
+- **Pipeline**: Sort before limiting, dedupe with `Select-Object -Unique`
+- **Error handling**: Process sources independently, use cache as fallback
+
+## Knowledge Gap Monitoring
+Alert with "💡 **Knowledge Gap Alert**:" when missing:
+- PowerShell built-ins (`$TestDrive`, `$PSScriptRoot`, etc.)
+- Pester features, .NET Core APIs, security practices
+- Provide examples and explain why practices matter
+
+## Creative Direction
+**RESPECT USER'S VISION** - implement exactly as requested:
+- Follow user's patterns over standards
+- "Very simple" means minimal, no extras
+- "That's all" means NO additional features
+- Trust user's architectural decisions
+
+
+## Parameter Management Guidelines
+
+### Core Parameter Rules
+- **Never add aliases** unless explicitly listed in the user request or called function's parameter definition. **Do not add any aliases for new parameters unless the alias is present in the user request or in the called function's definition.**
+- **Never remove parameters** unless explicitly requested by the user - only adjust aliases to resolve conflicts
+- **Always preserve original parameters** during edits - each parameter must remain separate with its own purpose
+- **Match called function aliases** exactly for pass-through parameters
+
+### Parameter Editing Safety Protocol
+1. **Pre-Edit**: Read entire parameter section, verify all parameters will remain intact
+2. **During Edit**: One parameter at a time, include 3-5 lines context, maintain separator integrity
+3. **Post-Edit**: Run `get_errors`, verify parameter count unchanged, check separator line formatting
+
+### Parameter Formatting Standards
+- **Separator Lines**: Exactly one `###############################################################################` before each parameter block
+- **Alias Placement**: `[Alias()]` directly above `[Parameter()]` (only if alias is explicitly listed in user request or called function's definition)
+- **No Duplicates**: Each parameter has exactly one `[Parameter()]` block and, if required, one `[Alias()]` block
+- **Consistent Indentation**: Align all attributes consistently
+
+### Alias Conflict Resolution
+- **Remove conflicting alias** from calling function (never assign same alias to different parameters)
+- **Preserve backward compatibility** aliases when required
+- **Never merge parameters** even if they share aliases
+- **Document resolution steps** in change log
+
+### Emergency Recovery
+If parameters are corrupted: Stop changes → Read parameter section → Restore from called function → Verify with `get_errors` → Document recovery
+
+---------
+
+## Azure Integration
+Use Azure tools when handling Azure requests:
+- @azure Rule - Use Azure Tools for all Azure operations
+- @azure Rule - Use code gen best practices (`azure_development-get_code_gen_best_practices`)
+- @azure Rule - Use deployment best practices (`azure_development-get_deployment_best_practices`)
+- @azure Rule - Use Azure Functions best practices (`azure_development-get_azure_function_code_gen_best_practices`)
+- @azure Rule - Use SWA best practices (`azure_development-get_swa_best_practices`)

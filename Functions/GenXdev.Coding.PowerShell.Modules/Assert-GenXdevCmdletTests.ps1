@@ -1,4 +1,4 @@
-###############################################################################
+﻿###############################################################################
 <#
 .SYNOPSIS
 Asserts and improves unit-tests of a specified GenXdev cmdlet.
@@ -31,104 +31,110 @@ improvecmdlettests Get-GenXDevModuleInfo -AssertFailedTest
 function Assert-GenXdevCmdletTests {
 
     [CmdletBinding()]
-    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseSingularNouns", "")]
-    [Alias("improvecmdlettests")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '')]
+    [Alias('improvecmdlettests')]
     param(
-########################################################################
-        [Alias("cmd")]
+        ########################################################################
+        [Alias('cmd')]
         [parameter(
             Mandatory = $true,
             Position = 0,
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = "The name of the cmdlet to improve unit-tests for"
+            HelpMessage = 'The name of the cmdlet to improve unit-tests for'
         )]
         [ValidateNotNullOrEmpty()]
         [string] $CmdletName,
 
-########################################################################
+        ########################################################################
         [parameter(
             Position = 1,
             Mandatory = $false,
-            HelpMessage = "Custom AI prompt text to use"
+            HelpMessage = 'Custom AI prompt text to use'
         )]
         [AllowEmptyString()]
-        [string] $Prompt = "",
-########################################################################
+        [string] $Prompt = '',
+        ########################################################################
         [parameter(
             Position = 2,
             Mandatory = $false,
-            HelpMessage = "The AI prompt key to use for template selection"
+            HelpMessage = 'The AI prompt key to use for template selection'
         )]
         [AllowEmptyString()]
         [string] $PromptKey,
-########################################################################
+        ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Switch to only edit the AI prompt"
+            HelpMessage = 'Switch to only edit the AI prompt'
         )]
         [switch] $EditPrompt,
 
-########################################################################
+        ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Indicates to assert a failed test"
+            HelpMessage = 'Indicates to assert a failed test'
         )]
         [switch] $AssertFailedTest,
-########################################################################
+        ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Search in script files instead of modules"
+            HelpMessage = 'Search in script files instead of modules'
         )]
         [switch] $FromScripts
-########################################################################
+        ########################################################################
     )
 
     begin {
 
-# get target cmdlet information including script position
-        $cmdlet = GenXdev.Helpers\Get-GenXDevCmdlets -CmdletName $CmdletName -FromScripts:$FromScripts
+        # get target cmdlet information including script position
+        $params = GenXdev.Helpers\Copy-IdenticalParamValues `
+            -FunctionName 'GenXdev.Helpers\Get-GenXDevCmdlets' `
+            -BoundParameters $PSBoundParameters
+        $params.ExactMatch = $true
+        $params.CmdletName = $CmdletName
+        $cmdlet = GenXdev.Helpers\Get-GenXDevCmdlets @params |
+            Microsoft.PowerShell.Utility\Select-Object -First 1
 
-# validate cmdlet exists
+        # validate cmdlet exists
         if ($null -eq $cmdlet) {
             throw "Could not find GenXdev cmdlet $CmdletName"
         }
 
-# store cmdlet name for later use
+        # store cmdlet name for later use
         $CmdletName = $cmdlet.Name
-        $functionDefinition = "";
+        $functionDefinition = '';
 
-# determine which prompt template to use based on test file existence
+        # determine which prompt template to use based on test file existence
         if (-not [string]::IsNullOrWhiteSpace($PromptKey)) {
 
-            $PromptKey = "CreateUnitTests"
+            $PromptKey = 'CreateUnitTests'
             $functionDefinition = [System.IO.File]::ReadAllText($cmdlet.ScriptFilePath)
 
             if ([IO.File]::Exists($cmdlet.ScriptTestFilePath) -and
                 (-not [string]::IsNullOrWhiteSpace($functionDefinition))) {
 
-                $PromptKey = $AssertFailedTest ? "ResolveFailedTest" : "ImproveUnitTest"
+                $PromptKey = $AssertFailedTest ? 'ResolveFailedTest' : 'ImproveUnitTest'
             }
         }
 
-# process prompt template if key provided
+        # process prompt template if key provided
         if (-not [string]::IsNullOrWhiteSpace($PromptKey)) {
 
-    # construct path to prompt template file
+            # construct path to prompt template file
             $promptFilePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Prompts\GenXdev.Coding.PowerShell.Modules\Assert-$PromptKey.txt"
 
-    # ensure prompt directory exists and expand path
+            # ensure prompt directory exists and expand path
             $promptFilePath = GenXdev.FileSystem\Expand-Path -FilePath $promptFilePath `
                 -CreateDirectory
 
-    # load template and replace placeholder
+            # load template and replace placeholder
             $Prompt = [System.IO.File]::ReadAllText($promptFilePath).Replace(
                 "`$Prompt",
                 $Prompt
             )
         }
 
-# populate template variables
+        # populate template variables
         $Prompt = $Prompt.Replace("`$CmdletName", $cmdlet.Name)
         $Prompt = $Prompt.Replace("`$CmdLetNoTestName", $cmdlet.Name)
         $Prompt = $Prompt.Replace(
@@ -142,7 +148,7 @@ function Assert-GenXdevCmdletTests {
         $Prompt = $Prompt.Replace(
             "`$BaseModuleName",
 
-            [string]::Join(".", ($cmdlet.ModuleName.Split(".") | Microsoft.PowerShell.Utility\Select-Object -First 2 -ErrorAction SilentlyContinue))
+            [string]::Join('.', ($cmdlet.ModuleName.Split('.') | Microsoft.PowerShell.Utility\Select-Object -First 2 -ErrorAction SilentlyContinue))
         )
         $Prompt = $Prompt.Replace(
             "`$ScriptFileName",
@@ -152,9 +158,9 @@ function Assert-GenXdevCmdletTests {
             "`$FunctionDefinition",
             $functionDefinition
         )
-        $Prompt = $Prompt.Replace("`t", "  ")
+        $Prompt = $Prompt.Replace("`t", '  ')
 
-# copy final prompt for use
+        # copy final prompt for use
         $previousClipboard = Microsoft.PowerShell.Management\Get-Clipboard
         $null = Microsoft.PowerShell.Management\Set-Clipboard -Value $Prompt
     }
@@ -162,7 +168,7 @@ function Assert-GenXdevCmdletTests {
 
     process {
 
-# handle prompt editing request
+        # handle prompt editing request
         if ($EditPrompt) {
             p -c
             code $promptFilePath
@@ -171,68 +177,68 @@ function Assert-GenXdevCmdletTests {
 
         $found = $true
 
-# create test file if missing
+        # create test file if missing
         if (-not [IO.File]::Exists($cmdlet.ScriptTestFilePath) -or
             ([IO.File]::ReadAllText($cmdlet.ScriptTestFilePath).Trim() -eq [string]::Empty)) {
 
             $found = $false
-            Microsoft.PowerShell.Utility\Write-Verbose "Creating new unit test file"
+            Microsoft.PowerShell.Utility\Write-Verbose 'Creating new unit test file'
             $null = GenXdev.FileSystem\Expand-Path -FilePath ($cmdlet.ScriptTestFilePath) -CreateFile
         }
 
-# ensure copilot keyboard shortcut is configured
+        # ensure copilot keyboard shortcut is configured
         GenXdev.Coding\EnsureCopilotKeyboardShortCut
 
-# open cmdlet in vscode and activate copilot
-# open cmdlet in vscode and insert prompt
-# open cmdlet in vscode and insert prompt
+        # open cmdlet in vscode and activate copilot
+        # open cmdlet in vscode and insert prompt
+        # open cmdlet in vscode and insert prompt
         $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
-            -FunctionName "GenXdev.Coding\Show-GenXdevCmdLetInIde" `
+            -FunctionName 'GenXdev.Coding\Show-GenXdevCmdLetInIde' `
             -BoundParameters $PSBoundParameters
         $invocationParams.UnitTests = $true
         $invocationParams.CmdletName = $CmdletName
         $invocationParams.Code = $true
-        $keysToSendFirst = @("^``", "^``", "^+i", "^l", "^a", "{DELETE}", "^+i", "{ESCAPE}", "^+%{F12}", "^+i")
-        $keysToSendLast = @("^+%{F12}", "{ENTER}", "^v", "{ENTER}", "^{ENTER}","^``")
+        $keysToSendFirst = @("^``", "^``", '^+i', '^l', '^a', '{DELETE}', '^+i', '{ESCAPE}', '^+%{F12}', '^+i')
+        $keysToSendLast = @('^+%{F12}', '{ENTER}', '^v', '{ENTER}', '^{ENTER}',"^``")
         $invocationParams.KeysToSend = $keysToSendFirst;
         GenXdev.Coding\Show-GenXdevCmdLetInIde @invocationParams
 
-# switch to test file and paste prompt
-        Microsoft.PowerShell.Utility\Write-Verbose "Applying AI prompt from clipboard"
+        # switch to test file and paste prompt
+        Microsoft.PowerShell.Utility\Write-Verbose 'Applying AI prompt from clipboard'
         $invocationParams.KeysToSend = $keysToSendLast
         $invocationParams.UnitTests = $false
         GenXdev.Coding\Show-GenXdevCmdLetInIde @invocationParams
         Microsoft.PowerShell.Utility\Start-Sleep 4;
-# handle workflow based on whether test file existed
+        # handle workflow based on whether test file existed
         if (-not $found) {
 
             switch ($host.ui.PromptForChoice(
-                    "Make a choice",
-                    "What to do next?",
-                    @("&Stop", "&Test the new unit tests", "Redo &Last"),
-                    0)) {
-                0 { throw "Stopped"; return }
-                1 { return (GenXdev.Coding\Assert-GenXdevUnitTest -CmdletName $CmdletName -DebugFailedTests) }
-                2 { return GenXdev.Coding\Assert-GenXdevCmdletTests @PSBoundParameters }
+                    'Make a choice',
+                    'What to do next?',
+                    @('&Stop', '&Test the new unit tests', 'Redo &Last'),
+                    1)) {
+                    0 { throw 'Stopped'; return }
+                    1 { return (GenXdev.Coding\Assert-GenXdevUnitTest -CmdletName $CmdletName -DebugFailedTests) }
+                    2 { return GenXdev.Coding\Assert-GenXdevCmdletTests @PSBoundParameters }
             }
         }
         else {
 
             switch ($host.ui.PromptForChoice(
-                    "Make a choice",
-                    "What to do next?",
-                    @("&Stop", "&Test the improved unit tests", "Redo &Last"),
-                    0)) {
-                0 { throw "Stopped"; return }
-                1 { return (GenXdev.Coding\Assert-GenXdevUnitTest -CmdletName $CmdletName -DebugFailedTests -Verbosity Normal) }
-                2 { return GenXdev.Coding\Assert-GenXdevCmdletTests @PSBoundParameters }
+                    'Make a choice',
+                    'What to do next?',
+                    @('&Stop', '&Test the improved unit tests', 'Redo &Last'),
+                    1)) {
+                    0 { throw 'Stopped'; return }
+                    1 { return (GenXdev.Coding\Assert-GenXdevUnitTest -CmdletName $CmdletName -DebugFailedTests -Verbosity Normal) }
+                    2 { return GenXdev.Coding\Assert-GenXdevCmdletTests @PSBoundParameters }
             }
         }
     }
 
     end {
 
-# restore previous clipboard content
+        # restore previous clipboard content
         $null = Microsoft.PowerShell.Management\Set-Clipboard -Value $previousClipboard
     }
 }

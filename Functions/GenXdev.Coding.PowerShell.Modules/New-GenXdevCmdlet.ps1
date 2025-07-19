@@ -46,20 +46,20 @@ New-GenXdevCmdlet -CmdletName "Get-SystemInfo" -Synopsis "Gets system informatio
 
 .EXAMPLE
 gcmd Get-SystemInfo -EditPrompt
-        ###############################################################################>
+#>
 function New-GenXdevCmdlet {
 
     [CmdletBinding(SupportsShouldProcess)]
-    [Alias("gcmd")]
+    [Alias('gcmd')]
     param (
         ########################################################################
-        [Alias("cmd")]
+        [Alias('cmd')]
         [parameter(
             Mandatory = $true,
             Position = 0,
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = "The name of the cmdlet to create (must use approved verb)"
+            HelpMessage = 'The name of the cmdlet to create (must use approved verb)'
         )]
         [ValidateNotNullOrEmpty()]
         [string] $CmdletName,
@@ -75,55 +75,55 @@ function New-GenXdevCmdlet {
         [Parameter(
             Position = 2,
             Mandatory = $false,
-            HelpMessage = "A detailed description of what the cmdlet does"
+            HelpMessage = 'A detailed description of what the cmdlet does'
         )]
         [ValidateNotNullOrEmpty()]
-        [string] $Description = "todo: [A detailed description of what the cmdlet does]",
+        [string] $Description = 'todo: [A detailed description of what the cmdlet does]',
         ########################################################################
-       [Parameter(
+        [Parameter(
             Mandatory = $false,
             Position = 3,
-            HelpMessage = "Integrate the new cmdlet into an existing GenXdev module"
+            HelpMessage = 'Integrate the new cmdlet into an existing GenXdev module'
         )]
         [ValidateNotNullOrEmpty()]
-        [ValidatePattern("^(GenXdev|GenXdev(\.\w+)+)+$")]
+        [ValidatePattern('^(GenXdev|GenXdev(\.\w+)+)+$')]
         [string] $BaseModuleName,
         ########################################################################
-       [Parameter(
+        [Parameter(
             Mandatory = $false,
             Position = 4,
-            HelpMessage = "Integrate the new cmdlet into an existing GenXdev sub module"
+            HelpMessage = 'Integrate the new cmdlet into an existing GenXdev sub module'
         )]
         [ValidateNotNullOrEmpty()]
-        [ValidatePattern("^(GenXdev(\.\w+)+)+$")]
+        [ValidatePattern('^(GenXdev(\.\w+)+)+$')]
         [string] $ModuleName,
         ########################################################################
         [parameter(
             Mandatory = $false,
             Position = 5,
-            HelpMessage = "One or more aliases for the cmdlet. Accepts an array of strings."
+            HelpMessage = 'One or more aliases for the cmdlet. Accepts an array of strings.'
         )]
         [string[]] $CmdletAliases,
         ########################################################################
         [parameter(
             Mandatory = $false,
             Position = 6,
-            HelpMessage = "The AI prompt key to use for template selection"
+            HelpMessage = 'The AI prompt key to use for template selection'
         )]
         [ValidateNotNullOrEmpty()]
-        [string] $PromptKey = "NewGenXdevCmdLet",
+        [string] $PromptKey = 'NewGenXdevCmdLet',
         ########################################################################
         [parameter(
             Mandatory = $false,
             Position = 7,
-            HelpMessage = "Custom AI prompt text to use for cmdlet generation"
+            HelpMessage = 'Custom AI prompt text to use for cmdlet generation'
         )]
         [AllowEmptyString()]
         [string] $Prompt = "Create a boilerplate GenXdev cmdlet that does what it's name suggests",
         ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Only edit the AI prompt without creating the cmdlet"
+            HelpMessage = 'Only edit the AI prompt without creating the cmdlet'
         )]
         [switch] $EditPrompt
         ########################################################################
@@ -159,7 +159,7 @@ function New-GenXdevCmdlet {
     }
 
 
-process {
+    process {
 
         # validate the verb against the official powershell approved verbs list
         $verbs = @(Microsoft.PowerShell.Utility\Get-Verb | Microsoft.PowerShell.Core\ForEach-Object { $_.Verb.ToLowerInvariant() })
@@ -176,7 +176,7 @@ process {
 
         if (-not [string]::IsNullOrWhiteSpace($BaseModuleName)) {
 
-           if (-not (Microsoft.PowerShell.Core\Get-Module -Name $BaseModuleName -ErrorAction SilentlyContinue)) {
+            if (-not (Microsoft.PowerShell.Core\Get-Module -Name $BaseModuleName -ErrorAction SilentlyContinue)) {
 
                 $modulesPath = GenXdev.FileSystem\Expand-Path -Path "$PSScriptRoot\..\..\..\..\Modules\"
                 $moduleRootDirectory = GenXdev.FileSystem\Expand-Path `
@@ -187,9 +187,9 @@ process {
                     throw "Module '$BaseModuleName' not found under directory: $moduleRootDirectory`r`nSee 'New-GenXdevModule -?' on how to create a new module"
                 }
 
-               throw "Module $BaseModuleName is not loaded"
-               return
-           }
+                throw "Module $BaseModuleName is not loaded"
+                return
+            }
         }
 
         # ensure proper casing for verb (first letter capital, rest lowercase)
@@ -217,25 +217,25 @@ process {
 
         # check if we should proceed with cmdlet creation
         $target = "PowerShell Cmdlet '$CmdletName'"
-        $action = "Create new cmdlet file and validate structure"
+        $action = 'Create new cmdlet file and validate structure'
 
         [string] $filePath
 
         if ($PSCmdlet.ShouldProcess($target, $action)) {
 
-        Microsoft.PowerShell.Utility\Write-Verbose "Creating cmdlet file at: $PSScriptRoot\$CmdletName.ps1"
+            Microsoft.PowerShell.Utility\Write-Verbose "Creating cmdlet file at: $PSScriptRoot\$CmdletName.ps1"
 
-        if (-not [string]::IsNullOrWhiteSpace($BaseModuleName)) {
+            if (-not [string]::IsNullOrWhiteSpace($BaseModuleName)) {
 
-            $filePath = GenXdev.FileSystem\Expand-Path `
-                "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.200.2025\Functions\$ModuleName\$CmdletName.ps1" `
-                -DeleteExistingFile -CreateDirectory
+                $filePath = GenXdev.FileSystem\Expand-Path `
+                    "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.208.2025\Functions\$ModuleName\$CmdletName.ps1" `
+                    -DeleteExistingFile -CreateDirectory
 
-            $testFilePath = GenXdev.FileSystem\Expand-Path `
-                "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.200.2025\Tests\$ModuleName\$CmdletName.Tests.ps1" `
-                -DeleteExistingFile -CreateDirectory
+                $testFilePath = GenXdev.FileSystem\Expand-Path `
+                    "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.208.2025\Tests\$ModuleName\$CmdletName.Tests.ps1" `
+                    -DeleteExistingFile -CreateDirectory
 
-@"
+                @"
     ################################################################################
     Pester\Describe `"$CmdletName`" {
 
@@ -278,7 +278,7 @@ process {
     ################################################################################
 "@ | Microsoft.PowerShell.Utility\Out-File -FilePath $testFilePath;
 
-@"
+                @"
     ################################################################################
     <#
     .SYNOPSIS
@@ -292,7 +292,7 @@ process {
 
         ############################################################################
         [CmdletBinding()]
-        [Alias($(($CmdletAliases | Microsoft.PowerShell.Core\ForEach-Object { "`"$_`"" }) -join ", "))]
+        [Alias($(($CmdletAliases | Microsoft.PowerShell.Core\ForEach-Object { "`"$_`"" }) -join ', '))]
         param (
         ############################################################################
         ############################################################################
@@ -313,39 +313,39 @@ process {
     }
 "@ | Microsoft.PowerShell.Utility\Out-File -FilePath $filePath
 
-            $ModuleManifestPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.200.2025\$BaseModuleName.psd1"
-            $ModuleManifest = Microsoft.PowerShell.Utility\Import-PowerShellDataFile -Path $ModuleManifestPath
-            if ($BaseModuleName -ne $ModuleName) {
+                $ModuleManifestPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.208.2025\$BaseModuleName.psd1"
+                $ModuleManifest = Microsoft.PowerShell.Utility\Import-PowerShellDataFile -Path $ModuleManifestPath
+                if ($BaseModuleName -ne $ModuleName) {
 
-                if (@($ModuleManifest.NestedModules | Microsoft.PowerShell.Core\Where-Object { $_ -like "$ModuleName.psm1" }).Count -eq 0) {
+                    if (@($ModuleManifest.NestedModules | Microsoft.PowerShell.Core\Where-Object { $_ -like "$ModuleName.psm1" }).Count -eq 0) {
 
-                    $ModuleManifest.NestedModules += "$ModuleName.psm1"
+                        $ModuleManifest.NestedModules += "$ModuleName.psm1"
+                    }
                 }
+
+                $ModuleManifest.FunctionsToExport += $CmdletName
+                $ModuleManifest.FileList += (GenXdev.FileSystem\Find-Item $filePath -RelativeBasePath (GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.208.2025\")).Substring(2)
+                $ModuleManifest.FileList += (GenXdev.FileSystem\Find-Item $testFilePath -RelativeBasePath (GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.208.2025\")).Substring(2)
+                $ModuleManifest.AliasesToExport += $CmdletAliases
+
+                Microsoft.PowerShell.PSResourceGet\Update-PSModuleManifest `
+                    -Path $ModuleManifestPath `
+                    -FunctionsToExport $ModuleManifest.FunctionsToExport `
+                    -FileList $ModuleManifest.FileList `
+                    -AliasesToExport $ModuleManifest.AliasesToExport `
+                    -NestedModules $ModuleManifest.NestedModules
+
+                $PsmFilePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.208.2025\$ModuleName.psm1"
+
+                "`r`n. `"`$PSScriptRoot\Functions\$ModuleName\$CmdletName.ps1`"" | Microsoft.PowerShell.Utility\Out-File -FilePath $PsmFilePath -Append
             }
+            else {
 
-            $ModuleManifest.FunctionsToExport += $CmdletName
-            $ModuleManifest.FileList += (GenXdev.FileSystem\Find-Item $filePath -RelativeBasePath (GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.200.2025\")).Substring(2)
-            $ModuleManifest.FileList += (GenXdev.FileSystem\Find-Item $testFilePath -RelativeBasePath (GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.200.2025\")).Substring(2)
-            $ModuleManifest.AliasesToExport += $CmdletAliases
+                $filePath = GenXdev.FileSystem\Expand-Path `
+                    "$PSScriptRoot\..\..\..\..\..\Scripts\$CmdletName.ps1" `
+                    -DeleteExistingFile -CreateDirectory
 
-            Microsoft.PowerShell.PSResourceGet\Update-PSModuleManifest `
-                -Path $ModuleManifestPath `
-                -FunctionsToExport $ModuleManifest.FunctionsToExport `
-                -FileList $ModuleManifest.FileList `
-                -AliasesToExport $ModuleManifest.AliasesToExport `
-                -NestedModules $ModuleManifest.NestedModules
-
-            $PsmFilePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.200.2025\$ModuleName.psm1"
-
-            "`r`n. `"`$PSScriptRoot\Functions\$ModuleName\$CmdletName.ps1`"" | Microsoft.PowerShell.Utility\Out-File -FilePath $PsmFilePath -Append
-        }
-        else {
-
-            $filePath = GenXdev.FileSystem\Expand-Path `
-                "$PSScriptRoot\..\..\..\..\..\Scripts\$CmdletName.ps1" `
-                -DeleteExistingFile -CreateDirectory
-
-@"
+                @"
     ################################################################################
     <#
     .SYNOPSIS
@@ -356,7 +356,7 @@ process {
     #>
     ################################################################################
     [CmdletBinding()]
-    [Alias($(($CmdletAliases | Microsoft.PowerShell.Core\ForEach-Object { "`"$_`"" }) -join ", "))]
+    [Alias($(($CmdletAliases | Microsoft.PowerShell.Core\ForEach-Object { "`"$_`"" }) -join ', '))]
     param (
         ############################################################################
         ############################################################################
@@ -377,9 +377,9 @@ process {
 "@ | Microsoft.PowerShell.Utility\Out-File -FilePath $filePath
 
                 $testFilePath = GenXdev.FileSystem\Expand-Path `
-                        "$PSScriptRoot\..\..\..\..\..\Scripts\$CmdletName.Tests.ps1" `
-                        -DeleteExistingFile -CreateDirectory
-    @"
+                    "$PSScriptRoot\..\..\..\..\..\Scripts\$CmdletName.Tests.ps1" `
+                    -DeleteExistingFile -CreateDirectory
+                @"
     ################################################################################
     Pester\Describe `"$CmdletName`" {
 
@@ -425,21 +425,21 @@ process {
 
             }
 
-         if (-not [string]::IsNullOrWhiteSpace($BaseModuleName)) {
+            if (-not [string]::IsNullOrWhiteSpace($BaseModuleName)) {
 
                 try {
                     $null = Microsoft.PowerShell.Core\Import-Module -Name $BaseModuleName -Force
                 }
                 catch {
 
-                    $null = GenXdev.Coding\Assert-ModuleDefinition -ModuleName $BaseModuleName
+                $null = GenXdev.Coding\Assert-ModuleDefinition -ModuleName $BaseModuleName
                 }
             }
 
             # setup and execute the cmdlet assertion
             $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
                 -BoundParameters $PSBoundParameters `
-                -FunctionName "GenXdev.Coding\Assert-GenXdevCmdletTests" `
+                -FunctionName 'GenXdev.Coding\Assert-GenXdevCmdletTests' `
                 -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * `
                     -ErrorAction SilentlyContinue)
 
@@ -448,7 +448,7 @@ process {
             $invocationParams.Prompt = $Prompt
             $invocationParams.FromScripts = ([string]::IsNullOrWhiteSpace($BaseModuleName))
 
-            GenXdev.Coding\Assert-GenXdevCmdletTests @invocationParams
+            $null = GenXdev.Coding\Assert-GenXdevCmdletTests @invocationParams
 
             if ([string]::IsNullOrWhiteSpace($BaseModuleName)) {
 
@@ -460,4 +460,3 @@ process {
     end {
     }
 } # Close function block
-        ###############################################################################

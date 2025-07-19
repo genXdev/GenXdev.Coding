@@ -1,4 +1,4 @@
-###############################################################################
+﻿###############################################################################
 <#
 .SYNOPSIS
 Splits a PowerShell module (.psm1) file into individual function files.
@@ -18,7 +18,7 @@ SplitUpPsm1File -Psm1FilePath "C:\Modules\MyModule\MyModule.psm1"
 
 .EXAMPLE
 split "C:\Modules\MyModule\MyModule.psm1"
-        ###############################################################################>
+#>
 function SplitUpPsm1File {
 
     [CmdletBinding()]
@@ -30,10 +30,10 @@ function SplitUpPsm1File {
             Position = 0,
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = "Path to the .psm1 file to split into functions"
+            HelpMessage = 'Path to the .psm1 file to split into functions'
         )]
         [ValidateNotNullOrEmpty()]
-        [Alias("Path")]
+        [Alias('Path')]
         [string] $Psm1FilePath
         ########################################################################
     )
@@ -55,7 +55,7 @@ function SplitUpPsm1File {
     }
 
 
-process {
+    process {
 
         # read all lines from the module file
         $psm1Content = [System.IO.File]::ReadAllLines($psm1FilePath)
@@ -63,22 +63,22 @@ process {
         # initialize variables to track function parsing state
         $inFunction = $false
         $inFunctionHeader = $false
-        $functionContent = ""
-        $functionName = ""
+        $functionContent = ''
+        $functionName = ''
 
         # process each line to extract function blocks with their documentation
         $functions = $psm1Content | Microsoft.PowerShell.Core\ForEach-Object {
 
             # look for the start of function documentation (line of hash marks)
             if (-not $inFunction) {
-                if ($_ -match "^#+$") {
+                if ($_ -match '^#+$') {
                     $inFunctionHeader = $true
                     $functionContent = $_ + "`r`n"
                     return
                 }
 
                 # detect the function declaration and extract the name
-                if ($_ -match "^function\s+([\w-]+)") {
+                if ($_ -match '^function\s+([\w-]+)') {
                     $functionName = $matches[1]
                     $inFunction = $true
                     $inFunctionHeader = $false
@@ -95,15 +95,15 @@ process {
             }
 
             # detect function end and emit the complete function
-            if ($_ -match "^}\s*$") {
+            if ($_ -match '^}\s*$') {
                 $functionContent += $_ + "`r`n"
                 $inFunction = $false
                 @{
-                    "functionName"    = $functionName
-                    "functionContent" = $functionContent
+                    'functionName'    = $functionName
+                    'functionContent' = $functionContent
                 }
-                $functionContent = ""
-                $functionName = ""
+                $functionContent = ''
+                $functionName = ''
                 return
             }
 
@@ -116,7 +116,7 @@ process {
 
         # verify that functions were found in the module
         if (-not $functions) {
-            Microsoft.PowerShell.Utility\Write-Verbose "No functions were found in the module file"
+            Microsoft.PowerShell.Utility\Write-Verbose 'No functions were found in the module file'
             return
         }
 
@@ -134,19 +134,34 @@ process {
 
     end {
         # update the module file to dot-source all function files
-        Microsoft.PowerShell.Utility\Write-Verbose "Updating module file to dot-source function files"
+        Microsoft.PowerShell.Utility\Write-Verbose 'Updating module file to dot-source function files'
+@"
+if (-not `$IsWindows) {
+    throw "This module only supports Windows 10+ x64 with PowerShell 7.5+ x64"
+}
+
+`$osVersion = [System.Environment]::OSVersion.Version
+`$major = `$osVersion.Major
+`$build = `$osVersion.Build
+
+if (`$major -ne 10) {
+    throw "This module only supports Windows 10+ x64 with PowerShell 7.5+ x64"
+}
+$PSItem
+
+"@  | Microsoft.PowerShell.Utility\Out-File $psm1FilePath -Force
+
         Microsoft.PowerShell.Management\Get-ChildItem "$functionsDir\*.ps1" -File -Recurse `
             -ErrorAction SilentlyContinue |
-        Microsoft.PowerShell.Core\ForEach-Object {
-            if ($PSItem.Name.StartsWith("_")) {
-                return;
-            }
-            $dirName = [IO.Path]::GetFileName([IO.Path]::GetDirectoryName($_))
-            ". `"`$PSScriptRoot\Functions\$dirName\$($_.Name)`""
-        } |
-        Microsoft.PowerShell.Utility\Out-File $psm1FilePath -Force
+            Microsoft.PowerShell.Core\ForEach-Object {
+                if ($PSItem.Name.StartsWith('_')) {
+                    return;
+                }
+                $dirName = [IO.Path]::GetFileName([IO.Path]::GetDirectoryName($_))
+                ". `"`$PSScriptRoot\Functions\$dirName\$($_.Name)`""
+            } |
+            Microsoft.PowerShell.Utility\Out-File $psm1FilePath -Force -Append
 
-        Microsoft.PowerShell.Utility\Write-Verbose "Module splitting completed successfully"
+        Microsoft.PowerShell.Utility\Write-Verbose 'Module splitting completed successfully'
     }
 }
-        ###############################################################################

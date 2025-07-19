@@ -1,4 +1,4 @@
-###############################################################################
+﻿###############################################################################
 <#
 .SYNOPSIS
 Opens files in IDE that contain clipboard text
@@ -10,23 +10,30 @@ function Open-GenXdevCmdletsContainingClipboardTextInIde {
 
     ############################################################################
     [CmdletBinding()]
-    [Alias("vscodeclipboard")]
+    [Alias('vscodesearch')]
     param (
-    ########################################################################
-    [Parameter(
-        Mandatory = $false,
-        HelpMessage = "Add sourcefile to Copilot edit-session"
-    )]
-    [switch]$Copilot
+        ############################################################################
+        [Parameter(
+            Mandatory = $false,
+            Position = 0,
+            ValueFromPipeline = $true,
+            HelpMessage = 'Search for clipboard text in all GenXdev scripts'
+        )]
+        [string] $InputObject,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Add sourcefile to Copilot edit-session'
+        )]
+        [switch]$Copilot
     )
 
     ############################################################################
     begin {
 
         $clipboardText = Microsoft.PowerShell.Management\Get-Clipboard
-        $searchPattern = [System.Text.RegularExpressions.Regex]::Escape($clipboardText)
-        if ($Copilot) {
 
+        if ($Copilot) {
             $null = GenXdev.Coding\EnsureCopilotKeyboardShortCut
         }
     }
@@ -35,12 +42,23 @@ function Open-GenXdevCmdletsContainingClipboardTextInIde {
 
     process {
 
-        GenXdev.Helpers\foreach-genxdev-module-do {
+        if ($null -eq $inputObject) {
+            $inputObject = $clipboardText
+        }
+
+        if ([string]::IsNullOrWhiteSpace($inputObject)) {
+            Microsoft.PowerShell.Utility\Write-Error 'No input object provided. Please provide a string to search for or set a clipboard text.'
+            return
+        }
+
+        $searchPattern = [System.Text.RegularExpressions.Regex]::Escape($inputObject)
+
+        GenXdev.Helpers\Invoke-OnEachGenXdevModule {
 
             param($module)
 
             $filePaths = GenXdev.FileSystem\Find-Item `
-                -SearchMask "*.ps1" `
+                -SearchMask '*.ps1' `
                 -Pattern $searchPattern `
                 -PassThru | Microsoft.PowerShell.Core\ForEach-Object FullNames
 
@@ -48,14 +66,14 @@ function Open-GenXdevCmdletsContainingClipboardTextInIde {
 
                 $invocationArgs = GenXdev.Helpers\Copy-IdenticalParamValues `
                     -BoundParameters $PSBoundParameters `
-                    -FunctionName "GenXdev.Coding\Open-SourceFileInIde"
+                    -FunctionName 'GenXdev.Coding\Open-SourceFileInIde'
 
                 $invocationArgs.Path = $filePaths
                 $invocationArgs.Code = $true
 
                 if ($Copilot) {
 
-                    $invocationArgs.KeysToSend = @("^+%{F12}")
+                    $invocationArgs.KeysToSend = @('^+%{F12}')
                 }
 
                 GenXdev.Coding\Open-SourceFileInIde @invocationArgs

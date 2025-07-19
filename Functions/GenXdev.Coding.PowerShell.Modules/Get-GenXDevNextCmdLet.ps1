@@ -1,4 +1,4 @@
-###############################################################################
+﻿###############################################################################
 <#
 .SYNOPSIS
 Retrieves the next GenXdev cmdlet to be improved.
@@ -32,7 +32,7 @@ Get-GenXDevNextCmdLet -ModuleName "GenXdev.Helpers" -Reset
 
 .EXAMPLE
 Get-GenXDevNextCmdLet GenXdev.Helpers
-        ###############################################################################>
+#>
 function Get-GenXDevNextCmdLet {
 
     [CmdletBinding()]
@@ -43,23 +43,23 @@ function Get-GenXDevNextCmdLet {
             Mandatory = $false,
             Position = 0,
             ValueFromRemainingArguments = $false,
-            HelpMessage = "Search pattern to filter cmdlets"
+            HelpMessage = 'Search pattern to filter cmdlets'
         )]
-        [Alias("Filter", "CmdLet", "Cmd", "FunctionName", "Name")]
+        [Alias('Filter', 'CmdLet', 'Cmd', 'FunctionName', 'Name')]
         [SupportsWildcards()]
-        [string] $CmdletName = "*",
+        [string] $CmdletName = '*',
         ########################################################################
         [parameter(
             Mandatory = $false,
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true,
             Position = 1,
-            HelpMessage = "GenXdev module names to search"
+            HelpMessage = 'GenXdev module names to search'
         )]
         [ValidateNotNullOrEmpty()]
-        [Alias("Module", "ModuleName")]
-        [ValidatePattern("^(GenXdev|GenXde[v]\*|GenXdev(\.\w+)+)+$")]
-        [string[]] $BaseModuleName = @("GenXdev*"),
+        [Alias('Module', 'ModuleName')]
+        [ValidatePattern('^(GenXdev|GenXde[v]\*|GenXdev(\.\w+)+)+$')]
+        [string[]] $BaseModuleName = @('GenXdev*'),
         ########################################################################
         [Parameter(Mandatory = $false)]
         [switch] $NoLocal,
@@ -74,7 +74,7 @@ function Get-GenXDevNextCmdLet {
         ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Start from the beginning"
+            HelpMessage = 'Start from the beginning'
         )]
         [switch] $Reset,
 
@@ -88,32 +88,32 @@ function Get-GenXDevNextCmdLet {
         ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Key for storing the last cmdlet index"
+            HelpMessage = 'Key for storing the last cmdlet index'
         )]
-        [string] $Key = "",
+        [string] $Key = '',
 
         ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Indicates to skip cmdlets that already have unit-tests"
+            HelpMessage = 'Indicates to skip cmdlets that already have unit-tests'
         )]
         [switch] $OnlyNonExisting
     )
 
     begin {
 
-        Microsoft.PowerShell.Utility\Write-Verbose "Initializing cmdlet retrieval process"
+        Microsoft.PowerShell.Utility\Write-Verbose 'Initializing cmdlet retrieval process'
 
         $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
-            -FunctionName "GenXdev.Helpers\Get-GenXDevCmdlets" `
+            -FunctionName 'GenXdev.Helpers\Get-GenXDevCmdlets' `
             -BoundParameters $PSBoundParameters
-
+        $invocationParams.ExactMatch = $true
         $filteredCmdLets = GenXdev.Helpers\Get-GenXDevCmdlets @invocationParams
 
         if ($OnlyNonExisting) {
 
             # filter out cmdlets that already have tests
-            Microsoft.PowerShell.Utility\Write-Verbose "Filtering for cmdlets without unit tests"
+            Microsoft.PowerShell.Utility\Write-Verbose 'Filtering for cmdlets without unit tests'
             $filteredCmdLets = $filteredCmdLets |
                 Microsoft.PowerShell.Core\ForEach-Object {
 
@@ -136,8 +136,8 @@ function Get-GenXDevNextCmdLet {
 
         # retrieve current position from store
         Microsoft.PowerShell.Utility\Write-Verbose "Getting current index from store with key: $Key"
-        [int] $currentIndex = GenXdev.Data\Get-ValueByKeyFromStore -StoreName ModelDev `
-            -KeyName $Key -DefaultValue -1
+            [int] $currentIndex = GenXdev.Data\Get-ValueByKeyFromStore -StoreName ModelDev `
+                -KeyName $Key -DefaultValue -1
 
         # determine next cmdlet index
         [int] $index = $currentIndex
@@ -149,9 +149,10 @@ function Get-GenXDevNextCmdLet {
             if ($index -ge $filteredCmdLets.Length) {
 
                 $index = -1
+
                 GenXdev.Data\Set-ValueByKeyInStore -StoreName ModelDev -KeyName $Key -Value $index
 
-                throw "This was the last command in the list. Reissue the command to start from the beginning."
+                throw 'This was the last command in the list. Reissue the command to start from the beginning.'
             }
         }
 
@@ -172,7 +173,7 @@ function Get-GenXDevNextCmdLet {
         if (-not $RedoLast) {
 
             Microsoft.PowerShell.Utility\Write-Verbose "Updating stored index to: $index"
-            GenXdev.Data\Set-ValueByKeyInStore -StoreName ModelDev -KeyName $Key -Value $index
+                GenXdev.Data\Set-ValueByKeyInStore -StoreName ModelDev -KeyName $Key -Value $index
         }
 
         # get the selected cmdlet
@@ -180,7 +181,7 @@ function Get-GenXDevNextCmdLet {
     }
 
 
-process {
+    process {
 
         $nextCmdLet
     }
@@ -188,4 +189,3 @@ process {
     end {
     }
 }
-        ###############################################################################

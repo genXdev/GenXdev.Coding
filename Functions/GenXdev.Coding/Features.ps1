@@ -1,4 +1,4 @@
-###############################################################################
+﻿###############################################################################
 <#
 .SYNOPSIS
 Displays features from a README.md file.
@@ -16,7 +16,7 @@ Use README.md from OneDrive directory instead of current location.
 
 .EXAMPLE
 Features -UseHomeREADME
-        ###############################################################################>
+#>
 function Features {
 
     [CmdletBinding()]
@@ -25,14 +25,14 @@ function Features {
         [Parameter(
             Position = 0,
             Mandatory = $false,
-            HelpMessage = "Use README in PowerShell profile directory"
+            HelpMessage = 'Use README in PowerShell profile directory'
         )]
         [switch] $UseHomeREADME,
         #######################################################################
         [Parameter(
             Position = 1,
             Mandatory = $false,
-            HelpMessage = "Use README in OneDrive directory"
+            HelpMessage = 'Use README in OneDrive directory'
         )]
         [switch] $UseOneDriveREADME
         #######################################################################
@@ -40,11 +40,11 @@ function Features {
 
     begin {
 
-        Microsoft.PowerShell.Utility\Write-Verbose "Starting Features function"
+        Microsoft.PowerShell.Utility\Write-Verbose 'Starting Features function'
     }
 
 
-process {
+    process {
 
         # display features using base function
         GenXdev.Coding\Add-FeatureLineToREADME `

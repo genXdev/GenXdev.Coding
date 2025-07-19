@@ -20,19 +20,19 @@ Get-GenXDevNewModulesInOrderOfDependency -ModuleName "GenXdev.Helpers"
 
 .EXAMPLE
 "GenXdev.Console" | Get-GenXDevNewModulesInOrderOfDependency
-        ###############################################################################>
+#>
 function Get-GenXDevNewModulesInOrderOfDependency {
 
     [CmdletBinding()]
     param(
         ########################################################################
-        [Alias("Name", "Module")]
+        [Alias('Name', 'Module')]
         [parameter(
             Position = 0,
             Mandatory = $false,
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = "One or more module names to filter by"
+            HelpMessage = 'One or more module names to filter by'
         )]
         [string[]] $ModuleName = @('GenXdev*')
         ########################################################################
@@ -41,7 +41,7 @@ function Get-GenXDevNewModulesInOrderOfDependency {
     begin {
 
         # retrieve all available genxdev module information for processing
-        Microsoft.PowerShell.Utility\Write-Verbose "Retrieving GenXDev module information..."
+        Microsoft.PowerShell.Utility\Write-Verbose 'Retrieving GenXDev module information...'
         $Modules = GenXdev.Coding\Get-GenXDevModuleInfo
     }
 
@@ -66,11 +66,11 @@ function Get-GenXDevNewModulesInOrderOfDependency {
             }
 
             $Modules |
-            Microsoft.PowerShell.Core\Where-Object -Property "ModuleName" -EQ $requested
+                Microsoft.PowerShell.Core\Where-Object -Property 'ModuleName' -EQ $requested
         }
 
         # add modules in dependency order starting with core dependencies
-        Microsoft.PowerShell.Utility\Write-Verbose "Adding modules in dependency order..."
+        Microsoft.PowerShell.Utility\Write-Verbose 'Adding modules in dependency order...'
         $module = findModule GenXdev.FileSystem
         if ($module) { $null = $results.Add($module) }
 
@@ -109,4 +109,3 @@ function Get-GenXDevNewModulesInOrderOfDependency {
     end {
     }
 }
-        ###############################################################################

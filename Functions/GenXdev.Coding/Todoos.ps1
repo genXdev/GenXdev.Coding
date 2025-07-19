@@ -1,4 +1,4 @@
-###############################################################################
+﻿###############################################################################
 <#
 .SYNOPSIS
 Displays todo items from a README.md file.
@@ -19,7 +19,7 @@ Todoos -UseHomeREADME
 
 .EXAMPLE
 Todoos -UseOneDriveREADME
-        ###############################################################################>
+#>
 function Todoos {
 
     [CmdletBinding()]
@@ -28,14 +28,14 @@ function Todoos {
         [Parameter(
             Position = 0,
             Mandatory = $false,
-            HelpMessage = "Use README in PowerShell profile directory"
+            HelpMessage = 'Use README in PowerShell profile directory'
         )]
         [switch] $UseHomeREADME,
         #######################################################################
         [Parameter(
             Position = 1,
             Mandatory = $false,
-            HelpMessage = "Use README in OneDrive directory"
+            HelpMessage = 'Use README in OneDrive directory'
         )]
         [switch] $UseOneDriveREADME
         #######################################################################
@@ -43,11 +43,11 @@ function Todoos {
 
     begin {
 
-        Microsoft.PowerShell.Utility\Write-Verbose "Starting Todoos function"
+        Microsoft.PowerShell.Utility\Write-Verbose 'Starting Todoos function'
     }
 
 
-process {
+    process {
 
         # display todos using base function
         GenXdev.Coding\Add-TodoLineToREADME `

@@ -1,31 +1,31 @@
-        ###############################################################################
+﻿###############################################################################
 function Search-GenXdevCmdlet {
 
-    [CmdletBinding(DefaultParameterSetName = "Default")]
-    [Alias("searchcmdlet")]
+    [CmdletBinding(DefaultParameterSetName = 'Default')]
+    [Alias('searchcmdlet')]
     param(
         ########################################################################
         [parameter(
             Mandatory = $false,
             Position = 0,
             ValueFromRemainingArguments = $false,
-            HelpMessage = "Search pattern to filter cmdlets"
+            HelpMessage = 'Search pattern to filter cmdlets'
         )]
-        [Alias("Filter", "CmdLet", "Cmd", "FunctionName", "Name")]
+        [Alias('Filter', 'CmdLet', 'Cmd', 'FunctionName', 'Name')]
         [SupportsWildcards()]
-        [string] $CmdletName = "*",
+        [string] $CmdletName = '*',
         ########################################################################
         [parameter(
             Mandatory = $false,
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true,
             Position = 1,
-            HelpMessage = "GenXdev module names to search"
+            HelpMessage = 'GenXdev module names to search'
         )]
         [ValidateNotNullOrEmpty()]
-        [Alias("Module", "ModuleName")]
-        [ValidatePattern("^(GenXdev|GenXde[v]\*|GenXdev(\.\w+)+)+$")]
-        [string[]] $BaseModuleName = @("GenXdev*"),
+        [Alias('Module', 'ModuleName')]
+        [ValidatePattern('^(GenXdev|GenXde[v]\*|GenXdev(\.\w+)+)+$')]
+        [string[]] $BaseModuleName = @('GenXdev*'),
         ########################################################################
         [Parameter(Mandatory = $false)]
         [switch] $NoLocal,
@@ -40,21 +40,21 @@ function Search-GenXdevCmdlet {
         #######################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The ide to open the file in"
+            HelpMessage = 'The ide to open the file in'
         )]
-        [Alias("c")]
+        [Alias('c')]
         [switch] $Code,
         #######################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Open in Visual Studio"
+            HelpMessage = 'Open in Visual Studio'
         )]
-        [Alias("vs")]
+        [Alias('vs')]
         [switch] $VisualStudio,
         #######################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Also opens the file in the editor"
+            HelpMessage = 'Also opens the file in the editor'
         )]
         [switch] $EditCmdlet
     )
@@ -63,11 +63,11 @@ function Search-GenXdevCmdlet {
 
         # retrieve and validate the target cmdlet exists
         $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
-            -FunctionName "GenXdev.Helpers\Get-GenXDevCmdlets" `
+            -FunctionName 'GenXdev.Helpers\Get-GenXDevCmdlets' `
             -BoundParameters $PSBoundParameters
-
+        $invocationParams.ExactMatch = $true
         $cmdlet = GenXdev.Helpers\Get-GenXDevCmdlets @invocationParams |
-        Microsoft.PowerShell.Utility\Select-Object -First 1
+            Microsoft.PowerShell.Utility\Select-Object -First 1
 
         if ($null -eq $cmdlet) {
 
@@ -83,14 +83,14 @@ function Search-GenXdevCmdlet {
     }
 
 
-process {
+    process {
 
         # open cmdlet in vscode and insert prompt
         $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
-            -FunctionName "GenXdev.Coding\Open-SourceFileInIde" `
+            -FunctionName 'GenXdev.Coding\Open-SourceFileInIde' `
             -BoundParameters $PSBoundParameters
 
-        $invocationParams.KeysToSend = @("^+f", "^a", "{DELETE}", "^v", "{ENTER}", "^{ENTER}","^``")
+        $invocationParams.KeysToSend = @('^+f', '^a', '{DELETE}', '^v', '{ENTER}', '^{ENTER}',"^``")
         $invocationParams.Path = $cmdlet.ScriptFilePath
         $invocationParams.LineNo = $cmdlet.LineNo
 
@@ -107,10 +107,9 @@ process {
 
             $invocationArgs = GenXdev.Helpers\Copy-IdenticalParamValues `
                 -BoundParameters $PSBoundParameters `
-                -FunctionName "GenXdev.Coding\Show-GenXdevCmdLetInIde"
+                -FunctionName 'GenXdev.Coding\Show-GenXdevCmdLetInIde'
 
             $null = GenXdev.Coding\Show-GenXdevCmdLetInIde @invocationArgs
         }
     }
 }
-        ###############################################################################

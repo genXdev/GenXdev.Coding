@@ -1,4 +1,4 @@
-###############################################################################
+﻿###############################################################################
 <#
 .SYNOPSIS
 Assists in refactoring PowerShell source code files using AI assistance.
@@ -27,7 +27,7 @@ Assert-ModuleDefinition -ModuleName "MyModule" -EditPrompt
 
 .EXAMPLE
 "MyModule" | Assert-ModuleDefinition
-        ###############################################################################>
+#>
 function Assert-ModuleDefinition {
 
     [CmdletBinding()]
@@ -38,20 +38,20 @@ function Assert-ModuleDefinition {
             Position = 0,
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = "The name of the module"
+            HelpMessage = 'The name of the module'
         )]
         [ValidateNotNull()]
         [string] $ModuleName,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The AI prompt"
+            HelpMessage = 'The AI prompt'
         )]
         [string] $Prompt,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Switch to only edit the AI prompt"
+            HelpMessage = 'Switch to only edit the AI prompt'
         )]
         [switch] $EditPrompt
         ########################################################################
@@ -77,9 +77,9 @@ function Assert-ModuleDefinition {
 
             if (($null -ne $ImportError) -and ($importError.Length -gt 0)) {
                 throw ($ImportError |
-                    Microsoft.PowerShell.Utility\ConvertTo-Json -Depth 4 `
-                        -ErrorAction SilentlyContinue `
-                        -WarningAction SilentlyContinue)
+                        Microsoft.PowerShell.Utility\ConvertTo-Json -Depth 4 `
+                            -ErrorAction SilentlyContinue `
+                            -WarningAction SilentlyContinue)
             }
         }
         catch {
@@ -87,12 +87,12 @@ function Assert-ModuleDefinition {
         }
 
         # setup refactoring environment
-        $promptKey = "ModuleDefinition"
+        $promptKey = 'ModuleDefinition'
 
         # detect active IDE process
         [System.Diagnostics.Process] $hostProcess = GenXdev.Windows\Get-PowershellMainWindowProcess
-        $isCode = $hostProcess.Name -eq "Code"
-        $isVisualStudio = $hostProcess.Name -eq "devenv"
+        $isCode = $hostProcess.Name -eq 'Code'
+        $isVisualStudio = $hostProcess.Name -eq 'devenv'
 
         # if no active IDE found, check settings for preferred IDE
         if (-not ($isCode -or $isVisualStudio)) {
@@ -110,20 +110,20 @@ function Assert-ModuleDefinition {
             # attempt to find any running IDE as fallback
             if (-not ($isCode -or $isVisualStudio)) {
 
-                Microsoft.PowerShell.Utility\Write-Verbose "Attempting to detect running IDE instances"
+                Microsoft.PowerShell.Utility\Write-Verbose 'Attempting to detect running IDE instances'
 
                 # try to find VS Code
-                [System.Diagnostics.Process] $hostProcess = Microsoft.PowerShell.Management\Get-Process "Code" `
+                [System.Diagnostics.Process] $hostProcess = Microsoft.PowerShell.Management\Get-Process 'Code' `
                     -ErrorAction SilentlyContinue |
-                Microsoft.PowerShell.Utility\Sort-Object |
-                Microsoft.PowerShell.Utility\Select-Object -First 1
+                    Microsoft.PowerShell.Utility\Sort-Object |
+                    Microsoft.PowerShell.Utility\Select-Object -First 1
 
                 $isCode = $null -ne $hostProcess
 
                 # try to find Visual Studio
-                $hostProcess = Microsoft.PowerShell.Management\Get-Process "devenv" -ErrorAction SilentlyContinue |
-                Microsoft.PowerShell.Utility\Sort-Object |
-                Microsoft.PowerShell.Utility\Select-Object -First 1
+                $hostProcess = Microsoft.PowerShell.Management\Get-Process 'devenv' -ErrorAction SilentlyContinue |
+                    Microsoft.PowerShell.Utility\Sort-Object |
+                    Microsoft.PowerShell.Utility\Select-Object -First 1
 
                 $isVisualStudio = $null -ne $hostProcess
             }
@@ -132,13 +132,13 @@ function Assert-ModuleDefinition {
         # prompt user to select IDE if no clear choice determined
         if (-not ($isCode -bxor $isVisualStudio)) {
 
-            Microsoft.PowerShell.Utility\Write-Verbose "Prompting user to select IDE"
+            Microsoft.PowerShell.Utility\Write-Verbose 'Prompting user to select IDE'
             $userAnswer = $script:_IDEPreference -ge 0 ?
             $script:_IDEPreference :
                 ($host.ui.PromptForChoice(
-                "Make a choice",
-                "What IDE to use for refactoring?",
-                @("Visual Studio &Code", "&Visual Studio"),
+                'Make a choice',
+                'What IDE to use for refactoring?',
+                @('Visual Studio &Code', '&Visual Studio'),
                 0))
 
             # store selection for future use
@@ -178,24 +178,24 @@ function Assert-ModuleDefinition {
             $ModuleName
         )
 
-        $Prompt = $Prompt.Replace("`t", "  ")
+        $Prompt = $Prompt.Replace("`t", '  ')
 
         # save current clipboard content to restore later
         $previousClipboard = Microsoft.PowerShell.Management\Get-Clipboard
         $null = Microsoft.PowerShell.Management\Set-Clipboard -Value $prompt
 
-        Microsoft.PowerShell.Utility\Write-Verbose "Prepared prompt and copied to clipboard:"
+        Microsoft.PowerShell.Utility\Write-Verbose 'Prepared prompt and copied to clipboard:'
         Microsoft.PowerShell.Utility\Write-Verbose $prompt
     }
 
 
-process {
+    process {
         # exit early if only editing prompt
         if ($EditPrompt) {
             return
         }
 
-        Microsoft.PowerShell.Utility\Write-Verbose "Opening file in IDE for refactoring"
+        Microsoft.PowerShell.Utility\Write-Verbose 'Opening file in IDE for refactoring'
 
         # process each module file
         . GenXdev.Helpers\Invoke-OnEachGenXdevModule -BaseModuleName $ModuleName `
@@ -214,32 +214,32 @@ process {
 
                     if ($isFirst) {
 
-                        $keysToSend = @("^``", "^``", "^+i", "^l", "^a", "{DELETE}", "^+i", "{ESCAPE}")
+                        $keysToSend = @("^``", "^``", '^+i', '^l', '^a', '{DELETE}', '^+i', '{ESCAPE}')
                     }
 
                     if ($isLast) {
 
-                        $keysToSend = @("^+%{F12}", "{ENTER}", "^v", "{ENTER}", "^{ENTER}", "^``")
+                        $keysToSend = @('^+%{F12}', '{ENTER}', '^v', '{ENTER}', '^{ENTER}', "^``")
                     }
                     else {
 
-                        $keysToSend = @("^+%{F12}")
+                        $keysToSend = @('^+%{F12}')
                     }
                 }
                 elseif ($isVisualStudio) {
 
                     if ($isFirst) {
 
-                        $keysToSend = @("^``", "^``", "^+i", "^n")
+                        $keysToSend = @("^``", "^``", '^+i', '^n')
                     }
 
                     if ($isLast) {
 
-                        $keysToSend = @("^``", "^``", "^+i", "^v", "{ENTER}", "^{ENTER}","^``")
+                        $keysToSend = @("^``", "^``", '^+i', '^v', '{ENTER}', '^{ENTER}',"^``")
                     }
                     else {
 
-                        $keysToSend = @("^``", "^+i")
+                        $keysToSend = @("^``", '^+i')
                     }
                 }
 
@@ -262,9 +262,9 @@ process {
 
             # set IDE flags based on user selection
             switch (($host.ui.PromptForChoice(
-                        "Make a choice",
-                        "What to do next?",
-                        @("&Stop", "&Reload"),
+                        'Make a choice',
+                        'What to do next?',
+                        @('&Stop', '&Reload'),
                         0))) {
                 0 {
                     return;
@@ -281,4 +281,3 @@ process {
         $null = Microsoft.PowerShell.Management\Set-Clipboard -Value $previousClipboard
     }
 }
-        ###############################################################################

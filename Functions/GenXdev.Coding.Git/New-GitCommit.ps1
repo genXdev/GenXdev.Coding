@@ -1,4 +1,4 @@
-###############################################################################
+﻿###############################################################################
 <#
 .SYNOPSIS
 Creates and pushes a new git commit with all changes.
@@ -17,11 +17,11 @@ New-GitCommit -Title "Added new authentication feature"
 
 .EXAMPLE
 commit "Hotfix for login issue"
-        ###############################################################################>
+#>
 function New-GitCommit {
 
     [CmdletBinding(SupportsShouldProcess = $true)]
-    [Alias("commit")]
+    [Alias('commit')]
 
     param(
         ########################################################################
@@ -29,38 +29,38 @@ function New-GitCommit {
             Position = 0,
             Mandatory = $false,
             ValueFromRemainingArguments = $false,
-            HelpMessage = "The commit message title to use"
+            HelpMessage = 'The commit message title to use'
         )]
-        [string] $Title = "Improved scripts"
+        [string] $Title = 'Improved scripts'
         ########################################################################
     )
 
     begin {
 
         # extract the current branch name from git's symbolic reference
-        $branch = (git symbolic-ref refs/remotes/origin/HEAD).split("/")[3]
+        $branch = (git symbolic-ref refs/remotes/origin/HEAD).split('/')[3]
         Microsoft.PowerShell.Utility\Write-Verbose "Operating on git branch: $branch"
     }
 
 
-process {
+    process {
 
         # add all changed files to git staging area
-        Microsoft.PowerShell.Utility\Write-Verbose "Staging all modified files..."
-        if ($PSCmdlet.ShouldProcess("all changes", "git add")) {
+        Microsoft.PowerShell.Utility\Write-Verbose 'Staging all modified files...'
+        if ($PSCmdlet.ShouldProcess('all changes', 'git add')) {
             $null = git add *
             if ($LASTEXITCODE -ne 0) {
-                Microsoft.PowerShell.Utility\Write-Error "Failed to stage changes"
+                Microsoft.PowerShell.Utility\Write-Error 'Failed to stage changes'
                 return
             }
         }
 
         # create a new commit with the specified title
         Microsoft.PowerShell.Utility\Write-Verbose ("Creating commit with message: $Title")
-        if ($PSCmdlet.ShouldProcess("commit with title: $Title", "git commit")) {
+        if ($PSCmdlet.ShouldProcess("commit with title: $Title", 'git commit')) {
             $null = git commit -m $Title
             if ($LASTEXITCODE -ne 0) {
-                Microsoft.PowerShell.Utility\Write-Error "Failed to create commit"
+                Microsoft.PowerShell.Utility\Write-Error 'Failed to create commit'
                 return
             }
         }
@@ -69,21 +69,21 @@ process {
         Microsoft.PowerShell.Utility\Write-Verbose "Configuring upstream tracking to origin/$branch"
         if ($PSCmdlet.ShouldProcess(
                 "upstream branch to origin/$branch",
-                "git push -u")) {
+                'git push -u')) {
 
             $null = git push -u origin $branch
             if ($LASTEXITCODE -ne 0) {
-                Microsoft.PowerShell.Utility\Write-Error "Failed to set upstream branch"
+                Microsoft.PowerShell.Utility\Write-Error 'Failed to set upstream branch'
                 return
             }
         }
 
         # push committed changes to remote repository
-        Microsoft.PowerShell.Utility\Write-Verbose "Pushing changes to remote repository..."
-        if ($PSCmdlet.ShouldProcess("changes to remote", "git push")) {
+        Microsoft.PowerShell.Utility\Write-Verbose 'Pushing changes to remote repository...'
+        if ($PSCmdlet.ShouldProcess('changes to remote', 'git push')) {
             $null = git push
             if ($LASTEXITCODE -ne 0) {
-                Microsoft.PowerShell.Utility\Write-Error "Failed to push changes"
+                Microsoft.PowerShell.Utility\Write-Error 'Failed to push changes'
                 return
             }
         }
@@ -92,4 +92,3 @@ process {
     end {
     }
 }
-        ###############################################################################

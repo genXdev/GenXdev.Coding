@@ -1,4 +1,4 @@
-###############################################################################
+﻿###############################################################################
 <#
 .SYNOPSIS
 Adds a todo item to the README.md file.
@@ -31,11 +31,11 @@ Add-TodoLineToREADME -Line "Implement new feature" -Show -Code
 
 .EXAMPLE
 todo "Fix bug" -Done
-        ###############################################################################>
+#>
 function Add-TodoLineToREADME {
 
     [CmdletBinding()]
-    [Alias("todo")]
+    [Alias('todo')]
     param(
         ########################################################################
         [Parameter(
@@ -43,43 +43,43 @@ function Add-TodoLineToREADME {
             Mandatory = $false,
             ValueFromRemainingArguments = $false,
             ValueFromPipeline = $true,
-            HelpMessage = "The todo item text to add"
+            HelpMessage = 'The todo item text to add'
         )]
         [AllowEmptyString()]
-        [string] $Line = "",
+        [string] $Line = '',
 
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Open README in Visual Studio Code"
+            HelpMessage = 'Open README in Visual Studio Code'
         )]
         [switch] $Code,
 
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Show the modified section"
+            HelpMessage = 'Show the modified section'
         )]
         [switch] $Show,
 
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Mark todo item as completed"
+            HelpMessage = 'Mark todo item as completed'
         )]
         [switch] $Done,
 
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Use README in PowerShell profile directory"
+            HelpMessage = 'Use README in PowerShell profile directory'
         )]
         [switch] $UseHomeREADME,
 
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Use README in OneDrive directory"
+            HelpMessage = 'Use README in OneDrive directory'
         )]
         [switch] $UseOneDriveREADME
     )
@@ -91,7 +91,7 @@ function Add-TodoLineToREADME {
     }
 
 
-process {
+    process {
 
         # only add timestamp if line is not empty and not marking as done
         if (![string]::IsNullOrWhiteSpace($Line) -and !$Done) {
@@ -105,8 +105,8 @@ process {
         GenXdev.Coding\Add-LineToREADME `
             -Code:$Code `
             -Show:$Show `
-            -Section "## Todoos" `
-            -Prefix "- [ ] " `
+            -Section '## Todoos' `
+            -Prefix '- [ ] ' `
             -Line $Line `
             -Done:$Done `
             -UseHomeREADME:$UseHomeREADME `
@@ -116,4 +116,3 @@ process {
     end {
     }
 }
-        ###############################################################################

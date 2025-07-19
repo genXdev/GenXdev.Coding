@@ -1,4 +1,4 @@
-###############################################################################
+﻿###############################################################################
 <#
 .SYNOPSIS
 Configures the GitHub Copilot Chat keyboard shortcuts in Visual Studio Code.
@@ -14,7 +14,7 @@ Also adds Alt+` (backtick) shortcut for toggling the maximized panel.
 
 .EXAMPLE
 EnsureCopilotKeyboardShortCut
-        ###############################################################################>
+#>
 function EnsureCopilotKeyboardShortCut {
 
     [CmdletBinding()]
@@ -30,8 +30,8 @@ function EnsureCopilotKeyboardShortCut {
 
         $secondNewKeybinding =
         @{
-            "key"     = "alt+oem_3"
-            "command" = "workbench.action.toggleMaximizedPanel"
+            'key'     = 'alt+oem_3'
+            'command' = 'workbench.action.toggleMaximizedPanel'
         }
     }
 
@@ -41,14 +41,14 @@ function EnsureCopilotKeyboardShortCut {
         foreach ($path in $keybindingsPath) {
             # Define the new keyboard shortcut configuration for copilot chat
             $newKeybinding = @{
-                "key"     = "ctrl+shift+alt+f12"
-                "command" = "github.copilot.chat.attachFile"  # Command for attaching files to Copilot chat
-                "when"    = "resourceScheme == 'file' || resourceScheme == 'untitled'" +
+                'key'     = 'ctrl+shift+alt+f12'
+                'command' = 'workbench.action.chat.attachFile'  # Command for attaching files to Copilot chat
+                'when'    = "resourceScheme == 'file' || resourceScheme == 'untitled'" +
                 " || resourceScheme == 'vscode-remote' || " +
                 "resourceScheme == 'vscode-userdata'"
             }            # load existing keybindings or initialize new array if file doesn't exist
             if (Microsoft.PowerShell.Management\Test-Path $path) {
-                Microsoft.PowerShell.Utility\Write-Verbose "Loading existing keybindings configuration"
+                Microsoft.PowerShell.Utility\Write-Verbose 'Loading existing keybindings configuration'
                 $keybindingsContent = Microsoft.PowerShell.Management\Get-Content $path -Raw
                 if ([string]::IsNullOrWhiteSpace($keybindingsContent)) {
                     $keybindings = @()
@@ -61,24 +61,24 @@ function EnsureCopilotKeyboardShortCut {
                 }
             }
             else {
-                Microsoft.PowerShell.Utility\Write-Verbose "Initializing new keybindings configuration"
+                Microsoft.PowerShell.Utility\Write-Verbose 'Initializing new keybindings configuration'
                 $keybindings = @()
             }
 
             # Find and remove any existing Copilot attachment bindings
             $copilotShortcutsExist = $false
             foreach ($binding in $keybindings) {
-                if ($binding.command -like "github.copilot.*.attachFile") {
+                if ($binding.command -like 'workbench.action.chat.attachFile') {
                     $copilotShortcutsExist = $true
                     break
                 }
             }
 
             if ($copilotShortcutsExist) {
-                Microsoft.PowerShell.Utility\Write-Verbose "Removing existing Copilot attachment shortcuts"
+                Microsoft.PowerShell.Utility\Write-Verbose 'Removing existing Copilot attachment shortcuts'
                 $newBindings = @()
                 foreach ($binding in $keybindings) {
-                    if (-not ($binding.command -like "github.copilot.*.attachFile")) {
+                    if (-not ($binding.command -like 'workbench.action.chat.attachFile')) {
                         $newBindings += $binding
                     }
                 }
@@ -93,7 +93,7 @@ function EnsureCopilotKeyboardShortCut {
 
             # We'll always add the current correct attachment command
             $modified = $true            # Always add the Copilot chat attachment shortcut
-            Microsoft.PowerShell.Utility\Write-Verbose "Adding/Updating Copilot chat attachment shortcut (Ctrl+Shift+Alt+F12)"
+            Microsoft.PowerShell.Utility\Write-Verbose 'Adding/Updating Copilot chat attachment shortcut (Ctrl+Shift+Alt+F12)'
             $keybindings = @($keybindings) + @($newKeybinding)
 
             if (-not $existsFocus) {
@@ -102,14 +102,14 @@ function EnsureCopilotKeyboardShortCut {
                 $modified = $true
             }
             else {
-                Microsoft.PowerShell.Utility\Write-Verbose "Panel Toggle keyboard shortcut already exists"
+                Microsoft.PowerShell.Utility\Write-Verbose 'Panel Toggle keyboard shortcut already exists'
             }
 
             # Save changes if any modifications were made
             if ($modified) {
                 $keybindings |
-                Microsoft.PowerShell.Utility\ConvertTo-Json -Depth 10 |
-                Microsoft.PowerShell.Management\Set-Content $path
+                    Microsoft.PowerShell.Utility\ConvertTo-Json -Depth 10 |
+                    Microsoft.PowerShell.Management\Set-Content $path
             }
         }
     }
@@ -117,4 +117,3 @@ function EnsureCopilotKeyboardShortCut {
     end {
     }
 }
-        ###############################################################################

@@ -1,4 +1,4 @@
-###############################################################################
+﻿###############################################################################
 <#
 .SYNOPSIS
 Displays ideas from a README.md file.
@@ -19,7 +19,7 @@ Ideas -UseHomeREADME
 
 .EXAMPLE
 Ideas -UseOneDriveREADME
-        ###############################################################################>
+#>
 function Ideas {
 
     [CmdletBinding()]
@@ -28,14 +28,14 @@ function Ideas {
         [Parameter(
             Position = 0,
             Mandatory = $false,
-            HelpMessage = "Use README in PowerShell profile directory"
+            HelpMessage = 'Use README in PowerShell profile directory'
         )]
         [switch] $UseHomeREADME,
         #######################################################################
         [Parameter(
             Position = 1,
             Mandatory = $false,
-            HelpMessage = "Use README in OneDrive directory"
+            HelpMessage = 'Use README in OneDrive directory'
         )]
         [switch] $UseOneDriveREADME
         #######################################################################
@@ -43,11 +43,11 @@ function Ideas {
 
     begin {
 
-        Microsoft.PowerShell.Utility\Write-Verbose "Starting Ideas function"
+        Microsoft.PowerShell.Utility\Write-Verbose 'Starting Ideas function'
     }
 
 
-process {
+    process {
 
         # display ideas using base function
         GenXdev.Coding\Add-IdeaLineToREADME `

@@ -10,6 +10,32 @@
     A Windows PowerShell module that helps being more productive with coding tasks.
 [![GenXdev.Coding](https://img.shields.io/powershellgallery/v/GenXdev.Coding.svg?style=flat-square&label=GenXdev.Coding)](https://www.powershellgallery.com/packages/GenXdev.Coding/) [![License](https://img.shields.io/github/license/genXdev/GenXdev.Coding?style=flat-square)](./LICENSE)
 
+## MIT License
+
+```text
+MIT License
+
+Copyright (c) [year] [fullname]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+````
+
 ### FEATURES
 * ✅ Advanced PowerShell Module Development
      * Create new cmdlets with proper structure and validation using `New-GenXdevCmdlet`
@@ -114,12 +140,13 @@ Update-Module
 | [Get-ModuleHelpMarkdown](#Get-ModuleHelpMarkdown) | get-genxdevmodulehelp | Generates markdown help documentation for specified GenXDev modules. |
 | [Get-Refactor](#Get-Refactor) | refactor | Retrieves refactor definitions from GenXdev preferences based on name patterns. |
 | [Get-RefactorReport](#Get-RefactorReport) | refactorreport | Generates a detailed report of refactoring operations and their status. |
+| [Invoke-GenXdevPSFormatter](#Invoke-GenXdevPSFormatter) |  |  |
 | [Invoke-GenXdevScriptAnalyzer](#Invoke-GenXdevScriptAnalyzer) |  |  |
 | [New-GenXdevCmdlet](#New-GenXdevCmdlet) | gcmd | Creates a new GenXdev PowerShell cmdlet with proper structure and validation. |
 | [New-GenXdevModule](#New-GenXdevModule) |  | Creates a new GenXdev PowerShell module with proper structure and configuration. |
 | [New-PullRequestForGenXdevModuleChanges](#New-PullRequestForGenXdevModuleChanges) | prgenxdevmodule | Creates a pull request for changes made to a GenXdev module. |
 | [New-Refactor](#New-Refactor) | newrefactor | Creates a new refactoring set for code transformation tasks. |
-| [Open-GenXdevCmdletsContainingClipboardTextInIde](#Open-GenXdevCmdletsContainingClipboardTextInIde) | vscodeclipboard | Opens files in IDE that contain clipboard text |
+| [Open-GenXdevCmdletsContainingClipboardTextInIde](#Open-GenXdevCmdletsContainingClipboardTextInIde) | vscodesearch | Opens files in IDE that contain clipboard text |
 | [Remove-Refactor](#Remove-Refactor) |  | Removes refactor sets from GenXdev preferences system. |
 | [Search-GenXdevCmdlet](#Search-GenXdevCmdlet) | searchcmdlet |  |
 | [Search-NextGenXdevCmdlet](#Search-NextGenXdevCmdlet) | nextcmdlet |  |
@@ -226,7 +253,6 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > feature "Added new Git feature" -Code -Show
-            ##############################################################################
     
     
     
@@ -327,7 +353,6 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > idea "New feature idea" -UseOneDriveREADME
-            ##############################################################################
     
     
     
@@ -428,7 +453,6 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > issue "Server connection fails" -Show
-            ##############################################################################
     
     
     
@@ -563,7 +587,6 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > Add-LineToREADME "New feature" "## Features" "* " -Show
-            ##############################################################################
     
     
     
@@ -664,7 +687,6 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > ReleaseNote "Added new Git ReleaseNote" -Code -Show
-            ##############################################################################
     
     
     
@@ -776,7 +798,6 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > todo "Fix bug" -Done
-            ##############################################################################
     
     
     
@@ -820,7 +841,6 @@ OUTPUTS
     -------------------------- EXAMPLE 1 --------------------------
     
     PS > EnsureVSCodeInstallation
-            ##############################################################################
     
     
     
@@ -883,7 +903,6 @@ OUTPUTS
     -------------------------- EXAMPLE 1 --------------------------
     
     PS > Features -UseHomeREADME
-            ##############################################################################
     
     
     
@@ -955,7 +974,6 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > Ideas -UseOneDriveREADME
-            ##############################################################################
     
     
     
@@ -1027,7 +1045,6 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > Issues -UseOneDriveREADME
-            ##############################################################################
     
     
     
@@ -1047,7 +1064,7 @@ SYNOPSIS
     
     
 SYNTAX
-    Open-SourceFileInIde [-Path] <String> [[-LineNo] <Int32>] [-Code] [-VisualStudio] [-KeysToSend <String[]>] [<CommonParameters>]
+    Open-SourceFileInIde [-Path] <String> [[-LineNo] <Int32>] [[-KeysToSend] <String[]>] [-Code] [-VisualStudio] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [<CommonParameters>]
     
     
 DESCRIPTION
@@ -1081,6 +1098,17 @@ PARAMETERS
         Aliases                      
         Accept wildcard characters?  false
         
+    -KeysToSend <String[]>
+        Array of keyboard inputs to send to the application after opening. The function
+        will wait 2 seconds before sending the keys to ensure the IDE has loaded.
+        
+        Required?                    false
+        Position?                    3
+        Default value                @()
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
     -Code [<SwitchParameter>]
         Switch parameter to force opening the file in Visual Studio Code regardless
         of the current host process or other running IDEs.
@@ -1103,13 +1131,43 @@ PARAMETERS
         Aliases                      
         Accept wildcard characters?  false
         
-    -KeysToSend <String[]>
-        Array of keyboard inputs to send to the application after opening. The function
-        will wait 2 seconds before sending the keys to ensure the IDE has loaded.
+    -SendKeyEscape [<SwitchParameter>]
+        When specified, escapes special characters so they are sent as literal text
+        instead of being interpreted as control sequences.
         
         Required?                    false
         Position?                    named
-        Default value                @()
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SendKeyHoldKeyboardFocus [<SwitchParameter>]
+        Prevents returning keyboard focus to PowerShell after sending keys.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SendKeyUseShiftEnter [<SwitchParameter>]
+        Sends Shift+Enter instead of regular Enter for line breaks.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SendKeyDelayMilliSeconds <Int32>
+        Adds delay between sending different key sequences. Useful for slower apps.
+        
+        Required?                    false
+        Position?                    named
+        Default value                0
         Accept pipeline input?       false
         Aliases                      
         Accept wildcard characters?  false
@@ -1136,7 +1194,6 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > editcode "C:\Projects\MyScript.ps1" 25
-            ##############################################################################
     
     
     
@@ -1199,7 +1256,6 @@ OUTPUTS
     -------------------------- EXAMPLE 1 --------------------------
     
     PS > ReleaseNotes -UseHomeREADME
-            ##############################################################################
     
     
     
@@ -1271,7 +1327,6 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > Todoos -UseOneDriveREADME
-            ##############################################################################
     
     
     
@@ -1346,7 +1401,6 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > Get-ChildItem *.js -Recurse | VSCode
-            ##############################################################################
     
     
     
@@ -1402,7 +1456,7 @@ OUTPUTS
     -------------------------- EXAMPLE 1 --------------------------
     
     PS > Get-GitChangedFile
-    Returns relative paths like ".\Modules\GenXdev.AI\1.200.2025\README.md"
+    Returns relative paths like ".\Modules\GenXdev.AI\1.208.2025\README.md"
     
     
     
@@ -1493,7 +1547,6 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > commit "Hotfix for login issue"
-            ##############################################################################
     
     
     
@@ -1586,7 +1639,6 @@ NOTES
     PS > PermanentlyDeleteGitFolders `
         -RepoUri "https://github.com/user/repo.git" `
         -Folders "bin", "obj"
-            ##############################################################################
     
     
     
@@ -1667,7 +1719,7 @@ PARAMETERS
         
         Required?                    false
         Position?                    named
-        Default value                @("GenXdev*")
+        Default value                @('GenXdev*')
         Accept pipeline input?       true (ByValue, ByPropertyName)
         Aliases                      
         Accept wildcard characters?  false
@@ -1784,7 +1836,6 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > improvecmdlet Get-Something CheckDocs -c
-            ##############################################################################
     
     
     
@@ -1990,7 +2041,7 @@ PARAMETERS
         
         Required?                    false
         Position?                    1
-        Default value                @("GenXdev*")
+        Default value                @('GenXdev*')
         Accept pipeline input?       true (ByValue, ByPropertyName)
         Aliases                      
         Accept wildcard characters?  false
@@ -2207,7 +2258,6 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > "MyModule" | Assert-ModuleDefinition
-            ##############################################################################
     
     
     
@@ -2341,7 +2391,6 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > nextcmdlet GenXdev.Helpers -Reset
-            ##############################################################################
     
     
     
@@ -2477,7 +2526,6 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > nextcmdlettest GenXdev.Helpers -Reset
-            ##############################################################################
     
     
     
@@ -2650,7 +2698,6 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > "GenXdev.Helpers" | Complete-GenXDevREADME
-            ##############################################################################
     
     
     
@@ -2697,7 +2744,6 @@ OUTPUTS
     -------------------------- EXAMPLE 1 --------------------------
     
     PS > EnsureCopilotKeyboardShortCut
-            ##############################################################################
     
     
     
@@ -2761,7 +2807,6 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > Get-GenXDevModule "C:\PowerShell\Modules"
-            ##############################################################################
     
     
     
@@ -2824,7 +2869,6 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > "GenXdev.Console" | Get-GenXDevModuleInfo
-            ##############################################################################
     
     
     
@@ -2890,7 +2934,6 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > "GenXdev.Console" | Get-GenXDevNewModulesInOrderOfDependency
-            ##############################################################################
     
     
     
@@ -2934,7 +2977,7 @@ PARAMETERS
         
         Required?                    false
         Position?                    2
-        Default value                @("GenXdev*")
+        Default value                @('GenXdev*')
         Accept pipeline input?       true (ByValue, ByPropertyName)
         Aliases                      
         Accept wildcard characters?  false
@@ -3029,7 +3072,6 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > Get-GenXDevNextCmdLet GenXdev.Helpers
-            ##############################################################################
     
     
     
@@ -3108,7 +3150,6 @@ OUTPUTS
     
     PS > "GenXdev.Helpers" | Get-GenXDevModuleHelp
     Uses pipeline to generate documentation for all cmdlets in GenXdev.Helpers.
-            ##############################################################################
     
     
     
@@ -3128,7 +3169,7 @@ SYNOPSIS
     
     
 SYNTAX
-    Get-Refactor [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [<CommonParameters>]
+    Get-Refactor [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-DefaultValue <String>] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>]
     
     
 DESCRIPTION
@@ -3145,7 +3186,7 @@ PARAMETERS
         
         Required?                    false
         Position?                    1
-        Default value                @("*")
+        Default value                @('*')
         Accept pipeline input?       true (ByValue, ByPropertyName)
         Aliases                      
         Accept wildcard characters?  true
@@ -3155,6 +3196,42 @@ PARAMETERS
         Required?                    false
         Position?                    named
         Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -DefaultValue <String>
+        
+        Required?                    false
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SessionOnly [<SwitchParameter>]
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -ClearSession [<SwitchParameter>]
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SkipSession [<SwitchParameter>]
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
         Accept pipeline input?       false
         Aliases                      
         Accept wildcard characters?  false
@@ -3174,7 +3251,7 @@ OUTPUTS
     -------------------------- EXAMPLE 1 --------------------------
     
     PS > Get-Refactor -Name "CodeStyle*"
-            ###############################################################################Returns refactor definitions matching pattern "CodeStyle*"
+    Returns refactor definitions matching pattern "CodeStyle*"
     
     
     
@@ -3184,8 +3261,7 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > refactor "UnitTest"
-            ###############################################################################Uses alias to find refactor definitions containing "UnitTest"
-            ##############################################################################
+    Uses alias to find refactor definitions containing "UnitTest"
     
     
     
@@ -3205,7 +3281,7 @@ SYNOPSIS
     
     
 SYNTAX
-    Get-RefactorReport [[-Name] <String[]>] [-AsText] [<CommonParameters>]
+    Get-RefactorReport [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-SessionOnly] [-ClearSession] [-SkipSession] [-AsText] [<CommonParameters>]
     
     
 DESCRIPTION
@@ -3227,6 +3303,42 @@ PARAMETERS
         Accept pipeline input?       true (ByValue, ByPropertyName)
         Aliases                      
         Accept wildcard characters?  true
+        
+    -PreferencesDatabasePath <String>
+        
+        Required?                    false
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SessionOnly [<SwitchParameter>]
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -ClearSession [<SwitchParameter>]
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SkipSession [<SwitchParameter>]
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
         
     -AsText [<SwitchParameter>]
         Outputs the report in human-readable text format with aligned columns instead of
@@ -3263,7 +3375,6 @@ OUTPUTS
     
     PS > refactorreport "*"
     Generates hashtable report for all refactors using alias
-            ##############################################################################
     
     
     
@@ -3276,50 +3387,37 @@ RELATED LINKS
 <br/><hr/><hr/><br/>
  
 NAME
-    Invoke-GenXdevScriptAnalyzer
+    Invoke-GenXdevPSFormatter
     
 SYNTAX
-    Invoke-GenXdevScriptAnalyzer [-Path] <string> [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<CommonParameters>]
-    
-    Invoke-GenXdevScriptAnalyzer -ScriptDefinition <string> [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<CommonParameters>]
+    Invoke-GenXdevPSFormatter [-Path] <string> [-Settings <Object>] [-Range <int[]>] [-Recurse] [<CommonParameters>]
     
     
 PARAMETERS
-    -EnableExit
-        Specifies that the tool should exit on error.
-        
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     false
-        Accept wildcard characters?  false
-        
-    -Fix
-        Enables automatic fixing of violations.
-        
-        Required?                    false
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     false
-        Accept wildcard characters?  false
-        
     -Path <string>
-        Specifies the path to the script file.
+        Specifies the path to the script file to format.
         
         Required?                    true
         Position?                    0
+        Accept pipeline input?       true (ByValue, ByPropertyName)
+        Parameter set name           (All)
+        Aliases                      Name, FullName, ImagePath, FileName, ScriptFileName
+        Dynamic?                     false
+        Accept wildcard characters?  false
+        
+    -Range <int[]>
+        The range within which formatting should take place as an array of four integers: starting line number, starting column number, ending line number, ending column number.
+        
+        Required?                    false
+        Position?                    Named
         Accept pipeline input?       false
-        Parameter set name           Path
+        Parameter set name           (All)
         Aliases                      None
         Dynamic?                     false
         Accept wildcard characters?  false
         
     -Recurse
-        Recursively process files.
+        Recursively process files in subdirectories.
         
         Required?                    false
         Position?                    Named
@@ -3329,24 +3427,13 @@ PARAMETERS
         Dynamic?                     false
         Accept wildcard characters?  false
         
-    -ReportSummary
-        Reports a summary after analysis.
+    -Settings <Object>
+        A settings hashtable or a path to a PowerShell data file (.psd1) that contains the formatting settings.
         
         Required?                    false
         Position?                    Named
         Accept pipeline input?       false
         Parameter set name           (All)
-        Aliases                      None
-        Dynamic?                     false
-        Accept wildcard characters?  false
-        
-    -ScriptDefinition <string>
-        Specifies the script definition as a string.
-        
-        Required?                    true
-        Position?                    Named
-        Accept pipeline input?       false
-        Parameter set name           Script
         Aliases                      None
         Dynamic?                     false
         Accept wildcard characters?  false
@@ -3359,7 +3446,7 @@ PARAMETERS
     
     
 INPUTS
-    None
+    System.String
     
     
 OUTPUTS
@@ -3371,6 +3458,132 @@ ALIASES
 
 REMARKS
     None 
+
+<br/><hr/><hr/><br/>
+ 
+NAME
+    Invoke-GenXdevScriptAnalyzer
+    
+SYNOPSIS
+    Invokes PowerShell Script Analyzer to analyze PowerShell scripts for compliance
+    and best practices.
+    
+    
+SYNTAX
+    Invoke-GenXdevScriptAnalyzer [-Path] <String> [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<CommonParameters>]
+    
+    Invoke-GenXdevScriptAnalyzer -ScriptDefinition <String> [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<CommonParameters>]
+    
+    
+DESCRIPTION
+    This function provides a wrapper around PSScriptAnalyzer to analyze PowerShell
+    scripts for compliance issues, best practices violations, and potential bugs.
+    It supports both file-based analysis and string-based script analysis with
+    customizable rules and settings.
+    
+
+PARAMETERS
+    -Path <String>
+        Specifies the path to the script file to analyze. This parameter is mandatory
+        when using the Path parameter set.
+        
+        Required?                    true
+        Position?                    1
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -ScriptDefinition <String>
+        Specifies the script definition as a string to analyze. This parameter is
+        mandatory when using the Script parameter set.
+        
+        Required?                    true
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -EnableExit [<SwitchParameter>]
+        Specifies that the tool should exit on error during analysis.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Fix [<SwitchParameter>]
+        Enables automatic fixing of violations where possible.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Recurse [<SwitchParameter>]
+        Recursively processes files in subdirectories when analyzing a directory path.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -ReportSummary [<SwitchParameter>]
+        Reports a summary after analysis showing the total number of issues found.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216). 
+    
+INPUTS
+    
+OUTPUTS
+    
+    -------------------------- EXAMPLE 1 --------------------------
+    
+    PS > Invoke-GenXdevScriptAnalyzer -Path "C:\Scripts\MyScript.ps1"
+    
+    
+    
+    
+    
+    
+    -------------------------- EXAMPLE 2 --------------------------
+    
+    PS > Invoke-GenXdevScriptAnalyzer -ScriptDefinition "Get-Process | Where-Object {$_.Name -eq 'notepad'}"
+    
+    
+    
+    
+    
+    
+    -------------------------- EXAMPLE 3 --------------------------
+    
+    PS > Invoke-GenXdevScriptAnalyzer -Path "C:\Scripts\" -Recurse -Fix
+    
+    
+    
+    
+    
+    
+    
+RELATED LINKS 
 
 <br/><hr/><hr/><br/>
  
@@ -3528,7 +3741,6 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > gcmd Get-SystemInfo -EditPrompt
-            ##############################################################################
     
     
     
@@ -3628,7 +3840,6 @@ OUTPUTS
         -ModuleName "GenXdev.Example" `
         -Description "Example module demonstrating GenXdev standards" `
         -Tags @('GenXdev','Example','Demo')
-            ##############################################################################
     
     
     
@@ -3648,13 +3859,16 @@ SYNOPSIS
     
     
 SYNTAX
-    New-PullRequestForGenXdevModuleChanges [-ModuleName] <String> [[-CommitMessage] <String>] [[-PullRequestTitle] <String>] [[-PullRequestDescription] <String>] [[-GitUserName] <String>] [[-GitUserEmail] <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
+    New-PullRequestForGenXdevModuleChanges [-ModuleName] <String> [[-CommitMessage] <String>] [[-PullRequestTitle] <String>] [[-PullRequestDescription] <String>] [[-GitUserName] <String>] [[-GitUserEmail] <String>] [-Monitor <Int32>] [-NoBorders] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ShowWindow] [-RestoreFocus] [-PassThru] [-SideBySide] [-FocusWindow] [-SetForeground] [-Maximize] [-KeysToSend <String[]>] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>]
     
     
 DESCRIPTION
     This function automates the process of creating a pull request for changes made to
-    a GenXdev module. It handles GitHub authentication, repository forking, and pull
-    request creation.
+    a GenXdev module. It handles GitHub authentication, repository forking, pull
+    request creation, and window positioning using the Set-WindowPosition function.
+    The function validates module dependencies, runs unit tests, and either creates
+    a GitHub pull request or uploads to genXdev.net depending on repository
+    availability.
     
 
 PARAMETERS
@@ -3699,6 +3913,7 @@ PARAMETERS
         Accept wildcard characters?  false
         
     -GitUserName <String>
+        Git username for commits.
         
         Required?                    false
         Position?                    5
@@ -3708,10 +3923,230 @@ PARAMETERS
         Accept wildcard characters?  false
         
     -GitUserEmail <String>
+        Git email for commits.
         
         Required?                    false
         Position?                    6
         Default value                you@example.com
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Monitor <Int32>
+        Monitor selection: 0=primary, 1+=specific monitor, -1=current, -2=secondary.
+        
+        Required?                    false
+        Position?                    named
+        Default value                0
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -NoBorders [<SwitchParameter>]
+        Removes window borders and title bar for a cleaner appearance.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Width <Int32>
+        Window width in pixels for positioning applications.
+        
+        Required?                    false
+        Position?                    named
+        Default value                0
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Height <Int32>
+        Window height in pixels for positioning applications.
+        
+        Required?                    false
+        Position?                    named
+        Default value                0
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -X <Int32>
+        Window horizontal position for positioning applications.
+        
+        Required?                    false
+        Position?                    named
+        Default value                0
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Y <Int32>
+        Window vertical position for positioning applications.
+        
+        Required?                    false
+        Position?                    named
+        Default value                0
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Left [<SwitchParameter>]
+        Places window on left half of screen.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Right [<SwitchParameter>]
+        Places window on right half of screen.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Top [<SwitchParameter>]
+        Places window on top half of screen.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Bottom [<SwitchParameter>]
+        Places window on bottom half of screen.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Centered [<SwitchParameter>]
+        Centers window on screen.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -ShowWindow [<SwitchParameter>]
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -RestoreFocus [<SwitchParameter>]
+        Returns focus to PowerShell window after positioning.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -PassThru [<SwitchParameter>]
+        Returns window helper object for further manipulation.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SideBySide [<SwitchParameter>]
+        Places windows side by side with PowerShell on the same monitor.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -FocusWindow [<SwitchParameter>]
+        Focus the window after positioning.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SetForeground [<SwitchParameter>]
+        Set the window to foreground after positioning.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Maximize [<SwitchParameter>]
+        Maximize the window after positioning.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -KeysToSend <String[]>
+        Keystrokes to send to the window after positioning.
+        
+        Required?                    false
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SessionOnly [<SwitchParameter>]
+        Use alternative settings stored in session for AI preferences.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -ClearSession [<SwitchParameter>]
+        Clear alternative settings stored in session for AI preferences.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SkipSession [<SwitchParameter>]
+        Store settings only in persistent preferences without affecting session.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
         Accept pipeline input?       false
         Aliases                      
         Accept wildcard characters?  false
@@ -3758,8 +4193,7 @@ OUTPUTS
     
     -------------------------- EXAMPLE 2 --------------------------
     
-    PS > prmodule GenXdev.Coding "Bug fixes" "Fixed issues" "Various bug fixes implemented"
-            ##############################################################################
+    PS > prgenxdevmodule GenXdev.Coding "Bug fixes" "Fixed issues" "Various bug fixes implemented"
     
     
     
@@ -4154,7 +4588,7 @@ SYNOPSIS
     
     
 SYNTAX
-    Open-GenXdevCmdletsContainingClipboardTextInIde [-Copilot] [<CommonParameters>]
+    Open-GenXdevCmdletsContainingClipboardTextInIde [[-InputObject] <String>] [-Copilot] [<CommonParameters>]
     
     
 DESCRIPTION
@@ -4163,6 +4597,15 @@ DESCRIPTION
     
 
 PARAMETERS
+    -InputObject <String>
+        
+        Required?                    false
+        Position?                    1
+        Default value                
+        Accept pipeline input?       true (ByValue)
+        Aliases                      
+        Accept wildcard characters?  false
+        
     -Copilot [<SwitchParameter>]
         
         Required?                    false
@@ -4195,7 +4638,7 @@ SYNOPSIS
     
     
 SYNTAX
-    Remove-Refactor [-Name] <String[]> [[-RemoveDefault]] [-PreferencesDatabasePath <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
+    Remove-Refactor [-Name] <String[]> [[-RemoveDefault]] [-PreferencesDatabasePath <String>] [-DefaultValue <String>] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>]
     
     
 DESCRIPTION
@@ -4238,6 +4681,42 @@ PARAMETERS
         Aliases                      
         Accept wildcard characters?  false
         
+    -DefaultValue <String>
+        
+        Required?                    false
+        Position?                    named
+        Default value                
+        Accept pipeline input?       true (ByPropertyName)
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SessionOnly [<SwitchParameter>]
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -ClearSession [<SwitchParameter>]
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SkipSession [<SwitchParameter>]
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
     -WhatIf [<SwitchParameter>]
         
         Required?                    false
@@ -4269,11 +4748,10 @@ OUTPUTS
     -------------------------- EXAMPLE 1 --------------------------
     
     PS > Remove-Refactor -Name "CustomRefactor" -RemoveDefault
-            ###############################################################################Removes a specific refactor set named "CustomRefactor" and allows removal
-            ###############################################################################of default sets if matched
+    Removes a specific refactor set named "CustomRefactor" and allows removal
+    of default sets if matched
     
-    ###############################################################################Removes all non-default refactor sets using the alias
-            ##############################################################################
+    
     
     
     
@@ -4511,7 +4989,7 @@ PARAMETERS
         
         Required?                    false
         Position?                    2
-        Default value                @("GenXdev*")
+        Default value                @('GenXdev*')
         Accept pipeline input?       true (ByValue, ByPropertyName)
         Aliases                      
         Accept wildcard characters?  false
@@ -4623,7 +5101,6 @@ OUTPUTS
     
     PS > editcmdlet Get-GenXDevModuleInfo -UnitTests
     Opens the unit tests for Get-GenXDevModuleInfo using the alias.
-            ##############################################################################
     
     
     
@@ -4643,7 +5120,7 @@ SYNOPSIS
     
     
 SYNTAX
-    Show-RefactorReport [[-Name] <String[]>] [-Full] [<CommonParameters>]
+    Show-RefactorReport [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-SessionOnly] [-ClearSession] [-SkipSession] [-AsText] [-Full] [<CommonParameters>]
     
     
 DESCRIPTION
@@ -4663,6 +5140,51 @@ PARAMETERS
         Accept pipeline input?       false
         Aliases                      
         Accept wildcard characters?  true
+        
+    -PreferencesDatabasePath <String>
+        
+        Required?                    false
+        Position?                    named
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SessionOnly [<SwitchParameter>]
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -ClearSession [<SwitchParameter>]
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -SkipSession [<SwitchParameter>]
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -AsText [<SwitchParameter>]
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
         
     -Full [<SwitchParameter>]
         
@@ -4697,7 +5219,6 @@ OUTPUTS
     
     PS > refactors *
     Shows refactoring status for all modules using the alias.
-            ##############################################################################
     
     
     
@@ -4761,7 +5282,6 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > split "C:\Modules\MyModule\MyModule.psm1"
-            ##############################################################################
     
     
     
@@ -4796,7 +5316,7 @@ PARAMETERS
         
         Required?                    false
         Position?                    1
-        Default value                @("*")
+        Default value                @('*')
         Accept pipeline input?       true (ByValue, ByPropertyName)
         Aliases                      
         Accept wildcard characters?  true
@@ -4923,7 +5443,6 @@ OUTPUTS
     
     PS > Start-NextRefactor -Name "RefactorProject" -Reset -CleanUpDeletedFiles
     Restarts refactoring for "RefactorProject" and removes deleted files.
-            ##############################################################################
     
     
     
@@ -4997,7 +5516,6 @@ OUTPUTS
     -------------------------- EXAMPLE 2 --------------------------
     
     PS > $def | Test-RefactorLLMSelection -Path source.ps1
-            ##############################################################################
     
     
     
@@ -5038,7 +5556,7 @@ PARAMETERS
         
         Required?                    false
         Position?                    1
-        Default value                @("*")
+        Default value                @('*')
         Accept pipeline input?       true (ByValue, ByPropertyName)
         Aliases                      
         Accept wildcard characters?  true

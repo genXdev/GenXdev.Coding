@@ -1,3 +1,16 @@
+if (-not $IsWindows) {
+    throw "This module only supports Windows 10+ x64 with PowerShell 7.5+ x64"
+}
+
+$osVersion = [System.Environment]::OSVersion.Version
+$major = $osVersion.Major
+$build = $osVersion.Build
+
+if ($major -ne 10) {
+    throw "This module only supports Windows 10+ x64 with PowerShell 7.5+ x64"
+}
+
+
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Add-MissingGenXdevUnitTests.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Assert-GenXdevCmdlet.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Assert-GenXdevCmdletTests.ps1"
@@ -17,6 +30,7 @@
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Get-ModuleHelpMarkdown.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Get-Refactor.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Get-RefactorReport.ps1"
+. "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Invoke-GenXdevPSFormatter.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Invoke-GenXdevScriptAnalyzer.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\New-GenXdevCmdlet.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\New-GenXdevModule.ps1"

@@ -1,0 +1,51 @@
+﻿$OldLocation = $PWD
+try {
+
+
+    Import-Module 'Microsoft.PowerShell.Management'
+    Import-Module 'GenXdev.Local'
+
+    Initialize-SearchPaths
+
+    # append local scripts and modules paths to environment path
+    $scriptsPath = [System.IO.Path]::Combine(
+        [System.IO.Path]::GetDirectoryName($profile),
+        'Scripts')
+    $modulesPath =  GenXdev.FileSystem\Expand-Path "$($Env:LOCALAPPDATA)\GenXdev.PowerShell\" `
+        -CreateDirectory
+    $env:Path = "$scriptsPath;$modulesPath;$($env:Path);${env:ProgramFiles}\7-Zip\"
+
+    Set-GenXdevAICommandNotFoundAction
+
+    $Global:HostedInVsCode = [System.Environment]::CommandLine -contains 'PowerShellEditorServices.VSCode';
+}
+finally {
+
+    Set-Location $OldLocation
+}
+
+###############################################################################Sync-SoftwarePackages -OnlyOnceADay
+if (($PWD -like 'c:\windows\system32') -or ($PWD -like (Expand-Path '~\'))) {
+
+    Set-Location $PSScriptRoot
+}
+
+$PSDefaultParameterValues = @{
+
+    'Invokw-LLMQuery:TTLSeconds'              = 900
+    'Get-ScriptExecutionErrorFixPrompt:Model' = '*70b*'
+    'Get-ChildItem:ErrorAction'               = 'Continue'
+    'Out-Default:OutVariable'                 = 'LastOut'
+    'Get-ChildItem:Force'                     = $true
+}
+
+function Edit-Profile {
+
+    [CmdletBinding()]
+    [Alias('editprofile')]
+    param()
+
+    & "$PSScriptRoot\scripts\p.ps1" -c
+    VSCode '.\Microsoft.PowerShell_profile.ps1'
+    VSCode $profile.CurrentUserAllHosts
+}

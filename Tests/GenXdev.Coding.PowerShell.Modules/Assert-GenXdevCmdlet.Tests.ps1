@@ -1,14 +1,14 @@
-Pester\Describe "Assert-GenXdevCmdlet" {
+﻿Pester\Describe 'Assert-GenXdevCmdlet' {
 
-    Pester\It "Should pass PSScriptAnalyzer rules" {
-# get the script path for analysis
+    Pester\It 'Should pass PSScriptAnalyzer rules' {
+        # get the script path for analysis
         $scriptPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Functions\GenXdev.Coding.PowerShell.Modules\Assert-GenXdevCmdlet.ps1"
 
-# run analyzer with explicit settings
+        # run analyzer with explicit settings
         $analyzerResults = GenXdev.Coding\Invoke-GenXdevScriptAnalyzer `
             -Path $scriptPath
 
-        [string] $message = ""
+        [string] $message = ''
         $analyzerResults | Microsoft.PowerShell.Core\ForEach-Object {
 
             $message = $message + @"

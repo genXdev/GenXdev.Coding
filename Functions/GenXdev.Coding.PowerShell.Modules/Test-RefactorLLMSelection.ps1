@@ -1,4 +1,4 @@
-###############################################################################
+﻿###############################################################################
 <#
 .SYNOPSIS
 Evaluates source files for refactoring eligibility using LLM analysis.
@@ -21,7 +21,7 @@ Test-RefactorLLMSelection -RefactorDefinition $refDef -Path "C:\source.ps1"
 
 .EXAMPLE
 $def | Test-RefactorLLMSelection -Path source.ps1
-        ###############################################################################>
+#>
 function Test-RefactorLLMSelection {
 
     [CmdletBinding()]
@@ -30,7 +30,7 @@ function Test-RefactorLLMSelection {
         [Parameter(
             Mandatory = $true,
             Position = 0,
-            HelpMessage = "The refactor definition containing LLM settings"
+            HelpMessage = 'The refactor definition containing LLM settings'
         )]
         [ValidateNotNull()]
         [GenXdev.Helpers.RefactorDefinition] $RefactorDefinition,
@@ -38,10 +38,10 @@ function Test-RefactorLLMSelection {
         [Parameter(
             Mandatory = $true,
             Position = 1,
-            HelpMessage = "The path to the source file to evaluate"
+            HelpMessage = 'The path to the source file to evaluate'
         )]
         [ValidateNotNullOrEmpty()]
-        [Alias("FullName")]
+        [Alias('FullName')]
         [string] $Path
         ########################################################################
     )
@@ -55,7 +55,7 @@ function Test-RefactorLLMSelection {
     }
 
 
-process {
+    process {
 
         # validate that the target file exists before processing
         if (-not [System.IO.File]::Exists($Path)) {
@@ -64,13 +64,13 @@ process {
 
         # ensure we have valid selection criteria
         if ([string]::IsNullOrWhiteSpace($prompt)) {
-            throw "The prompt is empty"
+            throw 'The prompt is empty'
         }
 
         # prepare the llm query parameters by matching available parameters
         $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
             -BoundParameters ($RefactorDefinition.SelectionSettings.LLM | GenXdev.Helpers\ConvertTo-HashTable) `
-            -FunctionName "GenXdev.AI\Invoke-LLMQuery" `
+            -FunctionName 'GenXdev.AI\Invoke-LLMQuery' `
             -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * `
                 -ErrorAction SilentlyContinue)
 
@@ -90,17 +90,16 @@ $([System.IO.File]::ReadAllText($Path))
 
         # configure the remaining required llm query parameters
         $invocationParams.Query = $prompt
-        $invocationParams.ChatMode = "none"
+        $invocationParams.ChatMode = 'none'
         $invocationParams.ChatOnce = $false
         $invocationParams.IncludeThoughts = $false
 
-        Microsoft.PowerShell.Utility\Write-Verbose "Invoking LLM analysis with selection criteria"
+        Microsoft.PowerShell.Utility\Write-Verbose 'Invoking LLM analysis with selection criteria'
 
         # execute the llm query and convert response to boolean
-        return ("$((GenXdev.AI\Invoke-LLMQuery @invocationParams -ErrorAction SilentlyContinue -TTLSeconds 120 -Verbose:$false | Microsoft.PowerShell.Utility\Out-String))".ToLowerInvariant().Contains("true"))
+        return ("$((GenXdev.AI\Invoke-LLMQuery @invocationParams -ErrorAction SilentlyContinue -TTLSeconds 120 -Verbose:$false | Microsoft.PowerShell.Utility\Out-String))".ToLowerInvariant().Contains('true'))
     }
 
     end {
     }
 }
-        ###############################################################################

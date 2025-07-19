@@ -1,4 +1,4 @@
-###############################################################################
+﻿###############################################################################
 <#
 .SYNOPSIS
 Adds a feature line to the README file with a timestamp.
@@ -27,11 +27,11 @@ Add-FeatureLineToREADME -Line "Added new Git feature"
 
 .EXAMPLE
 feature "Added new Git feature" -Code -Show
-        ###############################################################################>
+#>
 function Add-FeatureLineToREADME {
 
     [CmdletBinding()]
-    [Alias("feature")]
+    [Alias('feature')]
 
     param(
         #######################################################################
@@ -39,35 +39,35 @@ function Add-FeatureLineToREADME {
             Position = 0,
             ValueFromRemainingArguments = $false,
             Mandatory = $false,
-            HelpMessage = "The feature description text to add"
+            HelpMessage = 'The feature description text to add'
         )]
-        [string] $Line = "",
+        [string] $Line = '',
 
         #######################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Format the line as code"
+            HelpMessage = 'Format the line as code'
         )]
         [switch] $Code,
 
         #######################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Display the README after adding the line"
+            HelpMessage = 'Display the README after adding the line'
         )]
         [switch] $Show,
 
         #######################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Use README in home directory"
+            HelpMessage = 'Use README in home directory'
         )]
         [switch] $UseHomeREADME,
 
         #######################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Use README in OneDrive directory"
+            HelpMessage = 'Use README in OneDrive directory'
         )]
         [switch] $UseOneDriveREADME
     )
@@ -77,7 +77,7 @@ function Add-FeatureLineToREADME {
     }
 
 
-process {
+    process {
         # format the line with timestamp if not empty
         if ([string]::IsNullOrWhiteSpace($Line) -eq $false) {
             $Line = "$([DateTime]::Now.ToString('yyyyMMdd')) --> $Line"
@@ -88,8 +88,8 @@ process {
         GenXdev.Coding\Add-LineToREADME `
             -Code:$Code `
             -Show:$Show `
-            -Section "## Features" `
-            -Prefix "- [X] " `
+            -Section '## Features' `
+            -Prefix '- [X] ' `
             -Line $Line `
             -UseHomeREADME:$UseHomeREADME `
             -UseOneDriveREADME:$UseOneDriveREADME
@@ -98,4 +98,3 @@ process {
     end {
     }
 }
-        ###############################################################################

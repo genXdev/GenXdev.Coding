@@ -1,4 +1,4 @@
-###############################################################################
+﻿###############################################################################
 <#
 .SYNOPSIS
 Asserts and improves the next GenXdev cmdlet in sequence.
@@ -45,70 +45,70 @@ Assert-NextGenXdevCmdlet -ModuleName "GenXdev.Helpers" `
 
 .EXAMPLE
 nextcmdlet GenXdev.Helpers -Reset
-        ###############################################################################>
+#>
 function Assert-NextGenXdevCmdlet {
 
     [CmdletBinding()]
-    [Alias("nextcmdlet")]
+    [Alias('nextcmdlet')]
     param(
         ########################################################################
-        [Alias("Name", "Module")]
+        [Alias('Name', 'Module')]
         [parameter(
             Mandatory = $false,
             Position = 0,
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = "Optional module name to filter cmdlets by"
+            HelpMessage = 'Optional module name to filter cmdlets by'
         )]
         [ValidateNotNullOrEmpty()]
         [SupportsWildcards()]
-        [string] $ModuleName = "GenXdev.*",
+        [string] $ModuleName = 'GenXdev.*',
         ########################################################################
         [parameter(
             Mandatory = $false,
             Position = 1,
-            HelpMessage = "Key for storing the last cmdlet index"
+            HelpMessage = 'Key for storing the last cmdlet index'
         )]
         [AllowEmptyString()]
-        [string] $Key = "",
+        [string] $Key = '',
         ########################################################################
         [parameter(
             Mandatory = $false,
             Position = 2,
-            HelpMessage = "The AI prompt key to use for template selection"
+            HelpMessage = 'The AI prompt key to use for template selection'
         )]
         [ValidateNotNullOrEmpty()]
-        [string] $PromptKey = "CheckAllRequirements",
+        [string] $PromptKey = 'CheckAllRequirements',
         ########################################################################
         [parameter(
             Mandatory = $false,
             Position = 3,
-            HelpMessage = "Custom AI prompt text to use"
+            HelpMessage = 'Custom AI prompt text to use'
         )]
         [AllowEmptyString()]
-        [string] $Prompt = "",
+        [string] $Prompt = '',
         ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Switch to only edit the AI prompt"
+            HelpMessage = 'Switch to only edit the AI prompt'
         )]
         [switch] $EditPrompt,
         ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Switch to scripts from the script folder"
+            HelpMessage = 'Switch to scripts from the script folder'
         )]
         [switch] $FromScripts,
         ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Switch to integrating scripts from script folder"
+            HelpMessage = 'Switch to integrating scripts from script folder'
         )]
         [switch] $Integrate,
         ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Skip cmdlets that already have unit-tests"
+            HelpMessage = 'Skip cmdlets that already have unit-tests'
         )]
         [switch] $OnlyNonExisting
     )
@@ -117,20 +117,20 @@ function Assert-NextGenXdevCmdlet {
     }
 
 
-process {
+    process {
 
         # retrieve the next cmdlet to process based on filters and state
-        $cmdlet = GenXdev.Coding\Get-GenXDevNextCmdLet `
-            -ModuleName $ModuleName `
-            -Reset:$Reset `
-            -RedoLast:$RedoLast `
-            -Key:$Key `
-            -OnlyNonExisting:$OnlyNonExisting
+            $cmdlet = GenXdev.Coding\Get-GenXDevNextCmdLet `
+                -ModuleName $ModuleName `
+                -Reset:$Reset `
+                -RedoLast:$RedoLast `
+                -Key:$Key `
+                -OnlyNonExisting:$OnlyNonExisting
 
         # validate that we found a cmdlet to process
         if ($null -eq $cmdlet) {
 
-            Microsoft.PowerShell.Utility\Write-Error "Cmdlet not found"
+            Microsoft.PowerShell.Utility\Write-Error 'Cmdlet not found'
             return;
         }
 
@@ -139,9 +139,9 @@ process {
 
         # copy matching parameters for Assert-GenXdevCmdlet function
         $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
-            -FunctionName "GenXdev.Coding\Assert-GenXdevCmdlet" `
+            -FunctionName 'GenXdev.Coding\Assert-GenXdevCmdlet' `
             -BoundParameters $PSBoundParameters `
-            -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+            -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -ErrorAction SilentlyContinue)
 
         # set required parameters for cmdlet assertion
         $invocationParams.CmdletName = $cmdlet.Name
@@ -154,4 +154,3 @@ process {
     end {
     }
 }
-        ###############################################################################

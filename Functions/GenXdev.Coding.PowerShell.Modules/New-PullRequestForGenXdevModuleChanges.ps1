@@ -5,8 +5,11 @@ Creates a pull request for changes made to a GenXdev module.
 
 .DESCRIPTION
 This function automates the process of creating a pull request for changes made to
-a GenXdev module. It handles GitHub authentication, repository forking, and pull
-request creation.
+a GenXdev module. It handles GitHub authentication, repository forking, pull
+request creation, and window positioning using the Set-WindowPosition function.
+The function validates module dependencies, runs unit tests, and either creates
+a GitHub pull request or uploads to genXdev.net depending on repository
+availability.
 
 .PARAMETER ModuleName
 The name of the GenXdev module to create a pull request for.
@@ -20,6 +23,78 @@ The title for the pull request.
 .PARAMETER PullRequestDescription
 The description for the pull request.
 
+.PARAMETER GitUserName
+Git username for commits.
+
+.PARAMETER GitUserEmail
+Git email for commits.
+
+.PARAMETER Monitor
+Monitor selection: 0=primary, 1+=specific monitor, -1=current, -2=secondary.
+
+.PARAMETER NoBorders
+Removes window borders and title bar for a cleaner appearance.
+
+.PARAMETER Width
+Window width in pixels for positioning applications.
+
+.PARAMETER Height
+Window height in pixels for positioning applications.
+
+.PARAMETER X
+Window horizontal position for positioning applications.
+
+.PARAMETER Y
+Window vertical position for positioning applications.
+
+.PARAMETER Left
+Places window on left half of screen.
+
+.PARAMETER Right
+Places window on right half of screen.
+
+.PARAMETER Top
+Places window on top half of screen.
+
+.PARAMETER Bottom
+Places window on bottom half of screen.
+
+.PARAMETER Centered
+Centers window on screen.
+
+.PARAMETER Fullscreen
+Maximizes window to fill entire screen.
+
+.PARAMETER RestoreFocus
+Returns focus to PowerShell window after positioning.
+
+.PARAMETER PassThru
+Returns window helper object for further manipulation.
+
+.PARAMETER SideBySide
+Places windows side by side with PowerShell on the same monitor.
+
+.PARAMETER FocusWindow
+Focus the window after positioning.
+
+.PARAMETER SetForeground
+Set the window to foreground after positioning.
+
+.PARAMETER Maximize
+Maximize the window after positioning.
+
+.PARAMETER KeysToSend
+Keystrokes to send to the window after positioning.
+
+.PARAMETER SessionOnly
+Use alternative settings stored in session for AI preferences.
+
+.PARAMETER ClearSession
+Clear alternative settings stored in session for AI preferences.
+
+.PARAMETER SkipSession
+Store settings only in persistent preferences without affecting session.
+
 .EXAMPLE
 New-PullRequestForGenXdevModuleChanges -ModuleName "GenXdev.Coding" `
     -CommitMessage "Added new features" `
@@ -27,215 +102,473 @@ New-PullRequestForGenXdevModuleChanges -ModuleName "GenXdev.Coding" `
     -PullRequestDescription "Added support for X and Y"
 
 .EXAMPLE
-prmodule GenXdev.Coding "Bug fixes" "Fixed issues" "Various bug fixes implemented"
-        ###############################################################################>
+prgenxdevmodule GenXdev.Coding "Bug fixes" "Fixed issues" "Various bug fixes implemented"
+#>
 function New-PullRequestForGenXdevModuleChanges {
 
     [CmdletBinding(SupportsShouldProcess)]
-    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseSingularNouns", "")]
-    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseDeclaredVarsMoreThanAssignments", "")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '')]
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
 
-    [Alias("prgenxdevmodule")]
+    [Alias('prgenxdevmodule')]
 
     param(
         ########################################################################
         [Parameter(
             Position = 0,
             Mandatory = $true,
-            HelpMessage = "Name of the GenXdev module"
+            HelpMessage = 'Name of the GenXdev module'
         )]
         [ValidateSet(
-            "GenXdev.AI",
-            "GenXdev.Coding",
-            "GenXdev.Console",
-            "GenXdev.Data",
-            "GenXdev.FileSystem",
-            "GenXdev.Helpers",
-            "GenXdev.Queries",
-            "GenXdev.Webbrowser",
-            "GenXdev.Windows"
+            'GenXdev.AI',
+            'GenXdev.Coding',
+            'GenXdev.Console',
+            'GenXdev.Data',
+            'GenXdev.FileSystem',
+            'GenXdev.Helpers',
+            'GenXdev.Queries',
+            'GenXdev.Webbrowser',
+            'GenXdev.Windows'
         )]
         [string]$ModuleName,
         ########################################################################
         [Parameter(
             Position = 1,
             Mandatory = $false,
-            HelpMessage = "Message for the commit"
+            HelpMessage = 'Message for the commit'
         )]
-        [string]$CommitMessage = "Improvements to GenXdev module",
+        [string]$CommitMessage = 'Improvements to GenXdev module',
         ########################################################################
         [Parameter(
             Position = 2,
             Mandatory = $false,
-            HelpMessage = "Title for the pull request"
+            HelpMessage = 'Title for the pull request'
         )]
-        [string]$PullRequestTitle = "Module improvements",
+        [string]$PullRequestTitle = 'Module improvements',
         ########################################################################
         [Parameter(
             Position = 3,
             Mandatory = $false,
-            HelpMessage = "Description for the pull request"
+            HelpMessage = 'Description for the pull request'
         )]
-        [string]$PullRequestDescription = "These changes improve functionality " +
-        "and fix issues I encountered.",
+        [string]$PullRequestDescription = ('These changes improve functionality ' +
+            'and fix issues I encountered.'),
         ########################################################################
         [Parameter(
             Position = 4,
             Mandatory = $false,
-            HelpMessage = "Git username for commits"
+            HelpMessage = 'Git username for commits'
         )]
-        [string]$GitUserName = "Your Name",
+        [string]$GitUserName = 'Your Name',
         ########################################################################
         [Parameter(
             Position = 5,
             Mandatory = $false,
-            HelpMessage = "Git email for commits"
+            HelpMessage = 'Git email for commits'
         )]
-        [string]$GitUserEmail = "you@example.com"
+        [string]$GitUserEmail = 'you@example.com',
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Monitor selection: 0=primary, 1+=specific monitor, -1=current, -2=secondary'
+        )]
+        [Alias('m', 'mon')]
+        [int] $Monitor,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Removes window borders and title bar for a cleaner appearance'
+        )]
+        [Alias('nb')]
+        [switch] $NoBorders,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Window width in pixels for positioning applications'
+        )]
+        [int] $Width,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Window height in pixels for positioning applications'
+        )]
+        [int] $Height,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Window horizontal position for positioning applications'
+        )]
+        [int] $X,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Window vertical position for positioning applications'
+        )]
+        [int] $Y,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Places window on left half of screen'
+        )]
+        [switch] $Left,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Places window on right half of screen'
+        )]
+        [switch] $Right,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Places window on top half of screen'
+        )]
+        [switch] $Top,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Places window on bottom half of screen'
+        )]
+        [switch] $Bottom,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Centers window on screen'
+        )]
+        [switch] $Centered,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Maximizes window to fill entire screen'
+        )]
+        [Alias('sw')]
+        [switch]$ShowWindow
+        ,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Returns focus to PowerShell window after positioning'
+        )]
+        [Alias('rf', 'bg')]
+        [switch]$RestoreFocus,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Returns window helper object for further manipulation'
+        )]
+        [Alias('pt')]
+        [switch]$PassThru,
+
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Places windows side by side with PowerShell on the same monitor'
+        )]
+        [Alias('sbs')]
+        [switch]$SideBySide,
+
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Focus the window after positioning'
+        )]
+        [Alias('fw','focus')]
+        [switch] $FocusWindow,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Set the window to foreground after positioning'
+        )]
+        [Alias('fg')]
+        [switch] $SetForeground,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Maximize the window after positioning'
+        )]
+        [switch] $Maximize,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Keystrokes to send to the window after positioning'
+        )]
+        [string[]] $KeysToSend,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Use alternative settings stored in session for AI preferences'
+        )]
+        [switch] $SessionOnly,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Clear alternative settings stored in session for AI preferences'
+        )]
+        [switch] $ClearSession,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Store settings only in persistent preferences without affecting session'
+        )]
+        [switch] $SkipSession
         ########################################################################
     )
 
     begin {
-        Microsoft.PowerShell.Utility\Write-Host "This script is not yet fully functional and is a work in progress." -ForegroundColor Cyan
-        Microsoft.PowerShell.Utility\Write-Host "Feel free to fix it ;-)." -ForegroundColor Cyan
-        $null = git config --global --add safe.directory (GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\..\")
-        $w = "store/fileupload"
-        Microsoft.PowerShell.Utility\Write-Verbose "Checking for GitHub CLI installation"
+
+        # display work in progress notification to user
+        Microsoft.PowerShell.Utility\Write-Host (
+            'This script is not yet fully functional and is a work in progress.'
+        ) -ForegroundColor Cyan
+
+        Microsoft.PowerShell.Utility\Write-Host (
+            'Feel free to fix it ;-).'
+        ) -ForegroundColor Cyan
+
+        # configure git safe directory for module path
+        $null = git config --global --add safe.directory (
+            GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\..\")
+
+        # initialize work variable for file upload path
+        $w = 'store/fileupload'
+
+        # ensure github cli is installed and available
+        Microsoft.PowerShell.Utility\Write-Verbose 'Checking for GitHub CLI installation'
         GenXdev.AI\EnsureGithubCLIInstalled
     }
 
-
     process {
+
+        # throw not implemented exception as function is work in progress
         throw (
-            Microsoft.PowerShell.Utility\New-Object "System.NotImplementedException" `
-                -ArgumentList "This function is not yet fully functional and is a work in progress. Feel free to fix it ;-)."
+            Microsoft.PowerShell.Utility\New-Object 'System.NotImplementedException' `
+                -ArgumentList (
+                'This function is not yet fully functional and is a work in progress. ' +
+                'Feel free to fix it ;-).'
+            )
         )
 
+        ########################################################################
         function Register-GitHubApp {
 
-            # GitHub OAuth application credentials
-            $clientId = "Ov23livZivIhWiBMR3Yb"
+            # github oauth application credentials
+            $clientId = 'Ov23livZivIhWiBMR3Yb'
 
-            # Start device flow authentication
+            # start device flow authentication
             GenXdev.Webbrowser\Close-Webbrowser -Force
-            GenXdev.Webbrowser\Open-Webbrowser -nw -mon 0 -Right
-            GenXdev.Webbrowser\Select-WebbrowserTab
-            GenXdev.Windows\Set-WindowPosition -Left
 
-            $deviceCodeRequest = Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Post -Uri "https://github.com/login/device/code" -Body @{
+            GenXdev.Webbrowser\Open-Webbrowser -nw -mon 0 -Right
+
+            GenXdev.Webbrowser\Select-WebbrowserTab
+
+            # use set-windowposition with parameters from bound parameters
+            $params = GenXdev.Helpers\Copy-IdenticalParamValues `
+                -FunctionName 'GenXdev.Windows\Set-WindowPosition' `
+                -BoundParameters $PSBoundParameters `
+                -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable `
+                    -Scope Local -Name * -ErrorAction SilentlyContinue)
+
+            GenXdev.Windows\Set-WindowPosition @params -Left
+
+            # initiate device code request for github authentication
+            $deviceCodeRequest = Microsoft.PowerShell.Utility\Invoke-RestMethod `
+                -Method Post `
+                -Uri 'https://github.com/login/device/code' `
+                -Body @{
                 client_id = $clientId
-                scope     = "repo"
-            } -Headers @{
-                Accept = "application/json"
+                scope     = 'repo'
+            } `
+                -Headers @{
+                Accept = 'application/json'
             }
 
+            # navigate browser to verification url
             GenXdev.Webbrowser\Set-WebbrowserTabLocation ($deviceCodeRequest.verification_uri)
 
-            Microsoft.PowerShell.Utility\Write-Host "Please visit: $($deviceCodeRequest.verification_uri)"
-            Microsoft.PowerShell.Utility\Write-Host "And enter code: $($deviceCodeRequest.user_code)"
-            Microsoft.PowerShell.Utility\Write-Host "Waiting for authentication..."
+            # display authentication instructions to user
+            Microsoft.PowerShell.Utility\Write-Host (
+                "Please visit: $($deviceCodeRequest.verification_uri)"
+            )
 
-            # Poll for the token
+            Microsoft.PowerShell.Utility\Write-Host (
+                "And enter code: $($deviceCodeRequest.user_code)"
+            )
+
+            Microsoft.PowerShell.Utility\Write-Host 'Waiting for authentication...'
+
+            # poll for the access token
             $token = $null
             $startTime = Microsoft.PowerShell.Utility\Get-Date
+
+            # continue polling until timeout or success
             while (((Microsoft.PowerShell.Utility\Get-Date) - $startTime).TotalSeconds -lt 300) {
+
                 try {
-                    $tokenResponse = Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Post -Uri "https://github.com/login/oauth/access_token" -Body @{
+                    # request access token using device code
+                    $tokenResponse = Microsoft.PowerShell.Utility\Invoke-RestMethod `
+                        -Method Post `
+                        -Uri 'https://github.com/login/oauth/access_token' `
+                        -Body @{
                         client_id   = $clientId
                         device_code = $deviceCodeRequest.device_code
-                        grant_type  = "urn:ietf:params:oauth:grant-type:device_code"
-                    } -Headers @{
-                        Accept = "application/json"
+                        grant_type  = 'urn:ietf:params:oauth:grant-type:device_code'
+                    } `
+                        -Headers @{
+                        Accept = 'application/json'
                     }
 
+                    # check if access token was received
                     if ($tokenResponse.access_token) {
+
                         $token = $tokenResponse.access_token
                         break
                     }
 
-                    if ($tokenResponse.error -eq "authorization_pending") {
-                        Microsoft.PowerShell.Utility\Write-Verbose "Authorization pending. Waiting for user to authorize..."
+                    # handle authorization pending status
+                    if ($tokenResponse.error -eq 'authorization_pending') {
+
+                        Microsoft.PowerShell.Utility\Write-Verbose (
+                            'Authorization pending. Waiting for user to authorize...'
+                        )
                     }
-                    elseif ($tokenResponse.error -eq "slow_down") {
-                        Microsoft.PowerShell.Utility\Write-Verbose "Rate limit hit. Slowing down polling..."
+                    # handle rate limit exceeded status
+                    elseif ($tokenResponse.error -eq 'slow_down') {
+
+                        Microsoft.PowerShell.Utility\Write-Verbose (
+                            'Rate limit hit. Slowing down polling...'
+                        )
+
                         Microsoft.PowerShell.Utility\Start-Sleep -Seconds 10
                     }
+                    # handle unexpected error
                     else {
-                        Microsoft.PowerShell.Utility\Write-Error "Unexpected error: $($tokenResponse.error)"
+                        Microsoft.PowerShell.Utility\Write-Error (
+                            "Unexpected error: $($tokenResponse.error)"
+                        )
                         break
                     }
                 }
                 catch {
-                    Microsoft.PowerShell.Utility\Write-Verbose "Still waiting for user to authorize..."
+                    Microsoft.PowerShell.Utility\Write-Verbose (
+                        'Still waiting for user to authorize...'
+                    )
                 }
 
+                # wait before next polling attempt
                 Microsoft.PowerShell.Utility\Start-Sleep -Seconds 5
             }
 
+            # check if authentication was successful
             if (-not $token) {
-                Microsoft.PowerShell.Utility\Write-Error "Authentication failed or timed out"
+
+                Microsoft.PowerShell.Utility\Write-Error (
+                    'Authentication failed or timed out'
+                )
             }
 
             return $token
         }
 
-        Microsoft.PowerShell.Utility\Write-Verbose "Checking dependencies for $ModuleName"
-        GenXdev.Coding\Assert-GenXdevDependencyUsage -BaseModuleName $ModuleName -ErrorAction Stop
+        # validate genxdev module dependencies
+        Microsoft.PowerShell.Utility\Write-Verbose (
+            "Checking dependencies for $ModuleName"
+        )
 
-        Microsoft.PowerShell.Utility\Write-Verbose "Running unit tests for $ModuleName"
+        GenXdev.Coding\Assert-GenXdevDependencyUsage -BaseModuleName $ModuleName `
+            -ErrorAction Stop
+
+        # execute unit tests for the module
+        Microsoft.PowerShell.Utility\Write-Verbose (
+            "Running unit tests for $ModuleName"
+        )
+
         try {
-            GenXdev.Coding\Assert-GenXdevUnitTest -ModuleName $ModuleName -ErrorAction Stop
+                GenXdev.Coding\Assert-GenXdevUnitTest -ModuleName $ModuleName `
+                    -ErrorAction Stop
         }
         catch {
-            Microsoft.PowerShell.Utility\Write-Error "Unit tests failed for $($ModuleName): $_"
+            Microsoft.PowerShell.Utility\Write-Error (
+                "Unit tests failed for $($ModuleName): $_"
+            )
             return
         }
 
-        # get full path to module
-        $modulePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$ModuleName\1.200.2025\"
+        # get full path to module directory
+        $modulePath = GenXdev.FileSystem\Expand-Path (
+            "$PSScriptRoot\..\..\..\..\$ModuleName\1.208.2025\"
+        )
 
-        Microsoft.PowerShell.Utility\Write-Verbose "Checking for module manifest at: $modulePath"
-        if (!(Microsoft.PowerShell.Management\Test-Path -Path "$modulePath\$ModuleName.psd1")) {
-            Microsoft.PowerShell.Utility\Write-Error "No module manifest found in module directory"
+        # verify module manifest exists
+        Microsoft.PowerShell.Utility\Write-Verbose (
+            "Checking for module manifest at: $modulePath"
+        )
+
+        if (!(Microsoft.PowerShell.Management\Test-Path `
+                    -Path "$modulePath\$ModuleName.psd1")) {
+
+            Microsoft.PowerShell.Utility\Write-Error (
+                'No module manifest found in module directory'
+            )
             return
         }
 
-        # load module version information
-        $manifestFile = GenXdev.FileSystem\Expand-Path "$modulePath\$ModuleName.psd1"
-        $moduleVersion = (Microsoft.PowerShell.Utility\Import-PowerShellDataFile $manifestFile).ModuleVersion
+        # load module version information from manifest
+        $manifestFile = GenXdev.FileSystem\Expand-Path (
+            "$modulePath\$ModuleName.psd1"
+        )
 
-        Microsoft.PowerShell.Utility\Write-Verbose "Processing $ModuleName version $moduleVersion"
+        $moduleVersion = (Microsoft.PowerShell.Utility\Import-PowerShellDataFile `
+                $manifestFile).ModuleVersion
+
+        Microsoft.PowerShell.Utility\Write-Verbose (
+            "Processing $ModuleName version $moduleVersion"
+        )
 
         $repoSearchResult = $null
 
-        # authenticate with github
-        Microsoft.PowerShell.Utility\Write-Verbose "Authenticating with GitHub"
+        # authenticate with github api
+        Microsoft.PowerShell.Utility\Write-Verbose 'Authenticating with GitHub'
         $token = Register-GitHubApp
+
         if ($null -ne $token) {
 
-            # Find the original repository
+            # find the original repository in genxdev organization
             $headers = @{
                 Authorization = "token $token"
-                Accept        = "application/vnd.github.v3+json"
+                Accept        = 'application/vnd.github.v3+json'
             }
 
-            # Search for the repository in genXdev organization
-            $repoSearchResult = Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/genXdev/$ModuleName" -Headers $headers -ErrorAction SilentlyContinue
+            # search for the repository in genxdev organization
+            $repoSearchResult = Microsoft.PowerShell.Utility\Invoke-RestMethod `
+                -Method Get `
+                -Uri "https://api.github.com/repos/genXdev/$ModuleName" `
+                -Headers $headers `
+                -ErrorAction SilentlyContinue
         }
 
+        # handle case where repository is not found
         if (!$repoSearchResult) {
-            Microsoft.PowerShell.Utility\Write-Host "Repository not found. Uploading to genXdev.net instead..."
 
-            # Get module path and create zip file
+            Microsoft.PowerShell.Utility\Write-Host (
+                'Repository not found. Uploading to genXdev.net instead...'
+            )
+
+            # create zip file from module directory
             try {
-                $zipPath = [System.IO.Path]::GetTempFileName() + ".zip"
-                Microsoft.PowerShell.Archive\Compress-Archive -Path "$modulePath\*" -DestinationPath $zipPath -Force
+                $zipPath = [System.IO.Path]::GetTempFileName() + '.zip'
+
+                Microsoft.PowerShell.Archive\Compress-Archive `
+                    -Path "$modulePath\*" `
+                    -DestinationPath $zipPath `
+                    -Force
             }
             catch {
-                Microsoft.PowerShell.Utility\Write-Error "Failed to compress module directory: $_"
+                Microsoft.PowerShell.Utility\Write-Error (
+                    "Failed to compress module directory: $_"
+                )
                 return
             }
 
+            # upload zip file to genxdev.net
             try {
                 $uploadUrl = ("https://genxdev.net/$w?filename=$([Uri]::EscapeDataString(
                     "$ModuleName.zip"))&session=$([Uri]::EscapeDataString(
@@ -243,14 +576,24 @@ function New-PullRequestForGenXdevModuleChanges {
 
                 $fileBytes = [System.IO.File]::ReadAllBytes($zipPath)
 
-                $result = Microsoft.PowerShell.Utility\Invoke-RestMethod -Uri $uploadUrl `
+                $result = Microsoft.PowerShell.Utility\Invoke-RestMethod `
+                    -Uri $uploadUrl `
                     -Method Post `
-                    -ContentType "application/octet-stream" `
+                    -ContentType 'application/octet-stream' `
                     -Body $fileBytes
 
-                Microsoft.PowerShell.Utility\Write-Verbose "Upload result: $($result | Microsoft.PowerShell.Utility\ConvertTo-Json -Compress)"
-                Microsoft.PowerShell.Utility\Write-Host "Module successfully uploaded to genXdev.net"
-                Microsoft.PowerShell.Utility\Write-Host "Please contact genXdev to inform about the new module suggestion."
+                Microsoft.PowerShell.Utility\Write-Verbose (
+                    "Upload result: $($result |
+                        Microsoft.PowerShell.Utility\ConvertTo-Json -Compress)"
+                )
+
+                Microsoft.PowerShell.Utility\Write-Host (
+                    'Module successfully uploaded to genXdev.net'
+                )
+
+                Microsoft.PowerShell.Utility\Write-Host (
+                    'Please contact genXdev to inform about the new module suggestion.'
+                )
                 return
             }
             finally {
@@ -258,23 +601,27 @@ function New-PullRequestForGenXdevModuleChanges {
                     Microsoft.PowerShell.Management\Remove-Item $zipPath -Force
                 }
                 catch {
-                    Microsoft.PowerShell.Utility\Write-Error "Failed to remove temporary zip file: $_"
+                    Microsoft.PowerShell.Utility\Write-Error (
+                        "Failed to remove temporary zip file: $_"
+                    )
                 }
             }
         }
 
-        Microsoft.PowerShell.Utility\Write-Host "Found original repository: $($repoSearchResult.html_url)"
+        Microsoft.PowerShell.Utility\Write-Host (
+            "Found original repository: $($repoSearchResult.html_url)"
+        )
 
         # Create a fork if doesn't exist
-        $username = (Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Get -Uri "https://api.github.com/user" -Headers $headers).login
+        $username = (Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Get -Uri 'https://api.github.com/user' -Headers $headers).login
 
         try {
             Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/$username/$ModuleName" -Headers $headers
-            Microsoft.PowerShell.Utility\Write-Verbose "Fork already exists"
+            Microsoft.PowerShell.Utility\Write-Verbose 'Fork already exists'
         }
         catch {
             # Fork doesn't exist, create it
-            if ($PSCmdlet.ShouldProcess("$ModuleName", "Create fork")) {
+            if ($PSCmdlet.ShouldProcess("$ModuleName", 'Create fork')) {
                 Microsoft.PowerShell.Utility\Write-Host "Creating fork of $ModuleName..."
                 try {
                     Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/genXdev/$ModuleName/forks" -Headers $headers
@@ -287,7 +634,7 @@ function New-PullRequestForGenXdevModuleChanges {
         }
 
         # Setup git and push changes
-        if ($PSCmdlet.ShouldProcess("$ModuleName", "Push changes to GitHub")) {
+        if ($PSCmdlet.ShouldProcess("$ModuleName", 'Push changes to GitHub')) {
             Microsoft.PowerShell.Management\Push-Location $modulePath
             try {
                 try {
@@ -296,7 +643,7 @@ function New-PullRequestForGenXdevModuleChanges {
                     git config --global --add safe.directory $modulePath
 
                     # Remove the .git folder if it exists
-                    $gitFolderPath = Microsoft.PowerShell.Management\Join-Path -Path $modulePath -ChildPath ".git"
+                    $gitFolderPath = Microsoft.PowerShell.Management\Join-Path -Path $modulePath -ChildPath '.git'
                     if (Microsoft.PowerShell.Management\Test-Path -Path $gitFolderPath) {
                         Microsoft.PowerShell.Utility\Write-Verbose "Removing existing .git folder at $gitFolderPath"
                         GenXdev.FileSystem\Remove-AllItems $gitFolderPath -DeleteFolder
@@ -310,11 +657,11 @@ function New-PullRequestForGenXdevModuleChanges {
                     $upstreamUrl = "https://$token@github.com/genXdev/$ModuleName.git/"
 
                     # Check if remotes already exist
-                    if (-not (git remote | Microsoft.PowerShell.Utility\Select-String -Pattern "^origin$")) {
+                    if (-not (git remote | Microsoft.PowerShell.Utility\Select-String -Pattern '^origin$')) {
                         git remote add origin $originUrl
                         Microsoft.PowerShell.Utility\Write-Verbose "Added origin remote: $originUrl"
                     }
-                    if (-not (git remote | Microsoft.PowerShell.Utility\Select-String -Pattern "^upstream$")) {
+                    if (-not (git remote | Microsoft.PowerShell.Utility\Select-String -Pattern '^upstream$')) {
                         git remote add upstream $upstreamUrl
                         Microsoft.PowerShell.Utility\Write-Verbose "Added upstream remote: $upstreamUrl"
                     }
@@ -331,7 +678,7 @@ function New-PullRequestForGenXdevModuleChanges {
                     # Add and commit changes
                     git add .
                     if (git diff --cached --quiet) {
-                        Microsoft.PowerShell.Utility\Write-Verbose "No changes to commit. Skipping commit step."
+                        Microsoft.PowerShell.Utility\Write-Verbose 'No changes to commit. Skipping commit step.'
                     }
                     else {
                         git commit -m $CommitMessage
@@ -351,8 +698,8 @@ function New-PullRequestForGenXdevModuleChanges {
         }
 
         # --- Begin Modification ---
-        # Find the commit with the exact message "Release 1.200.2025" in the GenXdev module repository using the GitHub API
-        $releaseCommitMsg = "Release 1.200.2025"
+        # Find the commit with the exact message "Release 1.208.2025" in the GenXdev module repository using the GitHub API
+        $releaseCommitMsg = 'Release 1.208.2025'
         $commitsApiUrl = "https://api.github.com/repos/genXdev/$ModuleName/commits"
         $releaseCommitHash = $null
 
@@ -379,7 +726,7 @@ function New-PullRequestForGenXdevModuleChanges {
         $PullRequestDescription += "`nCommit hash: $releaseCommitHash"
 
         # Generate a unique branch name
-        $timestamp = (Microsoft.PowerShell.Utility\Get-Date -Format "yyyyMMddHHmmss")
+        $timestamp = (Microsoft.PowerShell.Utility\Get-Date -Format 'yyyyMMddHHmmss')
         $newBranchName = "release-branch-$timestamp"
 
         # Create a branch in the user's fork pointing to the desired commit
@@ -389,7 +736,7 @@ function New-PullRequestForGenXdevModuleChanges {
                 ref = "refs/heads/$newBranchName"
                 sha = $releaseCommitHash
             }
-            Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/$username/$ModuleName/git/refs" -Body ($createBranchBody | Microsoft.PowerShell.Utility\ConvertTo-Json -Depth 10) -Headers $headers -ContentType "application/json"
+            Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/$username/$ModuleName/git/refs" -Body ($createBranchBody | Microsoft.PowerShell.Utility\ConvertTo-Json -Depth 10) -Headers $headers -ContentType 'application/json'
             Microsoft.PowerShell.Utility\Write-Verbose "Branch '$newBranchName' created in the user's fork."
         }
         catch {
@@ -398,9 +745,9 @@ function New-PullRequestForGenXdevModuleChanges {
         }
 
         # Fetch GitHub user details
-        Microsoft.PowerShell.Utility\Write-Verbose "Fetching GitHub user details"
+        Microsoft.PowerShell.Utility\Write-Verbose 'Fetching GitHub user details'
         try {
-            $userDetails = Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Get -Uri "https://api.github.com/user" -Headers $headers -ErrorAction Stop
+            $userDetails = Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Get -Uri 'https://api.github.com/user' -Headers $headers -ErrorAction Stop
             $GitUserName = $userDetails.name
             $GitUserEmail = $userDetails.email
 
@@ -420,7 +767,7 @@ function New-PullRequestForGenXdevModuleChanges {
         }
 
         # Ensure changes are committed to the new branch
-        if ($PSCmdlet.ShouldProcess("$ModuleName", "Push changes to GitHub")) {
+        if ($PSCmdlet.ShouldProcess("$ModuleName", 'Push changes to GitHub')) {
             Microsoft.PowerShell.Management\Push-Location $modulePath
             try {
                 try {
@@ -429,7 +776,7 @@ function New-PullRequestForGenXdevModuleChanges {
                     git config --global --add safe.directory $modulePath
 
                     # Remove the .git folder if it exists
-                    $gitFolderPath = Microsoft.PowerShell.Management\Join-Path -Path $modulePath -ChildPath ".git"
+                    $gitFolderPath = Microsoft.PowerShell.Management\Join-Path -Path $modulePath -ChildPath '.git'
                     if (Microsoft.PowerShell.Management\Test-Path -Path $gitFolderPath) {
                         Microsoft.PowerShell.Utility\Write-Verbose "Removing existing .git folder at $gitFolderPath"
                         GenXdev.FileSystem\Remove-AllItems $gitFolderPath -DeleteFolder
@@ -443,11 +790,11 @@ function New-PullRequestForGenXdevModuleChanges {
                     $upstreamUrl = "https://$token@github.com/genXdev/$ModuleName.git/"
 
                     # Check if remotes already exist
-                    if (-not (git remote | Microsoft.PowerShell.Utility\Select-String -Pattern "^origin$")) {
+                    if (-not (git remote | Microsoft.PowerShell.Utility\Select-String -Pattern '^origin$')) {
                         git remote add origin $originUrl
                         Microsoft.PowerShell.Utility\Write-Verbose "Added origin remote: $originUrl"
                     }
-                    if (-not (git remote | Microsoft.PowerShell.Utility\Select-String -Pattern "^upstream$")) {
+                    if (-not (git remote | Microsoft.PowerShell.Utility\Select-String -Pattern '^upstream$')) {
                         git remote add upstream $upstreamUrl
                         Microsoft.PowerShell.Utility\Write-Verbose "Added upstream remote: $upstreamUrl"
                     }
@@ -464,7 +811,7 @@ function New-PullRequestForGenXdevModuleChanges {
                     # Add and commit changes
                     git add .
                     if (git diff --cached --quiet) {
-                        Microsoft.PowerShell.Utility\Write-Verbose "No changes to commit. Skipping commit step."
+                        Microsoft.PowerShell.Utility\Write-Verbose 'No changes to commit. Skipping commit step.'
                     }
                     else {
                         git commit -m $CommitMessage
@@ -498,20 +845,20 @@ function New-PullRequestForGenXdevModuleChanges {
         # }
 
         # Create pull request
-        if ($PSCmdlet.ShouldProcess("$ModuleName", "Create pull request")) {
+        if ($PSCmdlet.ShouldProcess("$ModuleName", 'Create pull request')) {
             try {
                 $prBody = @{
                     title = $PullRequestTitle
                     body  = $PullRequestDescription
                     head  = "${username}:${newBranchName}"  # Use the new branch in the user's fork
-                    base  = "main"
+                    base  = 'main'
                 }
 
                 # Create the pull request
-                $pr = Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/genXdev/$ModuleName/pulls" -Body ($prBody | Microsoft.PowerShell.Utility\ConvertTo-Json -Depth 10) -Headers $headers -ContentType "application/json"
+                $pr = Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/genXdev/$ModuleName/pulls" -Body ($prBody | Microsoft.PowerShell.Utility\ConvertTo-Json -Depth 10) -Headers $headers -ContentType 'application/json'
 
                 Microsoft.PowerShell.Utility\Write-Host "Pull request created successfully: $($pr.html_url)" -ForegroundColor Cyan
-                Microsoft.PowerShell.Utility\Write-Host "Thank you for contributing to GenXdev!" -ForegroundColor Green
+                Microsoft.PowerShell.Utility\Write-Host 'Thank you for contributing to GenXdev!' -ForegroundColor Green
             }
             catch {
                 Microsoft.PowerShell.Utility\Write-Error "Failed to create pull request: $($Error[0])"
@@ -524,4 +871,4 @@ function New-PullRequestForGenXdevModuleChanges {
 
     }
 }
-        ###############################################################################
+###############################################################################

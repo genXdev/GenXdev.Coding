@@ -1,4 +1,4 @@
-###############################################################################
+﻿###############################################################################
 <#
 .SYNOPSIS
 Creates a new refactoring set for code transformation tasks.
@@ -114,14 +114,14 @@ newrefactor UpdateLogging LoggingRefactor -p "Get-LoggingMethods" -c
 function New-Refactor {
 
     [CmdletBinding(SupportsShouldProcess = $true)]
-    [Alias("newrefactor")]
+    [Alias('newrefactor')]
 
     param (
         ########################################################################
         [Parameter(
             Position = 0,
             Mandatory = $true,
-            HelpMessage = "The name of this new refactor set"
+            HelpMessage = 'The name of this new refactor set'
         )]
         [ValidateNotNullOrEmpty()]
         [string] $Name,
@@ -129,7 +129,7 @@ function New-Refactor {
         [Parameter(
             Position = 1,
             Mandatory = $true,
-            HelpMessage = "The prompt key indicates which prompt script to use"
+            HelpMessage = 'The prompt key indicates which prompt script to use'
         )]
         [ValidateNotNullOrEmpty()]
         [string] $PromptKey,
@@ -137,15 +137,15 @@ function New-Refactor {
         [Parameter(
             Position = 2,
             Mandatory = $false,
-            HelpMessage = "Custom prompt text to override the template"
+            HelpMessage = 'Custom prompt text to override the template'
         )]
         [ValidateNotNullOrEmpty()]
-        [string] $Prompt = "",
+        [string] $Prompt = '',
         ########################################################################
         [Parameter(
             Position = 3,
             Mandatory = $false,
-            HelpMessage = "Powershell script for selecting items to refactor"
+            HelpMessage = 'Powershell script for selecting items to refactor'
         )]
         [ValidateNotNullOrEmpty()]
         [string] $SelectionScript,
@@ -153,7 +153,7 @@ function New-Refactor {
         [Parameter(
             Position = 4,
             Mandatory = $false,
-            HelpMessage = "LLM selection guidance prompt"
+            HelpMessage = 'LLM selection guidance prompt'
         )]
         [ValidateNotNullOrEmpty()]
         [string] $SelectionPrompt,
@@ -161,64 +161,64 @@ function New-Refactor {
         [Parameter(
             Position = 5,
             Mandatory = $false,
-            HelpMessage = "The type of LLM query"
+            HelpMessage = 'The type of LLM query'
         )]
         [ValidateSet(
-            "SimpleIntelligence",
-            "Knowledge",
-            "Pictures",
-            "TextTranslation",
-            "Coding",
-            "ToolUse"
+            'SimpleIntelligence',
+            'Knowledge',
+            'Pictures',
+            'TextTranslation',
+            'Coding',
+            'ToolUse'
         )]
-        [string] $LLMQueryType = "Coding",
+        [string] $LLMQueryType = 'Coding',
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The model identifier or pattern to use for AI operations"
+            HelpMessage = 'The model identifier or pattern to use for AI operations'
         )]
         [string] $Model,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The LM Studio specific model identifier"
+            HelpMessage = 'The LM Studio specific model identifier'
         )]
-        [Alias("ModelLMSGetIdentifier")]
+        [Alias('ModelLMSGetIdentifier')]
         [string] $HuggingFaceIdentifier,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The maximum number of tokens to use in AI operations"
+            HelpMessage = 'The maximum number of tokens to use in AI operations'
         )]
         [int] $MaxToken,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The number of CPU cores to dedicate to AI operations"
+            HelpMessage = 'The number of CPU cores to dedicate to AI operations'
         )]
         [int] $Cpu,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Time-to-live in seconds for API-loaded models"
+            HelpMessage = 'Time-to-live in seconds for API-loaded models'
         )]
         [int] $TTLSeconds = 0,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Select configuration by available system RAM"
+            HelpMessage = 'Select configuration by available system RAM'
         )]
         [switch] $SelectByFreeRam,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Select configuration by available GPU RAM"
+            HelpMessage = 'Select configuration by available GPU RAM'
         )]
         [switch] $SelectByFreeGpuRam,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Temperature for response randomness (0.0-1.0)"
+            HelpMessage = 'Temperature for response randomness (0.0-1.0)'
         )]
         [ValidateRange(0.0, 1.0)]
         [double] $Temperature = 0.2,
@@ -226,113 +226,114 @@ function New-Refactor {
         [Parameter(
             Mandatory = $false,
             HelpMessage = ("How much to offload to the GPU. If 'off', GPU " +
-                           "offloading is disabled. If 'max', all layers are " +
-                           "offloaded to GPU. If a number between 0 and 1, " +
-                           "that fraction of layers will be offloaded to the " +
-                           "GPU. -1 = LM Studio will decide how much to " +
-                           "offload to the GPU. -2 = Auto")
+                "offloading is disabled. If 'max', all layers are " +
+                'offloaded to GPU. If a number between 0 and 1, ' +
+                'that fraction of layers will be offloaded to the ' +
+                'GPU. -1 = LM Studio will decide how much to ' +
+                'offload to the GPU. -2 = Auto')
         )]
         [ValidateRange(-2, 1)]
         [int]$Gpu = -1,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The API endpoint URL for AI operations"
+            HelpMessage = 'The API endpoint URL for AI operations'
         )]
         [string] $ApiEndpoint,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The API key for authenticated AI operations"
+            HelpMessage = 'The API key for authenticated AI operations'
         )]
         [string] $ApiKey,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "The timeout in seconds for AI operations"
+            HelpMessage = 'The timeout in seconds for AI operations'
         )]
         [int] $TimeoutSeconds,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Priority for this refactor set"
+            HelpMessage = 'Priority for this refactor set'
         )]
         [ValidateNotNullOrEmpty()]
         [int] $Priority = 0,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Array of PowerShell command definitions for LLM tools"
+            HelpMessage = 'Array of PowerShell command definitions for LLM tools'
         )]
         [GenXdev.Helpers.ExposedCmdletDefinition[]]
         $ExposedCmdLets = @(),
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Array of files to process"
+            HelpMessage = 'Array of files to process'
         )]
         [ValidateNotNull()]
         [System.IO.FileInfo[]] $FilesToAdd = @(),
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Database path for preference data files"
+            HelpMessage = 'Database path for preference data files'
         )]
+        [Alias('DatabasePath')]
         [string] $PreferencesDatabasePath,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Will automatically add modified files to the queue"
+            HelpMessage = 'Will automatically add modified files to the queue'
         )]
         [switch] $AutoAddModifiedFiles,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Force stop LM Studio before initialization"
+            HelpMessage = 'Force stop LM Studio before initialization'
         )]
         [switch] $Force,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = ("Use alternative settings stored in session for AI " +
-                "preferences")
+            HelpMessage = ('Use alternative settings stored in session for AI ' +
+                'preferences')
         )]
         [switch] $SessionOnly,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = ("Clear alternative settings stored in session for AI " +
-                "preferences")
+            HelpMessage = ('Clear alternative settings stored in session for AI ' +
+                'preferences')
         )]
         [switch] $ClearSession,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = ("Store settings only in persistent preferences without " +
-                "affecting session")
+            HelpMessage = ('Store settings only in persistent preferences without ' +
+                'affecting session')
         )]
-        [Alias("FromPreferences")]
+        [Alias('FromPreferences')]
         [switch] $SkipSession,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Open files in Visual Studio Code"
+            HelpMessage = 'Open files in Visual Studio Code'
         )]
-        [Alias("c")]
+        [Alias('c')]
         [switch] $Code,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Open in Visual Studio"
+            HelpMessage = 'Open in Visual Studio'
         )]
-        [Alias("vs")]
+        [Alias('vs')]
         [switch] $VisualStudio,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Keystrokes to send after opening files"
+            HelpMessage = 'Keystrokes to send after opening files'
         )]
-        [Alias("keys")]
+        [Alias('keys')]
         [string[]] $KeysToSend = @()
         ########################################################################
     )
@@ -365,14 +366,15 @@ function New-Refactor {
         # configure LLM processing settings
         $llmConfigParams = GenXdev.Helpers\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
-            -FunctionName "GenXdev.AI\Get-AILLMSettings" `
+            -FunctionName 'GenXdev.AI\Get-AILLMSettings' `
             -DefaultValues  (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -ErrorAction SilentlyContinue)
 
         $llmConfig = GenXdev.AI\Get-AILLMSettings @llmConfigParams
 
         foreach ($param in $llmConfig.Keys) {
-
-            $refactorDefinition.SelectionSettings.LLM."$param" = $llmConfig."$param"
+            if ($null -ne $llmConfig[$param]) {
+                $refactorDefinition.SelectionSettings.LLM."$param" = $llmConfig."$param"
+            }
         }
 
         $refactorDefinition.SelectionSettings.LLM.ExposedCmdLets = `
@@ -381,21 +383,21 @@ function New-Refactor {
         # set IDE integration preferences
         $refactorDefinition.RefactorSettings.KeysToSend = $KeysToSend
         $refactorDefinition.RefactorSettings.Code = `
-            $PSBoundParameters.ContainsKey("Code") ? ($Code ? 1 : 0) : -1
+            $PSBoundParameters.ContainsKey('Code') ? ($Code ? 1 : 0) : -1
         $refactorDefinition.RefactorSettings.VisualStudio = `
-            $PSBoundParameters.ContainsKey("VisualStudio") ? `
-            ($VisualStudio ? 1 : 0) : -1
+            $PSBoundParameters.ContainsKey('VisualStudio') ? `
+        ($VisualStudio ? 1 : 0) : -1
 
         # record creation event in log
         $null = $refactorDefinition.Log.Add(
             @{
                 Timestamp = $currentTime
-                Message   = "Refactor set created"
+                Message   = 'Refactor set created'
             }
         )
 
         # initialize state tracking
-        $refactorDefinition.State.Status = "Created"
+        $refactorDefinition.State.Status = 'Created'
         $refactorDefinition.State.LastUpdated = $currentTime
     }
 
@@ -410,7 +412,7 @@ function New-Refactor {
         )
 
         # verify no existing refactor with same name exists
-        $existingDefinition = GenXdev.Data\Get-GenXdevPreference `
+            $existingDefinition = GenXdev.Data\Get-GenXdevPreference `
             -Name $preferenceName -PreferencesDatabasePath $PreferencesDatabasePath `
             -ErrorAction SilentlyContinue
 
@@ -423,7 +425,7 @@ function New-Refactor {
         }
 
         # confirm with user before creating new refactor set
-        if ($PSCmdlet.ShouldProcess($Name, "Create new refactor set")) {
+        if ($PSCmdlet.ShouldProcess($Name, 'Create new refactor set')) {
 
             # output verbose information about saving the refactor set
             Microsoft.PowerShell.Utility\Write-Verbose "Saving refactor set '$Name'"

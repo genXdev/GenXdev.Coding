@@ -1,5 +1,8 @@
 {
+  "application.shellEnvironmentResolutionTimeout": 60000,
+  "application.shellEnvironmentResolutionRetryDelay": 1000,
   "window.zoomLevel": 1,
+  "chat.mcp.enabled": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "explorer.confirmDelete": false,
   "debug.onTaskErrors": "showErrors",
@@ -34,10 +37,13 @@
   "powershell.integratedConsole.suppressStartupBanner": true,
   "powershell.codeFormatting.useCorrectCasing": true,
   "workbench.panel.defaultLocation": "bottom",
+  "debug.javascript.usePreview": true,
   "debug.console.closeOnEnd": true,
   "powershell.codeFormatting.autoCorrectAliases": true,
   "powershell.codeFormatting.whitespaceBetweenParameters": true,
   "powershell.debugging.createTemporaryIntegratedConsole": false,
+  "git.autofetch": false,
+  "git.enableSmartCommit": true,
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.tabs.enabled": true,
   "terminal.integrated.tabs.focusMode": "singleClick",
@@ -68,6 +74,8 @@
     }
   },
   "powershell.codeFormatting.aliasesToExpand": [
+    "Microsoft.PowerShell.Management",
+    "Microsoft.PowerShell.Utility",
     "Microsoft.PowerShell.Management",
     "Microsoft.PowerShell.Utility",
     "GenXdev.Windows.psm1",
@@ -124,6 +132,7 @@
     "GenXdev.AI.LMStudio.psm1",
     "GenXdev.AI.psm1",
     "GenXdev.AI.Queries.psm1",
+    "GenXdev*",
     "GenXdev.psm1"
   ],
   "sqltools.connections": [
@@ -131,8 +140,52 @@
       "previewLimit": 50,
       "driver": "SQLite",
       "name": "KeyValueStore",
-      "database": "${workspaceFolder:powershell}/Modules/GenXdev.Local/KeyValueStores.sqllite.db"
+      "database": "${workspaceFolder:powershell}/Modules/GenXdev.Local/KeyValueStores.sqlite.db"
     }
   ],
-  "sqltools.useNodeRuntime": true
+  "sqltools.useNodeRuntime": true,
+  "chat.agent.enabled": true,
+  "powershell.codeFormatting.pipelineIndentationStyle": "IncreaseIndentationForFirstPipeline",
+  "chat.mcp.serverSampling": {
+    "PowerShell/.vscode/mcp.json: GenXdev": {
+      "allowedModels": [
+        "github.copilot-chat/gpt-4.1",
+        "github.copilot-chat/claude-3.5-sonnet",
+        "github.copilot-chat/claude-3.7-sonnet",
+        "github.copilot-chat/claude-3.7-sonnet-thought",
+        "github.copilot-chat/claude-sonnet-4",
+        "github.copilot-chat/gemini-2.0-flash-001",
+        "github.copilot-chat/gemini-2.5-pro-preview-06-05",
+        "github.copilot-chat/gpt-4o",
+        "github.copilot-chat/o1",
+        "github.copilot-chat/o3-mini",
+        "github.copilot-chat/o4-mini"
+      ]
+    }
+  },
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+  "github.copilot.chat.instructionFiles.enabled": true,
+  "github.copilot.chat.instructionFiles.searchPaths": [
+    ".github/instructions",
+    ".github/",
+  ],
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+    "powershell": true
+  },
+  "github.copilot.advanced": {
+    "debug.overrideEngine": "",
+    "debug.testOverrideProxyUrl": ""
+  },
+  "chat.instructionsFilesLocations": {
+    ".github/": true
+  },
+  "github.copilot.chat.codeGeneration.instructions": [
+    {
+      "file": ".github/copilot-instructions.md"
+    }
+  ]
 }

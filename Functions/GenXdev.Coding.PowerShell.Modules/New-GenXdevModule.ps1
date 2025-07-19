@@ -28,7 +28,7 @@ New-GenXdevModule `
     -ModuleName "GenXdev.Example" `
     -Description "Example module demonstrating GenXdev standards" `
     -Tags @('GenXdev','Example','Demo')
-        ###############################################################################>
+#>
 function New-GenXdevModule {
     ############################################################################
     [CmdletBinding(SupportsShouldProcess)]
@@ -37,9 +37,9 @@ function New-GenXdevModule {
         [Parameter(
             Mandatory = $true,
             Position = 0,
-            HelpMessage = "Name of the module to create (must follow GenXdev.* pattern)"
+            HelpMessage = 'Name of the module to create (must follow GenXdev.* pattern)'
         )]
-        [ValidatePattern("^GenXdev(\.\w+)+$")]
+        [ValidatePattern('^GenXdev(\.\w+)+$')]
         [string] $ModuleName,
         ############################################################################
         [Parameter(
@@ -53,14 +53,14 @@ function New-GenXdevModule {
         [Parameter(
             Mandatory = $false,
             Position = 2,
-            HelpMessage = "Tags for module discovery (no whitespace allowed)"
+            HelpMessage = 'Tags for module discovery (no whitespace allowed)'
         )]
         [ValidateScript({
-            if ($_ | Microsoft.PowerShell.Core\Where-Object { $_ -match '\s' }) {
-                throw "Tags cannot contain whitespace characters"
-            }
-            return $true
-        })]
+                if ($_ | Microsoft.PowerShell.Core\Where-Object { $_ -match '\s' }) {
+                    throw 'Tags cannot contain whitespace characters'
+                }
+                return $true
+            })]
         [string[]] $Tags = @('GenXdev')
         ############################################################################
     )
@@ -72,94 +72,94 @@ function New-GenXdevModule {
 
         $newModulePsm = @"
         ###############################################################################
-        ###############################################################################Module manifest for module '$ModuleName'
+Module manifest for module '$ModuleName'
         ###############################################################################
 
 @{
 
-        ###############################################################################Script module or binary module file associated with this manifest.
+Script module or binary module file associated with this manifest.
 RootModule = '$ModuleName.psm1'
 
-        ###############################################################################Version number of this module.
-ModuleVersion = '1.200.2025'
+Version number of this module.
+ModuleVersion = '1.208.2025'
 
-        ###############################################################################Supported PSEditions
+Supported PSEditions
 CompatiblePSEditions = 'Core'
 
-        ###############################################################################ID used to uniquely identify this module
+ID used to uniquely identify this module
 GUID = '$([guid]::NewGuid())'
 
-        ###############################################################################Author of this module
+Author of this module
 Author = 'genXdev'
 
-        ###############################################################################Company or vendor of this module
+Company or vendor of this module
 CompanyName = 'GenXdev'
 
-        ###############################################################################Copyright statement for this module
+Copyright statement for this module
 Copyright = 'Copyright 2021-$([System.DateTime]::UtcNow.Year) GenXdev'
 
-        ###############################################################################Description of the functionality provided by this module
+Description of the functionality provided by this module
 Description = '$Description'
 
-        ###############################################################################Minimum version of the PowerShell engine required by this module
+Minimum version of the PowerShell engine required by this module
 PowerShellVersion = '7.5.0'
 
-        ###############################################################################Name of the PowerShell host required by this module
-        ###############################################################################PowerShellHostName = ''
+Name of the PowerShell host required by this module
+PowerShellHostName = ''
 
-        ###############################################################################Minimum version of the PowerShell host required by this module
-        ###############################################################################PowerShellHostVersion = ''
+Minimum version of the PowerShell host required by this module
+PowerShellHostVersion = ''
 
-        ###############################################################################Minimum version of Microsoft .NET Framework required by this module. This prerequisite is valid for the PowerShell Desktop edition only.
-        ###############################################################################DotNetFrameworkVersion = ''
+Minimum version of Microsoft .NET Framework required by this module. This prerequisite is valid for the PowerShell Desktop edition only.
+DotNetFrameworkVersion = ''
 
-        ###############################################################################Minimum version of the common language runtime (CLR) required by this module. This prerequisite is valid for the PowerShell Desktop edition only.
+Minimum version of the common language runtime (CLR) required by this module. This prerequisite is valid for the PowerShell Desktop edition only.
 ClrVersion = '9.0.1'
 
-        ###############################################################################Processor architecture (None, X86, Amd64) required by this module
+Processor architecture (None, X86, Amd64) required by this module
 ProcessorArchitecture = 'Amd64'
 
-        ###############################################################################Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @(@{ModuleName = 'GenXdev'; ModuleVersion = '1.200.2025'; })
+Modules that must be imported into the global environment prior to importing this module
+RequiredModules = @(@{ModuleName = 'GenXdev'; ModuleVersion = '1.208.2025'; })
 
-        ###############################################################################Assemblies that must be loaded prior to importing this module
-        ###############################################################################RequiredAssemblies = @()
+Assemblies that must be loaded prior to importing this module
+RequiredAssemblies = @()
 
-        ###############################################################################Script files (.ps1) that are run in the caller's environment prior to importing this module.
-        ###############################################################################ScriptsToProcess = @()
+Script files (.ps1) that are run in the caller's environment prior to importing this module.
+ScriptsToProcess = @()
 
-        ###############################################################################Type files (.ps1xml) to be loaded when importing this module
-        ###############################################################################TypesToProcess = @()
+Type files (.ps1xml) to be loaded when importing this module
+TypesToProcess = @()
 
-        ###############################################################################Format files (.ps1xml) to be loaded when importing this module
-        ###############################################################################FormatsToProcess = @()
+Format files (.ps1xml) to be loaded when importing this module
+FormatsToProcess = @()
 
-        ###############################################################################Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
-        ###############################################################################NestedModules = @()
+Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
+NestedModules = @()
 
-        ###############################################################################Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
+Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 FunctionsToExport = @('*')
 
-        ###############################################################################Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
+Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @('*')
 
-        ###############################################################################Variables to export from this module
+Variables to export from this module
 VariablesToExport = @('*')
 
-        ###############################################################################Aliases to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no aliases to export.
+Aliases to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no aliases to export.
 AliasesToExport = @('*')
 
-        ###############################################################################DSC resources to export from this module
-        ###############################################################################DscResourcesToExport = @()
+DSC resources to export from this module
+DscResourcesToExport = @()
 
-        ###############################################################################List of all modules packaged with this module
+List of all modules packaged with this module
 ModuleList = @('$ModuleName')
 
-        ###############################################################################List of all files packaged with this module
+List of all files packaged with this module
 FileList = '$ModuleName.psm1', '$ModuleName.psd1', 'LICENSE', 'license.txt',
            'powershell.jpg', 'README.md'
 
-        ###############################################################################Private data to pass to the module specified in RootModule/ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
+Private data to pass to the module specified in RootModule/ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
 PrivateData = @{
 
     PSData = @{
@@ -192,46 +192,46 @@ PrivateData = @{
 
  } # End of PrivateData hashtable
 
-        ###############################################################################HelpInfo URI of this module
-        ###############################################################################HelpInfoURI = ''
+HelpInfo URI of this module
+HelpInfoURI = ''
 
-        ###############################################################################Default prefix for commands exported from this module. Override the default prefix using Import-Module -Prefix.
-        ###############################################################################DefaultCommandPrefix = ''
+Default prefix for commands exported from this module. Override the default prefix using Import-Module -Prefix.
+DefaultCommandPrefix = ''
 }
 "@
 
-$readME = @"
+        $readME = @"
 <hr/>
 
 <img src='"powershell.jpg'" alt='"GenXdev'" width='"50%'"/>
 
 <hr/>
 
-        ###############################################################################NAME
+NAME
     $ModuleName
-        ###############################################################################SYNOPSIS
+SYNOPSIS
     $Description
 [![$ModuleName](https://img.shields.io/powershellgallery/v/$ModuleName.svg?style=flat-square&label=$ModuleName)](https://www.powershellgallery.com/packages/$ModuleName/) [![License](https://img.shields.io/github/license/$ModuleName/$ModuleName?style=flat-square)](./LICENSE)
 
-        ###############################################################################FEATURES
+FEATURES
 * ✅ <enter feature here>
      * <enter feature description here>
      * <enter feature description here>
 
-        ###############################################################################DEPENDENCIES
+DEPENDENCIES
 [![WinOS - Windows-10 or later](https://img.shields.io/badge/WinOS-Windows--10--10.0.19041--SP0-brightgreen)](https://www.microsoft.com/en-us/windows/get-windows-10)  [![GenXdev](https://img.shields.io/powershellgallery/v/GenXdev.svg?style=flat-square&label=GenXdev)](https://www.powershellgallery.com/packages/GenXdev/)
-        ###############################################################################INSTALLATION
+INSTALLATION
 ````````PowerShell
 Install-Module `"$ModuleName`"
 Import-Module `"$ModuleName`"
 ````````
-        ###############################################################################UPDATE
+UPDATE
 ````````PowerShell
 Update-Module
 ````````
 <br/><hr/><hr/><br/>
 
-        ###############################################################################Cmdlet Index
+Cmdlet Index
 "@;
 
         # construct the module paths
@@ -248,7 +248,7 @@ Update-Module
 
         # create versioned module directory
         $moduleDirectory = GenXdev.FileSystem\Expand-Path `
-            -Path "$moduleRootDirectory\1.200.2025\" `
+            -Path "$moduleRootDirectory\1.208.2025\" `
             -CreateDirectory
 
         # store current location and move to module directory
@@ -258,7 +258,7 @@ Update-Module
     process {
 
         # verbose output for file creation
-        Microsoft.PowerShell.Utility\Write-Verbose "Creating module files and structure"
+        Microsoft.PowerShell.Utility\Write-Verbose 'Creating module files and structure'
 
         if ($PSCmdlet.ShouldProcess($moduleDirectory, "Create new PowerShell module '$ModuleName'")) {
             # create the initial module script file with sample cmdlet import
@@ -283,7 +283,7 @@ Update-Module
                 .\powershell.jpg
 
             # create module documentation
-            $readME | Microsoft.PowerShell.Utility\Out-File ".\README.md"
+            $readME | Microsoft.PowerShell.Utility\Out-File '.\README.md'
         }
     }
 
@@ -297,5 +297,4 @@ Update-Module
         Microsoft.PowerShell.Management\Pop-Location
     }
 }
-        ###############################################################################
-        ###############################################################################
+###############################################################################

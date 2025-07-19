@@ -1,4 +1,4 @@
-###############################################################################
+﻿###############################################################################
 <#
 .SYNOPSIS
 Retrieves all GenXDev modules from a specified path.
@@ -18,18 +18,18 @@ Get-GenXDevModule -Path "C:\PowerShell\Modules"
 
 .EXAMPLE
 Get-GenXDevModule "C:\PowerShell\Modules"
-        ###############################################################################>
+#>
 function Get-GenXDevModule {
 
     [CmdletBinding()]
 
     param(
         ########################################################################
-        [Alias("RootPath", "FullPath")]
+        [Alias('RootPath', 'FullPath')]
         [parameter(
             Mandatory = $false,
             Position = 0,
-            HelpMessage = "The root path to search for GenXdev modules"
+            HelpMessage = 'The root path to search for GenXdev modules'
         )]
         [string] $Path
     )
@@ -46,39 +46,38 @@ function Get-GenXDevModule {
     }
 
 
-process {
+    process {
 
         # enumerate all directories starting with 'GenXdev'
         Microsoft.PowerShell.Management\Get-ChildItem -Path "$Path\GenXdev*" -Directory |
-        Microsoft.PowerShell.Core\ForEach-Object {
-
-            # store module information for processing
-            $moduleName = $_.Name
-            $moduleRootPath = $_.FullName
-
-            # skip modules containing '.local' in their name
-            if ($moduleName.ToLowerInvariant().Contains('.local')) {
-                Microsoft.PowerShell.Utility\Write-Verbose "Skipping local module: $moduleName"
-                return
-            }
-
-            # find the highest numbered 1.x version directory with valid psd1
-            Microsoft.PowerShell.Management\Get-ChildItem -Path "$moduleRootPath\1.*" -Directory |
-            Microsoft.PowerShell.Utility\Sort-Object -Property Name -Descending |
-            Microsoft.PowerShell.Utility\Select-Object -First 1 |
             Microsoft.PowerShell.Core\ForEach-Object {
 
-                # verify existence of module manifest
-                if (Microsoft.PowerShell.Management\Test-Path -Path "$($_.FullName)\$moduleName.psd1") {
+                # store module information for processing
+                $moduleName = $_.Name
+                $moduleRootPath = $_.FullName
 
-                    Microsoft.PowerShell.Utility\Write-Verbose "Found valid module: $moduleName in $($_.FullName)"
-                    $_
+                # skip modules containing '.local' in their name
+                if ($moduleName.ToLowerInvariant().Contains('.local')) {
+                    Microsoft.PowerShell.Utility\Write-Verbose "Skipping local module: $moduleName"
+                    return
                 }
-            }
-        }
+
+                # find the highest numbered 1.x version directory with valid psd1
+                Microsoft.PowerShell.Management\Get-ChildItem -Path "$moduleRootPath\1.*" -Directory |
+                    Microsoft.PowerShell.Utility\Sort-Object -Property Name -Descending |
+                    Microsoft.PowerShell.Utility\Select-Object -First 1 |
+                    Microsoft.PowerShell.Core\ForEach-Object {
+
+                        # verify existence of module manifest
+                        if (Microsoft.PowerShell.Management\Test-Path -Path "$($_.FullName)\$moduleName.psd1") {
+
+                            Microsoft.PowerShell.Utility\Write-Verbose "Found valid module: $moduleName in $($_.FullName)"
+                            $_
+                        }
+                    }
+                }
     }
 
     end {
     }
 }
-        ###############################################################################

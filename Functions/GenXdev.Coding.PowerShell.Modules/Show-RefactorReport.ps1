@@ -1,4 +1,4 @@
-###############################################################################
+﻿###############################################################################
 <#
 .SYNOPSIS
 Displays a formatted report of refactoring information for specified modules.
@@ -19,20 +19,52 @@ Shows refactoring status for all GenXdev modules.
 .EXAMPLE
 refactors *
 Shows refactoring status for all modules using the alias.
-        ###############################################################################>
+#>
 function Show-RefactorReport {
 
     [CmdletBinding()]
-    [Alias("refactors")]
+    [Alias('refactors')]
     param(
         ########################################################################
         [Parameter(
             Position = 0,
             Mandatory = $false,
-            HelpMessage = "The name pattern to filter modules (supports wildcards)"
+            HelpMessage = 'The name pattern to filter modules (supports wildcards)'
         )]
         [SupportsWildcards()]
-        [string[]]$Name = "*",
+        [string[]]$Name = '*',
+        ###############################################################################
+        [Alias('DatabasePath')]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Specifies the path to the preferences database file.'
+        )]
+        [string]$PreferencesDatabasePath,
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Use only the current session for refactor state.'
+        )]
+        [switch]$SessionOnly,
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Clear the current session refactor state.'
+        )]
+        [switch]$ClearSession,
+        ###############################################################################
+        [Alias('FromPreferences')]
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Skip loading or saving session state.'
+        )]
+        [switch]$SkipSession,
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Return the report as plain text instead of formatted output.'
+        )]
+        [switch]$AsText,
         ########################################################################
         [switch] $Full
     )
@@ -40,47 +72,47 @@ function Show-RefactorReport {
     begin {
 
         # output detailed module filter pattern for troubleshooting
-        Microsoft.PowerShell.Utility\Write-Verbose ("Generating refactor report for modules matching: " +
+        Microsoft.PowerShell.Utility\Write-Verbose ('Generating refactor report for modules matching: ' +
             "$($Name -join ', ')")
     }
 
 
-process {
+    process {
 
         # retrieve report data and format as table with key metrics
         $report = GenXdev.Coding\Get-RefactorReport -Name:$Name |
             Microsoft.PowerShell.Core\ForEach-Object {
 
-            $reportObj = $_
-            $refactor = GenXdev.Coding\Get-Refactor -Name:$_.Name
+                $reportObj = $_
+                $refactor = GenXdev.Coding\Get-Refactor -Name:$_.Name
 
-            if ($Full) {
+                if ($Full) {
 
-                @{
-                    Name               = $reportObj.Name
-                    PromptKey          = $reportObj.PromptKey
-                    P                  = $reportObj.Priority
-                    Fc                 = $reportObj.FunctionCount
-                    C                  = "$($reportObj.PercentageComplete)%"
-                    UsC                = $refactor.State.UnSelected.Count
-                    UsI                = $refactor.State.UnSelectedIndex
-                    SlC                = $refactor.State.Selected.Count
-                    SlI                = $refactor.State.SelectedIndex
-                    RfC                = $refactor.State.Refactored.Count
-                    RfI                = $refactor.State.RefactoredIndex
+                    @{
+                        Name      = $reportObj.Name
+                        PromptKey = $reportObj.PromptKey
+                        P         = $reportObj.Priority
+                        Fc        = $reportObj.FunctionCount
+                        C         = "$($reportObj.PercentageComplete)%"
+                        UsC       = $refactor.State.UnSelected.Count
+                        UsI       = $refactor.State.UnSelectedIndex
+                        SlC       = $refactor.State.Selected.Count
+                        SlI       = $refactor.State.SelectedIndex
+                        RfC       = $refactor.State.Refactored.Count
+                        RfI       = $refactor.State.RefactoredIndex
+                    }
+
+                    return;
                 }
-
-                return;
-            }
-            @{
-                Name               = $reportObj.Name
-                PromptKey          = $reportObj.PromptKey
-                Priority           = $reportObj.Priority
-                Status             = $reportObj.Status
-                FunctionCount      = $reportObj.FunctionCount
-                Complete           = "$($reportObj.PercentageComplete)%"
-            }
-        } | Microsoft.PowerShell.Utility\ConvertTo-Json -Compress | Microsoft.PowerShell.Utility\ConvertFrom-Json | Microsoft.PowerShell.Utility\Format-Table -AutoSize | Microsoft.PowerShell.Utility\Out-String
+                @{
+                    Name          = $reportObj.Name
+                    PromptKey     = $reportObj.PromptKey
+                    Priority      = $reportObj.Priority
+                    Status        = $reportObj.Status
+                    FunctionCount = $reportObj.FunctionCount
+                    Complete      = "$($reportObj.PercentageComplete)%"
+                }
+            } | Microsoft.PowerShell.Utility\ConvertTo-Json -Compress | Microsoft.PowerShell.Utility\ConvertFrom-Json | Microsoft.PowerShell.Utility\Format-Table -AutoSize | Microsoft.PowerShell.Utility\Out-String
 
         $i = 0;
         $report | Microsoft.PowerShell.Core\ForEach-Object {
@@ -99,4 +131,3 @@ process {
     end {
     }
 }
-        ###############################################################################

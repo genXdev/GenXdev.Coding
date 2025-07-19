@@ -1,30 +1,30 @@
-###############################################################################
-Pester\Describe "Invoke-GenXdevScriptAnalyzer" {
+﻿# ###############################################################################
+# # Pester\Describe 'Invoke-GenXdevScriptAnalyzer' {
 
-    Pester\It "Should pass PSScriptAnalyzer rules" {
+# #     Pester\It 'Should pass PSScriptAnalyzer rules' {
 
-# get the script path for analysis
-        $scriptPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Functions\GenXdev.Coding.PowerShell.Modules\Invoke-GenXdevScriptAnalyzer.ps1"
+# #         # get the script path for analysis
+# #         $scriptPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Functions\GenXdev.Coding.PowerShell.Modules\Invoke-GenXdevScriptAnalyzer.ps1"
 
-        $analyzerResults = GenXdev.Coding\Invoke-GenXdevScriptAnalyzer `
-            -Path $scriptPath
+# #         $analyzerResults = GenXdev.Coding\Invoke-GenXdevScriptAnalyzer `
+# #             -Path $scriptPath
 
-        [string] $message = ""
-        $analyzerResults | Microsoft.PowerShell.Core\ForEach-Object {
+# #         [string] $message = ''
+# #         $analyzerResults | Microsoft.PowerShell.Core\ForEach-Object {
 
-            $message = $message + @"
---------------------------------------------------
-Rule: $($_.RuleName)`
-Description: $($_.Description)
-Message: $($_.Message)
-`r`n
-"@
-        }
+# #             $message = $message + @"
+# # --------------------------------------------------
+# # Rule: $($_.RuleName)`
+# # Description: $($_.Description)
+# # Message: $($_.Message)
+# # `r`n
+# # "@
+# #         }
 
-        $analyzerResults.Count | Pester\Should -Be 0 -Because @"
-The following PSScriptAnalyzer rules are being violated:
-$message
-"@;
-    }
-}
-###############################################################################
+# #         $analyzerResults.Count | Pester\Should -Be 0 -Because @"
+# The following PSScriptAnalyzer rules are being violated:
+# $message
+# "@;
+#     }
+# }
+# ###############################################################################

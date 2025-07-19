@@ -48,89 +48,89 @@ Assert-GenXdevCmdlet -CmdletName "Get-Something" -PromptKey "CheckDocs" -Code
 
 .EXAMPLE
 improvecmdlet Get-Something CheckDocs -c
-        ###############################################################################>
+#>
 function Assert-GenXdevCmdlet {
 
     [CmdletBinding()]
-    [Alias("improvecmdlet")]
+    [Alias('improvecmdlet')]
     param(
         ########################################################################
         [parameter(
             Mandatory = $false,
             Position = 0,
             ValueFromRemainingArguments = $false,
-            HelpMessage = "Search pattern to filter cmdlets"
+            HelpMessage = 'Search pattern to filter cmdlets'
         )]
-        [Alias("Filter", "CmdLet", "Cmd", "FunctionName", "Name")]
+        [Alias('Filter', 'CmdLet', 'Cmd', 'FunctionName', 'Name')]
         [SupportsWildcards()]
-        [string] $CmdletName = "*",
+        [string] $CmdletName = '*',
         ########################################################################
         [parameter(
             Mandatory = $false,
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = "GenXdev module names to search"
+            HelpMessage = 'GenXdev module names to search'
         )]
         [ValidateNotNullOrEmpty()]
-        [Alias("Module", "ModuleName")]
-        [ValidatePattern("^(GenXdev|GenXde[v]\*|GenXdev(\.\w+)+)+$")]
-        [string[]] $BaseModuleName = @("GenXdev*"),
+        [Alias('Module', 'ModuleName')]
+        [ValidatePattern('^(GenXdev|GenXde[v]\*|GenXdev(\.\w+)+)+$')]
+        [string[]] $BaseModuleName = @('GenXdev*'),
         ########################################################################
         [parameter(
             Mandatory = $false,
             Position = 1,
-            HelpMessage = "The AI prompt key to use for template selection"
+            HelpMessage = 'The AI prompt key to use for template selection'
         )]
-        [ValidateNotNullOrEmpty()]
-        [string] $PromptKey = "CheckAllRequirements",
+        [ValidateNotNull()]
+        [string] $PromptKey = 'CheckAllRequirements',
         ########################################################################
         [parameter(
             Position = 2,
-            HelpMessage = "Custom AI prompt text to use"
+            HelpMessage = 'Custom AI prompt text to use'
         )]
         [AllowEmptyString()]
-        [string] $Prompt = "",
+        [string] $Prompt = '',
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Skip local module versions"
+            HelpMessage = 'Skip local module versions'
         )]
         [switch] $NoLocal,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Only include published versions"
+            HelpMessage = 'Only include published versions'
         )]
         [switch] $OnlyPublished,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Search in script files"
+            HelpMessage = 'Search in script files'
         )]
         [switch] $FromScripts,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Open in Visual Studio Code"
+            HelpMessage = 'Open in Visual Studio Code'
         )]
-        [Alias("c")]
+        [Alias('c')]
         [switch] $Code,
         ########################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = "Open in Visual Studio"
+            HelpMessage = 'Open in Visual Studio'
         )]
-        [Alias("vs")]
+        [Alias('vs')]
         [switch] $VisualStudio,
         ########################################################################
         [parameter(
-            ParameterSetName = "PromptKey",
-            HelpMessage = "Only edit the AI prompt"
+            ParameterSetName = 'PromptKey',
+            HelpMessage = 'Only edit the AI prompt'
         )]
         [switch] $EditPrompt,
         ########################################################################
         [parameter(
-            HelpMessage = "Integrate cmdlet into module"
+            HelpMessage = 'Integrate cmdlet into module'
         )]
         [switch] $Integrate
     )
@@ -139,12 +139,13 @@ function Assert-GenXdevCmdlet {
         try {
             # retrieve and validate target cmdlet existence
             $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
-                -FunctionName "GenXdev.Helpers\Get-GenXDevCmdlets" `
+                -FunctionName 'GenXdev.Helpers\Get-GenXDevCmdlets' `
                 -BoundParameters $PSBoundParameters
-
+            $invocationParams.ExactMatch = $true
+            $invocationParams.CmdletName = $CmdletName
             # select first matching cmdlet
             $cmdlet = GenXdev.Helpers\Get-GenXDevCmdlets @invocationParams |
-            Microsoft.PowerShell.Utility\Select-Object -First 1
+                Microsoft.PowerShell.Utility\Select-Object -First 1
 
             # validate cmdlet was found
             if ($null -eq $cmdlet) {
@@ -154,7 +155,7 @@ function Assert-GenXdevCmdlet {
 
             # initialize core variables
             $CmdletName = $cmdlet.Name
-            $moduleName = ""
+            $moduleName = ''
 
             Microsoft.PowerShell.Utility\Write-Verbose "Processing cmdlet: $CmdletName"
 
@@ -165,8 +166,8 @@ function Assert-GenXdevCmdlet {
 
             # warn if integration not needed
             if ($Integrate -and -not $requiresIntegration) {
-                Microsoft.PowerShell.Utility\Write-Warning ("Cmdlet already integrated into module. " +
-                    "Integration step will be skipped.")
+                Microsoft.PowerShell.Utility\Write-Warning ('Cmdlet already integrated into module. ' +
+                    'Integration step will be skipped.')
                 $Integrate = $false
             }
 
@@ -182,27 +183,27 @@ function Assert-GenXdevCmdlet {
                 $options = [System.Management.Automation.Host.ChoiceDescription[]] @(
                     . GenXdev.Helpers\Invoke-OnEachGenXdevModule {
                         Microsoft.PowerShell.Management\Get-ChildItem *.psm1 |
-                        Microsoft.PowerShell.Core\ForEach-Object { [IO.Path]::GetFileNameWithoutExtension($_) }
+                            Microsoft.PowerShell.Core\ForEach-Object { [IO.Path]::GetFileNameWithoutExtension($_) }
                     }
                 )
 
                 $selected = @($options |
-                    Microsoft.PowerShell.Utility\Out-GridView -Title "Select a module" -PassThru)
+                        Microsoft.PowerShell.Utility\Out-GridView -Title 'Select a module' -PassThru)
 
                 if ($null -eq $selected) {
 
-                    throw "No module selected"
+                    throw 'No module selected'
                 }
                 if ($selected.Count -ne 1) {
 
-                    throw "You should only select a single module"
+                    throw 'You should only select a single module'
                 }
 
                 # move the script file to the module
-                $baseDestinationParts = "$($($selected)[0].Label)".Split(".");
-                $baseDestinationModule = $baseDestinationParts[0] + "." + $baseDestinationParts[1];
+                $baseDestinationParts = "$($($selected)[0].Label)".Split('.');
+                $baseDestinationModule = $baseDestinationParts[0] + '.' + $baseDestinationParts[1];
                 $ModuleName = "$($($selected)[0].Label)"
-                $destination = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.200.2025\Functions\$ModuleName\$CmdletName.ps1" -CreateDirectory
+                $destination = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.208.2025\Functions\$ModuleName\$CmdletName.ps1" -CreateDirectory
 
                 # move the script file
                 GenXdev.FileSystem\Move-ItemWithTracking -Path $cmdlet.ScriptFilePath -Destination $destination
@@ -225,15 +226,15 @@ function Assert-GenXdevCmdlet {
                 # also move the test script file if it exists
                 if ([IO.Path]::Exists($cmdlet.ScriptTestFilePath)) {
 
-                    GenXdev.FileSystem\Move-ItemWithTracking -Path $cmdlet.ScriptTestFilePath -Destination ([IO.Path]::ChangeExtension($destination, ".Tests.ps1")) -Force
+                    GenXdev.FileSystem\Move-ItemWithTracking -Path $cmdlet.ScriptTestFilePath -Destination ([IO.Path]::ChangeExtension($destination, '.Tests.ps1')) -Force
                 }
 
                 # add dot source reference to corresponding psm1 file
-                GenXdev.Coding\SplitUpPsm1File -Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.200.2025\$ModuleName.psm1"
+                GenXdev.Coding\SplitUpPsm1File -Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.208.2025\$ModuleName.psm1"
 
                 . GenXdev.Helpers\Invoke-OnEachGenXdevModule {
 
-                    Microsoft.PowerShell.Management\Get-ChildItem ".\*.ps1" -File -Recurse | Microsoft.PowerShell.Core\ForEach-Object {
+                    Microsoft.PowerShell.Management\Get-ChildItem '.\*.ps1' -File -Recurse | Microsoft.PowerShell.Core\ForEach-Object {
                         [IO.File]::WriteAllText(
                             $PSItem.FullName,
                             [IO.File]::ReadAllText(($PSItem.FullName)).Replace(
@@ -245,15 +246,21 @@ function Assert-GenXdevCmdlet {
                 }
 
                 # retrieve information about the target cmdlet
-                $cmdlet = GenXdev.Helpers\Get-GenXDevCmdlets -CmdletName $CmdletName
+                $params = GenXdev.Helpers\Copy-IdenticalParamValues `
+                    -FunctionName 'GenXdev.Helpers\Get-GenXDevCmdlets' `
+                    -BoundParameters $PSBoundParameters
+                $params.ExactMatch = $true
+                $params.CmdletName = $CmdletName
+                $cmdlet = GenXdev.Helpers\Get-GenXDevCmdlets @params
 
                 # retrieve and validate the target cmdlet exists
                 $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
-                    -FunctionName "GenXdev.Helpers\Get-GenXDevCmdlets" `
+                    -FunctionName 'GenXdev.Helpers\Get-GenXDevCmdlets' `
                     -BoundParameters $PSBoundParameters
 
                 $invocationParams.CmdletName = $CmdletName
                 $invocationParams.BaseModuleName = $($ModuleName)
+                $invocationParams.ExactMatch = $true
 
                 $cmdlet = GenXdev.Helpers\Get-GenXDevCmdlets @invocationParams | Microsoft.PowerShell.Utility\Select-Object -First 1
                 if ($null -eq $cmdlet) {
@@ -300,31 +307,31 @@ function Assert-GenXdevCmdlet {
             $Prompt = $Prompt.Replace(
                 "`$BaseModuleName",
 
-                [string]::Join(".", ($cmdlet.ModuleName.Split(".") | Microsoft.PowerShell.Utility\Select-Object -First 2 -ErrorAction SilentlyContinue))
+                [string]::Join('.', ($cmdlet.ModuleName.Split('.') | Microsoft.PowerShell.Utility\Select-Object -First 2 -ErrorAction SilentlyContinue))
             )
 
             $Prompt = $Prompt.Replace(
                 "`$ScriptFileName",
                 [System.IO.Path]::GetFileName($cmdlet.ScriptFilePath)
             )
-            $Prompt = $Prompt.Replace("`t", "  ")
+            $Prompt = $Prompt.Replace("`t", '  ')
 
             # copy final prompt to clipboard for use
             $previousClipboard = Microsoft.PowerShell.Management\Get-Clipboard
             $Prompt | Microsoft.PowerShell.Management\Set-Clipboard
 
-            Microsoft.PowerShell.Utility\Write-Verbose "Prepared prompt and copied to clipboard:"
+            Microsoft.PowerShell.Utility\Write-Verbose 'Prepared prompt and copied to clipboard:'
             Microsoft.PowerShell.Utility\Write-Verbose $Prompt
         }
         catch {
             Microsoft.PowerShell.Utility\Write-Error -Exception $_.Exception `
-                -Message "Failed to initialize Assert-GenXdevCmdlet"
+                -Message 'Failed to initialize Assert-GenXdevCmdlet'
             throw
         }
     }
 
 
-process {
+    process {
         try {
             # handle prompt editing if requested
             if ($EditPrompt) {
@@ -335,12 +342,12 @@ process {
 
             # open cmdlet in vscode and insert prompt
             $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
-                -FunctionName "GenXdev.Coding\Show-GenXdevCmdLetInIde" `
+                -FunctionName 'GenXdev.Coding\Show-GenXdevCmdLetInIde' `
                 -BoundParameters $PSBoundParameters
 
             $invocationParams.CmdletName = $CmdletName
             $invocationParams.KeysToSend = @(
-                @("^``", "^``", "^+i", "^l", "^a", "{DELETE}", "^+i", "{ESCAPE}", "^+%{F12}", "{ENTER}", "^v", "{ENTER}", "^{ENTER}","^``")
+                @("^``", "^``", '^+i', '^l', '^a', '{DELETE}', '^+i', '{ESCAPE}', '^+%{F12}', '{ENTER}', '^v', '{ENTER}', '^{ENTER}',"^``")
             )
 
             GenXdev.Coding\Show-GenXdevCmdLetInIde @invocationParams
@@ -348,11 +355,11 @@ process {
             # handle unit test scenarios based on test file existence
             if ([IO.File]::Exists($cmdlet.ScriptTestFilePath)) {
                 switch ($host.ui.PromptForChoice(
-                        "Make a choice",
-                        "What to do next?",
-                        @("&Stop", "&Run unit-tests for $CmdletName", "Redo &Last"),
-                        0)) {
-                    0 { throw "Stopped" }
+                        'Make a choice',
+                        'What to do next?',
+                        @('&Stop', "&Run unit-tests for $CmdletName", 'Redo &Last'),
+                        1)) {
+                    0 { throw 'Stopped' }
                     1 { return GenXdev.Coding\Assert-GenXdevUnitTest -CmdletName $CmdletName -DebugFailedTests }
                     2 {
                         return GenXdev.Coding\Assert-GenXdevCmdlet @PSBoundParameters
@@ -361,11 +368,11 @@ process {
             }
             else {
                 switch ($host.ui.PromptForChoice(
-                        "Make a choice",
-                        "What to do next?",
-                        @("&Stop", "&Create unit tests for $CmdletName", "Redo &Last"),
+                        'Make a choice',
+                        'What to do next?',
+                        @('&Stop', "&Create unit tests for $CmdletName", 'Redo &Last'),
                         0)) {
-                    0 { throw "Stopped" }
+                    0 { throw 'Stopped' }
                     1 { return GenXdev.Coding\Assert-GenXdevCmdletTests -CmdletName $CmdletName }
                     2 {
                         return GenXdev.Coding\Assert-GenXdevCmdlet @PSBoundParameters
@@ -374,7 +381,7 @@ process {
             }
         }
         catch {
-            Microsoft.PowerShell.Utility\Write-Error -Exception $_.Exception -Message "Failed to process cmdlet improvements"
+            Microsoft.PowerShell.Utility\Write-Error -Exception $_.Exception -Message 'Failed to process cmdlet improvements'
             throw
         }
     }
@@ -384,4 +391,3 @@ process {
         $null = Microsoft.PowerShell.Management\Set-Clipboard -Value $previousClipboard
     }
 }
-        ###############################################################################

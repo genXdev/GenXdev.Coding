@@ -1,4 +1,4 @@
-###############################################################################
+﻿###############################################################################
 <#
 .SYNOPSIS
 Continues or restarts a code refactoring session.
@@ -41,28 +41,28 @@ Enables text-to-speech for refactoring progress and notifications.
 .EXAMPLE
 Start-NextRefactor -Name "RefactorProject" -Reset -CleanUpDeletedFiles
 Restarts refactoring for "RefactorProject" and removes deleted files.
-        ###############################################################################>
+#>
 function Start-NextRefactor {
 
     [CmdletBinding(SupportsShouldProcess)]
-    [Alias("nextrefactor")]
+    [Alias('nextrefactor')]
     param (
         ########################################################################
         [Parameter(
             Mandatory = $false,
             Position = 0,
-            HelpMessage = "The name of the refactor, accepts wildcards",
+            HelpMessage = 'The name of the refactor, accepts wildcards',
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true
         )]
         [ValidateNotNullOrEmpty()]
         [SupportsWildcards()]
-        [string[]] $Name = @("*"),
+        [string[]] $Name = @('*'),
         ########################################################################
         [Parameter(
             Mandatory = $false,
             Position = 1,
-            HelpMessage = "Filenames to add"
+            HelpMessage = 'Filenames to add'
         )]
         [ValidateNotNull()]
         [System.IO.FileInfo[]] $FilesToAdd = @(),
@@ -70,7 +70,7 @@ function Start-NextRefactor {
         [Parameter(
             Mandatory = $false,
             Position = 2,
-            HelpMessage = "Filenames to remove"
+            HelpMessage = 'Filenames to remove'
         )]
         [ValidateNotNull()]
         [System.IO.FileInfo[]] $FilesToRemove = @(),
@@ -78,43 +78,43 @@ function Start-NextRefactor {
         [Parameter(
             Mandatory = $false,
             Position = 3,
-            HelpMessage = "Clean up deleted files"
+            HelpMessage = 'Clean up deleted files'
         )]
         [switch] $CleanUpDeletedFiles,
         ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Start from the beginning of the refactor set"
+            HelpMessage = 'Start from the beginning of the refactor set'
         )]
         [switch] $Reset,
         ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Restart all LLMSelections"
+            HelpMessage = 'Restart all LLMSelections'
         )]
         [switch] $ResetLMSelections,
         ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Mark all files as refactored"
+            HelpMessage = 'Mark all files as refactored'
         )]
         [switch] $MarkAllCompleted,
         ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Redo the last refactor"
+            HelpMessage = 'Redo the last refactor'
         )]
         [switch] $RedoLast,
         ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Switch to only edit the AI prompt"
+            HelpMessage = 'Switch to only edit the AI prompt'
         )]
         [switch] $EditPrompt,
         ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Speak out the details of next refactor"
+            HelpMessage = 'Speak out the details of next refactor'
         )]
         [switch] $Speak
         ########################################################################
@@ -128,7 +128,7 @@ function Start-NextRefactor {
         # load and sort refactor definitions by priority
         [GenXdev.Helpers.RefactorDefinition[]] $refactorSet = GenXdev.Coding\Get-Refactor `
             -Name $Name |
-        Microsoft.PowerShell.Utility\Sort-Object -Property Priority -Descending
+            Microsoft.PowerShell.Utility\Sort-Object -Property Priority -Descending
 
         # exit if no matching refactors found
         if ($null -eq $refactorSet) {
@@ -139,13 +139,13 @@ function Start-NextRefactor {
     }
 
 
-process {
+    process {
 
         # process each refactor definition in priority order
         foreach ($refactorDefinition in $refactorSet) {
             if ($PSCmdlet.ShouldProcess(
                     "Refactor set '$($refactorDefinition.Name)'",
-                    "Process refactoring")) {
+                    'Process refactoring')) {
 
                 Microsoft.PowerShell.Utility\Write-Verbose "Processing refactor: $($refactorDefinition.Name)"
 
@@ -207,7 +207,7 @@ process {
                             }
 
                             Microsoft.PowerShell.Utility\Write-Verbose "Completed refactoring $($refactorDefinition.Name)"
-                            $refactorDefinition.State.Status = "Refactored"
+                            $refactorDefinition.State.Status = 'Refactored'
 
                             try {
                                 # save final state
@@ -246,7 +246,7 @@ process {
                     # process current file if available
                     if ($null -ne $next) {
 
-                        $refactorDefinition.State.Status = "Refactoring"
+                        $refactorDefinition.State.Status = 'Refactoring'
                         $infoText = "Refactoring file '$([IO.Path]::GetFileName($next))' " +
                         "of set '$($refactorDefinition.Name)' " +
                         "using prompt '$(
@@ -277,7 +277,7 @@ process {
                             if ($Speak) {
 
                                 GenXdev.Console\Start-TextToSpeech (
-                                    "An error occured with message: " +
+                                    'An error occured with message: ' +
                                     $_.Exception.Message
                                 )
                             }
@@ -290,34 +290,34 @@ process {
                                 })
 
                             Microsoft.PowerShell.Utility\Write-Error $_.Exception.Message
-                            $refactorDefinition.State.Status = "Error"
+                            $refactorDefinition.State.Status = 'Error'
 
                             if ($Speak) {
 
-                                GenXdev.Console\Start-TextToSpeech "What to do next?"
+                                GenXdev.Console\Start-TextToSpeech 'What to do next?'
                             }
 
                             # handle error with user input
                             $userAnswer = $host.ui.PromptForChoice(
-                                "Make a choice",
-                                "What to do next?",
-                                @("&Continue", "&Redo", "&Stop"),
+                                'Make a choice',
+                                'What to do next?',
+                                @('&Continue', '&Redo', '&Stop'),
                                 0
                             )
 
                             switch ($userAnswer) {
                                 2 {
-                                    $refactorDefinition.State.Status = "Stopped"
-                                    throw "Refactor stopped"
+                                    $refactorDefinition.State.Status = 'Stopped'
+                                    throw 'Refactor stopped'
                                     return
                                 }
                                 1 {
-                                    $refactorDefinition.State.Status = "Refactoring"
+                                    $refactorDefinition.State.Status = 'Refactoring'
                                     $refactorDefinition.State.RefactoredIndex--
                                     break;
                                 }
                                 0 {
-                                    $refactorDefinition.State.Status = "Refactoring"
+                                    $refactorDefinition.State.Status = 'Refactoring'
                                     $skipPostMenu = $false
                                     break;
                                 }
@@ -350,14 +350,14 @@ process {
 
                         if ($Speak) {
 
-                            GenXdev.Console\Start-TextToSpeech "What to do next?"
+                            GenXdev.Console\Start-TextToSpeech 'What to do next?'
                         }
 
                         # get user input for next action
                         $userAnswer = $host.ui.PromptForChoice(
-                            "Make a choice",
-                            "What to do next?",
-                            @("&Continue", "&Redo", "&Stop"),
+                            'Make a choice',
+                            'What to do next?',
+                            @('&Continue', '&Redo', '&Stop'),
                             0
                         )
 
@@ -367,7 +367,7 @@ process {
                                 break;
                             }
                             2 {
-                                $refactorDefinition.State.Status = "Stopped"
+                                $refactorDefinition.State.Status = 'Stopped'
                                 return
                             }
                         }
@@ -381,15 +381,14 @@ process {
             }
         }
 
-        Microsoft.PowerShell.Utility\Write-Host -ForegroundColor Green "All done."
+        Microsoft.PowerShell.Utility\Write-Host -ForegroundColor Green 'All done.'
 
         if ($Speak) {
 
-            GenXdev.Console\Start-TextToSpeech "All refactorings completed"
+            GenXdev.Console\Start-TextToSpeech 'All refactorings completed'
         }
     }
 
     end {
     }
 }
-        ###############################################################################

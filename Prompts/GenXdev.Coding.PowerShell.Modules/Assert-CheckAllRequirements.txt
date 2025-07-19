@@ -17,7 +17,7 @@ Ensure compliance with these 23 requirements:
    section with SYNOPSIS, DESCRIPTION, .PARAMETER (for each parameter), and at
    least one .EXAMPLE with full parameter names and one .EXAMPLE with aliases
    or positional parameters if available. If the short example is the same as
-   the full one, don't emit, or remove it.
+   the full one, don't emit, or remove it. Never change existing .EXAMPLES or .NOTES
 7) If you determine that a '| Out-Null' is unnecessary, remove it. However, if
    adding to an ArrayList, ensure '| Out-Null' is used to suppress
    index output.

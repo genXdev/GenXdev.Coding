@@ -1,4 +1,4 @@
-###############################################################################
+﻿###############################################################################
 <#
 .SYNOPSIS
 Permanently deletes specified folders from all branches in a Git repository.
@@ -24,24 +24,24 @@ requires force pushing, which affects all repository users.
 PermanentlyDeleteGitFolders `
     -RepoUri "https://github.com/user/repo.git" `
     -Folders "bin", "obj"
-        ###############################################################################>
+#>
 function PermanentlyDeleteGitFolders {
 
-    [CmdletBinding(SupportsShouldProcess = $true, ConfirmImpact = "High")]
+    [CmdletBinding(SupportsShouldProcess = $true, ConfirmImpact = 'High')]
     [OutputType([string[]])]
     param(
         ########################################################################
         [parameter(
             Position = 0,
             Mandatory = $true,
-            HelpMessage = "The URI of the Git repository to clean"
+            HelpMessage = 'The URI of the Git repository to clean'
         )]
         [string] $RepoUri,
         ########################################################################
         [parameter(
             Position = 1,
             Mandatory = $true,
-            HelpMessage = "Array of folder paths to permanently remove"
+            HelpMessage = 'Array of folder paths to permanently remove'
         )]
         [string[]] $Folders
         ########################################################################
@@ -50,13 +50,13 @@ function PermanentlyDeleteGitFolders {
     begin {
 
         # display prominent warnings about the destructive nature of this operation
-        Microsoft.PowerShell.Utility\Write-Warning "!!! DANGER - PERMANENT DESTRUCTIVE OPERATION !!!"
-        Microsoft.PowerShell.Utility\Write-Warning ("This operation will permanently delete the specified " +
-            "folders from ALL git history")
-        Microsoft.PowerShell.Utility\Write-Warning ("It rewrites Git history and force pushes the changes, " +
-            "which CANNOT BE UNDONE")
-        Microsoft.PowerShell.Utility\Write-Warning ("Other users of this repository will need to re-clone " +
-            "or reset their local copies")
+        Microsoft.PowerShell.Utility\Write-Warning '!!! DANGER - PERMANENT DESTRUCTIVE OPERATION !!!'
+        Microsoft.PowerShell.Utility\Write-Warning ('This operation will permanently delete the specified ' +
+            'folders from ALL git history')
+        Microsoft.PowerShell.Utility\Write-Warning ('It rewrites Git history and force pushes the changes, ' +
+            'which CANNOT BE UNDONE')
+        Microsoft.PowerShell.Utility\Write-Warning ('Other users of this repository will need to re-clone ' +
+            'or reset their local copies')
 
         # create unique temp directory using UTC ticks for isolation
         $tempPath = GenXdev.FileSystem\Expand-Path (
@@ -69,23 +69,23 @@ function PermanentlyDeleteGitFolders {
     }
 
 
-process {
+    process {
 
         # final confirmation before proceeding with destructive operation
         if (-not $PSCmdlet.ShouldProcess(
                 ("Repository: $RepoUri - Permanently delete folders: " +
                 "$($Folders -join ', ')"),
-                ("Are you ABSOLUTELY SURE you want to permanently remove " +
-                "these folders from ALL git history?"),
-                "DANGER: Permanent Git History Modification")) {
-            Microsoft.PowerShell.Utility\Write-Verbose "Operation cancelled by user"
+                ('Are you ABSOLUTELY SURE you want to permanently remove ' +
+                'these folders from ALL git history?'),
+                'DANGER: Permanent Git History Modification')) {
+            Microsoft.PowerShell.Utility\Write-Verbose 'Operation cancelled by user'
             return
         }
 
         try {
             # change to temp directory
             Microsoft.PowerShell.Management\Set-Location $tempPath
-            Microsoft.PowerShell.Utility\Write-Verbose "Changed to temp directory"
+            Microsoft.PowerShell.Utility\Write-Verbose 'Changed to temp directory'
 
             # clone the repository
             Microsoft.PowerShell.Utility\Write-Verbose "Cloning repository: $RepoUri"
@@ -93,13 +93,13 @@ process {
 
             # change to repo directory
             Microsoft.PowerShell.Management\Set-Location repo
-            Microsoft.PowerShell.Utility\Write-Verbose "Changed to repository directory"
+            Microsoft.PowerShell.Utility\Write-Verbose 'Changed to repository directory'
 
             # create tracking branches for all remote branches except HEAD
-            Microsoft.PowerShell.Utility\Write-Verbose "Creating tracking branches"
+            Microsoft.PowerShell.Utility\Write-Verbose 'Creating tracking branches'
             git branch -r | Microsoft.PowerShell.Core\ForEach-Object {
 
-                if (-not $PSItem.Contains("/HEAD")) {
+                if (-not $PSItem.Contains('/HEAD')) {
                     $null = git checkout --track $PSItem.Trim()
                 }
 
@@ -107,12 +107,12 @@ process {
                 foreach ($folder in $Folders) {
 
                     # normalize folder path to use forward slashes
-                    $folderFixed = $folder.replace("\", "/")
-                    if ($folderFixed.endswith("/")) {
+                    $folderFixed = $folder.replace('\', '/')
+                    if ($folderFixed.endswith('/')) {
                         $folderFixed = $folderFixed.Substring(0, $folderFixed.Length - 1)
                     }
 
-                    if ($PSCmdlet.ShouldProcess($folderFixed, "Removing from Git history")) {
+                    if ($PSCmdlet.ShouldProcess($folderFixed, 'Removing from Git history')) {
                         # remove folder from git history
                         Microsoft.PowerShell.Utility\Write-Verbose "Removing $folderFixed from history"
                         $filterCommand = "git rm -rf --cached --ignore-unmatch $folderFixed/"
@@ -122,44 +122,43 @@ process {
 
                 try {
                     # clean up refs
-                    Microsoft.PowerShell.Utility\Write-Verbose "Cleaning up refs"
+                    Microsoft.PowerShell.Utility\Write-Verbose 'Cleaning up refs'
                     $refs = git for-each-ref --format="%(refname)" refs/original/
                     foreach ($ref in $refs) {
                         git update-ref -d $ref
                     }
 
                     # remove old refs and logs
-                    Microsoft.PowerShell.Management\Get-ChildItem @(".git/logs", ".git/refs/original") `
+                    Microsoft.PowerShell.Management\Get-ChildItem @('.git/logs', '.git/refs/original') `
                         -ErrorAction SilentlyContinue -Directory |
-                    Microsoft.PowerShell.Core\ForEach-Object -ErrorAction SilentlyContinue {
-                        Microsoft.PowerShell.Management\Remove-Item -LiteralPath $PSItem.FullName -Force -Recurse `
-                            -ErrorAction SilentlyContinue
+                        Microsoft.PowerShell.Core\ForEach-Object -ErrorAction SilentlyContinue {
+                            Microsoft.PowerShell.Management\Remove-Item -LiteralPath $PSItem.FullName -Force -Recurse `
+                                -ErrorAction SilentlyContinue
+                        }
+                    }
+                    catch {
+                        Microsoft.PowerShell.Utility\Write-Verbose "Error cleaning up refs (non-critical): $_"
+                    }
+
+                    # garbage collect to remove unreferenced commits
+                    Microsoft.PowerShell.Utility\Write-Verbose 'Running garbage collection'
+                    $null = git gc --prune=all --aggressive
+
+                    # force push changes to remote
+                    if ($PSCmdlet.ShouldProcess('Origin', 'Force pushing all changes')) {
+                        Microsoft.PowerShell.Utility\Write-Verbose 'Force pushing changes to remote'
+                        $null = git push origin --all --force
+                        $null = git push origin --tags --force
                     }
                 }
-                catch {
-                    Microsoft.PowerShell.Utility\Write-Verbose "Error cleaning up refs (non-critical): $_"
-                }
-
-                # garbage collect to remove unreferenced commits
-                Microsoft.PowerShell.Utility\Write-Verbose "Running garbage collection"
-                $null = git gc --prune=all --aggressive
-
-                # force push changes to remote
-                if ($PSCmdlet.ShouldProcess("Origin", "Force pushing all changes")) {
-                    Microsoft.PowerShell.Utility\Write-Verbose "Force pushing changes to remote"
-                    $null = git push origin --all --force
-                    $null = git push origin --tags --force
-                }
+            }
+            finally {
+                # restore original working directory
+                Microsoft.PowerShell.Management\Pop-Location
+                Microsoft.PowerShell.Utility\Write-Verbose 'Restored original location'
             }
         }
-        finally {
-            # restore original working directory
-            Microsoft.PowerShell.Management\Pop-Location
-            Microsoft.PowerShell.Utility\Write-Verbose "Restored original location"
+
+        end {
         }
     }
-
-    end {
-    }
-}
-        ###############################################################################

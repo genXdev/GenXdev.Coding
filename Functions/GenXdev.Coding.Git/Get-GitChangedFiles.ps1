@@ -13,7 +13,7 @@ function Get-GitChangedFiles {
 
     .EXAMPLE
         Get-GitChangedFile
-        Returns relative paths like ".\Modules\GenXdev.AI\1.200.2025\README.md"
+        Returns relative paths like ".\Modules\GenXdev.AI\1.208.2025\README.md"
 
     .EXAMPLE
         Get-GitChangedFile -PassThru
@@ -27,8 +27,8 @@ function Get-GitChangedFiles {
     )
 
     # Ensure the current directory is a Git repository
-    if ("true" -ne (git rev-parse --is-inside-work-tree)) {
-        Microsoft.PowerShell.Utility\Write-Error "This command must be run inside a Git repository."
+    if ('true' -ne (git rev-parse --is-inside-work-tree)) {
+        Microsoft.PowerShell.Utility\Write-Error 'This command must be run inside a Git repository.'
         return
     }
 
@@ -45,10 +45,10 @@ function Get-GitChangedFiles {
                 } else {
                     # For deleted files, we can't get FileInfo, so return a custom object
                     [PSCustomObject]@{
-                        Name = Microsoft.PowerShell.Management\Split-Path $file -Leaf
-                        FullName = (Microsoft.PowerShell.Management\Resolve-Path $file -ErrorAction SilentlyContinue).Path
+                        Name         = Microsoft.PowerShell.Management\Split-Path $file -Leaf
+                        FullName     = (Microsoft.PowerShell.Management\Resolve-Path $file -ErrorAction SilentlyContinue).Path
                         RelativePath = $file
-                        Exists = $false
+                        Exists       = $false
                     }
                 }
             } else {
@@ -57,6 +57,6 @@ function Get-GitChangedFiles {
             }
         }
     } else {
-        Microsoft.PowerShell.Utility\Write-Output "No changed files found."
+        Microsoft.PowerShell.Utility\Write-Output 'No changed files found.'
     }
 }

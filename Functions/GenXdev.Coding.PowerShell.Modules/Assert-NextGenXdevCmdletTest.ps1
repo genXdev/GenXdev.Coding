@@ -1,4 +1,4 @@
-###############################################################################
+﻿###############################################################################
 <#
 .SYNOPSIS
 Automates testing improvements for GenXdev cmdlets by managing test creation.
@@ -39,31 +39,31 @@ Assert-NextGenXdevCmdletTest -ModuleName "GenXdev.Helpers" `
 
 .EXAMPLE
 nextcmdlettest GenXdev.Helpers -Reset
-        ###############################################################################>
+#>
 function Assert-NextGenXdevCmdletTest {
 
     [CmdletBinding()]
-    [Alias("nextcmdlettest")]
+    [Alias('nextcmdlettest')]
 
     param(
         ########################################################################
-        [Alias("Name", "Module")]
+        [Alias('Name', 'Module')]
         [parameter(
             Mandatory = $false,
             Position = 0,
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = "Optional module name to filter cmdlets by"
+            HelpMessage = 'Optional module name to filter cmdlets by'
         )]
         [ValidateNotNullOrEmpty()]
         [SupportsWildcards()]
-        [string] $ModuleName = "GenXdev.*",
+        [string] $ModuleName = 'GenXdev.*',
 
         ########################################################################
         [parameter(
             Mandatory = $false,
             Position = 1,
-            HelpMessage = "Switch to start from the beginning of the cmdlet list"
+            HelpMessage = 'Switch to start from the beginning of the cmdlet list'
         )]
         [switch] $Reset,
 
@@ -71,7 +71,7 @@ function Assert-NextGenXdevCmdletTest {
         [parameter(
             Mandatory = $false,
             Position = 2,
-            HelpMessage = "Switch to not advance to the next cmdlet"
+            HelpMessage = 'Switch to not advance to the next cmdlet'
         )]
         [switch] $RedoLast,
 
@@ -79,59 +79,59 @@ function Assert-NextGenXdevCmdletTest {
         [parameter(
             Mandatory = $false,
             Position = 3,
-            HelpMessage = "Key for storing the last cmdlet index"
+            HelpMessage = 'Key for storing the last cmdlet index'
         )]
         [AllowEmptyString()]
-        [string] $Key = "",
+        [string] $Key = '',
 
         ########################################################################
         [parameter(
             Mandatory = $false,
             Position = 4,
-            HelpMessage = "Custom AI prompt text to use"
+            HelpMessage = 'Custom AI prompt text to use'
         )]
         [AllowEmptyString()]
-        [string] $Prompt = "",
+        [string] $Prompt = '',
 
         ########################################################################
         [parameter(
             Position = 5,
             Mandatory = $false,
-            HelpMessage = "The AI prompt key to use for template selection"
+            HelpMessage = 'The AI prompt key to use for template selection'
         )]
         [AllowEmptyString()]
         [string] $PromptKey,
         ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Switch to only edit the AI prompt"
+            HelpMessage = 'Switch to only edit the AI prompt'
         )]
         [switch] $EditPrompt,
 
         ########################################################################
         [parameter(
             Mandatory = $false,
-            HelpMessage = "Indicates to skip cmdlets that already have unit-tests"
+            HelpMessage = 'Indicates to skip cmdlets that already have unit-tests'
         )]
         [switch] $OnlyNonExisting
     )
 
 
-process {
+    process {
 
         # append '.Tests' to the tracking key to differentiate from main cmdlets
         $Key = "$Key.Tests"
 
         # get the next cmdlet to process based on tracking state and filters
-        $cmdlet = GenXdev.Coding\Get-GenXDevNextCmdLet `
-            -ModuleName $ModuleName `
-            -Reset:$Reset `
-            -RedoLast:$RedoLast `
-            -Key:$Key `
-            -OnlyNonExisting:$OnlyNonExisting
+            $cmdlet = GenXdev.Coding\Get-GenXDevNextCmdLet `
+                -ModuleName $ModuleName `
+                -Reset:$Reset `
+                -RedoLast:$RedoLast `
+                -Key:$Key `
+                -OnlyNonExisting:$OnlyNonExisting
 
         if ($null -eq $cmdlet) {
-            Microsoft.PowerShell.Utility\Write-Error "Cmdlet not found"
+            Microsoft.PowerShell.Utility\Write-Error 'Cmdlet not found'
             return;
         }
 
@@ -139,19 +139,18 @@ process {
         Microsoft.PowerShell.Utility\Write-Verbose "Processing cmdlet: $($cmdlet.Name)"
 
         $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
-            -FunctionName "GenXdev.Coding\Assert-GenXdevCmdletTests" `
+            -FunctionName 'GenXdev.Coding\Assert-GenXdevCmdletTests' `
             -BoundParameters $PSBoundParameters `
-            -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * -ErrorAction SilentlyContinue)
+            -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -ErrorAction SilentlyContinue)
 
         # prepare parameters for test assertion call
         $invocationParams.CmdletName = $cmdlet.Name
         $invocationParams.Prompt = $Prompt
 
         # execute the test assertion with prepared parameters
-        GenXdev.Coding\Assert-GenXdevCmdletTests @$invocationParams
+            GenXdev.Coding\Assert-GenXdevCmdletTests @$invocationParams
     }
 
     end {
     }
 }
-        ###############################################################################

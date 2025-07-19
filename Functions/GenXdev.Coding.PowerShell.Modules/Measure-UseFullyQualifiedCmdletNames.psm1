@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
 Detects invocations of non fully-qualified cmdlet names
 
@@ -16,7 +16,8 @@ Invoke-ScriptAnalyzer -Path script.ps1 -CustomRulePath ./CustomPSScriptAnalyzerR
 
 .NOTES
 PSScriptAnalyzer custom rules must follow specific patterns to be recognized
-        ###############################################################################>
+##############################################################################
+#>
 function Measure-UseFullyQualifiedCmdletNames {
     [CmdletBinding()]
     [OutputType([Microsoft.Windows.Powershell.ScriptAnalyzer.Generic.DiagnosticRecord[]])]
@@ -28,22 +29,29 @@ function Measure-UseFullyQualifiedCmdletNames {
         [System.Management.Automation.Language.ScriptBlockAst[]]
         $ScriptBlockAst
     )
+    begin {
 
+        $ss = @()
+        $s = Expand-Path ("$($Env:LOCALAPPDATA)\GenXdev.PowerShell\ScriptAnalyzerFixes.json") -CreateDirectory
+
+        $I = 0;
+
+    }
     Process {
         [Microsoft.Windows.PowerShell.ScriptAnalyzer.Generic.DiagnosticRecord[]]$results = @()
 
         try {
-            Write-Verbose "Starting analysis of script block for unqualified cmdlet names"
+            Write-Verbose 'Starting analysis of script block for unqualified cmdlet names'
 
             if ($null -eq $ScriptBlockAst -or $ScriptBlockAst.Count -eq 0) {
-                Write-Verbose "No valid ScriptBlockAst provided - exiting"
+                Write-Verbose 'No valid ScriptBlockAst provided - exiting'
                 return $results
             }
 
             foreach ($block in $ScriptBlockAst) {
                 if ($null -eq $block) { continue }
 
-                Write-Verbose "Searching for command invocations in the script block"
+                Write-Verbose 'Searching for command invocations in the script block'
                 $commands = @($block.FindAll({
                             param($ast)
                             return $ast -is [System.Management.Automation.Language.CommandAst]
@@ -58,7 +66,7 @@ function Measure-UseFullyQualifiedCmdletNames {
                     Write-Verbose "Processing command: $commandName"
 
                     if ([string]::IsNullOrEmpty($commandName)) {
-                        Write-Verbose "Skipping: Unable to get command name"
+                        Write-Verbose 'Skipping: Unable to get command name'
                         continue
                     }
 
@@ -68,7 +76,7 @@ function Measure-UseFullyQualifiedCmdletNames {
                         Write-Verbose "Attempting to get command information for '$commandName'"
                         $resolvedCommand = Get-Command -Name $commandName -ErrorAction SilentlyContinue
                         if ($null -eq $resolvedCommand) {
-                            Write-Verbose "Get-Command failed, trying ExecutionContext"
+                            Write-Verbose 'Get-Command failed, trying ExecutionContext'
                             $resolvedCommand = $ExecutionContext.InvokeCommand.GetCommand($commandName, [System.Management.Automation.CommandTypes]::All)
                         }
 
@@ -105,22 +113,6 @@ function Measure-UseFullyQualifiedCmdletNames {
                                     continue
                                 }
 
-                                $ss = @()
-                                $s = Expand-Path "$PSScriptRoot\..\..\..\..\..\modules\GenXdev.Local\ScriptAnalyzerFixes.json" -CreateDirectory
-                                $I = 0;
-                                if ([io.file]::Exists($s)) {
-
-                                    while ($i++ -lt 20) {
-                                        try {
-                                            $ss = @(Get-Content $s | ConvertFrom-Json)
-                                            break;
-                                        }
-                                        catch {
-                                            Start-Sleep -Milliseconds ([Math]::Round(([Random]::new().NextDouble()) * 1000, 0))
-                                            $ss = @()
-                                        }
-                                    }
-                                }
                                 $ss += @{
                                     StartLineNumber    = $extent.StartLineNumber
                                     EndLineNumber      = $extent.EndLineNumber
@@ -128,16 +120,6 @@ function Measure-UseFullyQualifiedCmdletNames {
                                     EndColumnNumber    = $extent.EndColumnNumber
                                     fullyQualifiedName = $fullyQualifiedName
                                     FilePath           = $filePath
-                                }
-                                $I = 0;
-                                while ($i++ -lt 20) {
-                                    try {
-                                        $ss | ConvertTo-Json -Depth 99 | Out-File $s -Force
-                                        break;
-                                    }
-                                    catch {
-                                        Start-Sleep -Milliseconds ([Math]::Round(([Random]::new().NextDouble()) * 1000, 0))
-                                    }
                                 }
 
                                 # Create correction extent with the fully qualified command name
@@ -173,7 +155,7 @@ function Measure-UseFullyQualifiedCmdletNames {
                                 $results += $result
                             }
                             else {
-                                Write-Verbose "Skipping: Command is not a cmdlet or function, or has no module name"
+                                Write-Verbose 'Skipping: Command is not a cmdlet or function, or has no module name'
                             }
                         }
                         else {
@@ -192,6 +174,26 @@ function Measure-UseFullyQualifiedCmdletNames {
         catch {
             Write-Verbose "Error occurred: $($_.Exception.Message)"
             $PSCmdlet.ThrowTerminatingError($PSItem)
+        }
+    }
+
+    end {
+        while ($i++ -lt 8) {
+            try {
+                if ([io.file]::Exists($s)) {
+                    $st = [IO.File]::ReadAllText($s)
+                    if ([string]::IsNullOrEmpty($s)) {
+                        $ss = @()
+                        break;
+                    }
+                    $ss += @($st | ConvertFrom-Json)
+                }
+                $ss | ConvertTo-Json -Depth 10 | Set-Content -Path $s -Force
+                break;
+            }
+            catch {
+                Start-Sleep -Milliseconds ([Math]::Round(([Random]::new().NextDouble()) * 100, 0))
+            }
         }
     }
 }

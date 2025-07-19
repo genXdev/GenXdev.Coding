@@ -1,19 +1,19 @@
-function Assert-GenXdevDependencyUsage {
+﻿function Assert-GenXdevDependencyUsage {
 
     [CmdletBinding()]
-    [Alias("checkgenxdevdependencies")]
+    [Alias('checkgenxdevdependencies')]
     param(
         [Parameter(
             Mandatory = $false,
             Position = 1,
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = "Filter to apply to module names"
+            HelpMessage = 'Filter to apply to module names'
         )]
         [ValidateNotNullOrEmpty()]
-        [Alias("Module", "ModuleName")]
-        [ValidatePattern("^(GenXdev|GenXde[v]\*|GenXdev(\.\w+)+)+$")]
-        [string[]] $BaseModuleName = @("GenXdev*"),
+        [Alias('Module', 'ModuleName')]
+        [ValidatePattern('^(GenXdev|GenXde[v]\*|GenXdev(\.\w+)+)+$')]
+        [string[]] $BaseModuleName = @('GenXdev*'),
 
         [Parameter(Mandatory = $false)]
         [switch] $FromScripts
@@ -21,14 +21,14 @@ function Assert-GenXdevDependencyUsage {
 
     begin {
 
-        $dependencies = @(GenXdev.Coding\Get-GenXDevNewModulesInOrderOfDependency | Microsoft.PowerShell.Core\ForEach-Object ModuleName) + @("GenXdev.Local")
+        $dependencies = @(GenXdev.Coding\Get-GenXDevNewModulesInOrderOfDependency | Microsoft.PowerShell.Core\ForEach-Object ModuleName) + @('GenXdev.Local')
     }
 
 
-process {
-    # temperary disabled
-    return;
-    
+    process {
+        # temperary disabled
+        return;
+
         GenXdev.Helpers\Invoke-OnEachGenXdevModule -BaseModuleName:$BaseModuleName -FromScripts:$FromScripts -OnlyPublished -NoLocal -ScriptBlock {
 
             param($module)
@@ -56,11 +56,11 @@ process {
 
                 Microsoft.PowerShell.Utility\Write-Verbose "Checking if $ModuleName references $dependency"
 
-                $references = GenXdev.FileSystem\Find-Item -PassThru -SearchMask ".\*.ps1" -Pattern "$([System.Text.RegularExpressions.Regex]::Escape($dependency))\\" -ErrorAction "SilentlyContinue" | Microsoft.PowerShell.Core\ForEach-Object FullName
+                $references = GenXdev.FileSystem\Find-Item -PassThru -SearchMask '.\*.ps1' -Pattern "$([System.Text.RegularExpressions.Regex]::Escape($dependency))\\" -ErrorAction 'SilentlyContinue' | Microsoft.PowerShell.Core\ForEach-Object FullName
 
                 if ($references) {
 
-                    if ($references -like "*.Tests.ps1") {
+                    if ($references -like '*.Tests.ps1') {
 
                         continue
                     }
@@ -69,7 +69,7 @@ process {
 
                         [string] $content = [IO.File]::ReadAllText($_)
 
-                        if ($content.Contains("Install-Module $dependency") -or $content.Contains("GenXdev.Local\KeyValueStores") -or
+                        if ($content.Contains("Install-Module $dependency") -or $content.Contains('GenXdev.Local\KeyValueStores') -or
                             $content.Contains("`"`$PSScriptRoot\..\..\..\..\GenXdev.Local\")) {
 
                             return
@@ -91,11 +91,11 @@ process {
 
                 Microsoft.PowerShell.Utility\Write-Verbose "Checking if $ModuleName references $dependency"
 
-                $references = GenXdev.FileSystem\Find-Item -PassThru -SearchMask ".\*.ps1" -Pattern "$([System.Text.RegularExpressions.Regex]::Escape($dependency))\\" -ErrorAction "SilentlyContinue"  | Microsoft.PowerShell.Core\ForEach-Object FullName
+                $references = GenXdev.FileSystem\Find-Item -PassThru -SearchMask '.\*.ps1' -Pattern "$([System.Text.RegularExpressions.Regex]::Escape($dependency))\\" -ErrorAction 'SilentlyContinue'  | Microsoft.PowerShell.Core\ForEach-Object FullName
 
                 if ($references) {
 
-                    if ($references -like "*.Tests.ps1") {
+                    if ($references -like '*.Tests.ps1') {
 
                         continue
                     }

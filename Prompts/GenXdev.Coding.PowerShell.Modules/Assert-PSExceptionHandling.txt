@@ -51,7 +51,7 @@ Ensure compliance with these 17 requirements:
    section with SYNOPSIS, DESCRIPTION, .PARAMETER (for each parameter), and at
    least one .EXAMPLE with full parameter names and one .EXAMPLE with aliases
    or positional parameters if available. If the short example is the same as
-   the full one, don't emit, or remove it.
+   the full one, don't emit, or remove it. Never change existing .EXAMPLES or .NOTES
 4) Each parameter should have;
    - A line of hash (#) characters extending to column 79 above it
    - Parameter attributes vertically aligned, each on its own line:

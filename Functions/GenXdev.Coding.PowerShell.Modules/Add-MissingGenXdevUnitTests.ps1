@@ -1,8 +1,8 @@
-###############################################################################
+﻿###############################################################################
 function Add-MissingGenXdevUnitTests {
 
     [CmdletBinding()]
-    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseSingularNouns", "Add-MissingGenXdevUnitTests")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', 'Add-MissingGenXdevUnitTests')]
     param()
 
     # get all cmdlets that need unit tests
@@ -10,14 +10,14 @@ function Add-MissingGenXdevUnitTests {
 
         $genXdevCmdlet = $_
 
-# skip if test file already exists and has content
+        # skip if test file already exists and has content
         if ([IO.File]::Exists($_.ScriptTestFilePath) -and
-            ([IO.File]::ReadAllText($_.ScriptTestFilePath).Trim() -ne "")) {
+            ([IO.File]::ReadAllText($_.ScriptTestFilePath).Trim() -ne '')) {
 
             return
         }
 
-# create test file content
+        # create test file content
         $prompt = (@"
 ###############################################################################
 Describe `"`$CmdletName`" {
@@ -58,7 +58,7 @@ The following PSScriptAnalyzer rules are being violated:
             "`$CmdLetNoTestName", $genXdevCmdlet.Name
         )
 
-# write test file
+        # write test file
         $null = $prompt | Microsoft.PowerShell.Utility\Out-File (
             (GenXdev.FileSystem\Expand-Path ($genXdevCmdlet.ScriptTestFilePath) -CreateDirectory)
         ) -Force
