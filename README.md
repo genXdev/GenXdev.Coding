@@ -133,6 +133,7 @@ Update-Module
 | [Clear-GenXdevModules](#Clear-GenXdevModules) | cleangenxdev | Cleans build artifacts from GenXdev PowerShell modules. |
 | [Complete-GenXDevREADME](#Complete-GenXDevREADME) |  | Completes the README file for specified GenXDev modules by adding documentation. |
 | [EnsureCopilotKeyboardShortCut](#EnsureCopilotKeyboardShortCut) |  | Configures the GitHub Copilot Chat keyboard shortcuts in Visual Studio Code. |
+| [EnsureDefaultGenXdevRefactors](#EnsureDefaultGenXdevRefactors) |  |  |
 | [Get-GenXDevModule](#Get-GenXDevModule) |  | Retrieves all GenXDev modules from a specified path. |
 | [Get-GenXDevModuleInfo](#Get-GenXDevModuleInfo) |  | Retrieves detailed information about GenXdev PowerShell modules. |
 | [Get-GenXDevNewModulesInOrderOfDependency](#Get-GenXDevNewModulesInOrderOfDependency) |  | Retrieves GenXDev modules in dependency order. |
@@ -1456,7 +1457,7 @@ OUTPUTS
     -------------------------- EXAMPLE 1 --------------------------
     
     PS > Get-GitChangedFile
-    Returns relative paths like ".\Modules\GenXdev.AI\1.208.2025\README.md"
+    Returns relative paths like ".\Modules\GenXdev.AI\1.212.2025\README.md"
     
     
     
@@ -2752,6 +2753,33 @@ OUTPUTS
     
     
 RELATED LINKS 
+
+<br/><hr/><hr/><br/>
+ 
+NAME
+    EnsureDefaultGenXdevRefactors
+    
+SYNTAX
+    EnsureDefaultGenXdevRefactors 
+    
+    
+PARAMETERS
+    None
+    
+    
+INPUTS
+    None
+    
+    
+OUTPUTS
+    System.Object
+    
+ALIASES
+    None
+    
+
+REMARKS
+    None 
 
 <br/><hr/><hr/><br/>
  

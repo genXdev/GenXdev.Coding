@@ -48,33 +48,33 @@ function EnsureVSCodeInstallation {
 
             # Install recommended extensions from workspace .vscode/extensions.json
             try {
-                Write-Verbose "Installing recommended VSCode extensions from workspace..."
-                $workspaceFolder = if ($Global:WorkspaceFolder) { $Global:WorkspaceFolder } else { Expand-Path "$PSScriptRoot\..\..\..\..\..\" }
-                $extFile = Join-Path $workspaceFolder ".vscode/extensions.json"
-                if (Test-Path $extFile) {
-                    $plugins = Get-Content $extFile -Raw | ConvertFrom-Json
+                Microsoft.PowerShell.Utility\Write-Verbose "Installing recommended VSCode extensions from workspace..."
+                $workspaceFolder = if ($Global:WorkspaceFolder) { $Global:WorkspaceFolder } else { GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\..\" }
+                $extFile = Microsoft.PowerShell.Management\Join-Path $workspaceFolder ".vscode/extensions.json"
+                if (Microsoft.PowerShell.Management\Test-Path $extFile) {
+                    $plugins = Microsoft.PowerShell.Management\Get-Content $extFile -Raw | Microsoft.PowerShell.Utility\ConvertFrom-Json
                     if ($plugins.recommendations) {
                         $i = 0
                         $total = $plugins.recommendations.Count
                         foreach ($ext in $plugins.recommendations) {
                             $percent = if ($total -gt 0) { [Convert]::ToInt32([Math]::Round((100 / $total) * $i, 0)) } else { 0 }
-                            Write-Progress -Id 1 -Status "Installing VSCode extension $ext" -PercentComplete $percent -Activity "VSCode extensions"
+                            Microsoft.PowerShell.Utility\Write-Progress -Id 1 -Status "Installing VSCode extension $ext" -PercentComplete $percent -Activity "VSCode extensions"
                             try {
                                 & code --install-extension $ext --force
                             } catch {
-                                Write-Warning "Failed to install VSCode extension: $ext"
+                                Microsoft.PowerShell.Utility\Write-Warning "Failed to install VSCode extension: $ext"
                             }
                             $i++
                         }
-                        Write-Host "VSCode recommended extensions installed."
+                        Microsoft.PowerShell.Utility\Write-Host "VSCode recommended extensions installed."
                     } else {
-                        Write-Host "No recommended extensions found in $extFile."
+                        Microsoft.PowerShell.Utility\Write-Host "No recommended extensions found in $extFile."
                     }
                 } else {
-                    Write-Host "No .vscode/extensions.json found in workspace."
+                    Microsoft.PowerShell.Utility\Write-Host "No .vscode/extensions.json found in workspace."
                 }
             } catch {
-                Write-Warning $_
+                Microsoft.PowerShell.Utility\Write-Warning $_
             }
 
             $sourcePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Assets\"

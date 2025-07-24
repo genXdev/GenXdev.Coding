@@ -1,16 +1,16 @@
 ###############################################################################
+Pester\Describe "EnsureDefaultGenXdevRefactors" {
 
-Pester\Describe 'New-Refactor' {
+    Pester\It "should pass PSScriptAnalyzer rules" {
 
-    Pester\It 'Should pass PSScriptAnalyzer rules' {
+# get the script path for analysis
+        $scriptPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Functions\GenXdev.Coding.PowerShell.Modules\EnsureDefaultGenXdevRefactors.ps1"
 
-        # run script analyzer on the function script
-        $scriptPath = "$PSScriptRoot\..\..\..\..\GenXdev.Coding\1.212.2025\Functions\GenXdev.Coding.PowerShell.Modules\" +
-        'New-Refactor.ps1'
+# run analyzer with explicit settings
         $analyzerResults = GenXdev.Coding\Invoke-GenXdevScriptAnalyzer `
             -Path $scriptPath
 
-        [string] $message = ''
+        [string] $message = ""
         $analyzerResults | Microsoft.PowerShell.Core\ForEach-Object {
 
             $message = $message + @"

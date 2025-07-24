@@ -331,7 +331,7 @@ function Assert-GenXdevUnitTest {
 
                             # show interactive debug prompt with test failure information
                             try {
-                                    GenXdev.Coding\Assert-GenXdevCmdletTests \
+                                    GenXdev.Coding\Assert-GenXdevCmdletTests `
                                     -AssertFailedTest `
                                     -CmdletName $nextFailedCommand `
                                     -Prompt @"

@@ -98,6 +98,9 @@ function Get-GenXDevNewModulesInOrderOfDependency {
         $module = findModule GenXdev.Coding
         if ($module) { $null = $results.Add($module) }
 
+        $module = findModule GenXdev.Media
+        if ($module) { $null = $results.Add($module) }
+
         $module = findModule GenXdev
         if ($module) { $null = $results.Add($module) }
 

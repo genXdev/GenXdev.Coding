@@ -23,6 +23,7 @@ if ($major -ne 10) {
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Clear-GenXdevModules.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Complete-GenXDevREADME.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\EnsureCopilotKeyboardShortCut.ps1"
+. "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\EnsureDefaultGenXdevRefactors.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Get-GenXDevModule.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Get-GenXDevModuleInfo.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding.PowerShell.Modules\Get-GenXDevNewModulesInOrderOfDependency.ps1"
