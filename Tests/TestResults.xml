@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-results xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nunit_schema_2.5.xsd" name="Pester" total="53" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2025-07-24" time="22:31:41">
+  <environment user-domain="ATMOSMAIN" cwd="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025" platform="Microsoft Windows 11 Pro|C:\WINDOWS|\Device\Harddisk0\Partition3" clr-version="9.0.6" os-version="10.0.26100" machine-name="ATMOSMAIN" nunit-version="2.5.8.0" user="renev" />
+  <culture-info current-culture="en-150" current-uiculture="en-GB" />
+  <test-suite type="TestFixture" name="Pester" executed="True" result="Success" success="True" time="80.9756" asserts="0" description="Pester">
+    <results>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\Add-FeatureLineToREADME.Tests.ps1" executed="True" result="Success" success="True" time="0.9886" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\Add-FeatureLineToREADME.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Add-FeatureLineToREADME" executed="True" result="Success" success="True" time="0.894" asserts="0" description="Add-FeatureLineToREADME">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Add-FeatureLineToREADME.Should pass PSScriptAnalyzer rules" time="0.8742" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\Add-IdeaLineToREADME.Tests.ps1" executed="True" result="Success" success="True" time="0.975" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\Add-IdeaLineToREADME.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Add-IdeaLineToREADME" executed="True" result="Success" success="True" time="0.8974" asserts="0" description="Add-IdeaLineToREADME">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Add-IdeaLineToREADME.Should pass PSScriptAnalyzer rules" time="0.8836" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\Add-IssueLineToREADME.Tests.ps1" executed="True" result="Success" success="True" time="1.0326" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\Add-IssueLineToREADME.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Add-IssueLineToREADME" executed="True" result="Success" success="True" time="0.9547" asserts="0" description="Add-IssueLineToREADME">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Add-IssueLineToREADME.Should pass PSScriptAnalyzer rules" time="0.9408" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\Add-LineToREADME.Tests.ps1" executed="True" result="Success" success="True" time="1.4933" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\Add-LineToREADME.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Add-LineToREADME" executed="True" result="Success" success="True" time="1.4131" asserts="0" description="Add-LineToREADME">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Add-LineToREADME.Should pass PSScriptAnalyzer rules" time="1.3994" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\Add-ReleaseNoteLineToREADME.Tests.ps1" executed="True" result="Success" success="True" time="0.8733" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\Add-ReleaseNoteLineToREADME.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Add-ReleaseNoteLineToREADME" executed="True" result="Success" success="True" time="0.7945" asserts="0" description="Add-ReleaseNoteLineToREADME">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Add-ReleaseNoteLineToREADME.Should pass PSScriptAnalyzer rules" time="0.7804" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\Add-TodoLineToREADME.Tests.ps1" executed="True" result="Success" success="True" time="0.8608" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\Add-TodoLineToREADME.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Add-TodoLineToREADME" executed="True" result="Success" success="True" time="0.7806" asserts="0" description="Add-TodoLineToREADME">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Add-TodoLineToREADME.Should pass PSScriptAnalyzer rules" time="0.767" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\EnsureVSCodeInstallation.Tests.ps1" executed="True" result="Success" success="True" time="1.4356" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\EnsureVSCodeInstallation.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="EnsureVSCodeInstallation" executed="True" result="Success" success="True" time="1.3517" asserts="0" description="EnsureVSCodeInstallation">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="EnsureVSCodeInstallation.Should pass PSScriptAnalyzer rules" time="1.3372" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\Features.Tests.ps1" executed="True" result="Success" success="True" time="2.6501" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\Features.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Features" executed="True" result="Success" success="True" time="2.5731" asserts="0" description="Features">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Features.Should pass PSScriptAnalyzer rules" time="2.558" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\Ideas.Tests.ps1" executed="True" result="Success" success="True" time="0.968" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\Ideas.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Ideas" executed="True" result="Success" success="True" time="0.8848" asserts="0" description="Ideas">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Ideas.Should pass PSScriptAnalyzer rules" time="0.8708" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\Issues.Tests.ps1" executed="True" result="Success" success="True" time="0.9117" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\Issues.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Issues" executed="True" result="Success" success="True" time="0.8286" asserts="0" description="Issues">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Issues.Should pass PSScriptAnalyzer rules" time="0.8121" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\Open-SourceFileInIde.Tests.ps1" executed="True" result="Success" success="True" time="1.9941" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\Open-SourceFileInIde.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Open-SourceFileInIde" executed="True" result="Success" success="True" time="1.9015" asserts="0" description="Open-SourceFileInIde">
+            <results>
+              <test-case description="should pass PSScriptAnalyzer rules" name="Open-SourceFileInIde.should pass PSScriptAnalyzer rules" time="1.8832" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\ReleaseNotes.Tests.ps1" executed="True" result="Success" success="True" time="0.9389" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\ReleaseNotes.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="ReleaseNotes" executed="True" result="Success" success="True" time="0.854" asserts="0" description="ReleaseNotes">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="ReleaseNotes.Should pass PSScriptAnalyzer rules" time="0.8383" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\Todoos.Tests.ps1" executed="True" result="Success" success="True" time="0.9273" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\Todoos.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Todoos" executed="True" result="Success" success="True" time="0.8505" asserts="0" description="Todoos">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Todoos.Should pass PSScriptAnalyzer rules" time="0.8373" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\VSCode.Tests.ps1" executed="True" result="Success" success="True" time="0.9429" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding\VSCode.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="VSCode" executed="True" result="Success" success="True" time="0.8649" asserts="0" description="VSCode">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="VSCode.Should pass PSScriptAnalyzer rules" time="0.8516" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.Git\Get-GitChangedFiles.Tests.ps1" executed="True" result="Success" success="True" time="1.0913" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.Git\Get-GitChangedFiles.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Get-GitChangedFiles" executed="True" result="Success" success="True" time="1.0126" asserts="0" description="Get-GitChangedFiles">
+            <results>
+              <test-case description="should pass PSScriptAnalyzer rules" name="Get-GitChangedFiles.should pass PSScriptAnalyzer rules" time="0.9992" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.Git\New-GitCommit.Tests.ps1" executed="True" result="Success" success="True" time="1.0161" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.Git\New-GitCommit.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="New-GitCommit" executed="True" result="Success" success="True" time="0.9391" asserts="0" description="New-GitCommit">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="New-GitCommit.Should pass PSScriptAnalyzer rules" time="0.9254" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.Git\PermanentlyDeleteGitFolders.Tests.ps1" executed="True" result="Success" success="True" time="1.2063" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.Git\PermanentlyDeleteGitFolders.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="PermanentlyDeleteGitFolders" executed="True" result="Success" success="True" time="1.1239" asserts="0" description="PermanentlyDeleteGitFolders">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="PermanentlyDeleteGitFolders.Should pass PSScriptAnalyzer rules" time="1.1105" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Add-MissingGenXdevUnitTests.Tests.ps1" executed="True" result="Success" success="True" time="1.5435" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Add-MissingGenXdevUnitTests.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Add-MissingGenXdevUnitTests" executed="True" result="Success" success="True" time="1.4684" asserts="0" description="Add-MissingGenXdevUnitTests">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Add-MissingGenXdevUnitTests.Should pass PSScriptAnalyzer rules" time="1.4551" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Assert-GenXdevCmdlet.Tests.ps1" executed="True" result="Success" success="True" time="2.3166" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Assert-GenXdevCmdlet.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Assert-GenXdevCmdlet" executed="True" result="Success" success="True" time="2.2422" asserts="0" description="Assert-GenXdevCmdlet">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Assert-GenXdevCmdlet.Should pass PSScriptAnalyzer rules" time="2.2284" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Assert-GenXdevCmdletTests.Tests.ps1" executed="True" result="Success" success="True" time="1.5291" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Assert-GenXdevCmdletTests.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Assert-GenXdevCmdletTests" executed="True" result="Success" success="True" time="1.4476" asserts="0" description="Assert-GenXdevCmdletTests">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Assert-GenXdevCmdletTests.Should pass PSScriptAnalyzer rules" time="1.4307" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Assert-GenXdevDependencyUsage.Tests.ps1" executed="True" result="Success" success="True" time="2.2379" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Assert-GenXdevDependencyUsage.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Assert-GenXdevDependencyUsage" executed="True" result="Success" success="True" time="2.1577" asserts="0" description="Assert-GenXdevDependencyUsage">
+            <results>
+              <test-case description="should pass PSScriptAnalyzer rules" name="Assert-GenXdevDependencyUsage.should pass PSScriptAnalyzer rules" time="2.1444" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Assert-GenXdevUnitTest.Tests.ps1" executed="True" result="Success" success="True" time="2.526" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Assert-GenXdevUnitTest.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Assert-GenXdevUnitTest" executed="True" result="Success" success="True" time="2.4414" asserts="0" description="Assert-GenXdevUnitTest">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Assert-GenXdevUnitTest.Should pass PSScriptAnalyzer rules" time="2.4282" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Assert-ModuleDefinition.Tests.ps1" executed="True" result="Success" success="True" time="1.449" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Assert-ModuleDefinition.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Assert-ModuleDefinition" executed="True" result="Success" success="True" time="1.3727" asserts="0" description="Assert-ModuleDefinition">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Assert-ModuleDefinition.Should pass PSScriptAnalyzer rules" time="1.3591" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Assert-NextGenXdevCmdlet.Tests.ps1" executed="True" result="Success" success="True" time="1.0975" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Assert-NextGenXdevCmdlet.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Assert-NextGenXdevCmdlet" executed="True" result="Success" success="True" time="1.0193" asserts="0" description="Assert-NextGenXdevCmdlet">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Assert-NextGenXdevCmdlet.Should pass PSScriptAnalyzer rules" time="1.0059" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Assert-NextGenXdevCmdletTest.Tests.ps1" executed="True" result="Success" success="True" time="1.1029" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Assert-NextGenXdevCmdletTest.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Assert-NextGenXdevCmdletTest" executed="True" result="Success" success="True" time="1.0213" asserts="0" description="Assert-NextGenXdevCmdletTest">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Assert-NextGenXdevCmdletTest.Should pass PSScriptAnalyzer rules" time="1.0048" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Assert-RefactorFile.Tests.ps1" executed="True" result="Success" success="True" time="1.2685" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Assert-RefactorFile.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Assert-RefactorFile" executed="True" result="Success" success="True" time="1.1896" asserts="0" description="Assert-RefactorFile">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Assert-RefactorFile.Should pass PSScriptAnalyzer rules" time="1.1762" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Clear-GenXdevModules.Tests.ps1" executed="True" result="Success" success="True" time="1.8432" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Clear-GenXdevModules.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Clear-GenXdevModules" executed="True" result="Success" success="True" time="1.7649" asserts="0" description="Clear-GenXdevModules">
+            <results>
+              <test-case description="should pass PSScriptAnalyzer rules" name="Clear-GenXdevModules.should pass PSScriptAnalyzer rules" time="1.7516" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Complete-GenXDevREADME.Tests.ps1" executed="True" result="Success" success="True" time="1.6599" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Complete-GenXDevREADME.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Complete-GenXDevREADME" executed="True" result="Success" success="True" time="1.5831" asserts="0" description="Complete-GenXDevREADME">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Complete-GenXDevREADME.Should pass PSScriptAnalyzer rules" time="1.5699" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\EnsureCopilotKeyboardShortCut.Tests.ps1" executed="True" result="Success" success="True" time="1.627" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\EnsureCopilotKeyboardShortCut.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="EnsureCopilotKeyboardShortCut" executed="True" result="Success" success="True" time="1.5485" asserts="0" description="EnsureCopilotKeyboardShortCut">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="EnsureCopilotKeyboardShortCut.Should pass PSScriptAnalyzer rules" time="1.5341" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\EnsureDefaultGenXdevRefactors.Tests.ps1" executed="True" result="Success" success="True" time="1.1274" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\EnsureDefaultGenXdevRefactors.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="EnsureDefaultGenXdevRefactors" executed="True" result="Success" success="True" time="1.0512" asserts="0" description="EnsureDefaultGenXdevRefactors">
+            <results>
+              <test-case description="should pass PSScriptAnalyzer rules" name="EnsureDefaultGenXdevRefactors.should pass PSScriptAnalyzer rules" time="1.038" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Get-GenXDevModule.Tests.ps1" executed="True" result="Success" success="True" time="1.6855" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Get-GenXDevModule.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Get-GenXDevModule" executed="True" result="Success" success="True" time="1.6088" asserts="0" description="Get-GenXDevModule">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Get-GenXDevModule.Should pass PSScriptAnalyzer rules" time="1.5947" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Get-GenXDevModuleInfo.Tests.ps1" executed="True" result="Success" success="True" time="1.2007" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Get-GenXDevModuleInfo.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Get-GenXDevModuleInfo" executed="True" result="Success" success="True" time="1.1246" asserts="0" description="Get-GenXDevModuleInfo">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Get-GenXDevModuleInfo.Should pass PSScriptAnalyzer rules" time="1.1113" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Get-GenXDevNewModulesInOrderOfDependency.Tests.ps1" executed="True" result="Success" success="True" time="4.8817" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Get-GenXDevNewModulesInOrderOfDependency.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Get-GenXDevNewModulesInOrderOfDependency" executed="True" result="Success" success="True" time="4.8062" asserts="0" description="Get-GenXDevNewModulesInOrderOfDependency">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Get-GenXDevNewModulesInOrderOfDependency.Should pass PSScriptAnalyzer rules" time="4.7923" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Get-GenXDevNextCmdLet.Tests.ps1" executed="True" result="Success" success="True" time="1.5662" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Get-GenXDevNextCmdLet.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Get-GenXDevNextCmdLet" executed="True" result="Success" success="True" time="1.4928" asserts="0" description="Get-GenXDevNextCmdLet">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Get-GenXDevNextCmdLet.Should pass PSScriptAnalyzer rules" time="1.4791" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Get-ModuleHelpMarkdown.Tests.ps1" executed="True" result="Success" success="True" time="2.5447" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Get-ModuleHelpMarkdown.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Get-ModuleHelpMarkdown" executed="True" result="Success" success="True" time="2.4701" asserts="0" description="Get-ModuleHelpMarkdown">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Get-ModuleHelpMarkdown.Should pass PSScriptAnalyzer rules" time="2.4562" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Get-Refactor.Tests.ps1" executed="True" result="Success" success="True" time="1.7256" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Get-Refactor.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Get-Refactor module function tests" executed="True" result="Success" success="True" time="1.6111" asserts="0" description="Get-Refactor module function tests">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Get-Refactor module function tests.Should pass PSScriptAnalyzer rules" time="1.594" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Get-RefactorReport.Tests.ps1" executed="True" result="Success" success="True" time="1.636" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Get-RefactorReport.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Get-RefactorReport" executed="True" result="Success" success="True" time="1.5528" asserts="0" description="Get-RefactorReport">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Get-RefactorReport.Should pass PSScriptAnalyzer rules" time="1.5361" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Invoke-GenXdevPSFormatter.Tests.ps1" executed="True" result="Success" success="True" time="0.4112" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Invoke-GenXdevPSFormatter.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Invoke-GenXdevPSFormatter" executed="True" result="Success" success="True" time="0.3187" asserts="0" description="Invoke-GenXdevPSFormatter">
+            <results>
+              <test-case description="should pass PSScriptAnalyzer rules" name="Invoke-GenXdevPSFormatter.should pass PSScriptAnalyzer rules" time="0.2799" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="should fix Write-Host to be fully qualified" name="Invoke-GenXdevPSFormatter.should fix Write-Host to be fully qualified" time="0.0226" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\New-GenXdevCmdlet.Tests.ps1" executed="True" result="Success" success="True" time="2.4409" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\New-GenXdevCmdlet.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="New-GenXdevCmdlet" executed="True" result="Success" success="True" time="2.3475" asserts="0" description="New-GenXdevCmdlet">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="New-GenXdevCmdlet.Should pass PSScriptAnalyzer rules" time="2.3278" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\New-GenXdevModule.Tests.ps1" executed="True" result="Success" success="True" time="1.7654" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\New-GenXdevModule.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="New-GenXdevModule" executed="True" result="Success" success="True" time="1.6772" asserts="0" description="New-GenXdevModule">
+            <results>
+              <test-case description="should pass PSScriptAnalyzer rules" name="New-GenXdevModule.should pass PSScriptAnalyzer rules" time="1.6598" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\New-PullRequestForGenXdevModuleChanges.Tests.ps1" executed="True" result="Success" success="True" time="1.8803" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\New-PullRequestForGenXdevModuleChanges.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="New-PullRequestForGenXdevModuleChanges" executed="True" result="Success" success="True" time="1.7908" asserts="0" description="New-PullRequestForGenXdevModuleChanges">
+            <results>
+              <test-case description="should pass PSScriptAnalyzer rules" name="New-PullRequestForGenXdevModuleChanges.should pass PSScriptAnalyzer rules" time="1.7673" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\New-Refactor.Tests.ps1" executed="True" result="Success" success="True" time="1.2353" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\New-Refactor.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="New-Refactor" executed="True" result="Success" success="True" time="1.1148" asserts="0" description="New-Refactor">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="New-Refactor.Should pass PSScriptAnalyzer rules" time="1.1004" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Open-GenXdevCmdletsContainingClipboardTextInIde.Tests.ps1" executed="True" result="Success" success="True" time="1.4562" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Open-GenXdevCmdletsContainingClipboardTextInIde.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Open-GenXdevCmdletsContainingClipboardTextInIde" executed="True" result="Success" success="True" time="1.3753" asserts="0" description="Open-GenXdevCmdletsContainingClipboardTextInIde">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Open-GenXdevCmdletsContainingClipboardTextInIde.Should pass PSScriptAnalyzer rules" time="1.3611" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Remove-Refactor.Tests.ps1" executed="True" result="Success" success="True" time="1.8072" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Remove-Refactor.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Remove-Refactor" executed="True" result="Success" success="True" time="1.7013" asserts="0" description="Remove-Refactor">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Remove-Refactor.Should pass PSScriptAnalyzer rules" time="1.6829" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Search-GenXdevCmdlet.Tests.ps1" executed="True" result="Success" success="True" time="1.0894" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Search-GenXdevCmdlet.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Search-GenXdevCmdlet" executed="True" result="Success" success="True" time="1.015" asserts="0" description="Search-GenXdevCmdlet">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Search-GenXdevCmdlet.Should pass PSScriptAnalyzer rules" time="1.0016" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Search-NextGenXdevCmdlet.Tests.ps1" executed="True" result="Success" success="True" time="1.1174" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Search-NextGenXdevCmdlet.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Search-NextGenXdevCmdlet" executed="True" result="Success" success="True" time="1.0352" asserts="0" description="Search-NextGenXdevCmdlet">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Search-NextGenXdevCmdlet.Should pass PSScriptAnalyzer rules" time="1.0217" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Show-GenXdevCmdLetInIde.Tests.ps1" executed="True" result="Success" success="True" time="1.1933" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Show-GenXdevCmdLetInIde.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Show-GenXdevCmdLetInIde" executed="True" result="Success" success="True" time="1.1177" asserts="0" description="Show-GenXdevCmdLetInIde">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Show-GenXdevCmdLetInIde.Should pass PSScriptAnalyzer rules" time="1.1043" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Show-RefactorReport.Tests.ps1" executed="True" result="Success" success="True" time="1.6162" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Show-RefactorReport.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Show-RefactorReport" executed="True" result="Success" success="True" time="1.5415" asserts="0" description="Show-RefactorReport">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Show-RefactorReport.Should pass PSScriptAnalyzer rules" time="1.5279" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\SplitUpPsm1File.Tests.ps1" executed="True" result="Success" success="True" time="1.6145" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\SplitUpPsm1File.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="SplitUpPsm1File" executed="True" result="Success" success="True" time="1.5385" asserts="0" description="SplitUpPsm1File">
+            <results>
+              <test-case description="should pass PSScriptAnalyzer rules" name="SplitUpPsm1File.should pass PSScriptAnalyzer rules" time="1.5249" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Start-NextRefactor.Tests.ps1" executed="True" result="Success" success="True" time="1.3058" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Start-NextRefactor.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Start-NextRefactor" executed="True" result="Success" success="True" time="1.2315" asserts="0" description="Start-NextRefactor">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Start-NextRefactor.Should pass PSScriptAnalyzer rules" time="1.2183" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Test-RefactorLLMSelection.Tests.ps1" executed="True" result="Success" success="True" time="1.1786" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Test-RefactorLLMSelection.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Test-RefactorLLMSelection" executed="True" result="Success" success="True" time="1.096" asserts="0" description="Test-RefactorLLMSelection">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Test-RefactorLLMSelection.Should pass PSScriptAnalyzer rules" time="1.0815" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Update-Refactor.Tests.ps1" executed="True" result="Success" success="True" time="3.9744" asserts="0" description="C:\Users\renev\Documents\PowerShell\Modules\GenXdev.Coding\1.216.2025\Tests\GenXdev.Coding.PowerShell.Modules\Update-Refactor.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Update-Refactor" executed="True" result="Success" success="True" time="3.8903" asserts="0" description="Update-Refactor">
+            <results>
+              <test-case description="Should pass PSScriptAnalyzer rules" name="Update-Refactor.Should pass PSScriptAnalyzer rules" time="3.8739" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
