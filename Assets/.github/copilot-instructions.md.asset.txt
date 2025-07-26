@@ -2,7 +2,10 @@
 applyTo: "**"
 description: "General frontend coding guidelines"
 ---
-
+When working with .ps1 files, detect the modulename from the file
+path and then read the filelist of the folder with the versionnumber.
+Read all .md files in the folder, and always take them into concideration.
+---
 ## Core Development Rules
 - **Never add parameter aliases** unless explicitly listed in user request or called function's definition
 - **Edit files directly** - never return generated output in chat if file is open
@@ -12,6 +15,7 @@ description: "General frontend coding guidelines"
 - **Offer changelog entries** after making changes to cmdlets/scripts
 - **Commit messages** - read and empty .\change-log.md to create professional commit messages
 - **PSScriptAnalyzer exceptions** - never rename functions, create rule exceptions below [CmdletBinding()]
+- **Internal function naming** - For functions used only internally, skip PowerShell verb-noun convention completely (e.g., use `ProcessImageData` instead of `Get-ProcessedImageData`) to prevent them from appearing in tab completion when users type standard verbs like `Get-` and press TAB
 
 ## Parameter Copying Pattern
 Use GenXdev.Helpers\Copy-IdenticalParamValues for cmdlets that invoke other GenXdev cmdlets:
@@ -27,7 +31,7 @@ Copy ALL parameters except those causing wrong behaviors. Remove default values 
 ## MCP Server Integration
 Add PowerShell cmdlets to `Start-GenXdevMCPServer` to make them available as MCP tools:
 - Enables AI integration and remote PowerShell execution
-- Source: `.\Modules\GenXdev.AI\1.216.2025\Functions\GenXdev.AI\Start-GenXdevMCPServer.ps1`
+- Source: `.\Modules\GenXdev.AI\1.218.2025\Functions\GenXdev.AI\Start-GenXdevMCPServer.ps1`
 - Use `[GenXdev.Helpers.ExposedCmdletDefinition]` with Name, Description, AllowedParams, JsonDepth
 - Set `Confirm: false` and `OutputText: true` for most cmdlets
 
@@ -74,6 +78,8 @@ Alert with "💡 **Knowledge Gap Alert**:" when missing:
 - **Alias Placement**: `[Alias()]` directly above `[Parameter()]` (only if alias is explicitly listed in user request or called function's definition)
 - **No Duplicates**: Each parameter has exactly one `[Parameter()]` block and, if required, one `[Alias()]` block
 - **Consistent Indentation**: Align all attributes consistently
+- **Comment-based Help Line Length**: All comment-based help (XML help) above functions must strictly enforce a maximum line length of 80 characters, including parameter descriptions and examples.
+- **Comment-based Help Closure**: Always close the comment-based help section with `#>` on its own line, with nothing else on that line.
 
 ### Alias Conflict Resolution
 - **Remove conflicting alias** from calling function (never assign same alias to different parameters)
@@ -93,3 +99,18 @@ Use Azure tools when handling Azure requests:
 - @azure Rule - Use deployment best practices (`azure_development-get_deployment_best_practices`)
 - @azure Rule - Use Azure Functions best practices (`azure_development-get_azure_function_code_gen_best_practices`)
 - @azure Rule - Use SWA best practices (`azure_development-get_swa_best_practices`)
+
+---
+
+# Copilot Coding Rule: String Interpolation
+
+## PowerShell String Interpolation Rule
+- Always use curly braces `{}` for variable names inside double-quoted strings when the variable is immediately followed by a character that could be interpreted as part of the variable name, or when the variable is part of a property or expression.
+- Example:
+    - Incorrect: `Write-Warning "Failed to rename $file.Name to $newName: $_"`
+    - Correct:   `Write-Warning "Failed to rename $($file.Name) to ${newName}: $_"`
+- This prevents PowerShell from misinterpreting variable boundaries and avoids runtime errors.
+
+## Enforcement
+- All PowerShell scripts must use `${variable}` syntax for string interpolation when ambiguity is possible.
+- Review all warning, error, and output messages for correct interpolation.

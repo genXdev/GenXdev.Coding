@@ -80,8 +80,9 @@ function Assert-GenXdevCmdletTests {
             Mandatory = $false,
             HelpMessage = 'Search in script files instead of modules'
         )]
-        [switch] $FromScripts
+        [switch] $FromScripts,
         ########################################################################
+        [switch] $ContinuationHandled
     )
 
     begin {
@@ -208,7 +209,15 @@ function Assert-GenXdevCmdletTests {
         $invocationParams.KeysToSend = $keysToSendLast
         $invocationParams.UnitTests = $false
         GenXdev.Coding\Show-GenXdevCmdLetInIde @invocationParams
+        Microsoft.PowerShell.Utility\Start-Sleep 1;
+        $null = Microsoft.PowerShell.Management\Set-Clipboard -Value $previousClipboard
         Microsoft.PowerShell.Utility\Start-Sleep 4;
+
+        if ($ContinuationHandled) {
+
+            return;
+        }
+
         # handle workflow based on whether test file existed
         if (-not $found) {
 
@@ -238,8 +247,6 @@ function Assert-GenXdevCmdletTests {
 
     end {
 
-        # restore previous clipboard content
-        $null = Microsoft.PowerShell.Management\Set-Clipboard -Value $previousClipboard
     }
 }
 ###############################################################################

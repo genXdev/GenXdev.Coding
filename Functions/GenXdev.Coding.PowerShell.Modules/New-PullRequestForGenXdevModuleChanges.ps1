@@ -494,7 +494,7 @@ function New-PullRequestForGenXdevModuleChanges {
 
         # get full path to module directory
         $modulePath = GenXdev.FileSystem\Expand-Path (
-            "$PSScriptRoot\..\..\..\..\$ModuleName\1.216.2025\"
+            "$PSScriptRoot\..\..\..\..\$ModuleName\1.218.2025\"
         )
 
         # verify module manifest exists
@@ -698,8 +698,8 @@ function New-PullRequestForGenXdevModuleChanges {
         }
 
         # --- Begin Modification ---
-        # Find the commit with the exact message "Release 1.216.2025" in the GenXdev module repository using the GitHub API
-        $releaseCommitMsg = 'Release 1.216.2025'
+        # Find the commit with the exact message "Release 1.218.2025" in the GenXdev module repository using the GitHub API
+        $releaseCommitMsg = 'Release 1.218.2025'
         $commitsApiUrl = "https://api.github.com/repos/genXdev/$ModuleName/commits"
         $releaseCommitHash = $null
 
