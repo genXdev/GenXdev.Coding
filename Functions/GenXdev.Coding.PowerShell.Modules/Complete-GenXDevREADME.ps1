@@ -107,38 +107,29 @@ function Complete-GenXDevREADME {
             $lastModule = ''
 
             # prepare summary table header with proper column spacing
-            $summary = (
-                '| Command&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +
-                '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +
-                ' | aliases&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +
-                "&nbsp; | Description |`r`n| --- | --- | --- |`r`n"
-            )
+                        $summary = (
+                            "| Command | Aliases | Description |`r`n" +
+                            "| --- | --- | --- |`r`n"
+                        )
 
             # build cmdlet summary table with module sections
-            $summary += @(GenXdev.Helpers\Get-GenXDevCmdlets -ModuleName @($module.ModuleName) |
-                    Microsoft.PowerShell.Utility\Sort-Object -Property ModuleName, Name |
-                    Microsoft.PowerShell.Core\ForEach-Object -ErrorAction SilentlyContinue {
-
-                        # insert module header when changing modules
-                        if (($lastModule -ne '') -and
-                        ($lastModule -ne $PSItem.ModuleName)) {
-
-                            $moduleHeader = (
-                                "`r`n<hr/>`r`n&nbsp;`r`n`r`n### $($PSItem.ModuleName)" +
-                                "</hr>`r`n| Command&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
-                                '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +
-                                '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | aliases&nbsp;&nbsp;' +
-                                '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | ' +
-                                "Description |`r`n| --- | --- | --- |"
-                            )
-                            $moduleHeader
-                        }
-
-                        $lastModule = $PSItem.ModuleName
-                        $desc = ("$($PSItem.Description)" -Replace "[`r`n`t|]*", '').Trim()
-                        "| [$($PSItem.Name)](#$($PSItem.Name)) | $($PSItem.Aliases) |" +
-                        " $desc |"
-                    }) -join "`r`n"
+                $summary += @(GenXdev.Helpers\Get-GenXDevCmdlets -ModuleName @($module.ModuleName) |
+                        Microsoft.PowerShell.Utility\Sort-Object -Property ModuleName, Name |
+                        Microsoft.PowerShell.Core\ForEach-Object -ErrorAction SilentlyContinue {
+                            # insert module header when changing modules
+                            if (($lastModule -ne '') -and ($lastModule -ne $PSItem.ModuleName)) {
+                                $moduleHeader = (
+                                    "`n### $($PSItem.ModuleName)`r`n" +
+                                    "| Command | Aliases | Description |`r`n" +
+                                    "| --- | --- | --- |`r`n"
+                                )
+                                $moduleHeader
+                            }
+                            $lastModule = $PSItem.ModuleName
+                            $desc = ("$($PSItem.Description)" -Replace "[\r\n\t|]*", '').Trim()
+                            $anchor = $PSItem.Name.ToLower().Replace(' ', '-').Replace('.', '').Replace('_', '')
+                            "| [$($PSItem.Name)](#$anchor) | $($PSItem.Aliases) | $desc |"
+            }) -join "`r`n"
 
             $summary += "`r`n`r`n<br/><hr/><hr/><br/>`r`n`r`n`r`n"
 

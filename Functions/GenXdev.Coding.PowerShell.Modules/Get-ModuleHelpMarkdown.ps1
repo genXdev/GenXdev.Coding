@@ -66,6 +66,7 @@ function Get-ModuleHelpMarkdown {
             $name = 'GenXdev.' + $PSItem.Replace('GenXdev.', '')
 
             # get all matching modules including their nested modules
+            Microsoft.PowerShell.Core\Import-Module "$($name.TrimEnd('*'))*" -ErrorAction SilentlyContinue
             Microsoft.PowerShell.Core\Get-Module "$($name.TrimEnd('*'))*" -All |
                 Microsoft.PowerShell.Core\ForEach-Object {
                     $module = $PSItem
@@ -90,8 +91,7 @@ function Get-ModuleHelpMarkdown {
 
             # emit section header when switching to a new module
             if (($lastModule -eq '') -or ($lastModule -ne $current.ModuleName)) {
-
-                Microsoft.PowerShell.Utility\Write-Verbose "Processing module: $($current.ModuleName)"
+                Write-Verbose "Processing module: $($current.ModuleName)"
                 "`r`n&nbsp;<hr/>`r`n###`t$($current.ModuleName)<hr/>"
             }
 
@@ -124,10 +124,22 @@ function Get-ModuleHelpMarkdown {
             # retrieve full help content
             $lines = ''
             try {
-                $lines = (Microsoft.PowerShell.Core\Get-Help $CmdletName -Full)
+                $lines = (Microsoft.PowerShell.Core\Get-Help $CmdletName -Full) | Microsoft.PowerShell.Utility\Out-String | ForEach-Object {
+
+                    if (-not [string]::IsNullOrWhiteSpace($_)) {
+
+                        $_.split("`r`n") | ForEach-Object {
+
+                            if (-not [string]::IsNullOrWhiteSpace($_)) {
+                                $_
+                            }
+                        }
+                    }
+                }
             }
             catch {
-                throw "Could not get help for command $CmdletName -> $PSItem"
+                Write-Warning "Could not get help for command $CmdletName -> $PSItem"
+                continue;
             }
 
             # initialize state tracking for help content processing
@@ -135,39 +147,36 @@ function Get-ModuleHelpMarkdown {
             [bool] $hide = $false
             $lineBuffer = ''
             $inName = $false
+            $prevSection = "";
 
             # process each line of help content
             foreach ($line in $lines) {
                 # normalize line endings and tabs
-                $line = $line | Microsoft.PowerShell.Utility\Out-String;
                 $line = $line.trim("`r`n").Replace("`t", '    ')
-
                 if ($line.Trim().Length -gt 0) {
                     # handling section headers
                     if ($line[0] -ne ' ') {
+                        $prevSection = $section;
                         $section = $line
                         $wasInPowerShell = $inPowerShell
                         $hide = $false
                         $inName = $false
-
                         # process different help sections
                         switch ($section) {
                             'NAME' {
                                 $inName = $true
                                 $inPowerShell = $true
-
                                 # get and format aliases
                                 $aliases = ((Microsoft.PowerShell.Utility\Get-Alias -Definition $CmdletName `
                                             -ErrorAction SilentlyContinue |
                                             Microsoft.PowerShell.Core\ForEach-Object name) -join ', ').Trim()
-
                                 if (![string]::IsNullOrWhiteSpace($aliases)) {
                                     $linebuffer = $aliases
                                 }
                                 break
                             }
                             'SYNOPSIS' { $inPowerShell = $false; break }
-                            'SYNTAX' { $inPowerShell = $true; break }
+                            'SYNTAX' { $inSyntax = $inPowerShell = $true; break }
                             'DESCRIPTION' { $inPowerShell = $false; break }
                             'PARAMETERS' { $inPowerShell = $false; break }
                             'NOTES' { $inPowerShell = $true; break }
@@ -177,14 +186,14 @@ function Get-ModuleHelpMarkdown {
                                 break
                             }
                         }
-
                         # handle transitions between powershell and regular text
                         if ($wasInPowerShell) {
-                            GenXdev.Helpers\alignScript $lineBuffer.Trim("`r`n".ToCharArray()) 0
+                            $s = (GenXdev.Helpers\alignScript $lineBuffer.Trim("`r`n".ToCharArray()) 0);
+                            if ($prevSection -eq "SYNTAX") { $s = $s.Trim() }
+                            $s
                             $lineBuffer = ''
                             "````````"
                         }
-
                         if (!$hide) {
                             if ($inName) {
                                 "`r`n##`t$CmdletName"
@@ -193,7 +202,6 @@ function Get-ModuleHelpMarkdown {
                                 "`r`n### $section"
                             }
                         }
-
                         if ($inPowerShell) {
                             "````````PowerShell"
                         }
@@ -206,18 +214,13 @@ function Get-ModuleHelpMarkdown {
                                     $line = $line.PadRight(40, ' ') +
                                     " --> $lineBuffer"
                                 }
-
                                 $lineBuffer = ''
                                 $inName = $false
                             }
-
                             # normalize text content
                             $line = $line.Replace('PS > ', 'PS C:\> ').Replace('PS C:\>', 'PS C:\> ').Replace('PS C:\>  ', 'PS C:\> ').Replace("Don't", 'Do not').Replace("don't", 'do not').Replace("isn't", 'is not').Replace("asn't", 'as not').Replace('(https://go', '    (https://go').Replace('PS D:\Downloads>', 'PS D:\Downloads> ').Replace('PS D:\Downloads>  ', 'PS D:\Downloads> ').Replace("It's", 'It is')
-
                             if ($inPowerShell) {
-
                                 if (![string]::IsNullOrWhiteSpace($line)) {
-
                                     $lineBuffer = "$lineBuffer `r`n$($line.Replace("`r`n", " `r`n")) ".Trim("`r`n".ToCharArray())
                                 }
                             }
@@ -230,8 +233,6 @@ function Get-ModuleHelpMarkdown {
                         }
                     }
                 }
-
-                $line
             }
 
             # add section separator after cmdlet documentation
