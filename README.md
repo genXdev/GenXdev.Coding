@@ -89,70 +89,69 @@ Update-Module
 
 # Cmdlet Index
 ### GenXdev.Coding<hr/>
+### GenXdev.Coding
 | Command | Aliases | Description |
 | --- | --- | --- |
 | [Add-FeatureLineToREADME](#add-featurelinetoreadme) | feature | Adds a feature line to the README file with a timestamp. |
 | [Add-IdeaLineToREADME](#add-idealinetoreadme) | idea | Adds an idea item to the README.md file. |
 | [Add-IssueLineToREADME](#add-issuelinetoreadme) | issue | Adds an issue item to the README.md file. |
-| [Add-LineToREADME](#add-linetoreadme) |  | Adds a line to a README.md markdown file in a specified section. |
+| [Add-LineToREADME](#add-linetoreadme) | &nbsp; | Adds a line to a README.md markdown file in a specified section. |
 | [Add-ReleaseNoteLineToREADME](#add-releasenotelinetoreadme) | releasenote | Adds a ReleaseNote line to the README file with a timestamp. |
 | [Add-TodoLineToREADME](#add-todolinetoreadme) | todo | Adds a todo item to the README.md file. |
-| [EnsureVSCodeInstallation](#ensurevscodeinstallation) |  | Installs and configures Visual Studio Code with recommended extensions. |
-| [Features](#features) |  | Displays features from a README.md file. |
-| [Ideas](#ideas) |  | Displays ideas from a README.md file. |
-| [Issues](#issues) |  | Displays issues from a README.md file. |
+| [EnsureVSCodeInstallation](#ensurevscodeinstallation) | &nbsp; | Installs and configures Visual Studio Code with recommended extensions. |
+| [Features](#features) | &nbsp; | Displays features from a README.md file. |
+| [Ideas](#ideas) | &nbsp; | Displays ideas from a README.md file. |
+| [Issues](#issues) | &nbsp; | Displays issues from a README.md file. |
 | [Open-SourceFileInIde](#open-sourcefileinide) | editcode | Opens a source file in the preferred IDE (Visual Studio Code or Visual Studio). |
-| [ReleaseNotes](#releasenotes) |  | Displays ReleaseNotes from a README.md file. |
-| [Todoos](#todoos) |  | Displays todo items from a README.md file. |
-| [VSCode](#vscode) |  | Opens one or more files in Visual Studio Code. |
+| [ReleaseNotes](#releasenotes) | &nbsp; | Displays ReleaseNotes from a README.md file. |
+| [Todoos](#todoos) | &nbsp; | Displays todo items from a README.md file. |
+| [VSCode](#vscode) | &nbsp; | Opens one or more files in Visual Studio Code. |
 
 ### GenXdev.Coding.Git
 | Command | Aliases | Description |
 | --- | --- | --- |
-
 | [Get-GitChangedFiles](#get-gitchangedfiles) | gitchanged, get-gitchangedfile | Get the list of changed files in a Git repository. |
 | [New-GitCommit](#new-gitcommit) | commit | Creates and pushes a new git commit with all changes. |
-| [PermanentlyDeleteGitFolders](#permanentlydeletegitfolders) |  | Permanently deletes specified folders from all branches in a Git repository. |
+| [PermanentlyDeleteGitFolders](#permanentlydeletegitfolders) | &nbsp; | Permanently deletes specified folders from all branches in a Git repository. |
 
 ### GenXdev.Coding.PowerShell.Modules
 | Command | Aliases | Description |
 | --- | --- | --- |
-
-| [Add-MissingGenXdevUnitTests](#add-missinggenxdevunittests) |  |  |
+| [Add-MissingGenXdevUnitTests](#add-missinggenxdevunittests) | &nbsp; |  |
 | [Assert-GenXdevCmdlet](#assert-genxdevcmdlet) | improvecmdlet | Improves GenXdev cmdlet documentation and implementation through AI assistance. |
 | [Assert-GenXdevCmdletTests](#assert-genxdevcmdlettests) | improvecmdlettests | Asserts and improves unit-tests of a specified GenXdev cmdlet. |
-| [Assert-GenXdevDependencyUsage](#assert-genxdevdependencyusage) | checkgenxdevdependencies |  |
-| [Assert-GenXdevUnitTest](#assert-genxdevunittest) | rungenxdevtests |  |
-| [Assert-ModuleDefinition](#assert-moduledefinition) |  | Assists in refactoring PowerShell source code files using AI assistance. |
+| [Assert-GenXdevDependencyUsage](#assert-genxdevdependencyusage) | checkgenxdevdependencies | &nbsp; |
+| [Assert-GenXdevUnitTest](#assert-genxdevunittest) | rungenxdevtests | &nbsp; |
+| [Assert-ModuleDefinition](#assert-moduledefinition) | &nbsp; | Assists in refactoring PowerShell source code files using AI assistance. |
 | [Assert-NextGenXdevCmdlet](#assert-nextgenxdevcmdlet) | nextcmdlet | Asserts and improves the next GenXdev cmdlet in sequence. |
 | [Assert-NextGenXdevCmdletTest](#assert-nextgenxdevcmdlettest) | nextcmdlettest | Automates testing improvements for GenXdev cmdlets by managing test creation. |
-| [Assert-RefactorFile](#assert-refactorfile) |  |  |
+| [Assert-RefactorFile](#assert-refactorfile) | &nbsp; |  |
 | [Clear-GenXdevModules](#clear-genxdevmodules) | cleangenxdev | Cleans build artifacts from GenXdev PowerShell modules. |
-| [Complete-GenXDevREADME](#complete-genxdevreadme) |  | Completes the README file for specified GenXDev modules by adding documentation. |
-| [EnsureCopilotKeyboardShortCut](#ensurecopilotkeyboardshortcut) |  | Configures the GitHub Copilot Chat keyboard shortcuts in Visual Studio Code. |
-| [EnsureDefaultGenXdevRefactors](#ensuredefaultgenxdevrefactors) |  |  |
-| [Get-GenXDevModule](#get-genxdevmodule) |  | Retrieves all GenXDev modules from a specified path. |
-| [Get-GenXDevModuleInfo](#get-genxdevmoduleinfo) |  | Retrieves detailed information about GenXdev PowerShell modules. |
-| [Get-GenXDevNewModulesInOrderOfDependency](#get-genxdevnewmodulesinorderofdependency) |  | Retrieves GenXDev modules in dependency order. |
-| [Get-GenXDevNextCmdLet](#get-genxdevnextcmdlet) |  | Retrieves the next GenXdev cmdlet to be improved. |
+| [Complete-GenXDevREADME](#complete-genxdevreadme) | &nbsp; | Completes the README file for specified GenXDev modules by adding documentation. |
+| [EnsureCopilotKeyboardShortCut](#ensurecopilotkeyboardshortcut) | &nbsp; | Configures the GitHub Copilot Chat keyboard shortcuts in Visual Studio Code. |
+| [EnsureDefaultGenXdevRefactors](#ensuredefaultgenxdevrefactors) | &nbsp; |  |
+| [Get-GenXDevModule](#get-genxdevmodule) | &nbsp; | Retrieves all GenXDev modules from a specified path. |
+| [Get-GenXDevModuleInfo](#get-genxdevmoduleinfo) | &nbsp; | Retrieves detailed information about GenXdev PowerShell modules. |
+| [Get-GenXDevNewModulesInOrderOfDependency](#get-genxdevnewmodulesinorderofdependency) | &nbsp; | Retrieves GenXDev modules in dependency order. |
+| [Get-GenXDevNextCmdLet](#get-genxdevnextcmdlet) | &nbsp; | Retrieves the next GenXdev cmdlet to be improved. |
 | [Get-ModuleHelpMarkdown](#get-modulehelpmarkdown) | get-genxdevmodulehelp | Generates markdown help documentation for specified GenXDev modules. |
 | [Get-Refactor](#get-refactor) | refactor | Retrieves refactor definitions from GenXdev preferences based on name patterns. |
 | [Get-RefactorReport](#get-refactorreport) | refactorreport | Generates a detailed report of refactoring operations and their status. |
-| [Invoke-GenXdevPSFormatter](#invoke-genxdevpsformatter) |  |  |
-| [Invoke-GenXdevScriptAnalyzer](#invoke-genxdevscriptanalyzer) |  |  |
+| [Invoke-GenXdevPSFormatter](#invoke-genxdevpsformatter) | &nbsp; |  |
+| [Invoke-GenXdevScriptAnalyzer](#invoke-genxdevscriptanalyzer) | &nbsp; |  |
 | [New-GenXdevCmdlet](#new-genxdevcmdlet) | gcmd | Creates a new GenXdev PowerShell cmdlet with proper structure and validation. |
-| [New-GenXdevModule](#new-genxdevmodule) |  | Creates a new GenXdev PowerShell module with proper structure and configuration. |
+| [New-GenXdevModule](#new-genxdevmodule) | &nbsp; | Creates a new GenXdev PowerShell module with proper structure and configuration. |
 | [New-PullRequestForGenXdevModuleChanges](#new-pullrequestforgenxdevmodulechanges) | prgenxdevmodule | Creates a pull request for changes made to a GenXdev module. |
 | [New-Refactor](#new-refactor) | newrefactor | Creates a new refactoring set for code transformation tasks. |
 | [Open-GenXdevCmdletsContainingClipboardTextInIde](#open-genxdevcmdletscontainingclipboardtextinide) | vscodesearch | Opens files in IDE that contain clipboard text |
-| [Remove-Refactor](#remove-refactor) |  | Removes refactor sets from GenXdev preferences system. |
-| [Search-GenXdevCmdlet](#search-genxdevcmdlet) | searchcmdlet |  |
-| [Search-NextGenXdevCmdlet](#search-nextgenxdevcmdlet) | nextcmdlet |  |
+| [Remove-Refactor](#remove-refactor) | &nbsp; | Removes refactor sets from GenXdev preferences system. |
+| [Search-GenXdevCmdlet](#search-genxdevcmdlet) | searchcmdlet | &nbsp; |
+| [Search-NextGenXdevCmdlet](#search-nextgenxdevcmdlet) | nextcmdlet | &nbsp; |
 | [Show-GenXdevCmdLetInIde](#show-genxdevcmdletinide) | editcmdlet | Opens the specified GenXdev cmdlet in Visual Studio Code. |
 | [Show-RefactorReport](#show-refactorreport) | refactors | Displays a formatted report of refactoring information for specified modules. |
-| [SplitUpPsm1File](#splituppsm1file) |  | Splits a PowerShell module (.psm1) file into individual function files. |
+| [SplitUpPsm1File](#splituppsm1file) | &nbsp; | Splits a PowerShell module (.psm1) file into individual function files. |
 | [Start-NextRefactor](#start-nextrefactor) | nextrefactor | Continues or restarts a code refactoring session. |
-| [Test-RefactorLLMSelection](#test-refactorllmselection) |  | Evaluates source files for refactoring eligibility using LLM analysis. |
+| [Test-RefactorLLMSelection](#test-refactorllmselection) | &nbsp; | Evaluates source files for refactoring eligibility using LLM analysis. |
 | [Update-Refactor](#update-refactor) | updaterefactor | Updates and manages refactoring sets including file selection and processing. |
 
 <br/><hr/><hr/><br/>
@@ -618,7 +617,7 @@ Add-TodoLineToREADME [[-Line] <String>] [-Code] [-Show] [-Done] [-UseHomeREADME]
 
 ### SYNTAX 
 ````PowerShell 
-EnsureVSCodeInstallation [<CommonParameters>] 
+EnsureVSCodeInstallation [-Force] [<CommonParameters>] 
 ```` 
 
 ### DESCRIPTION 
@@ -628,6 +627,13 @@ EnsureVSCodeInstallation [<CommonParameters>]
     configures specific extension settings.  
 
 ### PARAMETERS 
+    -Force [<SwitchParameter>]  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  

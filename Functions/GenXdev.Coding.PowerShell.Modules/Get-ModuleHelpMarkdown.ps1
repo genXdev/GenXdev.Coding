@@ -68,6 +68,7 @@ function Get-ModuleHelpMarkdown {
             # get all matching modules including their nested modules
             Microsoft.PowerShell.Core\Import-Module "$($name.TrimEnd('*'))*" -ErrorAction SilentlyContinue
             Microsoft.PowerShell.Core\Get-Module "$($name.TrimEnd('*'))*" -All |
+                # Removed unused variable $inSyntax
                 Microsoft.PowerShell.Core\ForEach-Object {
                     $module = $PSItem
                     $module.NestedModules | Microsoft.PowerShell.Core\ForEach-Object { $_ }
@@ -91,7 +92,7 @@ function Get-ModuleHelpMarkdown {
 
             # emit section header when switching to a new module
             if (($lastModule -eq '') -or ($lastModule -ne $current.ModuleName)) {
-                Write-Verbose "Processing module: $($current.ModuleName)"
+                Microsoft.PowerShell.Utility\Write-Verbose "Processing module: $($current.ModuleName)"
                 "`r`n&nbsp;<hr/>`r`n###`t$($current.ModuleName)<hr/>"
             }
 
@@ -124,12 +125,9 @@ function Get-ModuleHelpMarkdown {
             # retrieve full help content
             $lines = ''
             try {
-                $lines = (Microsoft.PowerShell.Core\Get-Help $CmdletName -Full) | Microsoft.PowerShell.Utility\Out-String | ForEach-Object {
-
+                $lines = (Microsoft.PowerShell.Core\Get-Help $CmdletName -Full) | Microsoft.PowerShell.Utility\Out-String | Microsoft.PowerShell.Core\ForEach-Object {
                     if (-not [string]::IsNullOrWhiteSpace($_)) {
-
-                        $_.split("`r`n") | ForEach-Object {
-
+                        $_.split("`r`n") | Microsoft.PowerShell.Core\ForEach-Object {
                             if (-not [string]::IsNullOrWhiteSpace($_)) {
                                 $_
                             }
@@ -138,7 +136,7 @@ function Get-ModuleHelpMarkdown {
                 }
             }
             catch {
-                Write-Warning "Could not get help for command $CmdletName -> $PSItem"
+                Microsoft.PowerShell.Utility\Write-Warning "Could not get help for command $CmdletName -> $PSItem"
                 continue;
             }
 
@@ -147,7 +145,8 @@ function Get-ModuleHelpMarkdown {
             [bool] $hide = $false
             $lineBuffer = ''
             $inName = $false
-            $prevSection = "";
+            $prevSection = ""
+            # Removed unused variable $inSyntax
 
             # process each line of help content
             foreach ($line in $lines) {
@@ -176,7 +175,7 @@ function Get-ModuleHelpMarkdown {
                                 break
                             }
                             'SYNOPSIS' { $inPowerShell = $false; break }
-                            'SYNTAX' { $inSyntax = $inPowerShell = $true; break }
+                            'SYNTAX' { $inPowerShell = $true; break }
                             'DESCRIPTION' { $inPowerShell = $false; break }
                             'PARAMETERS' { $inPowerShell = $false; break }
                             'NOTES' { $inPowerShell = $true; break }
@@ -227,7 +226,7 @@ function Get-ModuleHelpMarkdown {
                             else {
                                 $line = $line.Trim("`r`n".ToCharArray())
                                 if (![string]::IsNullOrWhiteSpace($line)) {
-                                    "$(($line.Replace("`r`n", " `r`n"))) "
+                                    "$($line.Replace("`r`n", " `r`n")) "
                                 }
                             }
                         }

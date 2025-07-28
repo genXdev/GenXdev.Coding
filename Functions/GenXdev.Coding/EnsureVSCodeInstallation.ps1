@@ -16,7 +16,9 @@ function EnsureVSCodeInstallation {
     [CmdletBinding()]
     [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '')]
     [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidGlobalVars', '')]
-    param()
+    param(
+        [switch] $Force
+    )
 
     begin {
         $null = GenXdev.Coding\EnsureCopilotKeyboardShortCut
@@ -40,7 +42,7 @@ function EnsureVSCodeInstallation {
 
 
     process {
-        if ($VSCodeMissing) {
+        if ($VSCodeMissing -or $Force) {
             Microsoft.PowerShell.Utility\Write-Verbose 'Installing Visual Studio Code...'
             Microsoft.WinGet.Client\Install-WinGetPackage -Id 'Microsoft.VisualStudioCode.Insiders' `
                 -Mode Silent -Force -Scope SystemOrUnknown

@@ -155,16 +155,25 @@ function Open-SourceFileInIde {
 
         # determine default IDE path based on host process availability
         $normalPath = Microsoft.PowerShell.Management\Join-Path `
+            $env:LOCALAPPDATA 'Programs\Microsoft VS Code\Code.exe'
+        $normalPath2 = Microsoft.PowerShell.Management\Join-Path `
             $env:ProgramFiles 'Microsoft VS Code\Code.exe'
-
         $previewPath = Microsoft.PowerShell.Management\Join-Path `
             $env:LOCALAPPDATA `
             'Programs\Microsoft VS Code Insiders\Code - Insiders.exe'
+        $previewPath2 = Microsoft.PowerShell.Management\Join-Path `
+            $env:ProgramFiles `
+            '\Microsoft VS Code Insiders\Code - Insiders.exe'
 
         $idePath = ((($null -eq $hostProcess) -or `
                 ($hostProcess -notlike '*Terminal*')) ? (
                 [IO.File]::Exists($previewPath) ? $previewPath : (
-                    [IO.File]::Exists($normalPath) ? $normalPath : 'code'
+                    [IO.File]::Exists($previewPath2) ? $previewPath2 : (
+                       [IO.File]::Exists($normalPath) ? $normalPath : (
+                        [IO.File]::Exists($normalPath2) ? $normalPath2 :
+                        'code'
+                       )
+                    )
                 )
             ) : $hostProcess.Path)
 
@@ -175,9 +184,7 @@ function Open-SourceFileInIde {
 
         # check if current host is VS Code or Visual Studio
         $filename = ([IO.Path]::GetFileNameWithoutExtension($idePath)).ToLowerInvariant()
-
         $isCode = ($filename -eq 'code') -or ($filename -eq 'code - insiders')
-
         $isVisualStudio = $filename -eq 'devenv'
 
         # output verbose message about initial IDE detection

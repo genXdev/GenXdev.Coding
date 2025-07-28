@@ -106,31 +106,27 @@ function Complete-GenXDevREADME {
 
             $lastModule = ''
 
-            # prepare summary table header with proper column spacing
-                        $summary = (
-                            "| Command | Aliases | Description |`r`n" +
-                            "| --- | --- | --- |`r`n"
-                        )
 
-            # build cmdlet summary table with module sections
-                $summary += @(GenXdev.Helpers\Get-GenXDevCmdlets -ModuleName @($module.ModuleName) |
-                        Microsoft.PowerShell.Utility\Sort-Object -Property ModuleName, Name |
-                        Microsoft.PowerShell.Core\ForEach-Object -ErrorAction SilentlyContinue {
-                            # insert module header when changing modules
-                            if (($lastModule -ne '') -and ($lastModule -ne $PSItem.ModuleName)) {
-                                $moduleHeader = (
-                                    "`n### $($PSItem.ModuleName)`r`n" +
-                                    "| Command | Aliases | Description |`r`n" +
-                                    "| --- | --- | --- |`r`n"
-                                )
-                                $moduleHeader
-                            }
-                            $lastModule = $PSItem.ModuleName
-                            $desc = ("$($PSItem.Description)" -Replace "[\r\n\t|]*", '').Trim()
-                            $anchor = $PSItem.Name.ToLower().Replace(' ', '-').Replace('.', '').Replace('_', '')
-                            "| [$($PSItem.Name)](#$anchor) | $($PSItem.Aliases) | $desc |"
-            }) -join "`r`n"
-
+            # Build cmdlet summary table as an array for correct module grouping
+            $summaryRows = @()
+            $lastModule = ''
+            $first = $true
+            GenXdev.Helpers\Get-GenXDevCmdlets -ModuleName @($module.ModuleName) |
+                Microsoft.PowerShell.Utility\Sort-Object -Property ModuleName, Name |
+                Microsoft.PowerShell.Core\ForEach-Object -ErrorAction SilentlyContinue {
+                    if ($first -or ($lastModule -ne $PSItem.ModuleName)) {
+                        if (-not $first) {
+                            $summaryRows += ''
+                        }
+                        $summaryRows += "### $($PSItem.ModuleName)`r`n| Command | Aliases | Description |`r`n| --- | --- | --- |"
+                        $first = $false
+                    }
+                    $lastModule = $PSItem.ModuleName
+                    $desc = ("$($PSItem.Description)" -Replace "[\r\n\t|]*", '').Trim()
+                    $anchor = $PSItem.Name.ToLower().Replace(' ', '-').Replace('.', '').Replace('_', '')
+                    $summaryRows += "| [$($PSItem.Name)](#$anchor) | $($PSItem.Aliases) | $desc |"
+                }
+            $summary = $summaryRows -join "`r`n"
             $summary += "`r`n`r`n<br/><hr/><hr/><br/>`r`n`r`n`r`n"
 
             # combine sections into final content
@@ -140,6 +136,7 @@ function Complete-GenXDevREADME {
             )
 
             # update README content with new documentation
+            $newHelp = $newHelp.Replace("|  |", "| &nbsp; |");
             $readmeText = ($readmeText.Substring(0, $cmdsIndex + 2) +
                 "`r`n$newHelp") -Replace "`r`n`r`n`r`n", "`r`n`r`n"
 
