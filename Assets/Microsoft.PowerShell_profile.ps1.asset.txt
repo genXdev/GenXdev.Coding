@@ -3,7 +3,7 @@ try {
 
 
     Import-Module 'Microsoft.PowerShell.Management'
-    Import-Module 'GenXdev.Local'
+    # Import-Module 'GenXdev.Local'
 
     Initialize-SearchPaths
 
@@ -24,7 +24,7 @@ finally {
     Set-Location $OldLocation
 }
 
-###############################################################################Sync-SoftwarePackages -OnlyOnceADay
+###############################################################################
 if (($PWD -like 'c:\windows\system32') -or ($PWD -like (Expand-Path '~\'))) {
 
     Set-Location $PSScriptRoot

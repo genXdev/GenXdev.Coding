@@ -1121,8 +1121,12 @@ function Update-Refactor {
 
                         Microsoft.PowerShell.Utility\Write-Verbose 'Executing selection script'
                         if (-not $Clear) {
-
-                            Microsoft.PowerShell.Utility\Invoke-Expression -Command $refactorDefinition.SelectionSettings.Script
+                            try {
+                                Microsoft.PowerShell.Utility\Invoke-Expression -Command $refactorDefinition.SelectionSettings.Script
+                            }
+                            catch {
+                                Microsoft.PowerShell.Utility\Write-Warning "$($_.Exception.Message)"
+                            }
                         }
                     }
                 ) + @($FilesToAdd | Microsoft.PowerShell.Core\ForEach-Object {
@@ -1265,7 +1269,7 @@ function Update-Refactor {
                             [Version] $version = $null
                             if ([Version]::tryParse($parts[1], [ref]$version)) {
 
-                                $path = "$modulesPath\$($parts[0])\1.222.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
+                                $path = "$modulesPath\$($parts[0])\1.224.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
 
                                 if ($refactorDefinition.State.Refactored.IndexOf($path) -lt 0) {
 
@@ -1306,7 +1310,7 @@ function Update-Refactor {
 
                             if ([Version]::tryParse($parts[1], [ref]$version)) {
 
-                                $path = "$modulesPath\$($parts[0])\1.222.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
+                                $path = "$modulesPath\$($parts[0])\1.224.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
 
                                 if ($refactorDefinition.State.Selected.IndexOf($path) -lt 0) {
 
@@ -1346,7 +1350,7 @@ function Update-Refactor {
                             [Version] $version = $null
                             if ([Version]::tryParse($parts[1], [ref]$version)) {
 
-                                $path = "$modulesPath\$($parts[0])\1.222.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
+                                $path = "$modulesPath\$($parts[0])\1.224.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
 
                                 if ($refactorDefinition.State.Unselected.IndexOf($path) -lt 0) {
 
