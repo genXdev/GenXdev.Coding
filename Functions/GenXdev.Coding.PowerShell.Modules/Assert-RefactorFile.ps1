@@ -174,8 +174,8 @@ function Assert-RefactorFile {
         else {
 
             $baseModuleName = "$($Path.Substring($modulesPath.Length + 1).Split('\')[0])"
-            $functionsPath = GenXdev.FileSystem\Expand-Path "$modulesPath\$baseModuleName\1.226.2025\Functions\" -CreateDirectory
-            $testsPath = GenXdev.FileSystem\Expand-Path "$modulesPath\$baseModuleName\1.226.2025\Tests\" -CreateDirectory
+            $functionsPath = GenXdev.FileSystem\Expand-Path "$modulesPath\$baseModuleName\1.228.2025\Functions\" -CreateDirectory
+            $testsPath = GenXdev.FileSystem\Expand-Path "$modulesPath\$baseModuleName\1.228.2025\Tests\" -CreateDirectory
 
             if ($Path.ToLowerInvariant().StartsWith($functionsPath.ToLowerInvariant())) {
 
