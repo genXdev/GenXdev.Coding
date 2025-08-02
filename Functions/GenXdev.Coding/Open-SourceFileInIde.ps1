@@ -265,7 +265,7 @@ function Open-SourceFileInIde {
 
                     # find the VS Code executable
                     $idePath = Microsoft.PowerShell.Management\Get-ChildItem `
-                        -Path $locations `
+                        -LiteralPath $locations `
                         -File `
                         -Recurse `
                         -ErrorAction SilentlyContinue |
@@ -292,7 +292,7 @@ function Open-SourceFileInIde {
 
                     # find the newest Visual Studio executable
                     $idePath = Microsoft.PowerShell.Management\Get-ChildItem `
-                        -Path $locations `
+                        -LiteralPath $locations `
                         -File `
                         -Recurse `
                         -ErrorAction SilentlyContinue |

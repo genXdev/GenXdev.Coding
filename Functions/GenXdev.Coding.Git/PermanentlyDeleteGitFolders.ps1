@@ -84,7 +84,7 @@ function PermanentlyDeleteGitFolders {
 
         try {
             # change to temp directory
-            Microsoft.PowerShell.Management\Set-Location $tempPath
+            Microsoft.PowerShell.Management\Set-Location -LiteralPath $tempPath
             Microsoft.PowerShell.Utility\Write-Verbose 'Changed to temp directory'
 
             # clone the repository
@@ -92,7 +92,7 @@ function PermanentlyDeleteGitFolders {
             $null = git clone $RepoUri repo
 
             # change to repo directory
-            Microsoft.PowerShell.Management\Set-Location repo
+            Microsoft.PowerShell.Management\Set-Location -LiteralPath repo
             Microsoft.PowerShell.Utility\Write-Verbose 'Changed to repository directory'
 
             # create tracking branches for all remote branches except HEAD
@@ -129,7 +129,7 @@ function PermanentlyDeleteGitFolders {
                     }
 
                     # remove old refs and logs
-                    Microsoft.PowerShell.Management\Get-ChildItem @('.git/logs', '.git/refs/original') `
+                    Microsoft.PowerShell.Management\Get-ChildItem -LiteralPath @('.git/logs', '.git/refs/original') `
                         -ErrorAction SilentlyContinue -Directory |
                         Microsoft.PowerShell.Core\ForEach-Object -ErrorAction SilentlyContinue {
                             Microsoft.PowerShell.Management\Remove-Item -LiteralPath $PSItem.FullName -Force -Recurse `

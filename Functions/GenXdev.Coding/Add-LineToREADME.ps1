@@ -112,7 +112,7 @@ function Add-LineToREADME {
         function findReadMePath([string] $startDir) {
 
             $startDir = GenXdev.FileSystem\Expand-Path $startDir
-            Microsoft.PowerShell.Management\Push-Location $startDir
+            Microsoft.PowerShell.Management\Push-Location -LiteralPath $startDir
 
             try {
                 # walk up directories looking for README.md

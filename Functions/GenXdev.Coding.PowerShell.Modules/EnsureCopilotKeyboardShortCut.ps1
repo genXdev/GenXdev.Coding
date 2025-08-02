@@ -47,9 +47,9 @@ function EnsureCopilotKeyboardShortCut {
                 " || resourceScheme == 'vscode-remote' || " +
                 "resourceScheme == 'vscode-userdata'"
             }            # load existing keybindings or initialize new array if file doesn't exist
-            if (Microsoft.PowerShell.Management\Test-Path $path) {
+            if (Microsoft.PowerShell.Management\Test-Path -LiteralPath $path) {
                 Microsoft.PowerShell.Utility\Write-Verbose 'Loading existing keybindings configuration'
-                $keybindingsContent = Microsoft.PowerShell.Management\Get-Content $path -Raw
+                $keybindingsContent = Microsoft.PowerShell.Management\Get-Content -LiteralPath $path -Raw
                 if ([string]::IsNullOrWhiteSpace($keybindingsContent)) {
                     $keybindings = @()
                 } else {
@@ -109,7 +109,7 @@ function EnsureCopilotKeyboardShortCut {
             if ($modified) {
                 $keybindings |
                     Microsoft.PowerShell.Utility\ConvertTo-Json -Depth 10 |
-                    Microsoft.PowerShell.Management\Set-Content $path
+                    Microsoft.PowerShell.Management\Set-Content -LiteralPath $path
             }
         }
     }

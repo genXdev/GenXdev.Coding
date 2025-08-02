@@ -494,7 +494,7 @@ function New-PullRequestForGenXdevModuleChanges {
 
         # get full path to module directory
         $modulePath = GenXdev.FileSystem\Expand-Path (
-            "$PSScriptRoot\..\..\..\..\$ModuleName\1.224.2025\"
+            "$PSScriptRoot\..\..\..\..\$ModuleName\1.226.2025\"
         )
 
         # verify module manifest exists
@@ -503,7 +503,7 @@ function New-PullRequestForGenXdevModuleChanges {
         )
 
         if (!(Microsoft.PowerShell.Management\Test-Path `
-                    -Path "$modulePath\$ModuleName.psd1")) {
+                    -LiteralPath  "$modulePath\$ModuleName.psd1")) {
 
             Microsoft.PowerShell.Utility\Write-Error (
                 'No module manifest found in module directory'
@@ -557,7 +557,8 @@ function New-PullRequestForGenXdevModuleChanges {
                 $zipPath = [System.IO.Path]::GetTempFileName() + '.zip'
 
                 Microsoft.PowerShell.Archive\Compress-Archive `
-                    -Path "$modulePath\*" `
+                    -LiteralPath "$modulePath" `
+                    -Filter "*" `
                     -DestinationPath $zipPath `
                     -Force
             }
@@ -598,7 +599,7 @@ function New-PullRequestForGenXdevModuleChanges {
             }
             finally {
                 try {
-                    Microsoft.PowerShell.Management\Remove-Item $zipPath -Force
+                    Microsoft.PowerShell.Management\Remove-Item -LiteralPath $zipPath -Force
                 }
                 catch {
                     Microsoft.PowerShell.Utility\Write-Error (
@@ -635,7 +636,7 @@ function New-PullRequestForGenXdevModuleChanges {
 
         # Setup git and push changes
         if ($PSCmdlet.ShouldProcess("$ModuleName", 'Push changes to GitHub')) {
-            Microsoft.PowerShell.Management\Push-Location $modulePath
+            Microsoft.PowerShell.Management\Push-Location -LiteralPath $modulePath
             try {
                 try {
                     # Add the directory to Git's safe directory list
@@ -644,7 +645,7 @@ function New-PullRequestForGenXdevModuleChanges {
 
                     # Remove the .git folder if it exists
                     $gitFolderPath = Microsoft.PowerShell.Management\Join-Path -Path $modulePath -ChildPath '.git'
-                    if (Microsoft.PowerShell.Management\Test-Path -Path $gitFolderPath) {
+                    if (Microsoft.PowerShell.Management\Test-Path -LiteralPath  $gitFolderPath) {
                         Microsoft.PowerShell.Utility\Write-Verbose "Removing existing .git folder at $gitFolderPath"
                         GenXdev.FileSystem\Remove-AllItems $gitFolderPath -DeleteFolder
                     }
@@ -698,8 +699,8 @@ function New-PullRequestForGenXdevModuleChanges {
         }
 
         # --- Begin Modification ---
-        # Find the commit with the exact message "Release 1.224.2025" in the GenXdev module repository using the GitHub API
-        $releaseCommitMsg = 'Release 1.224.2025'
+        # Find the commit with the exact message "Release 1.226.2025" in the GenXdev module repository using the GitHub API
+        $releaseCommitMsg = 'Release 1.226.2025'
         $commitsApiUrl = "https://api.github.com/repos/genXdev/$ModuleName/commits"
         $releaseCommitHash = $null
 
@@ -768,7 +769,7 @@ function New-PullRequestForGenXdevModuleChanges {
 
         # Ensure changes are committed to the new branch
         if ($PSCmdlet.ShouldProcess("$ModuleName", 'Push changes to GitHub')) {
-            Microsoft.PowerShell.Management\Push-Location $modulePath
+            Microsoft.PowerShell.Management\Push-Location -LiteralPath $modulePath
             try {
                 try {
                     # Add the directory to Git's safe directory list
@@ -777,7 +778,7 @@ function New-PullRequestForGenXdevModuleChanges {
 
                     # Remove the .git folder if it exists
                     $gitFolderPath = Microsoft.PowerShell.Management\Join-Path -Path $modulePath -ChildPath '.git'
-                    if (Microsoft.PowerShell.Management\Test-Path -Path $gitFolderPath) {
+                    if (Microsoft.PowerShell.Management\Test-Path -LiteralPath  $gitFolderPath) {
                         Microsoft.PowerShell.Utility\Write-Verbose "Removing existing .git folder at $gitFolderPath"
                         GenXdev.FileSystem\Remove-AllItems $gitFolderPath -DeleteFolder
                     }

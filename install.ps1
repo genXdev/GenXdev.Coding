@@ -10,7 +10,7 @@ try {
 
         if ([IO.Directory]::Exists($localPath)) {
 
-            $version = Microsoft.PowerShell.Management\Get-ChildItem "$localPath\*.*.*" -Directory -ErrorAction SilentlyContinue |
+            $version = Microsoft.PowerShell.Management\Get-ChildItem -LiteralPath "$localPath\*.*.*" -Directory -ErrorAction SilentlyContinue |
                 Microsoft.PowerShell.Core\Where-Object {
                     [Version]::TryParse($_.Name, [ref]$version)
                 }
@@ -25,11 +25,11 @@ try {
             try {
                 [System.IO.Directory]::Move(
                     "$localPath\$($version.Name)",
-                    "$localPath\1.224.2025"
+                    "$localPath\1.226.2025"
                 )
             }
             catch {
-                GenXdev.FileSystem\Start-RoboCopy "$localPath\$($version.Name)" "$localPath\1.224.2025"
+                GenXdev.FileSystem\Start-RoboCopy "$localPath\$($version.Name)" "$localPath\1.226.2025"
             }
         }
     }

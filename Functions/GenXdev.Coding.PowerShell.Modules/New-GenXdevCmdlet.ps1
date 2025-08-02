@@ -178,7 +178,7 @@ function New-GenXdevCmdlet {
 
             if (-not (Microsoft.PowerShell.Core\Get-Module -Name $BaseModuleName -ErrorAction SilentlyContinue)) {
 
-                $modulesPath = GenXdev.FileSystem\Expand-Path -Path "$PSScriptRoot\..\..\..\..\Modules\"
+                $modulesPath = GenXdev.FileSystem\Expand-Path  "$PSScriptRoot\..\..\..\..\Modules\"
                 $moduleRootDirectory = GenXdev.FileSystem\Expand-Path `
                     "$modulesPath\$BaseModuleName\"
 
@@ -228,11 +228,11 @@ function New-GenXdevCmdlet {
             if (-not [string]::IsNullOrWhiteSpace($BaseModuleName)) {
 
                 $filePath = GenXdev.FileSystem\Expand-Path `
-                    "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.224.2025\Functions\$ModuleName\$CmdletName.ps1" `
+                    "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.226.2025\Functions\$ModuleName\$CmdletName.ps1" `
                     -DeleteExistingFile -CreateDirectory
 
                 $testFilePath = GenXdev.FileSystem\Expand-Path `
-                    "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.224.2025\Tests\$ModuleName\$CmdletName.Tests.ps1" `
+                    "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.226.2025\Tests\$ModuleName\$CmdletName.Tests.ps1" `
                     -DeleteExistingFile -CreateDirectory
 
                 @"
@@ -313,8 +313,8 @@ process {
     }
 "@ | Microsoft.PowerShell.Utility\Out-File -FilePath $filePath
 
-                $ModuleManifestPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.224.2025\$BaseModuleName.psd1"
-                $ModuleManifest = Microsoft.PowerShell.Utility\Import-PowerShellDataFile -Path $ModuleManifestPath
+                $ModuleManifestPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.226.2025\$BaseModuleName.psd1"
+                $ModuleManifest = Microsoft.PowerShell.Utility\Import-PowerShellDataFile -LiteralPath $ModuleManifestPath
                 if ($BaseModuleName -ne $ModuleName) {
 
                     if (@($ModuleManifest.NestedModules | Microsoft.PowerShell.Core\Where-Object { $_ -like "$ModuleName.psm1" }).Count -eq 0) {
@@ -324,18 +324,19 @@ process {
                 }
 
                 $ModuleManifest.FunctionsToExport += $CmdletName
-                $ModuleManifest.FileList += (GenXdev.FileSystem\Find-Item $filePath -RelativeBasePath (GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.224.2025\")).Substring(2)
-                $ModuleManifest.FileList += (GenXdev.FileSystem\Find-Item $testFilePath -RelativeBasePath (GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.224.2025\")).Substring(2)
+                $ModuleManifest.FileList += (GenXdev.FileSystem\Find-Item $filePath -RelativeBasePath (GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.226.2025\")).Substring(2)
+                $ModuleManifest.FileList += (GenXdev.FileSystem\Find-Item $testFilePath -RelativeBasePath (GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.226.2025\")).Substring(2)
                 $ModuleManifest.AliasesToExport += $CmdletAliases
 
                 Microsoft.PowerShell.PSResourceGet\Update-PSModuleManifest `
                     -Path $ModuleManifestPath `
-                    -FunctionsToExport $ModuleManifest.FunctionsToExport `
-                    -FileList $ModuleManifest.FileList `
-                    -AliasesToExport $ModuleManifest.AliasesToExport `
-                    -NestedModules $ModuleManifest.NestedModules
+                    -FunctionsToExport ($ModuleManifest.FunctionsToExport) `
+                    -FileList ($ModuleManifest.FileList) `
+                    -AliasesToExport ($ModuleManifest.AliasesToExport) `
+                    -NestedModules ($ModuleManifest.NestedModules) `
+                    -Author ($ModuleManifest.Author ?? 'GenXdev')
 
-                $PsmFilePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.224.2025\$ModuleName.psm1"
+                $PsmFilePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.226.2025\$ModuleName.psm1"
 
                 "`r`n. `"`$PSScriptRoot\Functions\$ModuleName\$CmdletName.ps1`"" | Microsoft.PowerShell.Utility\Out-File -FilePath $PsmFilePath -Append
             }

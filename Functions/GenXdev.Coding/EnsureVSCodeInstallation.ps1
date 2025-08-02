@@ -53,8 +53,8 @@ function EnsureVSCodeInstallation {
                 Microsoft.PowerShell.Utility\Write-Verbose "Installing recommended VSCode extensions from workspace..."
                 $workspaceFolder = if ($Global:WorkspaceFolder) { $Global:WorkspaceFolder } else { GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\..\" }
                 $extFile = Microsoft.PowerShell.Management\Join-Path $workspaceFolder ".vscode/extensions.json"
-                if (Microsoft.PowerShell.Management\Test-Path $extFile) {
-                    $plugins = Microsoft.PowerShell.Management\Get-Content $extFile -Raw | Microsoft.PowerShell.Utility\ConvertFrom-Json
+                if (Microsoft.PowerShell.Management\Test-Path -LiteralPath $extFile) {
+                    $plugins = Microsoft.PowerShell.Management\Get-Content -LiteralPath $extFile -Raw | Microsoft.PowerShell.Utility\ConvertFrom-Json
                     if ($plugins.recommendations) {
                         $i = 0
                         $total = $plugins.recommendations.Count
@@ -86,7 +86,7 @@ function EnsureVSCodeInstallation {
                 $sourceFile = GenXdev.FileSystem\Expand-Path "$sourcePath\$PSItem"
                 $targetFile = GenXdev.FileSystem\Expand-Path "$targetPath\$PSItem".Replace('.asset.txt', '') -CreateDirectory
                 if ([IO.File]::Exists($targetFile)) { return }
-                Microsoft.PowerShell.Management\Copy-Item -Path $sourceFile -Destination $targetFile
+                Microsoft.PowerShell.Management\Copy-Item -LiteralPath $sourceFile -Destination $targetFile
             }
         }
     }

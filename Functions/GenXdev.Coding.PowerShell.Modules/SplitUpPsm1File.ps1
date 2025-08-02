@@ -151,7 +151,7 @@ $PSItem
 
 "@  | Microsoft.PowerShell.Utility\Out-File $psm1FilePath -Force
 
-        Microsoft.PowerShell.Management\Get-ChildItem "$functionsDir\*.ps1" -File -Recurse `
+        Microsoft.PowerShell.Management\Get-ChildItem -LiteralPath "$functionsDir" -Filter "*.ps1" -File -Recurse `
             -ErrorAction SilentlyContinue |
             Microsoft.PowerShell.Core\ForEach-Object {
                 if ($PSItem.Name.StartsWith('_')) {

@@ -81,7 +81,7 @@ Script module or binary module file associated with this manifest.
 RootModule = '$ModuleName.psm1'
 
 Version number of this module.
-ModuleVersion = '1.224.2025'
+ModuleVersion = '1.226.2025'
 
 Supported PSEditions
 CompatiblePSEditions = 'Core'
@@ -120,7 +120,7 @@ Processor architecture (None, X86, Amd64) required by this module
 ProcessorArchitecture = 'Amd64'
 
 Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @(@{ModuleName = 'GenXdev'; ModuleVersion = '1.224.2025'; })
+RequiredModules = @(@{ModuleName = 'GenXdev'; ModuleVersion = '1.226.2025'; })
 
 Assemblies that must be loaded prior to importing this module
 RequiredAssemblies = @()
@@ -248,11 +248,11 @@ Cmdlet Index
 
         # create versioned module directory
         $moduleDirectory = GenXdev.FileSystem\Expand-Path `
-            -Path "$moduleRootDirectory\1.224.2025\" `
+            -Path "$moduleRootDirectory\1.226.2025\" `
             -CreateDirectory
 
         # store current location and move to module directory
-        Microsoft.PowerShell.Management\Push-Location -Path $moduleDirectory
+        Microsoft.PowerShell.Management\Push-Location -LiteralPath $moduleDirectory
     }
 
     process {
@@ -276,11 +276,9 @@ Cmdlet Index
                 -Path ".\Tests\$ModuleName" -CreateDirectory
 
             # copy required support files from template
-            Microsoft.PowerShell.Management\Copy-Item "$PSScriptRoot\..\..\LICENSE" .\LICENSE
-            Microsoft.PowerShell.Management\Copy-Item "$PSScriptRoot\..\..\license.txt" `
-                .\license.txt
-            Microsoft.PowerShell.Management\Copy-Item "$PSScriptRoot\..\..\powershell.jpg" `
-                .\powershell.jpg
+            Microsoft.PowerShell.Management\Copy-Item -LiteralPath "$PSScriptRoot\..\..\LICENSE" -Destination .\LICENSE
+            Microsoft.PowerShell.Management\Copy-Item -LiteralPath "$PSScriptRoot\..\..\license.txt" -Destination .\license.txt
+            Microsoft.PowerShell.Management\Copy-Item -LiteralPath "$PSScriptRoot\..\..\powershell.jpg" -Destination .\powershell.jpg
 
             # create module documentation
             $readME | Microsoft.PowerShell.Utility\Out-File '.\README.md'

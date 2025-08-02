@@ -13,7 +13,7 @@ function Get-GitChangedFiles {
 
     .EXAMPLE
         Get-GitChangedFile
-        Returns relative paths like ".\Modules\GenXdev.AI\1.224.2025\README.md"
+        Returns relative paths like ".\Modules\GenXdev.AI\1.226.2025\README.md"
 
     .EXAMPLE
         Get-GitChangedFile -PassThru
@@ -40,13 +40,13 @@ function Get-GitChangedFiles {
             $file = $_.Trim()
             if ($PassThru) {
                 # Return FileInfo object like Get-ChildItem would
-                if (Microsoft.PowerShell.Management\Test-Path $file) {
-                    Microsoft.PowerShell.Management\Get-Item $file
+                if (Microsoft.PowerShell.Management\Test-Path -LiteralPath $file) {
+                    Microsoft.PowerShell.Management\Get-Item -LiteralPath $file
                 } else {
                     # For deleted files, we can't get FileInfo, so return a custom object
                     [PSCustomObject]@{
                         Name         = Microsoft.PowerShell.Management\Split-Path $file -Leaf
-                        FullName     = (Microsoft.PowerShell.Management\Resolve-Path $file -ErrorAction SilentlyContinue).Path
+                        FullName     = (Microsoft.PowerShell.Management\Resolve-Path -LiteralPath $file -ErrorAction SilentlyContinue).Path
                         RelativePath = $file
                         Exists       = $false
                     }

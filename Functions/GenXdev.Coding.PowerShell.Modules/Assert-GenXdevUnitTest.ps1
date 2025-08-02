@@ -180,123 +180,122 @@ function Assert-GenXdevUnitTest {
         $Script:testSuccess = $true
 
         try {
-            do {
-                # execute the actual test runner script
-                Microsoft.PowerShell.Utility\Write-Verbose 'Executing test runner script'
-                try {
-                    # copy parameter values to the internal script with matching parameters
-                    $identicalParams = GenXdev.Helpers\Copy-IdenticalParamValues `
-                        -FunctionName "$PSScriptRoot\_AssertGenXdevUnitTests.ps1" `
-                        -BoundParameters $PSBoundParameters
+        # execute the actual test runner script
+        Microsoft.PowerShell.Utility\Write-Verbose 'Executing test runner script'
+        try {
+            # copy parameter values to the internal script with matching parameters
+            $identicalParams = GenXdev.Helpers\Copy-IdenticalParamValues `
+                -FunctionName "$PSScriptRoot\_AssertGenXdevUnitTests.ps1" `
+                -BoundParameters $PSBoundParameters
 
-                    $Script:testSuccess = $true
-                    $results = (. "$PSScriptRoot\_AssertGenXdevUnitTests.ps1" @identicalParams |
-                            Microsoft.PowerShell.Core\ForEach-Object {
+            $Script:testSuccess = $true
+            $results = (. "$PSScriptRoot\_AssertGenXdevUnitTests.ps1" @identicalParams |
+                    Microsoft.PowerShell.Core\ForEach-Object -ErrorAction SilentlyContinue {
 
-                                $PSItem.Tests | Microsoft.PowerShell.Core\ForEach-Object {
+                        $PSItem.Tests | Microsoft.PowerShell.Core\ForEach-Object -ErrorAction SilentlyContinue {
 
-                                    $PSItem
-                                    # extract relevant test properties for display
-                                    $null = $_ |
-                                        Microsoft.PowerShell.Utility\Select-Object -Property @(
-                                            'Block',
-                                            'Name',
-                                            'ErrorRecord',
-                                            'UserDuration',
-                                            'Duration',
-                                            'Result'
-                                        ) |
-                                        Microsoft.PowerShell.Core\ForEach-Object {
-                                            $test = @{
-                                                Block       = $_.Block
-                                                Name        = $_.Name
-                                                ErrorRecord = $_.ErrorRecord
-                                                Duration    = $_.UserDuration
-                                                Result      = $_.Result
-                                            }
-
-                                            # format failed tests with red coloring
-                                            if ($test.Result -like '*Failed*') {
-                                                $Script:testSuccess = $false
-                                                $test.Result = (
-                                                    "$ansiStartForgroundRed$($test.Result)" +
-                                                    "$ansiEndForground"
-                                                )
-                                                $test.Block = "$($test.Block)".Replace(
-                                                    '[-]',
-                                                    "$ansiStartForgroundRed[❌]$ansiEndForground"
-                                                ).Replace(
-                                                    '[+]',
-                                                    "$ansiStartForgroundRed[❌]$ansiEndForground"
-                                                ).Replace(
-                                                    '[!]',
-                                                    "$ansiStartForgroundDarkGreen[❗]$ansiEndForground"
-                                                )
-                                            }
-                                            # format passed tests with green coloring
-                                            elseif ($test.Result -eq 'Passed') {
-                                                $test.Result = (
-                                                    "$ansiStartForgroundDarkGreen$($test.Result)" +
-                                                    "$ansiEndForground"
-                                                )
-                                                $test.Block = "$($test.Block)".Replace(
-                                                    '[+]',
-                                                    "$ansiStartForgroundDarkGreen[✅]$ansiEndForground"
-                                                ).Replace(
-                                                    '[-]',
-                                                    "$ansiStartForgroundDarkGreen[✅]$ansiEndForground"
-                                                ).Replace(
-                                                    '[!]',
-                                                    "$ansiStartForgroundDarkGreen[✅]$ansiEndForground"
-                                                )
-                                            }
-                                            elseif ($test.Result -eq 'Skipped') {
-                                                $test.Result = (
-                                                    "$ansiStartForgroundDarkGreen$($test.Result)" +
-                                                    "$ansiEndForground"
-                                                )
-                                                $test.Block = "$($test.Block)".Replace(
-                                                    '[+]',
-                                                    "$ansiStartForgroundDarkGreen[❗]$ansiEndForground"
-                                                ).Replace(
-                                                    '[-]',
-                                                    "$ansiStartForgroundDarkGreen[❗]$ansiEndForground"
-                                                ).Replace(
-                                                    '[!]',
-                                                    "$ansiStartForgroundDarkGreen[❗]$ansiEndForground"
-                                                )
-                                            }
-
-                                            $test
-                                        } | Microsoft.PowerShell.Core\ForEach-Object {
-                                            # calculate padding based on console width
-                                            [int] $p = [Math]::Min(
-                                    ([Console]::WindowWidth - 75) / 2,
-                                                20
-                                            )
-
-                                            # format output string with fixed column widths
-                                            [string] $s = (
-                                                "$("$($_.Block)".Substring(0,[Math]::Min("$($_.Block)".Length, 35+$p)).PadRight(35+$p,' ')) " +
-                                                "$("$($_.Name)".Substring(0,[Math]::Min("$($_.Name)".Length, 35+$p)).PadRight(35+$p,' ')) " +
-                                                "$("$($_.UserDuration)".Substring(0,[Math]::Min("$($_.UserDuration)".Length, 15)).PadRight(15,' ')) " +
-                                                "$("$($_.Result)".Substring(0,[Math]::Min("$($_.Result)".Length, 15)).PadRight(15,' ')) "
-                                            )
-
-                                            # add error message if present
-                                            if ($_.ErrorRecord) {
-                                                $s = $s + (
-                                                    "`r`n$ansiStartForgroundRed" +
-                                                    "$($_.ErrorRecord.Exception.Message)" +
-                                                    "$ansiEndForground"
-                                                )
-                                            }
-
-                                            $s
-
-                                        } | Microsoft.PowerShell.Core\Out-Host
+                            $PSItem
+                            # extract relevant test properties for display
+                            $null = $_ |
+                                Microsoft.PowerShell.Utility\Select-Object -Property @(
+                                    'Block',
+                                    'Name',
+                                    'ErrorRecord',
+                                    'UserDuration',
+                                    'Duration',
+                                    'Result'
+                                ) |
+                                Microsoft.PowerShell.Core\ForEach-Object {
+                                    $test = @{
+                                        Block       = $_.Block
+                                        Name        = $_.Name
+                                        ErrorRecord = $_.ErrorRecord
+                                        Duration    = $_.UserDuration
+                                        Result      = $_.Result
                                     }
-                                }
+
+                                    # format failed tests with red coloring
+                                    if ($test.Result -like '*Failed*') {
+                                        $Script:testSuccess = $false
+                                        $test.Result = (
+                                            "$ansiStartForgroundRed$($test.Result)" +
+                                            "$ansiEndForground"
+                                        )
+                                        $test.Block = "$($test.Block)".Replace(
+                                            '[-]',
+                                            "$ansiStartForgroundRed[❌]$ansiEndForground"
+                                        ).Replace(
+                                            '[+]',
+                                            "$ansiStartForgroundRed[❌]$ansiEndForground"
+                                        ).Replace(
+                                            '[!]',
+                                            "$ansiStartForgroundDarkGreen[❗]$ansiEndForground"
+                                        )
+                                    }
+                                    # format passed tests with green coloring
+                                    elseif ($test.Result -eq 'Passed') {
+                                        $test.Result = (
+                                            "$ansiStartForgroundDarkGreen$($test.Result)" +
+                                            "$ansiEndForground"
+                                        )
+                                        $test.Block = "$($test.Block)".Replace(
+                                            '[+]',
+                                            "$ansiStartForgroundDarkGreen[✅]$ansiEndForground"
+                                        ).Replace(
+                                            '[-]',
+                                            "$ansiStartForgroundDarkGreen[✅]$ansiEndForground"
+                                        ).Replace(
+                                            '[!]',
+                                            "$ansiStartForgroundDarkGreen[✅]$ansiEndForground"
+                                        )
+                                    }
+                                    elseif ($test.Result -eq 'Skipped') {
+                                        $test.Result = (
+                                            "$ansiStartForgroundDarkGreen$($test.Result)" +
+                                            "$ansiEndForground"
+                                        )
+                                        $test.Block = "$($test.Block)".Replace(
+                                            '[+]',
+                                            "$ansiStartForgroundDarkGreen[❗]$ansiEndForground"
+                                        ).Replace(
+                                            '[-]',
+                                            "$ansiStartForgroundDarkGreen[❗]$ansiEndForground"
+                                        ).Replace(
+                                            '[!]',
+                                            "$ansiStartForgroundDarkGreen[❗]$ansiEndForground"
+                                        )
+                                    }
+
+                                    $test
+                                } | Microsoft.PowerShell.Core\ForEach-Object {
+                                    # calculate padding based on console width
+                                    [int] $p = [Math]::Min(
+                            ([Console]::WindowWidth - 75) / 2,
+                                        20
+                                    )
+
+                                    # format output string with fixed column widths
+                                    [string] $s = (
+                                        "$("$($_.Block)".Substring(0,[Math]::Min("$($_.Block)".Length, 35+$p)).PadRight(35+$p,' ')) " +
+                                        "$("$($_.Name)".Substring(0,[Math]::Min("$($_.Name)".Length, 35+$p)).PadRight(35+$p,' ')) " +
+                                        "$("$($_.UserDuration)".Substring(0,[Math]::Min("$($_.UserDuration)".Length, 15)).PadRight(15,' ')) " +
+                                        "$("$($_.Result)".Substring(0,[Math]::Min("$($_.Result)".Length, 15)).PadRight(15,' ')) "
+                                    )
+
+                                    # add error message if present
+                                    if ($_.ErrorRecord) {
+                                        $s = $s + (
+                                            "`r`n$ansiStartForgroundRed" +
+                                            "$($_.ErrorRecord.Exception.Message)" +
+                                            "$ansiEndForground"
+                                        )
+                                    }
+
+                                    $s
+
+                                } | Microsoft.PowerShell.Core\Out-Host
+                            }
+                        }
                     )
                 }
                 catch {
@@ -347,21 +346,38 @@ function Assert-GenXdevUnitTest {
                                         @('&Stop', '&Test again'),
                                         0)) {
                                     0 { throw 'Stopped'; return; }
-                                    1 { break }
+                                    1 {
+
+                                        $params = GenXdev.Helpers\Copy-IdenticalParamValues `
+                                             -BoundParameters $PSBoundParameters `
+                                             -FunctionName "GenXdev.Coding\Assert-GenXdevUnitTest" `
+                                             -DefaultValues @(Microsoft.PowerShell.Utility\Get-Variable -Scope Local -ErrorAction SilentlyContinue)
+
+                                        if ($params.ContainsKey("BaseModuleName")) {
+                                            $null = $params.Remove("BaseModuleName");
+                                        }
+
+                                        if ($params.ContainsKey("Module")) {
+                                            $null = $params.Remove("Module");
+                                        }
+
+                                        if ($params.ContainsKey("ModuleFilter")) {
+                                            $null = $params.Remove("ModuleFilter");
+                                        }
+
+                                        if ($params.ContainsKey("ModuleName")) {
+                                            $null = $params.Remove("ModuleName");
+                                        }
+
+                                        GenXdev.Coding\Assert-GenXdevCmdletTests @params -CmdletName $nextFailedCommand -ContinuationHandled
+                                     }
                                 }
                             }
                             catch {
-                                Microsoft.PowerShell.Utility\Write-Warning "Failed to debug test for $($nextFailedCommand): $($_.Exception.Message)"
-                            }
-                            finally {
-                                # reset test success state for next iteration
-                                $Script:testSuccess = $true
                             }
                         }
                     }
                 }
-
-            } while ((-not $Script:testSuccess) -and $DebugFailedTests)
         }
         finally {
             # output results according to Passthru parameter

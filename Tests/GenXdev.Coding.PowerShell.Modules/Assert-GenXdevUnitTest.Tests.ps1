@@ -1,5 +1,5 @@
-﻿###############################################################################
-Pester\Describe 'Assert-GenXdevUnitTest' {
+﻿Pester\Describe 'Assert-GenXdevUnitTest' {
+    ###############################################################################
 
     Pester\It 'Should pass PSScriptAnalyzer rules' {
 

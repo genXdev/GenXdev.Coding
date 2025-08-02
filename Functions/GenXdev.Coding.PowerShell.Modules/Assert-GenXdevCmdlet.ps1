@@ -143,7 +143,7 @@ function Assert-GenXdevCmdlet {
                 -BoundParameters $PSBoundParameters
             $invocationParams.ExactMatch = $true
             $invocationParams.CmdletName = $CmdletName`
-            
+
             # select first matching cmdlet
             $cmdlet = GenXdev.Helpers\Get-GenXDevCmdlets @invocationParams |
                 Microsoft.PowerShell.Utility\Select-Object -First 1
@@ -183,7 +183,7 @@ function Assert-GenXdevCmdlet {
                 # integrate the cmdlet into a module
                 $options = [System.Management.Automation.Host.ChoiceDescription[]] @(
                     . GenXdev.Helpers\Invoke-OnEachGenXdevModule {
-                        Microsoft.PowerShell.Management\Get-ChildItem *.psm1 |
+                        Microsoft.PowerShell.Management\Get-ChildItem -LiteralPath '.\' -Filter *.psm1 |
                             Microsoft.PowerShell.Core\ForEach-Object { [IO.Path]::GetFileNameWithoutExtension($_) }
                     }
                 )
@@ -204,7 +204,7 @@ function Assert-GenXdevCmdlet {
                 $baseDestinationParts = "$($($selected)[0].Label)".Split('.');
                 $baseDestinationModule = $baseDestinationParts[0] + '.' + $baseDestinationParts[1];
                 $ModuleName = "$($($selected)[0].Label)"
-                $destination = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.224.2025\Functions\$ModuleName\$CmdletName.ps1" -CreateDirectory
+                $destination = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.226.2025\Functions\$ModuleName\$CmdletName.ps1" -CreateDirectory
 
                 # move the script file
                 GenXdev.FileSystem\Move-ItemWithTracking -Path $cmdlet.ScriptFilePath -Destination $destination
@@ -231,11 +231,11 @@ function Assert-GenXdevCmdlet {
                 }
 
                 # add dot source reference to corresponding psm1 file
-                GenXdev.Coding\SplitUpPsm1File -Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.224.2025\$ModuleName.psm1"
+                GenXdev.Coding\SplitUpPsm1File -Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.226.2025\$ModuleName.psm1"
 
                 . GenXdev.Helpers\Invoke-OnEachGenXdevModule {
 
-                    Microsoft.PowerShell.Management\Get-ChildItem '.\*.ps1' -File -Recurse | Microsoft.PowerShell.Core\ForEach-Object {
+                    Microsoft.PowerShell.Management\Get-ChildItem -LiteralPath '.\' -filter '*.ps1' -File -Recurse | Microsoft.PowerShell.Core\ForEach-Object {
                         [IO.File]::WriteAllText(
                             $PSItem.FullName,
                             [IO.File]::ReadAllText(($PSItem.FullName)).Replace(

@@ -35,7 +35,7 @@
 
             $ModuleName = $module.Name;
             $ModuleManifestPath = GenXdev.FileSystem\Expand-Path ".\$ModuleName.psd1"
-            $ModuleManifest = Microsoft.PowerShell.Utility\Import-PowerShellDataFile -Path $ModuleManifestPath
+            $ModuleManifest = Microsoft.PowerShell.Utility\Import-PowerShellDataFile -LiteralPath $ModuleManifestPath
 
             $index = $dependencies.IndexOf($ModuleName)
 

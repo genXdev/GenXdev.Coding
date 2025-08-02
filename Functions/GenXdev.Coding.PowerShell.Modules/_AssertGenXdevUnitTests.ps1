@@ -124,7 +124,7 @@ process {
     try {
         # ensure consistent test execution location
         Microsoft.PowerShell.Utility\Write-Verbose 'Setting location to solution root'
-        Microsoft.PowerShell.Management\Set-Location "$PSScriptRoot\..\..\..\..\.."
+        Microsoft.PowerShell.Management\Set-Location -LiteralPath "$PSScriptRoot\..\..\..\..\.."
 
         # process single cmdlet test if specified
         if (-not [string]::IsNullOrWhiteSpace($CmdletName)) {
@@ -144,7 +144,7 @@ process {
 
             # verify test file exists
             $testFilePath = $cmdlet.ScriptTestFilePath
-            if (-not (Microsoft.PowerShell.Management\Test-Path $testFilePath)) {
+            if (-not (Microsoft.PowerShell.Management\Test-Path -LiteralPath $testFilePath)) {
                 Microsoft.PowerShell.Utility\Write-Warning "No test file found at $testFilePath"
                 return
             }
@@ -220,7 +220,7 @@ process {
                     $config.Run.Path = GenXdev.FileSystem\Expand-Path '.\Tests\'
 
                     # verify test files exist
-                    if (@(Microsoft.PowerShell.Management\Get-ChildItem .\Tests\*.Tests.ps1 -File -Recurse `
+                    if (@(Microsoft.PowerShell.Management\Get-ChildItem -LiteralPath .\Tests -Filter *.Tests.ps1 -File -Recurse `
                                 -ErrorAction SilentlyContinue).Count -eq 0) {
 
                         Microsoft.PowerShell.Utility\Write-Warning "No tests found for module $($module.Name)"
@@ -246,7 +246,7 @@ process {
     finally {
         # restore original location
         Microsoft.PowerShell.Utility\Write-Verbose "Restoring original location: $originalLocation"
-        Microsoft.PowerShell.Management\Set-Location $originalLocation
+        Microsoft.PowerShell.Management\Set-Location -LiteralPath $originalLocation
     }
 }
 

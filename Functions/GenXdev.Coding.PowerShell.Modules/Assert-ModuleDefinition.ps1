@@ -59,7 +59,7 @@ function Assert-ModuleDefinition {
 
     begin {
         # store IDE selection at script scope for persistence between calls
-        if (-not (Microsoft.PowerShell.Management\Test-Path variable:script:_IDEPreference)) {
+        if (-not (Microsoft.PowerShell.Management\Test-Path -LiteralPath variable:script:_IDEPreference)) {
             $script:_IDEPreference = -1
         }
 
@@ -201,7 +201,11 @@ function Assert-ModuleDefinition {
         . GenXdev.Helpers\Invoke-OnEachGenXdevModule -BaseModuleName $ModuleName `
             -Script {
 
-            $files = Microsoft.PowerShell.Management\Get-ChildItem .\*.psm1, .\*.psd1 -File -ErrorAction SilentlyContinue;
+            $files = @(
+                Microsoft.PowerShell.Management\Get-ChildItem -LiteralPath .\ -Filter "*.psm1" -File -ErrorAction SilentlyContinue
+            ) + @(
+                Microsoft.PowerShell.Management\Get-ChildItem -LiteralPath .\ -Filter "*.psd1" -File -ErrorAction SilentlyContinue
+            );
 
             foreach ($file in $files) {
 
