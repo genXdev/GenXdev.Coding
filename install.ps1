@@ -25,11 +25,11 @@ try {
             try {
                 [System.IO.Directory]::Move(
                     "$localPath\$($version.Name)",
-                    "$localPath\1.228.2025"
+                    "$localPath\1.230.2025"
                 )
             }
             catch {
-                GenXdev.FileSystem\Start-RoboCopy "$localPath\$($version.Name)" "$localPath\1.228.2025"
+                GenXdev.FileSystem\Start-RoboCopy "$localPath\$($version.Name)" "$localPath\1.230.2025"
             }
         }
     }
