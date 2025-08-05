@@ -51,7 +51,7 @@ $message
         }
         finally {
             # Clean up
-            if (Test-Path $tempFile) {
+            if (Test-Path -LiteralPath $tempFile) {
                 Remove-Item -Path $tempFile -Force
             }
         }
