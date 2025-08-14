@@ -122,6 +122,7 @@ function New-PullRequestForGenXdevModuleChanges {
         [ValidateSet(
             'GenXdev.AI',
             'GenXdev.Coding',
+            'GenXdev.Media',
             'GenXdev.Console',
             'GenXdev.Data',
             'GenXdev.FileSystem',
@@ -473,7 +474,7 @@ function New-PullRequestForGenXdevModuleChanges {
             "Checking dependencies for $ModuleName"
         )
 
-        GenXdev.Coding\Assert-GenXdevDependencyUsage -BaseModuleName $ModuleName `
+        GenXdev.Coding\Assert-GenXdevDependencyUsage -ModuleName $ModuleName `
             -ErrorAction Stop
 
         # execute unit tests for the module
@@ -482,7 +483,7 @@ function New-PullRequestForGenXdevModuleChanges {
         )
 
         try {
-                GenXdev.Coding\Assert-GenXdevUnitTest -ModuleName $ModuleName `
+                GenXdev.Coding\Assert-GenXdevTest -ModuleName $ModuleName `
                     -ErrorAction Stop
         }
         catch {
@@ -494,7 +495,7 @@ function New-PullRequestForGenXdevModuleChanges {
 
         # get full path to module directory
         $modulePath = GenXdev.FileSystem\Expand-Path (
-            "$PSScriptRoot\..\..\..\..\$ModuleName\1.236.2025\"
+            "$PSScriptRoot\..\..\..\..\$ModuleName\1.238.2025\"
         )
 
         # verify module manifest exists
@@ -699,8 +700,8 @@ function New-PullRequestForGenXdevModuleChanges {
         }
 
         # --- Begin Modification ---
-        # Find the commit with the exact message "Release 1.236.2025" in the GenXdev module repository using the GitHub API
-        $releaseCommitMsg = 'Release 1.236.2025'
+        # Find the commit with the exact message "Release 1.238.2025" in the GenXdev module repository using the GitHub API
+        $releaseCommitMsg = 'Release 1.238.2025'
         $commitsApiUrl = "https://api.github.com/repos/genXdev/$ModuleName/commits"
         $releaseCommitHash = $null
 

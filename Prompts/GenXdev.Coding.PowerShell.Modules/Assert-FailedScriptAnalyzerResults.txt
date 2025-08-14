@@ -1,5 +1,5 @@
 Primary task:
-Analyze and fix a failed unit-test:
+Analyze and fix a failed PSScriptAnalyzer test:
 
 $Prompt
 
@@ -102,4 +102,3 @@ Always proceed by implementing these changes systematically.
 
 After you are done, don't offer to run any command to check the results,
 this is already performed using scripting.
-

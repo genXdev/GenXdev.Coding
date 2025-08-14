@@ -25,7 +25,7 @@ try {
     # letsfixthis -ShowWindow -Script {    }
 
     ############################################################################################################
-    rungenxdevtests -DebugFailedTests
+    rungenxdevtests -TestFailedAction SolveWithAI -IncludeScripts
     ############################################################################################################
 }
 Catch {

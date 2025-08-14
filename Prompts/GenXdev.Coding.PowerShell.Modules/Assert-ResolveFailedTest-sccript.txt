@@ -73,16 +73,13 @@ Ensure compliance with these 22 requirements:
 
 If really necessary you can create a rule exception for ScriptAnalyzer rules:
 
-function Get-SpotifyLyrics {
+[CmdLetBinding(DefaultParameterSetName = "")]
+[System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseSingularNouns", "Get-SpotifyLyrics")]    [Alias("lyrics")]
+param(
+    # params
+)
 
-    [CmdLetBinding(DefaultParameterSetName = "")]
-    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseSingularNouns", "Get-SpotifyLyrics")]    [Alias("lyrics")]
-    param(
-        # params
-    )
-
-    # function implementation
-}
+# function implementation
 
 ################################################################################
 
@@ -103,3 +100,5 @@ Always proceed by implementing these changes systematically.
 After you are done, don't offer to run any command to check the results,
 this is already performed using scripting.
 
+Beware this is a script file from the scripts folder, and should NOT
+have a 'function somename' block arround it, as module scripts would have.

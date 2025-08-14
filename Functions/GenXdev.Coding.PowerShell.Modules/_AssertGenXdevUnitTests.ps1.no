@@ -8,7 +8,7 @@ This function runs Pester unit tests for PowerShell modules with configurable
 output settings. It can test specific modules or cmdlets, filter out unwanted
 modules, and control the verbosity of test results and stack traces.
 
-.PARAMETER BaseModuleName
+.PARAMETER ModuleName
 Specifies the base module name pattern to filter which modules to test.
 Accepts wildcards such as "GenXdev*" to match multiple modules.
 
@@ -38,7 +38,7 @@ Controls the amount of stack trace information shown in test results.
 Valid values: None, FirstLine, Filtered, Full
 
 .EXAMPLE
-_AssertGenXdevUnitTests -BaseModuleName "GenXdev.Helpers" -Verbosity Detailed `
+_AssertGenXdevUnitTests -ModuleName "GenXdev.Helpers" -Verbosity Detailed `
     -StackTraceVerbosity Full -NoLocal
 
 .EXAMPLE
@@ -56,15 +56,19 @@ param (
         HelpMessage = 'Filter to apply to module names'
     )]
     [ValidateNotNullOrEmpty()]
-    [Alias('Module', 'ModuleName')]
+    [Alias('Module', 'BaseModuleName', 'SubModuleName')]
     [ValidatePattern('^(GenXdev|GenXde[v]\*|GenXdev(\.\w+)+)+$')]
-    [string[]] $BaseModuleName = @('GenXdev*'),
+    [SupportsWildcards()]
+    [string[]] $ModuleName,
     ############################################################################
     [Parameter(
         Mandatory = $false,
         HelpMessage = 'Filter for selecting modules'
     )]
-    [string[]] $ModuleFilter = $null,
+    [ValidateNotNullOrEmpty()]
+    [ValidatePattern('^(GenXdev|GenXde[v]\*|GenXdev(\.\w+)+)+$')]
+    [SupportsWildcards()]
+    [string[]] $ModuleFilter,
     ############################################################################
     [Parameter(
         Mandatory = $false,
@@ -72,6 +76,7 @@ param (
         HelpMessage = 'Filter for select cmdlets'
     )]
     [Alias('Filter', 'CmdLet', 'Cmd', 'FunctionName', 'Name')]
+    [ValidateNotNullOrEmpty()]
     [string] $CmdletName,
     ############################################################################
     [Parameter(

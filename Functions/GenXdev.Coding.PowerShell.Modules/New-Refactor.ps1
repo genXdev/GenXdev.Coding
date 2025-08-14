@@ -372,7 +372,9 @@ function New-Refactor {
         $llmConfig = GenXdev.AI\Get-AILLMSettings @llmConfigParams
 
         foreach ($param in $llmConfig.Keys) {
+
             if ($null -ne $llmConfig[$param]) {
+
                 $refactorDefinition.SelectionSettings.LLM."$param" = $llmConfig."$param"
             }
         }
@@ -433,7 +435,8 @@ function New-Refactor {
             # initialize with provided files
             GenXdev.Coding\Update-Refactor `
                 -Refactor $refactorDefinition `
-                -FilesToAdd $FilesToAdd
+                -FilesToAdd:$FilesToAdd `
+                -PerformAutoSelections
         }
     }
 

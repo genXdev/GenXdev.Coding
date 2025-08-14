@@ -1,4 +1,4 @@
-﻿###############################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Asserts and improves unit-tests of a specified GenXdev cmdlet.
@@ -227,7 +227,7 @@ function Assert-GenXdevCmdletTests {
                     @('&Stop', '&Test the new unit tests', 'Redo &Last'),
                     1)) {
                     0 { throw 'Stopped'; return }
-                    1 { return (GenXdev.Coding\Assert-GenXdevUnitTest -CmdletName $CmdletName -DebugFailedTests) }
+                    1 { return (GenXdev.Coding\Assert-GenXdevTest -CmdletName $CmdletName -TestFailedAction SolveWithAI -IncludeScripts) }
                     2 { return GenXdev.Coding\Assert-GenXdevCmdletTests @PSBoundParameters }
             }
         }
@@ -239,7 +239,7 @@ function Assert-GenXdevCmdletTests {
                     @('&Stop', '&Test the improved unit tests', 'Redo &Last'),
                     1)) {
                     0 { throw 'Stopped'; return }
-                    1 { return (GenXdev.Coding\Assert-GenXdevUnitTest -CmdletName $CmdletName -DebugFailedTests -Verbosity Normal) }
+                    1 { return (GenXdev.Coding\Assert-GenXdevTest -CmdletName $CmdletName -TestFailedAction SolveWithAI -IncludeScripts) }
                     2 { return GenXdev.Coding\Assert-GenXdevCmdletTests @PSBoundParameters }
             }
         }

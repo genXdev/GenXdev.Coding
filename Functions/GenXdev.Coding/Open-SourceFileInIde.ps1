@@ -335,7 +335,7 @@ function Open-SourceFileInIde {
         }
 
         if ($Code) {
-            if ($Path.Contains($PSRoot) -and (-not (Microsoft.PowerShell.Management\Get-Process code -ErrorAction SilentlyContinue))) {
+            if ($Path.StartsWith($PSRoot) -and (-not (Microsoft.PowerShell.Management\Get-Process code -ErrorAction SilentlyContinue))) {
 
                 $null = Microsoft.PowerShell.Core\Start-Job {
                     param($idePath, $arguments)

@@ -24,7 +24,7 @@ Uses alias to find refactor definitions containing "UnitTest"
 function Get-Refactor {
 
     [CmdletBinding()]
-    [Alias('refactor')]
+    [Alias('refactor','Show-RefactorReport','refactors')]
     [OutputType([GenXdev.Helpers.RefactorDefinition[]])]
     param (
         ########################################################################

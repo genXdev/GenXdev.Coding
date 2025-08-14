@@ -26,7 +26,7 @@ function Complete-GenXDevREADME {
     [CmdletBinding()]
     param(
         ########################################################################
-        [Alias('Name', 'Module')]
+        [Alias('Module', 'BaseModuleName', 'SubModuleName')]
         [parameter(
             Mandatory = $false,
             Position = 0,
@@ -34,6 +34,9 @@ function Complete-GenXDevREADME {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name(s) of the module(s) to complete the README for'
         )]
+        [ValidateNotNullOrEmpty()]
+        [ValidatePattern('^(GenXdev|GenXde[v]\*|GenXdev(\.\w+)+)+$')]
+        [SupportsWildcards()]
         [string[]] $ModuleName = @()
         ########################################################################
     )
@@ -46,11 +49,11 @@ function Complete-GenXDevREADME {
 
     process {
 
-        foreach ($module in $modules) {
+        foreach ($ModuleObj in $modules) {
 
             # construct path to module's README file
             $readmeFilePath = [System.IO.Path]::Combine(
-                $module.ModulePath,
+                $ModuleObj.ModulePath,
                 'README.md')
 
             # skip processing if README doesn't exist
@@ -62,7 +65,7 @@ function Complete-GenXDevREADME {
             $readmeText = [System.IO.File]::ReadAllText($readmeFilePath)
 
 
-            if ($module.ModuleName -eq 'GenXdev') {
+            if ($ModuleObj.ModuleName -eq 'GenXdev') {
                 $moduleIndex = $readmeText.IndexOf("`r`n# Modules`r`n") + 13;
                 if ($moduleIndex -lt 0) {
                     throw (
@@ -98,10 +101,10 @@ function Complete-GenXDevREADME {
                 $cmdsIndex = $summaryIndex
             }
 
-            Microsoft.PowerShell.Utility\Write-Verbose "Generating documentation for $($module.ModuleName)"
+            Microsoft.PowerShell.Utility\Write-Verbose "Generating documentation for $($ModuleObj.ModuleName)"
 
             # generate detailed cmdlet documentation
-            $cmdlets = @(GenXdev.Coding\Get-ModuleHelpMarkdown -ModuleName @($module.ModuleName)) `
+            $cmdlets = @(GenXdev.Coding\Get-ModuleHelpMarkdown -ModuleName @($ModuleObj.ModuleName)) `
                 -join " `r`n"
 
             $lastModule = ''
@@ -111,7 +114,7 @@ function Complete-GenXDevREADME {
             $summaryRows = @()
             $lastModule = ''
             $first = $true
-            GenXdev.Helpers\Get-GenXDevCmdlets -ModuleName @($module.ModuleName) |
+            GenXdev.Helpers\Get-GenXDevCmdlets -ModuleName @($ModuleObj.ModuleName) |
                 Microsoft.PowerShell.Utility\Sort-Object -Property ModuleName, Name |
                 Microsoft.PowerShell.Core\ForEach-Object -ErrorAction SilentlyContinue {
                     if ($first -or ($lastModule -ne $PSItem.ModuleName)) {
@@ -131,7 +134,7 @@ function Complete-GenXDevREADME {
 
             # combine sections into final content
             $newHelp = (
-                "# Cmdlet Index`r`n### $($module.ModuleName)<hr/>`r`n" +
+                "# Cmdlet Index`r`n### $($ModuleObj.ModuleName)<hr/>`r`n" +
                 "$summary`r`n# Cmdlets`r`n$cmdlets"
             )
 

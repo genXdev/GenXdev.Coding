@@ -11,18 +11,27 @@
       }
     },
     {
-      "command": "import-module GenXdev.Coding ; Assert-GenXdevUnitTest -Verbosity Detailed -DebugFailedTests",
+      "command": "import-module GenXdev.Coding ; Assert-GenXdevTest -TestFailedAction SolveWithAI -IncludeScripts -SkipPesterTests",
       "type": "shell",
-      "label": "Run and debug GenXdev unit-tests",
+      "label": "Run PSScriptAnalyzer and fix rule violations using AI",
       "group": "test",
       "runOptions": {
         "instanceLimit": 1
       }
     },
     {
-      "command": "import-module GenXdev.Coding ; Assert-GenXdevUnitTest -AllowLongRunningTests -Verbosity Detailed -DebugFailedTests",
+      "command": "import-module GenXdev.Coding ; Assert-GenXdevTest -TestFailedAction SolveWithAI -IncludeScripts -SkipPSAnalyzerTests",
       "type": "shell",
-      "label": "Run and debug GenXdev long-running unit-tests",
+      "label": "Run Pester and fix failed tests using AI",
+      "group": "test",
+      "runOptions": {
+        "instanceLimit": 1
+      }
+    },
+    {
+      "command": "import-module GenXdev.Coding ; Assert-GenXdevTest -AllowLongRunningTests -TestFailedAction SolveWithAI -IncludeScripts -SkipPSAnalyzerTests",
+      "type": "shell",
+      "label": "Run Pester allowing long-running tests and fix failed tests using AI",
       "group": "test",
       "runOptions": {
         "instanceLimit": 1

@@ -192,7 +192,7 @@ function Measure-UseFullyQualifiedCmdletNames {
                 break;
             }
             catch {
-                Start-Sleep -Milliseconds ([Math]::Round(([Random]::new().NextDouble()) * 100, 0))
+                Start-Sleep -Milliseconds ([Math]::Round(([Random]::new().NextDouble()) * 10, 0))
             }
         }
     }

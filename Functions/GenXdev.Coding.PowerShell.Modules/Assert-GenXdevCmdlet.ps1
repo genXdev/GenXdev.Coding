@@ -63,7 +63,8 @@ function Assert-GenXdevCmdlet {
         )]
         [Alias('Filter', 'CmdLet', 'Cmd', 'FunctionName', 'Name')]
         [SupportsWildcards()]
-        [string] $CmdletName = '*',
+        [ValidateNotNullOrEmpty()]
+        [string] $CmdletName,
         ########################################################################
         [parameter(
             Mandatory = $false,
@@ -72,9 +73,10 @@ function Assert-GenXdevCmdlet {
             HelpMessage = 'GenXdev module names to search'
         )]
         [ValidateNotNullOrEmpty()]
-        [Alias('Module', 'ModuleName')]
+        [Alias('Module', 'BaseModuleName', 'SubModuleName')]
         [ValidatePattern('^(GenXdev|GenXde[v]\*|GenXdev(\.\w+)+)+$')]
-        [string[]] $BaseModuleName = @('GenXdev*'),
+        [SupportsWildcards()]
+        [string[]] $ModuleName,
         ########################################################################
         [parameter(
             Mandatory = $false,
@@ -156,7 +158,6 @@ function Assert-GenXdevCmdlet {
 
             # initialize core variables
             $CmdletName = $cmdlet.Name
-            $moduleName = ''
 
             Microsoft.PowerShell.Utility\Write-Verbose "Processing cmdlet: $CmdletName"
 
@@ -204,7 +205,7 @@ function Assert-GenXdevCmdlet {
                 $baseDestinationParts = "$($($selected)[0].Label)".Split('.');
                 $baseDestinationModule = $baseDestinationParts[0] + '.' + $baseDestinationParts[1];
                 $ModuleName = "$($($selected)[0].Label)"
-                $destination = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.236.2025\Functions\$ModuleName\$CmdletName.ps1" -CreateDirectory
+                $destination = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.238.2025\Functions\$ModuleName\$CmdletName.ps1" -CreateDirectory
 
                 # move the script file
                 GenXdev.FileSystem\Move-ItemWithTracking -Path $cmdlet.ScriptFilePath -Destination $destination
@@ -231,7 +232,7 @@ function Assert-GenXdevCmdlet {
                 }
 
                 # add dot source reference to corresponding psm1 file
-                GenXdev.Coding\SplitUpPsm1File -Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.236.2025\$ModuleName.psm1"
+                GenXdev.Coding\SplitUpPsm1File -Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.238.2025\$ModuleName.psm1"
 
                 . GenXdev.Helpers\Invoke-OnEachGenXdevModule {
 
@@ -260,7 +261,7 @@ function Assert-GenXdevCmdlet {
                     -BoundParameters $PSBoundParameters
 
                 $invocationParams.CmdletName = $CmdletName
-                $invocationParams.BaseModuleName = $($ModuleName)
+                $invocationParams.ModuleName = $($ModuleName)
                 $invocationParams.ExactMatch = $true
 
                 $cmdlet = GenXdev.Helpers\Get-GenXDevCmdlets @invocationParams | Microsoft.PowerShell.Utility\Select-Object -First 1
@@ -361,7 +362,7 @@ function Assert-GenXdevCmdlet {
                         @('&Stop', "&Run unit-tests for $CmdletName", 'Redo &Last'),
                         1)) {
                     0 { throw 'Stopped' }
-                    1 { return GenXdev.Coding\Assert-GenXdevUnitTest -CmdletName $CmdletName -DebugFailedTests }
+                    1 { return GenXdev.Coding\Assert-GenXdevTest -CmdletName $CmdletName -TestFailedAction SolveWithAI -IncludeScripts }
                     2 {
                         return GenXdev.Coding\Assert-GenXdevCmdlet @PSBoundParameters
                     }

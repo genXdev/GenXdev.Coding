@@ -1,40 +1,115 @@
+﻿################################################################################
+<#
+.SYNOPSIS
+Formats PowerShell script files using PSScriptAnalyzer formatting rules.
+
+.DESCRIPTION
+This function applies PowerShell formatting rules to script files using
+PSScriptAnalyzer's Invoke-Formatter cmdlet. It can process individual files or
+recursively format multiple files in directories. The function uses customizable
+formatting settings and provides detailed logging of the formatting process.
+
+.PARAMETER Path
+Specifies the path to the script file or directory to format. Accepts pipeline
+input and supports various path aliases for compatibility.
+
+.PARAMETER Settings
+A settings hashtable or a path to a PowerShell data file (.psd1) that contains
+the formatting settings. If not specified, the function will attempt to load
+settings from a predefined location or use built-in defaults.
+
+.PARAMETER Range
+The range within which formatting should take place as an array of four integers:
+starting line number, starting column number, ending line number, ending column
+number. If not specified, the entire file will be formatted.
+
+.PARAMETER Recurse
+Recursively process files in subdirectories when the Path parameter points to
+a directory.
+
+.EXAMPLE
+Invoke-GenXdevPSFormatter -Path "C:\Scripts\MyScript.ps1"
+
+.EXAMPLE
+Invoke-GenXdevPSFormatter -Path "C:\Scripts" -Recurse
+
+.EXAMPLE
+"MyScript.ps1" | Invoke-GenXdevPSFormatter -Settings @{IncludeRules=@('PSUseCorrectCasing')}
+#>
 function Invoke-GenXdevPSFormatter {
+
     [CmdletBinding()]
-    param (
+
+    param(
+        ###############################################################################
         [Parameter(
             Position = 0,
             Mandatory = $true,
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'Specifies the path to the script file to format.')]
+            HelpMessage = 'Specifies the path to the script file to format.'
+        )]
         [Alias('Name', 'FullName', 'ImagePath', 'FileName', 'ScriptFileName')]
         [string] $Path,
-
-        [Parameter(HelpMessage = 'A settings hashtable or a path to a PowerShell data file (.psd1) that contains the formatting settings.')]
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = ('A settings hashtable or a path to a PowerShell data ' +
+                'file (.psd1) that contains the formatting settings.')
+        )]
         [Object] $Settings,
-
-        [Parameter(HelpMessage = 'The range within which formatting should take place as an array of four integers: starting line number, starting column number, ending line number, ending column number.')]
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = ('The range within which formatting should take place ' +
+                'as an array of four integers: starting line number, starting ' +
+                'column number, ending line number, ending column number.')
+        )]
         [int[]] $Range,
-
-        [Parameter(HelpMessage = 'Recursively process files in subdirectories.')]
+        ###############################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Recursively process files in subdirectories.'
+        )]
         [switch] $Recurse
+        ###############################################################################
     )
-    begin {
-        if (-not $Settings) {
-            try {
-                $settingsPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\PSScriptAnalyzerFormattingSettings.psd1"
-                if ([IO.File]::Exists($settingsPath)) {
-                    $settings = Microsoft.PowerShell.Utility\Invoke-Expression ([IO.File]::ReadAllText($settingsPath))
 
-                    # Use formatting-specific settings if available
+    begin {
+
+        # check if settings parameter was provided by the caller
+        if (-not $Settings) {
+
+            try {
+
+                # build path to the default formatting settings file
+                $settingsPath = GenXdev.FileSystem\Expand-Path `
+                    "$PSScriptRoot\PSScriptAnalyzerFormattingSettings.psd1"
+
+                # attempt to load settings from the predefined file
+                if ([IO.File]::Exists($settingsPath)) {
+
+                    # read and evaluate the settings file content
+                    $settings = Microsoft.PowerShell.Utility\Invoke-Expression `
+                    ([IO.File]::ReadAllText($settingsPath))
+
+                    # use formatting-specific settings if available
                     if ($settings.CodeFormatting) {
+
                         $Settings = $settings.CodeFormatting
                     }
                     elseif ($settings) {
+
                         $Settings = $settings
                     }
-                } else {
-                    Microsoft.PowerShell.Utility\Write-Verbose 'Settings file not found. Using built-in defaults.'
+                }
+                else {
+
+                    # notify user that settings file was not found
+                    Microsoft.PowerShell.Utility\Write-Verbose `
+                        'Settings file not found. Using built-in defaults.'
+
+                    # define default formatting settings
                     $Settings = @{
                         IncludeRules = @(
                             'PSUseCorrectCasing',
@@ -67,91 +142,152 @@ function Invoke-GenXdevPSFormatter {
                 }
             }
             catch {
-                Microsoft.PowerShell.Utility\Write-Warning "Could not initialize settings: $($_.Exception.Message). Using defaults."
+
+                # warn about settings initialization failure and fall back to defaults
+                Microsoft.PowerShell.Utility\Write-Warning `
+                ("Could not initialize settings: $($_.Exception.Message). " +
+                    'Using defaults.')
             }
         }
 
-        Microsoft.PowerShell.Utility\Write-Verbose 'PowerShell formatter initialized with settings.'
+        # notify user that formatter has been initialized
+        Microsoft.PowerShell.Utility\Write-Verbose `
+            'PowerShell formatter initialized with settings.'
     }
 
-
     process {
+
         try {
-            # Handle Path parameter
+
+            # store the input path for processing
             $filePath = $Path
 
-            # Expand path if it's relative
-            $filePaths = GenXdev.FileSystem\Find-Item $FilePath -PassThru  | Microsoft.PowerShell.Core\ForEach-Object FullName
+            # expand the path to handle relative paths and wildcards
+            $filePaths = GenXdev.FileSystem\Find-Item $FilePath -PassThru |
+                Microsoft.PowerShell.Core\ForEach-Object FullName
 
+            # process each file path found
             foreach ($filePath in $filePaths) {
 
-                # Skip non-PowerShell files
+                # get the file extension to determine if it's a powershell file
                 $extension = [IO.Path]::GetExtension($filePath).ToLower()
+
+                # skip files that are not powershell script files
                 if ($extension -notin @('.ps1', '.psm1', '.psd1')) {
-                    Microsoft.PowerShell.Utility\Write-Verbose "Skipping non-PowerShell file: $filePath"
+
+                    Microsoft.PowerShell.Utility\Write-Verbose `
+                        "Skipping non-PowerShell file: $filePath"
+
                     continue
                 }
 
-                Microsoft.PowerShell.Utility\Write-Verbose "Processing file: $filePath"
+                # notify user about the file being processed
+                Microsoft.PowerShell.Utility\Write-Verbose `
+                    "Processing file: $filePath"
 
-                # Read the file content
-                $ScriptDefinition = $null
+                # initialize variable to hold script content
+                $scriptDefinition = $null
+
                 try {
-                    $ScriptDefinition = [IO.File]::ReadAllText($filePath, [Text.Encoding]::UTF8)
+
+                    # read the entire file content as utf-8 text
+                    $scriptDefinition = [IO.File]::ReadAllText($filePath, `
+                            [Text.Encoding]::UTF8)
                 }
                 catch {
-                    Microsoft.PowerShell.Utility\Write-Warning "Could not read file: $filePath - $($_.Exception.Message)"
+
+                    # warn about file read failure and continue to next file
+                    Microsoft.PowerShell.Utility\Write-Warning `
+                    ("Could not read file: $filePath - " +
+                        "$($_.Exception.Message)")
+
                     continue
                 }
 
-                # Skip empty files
-                if ([string]::IsNullOrWhiteSpace($ScriptDefinition)) {
-                    Microsoft.PowerShell.Utility\Write-Verbose "Skipping empty file: $filePath"
+                # skip files that are empty or contain only whitespace
+                if ([string]::IsNullOrWhiteSpace($scriptDefinition)) {
+
+                    Microsoft.PowerShell.Utility\Write-Verbose `
+                        "Skipping empty file: $filePath"
+
                     continue
                 }
 
+                # initialize variable to hold formatted script content
                 $formattedScript = $null
-                # Prepare formatter parameters
+
                 try {
+
+                    # prepare parameters for the psscriptanalyzer formatter
                     $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
                         -BoundParameters $PSBoundParameters `
                         -FunctionName 'PSScriptAnalyzer\Invoke-Formatter' `
-                        -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -ErrorAction SilentlyContinue)
+                        -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable `
+                            -Scope Local -ErrorAction SilentlyContinue)
 
-                    $formattedScript = PSScriptAnalyzer\Invoke-Formatter @invocationParams
+                    # invoke the psscriptanalyzer formatter with the prepared parameters
+                    $formattedScript = PSScriptAnalyzer\Invoke-Formatter `
+                        @invocationParams
                 }
                 catch {
-                    Microsoft.PowerShell.Utility\Write-Warning "Formatter error: $($_.Exception.Message)"
-                    continue;
-                }
 
-                if ([string]::IsNullOrWhiteSpace($formattedScript)) {
-                    Microsoft.PowerShell.Utility\Write-Verbose "No formatting changes needed for: $filePath"
-                    continue;
-                }
+                    # warn about formatter error and continue to next file
+                    Microsoft.PowerShell.Utility\Write-Warning `
+                        "Formatter error: $($_.Exception.Message)"
 
-                # Check if formatting changed anything
-                if ($formattedScript -eq $ScriptDefinition) {
-                    Microsoft.PowerShell.Utility\Write-Verbose "No formatting changes needed for: $filePath"
                     continue
                 }
 
-                # Write the formatted content back to the file
+                # skip files where formatter returned empty or whitespace content
+                if ([string]::IsNullOrWhiteSpace($formattedScript)) {
+
+                    Microsoft.PowerShell.Utility\Write-Verbose `
+                        "No formatting changes needed for: $filePath"
+
+                    continue
+                }
+
+                # check if the formatted content differs from the original
+                if ($formattedScript -eq $scriptDefinition) {
+
+                    Microsoft.PowerShell.Utility\Write-Verbose `
+                        "No formatting changes needed for: $filePath"
+
+                    continue
+                }
+
                 try {
-                    [IO.File]::WriteAllText($filePath, $formattedScript, [Text.Encoding]::UTF8)
-                    Microsoft.PowerShell.Utility\Write-Output "Formatted file: $filePath"
+
+                    # write the formatted content back to the original file
+                    [IO.File]::WriteAllText($filePath, $formattedScript, `
+                            [Text.Encoding]::UTF8)
+
+                    # notify user that the file was successfully formatted
+                    Microsoft.PowerShell.Utility\Write-Output `
+                        "Formatted file: $filePath"
                 }
                 catch {
-                    Microsoft.PowerShell.Utility\Write-Warning "Could not write formatted content to file: $filePath - $($_.Exception.Message)"
+
+                    # warn about file write failure
+                    Microsoft.PowerShell.Utility\Write-Warning `
+                    ("Could not write formatted content to file: $filePath " +
+                        "- $($_.Exception.Message)")
                 }
             }
         }
         catch {
-            Microsoft.PowerShell.Utility\Write-Warning "Error processing file $filePath`: $($_.Exception.Message)"
+
+            # warn about general processing error
+            Microsoft.PowerShell.Utility\Write-Warning `
+                "Error processing file ${filePath}: $($_.Exception.Message)"
         }
     }
 
     end {
-        Microsoft.PowerShell.Utility\Write-Verbose 'PowerShell formatter processing completed'
+
+        # notify user that formatter processing has completed
+        Microsoft.PowerShell.Utility\Write-Verbose `
+            'PowerShell formatter processing completed'
     }
 }
+################################################################################

@@ -11,6 +11,7 @@ Provides comprehensive management of refactoring sets by:
 - Handling LLM-based file selection and processing
 - Supporting both automatic and manual file management
 - Maintaining detailed logs of all operations
+- Gracefully handling deleted files (skipped unless CleanUpDeletedFiles is used)
 
 .PARAMETER Name
 Names of refactor sets to update, accepts wildcards. Default is "*".
@@ -25,16 +26,19 @@ Files to add to the processing queue.
 Files to remove from the processing queue.
 
 .PARAMETER CleanUpDeletedFiles
-Remove entries for files that no longer exist on disk.
+Remove entries for files that no longer exist on disk. Without this parameter,
+deleted files are preserved in collections but gracefully skipped during
+processing.
 
 .PARAMETER AskBeforeLLMSelection
 Prompt before launching LLM invocations for file selections.
 
-.PARAMETER PerformLLMSelections
+.PARAMETER PerformAutoSelections
 Enable LLM-based file selection processing.
 
-.PARAMETER PerformAllLLMSelections
-Process all files in the refactor set with LLM.
+.PARAMETER PerformAISelections
+Process all files in the refactor set with LLM. Can also be used as
+-PerformAISelections.
 
 .PARAMETER RetryFailedLLMSelections
 Retry previously failed LLM selections.
@@ -78,8 +82,9 @@ Direct prompt text to use for processing.
 .PARAMETER SelectionScript
 PowerShell script for file selection logic.
 
-.PARAMETER AutoAddModifiedFiles
-Automatically add modified files to processing queue.
+.PARAMETER ReprocessModifiedFiles
+Automatically reprocess files that have been modified since the last refactor
+update.
 
 .PARAMETER SelectionPrompt
 Content for LLM-based selection prompts.
@@ -158,7 +163,7 @@ Store settings only in persistent preferences without affecting session.
 
 .EXAMPLE
 Update-Refactor -Name "CodeCleanup" -FilesToAdd ".\src\*.cs" `
-    -CleanUpDeletedFiles -PerformLLMSelections
+    -CleanUpDeletedFiles -PerformAutoSelections -ReprocessModifiedFiles
 
 .EXAMPLE
 Get-Refactor "MyRefactor" | Update-Refactor -Reset -Clear
@@ -399,13 +404,14 @@ function Update-Refactor {
             Mandatory = $false,
             HelpMessage = 'Switch to enable LLM-based file selection processing'
         )]
-        [switch] $PerformLLMSelections,
+        [switch] $PerformAutoSelections,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Switch to process all files in the refactor set'
         )]
-        [switch] $PerformAllLLMSelections,
+        [Alias('PerformAllLLMSelections')]
+        [switch] $PerformAISelections,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
@@ -451,9 +457,10 @@ function Update-Refactor {
         ###############################################################################
         [Parameter(
             Mandatory = $false,
-            HelpMessage = 'Will automatically add modified files to the queue'
+            HelpMessage = 'Automatically reprocess files modified since last update'
         )]
-        [switch] $AutoAddModifiedFiles,
+        [Alias('AutoAddModifiedFiles')]
+        [switch] $ReprocessModifiedFiles,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
@@ -546,8 +553,11 @@ function Update-Refactor {
         $now = GenXdev.Console\UtcNow
         $script:filesAdded = 0
         $script:filesRemoved = 0
-        $script:onlyFirst = -not $PerformAllLLMSelections
+        $script:onlyFirst = -not $PerformAISelections
         $script:last = $null
+        $expandedFilesToAdd = @($FilesToAdd | Microsoft.PowerShell.Core\ForEach-Object {
+                    GenXdev.FileSystem\Expand-Path $_
+                })
     }
 
 
@@ -611,6 +621,116 @@ function Update-Refactor {
                 )
             }
 
+            # migrate folder names
+            for ($refactoredIndex = $refactorDefinition.State.Refactored.Count - 1;
+                $refactoredIndex -ge 0; $refactoredIndex--) {
+
+                if ($null -eq $refactorDefinition.State.Refactored[$refactoredIndex]) {
+
+                    $null = $refactorDefinition.State.Refactored.RemoveAt($refactoredIndex)
+
+                    if ($refactoredIndex -le $refactorDefinition.State.RefactoredIndex) {
+
+                        $refactorDefinition.State.RefactoredIndex = [Math]::Max(-1,
+                            $refactorDefinition.State.RefactoredIndex - 1)
+                    }
+                }
+                else {
+                    $path = (GenXdev.FileSystem\Expand-Path ($refactorDefinition.State.Refactored[$refactoredIndex]))
+
+                    if ($path.StartsWith("$modulesPath\GenXdev")) {
+
+                        $parts = $path.Substring($modulesPath.Length).Split('\', [System.StringSplitOptions]::RemoveEmptyEntries);
+
+                        if ($parts.Length -gt 1) {
+                            [Version] $version = $null
+                            if ([Version]::tryParse($parts[1], [ref]$version)) {
+
+                                $newPath = "$($modulesPath.TrimEnd('\'))\$($parts[0])\1.238.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 3))"
+
+                                if ($refactorDefinition.State.Refactored.IndexOf($newPath) -lt 0) {
+
+                                    $refactorDefinition.State.Refactored[$refactoredIndex] = $newPath
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            # migrate folder names
+            for ($selectedIndex = $refactorDefinition.State.Selected.Count - 1;
+                $selectedIndex -ge 0; $selectedIndex--) {
+                if ($null -eq $refactorDefinition.State.Selected[$selectedIndex]) {
+
+                    $null = $refactorDefinition.State.Selected.RemoveAt($selectedIndex)
+                    if ($selectedIndex -le $refactorDefinition.State.SelectedIndex) {
+
+                        $refactorDefinition.State.SelectedIndex = [Math]::Max(-1,
+                            $refactorDefinition.State.SelectedIndex - 1)
+                    }
+                }
+                else {
+                    $path = (GenXdev.FileSystem\Expand-Path $refactorDefinition.State.Selected[$selectedIndex])
+
+                    if ($path.StartsWith("$modulesPath\GenXdev")) {
+
+                        $parts = $path.Substring($modulesPath.Length).Split('\', [System.StringSplitOptions]::RemoveEmptyEntries);
+
+                        if ($parts.Length -gt 1) {
+                            [Version] $version = $null
+
+                            if ([Version]::tryParse($parts[1], [ref]$version)) {
+
+                                $newPath = "$($modulesPath.TrimEnd('\'))\$($parts[0])\1.238.2025\$($path.Substring($modulesPath.Length + $parts[0].Length + $parts[1].Length + 3))"
+
+                                if ($refactorDefinition.State.Selected.IndexOf($newPath) -lt 0) {
+
+                                    $refactorDefinition.State.Selected[$selectedIndex] = $newPath
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            # migrate folder names
+            for ($unselectedIndex = $refactorDefinition.State.Unselected.Count - 1;
+                $unselectedIndex -ge 0; $unselectedIndex--) {
+
+                if ($null -eq $refactorDefinition.State.Unselected[$unselectedIndex]) {
+
+                    $null = $refactorDefinition.State.Unselected.RemoveAt($unselectedIndex)
+
+                    if ($unselectedIndex -le $refactorDefinition.State.UnselectedIndex) {
+
+                        $refactorDefinition.State.UnselectedIndex = [Math]::Max(-1,
+                            $refactorDefinition.State.UnselectedIndex - 1)
+                    }
+                }
+                else {
+                    $path = (GenXdev.FileSystem\Expand-Path $refactorDefinition.State.Unselected[$unselectedIndex])
+
+                    if ($path.StartsWith("$modulesPath\GenXdev")) {
+
+                        $parts = $path.Substring($modulesPath.Length).Split('\', [System.StringSplitOptions]::RemoveEmptyEntries);
+
+                        if ($parts.Length -gt 1) {
+                            [Version] $version = $null
+                            if ([Version]::tryParse($parts[1], [ref]$version)) {
+
+                                $newPath = "$($modulesPath.TrimEnd('\'))\$($parts[0])\1.238.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 3))"
+
+                                if ($refactorDefinition.State.Unselected.IndexOf($newPath) -lt 0) {
+
+                                    $refactorDefinition.State.Unselected[$unselectedIndex] = $newPath
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
             # update prompt key if specified and different from current value
             if ($PSBoundParameters.ContainsKey('PromptKey')) {
 
@@ -671,25 +791,26 @@ function Update-Refactor {
                 }
             }
 
-            # update auto-add modified files setting if changed
-            if ($PSBoundParameters.ContainsKey('AutoAddModifiedFiles')) {
+            # update reprocess modified files setting if changed
+            if ($PSBoundParameters.ContainsKey('ReprocessModifiedFiles')) {
 
-                if ($refactorDefinition.SelectionSettings.AutoAddModifiedFiles -ne $AutoAddModifiedFiles) {
+                if ($refactorDefinition.SelectionSettings.AutoAddModifiedFiles -ne $ReprocessModifiedFiles) {
 
-                    # log the auto-add setting change
+                    # log the reprocess setting change
                     $null = $refactorDefinition.Log.Add(
                         [GenXdev.Helpers.RefactorLogItem]@{
                             Timestamp = $now
-                            Message   = ('AutoAddModifiedFiles changed from ' +
+                            Message   = ('ReprocessModifiedFiles changed from ' +
                                 "'$($refactorDefinition.SelectionSettings.AutoAddModifiedFiles)' " +
-                                "to '$AutoAddModifiedFiles'")
+                                "to '$ReprocessModifiedFiles'")
                         }
                     )
 
-                    # apply the new auto-add setting
-                    $refactorDefinition.SelectionSettings.AutoAddModifiedFiles = $AutoAddModifiedFiles
+                    # apply the new reprocess setting
+                    $refactorDefinition.SelectionSettings.AutoAddModifiedFiles = $ReprocessModifiedFiles
                 }
             }
+
             if ($PSBoundParameters.ContainsKey('SelectionPrompt')) {
 
                 if ($refactorDefinition.SelectionSettings.LLM.Prompt -ne $SelectionPrompt) {
@@ -703,6 +824,7 @@ function Update-Refactor {
                     $refactorDefinition.SelectionSettings.LLM.Prompt = $SelectionPrompt
                 }
             }
+
             if ($PSBoundParameters.ContainsKey('Model')) {
 
                 if ($refactorDefinition.SelectionSettings.LLM.Model -ne $Model) {
@@ -716,6 +838,7 @@ function Update-Refactor {
                     $refactorDefinition.SelectionSettings.LLM.Model = $Model
                 }
             }
+
             if ($PSBoundParameters.ContainsKey('HuggingFaceIdentifier')) {
 
                 if ($refactorDefinition.SelectionSettings.LLM.HuggingFaceIdentifier -ne $HuggingFaceIdentifier) {
@@ -729,6 +852,7 @@ function Update-Refactor {
                     $refactorDefinition.SelectionSettings.LLM.HuggingFaceIdentifier = $HuggingFaceIdentifier
                 }
             }
+
             if ($PSBoundParameters.ContainsKey('Temperature')) {
 
                 if ($refactorDefinition.SelectionSettings.LLM.Temperature -ne $Temperature) {
@@ -742,6 +866,7 @@ function Update-Refactor {
                     $refactorDefinition.SelectionSettings.LLM.Temperature = $Temperature
                 }
             }
+
             if ($PSBoundParameters.ContainsKey('MaxToken')) {
 
                 if ($refactorDefinition.SelectionSettings.LLM.MaxToken -ne $MaxToken) {
@@ -755,6 +880,7 @@ function Update-Refactor {
                     $refactorDefinition.SelectionSettings.LLM.MaxToken = $MaxToken
                 }
             }
+
             if ($PSBoundParameters.ContainsKey('TTLSeconds')) {
 
                 if ($refactorDefinition.SelectionSettings.LLM.TTLSeconds -ne $TTLSeconds) {
@@ -768,6 +894,7 @@ function Update-Refactor {
                     $refactorDefinition.SelectionSettings.LLM.TTLSeconds = $TTLSeconds
                 }
             }
+
             if ($PSBoundParameters.ContainsKey('Cpu')) {
 
                 if ($refactorDefinition.SelectionSettings.LLM.Cpu -ne $Cpu) {
@@ -781,6 +908,7 @@ function Update-Refactor {
                     $refactorDefinition.SelectionSettings.LLM.Cpu = $Cpu
                 }
             }
+
             if ($PSBoundParameters.ContainsKey('SelectByFreeRam')) {
 
                 if ($refactorDefinition.SelectionSettings.LLM.SelectByFreeRam -ne $SelectByFreeRam) {
@@ -794,6 +922,7 @@ function Update-Refactor {
                     $refactorDefinition.SelectionSettings.LLM.SelectByFreeRam = $SelectByFreeRam
                 }
             }
+
             if ($PSBoundParameters.ContainsKey('SelectByFreeGpuRam')) {
 
                 if ($refactorDefinition.SelectionSettings.LLM.SelectByFreeGpuRam -ne $SelectByFreeGpuRam) {
@@ -807,6 +936,7 @@ function Update-Refactor {
                     $refactorDefinition.SelectionSettings.LLM.SelectByFreeGpuRam = $SelectByFreeGpuRam
                 }
             }
+
             if ($PSBoundParameters.ContainsKey('LLMQueryType')) {
 
                 if ($refactorDefinition.SelectionSettings.LLM.LLMQueryType -ne $LLMQueryType) {
@@ -820,6 +950,7 @@ function Update-Refactor {
                     $refactorDefinition.SelectionSettings.LLM.LLMQueryType = $LLMQueryType
                 }
             }
+
             if ($PSBoundParameters.ContainsKey('TimeoutSeconds')) {
 
                 if ($refactorDefinition.SelectionSettings.LLM.TimeoutSeconds -ne $TimeoutSeconds) {
@@ -833,6 +964,7 @@ function Update-Refactor {
                     $refactorDefinition.SelectionSettings.LLM.TimeoutSeconds = $TimeoutSeconds
                 }
             }
+
             if ($PSBoundParameters.ContainsKey('Gpu')) {
 
                 if ($refactorDefinition.SelectionSettings.LLM.Gpu -ne $Gpu) {
@@ -846,6 +978,7 @@ function Update-Refactor {
                     $refactorDefinition.SelectionSettings.LLM.Gpu = $Gpu
                 }
             }
+
             if ($PSBoundParameters.ContainsKey('Force')) {
 
                 if ($refactorDefinition.SelectionSettings.LLM.Force -ne $Force) {
@@ -859,6 +992,7 @@ function Update-Refactor {
                     $refactorDefinition.SelectionSettings.LLM.Force = $Force
                 }
             }
+
             if ($PSBoundParameters.ContainsKey('ApiEndpoint')) {
 
                 if ($refactorDefinition.SelectionSettings.LLM.ApiEndpoint -ne $ApiEndpoint) {
@@ -872,6 +1006,7 @@ function Update-Refactor {
                     $refactorDefinition.SelectionSettings.LLM.ApiEndpoint = $ApiEndpoint
                 }
             }
+
             if ($PSBoundParameters.ContainsKey('ApiKey')) {
 
                 if ($refactorDefinition.SelectionSettings.LLM.ApiKey -ne $ApiKey) {
@@ -885,6 +1020,7 @@ function Update-Refactor {
                     $refactorDefinition.SelectionSettings.LLM.ApiKey = $ApiKey
                 }
             }
+
             if ($PSBoundParameters.ContainsKey('ExposedCmdLets')) {
 
                 if ($refactorDefinition.SelectionSettings.LLM.ExposedCmdLets -ne $ExposedCmdLets) {
@@ -898,6 +1034,7 @@ function Update-Refactor {
                     $refactorDefinition.SelectionSettings.LLM.ExposedCmdLets = $ExposedCmdLets
                 }
             }
+
             if ($PSBoundParameters.ContainsKey('Priority')) {
 
                 if ($refactorDefinition.Priority -ne $Priority) {
@@ -911,6 +1048,7 @@ function Update-Refactor {
                     $refactorDefinition.Priority = $Priority
                 }
             }
+
             if ($PSBoundParameters.ContainsKey('KeysToSend')) {
 
                 if ($refactorDefinition.RefactorSettings.KeysToSend -ne $KeysToSend) {
@@ -924,6 +1062,7 @@ function Update-Refactor {
                     $refactorDefinition.RefactorSettings.KeysToSend = $KeysToSend
                 }
             }
+
             $newCode = $PSBoundParameters.ContainsKey('Code') ? ($Code ? 1 : 0) : -1;
             if ($refactorDefinition.RefactorSettings.Code -ne $newCode) {
 
@@ -1112,12 +1251,53 @@ function Update-Refactor {
                 $null = $refactorDefinition.State.Selected.Clear();
             }
 
+            # detect and fix unprocessed files in Refactored collection
+            if ($refactorDefinition.State.Refactored.Count -gt 0 -and
+                $refactorDefinition.State.RefactoredIndex -lt ($refactorDefinition.State.Refactored.Count - 1)) {
+
+                # move unprocessed files back to Selected for processing
+                $unprocessedFiles = @()
+                for ($i = $refactorDefinition.State.RefactoredIndex + 1; $i -lt $refactorDefinition.State.Refactored.Count; $i++) {
+                    $file = $refactorDefinition.State.Refactored[$i]
+                    if (-not [string]::IsNullOrWhiteSpace($file)) {
+                        $unprocessedFiles += $file
+
+                        # add to Selected if not already there
+                        if ($refactorDefinition.State.Selected.IndexOf($file) -lt 0) {
+                            $null = $refactorDefinition.State.Selected.Add($file)
+                        }
+                    }
+                }
+
+                # remove unprocessed files from Refactored collection
+                if ($unprocessedFiles.Count -gt 0) {
+                    for ($i = $refactorDefinition.State.Refactored.Count - 1; $i -gt $refactorDefinition.State.RefactoredIndex; $i--) {
+                        $null = $refactorDefinition.State.Refactored.RemoveAt($i)
+                    }
+
+                    # log the correction operation
+                    $null = $refactorDefinition.Log.Add(
+                        [GenXdev.Helpers.RefactorLogItem]@{
+                            Timestamp = $now
+                            Message   = "Moved $($unprocessedFiles.Count) unprocessed files from Refactored back to Selected: $($unprocessedFiles -join ', ')"
+                        }
+                    )
+
+                    Microsoft.PowerShell.Utility\Write-Verbose (
+                        "Corrected incomplete state: moved $($unprocessedFiles.Count) unprocessed files " +
+                        "from RefactoredIndex $($refactorDefinition.State.RefactoredIndex) back to Selected"
+                    )
+                }
+            }
+
             Microsoft.PowerShell.Utility\Write-Verbose "Processing refactor definition: $($refactorDefinition.Name)"
 
             # execute selection script to get automatically selected files
-            [System.IO.FileInfo[]] $automaticFiles = ($null = @(
+            # only when PerformAutoSelections or PerformAISelections is specified
+            [System.IO.FileInfo[]] $automaticFiles = @(
                     if (-not [string]::IsNullOrWhiteSpace(
-                            $refactorDefinition.SelectionSettings.Script)) {
+                            $refactorDefinition.SelectionSettings.Script) -and
+                        ($PerformAutoSelections -or $PerformAISelections)) {
 
                         Microsoft.PowerShell.Utility\Write-Verbose 'Executing selection script'
                         if (-not $Clear) {
@@ -1133,52 +1313,87 @@ function Update-Refactor {
 
                         if ($null -ne $_) {
 
-                            $item = Microsoft.PowerShell.Management\Get-Item -LiteralPath  (GenXdev.FileSystem\Expand-Path $_) -ErrorAction SilentlyContinue
+                            $item = Microsoft.PowerShell.Management\Get-ChildItem -LiteralPath  (GenXdev.FileSystem\Expand-Path $_) -ErrorAction SilentlyContinue
                             if ($null -ne $item) {
 
                                 $item
                             }
                         }
-                    })) |
+                    }) |
+                Microsoft.PowerShell.Core\Where-Object { $null -ne $_ -and $_.Exists } |
                 Microsoft.PowerShell.Utility\Sort-Object -Property FullName -Unique |
-                Microsoft.PowerShell.Utility\Sort-Object -Property LastWriteTimeUtc;
+                Microsoft.PowerShell.Utility\Sort-Object -Property LastWriteTimeUtc -ErrorAction SilentlyContinue;
 
-            if ($null -ne $automaticFiles) {
+            if ($null -ne $automaticFiles -and $automaticFiles.Count -gt 0) {
 
                 # process new files to be added
                 @($automaticFiles) | Microsoft.PowerShell.Core\ForEach-Object {
 
                     if ($null -eq $_ ) { return }
 
+                    # verify file still exists before processing
+                    if (-not $_.Exists) {
+                        Microsoft.PowerShell.Utility\Write-Verbose "Skipping deleted file: $($_.FullName)"
+                        return
+                    }
+
+                    # get the full path as string for collection operations
+                    $filePath = $_.FullName
+
                     # check if file exists in any collection
-                    $indexRefactored = $refactorDefinition.State.Refactored.IndexOf($_)
-                    $indexSelected = $refactorDefinition.State.Selected.IndexOf($_)
-                    $indexUnselected = $refactorDefinition.State.Unselected.IndexOf($_)
+                    $indexRefactored = $refactorDefinition.State.Refactored.IndexOf($filePath)
+                    $indexSelected = $refactorDefinition.State.Selected.IndexOf($filePath)
+                    $fileInUnselected = $refactorDefinition.State.Unselected.IndexOf($filePath)
 
                     # add file if not already present
                     if ($indexRefactored -lt 0 -and $indexSelected -lt 0 -and
-                        $indexUnselected -lt 0) {
+                        $fileInUnselected -lt 0) {
 
                         # add to selected if no LLM prompt, otherwise to unselected
                         if ([string]::IsNullOrWhiteSpace(
                                 $refactorDefinition.SelectionSettings.LLM.Prompt)) {
 
-                            $null = $refactorDefinition.State.Selected.Add($_)
+                            $null = $refactorDefinition.State.Selected.Add($filePath)
                         }
                         else {
 
-                            $null = $refactorDefinition.State.Unselected.Add($_)
+                            $null = $refactorDefinition.State.Unselected.Add($filePath)
                         }
 
                         $script:filesAdded++
                         return;
                     }
 
-                    if ((($null -ne $FilesToAdd) -and ($FilesToAdd.IndexOf($_) -ge 0)) -or (
-                            $refactorDefinition.SelectionSettings.AutoAddModifiedFiles -and
-                        ($refactorDefinition.State.LastUpdated -lt ($_.LastWriteTimeUtc.AddMinutes(-15))
-                    )
-                        )) {
+                    # check if file should be reprocessed due to explicit addition or modification
+                    $shouldReprocess = $false
+
+                    # explicit addition via FilesToAdd parameter
+                    if ($null -ne $FilesToAdd -and $FilesToAdd.Count -gt 0) {
+
+                        if ($expandedFilesToAdd -contains $filePath) {
+                            $shouldReprocess = $true
+                        }
+                    }
+
+                    # automatic reprocessing of modified files
+                    if ($refactorDefinition.SelectionSettings.AutoAddModifiedFiles) {
+                        try {
+                            if ($_.Exists -and
+                                ($refactorDefinition.State.LastUpdated -lt ($_.LastWriteTimeUtc))) {
+                                $shouldReprocess = $true
+                            }
+                        }
+                        catch {
+                            Microsoft.PowerShell.Utility\Write-Verbose "Could not check modification time for file: $filePath - $($_.Exception.Message)"
+                        }
+                    }
+
+                    if ($shouldReprocess) {
+
+                        # locate file in collections
+                        $indexRefactored = $refactorDefinition.State.Refactored.IndexOf($_)
+                        $indexSelected = $refactorDefinition.State.Selected.IndexOf($_)
+                        # $indexUnselected = $refactorDefinition.State.Unselected.IndexOf($_)
 
                         if ($indexRefactored -ge 0) {
 
@@ -1191,12 +1406,13 @@ function Update-Refactor {
                             $indexRefactored = -1;
                             if ($indexSelected -lt 0) {
 
-                                $null = $refactorDefinition.State.Selected.Add($_)
+                                $null = $refactorDefinition.State.Selected.Add($filePath)
                             }
                         }
                     }
                 }
             }
+
 
             # process files marked for removal
             $FilesToRemove | Microsoft.PowerShell.Core\ForEach-Object {
@@ -1249,128 +1465,6 @@ function Update-Refactor {
                 }
             }
 
-            # migrate folder names
-            for ($refactoredIndex = $refactorDefinition.State.Refactored.Count - 1;
-                $refactoredIndex -ge 0; $refactoredIndex--) {
-
-                if ($null -eq $refactorDefinition.State.Refactored[$refactoredIndex]) {
-
-                    $null = $refactorDefinition.State.Refactored.RemoveAt($refactoredIndex)
-
-                }
-                else {
-                    $path = (GenXdev.FileSystem\Expand-Path ($refactorDefinition.State.Refactored[$refactoredIndex]))
-
-                    if ($path.StartsWith("$modulesPath\GenXdev")) {
-
-                        $parts = $path.Substring($modulesPath.Length).Split('\', [System.StringSplitOptions]::RemoveEmptyEntries);
-
-                        if ($parts.Length -gt 1) {
-                            [Version] $version = $null
-                            if ([Version]::tryParse($parts[1], [ref]$version)) {
-
-                                $path = "$modulesPath\$($parts[0])\1.236.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
-
-                                if ($refactorDefinition.State.Refactored.IndexOf($path) -lt 0) {
-
-                                    $refactorDefinition.State.Refactored[$refactoredIndex] = $path
-                                }
-                                else {
-                                    $null = $refactorDefinition.State.Refactored.RemoveAt($refactoredIndex)
-
-                                    if ($refactoredIndex -le $refactorDefinition.State.RefactoredIndex) {
-
-                                        $refactorDefinition.State.RefactoredIndex = [Math]::Max(-1,
-                                            $refactorDefinition.State.RefactoredIndex - 1)
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            # migrate folder names
-            for ($selectedIndex = $refactorDefinition.State.Selected.Count - 1;
-                $selectedIndex -ge 0; $selectedIndex--) {
-                if ($null -eq $refactorDefinition.State.Selected[$selectedIndex]) {
-
-                    $null = $refactorDefinition.State.Selected.RemoveAt($selectedIndex)
-
-                }
-                else {
-                    $path = (GenXdev.FileSystem\Expand-Path $refactorDefinition.State.Selected[$selectedIndex])
-
-                    if ($path.StartsWith("$modulesPath\GenXdev")) {
-
-                        $parts = $path.Substring($modulesPath.Length).Split('\', [System.StringSplitOptions]::RemoveEmptyEntries);
-
-                        if ($parts.Length -gt 1) {
-                            [Version] $version = $null
-
-                            if ([Version]::tryParse($parts[1], [ref]$version)) {
-
-                                $path = "$modulesPath\$($parts[0])\1.236.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
-
-                                if ($refactorDefinition.State.Selected.IndexOf($path) -lt 0) {
-
-                                    $refactorDefinition.State.Selected[$selectedIndex] = $path
-                                }
-                                else {
-                                    $null = $refactorDefinition.State.Selected.RemoveAt($selectedIndex)
-
-                                    if ($selectedIndex -le $refactorDefinition.State.SelectedIndex) {
-
-                                        $refactorDefinition.State.SelectedIndex = [Math]::Max(-1,
-                                            $refactorDefinition.State.SelectedIndex - 1)
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            # migrate folder names
-            for ($unselectedIndex = $refactorDefinition.State.Unselected.Count - 1;
-                $unselectedIndex -ge 0; $unselectedIndex--) {
-
-                if ($null -eq $refactorDefinition.State.Unselected[$unselectedIndex]) {
-
-                    $null = $refactorDefinition.State.Unselected.RemoveAt($unselectedIndex)
-                }
-                else {
-                    $path = (GenXdev.FileSystem\Expand-Path $refactorDefinition.State.Unselected[$unselectedIndex])
-
-                    if ($path.StartsWith("$modulesPath\GenXdev")) {
-
-                        $parts = $path.Substring($modulesPath.Length).Split('\', [System.StringSplitOptions]::RemoveEmptyEntries);
-
-                        if ($parts.Length -gt 1) {
-                            [Version] $version = $null
-                            if ([Version]::tryParse($parts[1], [ref]$version)) {
-
-                                $path = "$modulesPath\$($parts[0])\1.236.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 2))"
-
-                                if ($refactorDefinition.State.Unselected.IndexOf($path) -lt 0) {
-
-                                    $refactorDefinition.State.Unselected[$unselectedIndex] = $path
-                                }
-                                else {
-                                    $null = $refactorDefinition.State.Unselected.RemoveAt($unselectedIndex)
-
-                                    if ($unselectedIndex -le $refactorDefinition.State.UnselectedIndex) {
-
-                                        $refactorDefinition.State.UnselectedIndex = [Math]::Max(-1,
-                                            $refactorDefinition.State.UnselectedIndex - 1)
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
             # clean up deleted files if requested
             if ($CleanUpDeletedFiles) {
 
@@ -1384,15 +1478,22 @@ function Update-Refactor {
 
                     }
                     else {
-                        $path = (GenXdev.FileSystem\Expand-Path ($refactorDefinition.State.Refactored[$refactoredIndex]))
+                        try {
+                            $path = (GenXdev.FileSystem\Expand-Path ($refactorDefinition.State.Refactored[$refactoredIndex]))
 
-                        if (-not [IO.Path]::Exists($path)) {
+                            if (-not (Microsoft.PowerShell.Management\Test-Path -LiteralPath $path -PathType Leaf)) {
 
+                                $null = $refactorDefinition.State.Refactored.RemoveAt($refactoredIndex)
+                            }
+                        }
+                        catch {
+                            Microsoft.PowerShell.Utility\Write-Verbose "Could not process refactored file path: $($refactorDefinition.State.Refactored[$refactoredIndex]) - $($_.Exception.Message)"
+                            # Remove invalid path entry
                             $null = $refactorDefinition.State.Refactored.RemoveAt($refactoredIndex)
                         }
                     }
 
-                    if ($refactorDefinition.State.RefactoredIndex -lt $refactoredIndex) {
+                    if ($refactorDefinition.State.RefactoredIndex -ge $refactoredIndex) {
 
                         $refactorDefinition.State.RefactoredIndex = [Math]::Max(-1,
                             $refactorDefinition.State.RefactoredIndex - 1)
@@ -1403,14 +1504,21 @@ function Update-Refactor {
                 for ($selectedIndex = $refactorDefinition.State.Selected.Count - 1;
                     $selectedIndex -ge 0; $selectedIndex--) {
 
-                    $path = (GenXdev.FileSystem\Expand-Path $refactorDefinition.State.Selected[$selectedIndex])
+                    try {
+                        $path = (GenXdev.FileSystem\Expand-Path $refactorDefinition.State.Selected[$selectedIndex])
 
-                    if (-not [IO.Path]::Exists($path)) {
+                        if (-not (Microsoft.PowerShell.Management\Test-Path -LiteralPath $path -PathType Leaf)) {
 
+                            $null = $refactorDefinition.State.Selected.RemoveAt($selectedIndex)
+                        }
+                    }
+                    catch {
+                        Microsoft.PowerShell.Utility\Write-Verbose "Could not process selected file path: $($refactorDefinition.State.Selected[$selectedIndex]) - $($_.Exception.Message)"
+                        # Remove invalid path entry
                         $null = $refactorDefinition.State.Selected.RemoveAt($selectedIndex)
                     }
 
-                    if ($refactorDefinition.State.SelectedIndex -lt $selectedIndex) {
+                    if ($refactorDefinition.State.SelectedIndex -ge $selectedIndex) {
 
                         $refactorDefinition.State.SelectedIndex = [Math]::Max(-1,
                             $refactorDefinition.State.SelectedIndex - 1)
@@ -1421,14 +1529,21 @@ function Update-Refactor {
                 for ($unselectedIndex = $refactorDefinition.State.Unselected.Count - 1;
                     $unselectedIndex -ge 0; $unselectedIndex--) {
 
-                    $path = (GenXdev.FileSystem\Expand-Path $refactorDefinition.State.Unselected[$unselectedIndex])
+                    try {
+                        $path = (GenXdev.FileSystem\Expand-Path $refactorDefinition.State.Unselected[$unselectedIndex])
 
-                    if (-not [IO.Path]::Exists($path)) {
+                        if (-not (Microsoft.PowerShell.Management\Test-Path -LiteralPath $path -PathType Leaf)) {
 
+                            $null = $refactorDefinition.State.Unselected.RemoveAt($unselectedIndex)
+                        }
+                    }
+                    catch {
+                        Microsoft.PowerShell.Utility\Write-Verbose "Could not process unselected file path: $($refactorDefinition.State.Unselected[$unselectedIndex]) - $($_.Exception.Message)"
+                        # Remove invalid path entry
                         $null = $refactorDefinition.State.Unselected.RemoveAt($unselectedIndex)
                     }
 
-                    if ($refactorDefinition.State.UnselectedIndex -lt $unselectedIndex) {
+                    if ($refactorDefinition.State.UnselectedIndex -ge $unselectedIndex) {
 
                         $refactorDefinition.State.UnselectedIndex = [Math]::Max(-1,
                             $refactorDefinition.State.UnselectedIndex - 1)
@@ -1436,9 +1551,39 @@ function Update-Refactor {
                 }
             }
 
+
+            if ($ReprocessModifiedFiles) {
+                (@($refactorDefinition.State.Refactored) + @($refactorDefinition.State.Selected) + @($refactorDefinition.State.Unselected)) | Microsoft.PowerShell.Core\ForEach-Object {
+
+                    $fileInfo = Microsoft.PowerShell.Management\Get-ChildItem -LiteralPath $_ -ErrorAction SilentlyContinue
+                    if (-not $FileInfo) { return }
+                    if ($refactorDefinition.State.LastUpdated -lt ($FileInfo.LastWriteTimeUtc)) {
+
+                        # locate file in collections
+                        $indexRefactored = $refactorDefinition.State.Refactored.IndexOf($_)
+                        $indexSelected = $refactorDefinition.State.Selected.IndexOf($_)
+                        # $indexUnselected = $refactorDefinition.State.Unselected.IndexOf($_)
+
+                        if ($indexRefactored -ge 0) {
+
+                            $null = $refactorDefinition.State.Refactored.RemoveAt($indexRefactored)
+                            if ($indexRefactored -le $refactorDefinition.State.RefactoredIndex) {
+
+                                $refactorDefinition.State.RefactoredIndex = [Math]::Max(-1,
+                                    $refactorDefinition.State.RefactoredIndex - 1)
+                            }
+                            if ($indexSelected -lt 0) {
+
+                                $null = $refactorDefinition.State.Selected.Add($filePath)
+                            }
+                        }
+                    }
+                }
+            }
+
             # handle llm selections if enabled
             if ((-not [string]::IsNullOrWhiteSpace($refactorDefinition.SelectionSettings.LLM.Prompt)) -and
-               (!!$PerformLLMSelections -or !!$PerformAllLLMSelections)) {
+               (!!$PerformAutoSelections -or !!$PerformAISelections)) {
 
                 if (((-not $AskBeforeLLMSelection) -or ($refactorDefinition.State.Selected.Count -eq 0)) -and
                     $refactorDefinition.State.Unselected.Count -ge 0) {
@@ -1646,24 +1791,7 @@ function Update-Refactor {
                 Microsoft.PowerShell.Utility\Write-Verbose ("Updating refactor set state with $script:filesAdded added " +
                     "and $script:filesRemoved removed")
 
-                # $totalFilesLeft = (
-                #     ($refactorDefinition.State.Unselected.Count - 1) -
-                #     $refactorDefinition.State.UnselectedIndex
-                # ) + (
-                #     ($refactorDefinition.State.Selected.Count - 1) -
-                #     $refactorDefinition.State.SelectedIndex
-                # ) + (
-                #     ($refactorDefinition.State.Refactored.Count - 1) -
-                #     $refactorDefinition.State.RefactoredIndex
-                # );
-
-                $totalFilesDone = (
-                    $refactorDefinition.State.UnselectedIndex + 1
-                ) + (
-                    $refactorDefinition.State.SelectedIndex + 1
-                ) + (
-                    $refactorDefinition.State.RefactoredIndex + 1
-                );
+                $totalFilesDone = [Math]::Min($refactorDefinition.State.Refactored.Count, $refactorDefinition.State.RefactoredIndex + 1);
 
                 $totalFiles = (
                     $refactorDefinition.State.Unselected.Count
@@ -1711,18 +1839,9 @@ function Update-Refactor {
                         break;
                     }
 
-                    $latest = $latestJson | Microsoft.PowerShell.Utility\ConvertFrom-Json -ErrorAction SilentlyContinue
-                    if ($null -ne $latest -and ($latest.State.LastUpdated -lt $refactorDefinition.State.LastUpdated)) {
-
-                        $latest.State = $refactorDefinition.State;
-                        $latest.Log = $refactorDefinition.Log;
-
-                        $refactorDefinition = $latest;
-                    }
-
                     $now = GenXdev.Console\UtcNow
                     $refactorDefinition.State.LastUpdated = $now
-                    $json = $refactorDefinition | Microsoft.PowerShell.Utility\ConvertTo-Json -Depth 10 -Compress
+                    $json = $refactorDefinition | Microsoft.PowerShell.Utility\ConvertTo-Json -Depth 15 -Compress
                     GenXdev.Data\Set-GenXdevPreference `
                         -Name "refactor_set_$($refactorDefinition.Name)" `
                         -Value $json `

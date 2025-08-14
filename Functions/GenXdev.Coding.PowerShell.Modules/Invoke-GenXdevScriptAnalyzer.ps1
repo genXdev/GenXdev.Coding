@@ -147,23 +147,31 @@ function Invoke-GenXdevScriptAnalyzer {
                 Microsoft.PowerShell.Utility\Write-Verbose `
                     'Analyzing script definition content'
             }
+            [int] $retries = 3;
+            while ($retries-- -gt 0) {
+                try {
 
-            try {
+                    # invoke script analyzer with configured parameters
+                    $results = @(PSScriptAnalyzer\Invoke-ScriptAnalyzer @invocationParams -Verbose:$false)
 
-                # invoke script analyzer with configured parameters
-                $results = @(& 'PSScriptAnalyzer\Invoke-ScriptAnalyzer' `
-                        @invocationParams)
+                    # output verbose information about analysis results
+                    Microsoft.PowerShell.Utility\Write-Verbose `
+                        "Analysis completed with $($results.Count) results"
+                    break;
+                }
+                catch {
 
-                # output verbose information about analysis results
-                Microsoft.PowerShell.Utility\Write-Verbose `
-                    "Analysis completed with $($results.Count) results"
-            }
-            catch {
+                    # output warning for script analyzer errors
+                    Microsoft.PowerShell.Utility\Write-Warning `
+                        "ScriptAnalyzer error: $($_.Exception.Message)"
 
-                # output warning for script analyzer errors
-                Microsoft.PowerShell.Utility\Write-Warning `
-                    "ScriptAnalyzer error: $($_.Exception.Message)"
-                return
+                    if ($retries -eq 1) {
+
+                        return
+                    }
+
+                    Microsoft.PowerShell.Utility\Start-Sleep 1
+                }
             }
 
             # check if results were returned

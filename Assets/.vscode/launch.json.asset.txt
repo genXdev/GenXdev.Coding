@@ -14,7 +14,7 @@
       "request": "launch",
       "name": "Run and debug GenXdev unit-tests",
       "args": [],
-      "script": "import-module GenXdev.Coding ; Show-Command Assert-GenXdevUnitTest",
+      "script": "import-module GenXdev.Coding ; Show-Command Assert-GenXdevTest",
       "cwd": "${workspaceFolder}"
     },
     {

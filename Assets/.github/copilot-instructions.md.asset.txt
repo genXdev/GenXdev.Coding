@@ -10,7 +10,7 @@ Read all .md files in the folder, and always take them into concideration.
 - **Never add parameter aliases** unless explicitly listed in user request or called function's definition
 - **Edit files directly** - never return generated output in chat if file is open
 - **Add conclusions** from PowerShell/GenXdev discussions as guidelines to this file
-- **Run unit tests** using Assert-GenXdevUnitTest after making changes to cmdlets
+- **Run unit tests** using Assert-GenXdevTest after making changes to cmdlets
 - **Wait for completion** - CRITICAL: Never use isBackground=true for unit tests/MCP calls, always wait for full execution (3+ minutes)
 - **Offer changelog entries** after making changes to cmdlets/scripts
 - **Commit messages** - read and empty .\change-log.md to create professional commit messages
@@ -31,7 +31,7 @@ Copy ALL parameters except those causing wrong behaviors. Remove default values 
 ## MCP Server Integration
 Add PowerShell cmdlets to `Start-GenXdevMCPServer` to make them available as MCP tools:
 - Enables AI integration and remote PowerShell execution
-- Source: `.\Modules\GenXdev.AI\1.236.2025\Functions\GenXdev.AI\Start-GenXdevMCPServer.ps1`
+- Source: `.\Modules\GenXdev.AI\1.238.2025\Functions\GenXdev.AI\Start-GenXdevMCPServer.ps1`
 - Use `[GenXdev.Helpers.ExposedCmdletDefinition]` with Name, Description, AllowedParams, JsonDepth
 - Set `Confirm: false` and `OutputText: true` for most cmdlets
 

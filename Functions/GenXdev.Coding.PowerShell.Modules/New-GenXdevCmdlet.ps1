@@ -19,7 +19,7 @@ A brief description of the cmdlet's purpose for help documentation.
 .PARAMETER Description
 A detailed description of what the cmdlet does for help documentation.
 
-.PARAMETER BaseModuleName
+.PARAMETER ModuleName
 The name of the base GenXdev module to integrate the cmdlet into.
 Must match pattern GenXdev or GenXdev.SubModule.
 
@@ -228,42 +228,16 @@ function New-GenXdevCmdlet {
             if (-not [string]::IsNullOrWhiteSpace($BaseModuleName)) {
 
                 $filePath = GenXdev.FileSystem\Expand-Path `
-                    "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.236.2025\Functions\$ModuleName\$CmdletName.ps1" `
+                    "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.238.2025\Functions\$ModuleName\$CmdletName.ps1" `
                     -DeleteExistingFile -CreateDirectory
 
                 $testFilePath = GenXdev.FileSystem\Expand-Path `
-                    "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.236.2025\Tests\$ModuleName\$CmdletName.Tests.ps1" `
+                    "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.238.2025\Tests\$ModuleName\$CmdletName.Tests.ps1" `
                     -DeleteExistingFile -CreateDirectory
 
                 @"
     ################################################################################
     Pester\Describe `"$CmdletName`" {
-
-        Pester\It `"should pass PSScriptAnalyzer rules`" {
-
-            # get the script path for analysis
-            `$scriptPath = GenXdev.FileSystem\Expand-Path `"`$PSScriptRoot\..\..\Functions\$ModuleName\$CmdletName.ps1`"
-
-            # run analyzer with explicit settings
-            `$analyzerResults = GenXdev.Coding\Invoke-GenXdevScriptAnalyzer ``
-                -Path `$scriptPath
-
-            [string] `$message = `"`"
-            `$analyzerResults | Microsoft.PowerShell.Core\ForEach-Object {
-
-                `$message = `$message + @`"
-    --------------------------------------------------
-    Rule: `$(`$_.RuleName)`
-    Description: `$(`$_.Description)
-    Message: `$(`$_.Message)
-    ``r``n
-`"@
-            }
-
-            `$analyzerResults.Count | Pester\Should -Be 0 -Because @`"
-    The following PSScriptAnalyzer rules are being violated:
-    `$message
-`"@;
 
         Pester\It `"should $Description`" {
 
@@ -313,7 +287,7 @@ process {
     }
 "@ | Microsoft.PowerShell.Utility\Out-File -FilePath $filePath
 
-                $ModuleManifestPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.236.2025\$BaseModuleName.psd1"
+                $ModuleManifestPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.238.2025\$BaseModuleName.psd1"
                 $ModuleManifest = Microsoft.PowerShell.Utility\Import-PowerShellDataFile -LiteralPath $ModuleManifestPath
                 if ($BaseModuleName -ne $ModuleName) {
 
@@ -324,8 +298,8 @@ process {
                 }
 
                 $ModuleManifest.FunctionsToExport += $CmdletName
-                $ModuleManifest.FileList += (GenXdev.FileSystem\Find-Item $filePath -RelativeBasePath (GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.236.2025\")).Substring(2)
-                $ModuleManifest.FileList += (GenXdev.FileSystem\Find-Item $testFilePath -RelativeBasePath (GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.236.2025\")).Substring(2)
+                $ModuleManifest.FileList += (GenXdev.FileSystem\Find-Item $filePath -RelativeBasePath (GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.238.2025\")).Substring(2)
+                $ModuleManifest.FileList += (GenXdev.FileSystem\Find-Item $testFilePath -RelativeBasePath (GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.238.2025\")).Substring(2)
                 $ModuleManifest.AliasesToExport += $CmdletAliases
 
                 Microsoft.PowerShell.PSResourceGet\Update-PSModuleManifest `
@@ -336,7 +310,7 @@ process {
                     -NestedModules ($ModuleManifest.NestedModules) `
                     -Author ($ModuleManifest.Author ?? 'GenXdev')
 
-                $PsmFilePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.236.2025\$ModuleName.psm1"
+                $PsmFilePath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\$BaseModuleName\1.238.2025\$ModuleName.psm1"
 
                 "`r`n. `"`$PSScriptRoot\Functions\$ModuleName\$CmdletName.ps1`"" | Microsoft.PowerShell.Utility\Out-File -FilePath $PsmFilePath -Append
             }
@@ -383,32 +357,6 @@ process {
                 @"
     ################################################################################
     Pester\Describe `"$CmdletName`" {
-
-        Pester\It `"should pass PSScriptAnalyzer rules`" {
-
-            # get the script path for analysis
-            `$scriptPath = GenXdev.FileSystem\Expand-Path `"`$PSScriptRoot\$CmdletName.ps1`"
-
-            # run analyzer with explicit settings
-            `$analyzerResults = GenXdev.Coding\Invoke-GenXdevScriptAnalyzer ``
-                -Path `$scriptPath
-
-            [string] `$message = `"`"
-            `$analyzerResults | Microsoft.PowerShell.Core\ForEach-Object {
-
-                `$message = `$message + @`"
-    --------------------------------------------------
-    Rule: `$(`$_.RuleName)`
-    Description: `$(`$_.Description)
-    Message: `$(`$_.Message)
-    ``r``n
-`"@
-            }
-
-            `$analyzerResults.Count | Pester\Should -Be 0 -Because @`"
-    The following PSScriptAnalyzer rules are being violated:
-    `$message
-`"@;
 
         Pester\It `"should $Description`" {
 

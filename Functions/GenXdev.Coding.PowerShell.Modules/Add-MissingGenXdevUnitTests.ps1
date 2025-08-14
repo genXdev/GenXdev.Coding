@@ -5,6 +5,8 @@ function Add-MissingGenXdevUnitTests {
     [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', 'Add-MissingGenXdevUnitTests')]
     param()
 
+    return;
+
     # get all cmdlets that need unit tests
     GenXdev.Helpers\Get-GenXDevCmdlets | Microsoft.PowerShell.Core\ForEach-Object {
 

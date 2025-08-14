@@ -70,9 +70,9 @@ function Get-ModuleHelpMarkdown {
             Microsoft.PowerShell.Core\Get-Module "$($name.TrimEnd('*'))*" -All |
                 # Removed unused variable $inSyntax
                 Microsoft.PowerShell.Core\ForEach-Object {
-                    $module = $PSItem
-                    $module.NestedModules | Microsoft.PowerShell.Core\ForEach-Object { $_ }
-                    $module
+                    $ModuleObj = $PSItem
+                    $ModuleObj.NestedModules | Microsoft.PowerShell.Core\ForEach-Object { $_ }
+                    $ModuleObj
                 }
             } |
                 Microsoft.PowerShell.Utility\Select-Object -Unique |

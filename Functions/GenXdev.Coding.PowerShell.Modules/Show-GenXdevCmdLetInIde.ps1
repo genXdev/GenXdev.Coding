@@ -38,7 +38,7 @@ function Show-GenXdevCmdLetInIde {
         )]
         [Alias('Filter', 'CmdLet', 'Cmd', 'FunctionName', 'Name')]
         [SupportsWildcards()]
-        [string] $CmdletName = '*',
+        [string] $CmdletName,
         ########################################################################
         [parameter(
             Mandatory = $false,
@@ -48,9 +48,10 @@ function Show-GenXdevCmdLetInIde {
             HelpMessage = 'GenXdev module names to search'
         )]
         [ValidateNotNullOrEmpty()]
-        [Alias('Module', 'ModuleName')]
+        [Alias('Module', 'BaseModuleName', 'SubModuleName')]
         [ValidatePattern('^(GenXdev|GenXde[v]\*|GenXdev(\.\w+)+)+$')]
-        [string[]] $BaseModuleName = @('GenXdev*'),
+        [SupportsWildcards()]
+        [string[]] $ModuleName,
         ########################################################################
         [Parameter(Mandatory = $false)]
         [switch] $NoLocal,

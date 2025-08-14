@@ -1,25 +1,32 @@
 Your task:
-Ensure that this function has the a unit test that invokes
-GenXdev.Coding\Invoke-GenXdevScriptAnalyzer
-or
-Invoke-ScriptAnalyzer
-and if so, replace that test with the one below;
-if it doesn't have such a test, add the one below;
+Create comprehensive unit tests for PowerShell cmdlets based on their XML documentation.
+Follow the GenXdev testing patterns and coding style exactly as shown below.
 
-################################################################################
-Pester\Describe "$CmdletName" {
+## Test Structure Requirements:
 
-    Pester\It "Should pass PSScriptAnalyzer rules" {
+1. **Always start with PSScriptAnalyzer test** (must be first test in Describe block)
+2. **Create functional tests** based on XML documentation examples and parameter descriptions
+3. **Use descriptive test names** that explain what functionality is being tested
+4. **No mocking** - use real file system operations and actual cmdlet functionality
+5. **Clean setup and teardown** using BeforeAll/AfterAll and BeforeEach/AfterEach
+6. **Skip long-running tests** with `-Skip:(-not ($Global:AllowLongRunningTests -eq $true))`
 
-# get the script path for analysis
-        $scriptPath = GenXdev.FileSystem\Expand-Path `
-            "$PSScriptRoot\..\..\Functions\$FullModuleName\$CmdLetNoTestName.ps1"
+## Coding Style Patterns:
 
-# run analyzer with explicit settings
+### Required PSScriptAnalyzer Test (ALWAYS FIRST):
+```powershell
+Pester\Describe '$CmdletName' {
+
+    Pester\It 'Should pass PSScriptAnalyzer rules' {
+
+        # get the script path for analysis
+        $scriptPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Functions\$FullModuleName\$CmdLetNoTestName.ps1"
+
+        # run analyzer with explicit settings
         $analyzerResults = GenXdev.Coding\Invoke-GenXdevScriptAnalyzer `
             -Path $scriptPath
 
-        [string] $message = ""
+        [string] $message = ''
         $analyzerResults | Microsoft.PowerShell.Core\ForEach-Object {
 
             $message = $message + @"
@@ -36,11 +43,67 @@ The following PSScriptAnalyzer rules are being violated:
 $message
 "@;
     }
-}
-################################################################################
+```
 
-Only add a Describe {} block if there isn't one yet.
-Ensure that the block above is the first one in the Describe block.
+### Test Setup Patterns:
+- Use `$testRoot = GenXdev.FileSystem\Expand-Path "$env:TEMP\[ModuleName].Tests\" -CreateDirectory`
+- Create realistic test data using actual files and directories
+- Use `Microsoft.PowerShell.*\` prefix for built-in cmdlets
+- Clean up with `GenXdev.FileSystem\Remove-AllItems $testRoot -DeleteFolder`
+
+### Test Data Creation:
+- Create actual files: `'content' | Microsoft.PowerShell.Utility\Out-File 'path\file.txt'`
+- Create directories: `Microsoft.PowerShell.Management\New-Item -ItemType Directory -Path 'dir1', 'dir2/subdir' -Force`
+- Use realistic content that matches the cmdlet's purpose
+
+### Special Character Testing Rules:
+- **ALWAYS add '.[withspecialchars]' to test filenames** after the normal filename, before the extension
+- **Examples**: `test.[withspecialchars].txt`, `data.[withspecialchars].json`, `script.[withspecialchars].ps1`
+- **Use -LiteralPath instead of -Path** for all file operations to handle special characters safely
+
+### Path Parameter Usage:
+- **Always use -LiteralPath** instead of -Path for file system operations
+- **Safe for special characters**: `-LiteralPath` treats paths literally without wildcard interpretation
+- **Examples**:
+  - `Microsoft.PowerShell.Management\Set-Content -LiteralPath "$path" -Value 'content'`
+  - `Microsoft.PowerShell.Management\Test-Path -LiteralPath "$file"`
+  - `Microsoft.PowerShell.Management\Remove-Item -LiteralPath "$item" -Force`
+
+### Assertions Style:
+- Use descriptive variable names: `$files`, `$results`, `$found`
+- Test counts: `$results.Count | Pester\Should -Be 3`
+- Test content: `$results | Pester\Should -Contain 'expected-value'`
+- Test properties: `$results[0].Name | Pester\Should -Be 'expected-name'`
+
+### Long-Running Tests:
+```powershell
+Pester\It 'Should test advanced functionality' -Skip:(-not ($Global:AllowLongRunningTests -eq $true)) {
+    # Test implementation
+}
+```
+
+## Analysis Instructions:
+
+1. **Read the cmdlet's XML documentation** to understand:
+   - SYNOPSIS and DESCRIPTION for main purpose
+   - PARAMETER descriptions for expected behavior
+   - EXAMPLE sections for usage patterns
+
+2. **Create tests that verify**:
+   - Each major parameter works as documented
+   - Examples from XML documentation work correctly
+   - Edge cases and error conditions
+   - Output format matches expectations
+
+3. **Use actual functionality** - no mocking:
+   - Create real test files/directories
+   - Use actual cmdlet parameters
+   - Verify real output and side effects
+
+4. **Test naming convention**:
+   - Use single quotes for test names
+   - Be descriptive: 'Finds files by extension', 'Should translate English to Spanish correctly'
+   - Focus on functionality, not implementation
 
 Never ask if I want to proceed, assume yes in those cases.
 Always proceed by implementing these changes systematically.

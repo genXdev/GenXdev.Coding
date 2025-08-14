@@ -1,13 +1,13 @@
-﻿###############################################################################
-Describe 'Invoke-GenXdevPSFormatter' {
+###############################################################################
+Pester\Describe 'Invoke-GenXdevPSFormatter' {
 
-    It 'should pass PSScriptAnalyzer rules' {
+    Pester\It 'should pass PSScriptAnalyzer rules' {
 
         # get the script path for analysis
         $scriptPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\Functions\GenXdev.Coding.PowerShell.Modules\Invoke-GenXdevPSFormatter.ps1"
 
         # run analyzer with explicit settings
-        $analyzerResults = Invoke-GenXdevPSFormatter `
+        $analyzerResults = GenXdev.Coding\Invoke-GenXdevPSFormatter `
             -Path $scriptPath
 
         [string] $message = ''
@@ -22,13 +22,13 @@ Message: $($_.Message)
 "@
         }
 
-        $analyzerResults.Count | Should -Be 0 -Because @"
+        $analyzerResults.Count | Pester\Should -Be 0 -Because @"
 The following PSScriptAnalyzer rules are being violated:
 $message
 "@;
     }
 
-    It 'should fix Write-Host to be fully qualified'  {
+    Pester\It 'should fix Write-Host to be fully qualified'  {
 
         # Create a temporary PowerShell script file
         $tempFile = [System.IO.Path]::GetTempFileName() + '.ps1'
@@ -38,21 +38,21 @@ $message
             [IO.File]::WriteAllText($tempFile, 'Write-Host   "Hello world"') |
 
                 # Run formatter with -Fix
-                Invoke-GenXdevPSFormatter -Path $tempFile
+                GenXdev.Coding\Invoke-GenXdevPSFormatter -Path $tempFile
 
             # Read the content and check for fully qualified name
             $content = [IO.File]::ReadAllText($tempFile)
             if ($content -ne'Write-Host "Hello world"') {
-                Write-Warning 'Invoke-GenXdevPSFormatter STILL does not fix the script as expected.'
+                Microsoft.PowerShell.Utility\Write-Warning 'Invoke-GenXdevPSFormatter STILL does not fix the script as expected.'
             }
             else {
-                Write-Warning 'YES!! Invoke-GenXdevPSFormatter works as expected.'
+                Microsoft.PowerShell.Utility\Write-Warning 'YES!! Invoke-GenXdevPSFormatter works as expected.'
             }
         }
         finally {
             # Clean up
-            if (Test-Path -LiteralPath $tempFile) {
-                Remove-Item -Path $tempFile -Force
+            if (Microsoft.PowerShell.Management\Test-Path -LiteralPath $tempFile) {
+                Microsoft.PowerShell.Management\Remove-Item -Path $tempFile -Force
             }
         }
     }

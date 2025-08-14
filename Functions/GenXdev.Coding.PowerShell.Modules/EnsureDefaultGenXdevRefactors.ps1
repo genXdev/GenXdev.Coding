@@ -1,68 +1,41 @@
 function EnsureDefaultGenXdevRefactors {
 
-  <#
+    [cmdletbinding()]
+    param
+    (
+        [switch] $Force
+    )
 
-    New-Refactor `
-        -Name <String> `
-        -PromptKey <String> `
-        -Prompt <String> `
-        -SelectionScript <String> `
-        -SelectionPrompt <String> `
-        -LLMQueryType <String> `
-        -Priority <Int32> `
-        -FilesToAdd <FileInfo[]> `
-        -AutoAddModifiedFiles `
-        -Force `
-        -Code
+    $depricated = @("MissingDocumentation", "OnlyDocumentation", "TooManyParameters")
+    foreach ($name in $depricated) {
+        $obj = GenXdev.Coding\Get-Refactor -Name $name -ErrorAction SilentlyContinue;
+        if ($null -ne $obj) {
 
-    New-Refactor `
-        -Name "OnlyDocumentation" `
-        -PromptKey "OnlyDocumentation" `
-        -SelectionScript "@(@(l .\modules\genx*\**\functions\*.ps1 -pt) + @(l .\scripts\*.ps1 -pt))" `
-        -SelectionPrompt "" `
-        -LLMQueryType "" `
-        -Priority 0 `
-        -FilesToAdd @()
+            $null = GenXdev.Coding\Remove-Refactor -Name $obj.Name
+        }
+    }
 
-  #>
+    # DocumentationAndFormatting
+    $obj = GenXdev.Coding\Get-Refactor -Name "DocumentationAndFormatting" -ErrorAction SilentlyContinue;
 
-    # OnlyDocumentation
-    GenXdev.Coding\Remove-Refactor "OnlyDocumentation" -ErrorAction SilentlyContinue
-    $rootPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\..\"
-    if (-not (GenXdev.Coding\Get-Refactor -Name "OnlyDocumentation" -ErrorAction SilentlyContinue)) {
+    if ($Force -and ($null -ne $obj)) {
+
+        $null = GenXdev.Coding\Remove-Refactor -Name $obj.Name
+        $obj = $null
+    }
+
+    if (-not $obj) {
 
         # Create a refactor definition for recently modified files
         # This refactor will only include files that have been modified in the last 7 days
         # and will not prompt the user for any input.
         $null = GenXdev.Coding\New-Refactor `
-            -Name "OnlyDocumentation" `
+            -Name "DocumentationAndFormatting" `
             -PromptKey "OnlyDocumentation" `
-            -SelectionScript "`$n = now; @(@(GenXdev.FileSystem\Find-Item '$rootPath\modules\genx*\**\functions\*.ps1' -pt) + @(l '$rootPath\scripts\*.ps1' -pt)) | where-object { (`$n - `$_.LastWriteTime).TotalDays -lt 7 } | Microsoft.PowerShell.Utility\sort-object -property LastWriteTime" `
+            -SelectionScript "Get-GenXDevCmdlets | Microsoft.PowerShell.Core\Where-Object { [string]::IsNullOrWhitespace(`$_.Description) } | Microsoft.PowerShell.Core\ForEach-Object { if (-not (GenXdev.FileSystem\Find-Item -NoRecurse (`$_.ScriptFilePath) `"\.DESCRIPTION`" -PassThru)) { Microsoft.PowerShell.Management\Get-ChildItem -LiteralPath (GenXdev.FileSystem\Expand-Path `$_.ScriptFilePath) -ErrorAction SilentlyContinue } } | Microsoft.PowerShell.Utility\Sort-Object -property LastWriteTime" `
             -AutoAddModifiedFiles `
-            -Priority 0 `
-            -FilesToAdd @(@(@(GenXdev.FileSystem\Find-Item "$rootPath\modules\genx*\**\functions\*.ps1" -pt) + @(GenXdev.FileSystem\Find-Item "$rootPath\scripts\*.ps1" -pt)) | Microsoft.PowerShell.Utility\sort-object -property LastWriteTime -Descending)
-
-        GenXdev.Coding\Get-Refactor -Name "OnlyDocumentation"
+            -Priority 0
     }
 
-    # TooManyParameters
-    $minAmountByDefault = 12;
-    $tooMany = 8 + $minAmountByDefault
-    GenXdev.Coding\Remove-Refactor "TooManyParameters" -ErrorAction SilentlyContinue
-    $rootPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\..\"
-    if (-not (GenXdev.Coding\Get-Refactor -Name "TooManyParameters" -ErrorAction SilentlyContinue)) {
-
-        # Create a refactor definition for recently modified files
-        # This refactor will only include files that have been modified in the last 7 days
-        # and will not prompt the user for any input.
-        $null = GenXdev.Coding\New-Refactor `
-            -Name "TooManyParameters" `
-            -PromptKey "TooManyParameters" `
-            -SelectionScript "`GenXdev.Helpers\Get-GenXDevCmdlets | Microsoft.PowerShell.Core\ForEach-Object { try { `$ci = Microsoft.PowerShell.Core\Get-Command -Name `$_.Name; if (`$ci.Parameters.Count -ge $tooMany) { Microsoft.PowerShell.Management\Get-ChildItem -LiteralPath (`$_.ScriptFilePath) } } catch {} } | Microsoft.PowerShell.Utility\sort-object -property LastWriteTime" `
-            -AutoAddModifiedFiles `
-            -Priority 0 `
-            -FilesToAdd @(GenXdev.Helpers\Get-GenXDevCmdlets | Microsoft.PowerShell.Core\ForEach-Object { try { $ci = Microsoft.PowerShell.Core\Get-Command -Name $_.Name; if ($ci.Parameters.Count -ge $tooMany) { Microsoft.PowerShell.Management\Get-ChildItem -LiteralPath ($_.ScriptFilePath) } } catch {} })
-
-        GenXdev.Coding\Get-Refactor -Name "TooManyParameters"
-    }
+    GenXdev.Coding\Get-Refactor
 }

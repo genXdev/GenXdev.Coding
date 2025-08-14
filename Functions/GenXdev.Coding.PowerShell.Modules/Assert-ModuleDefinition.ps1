@@ -198,7 +198,7 @@ function Assert-ModuleDefinition {
         Microsoft.PowerShell.Utility\Write-Verbose 'Opening file in IDE for refactoring'
 
         # process each module file
-        . GenXdev.Helpers\Invoke-OnEachGenXdevModule -BaseModuleName $ModuleName `
+        . GenXdev.Helpers\Invoke-OnEachGenXdevModule -ModuleName $ModuleName `
             -Script {
 
             $files = @(

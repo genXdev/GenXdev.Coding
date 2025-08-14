@@ -1,4 +1,4 @@
-﻿###############################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Executes unit tests for specified PowerShell modules and cmdlets with detailed
@@ -13,13 +13,13 @@ returned as objects for pipeline processing.
 The script supports filtering by module name or specific cmdlet, handling of
 local vs published modules, and various output formatting options.
 
-.PARAMETER BaseModuleName
+.PARAMETER ModuleName
 Target modules to test. Accepts wildcards and multiple module names.
 Default value: "GenXdev*"
 
 .PARAMETER ModuleFilter
 Optional filter to exclude certain modules from testing.
-
+§
 .PARAMETER CmdletName
 Name of specific cmdlet to test. Limits testing scope to just this cmdlet.
 
@@ -50,13 +50,13 @@ When specified, enables interactive debugging of failed tests with retry option.
 When specified, returns test result objects instead of formatted console output.
 
 .EXAMPLE
-Assert-GenXdevUnitTest -BaseModuleName "MyModule" -Verbosity Detailed `
+Assert-GenXdevTest -ModuleName "MyModule" -Verbosity Detailed `
     -StackTraceVerbosity Full -DebugFailedTests
 
 .EXAMPLE
-Assert-GenXdevUnitTest "MyModule*" -NoLocal -OnlyPublished
+Assert-GenXdevTest "MyModule*" -NoLocal -OnlyPublished
 ###############################################################################>
-function Assert-GenXdevUnitTest {
+function Assert-GenXdevTest {
 
     [CmdletBinding(DefaultParameterSetName = 'Default')]
     [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '')]
@@ -72,14 +72,18 @@ function Assert-GenXdevUnitTest {
             HelpMessage = 'Filter to apply to module names'
         )]
         [ValidateNotNullOrEmpty()]
-        [Alias('Module', 'ModuleName')]
+        [Alias('Module', 'BaseModuleName', 'SubModuleName')]
         [ValidatePattern('^(GenXdev|GenXde[v]\*|GenXdev(\.\w+)+)+$')]
-        [string[]] $BaseModuleName = @('GenXdev*'),
+        [SupportsWildcards()]
+        [string[]] $ModuleName,
         #
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Filter for selecting modules'
         )]
+        [ValidateNotNullOrEmpty()]
+        [ValidatePattern('^(GenXdev|GenXde[v]\*|GenXdev(\.\w+)+)+$')]
+        [SupportsWildcards()]
         [string[]]$ModuleFilter = $null,
         #
         [Parameter(
@@ -87,6 +91,7 @@ function Assert-GenXdevUnitTest {
             HelpMessage = 'Filter for select cmdlets'
         )]
         [Alias('Filter', 'CmdLet', 'Cmd', 'FunctionName', 'Name')]
+        [ValidateNotNullOrEmpty()]
         [string] $CmdletName,
         #
         [Parameter(
@@ -350,11 +355,11 @@ function Assert-GenXdevUnitTest {
 
                                         $params = GenXdev.Helpers\Copy-IdenticalParamValues `
                                              -BoundParameters $PSBoundParameters `
-                                             -FunctionName "GenXdev.Coding\Assert-GenXdevUnitTest" `
+                                             -FunctionName "GenXdev.Coding\Assert-GenXdevTest" `
                                              -DefaultValues @(Microsoft.PowerShell.Utility\Get-Variable -Scope Local -ErrorAction SilentlyContinue)
 
-                                        if ($params.ContainsKey("BaseModuleName")) {
-                                            $null = $params.Remove("BaseModuleName");
+                                        if ($params.ContainsKey("ModuleName")) {
+                                            $null = $params.Remove("ModuleName");
                                         }
 
                                         if ($params.ContainsKey("Module")) {
@@ -369,7 +374,7 @@ function Assert-GenXdevUnitTest {
                                             $null = $params.Remove("ModuleName");
                                         }
 
-                                        GenXdev.Coding\Assert-GenXdevCmdletTests @params -CmdletName $nextFailedCommand -ContinuationHandled
+                                        GenXdev.Coding\Assert-GenXdevCmdletTests @params -CmdletName $nextFailedCommand
                                      }
                                 }
                             }

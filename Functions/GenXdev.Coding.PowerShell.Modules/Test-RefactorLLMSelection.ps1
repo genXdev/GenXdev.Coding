@@ -70,7 +70,7 @@ function Test-RefactorLLMSelection {
         # prepare the llm query parameters by matching available parameters
         $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
             -BoundParameters ($RefactorDefinition.SelectionSettings.LLM | GenXdev.Helpers\ConvertTo-HashTable) `
-            -FunctionName 'GenXdev.AI\Invoke-LLMQuery' `
+            -FunctionName 'GenXdev.AI\Invoke-LLMBooleanEvaluation' `
             -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * `
                 -ErrorAction SilentlyContinue)
 
@@ -80,8 +80,7 @@ You are a helpfull assistant, the user wants your help to find a true or false a
 The answer is wheter to select the source code file provided for refactoring.
 The user will provide the criteria for the selection.
 Your job is to judge the source code file based on the criteria
-and return the answer as a boolean value wrapped as a json string.
-so only output either "true" or "false", nothing else.
+and return the answer as a boolean value.
 
 The source code file's content will now follow:
 
@@ -89,15 +88,12 @@ $([System.IO.File]::ReadAllText($Path))
 "@
 
         # configure the remaining required llm query parameters
-        $invocationParams.Query = $prompt
-        $invocationParams.ChatMode = 'none'
-        $invocationParams.ChatOnce = $false
-        $invocationParams.IncludeThoughts = $false
+        $invocationParams.Text = $prompt
 
         Microsoft.PowerShell.Utility\Write-Verbose 'Invoking LLM analysis with selection criteria'
 
         # execute the llm query and convert response to boolean
-        return ("$((GenXdev.AI\Invoke-LLMQuery @invocationParams -ErrorAction SilentlyContinue -TTLSeconds 120 -Verbose:$false | Microsoft.PowerShell.Utility\Out-String))".ToLowerInvariant().Contains('true'))
+        return (GenXdev.AI\Invoke-LLMBooleanEvaluation @invocationParams -ErrorAction SilentlyContinue -TTLSeconds 120 -LLMQueryType Coding)
     }
 
     end {
