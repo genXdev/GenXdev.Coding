@@ -250,23 +250,29 @@ function Open-SourceFileInIde {
                 0 {
                     # user chose VS Code
                     $isCode = $true
-
                     $isVisualStudio = $false
 
-                    # common VS Code installation locations
-                    $locations = (
-                        "${Env:AppData}\Local\Programs\Microsoft VS Code\Code.exe",
-                        "${Env:ProgramFiles}\Microsoft VS Code\Code.exe"
-                    )
+                    # determine default IDE path based on host process availability
+                    [System.Diagnostics.Process] $hostProcess = `
+                        GenXdev.Windows\Get-PowershellMainWindowProcess
+                    $normalPath = Microsoft.PowerShell.Management\Join-Path `
+                        $env:LOCALAPPDATA 'Programs\Microsoft VS Code\Code.exe'
+                    $normalPath2 = Microsoft.PowerShell.Management\Join-Path `
+                        $env:ProgramFiles 'Microsoft VS Code\Code.exe'
+                    $previewPath = Microsoft.PowerShell.Management\Join-Path `
+                        $env:LOCALAPPDATA `
+                        'Programs\Microsoft VS Code Insiders\Code - Insiders.exe'
+                    $previewPath2 = Microsoft.PowerShell.Management\Join-Path `
+                        $env:ProgramFiles `
+                        '\Microsoft VS Code Insiders\Code - Insiders.exe'
 
-                    # find the VS Code executable
-                    $idePath = Microsoft.PowerShell.Management\Get-ChildItem `
-                        -LiteralPath $locations `
-                        -File `
-                        -Recurse `
-                        -ErrorAction SilentlyContinue |
-                        Microsoft.PowerShell.Core\ForEach-Object { "$($_.FullName)" } |
-                        Microsoft.PowerShell.Utility\Select-Object -First 1
+                    $idePath = ((($null -eq $hostProcess) -or `
+                            ($hostProcess -like '*Terminal*')) ? (
+                            ([IO.File]::Exists($previewPath) ? $previewPath : (
+                                ([IO.File]::Exists($previewPath2) ? $previewPath2 : (
+                                    ([IO.File]::Exists($normalPath) ? $normalPath : (
+                                        ([IO.File]::Exists($normalPath2) ? $normalPath2 : 'code')))))))) : `
+                            $hostProcess.Path)
 
                     # output verbose message about selected VS Code path
                     Microsoft.PowerShell.Utility\Write-Verbose (

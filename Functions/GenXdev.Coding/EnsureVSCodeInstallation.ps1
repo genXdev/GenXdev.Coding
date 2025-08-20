@@ -34,20 +34,25 @@ function EnsureVSCodeInstallation {
         [System.Diagnostics.Process] $hostProcess = `
             GenXdev.Windows\Get-PowershellMainWindowProcess
 
-        # determine default ide path based on host process availability
+        # determine default IDE path based on host process availability
         $normalPath = Microsoft.PowerShell.Management\Join-Path `
+            $env:LOCALAPPDATA 'Programs\Microsoft VS Code\Code.exe'
+        $normalPath2 = Microsoft.PowerShell.Management\Join-Path `
             $env:ProgramFiles 'Microsoft VS Code\Code.exe'
-
         $previewPath = Microsoft.PowerShell.Management\Join-Path `
             $env:LOCALAPPDATA `
             'Programs\Microsoft VS Code Insiders\Code - Insiders.exe'
+        $previewPath2 = Microsoft.PowerShell.Management\Join-Path `
+            $env:ProgramFiles `
+            '\Microsoft VS Code Insiders\Code - Insiders.exe'
 
-        # select appropriate ide path based on availability and host process
         $idePath = ((($null -eq $hostProcess) -or `
-            ($hostProcess -like '*Terminal*')) ? (
-            ([IO.File]::Exists($previewPath) ? $previewPath : (
-            ([IO.File]::Exists($normalPath) ? $normalPath : 'code')))) : `
-            $hostProcess.Path)
+                ($hostProcess -like '*Terminal*')) ? (
+                ([IO.File]::Exists($previewPath) ? $previewPath : (
+                    ([IO.File]::Exists($previewPath2) ? $previewPath2 : (
+                        ([IO.File]::Exists($normalPath) ? $normalPath : (
+                            ([IO.File]::Exists($normalPath2) ? $normalPath2 : 'code')))))))) : `
+                $hostProcess.Path)
 
         # check if vscode executable is available in path
         $vSCodeMissing = $idePath -eq 'code'
