@@ -135,7 +135,7 @@ function SplitUpPsm1File {
     end {
         # update the module file to dot-source all function files
         Microsoft.PowerShell.Utility\Write-Verbose 'Updating module file to dot-source function files'
-@"
+        @"
 if (-not `$IsWindows) {
     throw "This module only supports Windows 10+ x64 with PowerShell 7.5+ x64"
 }
@@ -147,6 +147,7 @@ if (-not `$IsWindows) {
 if (`$major -ne 10) {
     throw "This module only supports Windows 10+ x64 with PowerShell 7.5+ x64"
 }
+
 $PSItem
 
 "@  | Microsoft.PowerShell.Utility\Out-File $psm1FilePath -Force
@@ -154,7 +155,7 @@ $PSItem
         Microsoft.PowerShell.Management\Get-ChildItem -LiteralPath "$functionsDir" -Filter "*.ps1" -File -Recurse `
             -ErrorAction SilentlyContinue |
             Microsoft.PowerShell.Core\ForEach-Object {
-                if ($PSItem.Name.StartsWith('_')) {
+                if ($PSItem.Name.StartsWith('_') -and ($PSItem.Name -ne '_EnsureTypes.ps1')) {
                     return;
                 }
                 $dirName = [IO.Path]::GetFileName([IO.Path]::GetDirectoryName($_))

@@ -31,7 +31,6 @@
         'PSUseCompatibleCmdlets',
         'PSUseConsistentIndentation',
         'PSUseConsistentWhitespace',
-        'PSUseCorrectCasing',
         'PSUseDeclaredVarsMoreThanAssignments',
         'PSUseLiteralInitializerForHashtable',
         'PSUseOutputTypeCorrectly',
@@ -44,6 +43,7 @@
         'PSUseUsingScopeModifierInNewRunspaces'
     )
     ExcludeRules          = @(
+        'PSUseCorrectCasing',
         'PSUseCompatibleCommands',
         'PSAlignAssignmentStatement',
         'PSAvoidUsingEmptyCatchBlock',
@@ -78,7 +78,7 @@
     IncludeDefaultRules   = $true
     RecurseCustomRulePath = $false
     CustomRulePath        = @(
-        # "~\Documents\PowerShell\Modules\GenXdev.Coding\1.246.2025\Functions\GenXdev.Coding.PowerShell.Modules\Measure-UseFullyQualifiedCmdletNames.psm1"
-        "~\Documents\PowerShell\Modules\GenXdev.Coding\1.246.2025\Assets\Modules\PSScriptAnalyzer\1.24.0\PSv7\GenXdev.Coding.PowerShell.Modules.ScriptAnalyzer.dll"
+        # "~\Documents\PowerShell\Modules\GenXdev.Coding\1.248.2025\Functions\GenXdev.Coding.PowerShell.Modules\Measure-UseFullyQualifiedCmdletNames.psm1"
+        "~\Documents\PowerShell\Modules\GenXdev.Coding\1.248.2025\Assets\Modules\PSScriptAnalyzer\1.24.0\PSv7\GenXdev.Coding.PowerShell.Modules.ScriptAnalyzer.dll"
     )
 }

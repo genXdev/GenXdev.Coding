@@ -12,7 +12,7 @@
 RootModule = 'GenXdev.Coding.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.246.2025'
+ModuleVersion = '1.248.2025'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Core'
@@ -51,7 +51,7 @@ ClrVersion = '9.0.0.1'
 ProcessorArchitecture = 'Amd64'
 
 # Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @(@{ModuleName = 'GenXdev.AI'; ModuleVersion = '1.246.2025'; })
+RequiredModules = @(@{ModuleName = 'GenXdev.AI'; ModuleVersion = '1.248.2025'; })
 
 # Assemblies that must be loaded prior to importing this module
 # RequiredAssemblies = @()
@@ -200,10 +200,10 @@ FileList = 'GenXdev.Coding.Git.psm1', 'GenXdev.Coding.PowerShell.Modules.psm1',
                'Assets\powershell.jpg.asset.txt', 'Assets\README.md.asset.txt', 
                'Assets\Modules\PSScriptAnalyzer\1.24.0\GenXdev.Coding.PowerShell.Modules.ScriptAnalyzer.dll', 
                'Assets\Modules\PSScriptAnalyzer\1.24.0\PSv7\GenXdev.Coding.PowerShell.Modules.ScriptAnalyzer.dll', 
-               'Assets\Modules\GenXdev.Local\1.246.2025\GenXdev.Local.psd1.asset.txt', 
-               'Assets\Modules\GenXdev.Local\1.246.2025\GenXdev.Local.psm1.asset.txt', 
-               'Assets\Modules\GenXdev.Local\1.246.2025\powershell.jpg.asset.txt', 
-               'Assets\Modules\GenXdev.Local\1.246.2025\README.md.asset.txt', 
+               'Assets\Modules\GenXdev.Local\1.248.2025\GenXdev.Local.psd1.asset.txt', 
+               'Assets\Modules\GenXdev.Local\1.248.2025\GenXdev.Local.psm1.asset.txt', 
+               'Assets\Modules\GenXdev.Local\1.248.2025\powershell.jpg.asset.txt', 
+               'Assets\Modules\GenXdev.Local\1.248.2025\README.md.asset.txt', 
                'Assets\.vscode\extensions.json.asset.txt', 
                'Assets\.vscode\launch.json.asset.txt', 
                'Assets\.vscode\mcp.json.asset.txt', 

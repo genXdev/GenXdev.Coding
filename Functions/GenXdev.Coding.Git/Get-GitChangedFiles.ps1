@@ -13,7 +13,7 @@ function Get-GitChangedFiles {
 
     .EXAMPLE
         Get-GitChangedFile
-        Returns relative paths like ".\Modules\GenXdev.AI\1.246.2025\README.md"
+        Returns relative paths like ".\Modules\GenXdev.AI\1.248.2025\README.md"
 
     .EXAMPLE
         Get-GitChangedFile -PassThru

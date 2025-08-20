@@ -166,16 +166,12 @@ function Open-SourceFileInIde {
             '\Microsoft VS Code Insiders\Code - Insiders.exe'
 
         $idePath = ((($null -eq $hostProcess) -or `
-                ($hostProcess -notlike '*Terminal*')) ? (
-                [IO.File]::Exists($previewPath) ? $previewPath : (
-                    [IO.File]::Exists($previewPath2) ? $previewPath2 : (
-                       [IO.File]::Exists($normalPath) ? $normalPath : (
-                        [IO.File]::Exists($normalPath2) ? $normalPath2 :
-                        'code'
-                       )
-                    )
-                )
-            ) : $hostProcess.Path)
+                ($hostProcess -like '*Terminal*')) ? (
+                ([IO.File]::Exists($previewPath) ? $previewPath : (
+                    ([IO.File]::Exists($previewPath2) ? $previewPath2 : (
+                        ([IO.File]::Exists($normalPath) ? $normalPath : (
+                            ([IO.File]::Exists($normalPath2) ? $normalPath2 : 'code')))))))) : `
+                $hostProcess.Path)
 
         # output verbose message about initial host process path
         Microsoft.PowerShell.Utility\Write-Verbose (
@@ -204,7 +200,7 @@ function Open-SourceFileInIde {
 
             # update path if VS Code process was found
             $idePath = ((($null -eq $hostProcess) -or `
-                    ($hostProcess -notlike '*Terminal*')) ?
+                    ($hostProcess -like '*Terminal*')) ?
                 $idePath : $hostProcess.Path)
 
             $isCode = $null -ne $hostProcess
@@ -223,7 +219,7 @@ function Open-SourceFileInIde {
 
             # update path if Visual Studio process was found
             $idePath = ((($null -eq $hostProcess) -or `
-                    ($hostProcess -notlike '*Terminal*')) ?
+                    ($hostProcess -like '*Terminal*')) ?
                 $idePath : $hostProcess.Path)
 
             $isVisualStudio = $null -ne $hostProcess
@@ -240,7 +236,7 @@ function Open-SourceFileInIde {
             # use previously chosen IDE or prompt user to select one
             $userAnswer = (($null -ne $Global:_CodeOrVisualStudioRefactor ?
                     $Global:_CodeOrVisualStudioRefactor :
-                ($host.ui.PromptForChoice(
+                    ($host.ui.PromptForChoice(
                         'Make a choice',
                         'What ide to use for refactoring?',
                         @('Visual Studio &Code', '&Visual Studio'),

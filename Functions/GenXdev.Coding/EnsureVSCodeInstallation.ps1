@@ -44,9 +44,9 @@ function EnsureVSCodeInstallation {
 
         # select appropriate ide path based on availability and host process
         $idePath = ((($null -eq $hostProcess) -or `
-            ($hostProcess -notlike '*Terminal*')) ? `
-            ([IO.File]::Exists($previewPath) ? $previewPath : `
-            ([IO.File]::Exists($normalPath) ? $normalPath : 'code')) : `
+            ($hostProcess -like '*Terminal*')) ? (
+            ([IO.File]::Exists($previewPath) ? $previewPath : (
+            ([IO.File]::Exists($normalPath) ? $normalPath : 'code')))) : `
             $hostProcess.Path)
 
         # check if vscode executable is available in path
