@@ -50,8 +50,8 @@ function Complete-GenXDevREADME {
         # retrieve module information for target modules
         $modules = @(GenXdev.Coding\Get-GenXDevModuleInfo -ModuleName (
 
-            GenXdev.Helpers\Get-GenXDevCmdlet -OnlyReturnModuleNames -ModuleName:$ModuleName
-        )) + @(GenXdev.Coding\Get-GenXDevModuleInfo -ModuleName 'GenXdev')
+                GenXdev.Helpers\Get-GenXDevCmdlet -OnlyReturnModuleNames -ModuleName:$ModuleName
+            )) + @(GenXdev.Coding\Get-GenXDevModuleInfo -ModuleName 'GenXdev')
     }
 
     process {
@@ -116,48 +116,48 @@ function Complete-GenXDevREADME {
                     Microsoft.PowerShell.Utility\Sort-Object -Property ModuleName |
                     Microsoft.PowerShell.Core\ForEach-Object {
 
-                    $moduleName = $_.ModuleName
+                        $moduleName = $_.ModuleName
 
-                    # extract description dynamically from module's README
-                    $moduleReadmeFilePath = [System.IO.Path]::Combine(
-                        $_.ModulePath,
-                        'README.md')
+                        # extract description dynamically from module's README
+                        $moduleReadmeFilePath = [System.IO.Path]::Combine(
+                            $_.ModulePath,
+                            'README.md')
 
-                    $moduleContent = [IO.File]::ReadAllText($moduleReadmeFilePath)
+                        $moduleContent = [IO.File]::ReadAllText($moduleReadmeFilePath)
 
-                    $synopsisPattern = (
-                        '### SYNOPSIS\s*\r?\n\s*(.+?)(?=\r?\n\[|\r?\n###|\r?\n##|\r?\n\s*$)')
+                        $synopsisPattern = (
+                            '### SYNOPSIS\s*\r?\n\s*(.+?)(?=\r?\n\[|\r?\n###|\r?\n##|\r?\n\s*$)')
 
-                    $description = if ($moduleContent -match $synopsisPattern) {
+                        $description = if ($moduleContent -match $synopsisPattern) {
 
-                        $matches[1].Trim()
+                            $matches[1].Trim()
+                        }
+                        else {
+
+                            ("A Windows PowerShell module for " +
+                            "$($moduleName.Replace('GenXdev.', '').ToLower()) operations")
+                        }
+
+                        $descriptionText = if ([String]::IsNullOrWhiteSpace($description)) {
+
+                            '&nbsp;'
+                        }
+                        else {
+
+                            $description
+                        }
+
+                        # create internal anchor for linking to module section below
+                        # GitHub removes dots and converts to lowercase for anchor IDs
+                        $anchorName = $moduleName.ToLowerInvariant().Replace('.', '')
+
+                        # extract base module name for GitHub URL (e.g., GenXdev.AI)
+                        $baseModuleName = $moduleName.Split('.')[0..1] -join '.'
+                        $githubRepoUrl = "https://github.com/genXdev/$baseModuleName"
+
+                        $null = $newHelp.AppendLine(
+                            "| [${moduleName}](#${anchorName}) | $descriptionText | [📁 $baseModuleName]($githubRepoUrl) |")
                     }
-                    else {
-
-                        ("PowerShell module for " +
-                         "$($moduleName.Replace('GenXdev.', '').ToLower()) operations")
-                    }
-
-                    $descriptionText = if ([String]::IsNullOrWhiteSpace($description)) {
-
-                        '&nbsp;'
-                    }
-                    else {
-
-                        $description
-                    }
-
-                    # create internal anchor for linking to module section below
-                    # GitHub removes dots and converts to lowercase for anchor IDs
-                    $anchorName = $moduleName.ToLowerInvariant().Replace('.', '')
-
-                    # extract base module name for GitHub URL (e.g., GenXdev.AI)
-                    $baseModuleName = $moduleName.Split('.')[0..1] -join '.'
-                    $githubRepoUrl = "https://github.com/genXdev/$baseModuleName"
-
-                    $null = $newHelp.AppendLine(
-                        "| [${moduleName}](#${anchorName}) | $descriptionText | [📁 $baseModuleName]($githubRepoUrl) |")
-                }
 
                 $null = $newHelp.AppendLine()
 
@@ -168,91 +168,95 @@ function Complete-GenXDevREADME {
                 # add individual module sections with cmdlet indexes linking to GitHub repos
                 GenXdev.Helpers\Invoke-OnEachGenXdevModule `
                     -OnlyPublished `
-                    -ModuleName GenXdev.*  {
+                    -ModuleName GenXdev.* {
 
                     param($moduleObj2, $isScriptsFolder, $isSubModule, $subModuleName)
 
                     @{
-                        ModuleObj2 = $moduleObj2
+                        ModuleObj2    = $moduleObj2
                         SubModuleName = $subModuleName
                     }
                 } |
                     Microsoft.PowerShell.Utility\Sort-Object -Property SubModuleName |
                     Microsoft.PowerShell.Core\ForEach-Object {
 
-                    $moduleObj2 = $_.ModuleObj2
+                        $moduleObj2 = $_.ModuleObj2
 
-                    $subModuleName = $_.SubModuleName
+                        $subModuleName = $_.SubModuleName
 
-                    $modulePath = GenXdev.FileSystem\Expand-Path (
-                        "$($moduleObj2.FullName)\1.242.2025")
+                        $modulePath = GenXdev.FileSystem\Expand-Path (
+                            "$($moduleObj2.FullName)\1.242.2025")
 
-                    $moduleReadmeFilePath = [System.IO.Path]::Combine(
-                        $modulePath,
-                        'README.md')
+                        $moduleReadmeFilePath = [System.IO.Path]::Combine(
+                            $modulePath,
+                            'README.md')
 
-                    if ([System.IO.File]::Exists($moduleReadmeFilePath)) {
+                        if ([System.IO.File]::Exists($moduleReadmeFilePath)) {
 
-                        $moduleContent = [IO.File]::ReadAllText($moduleReadmeFilePath)
+                            $moduleContent = [IO.File]::ReadAllText($moduleReadmeFilePath)
 
-                        # extract base module name for GitHub URL
-                        $baseModuleName = $subModuleName.Split('.')[0..1] -join '.'
+                            # extract base module name for GitHub URL
+                            $baseModuleName = $subModuleName.Split('.')[0..1] -join '.'
 
-                        # add module header - Markdown will automatically create anchor from header text
-                        $null = $newHelp.AppendLine("## $subModuleName")
-                        $null = $newHelp.AppendLine()
+                            # add module header - Markdown will automatically create anchor from header text
+                            $null = $newHelp.AppendLine("## $subModuleName")
+                            $null = $newHelp.AppendLine()
 
-                        # extract synopsis from module README
-                        $synopsisPattern = '### SYNOPSIS\s*\r?\n\s*(.+?)(?=\r?\n\[|\r?\n###|\r?\n##|\r?\n\s*$)'
-                        $synopsis = if ($moduleContent -match $synopsisPattern) {
-                            $matches[1].Trim()
-                        } else {
-                            "PowerShell module for $($subModuleName.Replace('GenXdev.', '').ToLower()) operations"
-                        }
-
-                        $null = $newHelp.AppendLine("**$synopsis**")
-                        $null = $newHelp.AppendLine()
-
-                        # generate cmdlet index with GitHub links
-                        $null = $newHelp.AppendLine("### Cmdlet Index")
-                        $null = $newHelp.AppendLine()
-                        $null = $newHelp.AppendLine("| Command | Aliases | Description |")
-                        $null = $newHelp.AppendLine("| :--- | :--- | :--- |")
-
-                        # get cmdlets for this module
-                        GenXdev.Helpers\Get-GenXDevCmdlet -ModuleName @($subModuleName) |
-                            Microsoft.PowerShell.Utility\Sort-Object -Property Name |
-                            Microsoft.PowerShell.Core\ForEach-Object -ErrorAction SilentlyContinue {
-
-                            $cmdletName = $_.Name
-                            $desc = ("$($_.Description)" -Replace "[\r\n\t|]*", '').Trim()
-                            $anchor = $cmdletName.ToLower().Replace(' ', '-').Replace('.', '').Replace('_', '')
-
-                            # create GitHub raw URL for cmdlet documentation
-                            $githubUrl = "https://github.com/genXdev/$baseModuleName/blob/main/README.md#$anchor"
-
-                            $aliasText = if ([String]::IsNullOrWhiteSpace($_.Aliases)) {
-                                "&nbsp;"
-                            } else {
-                                $_.Aliases
+                            # extract synopsis from module README
+                            $synopsisPattern = '### SYNOPSIS\s*\r?\n\s*(.+?)(?=\r?\n\[|\r?\n###|\r?\n##|\r?\n\s*$)'
+                            $synopsis = if ($moduleContent -match $synopsisPattern) {
+                                $matches[1].Trim()
+                            }
+                            else {
+                                "A Windows PowerShell module for $($subModuleName.Replace('GenXdev.', '').ToLower()) operations"
                             }
 
-                            $descText = if ([String]::IsNullOrWhiteSpace($desc)) {
-                                "&nbsp;"
-                            } else {
-                                $desc
+                            $null = $newHelp.AppendLine("**$synopsis**")
+                            $null = $newHelp.AppendLine()
+
+                            # generate cmdlet index with GitHub links
+                            $null = $newHelp.AppendLine("### Cmdlet Index")
+                            $null = $newHelp.AppendLine()
+                            $null = $newHelp.AppendLine("| Command | Aliases | Description |")
+                            $null = $newHelp.AppendLine("| :--- | :--- | :--- |")
+
+                            # get cmdlets for this module
+                            GenXdev.Helpers\Get-GenXDevCmdlet -ModuleName @($subModuleName) |
+                                Microsoft.PowerShell.Utility\Sort-Object -Property Name |
+                                Microsoft.PowerShell.Core\ForEach-Object -ErrorAction SilentlyContinue {
+
+                                    $cmdletName = $_.Name
+                                    $desc = ("$($_.Description)" -Replace "[\r\n\t|]*", '').Trim()
+                                    $anchor = $cmdletName.ToLower().Replace(' ', '-').Replace('.', '').Replace('_', '')
+
+                                    # create GitHub raw URL for cmdlet documentation
+                                    # $githubUrl = "https://github.com/genXdev/$baseModuleName/blob/main/README.md#$anchor"
+                                    $githubUrl = "https://github.com/genXdev/$baseModuleName/tree/main#$anchor"
+
+                                    $aliasText = if ([String]::IsNullOrWhiteSpace($_.Aliases)) {
+                                        "&nbsp;"
+                                    }
+                                    else {
+                                        $_.Aliases
+                                    }
+
+                                    $descText = if ([String]::IsNullOrWhiteSpace($desc)) {
+                                        "&nbsp;"
+                                    }
+                                    else {
+                                        $desc
+                                    }
+
+                                    $null = $newHelp.AppendLine("| [$cmdletName]($githubUrl) | $aliasText | $descText |")
+                                }
+
+                                $null = $newHelp.AppendLine()
+                                $null = $newHelp.AppendLine("📖 [Full Documentation](https://github.com/genXdev/$baseModuleName/blob/main/README.md) | ↑ [Back to Module Overview](#module-overview)")
+                                $null = $newHelp.AppendLine()
+                                $null = $newHelp.AppendLine("<br/><hr/><br/>")
+                                $null = $newHelp.AppendLine()
                             }
-
-                            $null = $newHelp.AppendLine("| [$cmdletName]($githubUrl) | $aliasText | $descText |")
                         }
-
-                        $null = $newHelp.AppendLine()
-                        $null = $newHelp.AppendLine("📖 [Full Documentation](https://github.com/genXdev/$baseModuleName/blob/main/README.md) | ↑ [Back to Module Overview](#module-overview)")
-                        $null = $newHelp.AppendLine()
-                        $null = $newHelp.AppendLine("<br/><hr/><br/>")
-                        $null = $newHelp.AppendLine()
-                    }
-                }
 
                 $readmeText = $readmeText.Substring(0, $moduleIndex) +
                 "`r`n$($newHelp.ToString())".Replace("`r`n`r`n`r`n", "`r`n`r`n")
@@ -283,7 +287,7 @@ function Complete-GenXDevREADME {
 
             # generate detailed cmdlet documentation
             $cmdlets = @(GenXdev.Coding\Get-ModuleHelpMarkdown `
-                -ModuleName @($moduleObj.ModuleName)) `
+                    -ModuleName @($moduleObj.ModuleName)) `
                 -join " `r`n"
 
             $lastModule = ''
