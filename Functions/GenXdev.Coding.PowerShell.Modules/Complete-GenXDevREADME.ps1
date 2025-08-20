@@ -185,7 +185,7 @@ function Complete-GenXDevREADME {
                         $subModuleName = $_.SubModuleName
 
                         $modulePath = GenXdev.FileSystem\Expand-Path (
-                            "$($moduleObj2.FullName)\1.244.2025")
+                            "$($moduleObj2.FullName)\1.246.2025")
 
                         $moduleReadmeFilePath = [System.IO.Path]::Combine(
                             $modulePath,
