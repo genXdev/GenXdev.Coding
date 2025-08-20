@@ -23,7 +23,7 @@
   "files.defaultLanguage": "powershell",
   "editor.formatOnSaveMode": "file",
   "editor.formatOnSave": true,
-  "editor.formatOnPaste": true,
+  "editor.formatOnPaste":true,
   "editor.folding": true,
   "editor.foldingStrategy": "auto",
   "editor.foldingHighlight": true,
@@ -39,9 +39,10 @@
   "workbench.panel.defaultLocation": "bottom",
   "debug.javascript.usePreview": true,
   "debug.console.closeOnEnd": true,
-  "powershell.codeFormatting.autoCorrectAliases": true,
+  "powershell.codeFormatting.autoCorrectAliases": false,
+  "powershell.codeFormatting.fullyQualifiedCmdletNames": true,
   "powershell.codeFormatting.whitespaceBetweenParameters": true,
-  "powershell.debugging.createTemporaryIntegratedConsole": false,
+  "powershell.debugging.createTemporaryIntegratedConsole": true,
   "git.autofetch": false,
   "git.enableSmartCommit": true,
   "terminal.integrated.copyOnSelection": true,
@@ -149,17 +150,16 @@
   "chat.mcp.serverSampling": {
     "PowerShell/.vscode/mcp.json: GenXdev": {
       "allowedModels": [
-        "github.copilot-chat/gpt-4.1",
-        "github.copilot-chat/claude-3.5-sonnet",
-        "github.copilot-chat/claude-3.7-sonnet",
-        "github.copilot-chat/claude-3.7-sonnet-thought",
-        "github.copilot-chat/claude-sonnet-4",
-        "github.copilot-chat/gemini-2.0-flash-001",
-        "github.copilot-chat/gemini-2.5-pro-preview-06-05",
-        "github.copilot-chat/gpt-4o",
-        "github.copilot-chat/o1",
-        "github.copilot-chat/o3-mini",
-        "github.copilot-chat/o4-mini"
+        "copilot/claude-3.5-sonnet",
+        "copilot/claude-3.7-sonnet",
+        "copilot/claude-3.7-sonnet-thought",
+        "copilot/claude-sonnet-4",
+        "copilot/gemini-2.0-flash-001",
+        "copilot/gemini-2.5-pro",
+        "copilot/gpt-4.1",
+        "copilot/gpt-4o",
+        "copilot/o3-mini",
+        "copilot/o4-mini"
       ]
     }
   },
@@ -170,11 +170,12 @@
     ".github/",
   ],
   "github.copilot.enable": {
-    "*": true,
+    "*": false,
     "plaintext": false,
     "markdown": false,
     "scminput": false,
-    "powershell": true
+    "powershell": true,
+    "xml": true
   },
   "github.copilot.advanced": {
     "debug.overrideEngine": "",
@@ -187,5 +188,14 @@
     {
       "file": ".github/copilot-instructions.md"
     }
-  ]
+  ],
+  "powershell.codeFormatting.addWhitespaceAroundPipe": true,
+  "powershell.codeFormatting.alignPropertyValuePairs": true,
+  "powershell.codeFormatting.trimWhitespaceAroundPipe": true,
+  "powershell.codeFormatting.useConstantStrings": false,
+  "powershell.scriptAnalysis.settingsPath": "./Modules/GenXdev.Coding/1.242.2025/Functions/GenXdev.Coding.PowerShell.Modules/PSScriptAnalyzerSettings.psd1",
+  "powershell.pester.outputVerbosity": "Normal",
+  "powershell.integratedConsole.focusConsoleOnExecute": false,
+  "powershell.integratedConsole.startInBackground": true,
+  "grokIntegration.model": "grok-4-0709"
 }

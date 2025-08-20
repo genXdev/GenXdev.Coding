@@ -1,4 +1,4 @@
-﻿###############################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Searches for a GenXdev cmdlet and optionally opens it in an IDE for editing.
@@ -69,7 +69,7 @@ function Search-GenXdevCmdlet {
         )]
         [ValidateNotNullOrEmpty()]
         [Alias('Module', 'BaseModuleName', 'SubModuleName')]
-        [ValidatePattern('^(GenXdev|GenXde[v]\*|GenXdev(\.\w+)+)+$')]
+        [ValidatePattern('^(GenXdev|GenXde[v]\*|GenXdev(\.[\w\*\[\]\?]*)+)+$')]
         [SupportsWildcards()]
         [string[]] $ModuleName,
         ###############################################################################
@@ -116,12 +116,12 @@ function Search-GenXdevCmdlet {
 
         # retrieve and validate the target cmdlet exists
         $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
-            -FunctionName 'GenXdev.Helpers\Get-GenXDevCmdlets' `
+            -FunctionName 'GenXdev.Helpers\Get-GenXDevCmdlet' `
             -BoundParameters $PSBoundParameters
 
         $invocationParams.ExactMatch = $true
 
-        $cmdlet = GenXdev.Helpers\Get-GenXDevCmdlets @invocationParams |
+        $cmdlet = GenXdev.Helpers\Get-GenXDevCmdlet @invocationParams |
             Microsoft.PowerShell.Utility\Select-Object -First 1
 
         if ($null -eq $cmdlet) {

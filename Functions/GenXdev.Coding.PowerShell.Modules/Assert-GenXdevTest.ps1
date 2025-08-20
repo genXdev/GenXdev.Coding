@@ -90,7 +90,7 @@ Tests the specified sub-module and uses AI to automatically resolve any
 failures encountered during testing.
 
 .EXAMPLE
-Assert-GenXdevTest -CmdletName "Get-GenXDevCmdlets" -Verbosity Detailed
+Assert-GenXdevTest -CmdletName "Get-GenXDevCmdlet" -Verbosity Detailed
 Tests the specific cmdlet with detailed output showing all test operations
 and results.
 
@@ -117,8 +117,17 @@ function Assert-GenXdevTest {
         [SupportsWildcards()]
         [string] $CmdletName,
         ###############################################################################
-        [parameter(
+        [Parameter(
             Position = 1,
+            Mandatory = $false,
+            HelpMessage = ('Action to take when a test fails. Options: Ask, ' +
+                'Continue, Stop, SolveWithAI, Write-Error, Throw')
+        )]
+        [ValidateSet('Ask', 'Continue', 'Stop', 'SolveWithAI', 'Write-Error', 'Throw')]
+        [string] $TestFailedAction = 'Continue',
+        ###############################################################################
+        [parameter(
+            Position = 2,
             Mandatory = $false,
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true,
@@ -128,7 +137,7 @@ function Assert-GenXdevTest {
         [string] $DefinitionMatches,
         ###############################################################################
         [parameter(
-            Position = 2,
+            Position = 3,
             Mandatory = $false,
             ValueFromPipeline = $true,
             ValueFromPipelineByPropertyName = $true,
@@ -136,7 +145,7 @@ function Assert-GenXdevTest {
         )]
         [ValidateNotNullOrEmpty()]
         [Alias('Module', 'BaseModuleName', 'SubModuleName')]
-        [ValidatePattern('^(GenXdev|GenXde[v]\*|GenXdev(\.\w+)+)+$')]
+        [ValidatePattern('^(GenXdev|GenXde[v]\*|GenXdev(\.[\w\*\[\]\?]*)+)+$')]
         [SupportsWildcards()]
         [string[]] $ModuleName,
         ###############################################################################
@@ -162,7 +171,7 @@ function Assert-GenXdevTest {
             ParameterSetName = "ModuleName",
             Mandatory = $false,
             HelpMessage = ('Includes the scripts directory in addition to ' +
-                          'regular modules')
+                'regular modules')
         )]
         [switch] $IncludeScripts,
         ###############################################################################
@@ -191,14 +200,6 @@ function Assert-GenXdevTest {
         )]
         [ValidateSet('None', 'FirstLine', 'Filtered', 'Full')]
         [string] $StackTraceVerbosity = 'FirstLine',
-        ###############################################################################
-        [Parameter(
-            Mandatory = $false,
-            HelpMessage = ('Action to take when a test fails. Options: Ask, ' +
-                          'Continue, Stop, SolveWithAI, Write-Error, Throw')
-        )]
-        [ValidateSet('Ask', 'Continue', 'Stop', 'SolveWithAI', 'Write-Error', 'Throw')]
-        [string] $TestFailedAction = 'Continue',
         ###############################################################################
         [Parameter(
             Mandatory = $false,
@@ -262,7 +263,7 @@ function Assert-GenXdevTest {
 
         # configure detailed verbosity when using non-continue failure actions
         if ((-not $PSBoundParameters.ContainsKey("Verbosity") -and
-            ($TestFailedAction -ne "Continue"))) {
+                ($TestFailedAction -ne "Continue"))) {
 
             $config.Output.Verbosity = 'Detailed'
         }
@@ -299,14 +300,14 @@ function Assert-GenXdevTest {
         # copy identical parameter values for cmdlet discovery function call
         $params = GenXdev.Helpers\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
-            -FunctionName 'GenXdev.Helpers\Get-GenXdevCmdlets' `
+            -FunctionName 'GenXdev.Helpers\Get-GenXdevCmdlet' `
             -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable `
                 -Scope Local `
                 -ErrorAction SilentlyContinue
         )
 
         # discover cmdlets matching the specified criteria
-        $cmdlets = GenXdev.Helpers\Get-GenXdevCmdlets @params
+        $cmdlets = GenXdev.Helpers\Get-GenXdevCmdlet @params
 
         # verify we have cmdlets to test before proceeding
         if ($cmdlets.Count -eq 0) {
@@ -382,7 +383,7 @@ function Assert-GenXdevTest {
                                         ("Get-Help failed for ${fn}: " +
                                         "$($getHelpExceptionMsg)`r`nWhat to do next?"),
                                         @('&Continue', '&Stop', 'Solve with &AI',
-                                          '&Write-Error', '&Throw'),
+                                            '&Write-Error', '&Throw'),
                                         0
                                     )
 
@@ -421,12 +422,12 @@ function Assert-GenXdevTest {
                                         # invoke AI-powered refactoring to resolve issue
                                         GenXdev.Coding\Assert-RefactorFile `
                                             -RefactorSettings (
-                                                [GenXdev.Helpers.RefactorSettings] @{
-                                                    Code = $true
-                                                    PromptKey = "FailedScriptAnalyzerResults"
-                                                    Prompt = $exceptionMsg
-                                                }
-                                            ) `
+                                            [GenXdev.Helpers.RefactorSettings] @{
+                                                Code      = $true
+                                                PromptKey = "FailedScriptAnalyzerResults"
+                                                Prompt    = $exceptionMsg
+                                            }
+                                        ) `
                                             -Path ($scriptFile)
 
                                         $doContinue = $true
@@ -458,34 +459,18 @@ function Assert-GenXdevTest {
                                 }
                             }
 
-                            # perform PSScriptAnalyzer static code analysis
-                            [int] $retries = 3;
-                            while ($retries-- -gt 0) {
-                                try {
-                                    # invoke script analyzer on the current script file
-                                    $analyzerResults = @(GenXdev.Coding\Invoke-GenXdevScriptAnalyzer `
-                                        -Path $scriptFile)
-                                }
-                                catch {
+                            if ([string]::IsNullOrWhiteSpace($scriptFile)) {
 
-                                    if ($retries -eq 1) {
-
-                                        # create analyzer result entry for script analyzer errors
-                                        $analyzerResults = @(@{
-                                            RuleName = 'ScriptAnalyzerError'
-                                            Description = 'Error running PSScriptAnalyzer'
-                                            Message = @"
-$($PSItem.Exception) $($PSItem.InvocationInfo.PositionMessage)
-$($PSItem.InvocationInfo.Line)
-$($PSItem.InvocationInfo.ScriptStackTrace)
-"@
-                                    })
-                                        break;
-                                    }
-
-                                    Microsoft.PowerShell.Utility\Start-Sleep 1
-                                }
+                                # output warning when script file path is empty
+                                Microsoft.PowerShell.Utility\Write-Warning (
+                                    "No script file found for cmdlet: $($nextCmdlet.Name)"
+                                )
+                                continue;
                             }
+
+                            # invoke script analyzer on the current script file
+                            $analyzerResults = @(GenXdev.Coding\Invoke-GenXdevScriptAnalyzer `
+                                    -Path $scriptFile)
 
                             # process script analyzer results if issues were found
                             if ($analyzerResults.Count -gt 0) {
@@ -493,7 +478,7 @@ $($PSItem.InvocationInfo.ScriptStackTrace)
                                 # add analyzer results to the collection for reporting
                                 $null = $scriptAnalyzerResults.Add(
                                     @{
-                                        Path = $scriptFile
+                                        Path    = $scriptFile
                                         Results = $analyzerResults
                                     }
                                 )
@@ -514,7 +499,7 @@ $($PSItem.InvocationInfo.ScriptStackTrace)
                                         ("PSScriptAnalyzer detected " +
                                         "$($analyzerResults.Count) issues in: $scriptFile "),
                                         @('&Continue', '&Stop', 'Solve with &AI',
-                                          '&Write-Error', '&Throw'),
+                                            '&Write-Error', '&Throw'),
                                         0
                                     )
 
@@ -556,12 +541,12 @@ $($PSItem.InvocationInfo.ScriptStackTrace)
                                         # invoke AI-powered refactoring to resolve issues
                                         GenXdev.Coding\Assert-RefactorFile `
                                             -RefactorSettings (
-                                                [GenXdev.Helpers.RefactorSettings] @{
-                                                    Code = $true
-                                                    PromptKey = "FailedScriptAnalyzerResults"
-                                                    Prompt = $msg
-                                                }
-                                            ) `
+                                            [GenXdev.Helpers.RefactorSettings] @{
+                                                Code      = $true
+                                                PromptKey = "FailedScriptAnalyzerResults"
+                                                Prompt    = $msg
+                                            }
+                                        ) `
                                             -Path $scriptFile
 
                                         $doContinue = $true
@@ -609,8 +594,8 @@ $($PSItem.InvocationInfo.ScriptStackTrace)
 
                                 # output structured error result for known analyzer exceptions
                                 Microsoft.PowerShell.Utility\Write-Output @{
-                                    Success = $false
-                                    ErrorMessage = ("Unexpected error during script " +
+                                    Success               = $false
+                                    ErrorMessage          = ("Unexpected error during script " +
                                         "analysis: " + @"
 $($exc.Exception) $($exc.InvocationInfo.PositionMessage)
 $($exc.InvocationInfo.Line)
@@ -625,8 +610,8 @@ $($exc.InvocationInfo.ScriptStackTrace)
                             else {
                                 # output structured error result for other exceptions
                                 Microsoft.PowerShell.Utility\Write-Output @{
-                                    Success = $false
-                                    ErrorMessage = ("Unexpected error during script " +
+                                    Success               = $false
+                                    ErrorMessage          = ("Unexpected error during script " +
                                         "analysis: " + @"
 $($exc.Exception) $($exc.InvocationInfo.PositionMessage)
 $($exc.InvocationInfo.Line)
@@ -657,16 +642,16 @@ $($exc.InvocationInfo.ScriptStackTrace)
                                         # perform AI-powered refactoring on current file
                                         GenXdev.Coding\Assert-RefactorFile `
                                             -RefactorSettings (
-                                                [GenXdev.Helpers.RefactorSettings] @{
-                                                    Code = $true
-                                                    PromptKey = "FailedScriptAnalyzerResults"
-                                                    Prompt = ("Script analysis error: " + @"
+                                            [GenXdev.Helpers.RefactorSettings] @{
+                                                Code      = $true
+                                                PromptKey = "FailedScriptAnalyzerResults"
+                                                Prompt    = ("Script analysis error: " + @"
 $($exc.Exception) $($PSItem.InvocationInfo.PositionMessage)
 $($exc.InvocationInfo.Line)
 $($exc.InvocationInfo.ScriptStackTrace)
 "@)
-                                                }
-                                            ) `
+                                            }
+                                        ) `
                                             -Path $scriptFile
 
                                         # pause for user interaction and reload modules
@@ -695,8 +680,8 @@ $($exc.InvocationInfo.ScriptStackTrace)
 
                             # output structured error result for unexpected exceptions
                             Microsoft.PowerShell.Utility\Write-Output @{
-                                Success = $false
-                                ErrorMessage = ("Unexpected error during script analysis: " +
+                                Success               = $false
+                                ErrorMessage          = ("Unexpected error during script analysis: " +
                                     "$($exc.Exception.Message)")
                                 ScriptAnalyzerResults = $scriptAnalyzerResults
                             }
@@ -719,17 +704,17 @@ $($exc.InvocationInfo.ScriptStackTrace)
                                     # perform AI-powered refactoring on current file
                                     GenXdev.Coding\Assert-RefactorFile `
                                         -RefactorSettings (
-                                            [GenXdev.Helpers.RefactorSettings] @{
-                                                Code = $true
-                                                PromptKey = "FailedScriptAnalyzerResults"
-                                                Prompt = ("Script analysis error during " +
-                                                    "script analyzer tests: " + @"
+                                        [GenXdev.Helpers.RefactorSettings] @{
+                                            Code      = $true
+                                            PromptKey = "FailedScriptAnalyzerResults"
+                                            Prompt    = ("Script analysis error during " +
+                                                "script analyzer tests: " + @"
 $($exc.Exception) $($exc.InvocationInfo.PositionMessage)
 $($exc.InvocationInfo.Line)
 $($exc.InvocationInfo.ScriptStackTrace)
 "@)
-                                            }
-                                        ) `
+                                        }
+                                    ) `
                                         -Path $scriptFile
 
                                     # pause for user interaction and reload modules
@@ -772,8 +757,8 @@ $($exc.InvocationInfo.ScriptStackTrace)
                         'Stop' {
                             # output final failure result with analyzer issues
                             Microsoft.PowerShell.Utility\Write-Output @{
-                                Success = $false
-                                ErrorMessage = ("$($scriptAnalyzerResults.Count) " +
+                                Success               = $false
+                                ErrorMessage          = ("$($scriptAnalyzerResults.Count) " +
                                     "script analyzer issues found")
                                 ScriptAnalyzerResults = $scriptAnalyzerResults
                             }
@@ -788,8 +773,8 @@ $($exc.InvocationInfo.ScriptStackTrace)
 
             # return result indicating PSScriptAnalyzer success and no Pester tests
             return @{
-                Success = ($scriptAnalyzerResults.Count -eq 0)
-                TestResults = $null
+                Success         = ($scriptAnalyzerResults.Count -eq 0)
+                TestResults     = $null
                 AnalyzerResults = $scriptAnalyzerResults
             }
         }
@@ -801,15 +786,15 @@ $($exc.InvocationInfo.ScriptStackTrace)
 
         # discover test containers for cmdlets with associated test files
         $testContainers = @($cmdlets |
-            Microsoft.PowerShell.Core\Where-Object {
-                (-not [string]::IsNullOrWhiteSpace($_.ScriptTestFilePath)) -and
-                (Microsoft.PowerShell.Management\Test-Path `
-                    -LiteralPath $_.ScriptTestFilePath)
-            } |
-            Microsoft.PowerShell.Core\ForEach-Object {
-                # create pester container for each valid test file
-                Pester\New-PesterContainer -Path $_.ScriptTestFilePath
-            }
+                Microsoft.PowerShell.Core\Where-Object {
+                    (-not [string]::IsNullOrWhiteSpace($_.ScriptTestFilePath)) -and
+                    (Microsoft.PowerShell.Management\Test-Path `
+                        -LiteralPath $_.ScriptTestFilePath)
+                } |
+                Microsoft.PowerShell.Core\ForEach-Object {
+                    # create pester container for each valid test file
+                    Pester\New-PesterContainer -Path $_.ScriptTestFilePath
+                }
         )
 
         # verify we have test containers before proceeding with Pester execution
@@ -868,9 +853,9 @@ $($exc.InvocationInfo.ScriptStackTrace)
                 'Throw' {
                     # output structured failure result for throwing exceptions
                     Microsoft.PowerShell.Utility\Write-Output @{
-                        Success = $false
-                        ErrorMessage = "$($testResults.FailedCount) test(s) failed"
-                        TestResults = $testResults
+                        Success         = $false
+                        ErrorMessage    = "$($testResults.FailedCount) test(s) failed"
+                        TestResults     = $testResults
                         AnalyzerResults = $scriptAnalyzerResults
                     }
 
@@ -941,25 +926,25 @@ $($exc.InvocationInfo.ScriptStackTrace)
                             # invoke AI-powered refactoring to resolve test failure
                             GenXdev.Coding\Assert-RefactorFile `
                                 -RefactorSettings (
-                                    [GenXdev.Helpers.RefactorSettings] @{
-                                        Code = $true
-                                        PromptKey = "ResolveFailedTest"
-                                        Prompt = Prompt (
-                                            "Pester test failed for:`r`n" +
-                                            "$($ft |
+                                [GenXdev.Helpers.RefactorSettings] @{
+                                    Code      = $true
+                                    PromptKey = "ResolveFailedTest"
+                                    Prompt    = Prompt (
+                                        "Pester test failed for:`r`n" +
+                                        "$($ft |
                                                 Microsoft.PowerShell.Utility\ConvertTo-Json `
                                                     -Depth 5)"
-                                        )
-                                    }
-                                ) `
+                                    )
+                                }
+                            ) `
                                 -Path $scriptFilePath
 
                             # prompt user for next action after AI resolution attempt
                             switch ($host.ui.PromptForChoice(
-                                'Make a choice',
-                                'What to do next?',
-                                @('&Stop', '&Test again', '&Continue'),
-                                1)
+                                    'Make a choice',
+                                    'What to do next?',
+                                    @('&Stop', '&Test again', '&Continue'),
+                                    1)
                             ) {
                                 0 {
                                     # stop entire test execution
@@ -1020,10 +1005,10 @@ $($exc.InvocationInfo.ScriptStackTrace)
 
             # output final test results with success indicators
             Microsoft.PowerShell.Utility\Write-Output @{
-                Success = (($testResult.Failed.Count + $scriptAnalyzerResults.Count) -eq 0)
-                ErrorMessage = ("$($testResults.FailedCount) test(s) failed, " +
+                Success         = (($testResult.Failed.Count + $scriptAnalyzerResults.Count) -eq 0)
+                ErrorMessage    = ("$($testResults.FailedCount) test(s) failed, " +
                     "$($testResults.FailedCount - $testResult.Failed.Count) fixed")
-                TestResults = $testResults
+                TestResults     = $testResults
                 AnalyzerResults = $scriptAnalyzerResults
             }
 
@@ -1032,8 +1017,8 @@ $($exc.InvocationInfo.ScriptStackTrace)
 
         # output successful test results when no failures occurred
         Microsoft.PowerShell.Utility\Write-Output @{
-            Success = ($scriptAnalyzerResults.Count -eq 0)
-            TestResults = $testResults
+            Success         = ($scriptAnalyzerResults.Count -eq 0)
+            TestResults     = $testResults
             AnalyzerResults = $scriptAnalyzerResults
         }
     }

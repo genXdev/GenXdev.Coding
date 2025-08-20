@@ -218,12 +218,16 @@ function Assert-ModuleDefinition {
 
                     if ($isFirst) {
 
-                        $keysToSend = @("^``", "^``", '^+i', '^l', '^a', '{DELETE}', '^+i', '{ESCAPE}')
+                        $keysToSend = @(
+                            "^``", "^``", '^+i', '^n', '^a', '{DELETE}', '^%b'
+                        )
                     }
 
                     if ($isLast) {
 
-                        $keysToSend = @('^+%{F12}', '{ENTER}', '^v', '{ENTER}', '^{ENTER}', "^``")
+                        $keysToSend = @(
+                            "^``", "^``", '^+%{F12}', '{ENTER}', '^v', '{ENTER}', '^{ENTER}', "^``"
+                        )
                     }
                     else {
 

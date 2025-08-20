@@ -1,4 +1,4 @@
-﻿###############################################################################
+###############################################################################
 function Add-MissingGenXdevUnitTests {
 
     [CmdletBinding()]
@@ -8,7 +8,7 @@ function Add-MissingGenXdevUnitTests {
     return;
 
     # get all cmdlets that need unit tests
-    GenXdev.Helpers\Get-GenXDevCmdlets | Microsoft.PowerShell.Core\ForEach-Object {
+    GenXdev.Helpers\Get-GenXDevCmdlet | Microsoft.PowerShell.Core\ForEach-Object {
 
         $genXdevCmdlet = $_
 

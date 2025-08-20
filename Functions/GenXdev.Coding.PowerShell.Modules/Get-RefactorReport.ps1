@@ -51,14 +51,12 @@ function Get-RefactorReport {
             HelpMessage = 'Specifies the path to the preferences database file.'
         )]
         [string] $PreferencesDatabasePath,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'If set, only use the session cache for refactor data.'
         )]
         [switch] $SessionOnly,
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,

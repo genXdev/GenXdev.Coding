@@ -1,4 +1,4 @@
-################################################################################
+﻿################################################################################
 <#
 .SYNOPSIS
 Continues or restarts a code refactoring session.
@@ -31,9 +31,6 @@ Marks all files in the refactor set as completed.
 
 .PARAMETER RedoLast
 Repeat the last refactoring operation.
-
-.PARAMETER EditPrompt
-Only modify the AI prompt for the refactoring.
 
 .PARAMETER Speak
 Enables text-to-speech for refactoring progress and notifications.
@@ -110,12 +107,6 @@ function Start-NextRefactor {
             HelpMessage = 'Redo the last refactor'
         )]
         [switch] $RedoLast,
-        #######################################################################
-        [Parameter(
-            Mandatory = $false,
-            HelpMessage = 'Switch to only edit the AI prompt'
-        )]
-        [switch] $EditPrompt,
         #######################################################################
         [Parameter(
             Mandatory = $false,
@@ -208,7 +199,7 @@ function Start-NextRefactor {
                         # add to refactored list immediately to track progress
                         $null = $refactorDefinition.State.Refactored.Add($next)
                         $refactorDefinition.State.RefactoredIndex =
-                            $refactorDefinition.State.Refactored.Count - 1
+                        $refactorDefinition.State.Refactored.Count - 1
                     }
                     else {
                         # process unprocessed file from refactored list
@@ -257,13 +248,7 @@ function Start-NextRefactor {
                             # perform refactoring on current file
                             GenXdev.Coding\Assert-RefactorFile `
                                 -RefactorSettings $refactorDefinition.RefactorSettings `
-                                -Path $next `
-                                -EditPrompt:$EditPrompt
-
-                            if ($EditPrompt) {
-
-                                return
-                            }
+                                -Path $next
 
                             # refactoring succeeded, show progress
                             $infoText = (
@@ -378,7 +363,7 @@ function Start-NextRefactor {
                         # save current progress after processing file
                         $null = GenXdev.Coding\Update-Refactor `
                             -Refactor @($refactorDefinition) `
-                        -Verbose:$Verbose
+                            -Verbose:$Verbose
                     }
                     catch {
                         Microsoft.PowerShell.Utility\Write-Warning (

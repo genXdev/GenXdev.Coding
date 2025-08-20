@@ -12,7 +12,7 @@
 
 ## MIT License
 
-```text
+````text
 MIT License
 
 Copyright (c) 2025 GenXdev
@@ -77,21 +77,21 @@ SOFTWARE.
 [![WinOS - Windows-10 or later](https://img.shields.io/badge/WinOS-Windows--10--10.0.19041--SP0-brightgreen)](https://www.microsoft.com/en-us/windows/get-windows-10)  [![GenXdev.Data](https://img.shields.io/powershellgallery/v/GenXdev.Data.svg?style=flat-square&label=GenXdev.Data)](https://www.powershellgallery.com/packages/GenXdev.Data/)  [![GenXdev.Helpers](https://img.shields.io/powershellgallery/v/GenXdev.Helpers.svg?style=flat-square&label=GenXdev.Helpers)](https://www.powershellgallery.com/packages/GenXdev.Helpers/) [![GenXdev.Webbrowser](https://img.shields.io/powershellgallery/v/GenXdev.Webbrowser.svg?style=flat-square&label=GenXdev.Webbrowser)](https://www.powershellgallery.com/packages/GenXdev.Webbrowser/) [![GenXdev.Queries](https://img.shields.io/powershellgallery/v/GenXdev.Queries.svg?style=flat-square&label=GenXdev.Queries)](https://www.powershellgallery.com/packages/GenXdev.Webbrowser/) [![GenXdev.Console](https://img.shields.io/powershellgallery/v/GenXdev.Console.svg?style=flat-square&label=GenXdev.Console)](https://www.powershellgallery.com/packages/GenXdev.Console/)  [![GenXdev.FileSystem](https://img.shields.io/powershellgallery/v/GenXdev.FileSystem.svg?style=flat-square&label=GenXdev.FileSystem)](https://www.powershellgallery.com/packages/GenXdev.FileSystem/)
 
 ### INSTALLATION
-````PowerShell
+```PowerShell
 Install-Module "GenXdev.AI"
 Import-Module "GenXdev.AI"
-````
+```
 ### UPDATE
-````PowerShell
+```PowerShell
 Update-Module
-````
-<br/><hr/><hr/><br/>
+```
+
+<br/><hr/><br/>
 
 # Cmdlet Index
-### GenXdev.Coding<hr/>
 ### GenXdev.Coding
 | Command | Aliases | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | [Add-FeatureLineToREADME](#add-featurelinetoreadme) | feature | Adds a feature line to the README file with a timestamp. |
 | [Add-IdeaLineToREADME](#add-idealinetoreadme) | idea | Adds an idea item to the README.md file. |
 | [Add-IssueLineToREADME](#add-issuelinetoreadme) | issue | Adds an issue item to the README.md file. |
@@ -109,25 +109,26 @@ Update-Module
 
 ### GenXdev.Coding.Git
 | Command | Aliases | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | [Get-GitChangedFiles](#get-gitchangedfiles) | Get-GitChangedFile, gitchanged | Get the list of changed files in a Git repository. |
 | [New-GitCommit](#new-gitcommit) | commit | Creates and pushes a new git commit with all changes. |
 | [PermanentlyDeleteGitFolders](#permanentlydeletegitfolders) | &nbsp; | Permanently deletes specified folders from all branches in a Git repository. |
 
 ### GenXdev.Coding.PowerShell.Modules
 | Command | Aliases | Description |
-| --- | --- | --- |
-| [Add-MissingGenXdevUnitTests](#add-missinggenxdevunittests) | &nbsp; |  |
+| :--- | :--- | :--- |
+| [Add-MissingGenXdevUnitTests](#add-missinggenxdevunittests) | &nbsp; | &nbsp; |
 | [Assert-GenXdevCmdlet](#assert-genxdevcmdlet) | improvecmdlet | Improves GenXdev cmdlet documentation and implementation through AI assistance. |
 | [Assert-GenXdevCmdletTests](#assert-genxdevcmdlettests) | improvecmdlettests | Asserts and improves unit-tests of a specified GenXdev cmdlet. |
 | [Assert-GenXdevDependencyUsage](#assert-genxdevdependencyusage) | checkgenxdevdependencies | &nbsp; |
 | [Assert-GenXdevTest](#assert-genxdevtest) | Assert-GenXdevUnitTest, rungenxdevtests, testcmdlet | &nbsp; |
 | [Assert-ModuleDefinition](#assert-moduledefinition) | &nbsp; | Assists in refactoring PowerShell source code files using AI assistance. |
-| [Assert-RefactorFile](#assert-refactorfile) | &nbsp; |  |
+| [Assert-RefactorFile](#assert-refactorfile) | &nbsp; | &nbsp; |
 | [Clear-GenXdevModules](#clear-genxdevmodules) | cleangenxdev | Cleans build artifacts from GenXdev PowerShell modules. |
 | [Complete-GenXDevREADME](#complete-genxdevreadme) | &nbsp; | Completes the README file for specified GenXDev modules by adding documentation. |
 | [EnsureCopilotKeyboardShortCut](#ensurecopilotkeyboardshortcut) | &nbsp; | Configures the GitHub Copilot Chat keyboard shortcuts in Visual Studio Code. |
-| [EnsureDefaultGenXdevRefactors](#ensuredefaultgenxdevrefactors) | &nbsp; |  |
+| [EnsureDefaultGenXdevRefactors](#ensuredefaultgenxdevrefactors) | &nbsp; | &nbsp; |
+| [Get-GenXdevCmdletUsageAnalysis](#get-genxdevcmdletusageanalysis) | &nbsp; | Analyzes GenXdev cmdlet usage patterns to identify most frequently called functions. |
 | [Get-GenXDevModule](#get-genxdevmodule) | &nbsp; | Retrieves all GenXDev modules from a specified path. |
 | [Get-GenXDevModuleInfo](#get-genxdevmoduleinfo) | &nbsp; | Retrieves detailed information about GenXdev PowerShell modules. |
 | [Get-GenXDevNewModulesInOrderOfDependency](#get-genxdevnewmodulesinorderofdependency) | &nbsp; | Retrieves GenXDev modules in dependency order. |
@@ -135,8 +136,8 @@ Update-Module
 | [Get-Refactor](#get-refactor) | refactor, refactors, Show-RefactorReport | Retrieves refactor definitions from GenXdev preferences based on name patterns. |
 | [Get-RefactorReport](#get-refactorreport) | refactorreport | Generates a detailed report of refactoring operations and their status. |
 | [Invoke-GenXdevPSFormatter](#invoke-genxdevpsformatter) | &nbsp; | Formats PowerShell script files using PSScriptAnalyzer formatting rules. |
-| [Invoke-GenXdevScriptAnalyzer](#invoke-genxdevscriptanalyzer) | &nbsp; |  |
-| [New-GenXdevCmdlet](#new-genxdevcmdlet) | gcmd | Creates a new GenXdev PowerShell cmdlet with proper structure and validation. |
+| [Invoke-GenXdevScriptAnalyzer](#invoke-genxdevscriptanalyzer) | &nbsp; | &nbsp; |
+| [New-GenXdevCmdlet](#new-genxdevcmdlet) | newcmd | Creates a new GenXdev PowerShell cmdlet with proper structure and validation. |
 | [New-GenXdevModule](#new-genxdevmodule) | &nbsp; | Creates a new GenXdev PowerShell module with proper structure and configuration. |
 | [New-PullRequestForGenXdevModuleChanges](#new-pullrequestforgenxdevmodulechanges) | prgenxdevmodule | Creates a pull request for changes made to a GenXdev module. |
 | [New-Refactor](#new-refactor) | newrefactor | Creates a new refactoring set for code transformation tasks. |
@@ -149,7 +150,7 @@ Update-Module
 | [Test-RefactorLLMSelection](#test-refactorllmselection) | &nbsp; | Evaluates source files for refactoring eligibility using LLM analysis. |
 | [Update-Refactor](#update-refactor) | updaterefactor | Updates and manages refactoring sets including file selection and processing. |
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
 
 
 # Cmdlets
@@ -158,7 +159,7 @@ Update-Module
 ###	GenXdev.Coding<hr/> 
 
 ##	Add-FeatureLineToREADME 
-````PowerShell 
+```PowerShell 
 
    Add-FeatureLineToREADME              --> feature  
 ```` 
@@ -167,7 +168,7 @@ Update-Module
     Adds a feature line to the README file with a timestamp.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Add-FeatureLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
@@ -222,11 +223,11 @@ Add-FeatureLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-Us
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Add-IdeaLineToREADME 
-````PowerShell 
+```PowerShell 
 
    Add-IdeaLineToREADME                 --> idea  
 ```` 
@@ -235,7 +236,7 @@ Add-FeatureLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-Us
     Adds an idea item to the README.md file.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Add-IdeaLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
@@ -290,11 +291,11 @@ Add-IdeaLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOn
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Add-IssueLineToREADME 
-````PowerShell 
+```PowerShell 
 
    Add-IssueLineToREADME                --> issue  
 ```` 
@@ -303,7 +304,7 @@ Add-IdeaLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOn
     Adds an issue item to the README.md file.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Add-IssueLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
@@ -358,11 +359,11 @@ Add-IssueLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseO
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Add-LineToREADME 
-````PowerShell 
+```PowerShell 
 
    Add-LineToREADME  
 ```` 
@@ -371,7 +372,7 @@ Add-IssueLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseO
     Adds a line to a README.md markdown file in a specified section.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Add-LineToREADME [[-Line] <String>] [-Section] <String> [-Prefix] <String> [-Code] [-Show] [-Done] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
@@ -453,11 +454,11 @@ Add-LineToREADME [[-Line] <String>] [-Section] <String> [-Prefix] <String> [-Cod
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Add-ReleaseNoteLineToREADME 
-````PowerShell 
+```PowerShell 
 
    Add-ReleaseNoteLineToREADME          --> ReleaseNote  
 ```` 
@@ -466,7 +467,7 @@ Add-LineToREADME [[-Line] <String>] [-Section] <String> [-Prefix] <String> [-Cod
     Adds a ReleaseNote line to the README file with a timestamp.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Add-ReleaseNoteLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
@@ -521,11 +522,11 @@ Add-ReleaseNoteLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Add-TodoLineToREADME 
-````PowerShell 
+```PowerShell 
 
    Add-TodoLineToREADME                 --> todo  
 ```` 
@@ -534,7 +535,7 @@ Add-ReleaseNoteLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] 
     Adds a todo item to the README.md file.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Add-TodoLineToREADME [[-Line] <String>] [-Code] [-Show] [-Done] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
@@ -598,11 +599,11 @@ Add-TodoLineToREADME [[-Line] <String>] [-Code] [-Show] [-Done] [-UseHomeREADME]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	EnsureVSCodeInstallation 
-````PowerShell 
+```PowerShell 
 
    EnsureVSCodeInstallation  
 ```` 
@@ -611,7 +612,7 @@ Add-TodoLineToREADME [[-Line] <String>] [-Code] [-Show] [-Done] [-UseHomeREADME]
     Installs and configures Visual Studio Code with recommended extensions.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 EnsureVSCodeInstallation [-Force] [<CommonParameters>] 
 ```` 
 
@@ -635,11 +636,11 @@ EnsureVSCodeInstallation [-Force] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Features 
-````PowerShell 
+```PowerShell 
 
    Features  
 ```` 
@@ -648,7 +649,7 @@ EnsureVSCodeInstallation [-Force] [<CommonParameters>]
     Displays features from a README.md file.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Features [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
@@ -680,11 +681,11 @@ Features [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Ideas 
-````PowerShell 
+```PowerShell 
 
    Ideas  
 ```` 
@@ -693,7 +694,7 @@ Features [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
     Displays ideas from a README.md file.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Ideas [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
@@ -725,11 +726,11 @@ Ideas [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Issues 
-````PowerShell 
+```PowerShell 
 
    Issues  
 ```` 
@@ -738,7 +739,7 @@ Ideas [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
     Displays issues from a README.md file.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
@@ -770,11 +771,11 @@ Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-SourceFileInIde 
-````PowerShell 
+```PowerShell 
 
    Open-SourceFileInIde                 --> editcode  
 ```` 
@@ -783,7 +784,7 @@ Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
     Opens a source file in the preferred IDE (Visual Studio Code or Visual Studio).  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-SourceFileInIde [-Path] <String> [[-LineNo] <Int32>] [[-KeysToSend] <String[]>] [-Code] [-VisualStudio] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [<CommonParameters>] 
 ```` 
 
@@ -879,11 +880,11 @@ Open-SourceFileInIde [-Path] <String> [[-LineNo] <Int32>] [[-KeysToSend] <String
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	ReleaseNotes 
-````PowerShell 
+```PowerShell 
 
    ReleaseNotes  
 ```` 
@@ -892,7 +893,7 @@ Open-SourceFileInIde [-Path] <String> [[-LineNo] <Int32>] [[-KeysToSend] <String
     Displays ReleaseNotes from a README.md file.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 ReleaseNotes [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
@@ -924,11 +925,11 @@ ReleaseNotes [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Todoos 
-````PowerShell 
+```PowerShell 
 
    Todoos  
 ```` 
@@ -937,7 +938,7 @@ ReleaseNotes [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
     Displays todo items from a README.md file.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Todoos [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
@@ -969,11 +970,11 @@ Todoos [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	VSCode 
-````PowerShell 
+```PowerShell 
 
    VSCode  
 ```` 
@@ -982,7 +983,7 @@ Todoos [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
     Opens one or more files in Visual Studio Code.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 VSCode [-FilePath] <String[]> [-Copilot] [<CommonParameters>] 
 ```` 
 
@@ -1017,14 +1018,14 @@ VSCode [-FilePath] <String[]> [-Copilot] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Coding.Git<hr/> 
 
 ##	Get-GitChangedFiles 
-````PowerShell 
+```PowerShell 
 
    Get-GitChangedFiles                  --> Get-GitChangedFile, gitchanged  
 ```` 
@@ -1033,7 +1034,7 @@ VSCode [-FilePath] <String[]> [-Copilot] [<CommonParameters>]
     Get the list of changed files in a Git repository.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-GitChangedFiles [-PassThru] [<CommonParameters>] 
 ```` 
 
@@ -1057,11 +1058,11 @@ Get-GitChangedFiles [-PassThru] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	New-GitCommit 
-````PowerShell 
+```PowerShell 
 
    New-GitCommit                        --> commit  
 ```` 
@@ -1070,7 +1071,7 @@ Get-GitChangedFiles [-PassThru] [<CommonParameters>]
     Creates and pushes a new git commit with all changes.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 New-GitCommit [[-Title] <String>] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
@@ -1109,11 +1110,11 @@ New-GitCommit [[-Title] <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	PermanentlyDeleteGitFolders 
-````PowerShell 
+```PowerShell 
 
    PermanentlyDeleteGitFolders  
 ```` 
@@ -1122,7 +1123,7 @@ New-GitCommit [[-Title] <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
     Permanently deletes specified folders from all branches in a Git repository.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 PermanentlyDeleteGitFolders [-RepoUri] <String> [-Folders] <String[]> [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
@@ -1171,7 +1172,7 @@ PermanentlyDeleteGitFolders [-RepoUri] <String> [-Folders] <String[]> [-WhatIf] 
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
 ### NOTES 
-````PowerShell 
+```PowerShell 
 
        This operation is destructive and cannot be undone. It rewrites Git history and  
        requires force pushing, which affects all repository users.  
@@ -1181,20 +1182,20 @@ PermanentlyDeleteGitFolders [-RepoUri] <String> [-Folders] <String[]> [-WhatIf] 
        -Folders "bin", "obj"  
 ```` 
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Coding.PowerShell.Modules<hr/> 
 
 ##	Add-MissingGenXdevUnitTests 
-````PowerShell 
+```PowerShell 
 
    Add-MissingGenXdevUnitTests  
 ```` 
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Add-MissingGenXdevUnitTests [<CommonParameters>] 
 ```` 
 
@@ -1205,11 +1206,11 @@ Add-MissingGenXdevUnitTests [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Assert-GenXdevCmdlet 
-````PowerShell 
+```PowerShell 
 
    Assert-GenXdevCmdlet                 --> improvecmdlet  
 ```` 
@@ -1218,7 +1219,7 @@ Add-MissingGenXdevUnitTests [<CommonParameters>]
     Improves GenXdev cmdlet documentation and implementation through AI assistance.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Assert-GenXdevCmdlet [[-CmdletName] <String>] [-ModuleName <String[]>] [[-PromptKey] <String>] [[-Prompt] <String>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-EditPrompt] [-Integrate] [<CommonParameters>] 
 ```` 
 
@@ -1322,11 +1323,11 @@ Assert-GenXdevCmdlet [[-CmdletName] <String>] [-ModuleName <String[]>] [[-Prompt
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Assert-GenXdevCmdletTests 
-````PowerShell 
+```PowerShell 
 
    Assert-GenXdevCmdletTests            --> improvecmdlettests  
 ```` 
@@ -1335,7 +1336,7 @@ Assert-GenXdevCmdlet [[-CmdletName] <String>] [-ModuleName <String[]>] [[-Prompt
     Asserts and improves unit-tests of a specified GenXdev cmdlet.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Assert-GenXdevCmdletTests [-CmdletName] <String> [[-Prompt] <String>] [[-PromptKey] <String>] [-EditPrompt] [-AssertFailedTest] [-FromScripts] [-ContinuationHandled] [<CommonParameters>] 
 ```` 
 
@@ -1406,11 +1407,11 @@ Assert-GenXdevCmdletTests [-CmdletName] <String> [[-Prompt] <String>] [[-PromptK
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Assert-GenXdevDependencyUsage 
-````PowerShell 
+```PowerShell 
 
    Assert-GenXdevDependencyUsage        --> checkgenxdevdependencies  
 ```` 
@@ -1420,7 +1421,7 @@ Assert-GenXdevCmdletTests [-CmdletName] <String> [[-Prompt] <String>] [[-PromptK
     hierarchy is maintained.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Assert-GenXdevDependencyUsage [[-ModuleName] <String[]>] [-FromScripts] [<CommonParameters>] 
 ```` 
 
@@ -1455,11 +1456,11 @@ Assert-GenXdevDependencyUsage [[-ModuleName] <String[]>] [-FromScripts] [<Common
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Assert-GenXdevTest 
-````PowerShell 
+```PowerShell 
 
    Assert-GenXdevTest                   --> Assert-GenXdevUnitTest, rungenxdevtests, testcmdlet  
 ```` 
@@ -1469,8 +1470,8 @@ Assert-GenXdevDependencyUsage [[-ModuleName] <String[]>] [-FromScripts] [<Common
     with intelligent debugging and AI-powered error resolution.  
 
 ### SYNTAX 
-````PowerShell 
-Assert-GenXdevTest [[-CmdletName] <String>] [[-DefinitionMatches] <String>] [[-ModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-IncludeScripts] [-OnlyReturnModuleNames] [-ExactMatch] [-Verbosity <String>] [-StackTraceVerbosity <String>] [-TestFailedAction <String>] [-AllowLongRunningTests] [-SkipModuleImports] [-SkipPSAnalyzerTests] [-SkipPesterTests] [<CommonParameters>] 
+```PowerShell 
+Assert-GenXdevTest [[-CmdletName] <String>] [[-TestFailedAction] <String>] [[-DefinitionMatches] <String>] [[-ModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-IncludeScripts] [-OnlyReturnModuleNames] [-ExactMatch] [-Verbosity <String>] [-StackTraceVerbosity <String>] [-AllowLongRunningTests] [-SkipModuleImports] [-SkipPSAnalyzerTests] [-SkipPesterTests] [<CommonParameters>] 
 ```` 
 
 ### DESCRIPTION 
@@ -1491,11 +1492,21 @@ Assert-GenXdevTest [[-CmdletName] <String>] [[-DefinitionMatches] <String>] [[-M
         Accept pipeline input?       true (ByPropertyName)  
         Aliases                        
         Accept wildcard characters?  true  
+    -TestFailedAction <String>  
+        Action to take when a test fails. Options include interactive prompting,  
+        automatic continuation, stopping execution, AI-powered resolution, error  
+        logging, or exception throwing for integration scenarios.  
+        Required?                    false  
+        Position?                    2  
+        Default value                Continue  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
     -DefinitionMatches <String>  
         Regular expression to match cmdlet definitions during the search process.  
         This allows for advanced filtering based on cmdlet implementation patterns.  
         Required?                    false  
-        Position?                    2  
+        Position?                    3  
         Default value                  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
         Aliases                        
@@ -1505,7 +1516,7 @@ Assert-GenXdevTest [[-CmdletName] <String>] [[-DefinitionMatches] <String>] [[-M
         with 'GenXdev' followed by optional sub-module components. Supports wildcards  
         for broad module selection.  
         Required?                    false  
-        Position?                    3  
+        Position?                    4  
         Default value                  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
         Aliases                        
@@ -1582,16 +1593,6 @@ Assert-GenXdevTest [[-CmdletName] <String>] [[-DefinitionMatches] <String>] [[-M
         Accept pipeline input?       false  
         Aliases                        
         Accept wildcard characters?  false  
-    -TestFailedAction <String>  
-        Action to take when a test fails. Options include interactive prompting,  
-        automatic continuation, stopping execution, AI-powered resolution, error  
-        logging, or exception throwing for integration scenarios.  
-        Required?                    false  
-        Position?                    named  
-        Default value                Continue  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
     -AllowLongRunningTests [<SwitchParameter>]  
         Include unit tests that have long running durations in the test execution.  
         This enables testing including performance and integration tests.  
@@ -1634,11 +1635,11 @@ Assert-GenXdevTest [[-CmdletName] <String>] [[-DefinitionMatches] <String>] [[-M
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Assert-ModuleDefinition 
-````PowerShell 
+```PowerShell 
 
    Assert-ModuleDefinition  
 ```` 
@@ -1647,7 +1648,7 @@ Assert-GenXdevTest [[-CmdletName] <String>] [[-DefinitionMatches] <String>] [[-M
     Assists in refactoring PowerShell source code files using AI assistance.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Assert-ModuleDefinition [-ModuleName] <String> [-Prompt <String>] [-EditPrompt] [<CommonParameters>] 
 ```` 
 
@@ -1692,11 +1693,11 @@ Assert-ModuleDefinition [-ModuleName] <String> [-Prompt <String>] [-EditPrompt] 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Assert-RefactorFile 
-````PowerShell 
+```PowerShell 
 
    Assert-RefactorFile  
 ```` 
@@ -1706,7 +1707,7 @@ Assert-ModuleDefinition [-ModuleName] <String> [-Prompt <String>] [-EditPrompt] 
     AI prompt template.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Assert-RefactorFile [-Path] <String> [[-RefactorSettings] <RefactorSettings>] [-AllowLongRunningTests] [<CommonParameters>] 
 ```` 
 
@@ -1747,11 +1748,11 @@ Assert-RefactorFile [-Path] <String> [[-RefactorSettings] <RefactorSettings>] [-
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Clear-GenXdevModules 
-````PowerShell 
+```PowerShell 
 
    Clear-GenXdevModules                 --> cleangenxdev  
 ```` 
@@ -1760,7 +1761,7 @@ Assert-RefactorFile [-Path] <String> [[-RefactorSettings] <RefactorSettings>] [-
     Cleans build artifacts from GenXdev PowerShell modules.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Clear-GenXdevModules [<CommonParameters>] 
 ```` 
 
@@ -1777,11 +1778,11 @@ Clear-GenXdevModules [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Complete-GenXDevREADME 
-````PowerShell 
+```PowerShell 
 
    Complete-GenXDevREADME  
 ```` 
@@ -1790,25 +1791,28 @@ Clear-GenXdevModules [<CommonParameters>]
     Completes the README file for specified GenXDev modules by adding documentation.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Complete-GenXDevREADME [[-ModuleName] <String[]>] [<CommonParameters>] 
 ```` 
 
 ### DESCRIPTION 
     This function enhances README.md files for GenXDev modules by automatically  
-    generating and inserting a cmdlet index and detailed cmdlet documentation. It  
-    processes either specified modules or all modules if none are specified. The  
-    function updates existing README.md files with a standardized format including  
-    a command index and detailed help for each cmdlet.  
+    generating and inserting a cmdlet index and detailed cmdlet documentation. For  
+    individual modules, it processes and updates existing README.md files with a  
+    standardized format including a command index and detailed help for each cmdlet.  
+    For the main GenXdev module, it creates a concise overview with links to GitHub  
+    repositories instead of concatenating full module content, preventing the README  
+    from becoming too large for parsers. Cmdlet indexes link to the corresponding  
+    sections in the GitHub repository's README files.  
 
 ### PARAMETERS 
     -ModuleName <String[]>  
         Specifies which module(s) to process. If omitted, all modules will be processed.  
-        Can accept multiple module names and supports pipeline input. Accepts string array  
-        input.  
+        Can accept multiple module names and supports pipeline input. Accepts string  
+        array input.  
         Required?                    false  
         Position?                    1  
-        Default value                @()  
+        Default value                @("GenXdev*")  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
         Aliases                        
         Accept wildcard characters?  true  
@@ -1818,11 +1822,11 @@ Complete-GenXDevREADME [[-ModuleName] <String[]>] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	EnsureCopilotKeyboardShortCut 
-````PowerShell 
+```PowerShell 
 
    EnsureCopilotKeyboardShortCut  
 ```` 
@@ -1831,7 +1835,7 @@ Complete-GenXDevREADME [[-ModuleName] <String[]>] [<CommonParameters>]
     Configures the GitHub Copilot Chat keyboard shortcuts in Visual Studio Code.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 EnsureCopilotKeyboardShortCut [<CommonParameters>] 
 ```` 
 
@@ -1849,17 +1853,17 @@ EnsureCopilotKeyboardShortCut [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	EnsureDefaultGenXdevRefactors 
-````PowerShell 
+```PowerShell 
 
    EnsureDefaultGenXdevRefactors  
 ```` 
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>] 
 ```` 
 
@@ -1878,11 +1882,73 @@ EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
+ 
+
+##	Get-GenXdevCmdletUsageAnalysis 
+```PowerShell 
+
+   Get-GenXdevCmdletUsageAnalysis  
+```` 
+
+### SYNOPSIS 
+    Analyzes GenXdev cmdlet usage patterns to identify most frequently called functions.  
+
+### SYNTAX 
+```PowerShell 
+Get-GenXdevCmdletUsageAnalysis [[-OutputFormat] <String>] [[-Top] <Int32>] [-IncludeCallChains] [-IncludeScripts] [<CommonParameters>] 
+```` 
+
+### DESCRIPTION 
+    This script uses Get-GenXDevCmdlet to scan all GenXdev PowerShell modules and their  
+    functions to analyze which cmdlets are called most frequently by other cmdlets.  
+    This helps prioritize which functions to refactor to C# first, starting with the  
+    most commonly used ones.  
+
+### PARAMETERS 
+    -OutputFormat <String>  
+        Format for output: Table, List, or CSV. Default is Table.  
+        Required?                    false  
+        Position?                    1  
+        Default value                Table  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -Top <Int32>  
+        Number of top results to show. Default is 50.  
+        Required?                    false  
+        Position?                    2  
+        Default value                50  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -IncludeCallChains [<SwitchParameter>]  
+        Include detailed call chain information showing which functions call which.  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -IncludeScripts [<SwitchParameter>]  
+        Include script files in addition to module cmdlets.  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+
+<br/><hr/><br/>
  
 
 ##	Get-GenXDevModule 
-````PowerShell 
+```PowerShell 
 
    Get-GenXDevModule  
 ```` 
@@ -1891,7 +1957,7 @@ EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>]
     Retrieves all GenXDev modules from a specified path.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-GenXDevModule [[-Path] <String>] [<CommonParameters>] 
 ```` 
 
@@ -1917,11 +1983,11 @@ Get-GenXDevModule [[-Path] <String>] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Get-GenXDevModuleInfo 
-````PowerShell 
+```PowerShell 
 
    Get-GenXDevModuleInfo  
 ```` 
@@ -1930,7 +1996,7 @@ Get-GenXDevModule [[-Path] <String>] [<CommonParameters>]
     Retrieves detailed information about GenXdev PowerShell modules.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-GenXDevModuleInfo [[-ModuleName] <String[]>] [<CommonParameters>] 
 ```` 
 
@@ -1955,11 +2021,11 @@ Get-GenXDevModuleInfo [[-ModuleName] <String[]>] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Get-GenXDevNewModulesInOrderOfDependency 
-````PowerShell 
+```PowerShell 
 
    Get-GenXDevNewModulesInOrderOfDependency  
 ```` 
@@ -1968,7 +2034,7 @@ Get-GenXDevModuleInfo [[-ModuleName] <String[]>] [<CommonParameters>]
     Retrieves GenXDev modules in dependency order.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName] <String[]>] [<CommonParameters>] 
 ```` 
 
@@ -1996,11 +2062,11 @@ Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName] <String[]>] [<CommonPara
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Get-ModuleHelpMarkdown 
-````PowerShell 
+```PowerShell 
 
    Get-ModuleHelpMarkdown               --> Get-GenXDevModuleHelp  
 ```` 
@@ -2009,7 +2075,7 @@ Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName] <String[]>] [<CommonPara
     Generates markdown help documentation for specified GenXDev modules.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-ModuleHelpMarkdown [[-ModuleName] <String[]>] [[-CommandNames] <String[]>] [<CommonParameters>] 
 ```` 
 
@@ -2046,11 +2112,11 @@ Get-ModuleHelpMarkdown [[-ModuleName] <String[]>] [[-CommandNames] <String[]>] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Get-Refactor 
-````PowerShell 
+```PowerShell 
 
    Get-Refactor                         --> refactor, refactors, Show-RefactorReport  
 ```` 
@@ -2059,7 +2125,7 @@ Get-ModuleHelpMarkdown [[-ModuleName] <String[]>] [[-CommandNames] <String[]>] [
     Retrieves refactor definitions from GenXdev preferences based on name patterns.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-Refactor [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-DefaultValue <String>] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -2120,11 +2186,11 @@ Get-Refactor [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-DefaultV
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Get-RefactorReport 
-````PowerShell 
+```PowerShell 
 
    Get-RefactorReport                   --> refactorreport  
 ```` 
@@ -2133,7 +2199,7 @@ Get-Refactor [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-DefaultV
     Generates a detailed report of refactoring operations and their status.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-RefactorReport [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-SessionOnly] [-ClearSession] [-SkipSession] [-AsText] [<CommonParameters>] 
 ```` 
 
@@ -2197,11 +2263,11 @@ Get-RefactorReport [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-Se
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Invoke-GenXdevPSFormatter 
-````PowerShell 
+```PowerShell 
 
    Invoke-GenXdevPSFormatter  
 ```` 
@@ -2210,7 +2276,7 @@ Get-RefactorReport [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-Se
     Formats PowerShell script files using PSScriptAnalyzer formatting rules.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Invoke-GenXdevPSFormatter [-Path] <String> [-Settings <Object>] [-Range <Int32[]>] [-Recurse] [<CommonParameters>] 
 ```` 
 
@@ -2265,11 +2331,11 @@ Invoke-GenXdevPSFormatter [-Path] <String> [-Settings <Object>] [-Range <Int32[]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Invoke-GenXdevScriptAnalyzer 
-````PowerShell 
+```PowerShell 
 
    Invoke-GenXdevScriptAnalyzer  
 ```` 
@@ -2279,7 +2345,7 @@ Invoke-GenXdevPSFormatter [-Path] <String> [-Settings <Object>] [-Range <Int32[]
     and best practices.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Invoke-GenXdevScriptAnalyzer [-Path] <String> [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<CommonParameters>]  
    Invoke-GenXdevScriptAnalyzer -ScriptDefinition <String> [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<CommonParameters>] 
 ```` 
@@ -2347,20 +2413,20 @@ Invoke-GenXdevScriptAnalyzer [-Path] <String> [-EnableExit] [-Fix] [-Recurse] [-
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	New-GenXdevCmdlet 
-````PowerShell 
+```PowerShell 
 
-   New-GenXdevCmdlet                    --> gcmd  
+   New-GenXdevCmdlet                    --> newcmd  
 ```` 
 
 ### SYNOPSIS 
     Creates a new GenXdev PowerShell cmdlet with proper structure and validation.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 New-GenXdevCmdlet [-CmdletName] <String> [[-Synopsis] <String>] [[-Description] <String>] [[-BaseModuleName] <String>] [[-ModuleName] <String>] [[-CmdletAliases] <String[]>] [[-PromptKey] <String>] [[-Prompt] <String>] [-EditPrompt] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
@@ -2465,11 +2531,11 @@ New-GenXdevCmdlet [-CmdletName] <String> [[-Synopsis] <String>] [[-Description] 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	New-GenXdevModule 
-````PowerShell 
+```PowerShell 
 
    New-GenXdevModule  
 ```` 
@@ -2478,7 +2544,7 @@ New-GenXdevCmdlet [-CmdletName] <String> [[-Synopsis] <String>] [[-Description] 
     Creates a new GenXdev PowerShell module with proper structure and configuration.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 New-GenXdevModule [-ModuleName] <String> [-Description] <String> [[-Tags] <String[]>] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
@@ -2538,11 +2604,11 @@ New-GenXdevModule [-ModuleName] <String> [-Description] <String> [[-Tags] <Strin
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	New-PullRequestForGenXdevModuleChanges 
-````PowerShell 
+```PowerShell 
 
    New-PullRequestForGenXdevModuleChanges --> prgenxdevmodule  
 ```` 
@@ -2551,7 +2617,7 @@ New-GenXdevModule [-ModuleName] <String> [-Description] <String> [[-Tags] <Strin
     Creates a pull request for changes made to a GenXdev module.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 New-PullRequestForGenXdevModuleChanges [-ModuleName] <String> [[-CommitMessage] <String>] [[-PullRequestTitle] <String>] [[-PullRequestDescription] <String>] [[-GitUserName] <String>] [[-GitUserEmail] <String>] [-Monitor <Int32>] [-NoBorders] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ShowWindow] [-RestoreFocus] [-PassThru] [-SideBySide] [-FocusWindow] [-SetForeground] [-Maximize] [-KeysToSend <String[]>] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
@@ -2807,11 +2873,11 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName] <String> [[-CommitMessage] 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	New-Refactor 
-````PowerShell 
+```PowerShell 
 
    New-Refactor                         --> newrefactor  
 ```` 
@@ -2820,7 +2886,7 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName] <String> [[-CommitMessage] 
     Creates a new refactoring set for code transformation tasks.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>] [[-SelectionScript] <String>] [[-SelectionPrompt] <String>] [[-LLMQueryType] <String>] [-Model <String>] [-HuggingFaceIdentifier <String>] [-MaxToken <Int32>] [-Cpu <Int32>] [-TTLSeconds <Int32>] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-Temperature <Double>] [-Gpu <Int32>] [-ApiEndpoint <String>] [-ApiKey <String>] [-TimeoutSeconds <Int32>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-FilesToAdd <FileInfo[]>] [-PreferencesDatabasePath <String>] [-AutoAddModifiedFiles] [-Force] [-SessionOnly] [-ClearSession] [-SkipSession] [-Code] [-VisualStudio] [-KeysToSend <String[]>] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
@@ -3094,11 +3160,11 @@ New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>] [[-Sele
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GenXdevCmdletsContainingClipboardTextInIde 
-````PowerShell 
+```PowerShell 
 
    Open-GenXdevCmdletsContainingClipboardTextInIde --> vscodesearch  
 ```` 
@@ -3107,7 +3173,7 @@ New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>] [[-Sele
     Opens files in IDE that contain clipboard text  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GenXdevCmdletsContainingClipboardTextInIde [[-InputObject] <String>] [-Copilot] [<CommonParameters>] 
 ```` 
 
@@ -3136,11 +3202,11 @@ Open-GenXdevCmdletsContainingClipboardTextInIde [[-InputObject] <String>] [-Copi
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Remove-Refactor 
-````PowerShell 
+```PowerShell 
 
    Remove-Refactor  
 ```` 
@@ -3149,7 +3215,7 @@ Open-GenXdevCmdletsContainingClipboardTextInIde [[-InputObject] <String>] [-Copi
     Removes refactor sets from GenXdev preferences system.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Remove-Refactor [-Name] <String[]> [[-RemoveDefault]] [-PreferencesDatabasePath <String>] [-DefaultValue <String>] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
@@ -3234,11 +3300,11 @@ Remove-Refactor [-Name] <String[]> [[-RemoveDefault]] [-PreferencesDatabasePath 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Search-GenXdevCmdlet 
-````PowerShell 
+```PowerShell 
 
    Search-GenXdevCmdlet                 --> searchcmdlet  
 ```` 
@@ -3247,7 +3313,7 @@ Remove-Refactor [-Name] <String[]> [[-RemoveDefault]] [-PreferencesDatabasePath 
     Searches for a GenXdev cmdlet and optionally opens it in an IDE for editing.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Search-GenXdevCmdlet [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-EditCmdlet] [<CommonParameters>] 
 ```` 
 
@@ -3330,11 +3396,11 @@ Search-GenXdevCmdlet [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-NoLoc
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Show-GenXdevCmdLetInIde 
-````PowerShell 
+```PowerShell 
 
    Show-GenXdevCmdLetInIde              --> editcmdlet  
 ```` 
@@ -3343,7 +3409,7 @@ Search-GenXdevCmdlet [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-NoLoc
     Opens the specified GenXdev cmdlet in Visual Studio Code.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Show-GenXdevCmdLetInIde [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-UnitTests] [-KeysToSend <String[]>] [-CoPilot] [-Search] [<CommonParameters>] 
 ```` 
 
@@ -3440,11 +3506,11 @@ Show-GenXdevCmdLetInIde [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-No
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	SplitUpPsm1File 
-````PowerShell 
+```PowerShell 
 
    SplitUpPsm1File  
 ```` 
@@ -3453,7 +3519,7 @@ Show-GenXdevCmdLetInIde [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-No
     Splits a PowerShell module (.psm1) file into individual function files.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 SplitUpPsm1File [-Psm1FilePath] <String> [<CommonParameters>] 
 ```` 
 
@@ -3479,11 +3545,11 @@ SplitUpPsm1File [-Psm1FilePath] <String> [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Start-NextRefactor 
-````PowerShell 
+```PowerShell 
 
    Start-NextRefactor                   --> nextrefactor  
 ```` 
@@ -3492,8 +3558,8 @@ SplitUpPsm1File [-Psm1FilePath] <String> [<CommonParameters>]
     Continues or restarts a code refactoring session.  
 
 ### SYNTAX 
-````PowerShell 
-Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [[-CleanUpDeletedFiles]] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-EditPrompt] [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>] 
+```PowerShell 
+Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [[-CleanUpDeletedFiles]] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
 ### DESCRIPTION 
@@ -3566,14 +3632,6 @@ Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToR
         Accept pipeline input?       false  
         Aliases                        
         Accept wildcard characters?  false  
-    -EditPrompt [<SwitchParameter>]  
-        Only modify the AI prompt for the refactoring.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
     -Speak [<SwitchParameter>]  
         Enables text-to-speech for refactoring progress and notifications.  
         Required?                    false  
@@ -3602,11 +3660,11 @@ Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToR
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Test-RefactorLLMSelection 
-````PowerShell 
+```PowerShell 
 
    Test-RefactorLLMSelection  
 ```` 
@@ -3615,7 +3673,7 @@ Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToR
     Evaluates source files for refactoring eligibility using LLM analysis.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Test-RefactorLLMSelection [-RefactorDefinition] <RefactorDefinition> [-Path] <String> [<CommonParameters>] 
 ```` 
 
@@ -3649,11 +3707,11 @@ Test-RefactorLLMSelection [-RefactorDefinition] <RefactorDefinition> [-Path] <St
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Update-Refactor 
-````PowerShell 
+```PowerShell 
 
    Update-Refactor                      --> updaterefactor  
 ```` 
@@ -3662,7 +3720,7 @@ Test-RefactorLLMSelection [-RefactorDefinition] <RefactorDefinition> [-Path] <St
     Updates and manages refactoring sets including file selection and processing.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Update-Refactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-SelectByModifiedDateFrom <DateTime>] [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>] [-SelectByCreationDateTo <DateTime>] [-PromptKey <String>] [-Prompt <String>] [-SelectionScript <String>] [-SelectionPrompt <String>] [-LLMQueryType <String>] [-Model <String>] [-HuggingFaceIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>] [-TTLSeconds <Int32>] [-Cpu <Int32>] [-Gpu <Int32>] [-ApiEndpoint <String>] [-ApiKey <String>] [-TimeoutSeconds <Int32>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-KeysToSend <String[]>] [-PreferencesDatabasePath <String>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection] [-PerformAutoSelections] [-PerformAISelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-ReprocessModifiedFiles] [-Force] [-Code] [-VisualStudio] [-Speak] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>]  
    Update-Refactor [[-Refactor] <RefactorDefinition[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-SelectByModifiedDateFrom <DateTime>] [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>] [-SelectByCreationDateTo <DateTime>] [-PromptKey <String>] [-Prompt <String>] [-SelectionScript <String>] [-SelectionPrompt <String>] [-LLMQueryType <String>] [-Model <String>] [-HuggingFaceIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>] [-TTLSeconds <Int32>] [-Cpu <Int32>] [-Gpu <Int32>] [-ApiEndpoint <String>] [-ApiKey <String>] [-TimeoutSeconds <Int32>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-KeysToSend <String[]>] [-PreferencesDatabasePath <String>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection] [-PerformAutoSelections] [-PerformAISelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-ReprocessModifiedFiles] [-Force] [-Code] [-VisualStudio] [-Speak] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
@@ -4086,14 +4144,14 @@ Update-Refactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemo
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Coding<hr/> 
 
 ##	Add-FeatureLineToREADME 
-````PowerShell 
+```PowerShell 
 
    Add-FeatureLineToREADME              --> feature  
 ```` 
@@ -4102,7 +4160,7 @@ Update-Refactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemo
     Adds a feature line to the README file with a timestamp.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Add-FeatureLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
@@ -4157,11 +4215,11 @@ Add-FeatureLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-Us
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Add-IdeaLineToREADME 
-````PowerShell 
+```PowerShell 
 
    Add-IdeaLineToREADME                 --> idea  
 ```` 
@@ -4170,7 +4228,7 @@ Add-FeatureLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-Us
     Adds an idea item to the README.md file.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Add-IdeaLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
@@ -4225,11 +4283,11 @@ Add-IdeaLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOn
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Add-IssueLineToREADME 
-````PowerShell 
+```PowerShell 
 
    Add-IssueLineToREADME                --> issue  
 ```` 
@@ -4238,7 +4296,7 @@ Add-IdeaLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOn
     Adds an issue item to the README.md file.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Add-IssueLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
@@ -4293,11 +4351,11 @@ Add-IssueLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseO
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Add-LineToREADME 
-````PowerShell 
+```PowerShell 
 
    Add-LineToREADME  
 ```` 
@@ -4306,7 +4364,7 @@ Add-IssueLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseO
     Adds a line to a README.md markdown file in a specified section.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Add-LineToREADME [[-Line] <String>] [-Section] <String> [-Prefix] <String> [-Code] [-Show] [-Done] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
@@ -4388,11 +4446,11 @@ Add-LineToREADME [[-Line] <String>] [-Section] <String> [-Prefix] <String> [-Cod
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Add-ReleaseNoteLineToREADME 
-````PowerShell 
+```PowerShell 
 
    Add-ReleaseNoteLineToREADME          --> ReleaseNote  
 ```` 
@@ -4401,7 +4459,7 @@ Add-LineToREADME [[-Line] <String>] [-Section] <String> [-Prefix] <String> [-Cod
     Adds a ReleaseNote line to the README file with a timestamp.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Add-ReleaseNoteLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
@@ -4456,11 +4514,11 @@ Add-ReleaseNoteLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Add-TodoLineToREADME 
-````PowerShell 
+```PowerShell 
 
    Add-TodoLineToREADME                 --> todo  
 ```` 
@@ -4469,7 +4527,7 @@ Add-ReleaseNoteLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] 
     Adds a todo item to the README.md file.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Add-TodoLineToREADME [[-Line] <String>] [-Code] [-Show] [-Done] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
@@ -4533,11 +4591,11 @@ Add-TodoLineToREADME [[-Line] <String>] [-Code] [-Show] [-Done] [-UseHomeREADME]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	EnsureVSCodeInstallation 
-````PowerShell 
+```PowerShell 
 
    EnsureVSCodeInstallation  
 ```` 
@@ -4546,7 +4604,7 @@ Add-TodoLineToREADME [[-Line] <String>] [-Code] [-Show] [-Done] [-UseHomeREADME]
     Installs and configures Visual Studio Code with recommended extensions.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 EnsureVSCodeInstallation [-Force] [<CommonParameters>] 
 ```` 
 
@@ -4570,11 +4628,11 @@ EnsureVSCodeInstallation [-Force] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Features 
-````PowerShell 
+```PowerShell 
 
    Features  
 ```` 
@@ -4583,7 +4641,7 @@ EnsureVSCodeInstallation [-Force] [<CommonParameters>]
     Displays features from a README.md file.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Features [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
@@ -4615,11 +4673,11 @@ Features [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Ideas 
-````PowerShell 
+```PowerShell 
 
    Ideas  
 ```` 
@@ -4628,7 +4686,7 @@ Features [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
     Displays ideas from a README.md file.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Ideas [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
@@ -4660,11 +4718,11 @@ Ideas [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Issues 
-````PowerShell 
+```PowerShell 
 
    Issues  
 ```` 
@@ -4673,7 +4731,7 @@ Ideas [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
     Displays issues from a README.md file.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
@@ -4705,11 +4763,11 @@ Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-SourceFileInIde 
-````PowerShell 
+```PowerShell 
 
    Open-SourceFileInIde                 --> editcode  
 ```` 
@@ -4718,7 +4776,7 @@ Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
     Opens a source file in the preferred IDE (Visual Studio Code or Visual Studio).  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-SourceFileInIde [-Path] <String> [[-LineNo] <Int32>] [[-KeysToSend] <String[]>] [-Code] [-VisualStudio] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [<CommonParameters>] 
 ```` 
 
@@ -4814,11 +4872,11 @@ Open-SourceFileInIde [-Path] <String> [[-LineNo] <Int32>] [[-KeysToSend] <String
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	ReleaseNotes 
-````PowerShell 
+```PowerShell 
 
    ReleaseNotes  
 ```` 
@@ -4827,7 +4885,7 @@ Open-SourceFileInIde [-Path] <String> [[-LineNo] <Int32>] [[-KeysToSend] <String
     Displays ReleaseNotes from a README.md file.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 ReleaseNotes [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
@@ -4859,11 +4917,11 @@ ReleaseNotes [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Todoos 
-````PowerShell 
+```PowerShell 
 
    Todoos  
 ```` 
@@ -4872,7 +4930,7 @@ ReleaseNotes [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
     Displays todo items from a README.md file.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Todoos [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
@@ -4904,11 +4962,11 @@ Todoos [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	VSCode 
-````PowerShell 
+```PowerShell 
 
    VSCode  
 ```` 
@@ -4917,7 +4975,7 @@ Todoos [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
     Opens one or more files in Visual Studio Code.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 VSCode [-FilePath] <String[]> [-Copilot] [<CommonParameters>] 
 ```` 
 
@@ -4952,14 +5010,14 @@ VSCode [-FilePath] <String[]> [-Copilot] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Coding.Git<hr/> 
 
 ##	Get-GitChangedFiles 
-````PowerShell 
+```PowerShell 
 
    Get-GitChangedFiles                  --> Get-GitChangedFile, gitchanged  
 ```` 
@@ -4968,7 +5026,7 @@ VSCode [-FilePath] <String[]> [-Copilot] [<CommonParameters>]
     Get the list of changed files in a Git repository.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-GitChangedFiles [-PassThru] [<CommonParameters>] 
 ```` 
 
@@ -4992,11 +5050,11 @@ Get-GitChangedFiles [-PassThru] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	New-GitCommit 
-````PowerShell 
+```PowerShell 
 
    New-GitCommit                        --> commit  
 ```` 
@@ -5005,7 +5063,7 @@ Get-GitChangedFiles [-PassThru] [<CommonParameters>]
     Creates and pushes a new git commit with all changes.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 New-GitCommit [[-Title] <String>] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
@@ -5044,11 +5102,11 @@ New-GitCommit [[-Title] <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	PermanentlyDeleteGitFolders 
-````PowerShell 
+```PowerShell 
 
    PermanentlyDeleteGitFolders  
 ```` 
@@ -5057,7 +5115,7 @@ New-GitCommit [[-Title] <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
     Permanently deletes specified folders from all branches in a Git repository.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 PermanentlyDeleteGitFolders [-RepoUri] <String> [-Folders] <String[]> [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
@@ -5106,7 +5164,7 @@ PermanentlyDeleteGitFolders [-RepoUri] <String> [-Folders] <String[]> [-WhatIf] 
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
 ### NOTES 
-````PowerShell 
+```PowerShell 
 
        This operation is destructive and cannot be undone. It rewrites Git history and  
        requires force pushing, which affects all repository users.  
@@ -5116,20 +5174,20 @@ PermanentlyDeleteGitFolders [-RepoUri] <String> [-Folders] <String[]> [-WhatIf] 
        -Folders "bin", "obj"  
 ```` 
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Coding.PowerShell.Modules<hr/> 
 
 ##	Add-MissingGenXdevUnitTests 
-````PowerShell 
+```PowerShell 
 
    Add-MissingGenXdevUnitTests  
 ```` 
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Add-MissingGenXdevUnitTests [<CommonParameters>] 
 ```` 
 
@@ -5140,11 +5198,11 @@ Add-MissingGenXdevUnitTests [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Assert-GenXdevCmdlet 
-````PowerShell 
+```PowerShell 
 
    Assert-GenXdevCmdlet                 --> improvecmdlet  
 ```` 
@@ -5153,7 +5211,7 @@ Add-MissingGenXdevUnitTests [<CommonParameters>]
     Improves GenXdev cmdlet documentation and implementation through AI assistance.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Assert-GenXdevCmdlet [[-CmdletName] <String>] [-ModuleName <String[]>] [[-PromptKey] <String>] [[-Prompt] <String>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-EditPrompt] [-Integrate] [<CommonParameters>] 
 ```` 
 
@@ -5257,11 +5315,11 @@ Assert-GenXdevCmdlet [[-CmdletName] <String>] [-ModuleName <String[]>] [[-Prompt
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Assert-GenXdevCmdletTests 
-````PowerShell 
+```PowerShell 
 
    Assert-GenXdevCmdletTests            --> improvecmdlettests  
 ```` 
@@ -5270,7 +5328,7 @@ Assert-GenXdevCmdlet [[-CmdletName] <String>] [-ModuleName <String[]>] [[-Prompt
     Asserts and improves unit-tests of a specified GenXdev cmdlet.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Assert-GenXdevCmdletTests [-CmdletName] <String> [[-Prompt] <String>] [[-PromptKey] <String>] [-EditPrompt] [-AssertFailedTest] [-FromScripts] [-ContinuationHandled] [<CommonParameters>] 
 ```` 
 
@@ -5341,11 +5399,11 @@ Assert-GenXdevCmdletTests [-CmdletName] <String> [[-Prompt] <String>] [[-PromptK
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Assert-GenXdevDependencyUsage 
-````PowerShell 
+```PowerShell 
 
    Assert-GenXdevDependencyUsage        --> checkgenxdevdependencies  
 ```` 
@@ -5355,7 +5413,7 @@ Assert-GenXdevCmdletTests [-CmdletName] <String> [[-Prompt] <String>] [[-PromptK
     hierarchy is maintained.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Assert-GenXdevDependencyUsage [[-ModuleName] <String[]>] [-FromScripts] [<CommonParameters>] 
 ```` 
 
@@ -5390,11 +5448,11 @@ Assert-GenXdevDependencyUsage [[-ModuleName] <String[]>] [-FromScripts] [<Common
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Assert-GenXdevTest 
-````PowerShell 
+```PowerShell 
 
    Assert-GenXdevTest                   --> Assert-GenXdevUnitTest, rungenxdevtests, testcmdlet  
 ```` 
@@ -5404,8 +5462,8 @@ Assert-GenXdevDependencyUsage [[-ModuleName] <String[]>] [-FromScripts] [<Common
     with intelligent debugging and AI-powered error resolution.  
 
 ### SYNTAX 
-````PowerShell 
-Assert-GenXdevTest [[-CmdletName] <String>] [[-DefinitionMatches] <String>] [[-ModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-IncludeScripts] [-OnlyReturnModuleNames] [-ExactMatch] [-Verbosity <String>] [-StackTraceVerbosity <String>] [-TestFailedAction <String>] [-AllowLongRunningTests] [-SkipModuleImports] [-SkipPSAnalyzerTests] [-SkipPesterTests] [<CommonParameters>] 
+```PowerShell 
+Assert-GenXdevTest [[-CmdletName] <String>] [[-TestFailedAction] <String>] [[-DefinitionMatches] <String>] [[-ModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-IncludeScripts] [-OnlyReturnModuleNames] [-ExactMatch] [-Verbosity <String>] [-StackTraceVerbosity <String>] [-AllowLongRunningTests] [-SkipModuleImports] [-SkipPSAnalyzerTests] [-SkipPesterTests] [<CommonParameters>] 
 ```` 
 
 ### DESCRIPTION 
@@ -5426,11 +5484,21 @@ Assert-GenXdevTest [[-CmdletName] <String>] [[-DefinitionMatches] <String>] [[-M
         Accept pipeline input?       true (ByPropertyName)  
         Aliases                        
         Accept wildcard characters?  true  
+    -TestFailedAction <String>  
+        Action to take when a test fails. Options include interactive prompting,  
+        automatic continuation, stopping execution, AI-powered resolution, error  
+        logging, or exception throwing for integration scenarios.  
+        Required?                    false  
+        Position?                    2  
+        Default value                Continue  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
     -DefinitionMatches <String>  
         Regular expression to match cmdlet definitions during the search process.  
         This allows for advanced filtering based on cmdlet implementation patterns.  
         Required?                    false  
-        Position?                    2  
+        Position?                    3  
         Default value                  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
         Aliases                        
@@ -5440,7 +5508,7 @@ Assert-GenXdevTest [[-CmdletName] <String>] [[-DefinitionMatches] <String>] [[-M
         with 'GenXdev' followed by optional sub-module components. Supports wildcards  
         for broad module selection.  
         Required?                    false  
-        Position?                    3  
+        Position?                    4  
         Default value                  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
         Aliases                        
@@ -5517,16 +5585,6 @@ Assert-GenXdevTest [[-CmdletName] <String>] [[-DefinitionMatches] <String>] [[-M
         Accept pipeline input?       false  
         Aliases                        
         Accept wildcard characters?  false  
-    -TestFailedAction <String>  
-        Action to take when a test fails. Options include interactive prompting,  
-        automatic continuation, stopping execution, AI-powered resolution, error  
-        logging, or exception throwing for integration scenarios.  
-        Required?                    false  
-        Position?                    named  
-        Default value                Continue  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
     -AllowLongRunningTests [<SwitchParameter>]  
         Include unit tests that have long running durations in the test execution.  
         This enables testing including performance and integration tests.  
@@ -5569,11 +5627,11 @@ Assert-GenXdevTest [[-CmdletName] <String>] [[-DefinitionMatches] <String>] [[-M
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Assert-ModuleDefinition 
-````PowerShell 
+```PowerShell 
 
    Assert-ModuleDefinition  
 ```` 
@@ -5582,7 +5640,7 @@ Assert-GenXdevTest [[-CmdletName] <String>] [[-DefinitionMatches] <String>] [[-M
     Assists in refactoring PowerShell source code files using AI assistance.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Assert-ModuleDefinition [-ModuleName] <String> [-Prompt <String>] [-EditPrompt] [<CommonParameters>] 
 ```` 
 
@@ -5627,11 +5685,11 @@ Assert-ModuleDefinition [-ModuleName] <String> [-Prompt <String>] [-EditPrompt] 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Assert-RefactorFile 
-````PowerShell 
+```PowerShell 
 
    Assert-RefactorFile  
 ```` 
@@ -5641,7 +5699,7 @@ Assert-ModuleDefinition [-ModuleName] <String> [-Prompt <String>] [-EditPrompt] 
     AI prompt template.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Assert-RefactorFile [-Path] <String> [[-RefactorSettings] <RefactorSettings>] [-AllowLongRunningTests] [<CommonParameters>] 
 ```` 
 
@@ -5682,11 +5740,11 @@ Assert-RefactorFile [-Path] <String> [[-RefactorSettings] <RefactorSettings>] [-
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Clear-GenXdevModules 
-````PowerShell 
+```PowerShell 
 
    Clear-GenXdevModules                 --> cleangenxdev  
 ```` 
@@ -5695,7 +5753,7 @@ Assert-RefactorFile [-Path] <String> [[-RefactorSettings] <RefactorSettings>] [-
     Cleans build artifacts from GenXdev PowerShell modules.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Clear-GenXdevModules [<CommonParameters>] 
 ```` 
 
@@ -5712,11 +5770,11 @@ Clear-GenXdevModules [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Complete-GenXDevREADME 
-````PowerShell 
+```PowerShell 
 
    Complete-GenXDevREADME  
 ```` 
@@ -5725,25 +5783,28 @@ Clear-GenXdevModules [<CommonParameters>]
     Completes the README file for specified GenXDev modules by adding documentation.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Complete-GenXDevREADME [[-ModuleName] <String[]>] [<CommonParameters>] 
 ```` 
 
 ### DESCRIPTION 
     This function enhances README.md files for GenXDev modules by automatically  
-    generating and inserting a cmdlet index and detailed cmdlet documentation. It  
-    processes either specified modules or all modules if none are specified. The  
-    function updates existing README.md files with a standardized format including  
-    a command index and detailed help for each cmdlet.  
+    generating and inserting a cmdlet index and detailed cmdlet documentation. For  
+    individual modules, it processes and updates existing README.md files with a  
+    standardized format including a command index and detailed help for each cmdlet.  
+    For the main GenXdev module, it creates a concise overview with links to GitHub  
+    repositories instead of concatenating full module content, preventing the README  
+    from becoming too large for parsers. Cmdlet indexes link to the corresponding  
+    sections in the GitHub repository's README files.  
 
 ### PARAMETERS 
     -ModuleName <String[]>  
         Specifies which module(s) to process. If omitted, all modules will be processed.  
-        Can accept multiple module names and supports pipeline input. Accepts string array  
-        input.  
+        Can accept multiple module names and supports pipeline input. Accepts string  
+        array input.  
         Required?                    false  
         Position?                    1  
-        Default value                @()  
+        Default value                @("GenXdev*")  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
         Aliases                        
         Accept wildcard characters?  true  
@@ -5753,11 +5814,11 @@ Complete-GenXDevREADME [[-ModuleName] <String[]>] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	EnsureCopilotKeyboardShortCut 
-````PowerShell 
+```PowerShell 
 
    EnsureCopilotKeyboardShortCut  
 ```` 
@@ -5766,7 +5827,7 @@ Complete-GenXDevREADME [[-ModuleName] <String[]>] [<CommonParameters>]
     Configures the GitHub Copilot Chat keyboard shortcuts in Visual Studio Code.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 EnsureCopilotKeyboardShortCut [<CommonParameters>] 
 ```` 
 
@@ -5784,17 +5845,17 @@ EnsureCopilotKeyboardShortCut [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	EnsureDefaultGenXdevRefactors 
-````PowerShell 
+```PowerShell 
 
    EnsureDefaultGenXdevRefactors  
 ```` 
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>] 
 ```` 
 
@@ -5813,11 +5874,73 @@ EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
+ 
+
+##	Get-GenXdevCmdletUsageAnalysis 
+```PowerShell 
+
+   Get-GenXdevCmdletUsageAnalysis  
+```` 
+
+### SYNOPSIS 
+    Analyzes GenXdev cmdlet usage patterns to identify most frequently called functions.  
+
+### SYNTAX 
+```PowerShell 
+Get-GenXdevCmdletUsageAnalysis [[-OutputFormat] <String>] [[-Top] <Int32>] [-IncludeCallChains] [-IncludeScripts] [<CommonParameters>] 
+```` 
+
+### DESCRIPTION 
+    This script uses Get-GenXDevCmdlet to scan all GenXdev PowerShell modules and their  
+    functions to analyze which cmdlets are called most frequently by other cmdlets.  
+    This helps prioritize which functions to refactor to C# first, starting with the  
+    most commonly used ones.  
+
+### PARAMETERS 
+    -OutputFormat <String>  
+        Format for output: Table, List, or CSV. Default is Table.  
+        Required?                    false  
+        Position?                    1  
+        Default value                Table  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -Top <Int32>  
+        Number of top results to show. Default is 50.  
+        Required?                    false  
+        Position?                    2  
+        Default value                50  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -IncludeCallChains [<SwitchParameter>]  
+        Include detailed call chain information showing which functions call which.  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -IncludeScripts [<SwitchParameter>]  
+        Include script files in addition to module cmdlets.  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+
+<br/><hr/><br/>
  
 
 ##	Get-GenXDevModule 
-````PowerShell 
+```PowerShell 
 
    Get-GenXDevModule  
 ```` 
@@ -5826,7 +5949,7 @@ EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>]
     Retrieves all GenXDev modules from a specified path.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-GenXDevModule [[-Path] <String>] [<CommonParameters>] 
 ```` 
 
@@ -5852,11 +5975,11 @@ Get-GenXDevModule [[-Path] <String>] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Get-GenXDevModuleInfo 
-````PowerShell 
+```PowerShell 
 
    Get-GenXDevModuleInfo  
 ```` 
@@ -5865,7 +5988,7 @@ Get-GenXDevModule [[-Path] <String>] [<CommonParameters>]
     Retrieves detailed information about GenXdev PowerShell modules.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-GenXDevModuleInfo [[-ModuleName] <String[]>] [<CommonParameters>] 
 ```` 
 
@@ -5890,11 +6013,11 @@ Get-GenXDevModuleInfo [[-ModuleName] <String[]>] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Get-GenXDevNewModulesInOrderOfDependency 
-````PowerShell 
+```PowerShell 
 
    Get-GenXDevNewModulesInOrderOfDependency  
 ```` 
@@ -5903,7 +6026,7 @@ Get-GenXDevModuleInfo [[-ModuleName] <String[]>] [<CommonParameters>]
     Retrieves GenXDev modules in dependency order.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName] <String[]>] [<CommonParameters>] 
 ```` 
 
@@ -5931,11 +6054,11 @@ Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName] <String[]>] [<CommonPara
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Get-ModuleHelpMarkdown 
-````PowerShell 
+```PowerShell 
 
    Get-ModuleHelpMarkdown               --> Get-GenXDevModuleHelp  
 ```` 
@@ -5944,7 +6067,7 @@ Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName] <String[]>] [<CommonPara
     Generates markdown help documentation for specified GenXDev modules.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-ModuleHelpMarkdown [[-ModuleName] <String[]>] [[-CommandNames] <String[]>] [<CommonParameters>] 
 ```` 
 
@@ -5981,11 +6104,11 @@ Get-ModuleHelpMarkdown [[-ModuleName] <String[]>] [[-CommandNames] <String[]>] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Get-Refactor 
-````PowerShell 
+```PowerShell 
 
    Get-Refactor                         --> refactor, refactors, Show-RefactorReport  
 ```` 
@@ -5994,7 +6117,7 @@ Get-ModuleHelpMarkdown [[-ModuleName] <String[]>] [[-CommandNames] <String[]>] [
     Retrieves refactor definitions from GenXdev preferences based on name patterns.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-Refactor [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-DefaultValue <String>] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -6055,11 +6178,11 @@ Get-Refactor [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-DefaultV
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Get-RefactorReport 
-````PowerShell 
+```PowerShell 
 
    Get-RefactorReport                   --> refactorreport  
 ```` 
@@ -6068,7 +6191,7 @@ Get-Refactor [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-DefaultV
     Generates a detailed report of refactoring operations and their status.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-RefactorReport [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-SessionOnly] [-ClearSession] [-SkipSession] [-AsText] [<CommonParameters>] 
 ```` 
 
@@ -6132,11 +6255,11 @@ Get-RefactorReport [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-Se
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Invoke-GenXdevPSFormatter 
-````PowerShell 
+```PowerShell 
 
    Invoke-GenXdevPSFormatter  
 ```` 
@@ -6145,7 +6268,7 @@ Get-RefactorReport [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-Se
     Formats PowerShell script files using PSScriptAnalyzer formatting rules.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Invoke-GenXdevPSFormatter [-Path] <String> [-Settings <Object>] [-Range <Int32[]>] [-Recurse] [<CommonParameters>] 
 ```` 
 
@@ -6200,11 +6323,11 @@ Invoke-GenXdevPSFormatter [-Path] <String> [-Settings <Object>] [-Range <Int32[]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Invoke-GenXdevScriptAnalyzer 
-````PowerShell 
+```PowerShell 
 
    Invoke-GenXdevScriptAnalyzer  
 ```` 
@@ -6214,7 +6337,7 @@ Invoke-GenXdevPSFormatter [-Path] <String> [-Settings <Object>] [-Range <Int32[]
     and best practices.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Invoke-GenXdevScriptAnalyzer [-Path] <String> [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<CommonParameters>]  
    Invoke-GenXdevScriptAnalyzer -ScriptDefinition <String> [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<CommonParameters>] 
 ```` 
@@ -6282,20 +6405,20 @@ Invoke-GenXdevScriptAnalyzer [-Path] <String> [-EnableExit] [-Fix] [-Recurse] [-
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	New-GenXdevCmdlet 
-````PowerShell 
+```PowerShell 
 
-   New-GenXdevCmdlet                    --> gcmd  
+   New-GenXdevCmdlet                    --> newcmd  
 ```` 
 
 ### SYNOPSIS 
     Creates a new GenXdev PowerShell cmdlet with proper structure and validation.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 New-GenXdevCmdlet [-CmdletName] <String> [[-Synopsis] <String>] [[-Description] <String>] [[-BaseModuleName] <String>] [[-ModuleName] <String>] [[-CmdletAliases] <String[]>] [[-PromptKey] <String>] [[-Prompt] <String>] [-EditPrompt] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
@@ -6400,11 +6523,11 @@ New-GenXdevCmdlet [-CmdletName] <String> [[-Synopsis] <String>] [[-Description] 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	New-GenXdevModule 
-````PowerShell 
+```PowerShell 
 
    New-GenXdevModule  
 ```` 
@@ -6413,7 +6536,7 @@ New-GenXdevCmdlet [-CmdletName] <String> [[-Synopsis] <String>] [[-Description] 
     Creates a new GenXdev PowerShell module with proper structure and configuration.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 New-GenXdevModule [-ModuleName] <String> [-Description] <String> [[-Tags] <String[]>] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
@@ -6473,11 +6596,11 @@ New-GenXdevModule [-ModuleName] <String> [-Description] <String> [[-Tags] <Strin
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	New-PullRequestForGenXdevModuleChanges 
-````PowerShell 
+```PowerShell 
 
    New-PullRequestForGenXdevModuleChanges --> prgenxdevmodule  
 ```` 
@@ -6486,7 +6609,7 @@ New-GenXdevModule [-ModuleName] <String> [-Description] <String> [[-Tags] <Strin
     Creates a pull request for changes made to a GenXdev module.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 New-PullRequestForGenXdevModuleChanges [-ModuleName] <String> [[-CommitMessage] <String>] [[-PullRequestTitle] <String>] [[-PullRequestDescription] <String>] [[-GitUserName] <String>] [[-GitUserEmail] <String>] [-Monitor <Int32>] [-NoBorders] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ShowWindow] [-RestoreFocus] [-PassThru] [-SideBySide] [-FocusWindow] [-SetForeground] [-Maximize] [-KeysToSend <String[]>] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
@@ -6742,11 +6865,11 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName] <String> [[-CommitMessage] 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	New-Refactor 
-````PowerShell 
+```PowerShell 
 
    New-Refactor                         --> newrefactor  
 ```` 
@@ -6755,7 +6878,7 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName] <String> [[-CommitMessage] 
     Creates a new refactoring set for code transformation tasks.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>] [[-SelectionScript] <String>] [[-SelectionPrompt] <String>] [[-LLMQueryType] <String>] [-Model <String>] [-HuggingFaceIdentifier <String>] [-MaxToken <Int32>] [-Cpu <Int32>] [-TTLSeconds <Int32>] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-Temperature <Double>] [-Gpu <Int32>] [-ApiEndpoint <String>] [-ApiKey <String>] [-TimeoutSeconds <Int32>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-FilesToAdd <FileInfo[]>] [-PreferencesDatabasePath <String>] [-AutoAddModifiedFiles] [-Force] [-SessionOnly] [-ClearSession] [-SkipSession] [-Code] [-VisualStudio] [-KeysToSend <String[]>] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
@@ -7029,11 +7152,11 @@ New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>] [[-Sele
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GenXdevCmdletsContainingClipboardTextInIde 
-````PowerShell 
+```PowerShell 
 
    Open-GenXdevCmdletsContainingClipboardTextInIde --> vscodesearch  
 ```` 
@@ -7042,7 +7165,7 @@ New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>] [[-Sele
     Opens files in IDE that contain clipboard text  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GenXdevCmdletsContainingClipboardTextInIde [[-InputObject] <String>] [-Copilot] [<CommonParameters>] 
 ```` 
 
@@ -7071,11 +7194,11 @@ Open-GenXdevCmdletsContainingClipboardTextInIde [[-InputObject] <String>] [-Copi
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Remove-Refactor 
-````PowerShell 
+```PowerShell 
 
    Remove-Refactor  
 ```` 
@@ -7084,7 +7207,7 @@ Open-GenXdevCmdletsContainingClipboardTextInIde [[-InputObject] <String>] [-Copi
     Removes refactor sets from GenXdev preferences system.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Remove-Refactor [-Name] <String[]> [[-RemoveDefault]] [-PreferencesDatabasePath <String>] [-DefaultValue <String>] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
@@ -7169,11 +7292,11 @@ Remove-Refactor [-Name] <String[]> [[-RemoveDefault]] [-PreferencesDatabasePath 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Search-GenXdevCmdlet 
-````PowerShell 
+```PowerShell 
 
    Search-GenXdevCmdlet                 --> searchcmdlet  
 ```` 
@@ -7182,7 +7305,7 @@ Remove-Refactor [-Name] <String[]> [[-RemoveDefault]] [-PreferencesDatabasePath 
     Searches for a GenXdev cmdlet and optionally opens it in an IDE for editing.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Search-GenXdevCmdlet [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-EditCmdlet] [<CommonParameters>] 
 ```` 
 
@@ -7265,11 +7388,11 @@ Search-GenXdevCmdlet [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-NoLoc
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Show-GenXdevCmdLetInIde 
-````PowerShell 
+```PowerShell 
 
    Show-GenXdevCmdLetInIde              --> editcmdlet  
 ```` 
@@ -7278,7 +7401,7 @@ Search-GenXdevCmdlet [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-NoLoc
     Opens the specified GenXdev cmdlet in Visual Studio Code.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Show-GenXdevCmdLetInIde [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-UnitTests] [-KeysToSend <String[]>] [-CoPilot] [-Search] [<CommonParameters>] 
 ```` 
 
@@ -7375,11 +7498,11 @@ Show-GenXdevCmdLetInIde [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-No
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	SplitUpPsm1File 
-````PowerShell 
+```PowerShell 
 
    SplitUpPsm1File  
 ```` 
@@ -7388,7 +7511,7 @@ Show-GenXdevCmdLetInIde [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-No
     Splits a PowerShell module (.psm1) file into individual function files.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 SplitUpPsm1File [-Psm1FilePath] <String> [<CommonParameters>] 
 ```` 
 
@@ -7414,11 +7537,11 @@ SplitUpPsm1File [-Psm1FilePath] <String> [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Start-NextRefactor 
-````PowerShell 
+```PowerShell 
 
    Start-NextRefactor                   --> nextrefactor  
 ```` 
@@ -7427,8 +7550,8 @@ SplitUpPsm1File [-Psm1FilePath] <String> [<CommonParameters>]
     Continues or restarts a code refactoring session.  
 
 ### SYNTAX 
-````PowerShell 
-Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [[-CleanUpDeletedFiles]] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-EditPrompt] [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>] 
+```PowerShell 
+Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [[-CleanUpDeletedFiles]] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
 ### DESCRIPTION 
@@ -7501,14 +7624,6 @@ Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToR
         Accept pipeline input?       false  
         Aliases                        
         Accept wildcard characters?  false  
-    -EditPrompt [<SwitchParameter>]  
-        Only modify the AI prompt for the refactoring.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
     -Speak [<SwitchParameter>]  
         Enables text-to-speech for refactoring progress and notifications.  
         Required?                    false  
@@ -7537,11 +7652,11 @@ Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToR
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Test-RefactorLLMSelection 
-````PowerShell 
+```PowerShell 
 
    Test-RefactorLLMSelection  
 ```` 
@@ -7550,7 +7665,7 @@ Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToR
     Evaluates source files for refactoring eligibility using LLM analysis.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Test-RefactorLLMSelection [-RefactorDefinition] <RefactorDefinition> [-Path] <String> [<CommonParameters>] 
 ```` 
 
@@ -7584,11 +7699,11 @@ Test-RefactorLLMSelection [-RefactorDefinition] <RefactorDefinition> [-Path] <St
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Update-Refactor 
-````PowerShell 
+```PowerShell 
 
    Update-Refactor                      --> updaterefactor  
 ```` 
@@ -7597,7 +7712,7 @@ Test-RefactorLLMSelection [-RefactorDefinition] <RefactorDefinition> [-Path] <St
     Updates and manages refactoring sets including file selection and processing.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Update-Refactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-SelectByModifiedDateFrom <DateTime>] [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>] [-SelectByCreationDateTo <DateTime>] [-PromptKey <String>] [-Prompt <String>] [-SelectionScript <String>] [-SelectionPrompt <String>] [-LLMQueryType <String>] [-Model <String>] [-HuggingFaceIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>] [-TTLSeconds <Int32>] [-Cpu <Int32>] [-Gpu <Int32>] [-ApiEndpoint <String>] [-ApiKey <String>] [-TimeoutSeconds <Int32>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-KeysToSend <String[]>] [-PreferencesDatabasePath <String>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection] [-PerformAutoSelections] [-PerformAISelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-ReprocessModifiedFiles] [-Force] [-Code] [-VisualStudio] [-Speak] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>]  
    Update-Refactor [[-Refactor] <RefactorDefinition[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-SelectByModifiedDateFrom <DateTime>] [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>] [-SelectByCreationDateTo <DateTime>] [-PromptKey <String>] [-Prompt <String>] [-SelectionScript <String>] [-SelectionPrompt <String>] [-LLMQueryType <String>] [-Model <String>] [-HuggingFaceIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>] [-TTLSeconds <Int32>] [-Cpu <Int32>] [-Gpu <Int32>] [-ApiEndpoint <String>] [-ApiKey <String>] [-TimeoutSeconds <Int32>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-KeysToSend <String[]>] [-PreferencesDatabasePath <String>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection] [-PerformAutoSelections] [-PerformAISelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-ReprocessModifiedFiles] [-Force] [-Code] [-VisualStudio] [-Speak] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
@@ -8021,14 +8136,14 @@ Update-Refactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemo
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Coding<hr/> 
 
 ##	Add-FeatureLineToREADME 
-````PowerShell 
+```PowerShell 
 
    Add-FeatureLineToREADME              --> feature  
 ```` 
@@ -8037,7 +8152,7 @@ Update-Refactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemo
     Adds a feature line to the README file with a timestamp.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Add-FeatureLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
@@ -8092,11 +8207,11 @@ Add-FeatureLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-Us
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Add-IdeaLineToREADME 
-````PowerShell 
+```PowerShell 
 
    Add-IdeaLineToREADME                 --> idea  
 ```` 
@@ -8105,7 +8220,7 @@ Add-FeatureLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-Us
     Adds an idea item to the README.md file.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Add-IdeaLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
@@ -8160,11 +8275,11 @@ Add-IdeaLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOn
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Add-IssueLineToREADME 
-````PowerShell 
+```PowerShell 
 
    Add-IssueLineToREADME                --> issue  
 ```` 
@@ -8173,7 +8288,7 @@ Add-IdeaLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOn
     Adds an issue item to the README.md file.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Add-IssueLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
@@ -8228,11 +8343,11 @@ Add-IssueLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseO
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Add-LineToREADME 
-````PowerShell 
+```PowerShell 
 
    Add-LineToREADME  
 ```` 
@@ -8241,7 +8356,7 @@ Add-IssueLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseO
     Adds a line to a README.md markdown file in a specified section.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Add-LineToREADME [[-Line] <String>] [-Section] <String> [-Prefix] <String> [-Code] [-Show] [-Done] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
@@ -8323,11 +8438,11 @@ Add-LineToREADME [[-Line] <String>] [-Section] <String> [-Prefix] <String> [-Cod
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Add-ReleaseNoteLineToREADME 
-````PowerShell 
+```PowerShell 
 
    Add-ReleaseNoteLineToREADME          --> ReleaseNote  
 ```` 
@@ -8336,7 +8451,7 @@ Add-LineToREADME [[-Line] <String>] [-Section] <String> [-Prefix] <String> [-Cod
     Adds a ReleaseNote line to the README file with a timestamp.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Add-ReleaseNoteLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
@@ -8391,11 +8506,11 @@ Add-ReleaseNoteLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Add-TodoLineToREADME 
-````PowerShell 
+```PowerShell 
 
    Add-TodoLineToREADME                 --> todo  
 ```` 
@@ -8404,7 +8519,7 @@ Add-ReleaseNoteLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] 
     Adds a todo item to the README.md file.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Add-TodoLineToREADME [[-Line] <String>] [-Code] [-Show] [-Done] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
@@ -8468,11 +8583,11 @@ Add-TodoLineToREADME [[-Line] <String>] [-Code] [-Show] [-Done] [-UseHomeREADME]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	EnsureVSCodeInstallation 
-````PowerShell 
+```PowerShell 
 
    EnsureVSCodeInstallation  
 ```` 
@@ -8481,7 +8596,7 @@ Add-TodoLineToREADME [[-Line] <String>] [-Code] [-Show] [-Done] [-UseHomeREADME]
     Installs and configures Visual Studio Code with recommended extensions.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 EnsureVSCodeInstallation [-Force] [<CommonParameters>] 
 ```` 
 
@@ -8505,11 +8620,11 @@ EnsureVSCodeInstallation [-Force] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Features 
-````PowerShell 
+```PowerShell 
 
    Features  
 ```` 
@@ -8518,7 +8633,7 @@ EnsureVSCodeInstallation [-Force] [<CommonParameters>]
     Displays features from a README.md file.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Features [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
@@ -8550,11 +8665,11 @@ Features [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Ideas 
-````PowerShell 
+```PowerShell 
 
    Ideas  
 ```` 
@@ -8563,7 +8678,7 @@ Features [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
     Displays ideas from a README.md file.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Ideas [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
@@ -8595,11 +8710,11 @@ Ideas [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Issues 
-````PowerShell 
+```PowerShell 
 
    Issues  
 ```` 
@@ -8608,7 +8723,7 @@ Ideas [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
     Displays issues from a README.md file.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
@@ -8640,11 +8755,11 @@ Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-SourceFileInIde 
-````PowerShell 
+```PowerShell 
 
    Open-SourceFileInIde                 --> editcode  
 ```` 
@@ -8653,7 +8768,7 @@ Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
     Opens a source file in the preferred IDE (Visual Studio Code or Visual Studio).  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-SourceFileInIde [-Path] <String> [[-LineNo] <Int32>] [[-KeysToSend] <String[]>] [-Code] [-VisualStudio] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [<CommonParameters>] 
 ```` 
 
@@ -8749,11 +8864,11 @@ Open-SourceFileInIde [-Path] <String> [[-LineNo] <Int32>] [[-KeysToSend] <String
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	ReleaseNotes 
-````PowerShell 
+```PowerShell 
 
    ReleaseNotes  
 ```` 
@@ -8762,7 +8877,7 @@ Open-SourceFileInIde [-Path] <String> [[-LineNo] <Int32>] [[-KeysToSend] <String
     Displays ReleaseNotes from a README.md file.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 ReleaseNotes [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
@@ -8794,11 +8909,11 @@ ReleaseNotes [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Todoos 
-````PowerShell 
+```PowerShell 
 
    Todoos  
 ```` 
@@ -8807,7 +8922,7 @@ ReleaseNotes [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
     Displays todo items from a README.md file.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Todoos [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
@@ -8839,11 +8954,11 @@ Todoos [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	VSCode 
-````PowerShell 
+```PowerShell 
 
    VSCode  
 ```` 
@@ -8852,7 +8967,7 @@ Todoos [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
     Opens one or more files in Visual Studio Code.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 VSCode [-FilePath] <String[]> [-Copilot] [<CommonParameters>] 
 ```` 
 
@@ -8887,14 +9002,14 @@ VSCode [-FilePath] <String[]> [-Copilot] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Coding.Git<hr/> 
 
 ##	Get-GitChangedFiles 
-````PowerShell 
+```PowerShell 
 
    Get-GitChangedFiles                  --> Get-GitChangedFile, gitchanged  
 ```` 
@@ -8903,7 +9018,7 @@ VSCode [-FilePath] <String[]> [-Copilot] [<CommonParameters>]
     Get the list of changed files in a Git repository.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-GitChangedFiles [-PassThru] [<CommonParameters>] 
 ```` 
 
@@ -8927,11 +9042,11 @@ Get-GitChangedFiles [-PassThru] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	New-GitCommit 
-````PowerShell 
+```PowerShell 
 
    New-GitCommit                        --> commit  
 ```` 
@@ -8940,7 +9055,7 @@ Get-GitChangedFiles [-PassThru] [<CommonParameters>]
     Creates and pushes a new git commit with all changes.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 New-GitCommit [[-Title] <String>] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
@@ -8979,11 +9094,11 @@ New-GitCommit [[-Title] <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	PermanentlyDeleteGitFolders 
-````PowerShell 
+```PowerShell 
 
    PermanentlyDeleteGitFolders  
 ```` 
@@ -8992,7 +9107,7 @@ New-GitCommit [[-Title] <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
     Permanently deletes specified folders from all branches in a Git repository.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 PermanentlyDeleteGitFolders [-RepoUri] <String> [-Folders] <String[]> [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
@@ -9041,7 +9156,7 @@ PermanentlyDeleteGitFolders [-RepoUri] <String> [-Folders] <String[]> [-WhatIf] 
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
 ### NOTES 
-````PowerShell 
+```PowerShell 
 
        This operation is destructive and cannot be undone. It rewrites Git history and  
        requires force pushing, which affects all repository users.  
@@ -9051,20 +9166,20 @@ PermanentlyDeleteGitFolders [-RepoUri] <String> [-Folders] <String[]> [-WhatIf] 
        -Folders "bin", "obj"  
 ```` 
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 &nbsp;<hr/>
 ###	GenXdev.Coding.PowerShell.Modules<hr/> 
 
 ##	Add-MissingGenXdevUnitTests 
-````PowerShell 
+```PowerShell 
 
    Add-MissingGenXdevUnitTests  
 ```` 
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Add-MissingGenXdevUnitTests [<CommonParameters>] 
 ```` 
 
@@ -9075,11 +9190,11 @@ Add-MissingGenXdevUnitTests [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Assert-GenXdevCmdlet 
-````PowerShell 
+```PowerShell 
 
    Assert-GenXdevCmdlet                 --> improvecmdlet  
 ```` 
@@ -9088,7 +9203,7 @@ Add-MissingGenXdevUnitTests [<CommonParameters>]
     Improves GenXdev cmdlet documentation and implementation through AI assistance.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Assert-GenXdevCmdlet [[-CmdletName] <String>] [-ModuleName <String[]>] [[-PromptKey] <String>] [[-Prompt] <String>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-EditPrompt] [-Integrate] [<CommonParameters>] 
 ```` 
 
@@ -9192,11 +9307,11 @@ Assert-GenXdevCmdlet [[-CmdletName] <String>] [-ModuleName <String[]>] [[-Prompt
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Assert-GenXdevCmdletTests 
-````PowerShell 
+```PowerShell 
 
    Assert-GenXdevCmdletTests            --> improvecmdlettests  
 ```` 
@@ -9205,7 +9320,7 @@ Assert-GenXdevCmdlet [[-CmdletName] <String>] [-ModuleName <String[]>] [[-Prompt
     Asserts and improves unit-tests of a specified GenXdev cmdlet.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Assert-GenXdevCmdletTests [-CmdletName] <String> [[-Prompt] <String>] [[-PromptKey] <String>] [-EditPrompt] [-AssertFailedTest] [-FromScripts] [-ContinuationHandled] [<CommonParameters>] 
 ```` 
 
@@ -9276,11 +9391,11 @@ Assert-GenXdevCmdletTests [-CmdletName] <String> [[-Prompt] <String>] [[-PromptK
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Assert-GenXdevDependencyUsage 
-````PowerShell 
+```PowerShell 
 
    Assert-GenXdevDependencyUsage        --> checkgenxdevdependencies  
 ```` 
@@ -9290,7 +9405,7 @@ Assert-GenXdevCmdletTests [-CmdletName] <String> [[-Prompt] <String>] [[-PromptK
     hierarchy is maintained.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Assert-GenXdevDependencyUsage [[-ModuleName] <String[]>] [-FromScripts] [<CommonParameters>] 
 ```` 
 
@@ -9325,11 +9440,11 @@ Assert-GenXdevDependencyUsage [[-ModuleName] <String[]>] [-FromScripts] [<Common
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Assert-GenXdevTest 
-````PowerShell 
+```PowerShell 
 
    Assert-GenXdevTest                   --> Assert-GenXdevUnitTest, rungenxdevtests, testcmdlet  
 ```` 
@@ -9339,8 +9454,8 @@ Assert-GenXdevDependencyUsage [[-ModuleName] <String[]>] [-FromScripts] [<Common
     with intelligent debugging and AI-powered error resolution.  
 
 ### SYNTAX 
-````PowerShell 
-Assert-GenXdevTest [[-CmdletName] <String>] [[-DefinitionMatches] <String>] [[-ModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-IncludeScripts] [-OnlyReturnModuleNames] [-ExactMatch] [-Verbosity <String>] [-StackTraceVerbosity <String>] [-TestFailedAction <String>] [-AllowLongRunningTests] [-SkipModuleImports] [-SkipPSAnalyzerTests] [-SkipPesterTests] [<CommonParameters>] 
+```PowerShell 
+Assert-GenXdevTest [[-CmdletName] <String>] [[-TestFailedAction] <String>] [[-DefinitionMatches] <String>] [[-ModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-IncludeScripts] [-OnlyReturnModuleNames] [-ExactMatch] [-Verbosity <String>] [-StackTraceVerbosity <String>] [-AllowLongRunningTests] [-SkipModuleImports] [-SkipPSAnalyzerTests] [-SkipPesterTests] [<CommonParameters>] 
 ```` 
 
 ### DESCRIPTION 
@@ -9361,11 +9476,21 @@ Assert-GenXdevTest [[-CmdletName] <String>] [[-DefinitionMatches] <String>] [[-M
         Accept pipeline input?       true (ByPropertyName)  
         Aliases                        
         Accept wildcard characters?  true  
+    -TestFailedAction <String>  
+        Action to take when a test fails. Options include interactive prompting,  
+        automatic continuation, stopping execution, AI-powered resolution, error  
+        logging, or exception throwing for integration scenarios.  
+        Required?                    false  
+        Position?                    2  
+        Default value                Continue  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
     -DefinitionMatches <String>  
         Regular expression to match cmdlet definitions during the search process.  
         This allows for advanced filtering based on cmdlet implementation patterns.  
         Required?                    false  
-        Position?                    2  
+        Position?                    3  
         Default value                  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
         Aliases                        
@@ -9375,7 +9500,7 @@ Assert-GenXdevTest [[-CmdletName] <String>] [[-DefinitionMatches] <String>] [[-M
         with 'GenXdev' followed by optional sub-module components. Supports wildcards  
         for broad module selection.  
         Required?                    false  
-        Position?                    3  
+        Position?                    4  
         Default value                  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
         Aliases                        
@@ -9452,16 +9577,6 @@ Assert-GenXdevTest [[-CmdletName] <String>] [[-DefinitionMatches] <String>] [[-M
         Accept pipeline input?       false  
         Aliases                        
         Accept wildcard characters?  false  
-    -TestFailedAction <String>  
-        Action to take when a test fails. Options include interactive prompting,  
-        automatic continuation, stopping execution, AI-powered resolution, error  
-        logging, or exception throwing for integration scenarios.  
-        Required?                    false  
-        Position?                    named  
-        Default value                Continue  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
     -AllowLongRunningTests [<SwitchParameter>]  
         Include unit tests that have long running durations in the test execution.  
         This enables testing including performance and integration tests.  
@@ -9504,11 +9619,11 @@ Assert-GenXdevTest [[-CmdletName] <String>] [[-DefinitionMatches] <String>] [[-M
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Assert-ModuleDefinition 
-````PowerShell 
+```PowerShell 
 
    Assert-ModuleDefinition  
 ```` 
@@ -9517,7 +9632,7 @@ Assert-GenXdevTest [[-CmdletName] <String>] [[-DefinitionMatches] <String>] [[-M
     Assists in refactoring PowerShell source code files using AI assistance.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Assert-ModuleDefinition [-ModuleName] <String> [-Prompt <String>] [-EditPrompt] [<CommonParameters>] 
 ```` 
 
@@ -9562,11 +9677,11 @@ Assert-ModuleDefinition [-ModuleName] <String> [-Prompt <String>] [-EditPrompt] 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Assert-RefactorFile 
-````PowerShell 
+```PowerShell 
 
    Assert-RefactorFile  
 ```` 
@@ -9576,7 +9691,7 @@ Assert-ModuleDefinition [-ModuleName] <String> [-Prompt <String>] [-EditPrompt] 
     AI prompt template.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Assert-RefactorFile [-Path] <String> [[-RefactorSettings] <RefactorSettings>] [-AllowLongRunningTests] [<CommonParameters>] 
 ```` 
 
@@ -9617,11 +9732,11 @@ Assert-RefactorFile [-Path] <String> [[-RefactorSettings] <RefactorSettings>] [-
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Clear-GenXdevModules 
-````PowerShell 
+```PowerShell 
 
    Clear-GenXdevModules                 --> cleangenxdev  
 ```` 
@@ -9630,7 +9745,7 @@ Assert-RefactorFile [-Path] <String> [[-RefactorSettings] <RefactorSettings>] [-
     Cleans build artifacts from GenXdev PowerShell modules.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Clear-GenXdevModules [<CommonParameters>] 
 ```` 
 
@@ -9647,11 +9762,11 @@ Clear-GenXdevModules [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Complete-GenXDevREADME 
-````PowerShell 
+```PowerShell 
 
    Complete-GenXDevREADME  
 ```` 
@@ -9660,25 +9775,28 @@ Clear-GenXdevModules [<CommonParameters>]
     Completes the README file for specified GenXDev modules by adding documentation.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Complete-GenXDevREADME [[-ModuleName] <String[]>] [<CommonParameters>] 
 ```` 
 
 ### DESCRIPTION 
     This function enhances README.md files for GenXDev modules by automatically  
-    generating and inserting a cmdlet index and detailed cmdlet documentation. It  
-    processes either specified modules or all modules if none are specified. The  
-    function updates existing README.md files with a standardized format including  
-    a command index and detailed help for each cmdlet.  
+    generating and inserting a cmdlet index and detailed cmdlet documentation. For  
+    individual modules, it processes and updates existing README.md files with a  
+    standardized format including a command index and detailed help for each cmdlet.  
+    For the main GenXdev module, it creates a concise overview with links to GitHub  
+    repositories instead of concatenating full module content, preventing the README  
+    from becoming too large for parsers. Cmdlet indexes link to the corresponding  
+    sections in the GitHub repository's README files.  
 
 ### PARAMETERS 
     -ModuleName <String[]>  
         Specifies which module(s) to process. If omitted, all modules will be processed.  
-        Can accept multiple module names and supports pipeline input. Accepts string array  
-        input.  
+        Can accept multiple module names and supports pipeline input. Accepts string  
+        array input.  
         Required?                    false  
         Position?                    1  
-        Default value                @()  
+        Default value                @("GenXdev*")  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
         Aliases                        
         Accept wildcard characters?  true  
@@ -9688,11 +9806,11 @@ Complete-GenXDevREADME [[-ModuleName] <String[]>] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	EnsureCopilotKeyboardShortCut 
-````PowerShell 
+```PowerShell 
 
    EnsureCopilotKeyboardShortCut  
 ```` 
@@ -9701,7 +9819,7 @@ Complete-GenXDevREADME [[-ModuleName] <String[]>] [<CommonParameters>]
     Configures the GitHub Copilot Chat keyboard shortcuts in Visual Studio Code.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 EnsureCopilotKeyboardShortCut [<CommonParameters>] 
 ```` 
 
@@ -9719,17 +9837,17 @@ EnsureCopilotKeyboardShortCut [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	EnsureDefaultGenXdevRefactors 
-````PowerShell 
+```PowerShell 
 
    EnsureDefaultGenXdevRefactors  
 ```` 
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>] 
 ```` 
 
@@ -9748,11 +9866,73 @@ EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
+ 
+
+##	Get-GenXdevCmdletUsageAnalysis 
+```PowerShell 
+
+   Get-GenXdevCmdletUsageAnalysis  
+```` 
+
+### SYNOPSIS 
+    Analyzes GenXdev cmdlet usage patterns to identify most frequently called functions.  
+
+### SYNTAX 
+```PowerShell 
+Get-GenXdevCmdletUsageAnalysis [[-OutputFormat] <String>] [[-Top] <Int32>] [-IncludeCallChains] [-IncludeScripts] [<CommonParameters>] 
+```` 
+
+### DESCRIPTION 
+    This script uses Get-GenXDevCmdlet to scan all GenXdev PowerShell modules and their  
+    functions to analyze which cmdlets are called most frequently by other cmdlets.  
+    This helps prioritize which functions to refactor to C# first, starting with the  
+    most commonly used ones.  
+
+### PARAMETERS 
+    -OutputFormat <String>  
+        Format for output: Table, List, or CSV. Default is Table.  
+        Required?                    false  
+        Position?                    1  
+        Default value                Table  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -Top <Int32>  
+        Number of top results to show. Default is 50.  
+        Required?                    false  
+        Position?                    2  
+        Default value                50  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -IncludeCallChains [<SwitchParameter>]  
+        Include detailed call chain information showing which functions call which.  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    -IncludeScripts [<SwitchParameter>]  
+        Include script files in addition to module cmdlets.  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+
+<br/><hr/><br/>
  
 
 ##	Get-GenXDevModule 
-````PowerShell 
+```PowerShell 
 
    Get-GenXDevModule  
 ```` 
@@ -9761,7 +9941,7 @@ EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>]
     Retrieves all GenXDev modules from a specified path.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-GenXDevModule [[-Path] <String>] [<CommonParameters>] 
 ```` 
 
@@ -9787,11 +9967,11 @@ Get-GenXDevModule [[-Path] <String>] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Get-GenXDevModuleInfo 
-````PowerShell 
+```PowerShell 
 
    Get-GenXDevModuleInfo  
 ```` 
@@ -9800,7 +9980,7 @@ Get-GenXDevModule [[-Path] <String>] [<CommonParameters>]
     Retrieves detailed information about GenXdev PowerShell modules.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-GenXDevModuleInfo [[-ModuleName] <String[]>] [<CommonParameters>] 
 ```` 
 
@@ -9825,11 +10005,11 @@ Get-GenXDevModuleInfo [[-ModuleName] <String[]>] [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Get-GenXDevNewModulesInOrderOfDependency 
-````PowerShell 
+```PowerShell 
 
    Get-GenXDevNewModulesInOrderOfDependency  
 ```` 
@@ -9838,7 +10018,7 @@ Get-GenXDevModuleInfo [[-ModuleName] <String[]>] [<CommonParameters>]
     Retrieves GenXDev modules in dependency order.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName] <String[]>] [<CommonParameters>] 
 ```` 
 
@@ -9866,11 +10046,11 @@ Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName] <String[]>] [<CommonPara
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Get-ModuleHelpMarkdown 
-````PowerShell 
+```PowerShell 
 
    Get-ModuleHelpMarkdown               --> Get-GenXDevModuleHelp  
 ```` 
@@ -9879,7 +10059,7 @@ Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName] <String[]>] [<CommonPara
     Generates markdown help documentation for specified GenXDev modules.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-ModuleHelpMarkdown [[-ModuleName] <String[]>] [[-CommandNames] <String[]>] [<CommonParameters>] 
 ```` 
 
@@ -9916,11 +10096,11 @@ Get-ModuleHelpMarkdown [[-ModuleName] <String[]>] [[-CommandNames] <String[]>] [
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Get-Refactor 
-````PowerShell 
+```PowerShell 
 
    Get-Refactor                         --> refactor, refactors, Show-RefactorReport  
 ```` 
@@ -9929,7 +10109,7 @@ Get-ModuleHelpMarkdown [[-ModuleName] <String[]>] [[-CommandNames] <String[]>] [
     Retrieves refactor definitions from GenXdev preferences based on name patterns.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-Refactor [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-DefaultValue <String>] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
@@ -9990,11 +10170,11 @@ Get-Refactor [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-DefaultV
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Get-RefactorReport 
-````PowerShell 
+```PowerShell 
 
    Get-RefactorReport                   --> refactorreport  
 ```` 
@@ -10003,7 +10183,7 @@ Get-Refactor [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-DefaultV
     Generates a detailed report of refactoring operations and their status.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Get-RefactorReport [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-SessionOnly] [-ClearSession] [-SkipSession] [-AsText] [<CommonParameters>] 
 ```` 
 
@@ -10067,11 +10247,11 @@ Get-RefactorReport [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-Se
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Invoke-GenXdevPSFormatter 
-````PowerShell 
+```PowerShell 
 
    Invoke-GenXdevPSFormatter  
 ```` 
@@ -10080,7 +10260,7 @@ Get-RefactorReport [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-Se
     Formats PowerShell script files using PSScriptAnalyzer formatting rules.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Invoke-GenXdevPSFormatter [-Path] <String> [-Settings <Object>] [-Range <Int32[]>] [-Recurse] [<CommonParameters>] 
 ```` 
 
@@ -10135,11 +10315,11 @@ Invoke-GenXdevPSFormatter [-Path] <String> [-Settings <Object>] [-Range <Int32[]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Invoke-GenXdevScriptAnalyzer 
-````PowerShell 
+```PowerShell 
 
    Invoke-GenXdevScriptAnalyzer  
 ```` 
@@ -10149,7 +10329,7 @@ Invoke-GenXdevPSFormatter [-Path] <String> [-Settings <Object>] [-Range <Int32[]
     and best practices.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Invoke-GenXdevScriptAnalyzer [-Path] <String> [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<CommonParameters>]  
    Invoke-GenXdevScriptAnalyzer -ScriptDefinition <String> [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<CommonParameters>] 
 ```` 
@@ -10217,20 +10397,20 @@ Invoke-GenXdevScriptAnalyzer [-Path] <String> [-EnableExit] [-Fix] [-Recurse] [-
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	New-GenXdevCmdlet 
-````PowerShell 
+```PowerShell 
 
-   New-GenXdevCmdlet                    --> gcmd  
+   New-GenXdevCmdlet                    --> newcmd  
 ```` 
 
 ### SYNOPSIS 
     Creates a new GenXdev PowerShell cmdlet with proper structure and validation.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 New-GenXdevCmdlet [-CmdletName] <String> [[-Synopsis] <String>] [[-Description] <String>] [[-BaseModuleName] <String>] [[-ModuleName] <String>] [[-CmdletAliases] <String[]>] [[-PromptKey] <String>] [[-Prompt] <String>] [-EditPrompt] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
@@ -10335,11 +10515,11 @@ New-GenXdevCmdlet [-CmdletName] <String> [[-Synopsis] <String>] [[-Description] 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	New-GenXdevModule 
-````PowerShell 
+```PowerShell 
 
    New-GenXdevModule  
 ```` 
@@ -10348,7 +10528,7 @@ New-GenXdevCmdlet [-CmdletName] <String> [[-Synopsis] <String>] [[-Description] 
     Creates a new GenXdev PowerShell module with proper structure and configuration.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 New-GenXdevModule [-ModuleName] <String> [-Description] <String> [[-Tags] <String[]>] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
@@ -10408,11 +10588,11 @@ New-GenXdevModule [-ModuleName] <String> [-Description] <String> [[-Tags] <Strin
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	New-PullRequestForGenXdevModuleChanges 
-````PowerShell 
+```PowerShell 
 
    New-PullRequestForGenXdevModuleChanges --> prgenxdevmodule  
 ```` 
@@ -10421,7 +10601,7 @@ New-GenXdevModule [-ModuleName] <String> [-Description] <String> [[-Tags] <Strin
     Creates a pull request for changes made to a GenXdev module.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 New-PullRequestForGenXdevModuleChanges [-ModuleName] <String> [[-CommitMessage] <String>] [[-PullRequestTitle] <String>] [[-PullRequestDescription] <String>] [[-GitUserName] <String>] [[-GitUserEmail] <String>] [-Monitor <Int32>] [-NoBorders] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ShowWindow] [-RestoreFocus] [-PassThru] [-SideBySide] [-FocusWindow] [-SetForeground] [-Maximize] [-KeysToSend <String[]>] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
@@ -10677,11 +10857,11 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName] <String> [[-CommitMessage] 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	New-Refactor 
-````PowerShell 
+```PowerShell 
 
    New-Refactor                         --> newrefactor  
 ```` 
@@ -10690,7 +10870,7 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName] <String> [[-CommitMessage] 
     Creates a new refactoring set for code transformation tasks.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>] [[-SelectionScript] <String>] [[-SelectionPrompt] <String>] [[-LLMQueryType] <String>] [-Model <String>] [-HuggingFaceIdentifier <String>] [-MaxToken <Int32>] [-Cpu <Int32>] [-TTLSeconds <Int32>] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-Temperature <Double>] [-Gpu <Int32>] [-ApiEndpoint <String>] [-ApiKey <String>] [-TimeoutSeconds <Int32>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-FilesToAdd <FileInfo[]>] [-PreferencesDatabasePath <String>] [-AutoAddModifiedFiles] [-Force] [-SessionOnly] [-ClearSession] [-SkipSession] [-Code] [-VisualStudio] [-KeysToSend <String[]>] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
@@ -10964,11 +11144,11 @@ New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>] [[-Sele
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Open-GenXdevCmdletsContainingClipboardTextInIde 
-````PowerShell 
+```PowerShell 
 
    Open-GenXdevCmdletsContainingClipboardTextInIde --> vscodesearch  
 ```` 
@@ -10977,7 +11157,7 @@ New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>] [[-Sele
     Opens files in IDE that contain clipboard text  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Open-GenXdevCmdletsContainingClipboardTextInIde [[-InputObject] <String>] [-Copilot] [<CommonParameters>] 
 ```` 
 
@@ -11006,11 +11186,11 @@ Open-GenXdevCmdletsContainingClipboardTextInIde [[-InputObject] <String>] [-Copi
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Remove-Refactor 
-````PowerShell 
+```PowerShell 
 
    Remove-Refactor  
 ```` 
@@ -11019,7 +11199,7 @@ Open-GenXdevCmdletsContainingClipboardTextInIde [[-InputObject] <String>] [-Copi
     Removes refactor sets from GenXdev preferences system.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Remove-Refactor [-Name] <String[]> [[-RemoveDefault]] [-PreferencesDatabasePath <String>] [-DefaultValue <String>] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
@@ -11104,11 +11284,11 @@ Remove-Refactor [-Name] <String[]> [[-RemoveDefault]] [-PreferencesDatabasePath 
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Search-GenXdevCmdlet 
-````PowerShell 
+```PowerShell 
 
    Search-GenXdevCmdlet                 --> searchcmdlet  
 ```` 
@@ -11117,7 +11297,7 @@ Remove-Refactor [-Name] <String[]> [[-RemoveDefault]] [-PreferencesDatabasePath 
     Searches for a GenXdev cmdlet and optionally opens it in an IDE for editing.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Search-GenXdevCmdlet [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-EditCmdlet] [<CommonParameters>] 
 ```` 
 
@@ -11200,11 +11380,11 @@ Search-GenXdevCmdlet [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-NoLoc
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Show-GenXdevCmdLetInIde 
-````PowerShell 
+```PowerShell 
 
    Show-GenXdevCmdLetInIde              --> editcmdlet  
 ```` 
@@ -11213,7 +11393,7 @@ Search-GenXdevCmdlet [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-NoLoc
     Opens the specified GenXdev cmdlet in Visual Studio Code.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Show-GenXdevCmdLetInIde [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-UnitTests] [-KeysToSend <String[]>] [-CoPilot] [-Search] [<CommonParameters>] 
 ```` 
 
@@ -11310,11 +11490,11 @@ Show-GenXdevCmdLetInIde [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-No
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	SplitUpPsm1File 
-````PowerShell 
+```PowerShell 
 
    SplitUpPsm1File  
 ```` 
@@ -11323,7 +11503,7 @@ Show-GenXdevCmdLetInIde [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-No
     Splits a PowerShell module (.psm1) file into individual function files.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 SplitUpPsm1File [-Psm1FilePath] <String> [<CommonParameters>] 
 ```` 
 
@@ -11349,11 +11529,11 @@ SplitUpPsm1File [-Psm1FilePath] <String> [<CommonParameters>]
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Start-NextRefactor 
-````PowerShell 
+```PowerShell 
 
    Start-NextRefactor                   --> nextrefactor  
 ```` 
@@ -11362,8 +11542,8 @@ SplitUpPsm1File [-Psm1FilePath] <String> [<CommonParameters>]
     Continues or restarts a code refactoring session.  
 
 ### SYNTAX 
-````PowerShell 
-Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [[-CleanUpDeletedFiles]] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-EditPrompt] [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>] 
+```PowerShell 
+Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [[-CleanUpDeletedFiles]] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
 ### DESCRIPTION 
@@ -11436,14 +11616,6 @@ Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToR
         Accept pipeline input?       false  
         Aliases                        
         Accept wildcard characters?  false  
-    -EditPrompt [<SwitchParameter>]  
-        Only modify the AI prompt for the refactoring.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
     -Speak [<SwitchParameter>]  
         Enables text-to-speech for refactoring progress and notifications.  
         Required?                    false  
@@ -11472,11 +11644,11 @@ Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToR
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Test-RefactorLLMSelection 
-````PowerShell 
+```PowerShell 
 
    Test-RefactorLLMSelection  
 ```` 
@@ -11485,7 +11657,7 @@ Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToR
     Evaluates source files for refactoring eligibility using LLM analysis.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Test-RefactorLLMSelection [-RefactorDefinition] <RefactorDefinition> [-Path] <String> [<CommonParameters>] 
 ```` 
 
@@ -11519,11 +11691,11 @@ Test-RefactorLLMSelection [-RefactorDefinition] <RefactorDefinition> [-Path] <St
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
  
 
 ##	Update-Refactor 
-````PowerShell 
+```PowerShell 
 
    Update-Refactor                      --> updaterefactor  
 ```` 
@@ -11532,7 +11704,7 @@ Test-RefactorLLMSelection [-RefactorDefinition] <RefactorDefinition> [-Path] <St
     Updates and manages refactoring sets including file selection and processing.  
 
 ### SYNTAX 
-````PowerShell 
+```PowerShell 
 Update-Refactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-SelectByModifiedDateFrom <DateTime>] [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>] [-SelectByCreationDateTo <DateTime>] [-PromptKey <String>] [-Prompt <String>] [-SelectionScript <String>] [-SelectionPrompt <String>] [-LLMQueryType <String>] [-Model <String>] [-HuggingFaceIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>] [-TTLSeconds <Int32>] [-Cpu <Int32>] [-Gpu <Int32>] [-ApiEndpoint <String>] [-ApiKey <String>] [-TimeoutSeconds <Int32>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-KeysToSend <String[]>] [-PreferencesDatabasePath <String>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection] [-PerformAutoSelections] [-PerformAISelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-ReprocessModifiedFiles] [-Force] [-Code] [-VisualStudio] [-Speak] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>]  
    Update-Refactor [[-Refactor] <RefactorDefinition[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-SelectByModifiedDateFrom <DateTime>] [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>] [-SelectByCreationDateTo <DateTime>] [-PromptKey <String>] [-Prompt <String>] [-SelectionScript <String>] [-SelectionPrompt <String>] [-LLMQueryType <String>] [-Model <String>] [-HuggingFaceIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>] [-TTLSeconds <Int32>] [-Cpu <Int32>] [-Gpu <Int32>] [-ApiEndpoint <String>] [-ApiKey <String>] [-TimeoutSeconds <Int32>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-KeysToSend <String[]>] [-PreferencesDatabasePath <String>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection] [-PerformAutoSelections] [-PerformAISelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-ReprocessModifiedFiles] [-Force] [-Code] [-VisualStudio] [-Speak] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
@@ -11956,4 +12128,4 @@ Update-Refactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemo
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>

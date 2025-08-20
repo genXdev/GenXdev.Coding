@@ -1,4 +1,4 @@
-﻿###############################################################################
+###############################################################################
 <#
 .SYNOPSIS
 Generates markdown help documentation for specified GenXDev modules.
@@ -78,7 +78,7 @@ function Get-ModuleHelpMarkdown {
                 Microsoft.PowerShell.Utility\Select-Object -Unique |
                 Microsoft.PowerShell.Utility\Sort-Object { $_.Name.Length.ToString().PadLeft(4, '0') + '_' + $_.Name } | Microsoft.PowerShell.Core\ForEach-Object {
 
-                    GenXdev.Helpers\Get-GenXDevCmdlets -ModuleName ($_.Name) | Microsoft.PowerShell.Core\ForEach-Object { $_ }
+                    GenXdev.Helpers\Get-GenXDevCmdlet -ModuleName ($_.Name) | Microsoft.PowerShell.Core\ForEach-Object { $_ }
                 }
     }
 
@@ -202,7 +202,7 @@ function Get-ModuleHelpMarkdown {
                             }
                         }
                         if ($inPowerShell) {
-                            "````````PowerShell"
+                            "``````PowerShell"
                         }
                     }
                     else {
@@ -235,7 +235,7 @@ function Get-ModuleHelpMarkdown {
             }
 
             # add section separator after cmdlet documentation
-            "`r`n<br/><hr/><hr/><br/>`r`n"
+            "`r`n<br/><hr/><br/>`r`n"
         }
     }
 

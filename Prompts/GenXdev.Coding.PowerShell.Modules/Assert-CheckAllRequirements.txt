@@ -125,7 +125,7 @@ function Show-GenXdevCmdLetInIde {
 
     begin {
         # retrieve the cmdlet with script position
-        $cmdLet = GenXdev.Helpers\Get-GenXDevCmdlets -Filter $CmdletName
+        $cmdLet = GenXdev.Helpers\Get-GenXDevCmdlet -Filter $CmdletName
 
         # output verbose information about the cmdlet
         Microsoft.PowerShell.Utility\Write-Verbose $cmdLet

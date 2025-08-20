@@ -25,5 +25,5 @@ Import-Module "GenXdev.Local"
 Update-Module
 ````
 
-<br/><hr/><hr/><br/>
+<br/><hr/><br/>
 # Cmdlets

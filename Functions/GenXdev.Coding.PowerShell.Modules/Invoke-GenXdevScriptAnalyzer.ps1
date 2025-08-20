@@ -87,9 +87,30 @@ function Invoke-GenXdevScriptAnalyzer {
 
     begin {
 
+        $loaded = Microsoft.PowerShell.Core\Get-Module -Name PSScriptAnalyzer -ErrorAction SilentlyContinue
+
+        if (-not $loaded) {
+
+            $folder = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\PSScriptAnalyzer\1.24.0\"
+            $path = GenXdev.FileSystem\Expand-Path "$folder\PSv7\GenXdev.Coding.PowerShell.Modules.ScriptAnalyzer.dll"
+
+            if (-not (Microsoft.PowerShell.Management\Test-Path -LiteralPath $folder)) {
+
+                $null = PowerShellGet\Install-Module -Name PSScriptAnalyzer -RequiredVersion 1.24.0 -Scope CurrentUser -Force
+            }
+
+            if (-not (Microsoft.PowerShell.Management\Test-Path -LiteralPath $path)) {
+
+                $source = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\assets\Modules\PSScriptAnalyzer\1.24.0\*"
+
+                $null = GenXdev.FileSystem\Start-RoboCopy $source "$folder\"
+            }
+
+            $null = Microsoft.PowerShell.Core\Import-Module PSScriptAnalyzer
+        }
+
         # load script analyzer settings from configuration file
-        $settingsPath = GenXdev.FileSystem\Expand-Path `
-            "$PSScriptRoot\PSScriptAnalyzerSettings.psd1"
+        $settingsPath = "$PSScriptRoot\PSScriptAnalyzerSettings.psd1"
 
         $settings = Microsoft.PowerShell.Utility\Invoke-Expression `
         ([System.IO.File]::ReadAllText($settingsPath))
@@ -121,6 +142,7 @@ function Invoke-GenXdevScriptAnalyzer {
                     Fix                   = [bool]$Fix
                     EnableExit            = [bool]$EnableExit
                     ReportSummary         = [bool]$ReportSummary
+                    Severity              = 'Warning'
                 }
 
                 # output verbose information about path analysis
@@ -141,6 +163,7 @@ function Invoke-GenXdevScriptAnalyzer {
                     Fix                   = [bool]$Fix
                     EnableExit            = [bool]$EnableExit
                     ReportSummary         = [bool]$ReportSummary
+                    Severity              = 'Warning'
                 }
 
                 # output verbose information about script definition analysis

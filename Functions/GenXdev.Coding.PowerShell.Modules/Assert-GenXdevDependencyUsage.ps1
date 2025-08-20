@@ -39,10 +39,9 @@ function Assert-GenXdevDependencyUsage {
             HelpMessage = 'Filter to apply to module names'
         )]
         [ValidateNotNullOrEmpty()]
-        [ValidatePattern('^(GenXdev|GenXde[v]\*|GenXdev(\.\w+)+)+$')]
+        [ValidatePattern('^(GenXdev|GenXde[v]\*|GenXdev(\.[\w\*\[\]\?]*)+)+$')]
         [SupportsWildcards()]
         [string[]] $ModuleName = @('GenXdev*'),
-
         ###############################################################################
         [Parameter(
             Mandatory = $false,

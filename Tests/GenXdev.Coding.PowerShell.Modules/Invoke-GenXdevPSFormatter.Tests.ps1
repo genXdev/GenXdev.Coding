@@ -28,21 +28,21 @@ $message
 "@;
     }
 
-    Pester\It 'should fix Write-Host to be fully qualified'  {
+    Pester\It 'should fix Write-Host to be fully qualified' {
 
         # Create a temporary PowerShell script file
         $tempFile = [System.IO.Path]::GetTempFileName() + '.ps1'
 
         try {
             # Write simple script with unqualified Write-Host
-            [IO.File]::WriteAllText($tempFile, 'Write-Host   "Hello world"') |
+            [IO.File]::WriteAllText($tempFile, 'Write-Host   "Hello world"')
 
-                # Run formatter with -Fix
-                GenXdev.Coding\Invoke-GenXdevPSFormatter -Path $tempFile
+            # Run formatter with -Fix
+            GenXdev.Coding\Invoke-GenXdevPSFormatter -Path $tempFile
 
             # Read the content and check for fully qualified name
             $content = [IO.File]::ReadAllText($tempFile)
-            if ($content -ne'Write-Host "Hello world"') {
+            if ($content -ne 'Write-Host "Hello world"') {
                 Microsoft.PowerShell.Utility\Write-Warning 'Invoke-GenXdevPSFormatter STILL does not fix the script as expected.'
             }
             else {

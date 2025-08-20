@@ -227,11 +227,11 @@ function Assert-RefactorFile {
 
             # construct paths for functions and tests directories
             $functionsPath = GenXdev.FileSystem\Expand-Path `
-                "$modulesPath\$baseModuleName\1.238.2025\Functions\" `
+                "$modulesPath\$baseModuleName\1.242.2025\Functions\" `
                 -CreateDirectory
 
             $testsPath = GenXdev.FileSystem\Expand-Path `
-                "$modulesPath\$baseModuleName\1.238.2025\Tests\" `
+                "$modulesPath\$baseModuleName\1.242.2025\Tests\" `
                 -CreateDirectory
 
             # determine the specific module context based on file location
@@ -290,9 +290,8 @@ function Assert-RefactorFile {
             # configure VS Code key sequence for AI assistant integration
             if ($isCode) {
 
-                $keysToSend = @("^``", "^``", '^+i', '^l', '^a', '{DELETE}',
-                    '^+i', '{ESCAPE}', '^+%{F12}', '{ENTER}', '^v',
-                    '{ENTER}', '^{ENTER}',"^``")
+                $keysToSend = @("^``", "^``", '^+i', '^n', '^a', '{DELETE}', '^%b',
+                    '^+%{F12}', '{ENTER}', '^v', '{ENTER}', '^{ENTER}', "^``") # '^%b',
             }
             elseif ($isVisualStudio) {
 
@@ -302,7 +301,6 @@ function Assert-RefactorFile {
             }
         }
     }
-
 
     process {
 

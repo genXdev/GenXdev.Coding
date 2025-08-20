@@ -1,0 +1,228 @@
+Primary task:
+Convert the PowerShell function in '$ScriptFileName' to a C# cmdlet
+implementation that provides equivalent functionality while maintaining
+backward compatibility.
+
+$Prompt
+
+Create a new C# file with the same base name as the PowerShell script but
+with .cs extension, placing it in the same directory. The C# cmdlet should
+be functionally equivalent to the PowerShell function but optimized for
+performance during module loading.
+
+CRITICAL UNDERSTANDING: What "Refactoring" Means in This Context
+
+Refactoring in this conversion process has a FUNDAMENTAL and NON-NEGOTIABLE
+meaning that supersedes all other considerations:
+
+NO MATTER WHAT INPUT the function receives, the OUTPUT must be IDENTICAL
+to the original PowerShell function in every measurable way:
+
+- Same return values for identical inputs
+- Same error messages and error types for invalid inputs
+- Same side effects (file operations, registry changes, etc.)
+- Same pipeline behavior and object types
+- Same parameter validation and error conditions
+- Same verbose/debug/warning output messages
+- Same performance characteristics for the end user
+- Same handling of edge cases and boundary conditions
+
+This rule comes BEFORE ALL OTHER CONSIDERATIONS including:
+- Performance improvements (secondary benefit only)
+- Code readability enhancements (nice to have)
+- Faster module loading (the goal, but not at cost of compatibility)
+- Modern C# patterns (only if they maintain exact behavior)
+
+The conversion is ONLY successful if existing scripts, tests, and user
+workflows continue to function without ANY modifications. If even a single
+test fails or a single use case behaves differently, the refactoring has
+failed regardless of any performance gains achieved.
+
+Think of this as creating a drop-in replacement engine for a car - it can
+be more efficient, quieter, or faster, but the car must drive EXACTLY the
+same way with the same controls, same responses, and same reliability.
+
+Secondary task:
+Ensure compliance with these 25 requirements for C# cmdlet conversion:
+
+1) Preserve the exact PowerShell comment-based help by embedding it within
+   a C# multi-line comment block (/* <# ... #> */) above the class
+   definition for later extraction during build.
+2) Use the same verb-noun naming convention as the original PowerShell
+   function for the C# cmdlet attributes.
+3) All parameter names, types, positions, and attributes must match exactly
+   to maintain backward compatibility with existing scripts.
+4) Implement all parameter validation attributes (Mandatory, Position,
+   HelpMessage, ValidateNotNull, etc.) as C# attributes on properties.
+5) Convert PowerShell switch parameters to C# SwitchParameter type with
+   proper default values and handling.
+6) Preserve all parameter aliases by converting them to C# Alias attributes
+   on the corresponding properties.
+7) Convert parameter sets using ParameterSetName attributes in C# if they
+   exist in the original PowerShell function.
+8) Use InvokeCommand.InvokeScript() or InvokeCommand.GetCommand() to call
+   other PowerShell functions and cmdlets from within the C# implementation.
+9) Implement proper pipeline support by overriding ProcessRecord() method
+   and using WriteObject() to output results.
+10) Handle ValueFromPipeline and ValueFromPipelineByPropertyName parameters
+    correctly by implementing proper pipeline input processing.
+11) Convert PowerShell begin/process/end blocks to corresponding C# cmdlet
+    lifecycle methods (BeginProcessing, ProcessRecord, EndProcessing).
+12) Use Microsoft.PowerShell.Utility\Write-Verbose equivalent (WriteVerbose)
+    for all verbose output messages.
+13) Convert error handling from PowerShell Write-Error to C# WriteError with
+    proper ErrorRecord construction.
+14) Implement proper exception handling using try-catch blocks and convert
+    to appropriate PowerShell error records.
+15) Use fully qualified .NET type names and avoid using PowerShell-specific
+    shortcuts that don't exist in C#.
+16) Convert hashtable operations to use System.Collections.Hashtable or
+    Dictionary<string, object> as appropriate.
+17) Handle array and collection operations using proper .NET collection
+    types and LINQ where beneficial for performance.
+18) Convert PowerShell string manipulation to use .NET string methods and
+    StringBuilder for performance-critical operations.
+19) Use System.Management.Automation.PSObject for complex object handling
+    when interfacing with PowerShell data structures.
+20) Implement proper disposal patterns for IDisposable objects created
+    during cmdlet execution.
+21) Add appropriate using statements for all referenced namespaces at the
+    top of the C# file.
+22) Include proper class and method documentation using XML comments (///)
+    for IntelliSense support in development environments.
+23) Follow C# naming conventions: PascalCase for public members, camelCase
+    for private fields, and descriptive method names.
+24) Optimize performance-critical sections by avoiding unnecessary object
+    allocations and using efficient algorithms.
+25) Ensure the C# cmdlet can call GenXdev.Helpers\Copy-IdenticalParamValues
+    and other GenXdev utility functions via InvokeCommand when needed.
+
+Implementation pattern requirements:
+
+A) Class structure should inherit from PSCmdlet and use appropriate
+   attributes:
+   ```csharp
+   [Cmdlet(VerbsCommon.Get, "Example")]
+   [OutputType(typeof(ReturnType))]
+   public class GetExampleCommand : PSCmdlet
+   ```
+
+B) Parameters should be implemented as properties with proper attributes:
+   ```csharp
+   [Parameter(
+       Mandatory = true,
+       Position = 0,
+       HelpMessage = "Description of parameter")]
+   [ValidateNotNullOrEmpty]
+   public string ParameterName { get; set; }
+   ```
+
+C) Main processing should occur in ProcessRecord():
+   ```csharp
+   protected override void ProcessRecord()
+   {
+       // Implementation using InvokeCommand for PowerShell interop
+       var results = InvokeCommand.InvokeScript("Get-ChildItem @params");
+       WriteObject(results);
+   }
+   ```
+
+D) Use InvokeCommand for calling PowerShell functions:
+   ```csharp
+   // Call PowerShell cmdlets and functions
+   var scriptBlock = ScriptBlock.Create($"SomeFunction -Param '{value}'");
+   var results = scriptBlock.Invoke();
+
+   // Or use InvokeCommand directly
+   var cmd = InvokeCommand.InvokeScript("Get-Command SomeFunction");
+   ```
+
+E) Embed original PowerShell help for build-time extraction:
+   ```csharp
+   /*
+   <#
+   .SYNOPSIS
+   Original PowerShell help content here...
+   .DESCRIPTION
+   Full description...
+   .PARAMETER ParamName
+   Parameter descriptions...
+   .EXAMPLE
+   Examples from original function...
+   #>
+   */
+   ```
+
+Performance optimization guidelines:
+
+- Use StringBuilder for string concatenation in loops
+- Cache InvokeCommand results when calling the same function repeatedly
+- Use LINQ methods for collection operations when they improve readability
+- Avoid boxing/unboxing of value types unnecessarily
+- Use specific collection types instead of generic object arrays
+- Implement lazy evaluation for expensive operations when possible
+
+Error handling requirements:
+
+- Convert PowerShell terminating errors to C# exceptions appropriately
+- Use WriteError() for non-terminating errors with proper ErrorCategory
+- Maintain the same error behavior as the original PowerShell function
+- Include meaningful error messages with context information
+
+Testing compatibility requirements:
+
+- The C# cmdlet must pass all existing Pester tests for the PowerShell
+  function without modification to the test files
+- Parameter binding behavior must be identical to the PowerShell version
+- Output format and types must match exactly
+- Error conditions must produce equivalent error messages and categories
+
+File organization:
+
+- Place the .cs file in the same directory as the .ps1 file
+- Use the same base filename with .cs extension
+- Include appropriate file header comments with copyright and description
+- Add the .cs file to the module's FileList in the .psd1 manifest
+- Ensure the compiled assembly is referenced in RequiredAssemblies
+
+Build integration notes:
+
+- The C# file should be compiled as part of the module's build process
+- Help extraction should occur during build to generate MAML files
+- The original .ps1 file can be kept for reference or removed after
+  successful conversion and testing
+- Update module export lists to reference the C# cmdlet instead of
+  the PowerShell function
+
+After processing, please:
+1. Provide a numbered checklist confirming each requirement was addressed
+2. Highlight any requirements that couldn't be fully met and explain why
+3. Summarize major changes made during the conversion process
+4. List any PowerShell-specific features that required special handling
+5. Document any performance improvements achieved through the conversion
+
+For the C# file created, provide:
+1. Full file path as header
+2. Brief summary of the conversion approach
+3. Complete C# code with embedded PowerShell help
+4. Notes on any complex PowerShell-to-C# conversions performed
+
+Never ask if I want to proceed, assume yes in those cases.
+Always proceed by implementing the conversion systematically.
+
+Important notes for successful conversion:
+
+- Maintain exact parameter compatibility to avoid breaking existing scripts
+- Use InvokeCommand liberally to leverage existing PowerShell ecosystem
+- Preserve all existing aliases, parameter sets, and validation rules
+- Document any behavioral differences, even if they are improvements
+
+The goal is to achieve faster module loading while maintaining 100%
+backward compatibility with existing PowerShell scripts that use the
+converted function.
+
+TOP MOST IMPORTANT RULE: NO MATTER what INPUT the fuction gets, it's OUTPUT has always
+to be the same as the old PowerShell script function would output with that same INPUT!
+
+Do report on what concessions you made for following this top most role,
+so I can reconcider one of your points.

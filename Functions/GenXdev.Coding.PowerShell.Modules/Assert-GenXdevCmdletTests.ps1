@@ -89,11 +89,11 @@ function Assert-GenXdevCmdletTests {
 
         # get target cmdlet information including script position
         $params = GenXdev.Helpers\Copy-IdenticalParamValues `
-            -FunctionName 'GenXdev.Helpers\Get-GenXDevCmdlets' `
+            -FunctionName 'GenXdev.Helpers\Get-GenXDevCmdlet' `
             -BoundParameters $PSBoundParameters
         $params.ExactMatch = $true
         $params.CmdletName = $CmdletName
-        $cmdlet = GenXdev.Helpers\Get-GenXDevCmdlets @params |
+        $cmdlet = GenXdev.Helpers\Get-GenXDevCmdlet @params |
             Microsoft.PowerShell.Utility\Select-Object -First 1
 
         # validate cmdlet exists
@@ -199,9 +199,11 @@ function Assert-GenXdevCmdletTests {
         $invocationParams.UnitTests = $true
         $invocationParams.CmdletName = $CmdletName
         $invocationParams.Code = $true
-        $keysToSendFirst = @("^``", "^``", '^+i', '^l', '^a', '{DELETE}', '^+i', '{ESCAPE}', '^+%{F12}', '^+i')
-        $keysToSendLast = @('^+%{F12}', '{ENTER}', '^v', '{ENTER}', '^{ENTER}',"^``")
-        $invocationParams.KeysToSend = $keysToSendFirst;
+        $keysToSendFirst = @(
+                "^``", "^``", '^+i', '^n', '^a', '{DELETE}', '^%b'
+            )
+        $keysToSendLast = @('^+%{F12}', '{ENTER}', '^v', '{ENTER}', '^{ENTER}', "^``")
+        $invocationParams.KeysToSend = $keysToSendFirst + $keysToSendLast;
         GenXdev.Coding\Show-GenXdevCmdLetInIde @invocationParams
 
         # switch to test file and paste prompt

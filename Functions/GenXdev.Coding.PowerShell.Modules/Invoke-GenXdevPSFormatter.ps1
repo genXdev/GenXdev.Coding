@@ -90,8 +90,7 @@ function Invoke-GenXdevPSFormatter {
                 if ([IO.File]::Exists($settingsPath)) {
 
                     # read and evaluate the settings file content
-                    $settings = Microsoft.PowerShell.Utility\Invoke-Expression `
-                    ([IO.File]::ReadAllText($settingsPath))
+                    $settings = [IO.File]::ReadAllText($settingsPath)
 
                     # use formatting-specific settings if available
                     if ($settings.CodeFormatting) {
@@ -112,7 +111,8 @@ function Invoke-GenXdevPSFormatter {
                     # define default formatting settings
                     $Settings = @{
                         IncludeRules = @(
-                            'PSUseCorrectCasing',
+                            # 'PSUseCorrectCasing',
+                            'PSUseFullyQualifiedCmdletNames',
                             'PSPlaceOpenBrace',
                             'PSUseConsistentIndentation',
                             'PSAvoidUsingDoubleQuotesForConstantString',
@@ -135,6 +135,9 @@ function Invoke-GenXdevPSFormatter {
                                 Enable = $true
                             }
                             PSAlignAssignmentStatement                = @{
+                                Enable = $true
+                            }
+                            PSUseFullyQualifiedCmdletNames            = @{
                                 Enable = $true
                             }
                         }
@@ -221,9 +224,9 @@ function Invoke-GenXdevPSFormatter {
                     # prepare parameters for the psscriptanalyzer formatter
                     $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
                         -BoundParameters $PSBoundParameters `
-                        -FunctionName 'PSScriptAnalyzer\Invoke-Formatter' `
-                        -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable `
-                            -Scope Local -ErrorAction SilentlyContinue)
+                        -FunctionName 'PSScriptAnalyzer\Invoke-Formatter'
+
+                    $invocationParams.scriptDefinition = $scriptDefinition
 
                     # invoke the psscriptanalyzer formatter with the prepared parameters
                     $formattedScript = PSScriptAnalyzer\Invoke-Formatter `
