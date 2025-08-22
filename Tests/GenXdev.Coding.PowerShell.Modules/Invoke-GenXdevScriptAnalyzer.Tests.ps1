@@ -30,7 +30,14 @@ Get-Date
                     -Path $scriptFolder `
                     -IncludeRule @("PSUseFullyQualifiedCmdletNames") `
                     -Severity Warning `
-                    -Fix
+                    -Fix `
+                    -Settings @{
+                        Rules = @{
+                            PSUseFullyQualifiedCmdletNames = @{
+                                Enable = $true
+                            }
+                        }
+                    }
             )
 
             # Assert
