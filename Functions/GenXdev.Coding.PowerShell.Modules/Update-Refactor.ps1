@@ -309,8 +309,8 @@ function Update-Refactor {
             Mandatory = $false,
             HelpMessage = 'Temperature for response randomness (0.0-1.0)'
         )]
-        [ValidateRange(0.0, 1.0)]
-        [double] $Temperature = 0.2,
+        [ValidateRange(-1, 1.0)]
+        [double] $Temperature = -1,
         ###############################################################################
         [Parameter(
             Mandatory = $false,
@@ -646,7 +646,7 @@ function Update-Refactor {
                             [Version] $version = $null
                             if ([Version]::tryParse($parts[1], [ref]$version)) {
 
-                                $newPath = "$($modulesPath.TrimEnd('\'))\$($parts[0])\1.254.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 3))"
+                                $newPath = "$($modulesPath.TrimEnd('\'))\$($parts[0])\1.256.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 3))"
 
                                 if ($refactorDefinition.State.Refactored.IndexOf($newPath) -lt 0) {
 
@@ -682,7 +682,7 @@ function Update-Refactor {
 
                             if ([Version]::tryParse($parts[1], [ref]$version)) {
 
-                                $newPath = "$($modulesPath.TrimEnd('\'))\$($parts[0])\1.254.2025\$($path.Substring($modulesPath.Length + $parts[0].Length + $parts[1].Length + 3))"
+                                $newPath = "$($modulesPath.TrimEnd('\'))\$($parts[0])\1.256.2025\$($path.Substring($modulesPath.Length + $parts[0].Length + $parts[1].Length + 3))"
 
                                 if ($refactorDefinition.State.Selected.IndexOf($newPath) -lt 0) {
 
@@ -719,7 +719,7 @@ function Update-Refactor {
                             [Version] $version = $null
                             if ([Version]::tryParse($parts[1], [ref]$version)) {
 
-                                $newPath = "$($modulesPath.TrimEnd('\'))\$($parts[0])\1.254.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 3))"
+                                $newPath = "$($modulesPath.TrimEnd('\'))\$($parts[0])\1.256.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 3))"
 
                                 if ($refactorDefinition.State.Unselected.IndexOf($newPath) -lt 0) {
 

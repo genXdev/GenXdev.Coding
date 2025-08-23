@@ -3008,7 +3008,7 @@ New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>] [[-Sele
         Controls randomness in LLM responses (0.0-1.0). Lower is more deterministic.  
         Required?                    false  
         Position?                    named  
-        Default value                0.2  
+        Default value                -1  
         Accept pipeline input?       false  
         Aliases                        
         Accept wildcard characters?  false  
@@ -3860,7 +3860,7 @@ Update-Refactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemo
         Temperature setting for response randomness (0.0-1.0).  
         Required?                    false  
         Position?                    named  
-        Default value                0.2  
+        Default value                -1  
         Accept pipeline input?       false  
         Aliases                        
         Accept wildcard characters?  false  
@@ -7000,7 +7000,7 @@ New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>] [[-Sele
         Controls randomness in LLM responses (0.0-1.0). Lower is more deterministic.  
         Required?                    false  
         Position?                    named  
-        Default value                0.2  
+        Default value                -1  
         Accept pipeline input?       false  
         Aliases                        
         Accept wildcard characters?  false  
@@ -7852,7 +7852,7 @@ Update-Refactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemo
         Temperature setting for response randomness (0.0-1.0).  
         Required?                    false  
         Position?                    named  
-        Default value                0.2  
+        Default value                -1  
         Accept pipeline input?       false  
         Aliases                        
         Accept wildcard characters?  false  
@@ -10992,7 +10992,7 @@ New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>] [[-Sele
         Controls randomness in LLM responses (0.0-1.0). Lower is more deterministic.  
         Required?                    false  
         Position?                    named  
-        Default value                0.2  
+        Default value                -1  
         Accept pipeline input?       false  
         Aliases                        
         Accept wildcard characters?  false  
@@ -11844,7 +11844,7 @@ Update-Refactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemo
         Temperature setting for response randomness (0.0-1.0).  
         Required?                    false  
         Position?                    named  
-        Default value                0.2  
+        Default value                -1  
         Accept pipeline input?       false  
         Aliases                        
         Accept wildcard characters?  false  
