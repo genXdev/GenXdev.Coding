@@ -91,7 +91,7 @@ function Assert-ModuleDefinition {
 
         # detect active IDE process
         [System.Diagnostics.Process] $hostProcess = GenXdev.Windows\Get-PowershellMainWindowProcess
-        $isCode = $hostProcess.Name -eq 'Code'
+        $isCode = $hostProcess.Name -eq 'Code' -or $hostProcess.Name -eq 'Code - Insiders'
         $isVisualStudio = $hostProcess.Name -eq 'devenv'
 
         # if no active IDE found, check settings for preferred IDE

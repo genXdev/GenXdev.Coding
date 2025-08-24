@@ -74,8 +74,7 @@ function Assert-RefactorFile {
         [System.Diagnostics.Process] $hostProcess = `
             GenXdev.Windows\Get-PowershellMainWindowProcess
 
-        $isCode = $hostProcess.Name -eq 'Code'
-
+        $isCode = $hostProcess.Name -eq 'Code' -or $hostProcess.Name -eq 'Code - Insiders'
         $isVisualStudio = $hostProcess.Name -eq 'devenv'
 
         # fallback to refactor definition preferences if no active IDE found
@@ -227,11 +226,11 @@ function Assert-RefactorFile {
 
             # construct paths for functions and tests directories
             $functionsPath = GenXdev.FileSystem\Expand-Path `
-                "$modulesPath\$baseModuleName\1.256.2025\Functions\" `
+                "$modulesPath\$baseModuleName\1.258.2025\Functions\" `
                 -CreateDirectory
 
             $testsPath = GenXdev.FileSystem\Expand-Path `
-                "$modulesPath\$baseModuleName\1.256.2025\Tests\" `
+                "$modulesPath\$baseModuleName\1.258.2025\Tests\" `
                 -CreateDirectory
 
             # determine the specific module context based on file location
