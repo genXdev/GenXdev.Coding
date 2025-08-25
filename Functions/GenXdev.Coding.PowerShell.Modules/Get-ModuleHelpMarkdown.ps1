@@ -75,10 +75,13 @@ function Get-ModuleHelpMarkdown {
                     $ModuleObj
                 }
             } |
+            Microsoft.PowerShell.Core\Where-Object { ($null -ne $_) }|
                 Microsoft.PowerShell.Utility\Select-Object -Unique |
-                Microsoft.PowerShell.Utility\Sort-Object { $_.Name.Length.ToString().PadLeft(4, '0') + '_' + $_.Name } | Microsoft.PowerShell.Core\ForEach-Object {
+                Microsoft.PowerShell.Utility\Sort-Object { $_.Name.Length.ToString().PadLeft(4, '0') + '_' + "$($_.Name)" } | Microsoft.PowerShell.Core\ForEach-Object {
 
-                    GenXdev.Helpers\Get-GenXDevCmdlet -ModuleName ($_.Name) | Microsoft.PowerShell.Core\ForEach-Object { $_ }
+                    GenXdev.Helpers\Get-GenXDevCmdlet -ModuleName ("$($_.Name)") | Microsoft.PowerShell.Core\ForEach-Object {
+                         $_
+                    }
                 }
     }
 
