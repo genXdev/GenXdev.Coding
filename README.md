@@ -52,7 +52,6 @@ SOFTWARE.
 * ✅ GenXdev Module Management
      * Improve existing cmdlets with `Assert-GenXdevCmdlet`
      * Enhance unit tests using `Assert-GenXdevCmdletTest`
-     * Process cmdlets sequentially with `Assert-NextGenXdevCmdlet`
      * Search and edit cmdlets with `Search-GenXdevCmdlet`
 
 * ✅ Development Environment Integration
@@ -96,7 +95,7 @@ Update-Module
 | [Add-IdeaLineToREADME](#add-idealinetoreadme) | idea | Adds an idea item to the README.md file. |
 | [Add-IssueLineToREADME](#add-issuelinetoreadme) | issue | Adds an issue item to the README.md file. |
 | [Add-LineToREADME](#add-linetoreadme) | &nbsp; | Adds a line to a README.md markdown file in a specified section. |
-| [Add-ReleaseNoteLineToREADME](#add-releasenotelinetoreadme) | ReleaseNote | Adds a ReleaseNote line to the README file with a timestamp. |
+| [Add-ReleaseNoteLineToREADME](#add-releasenotelinetoreadme) | releasenote | Adds a ReleaseNote line to the README file with a timestamp. |
 | [Add-TodoLineToREADME](#add-todolinetoreadme) | todo | Adds a todo item to the README.md file. |
 | [EnsureVSCodeInstallation](#ensurevscodeinstallation) | &nbsp; | Installs and configures Visual Studio Code with recommended extensions. |
 | [Features](#features) | &nbsp; | Displays features from a README.md file. |
@@ -110,7 +109,7 @@ Update-Module
 ### GenXdev.Coding.Git
 | Command | Aliases | Description |
 | :--- | :--- | :--- |
-| [Get-GitChangedFiles](#get-gitchangedfiles) | Get-GitChangedFile, gitchanged | Get the list of changed files in a Git repository. |
+| [Get-GitChangedFiles](#get-gitchangedfiles) | gitchanged | Get the list of changed files in a Git repository. |
 | [New-GitCommit](#new-gitcommit) | commit | Creates and pushes a new git commit with all changes. |
 | [PermanentlyDeleteGitFolders](#permanentlydeletegitfolders) | &nbsp; | Permanently deletes specified folders from all branches in a Git repository. |
 
@@ -121,19 +120,19 @@ Update-Module
 | [Assert-GenXdevCmdlet](#assert-genxdevcmdlet) | improvecmdlet | Improves GenXdev cmdlet documentation and implementation through AI assistance. |
 | [Assert-GenXdevCmdletTests](#assert-genxdevcmdlettests) | improvecmdlettests | Asserts and improves unit-tests of a specified GenXdev cmdlet. |
 | [Assert-GenXdevDependencyUsage](#assert-genxdevdependencyusage) | checkgenxdevdependencies | &nbsp; |
-| [Assert-GenXdevTest](#assert-genxdevtest) | Assert-GenXdevUnitTest, rungenxdevtests, testcmdlet | &nbsp; |
+| [Assert-GenXdevTest](#assert-genxdevtest) | rungenxdevtests | &nbsp; |
 | [Assert-ModuleDefinition](#assert-moduledefinition) | &nbsp; | Assists in refactoring PowerShell source code files using AI assistance. |
 | [Assert-RefactorFile](#assert-refactorfile) | &nbsp; | &nbsp; |
 | [Clear-GenXdevModules](#clear-genxdevmodules) | cleangenxdev | Cleans build artifacts from GenXdev PowerShell modules. |
 | [Complete-GenXDevREADME](#complete-genxdevreadme) | &nbsp; | Completes the README file for specified GenXDev modules by adding documentation. |
 | [EnsureCopilotKeyboardShortCut](#ensurecopilotkeyboardshortcut) | &nbsp; | Configures the GitHub Copilot Chat keyboard shortcuts in Visual Studio Code. |
-| [EnsureDefaultGenXdevRefactors](#ensuredefaultgenxdevrefactors) | &nbsp; | &nbsp; |
+| [EnsureDefaultGenXdevRefactors](#ensuredefaultgenxdevrefactors) | &nbsp; | Ensures default GenXdev refactor definitions exist with proper configuration. |
 | [Get-GenXdevCmdletUsageAnalysis](#get-genxdevcmdletusageanalysis) | &nbsp; | Analyzes GenXdev cmdlet usage patterns to identify most frequently called functions. |
 | [Get-GenXDevModule](#get-genxdevmodule) | &nbsp; | Retrieves all GenXDev modules from a specified path. |
 | [Get-GenXDevModuleInfo](#get-genxdevmoduleinfo) | &nbsp; | Retrieves detailed information about GenXdev PowerShell modules. |
 | [Get-GenXDevNewModulesInOrderOfDependency](#get-genxdevnewmodulesinorderofdependency) | &nbsp; | Retrieves GenXDev modules in dependency order. |
-| [Get-ModuleHelpMarkdown](#get-modulehelpmarkdown) | Get-GenXDevModuleHelp | Generates markdown help documentation for specified GenXDev modules. |
-| [Get-Refactor](#get-refactor) | refactor, refactors, Show-RefactorReport | Retrieves refactor definitions from GenXdev preferences based on name patterns. |
+| [Get-ModuleHelpMarkdown](#get-modulehelpmarkdown) | &nbsp; | Generates markdown help documentation for specified GenXDev modules. |
+| [Get-Refactor](#get-refactor) | refactors | Retrieves refactor definitions from GenXdev preferences based on name patterns. |
 | [Get-RefactorReport](#get-refactorreport) | refactorreport | Generates a detailed report of refactoring operations and their status. |
 | [Invoke-GenXdevPSFormatter](#invoke-genxdevpsformatter) | &nbsp; | Formats PowerShell script files using PSScriptAnalyzer formatting rules. |
 | [Invoke-GenXdevScriptAnalyzer](#invoke-genxdevscriptanalyzer) | &nbsp; | &nbsp; |
@@ -144,7 +143,7 @@ Update-Module
 | [Open-GenXdevCmdletsContainingClipboardTextInIde](#open-genxdevcmdletscontainingclipboardtextinide) | vscodesearch | Opens files in IDE that contain clipboard text |
 | [Remove-Refactor](#remove-refactor) | &nbsp; | Removes refactor sets from GenXdev preferences system. |
 | [Search-GenXdevCmdlet](#search-genxdevcmdlet) | searchcmdlet | Searches for a GenXdev cmdlet and optionally opens it in an IDE for editing. |
-| [Show-GenXdevCmdLetInIde](#show-genxdevcmdletinide) | editcmdlet | Opens the specified GenXdev cmdlet in Visual Studio Code. |
+| [Show-GenXdevCmdLetInIde](#show-genxdevcmdletinide) | cmdlet, editcmdlet | Opens the specified GenXdev cmdlet in Visual Studio Code. |
 | [SplitUpPsm1File](#splituppsm1file) | &nbsp; | Splits a PowerShell module (.psm1) file into individual function files. |
 | [Start-NextRefactor](#start-nextrefactor) | nextrefactor | Continues or restarts a code refactoring session. |
 | [Test-RefactorLLMSelection](#test-refactorllmselection) | &nbsp; | Evaluates source files for refactoring eligibility using LLM analysis. |
@@ -164,58 +163,56 @@ Update-Module
    Add-FeatureLineToREADME              --> feature  
 ```` 
 
-### SYNOPSIS 
-    Adds a feature line to the README file with a timestamp.  
-
 ### SYNTAX 
 ```PowerShell 
-Add-FeatureLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
+Add-FeatureLineToREADME [[-Line] <string>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Adds a feature line to the specified README file, prefixed with the current date  
-    in yyyyMMdd format. The line can be formatted as code and optionally displayed.  
-
 ### PARAMETERS 
-    -Line <String>  
-        The feature description text to add to the README file.  
+    -Code  
+        Format the line as code  
         Required?                    false  
-        Position?                    1  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Switch to format the line as code in the README file.  
+    -Line <string>  
+        The feature description text to add  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Show [<SwitchParameter>]  
-        Switch to display the README file after adding the line.  
+    -Show  
+        Display the README after adding the line  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -UseHomeREADME [<SwitchParameter>]  
-        Switch to use the README file in the home directory.  
+    -UseHomeREADME  
+        Use README in home directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Switch to use the README file in the OneDrive directory.  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -232,58 +229,56 @@ Add-FeatureLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-Us
    Add-IdeaLineToREADME                 --> idea  
 ```` 
 
-### SYNOPSIS 
-    Adds an idea item to the README.md file.  
-
 ### SYNTAX 
 ```PowerShell 
-Add-IdeaLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
+Add-IdeaLineToREADME [[-Line] <string>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Adds a timestamped idea to the "## Ideas" section of a README.md file.  
-    Can display the modified section and open in Visual Studio Code.  
-
 ### PARAMETERS 
-    -Line <String>  
-        The idea text to add. Will be prefixed with current date if not empty.  
+    -Code  
+        Open README in Visual Studio Code  
         Required?                    false  
-        Position?                    1  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Opens the README in Visual Studio Code after modification.  
+    -Line <string>  
+        The idea text to add  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Show [<SwitchParameter>]  
-        Displays the modified section after changes.  
+    -Show  
+        Show the modified section  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -UseHomeREADME [<SwitchParameter>]  
-        Uses README in PowerShell profile directory instead of current location.  
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Uses README in OneDrive directory instead of current location.  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -300,58 +295,56 @@ Add-IdeaLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOn
    Add-IssueLineToREADME                --> issue  
 ```` 
 
-### SYNOPSIS 
-    Adds an issue item to the README.md file.  
-
 ### SYNTAX 
 ```PowerShell 
-Add-IssueLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
+Add-IssueLineToREADME [[-Line] <string>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Adds a timestamped issue to the "## Issues" section of a README.md file.  
-    Can display the modified section and open in Visual Studio Code.  
-
 ### PARAMETERS 
-    -Line <String>  
-        The issue text to add. Will be prefixed with current date if not empty.  
+    -Code  
+        Open README in Visual Studio Code  
         Required?                    false  
-        Position?                    1  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Opens the README in Visual Studio Code after modification.  
+    -Line <string>  
+        The issue text to add  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Show [<SwitchParameter>]  
-        Displays the modified section after changes.  
+    -Show  
+        Show the modified section  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -UseHomeREADME [<SwitchParameter>]  
-        Uses README in PowerShell profile directory instead of current location.  
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Uses README in OneDrive directory instead of current location.  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -368,85 +361,83 @@ Add-IssueLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseO
    Add-LineToREADME  
 ```` 
 
-### SYNOPSIS 
-    Adds a line to a README.md markdown file in a specified section.  
-
 ### SYNTAX 
 ```PowerShell 
-Add-LineToREADME [[-Line] <String>] [-Section] <String> [-Prefix] <String> [-Code] [-Show] [-Done] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
+Add-LineToREADME [[-Line] <string>] [-Section] <string> [-Prefix] <string> [-Code] [-Show] [-Done] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Finds and modifies a README.md file by adding a new line to a specified section.  
-    Can create the section if it doesn't exist. Supports formatting lines as code  
-    blocks and showing the modified section.  
-    Will look in current directory first, then walk up directories to find the README  
-    location. If not found, will use the README in the PowerShell profile directory.  
-
 ### PARAMETERS 
-    -Line <String>  
-        The line of text to add to the README file.  
+    -Code  
+        Open in Visual Studio Code after modifying  
         Required?                    false  
-        Position?                    1  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Section <String>  
-        The section header where the line should be added.  
+    -Done  
+        Mark the item as completed  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Line <string>  
+        The line to add to the README  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Prefix <string>  
+        The prefix to use for the line  
         Required?                    true  
         Position?                    2  
-        Default value                  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Prefix <String>  
-        The prefix to add before the line (default: "* ").  
+    -Section <string>  
+        The section to add the line to  
         Required?                    true  
-        Position?                    3  
-        Default value                *  
+        Position?                    1  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Switch to open the README in Visual Studio Code after modification.  
+    -Show  
+        Show the modified section  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Show [<SwitchParameter>]  
-        Switch to display the modified section after changes.  
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Done [<SwitchParameter>]  
-        Switch to mark a todo item as completed.  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -UseHomeREADME [<SwitchParameter>]  
-        Switch to use README in PowerShell profile directory.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Switch to use README in OneDrive directory.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -460,61 +451,59 @@ Add-LineToREADME [[-Line] <String>] [-Section] <String> [-Prefix] <String> [-Cod
 ##	Add-ReleaseNoteLineToREADME 
 ```PowerShell 
 
-   Add-ReleaseNoteLineToREADME          --> ReleaseNote  
+   Add-ReleaseNoteLineToREADME          --> releasenote  
 ```` 
-
-### SYNOPSIS 
-    Adds a ReleaseNote line to the README file with a timestamp.  
 
 ### SYNTAX 
 ```PowerShell 
-Add-ReleaseNoteLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
+Add-ReleaseNoteLineToREADME [[-Line] <string>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Adds a ReleaseNote line to the specified README file, prefixed with the current date  
-    in yyyyMMdd format. The line can be formatted as code and optionally displayed.  
-
 ### PARAMETERS 
-    -Line <String>  
-        The ReleaseNote description text to add to the README file.  
+    -Code  
+        Format the line as code  
         Required?                    false  
-        Position?                    1  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Switch to format the line as code in the README file.  
+    -Line <string>  
+        The ReleaseNote description text to add  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Show [<SwitchParameter>]  
-        Switch to display the README file after adding the line.  
+    -Show  
+        Display the README after adding the line  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -UseHomeREADME [<SwitchParameter>]  
-        Switch to use the README file in the home directory.  
+    -UseHomeREADME  
+        Use README in home directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Switch to use the README file in the OneDrive directory.  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -531,67 +520,65 @@ Add-ReleaseNoteLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] 
    Add-TodoLineToREADME                 --> todo  
 ```` 
 
-### SYNOPSIS 
-    Adds a todo item to the README.md file.  
-
 ### SYNTAX 
 ```PowerShell 
-Add-TodoLineToREADME [[-Line] <String>] [-Code] [-Show] [-Done] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
+Add-TodoLineToREADME [[-Line] <string>] [-Code] [-Show] [-Done] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Adds a timestamped todo item to the "## Todoos" section of a README.md file.  
-    The todo items can be marked as done and the modified section can be displayed.  
-    Each new todo item is automatically timestamped unless marking as done.  
-
 ### PARAMETERS 
-    -Line <String>  
-        The todo item text to add. Will be prefixed with current date if not empty.  
+    -Code  
+        Open README in Visual Studio Code  
         Required?                    false  
-        Position?                    1  
-        Default value                  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Done  
+        Mark todo item as completed  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Line <string>  
+        The todo item text to add  
+        Required?                    false  
+        Position?                    0  
         Accept pipeline input?       true (ByValue)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Opens the README in Visual Studio Code after modification.  
+    -Show  
+        Show the modified section  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Show [<SwitchParameter>]  
-        Displays the modified section after changes.  
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Done [<SwitchParameter>]  
-        Marks the specified todo item as completed.  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -UseHomeREADME [<SwitchParameter>]  
-        Uses README in PowerShell profile directory instead of current location.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Uses README in OneDrive directory instead of current location.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -608,27 +595,19 @@ Add-TodoLineToREADME [[-Line] <String>] [-Code] [-Show] [-Done] [-UseHomeREADME]
    EnsureVSCodeInstallation  
 ```` 
 
-### SYNOPSIS 
-    Installs and configures Visual Studio Code with recommended extensions.  
-
 ### SYNTAX 
 ```PowerShell 
 EnsureVSCodeInstallation [-Force] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Checks if Visual Studio Code is installed and if not, installs it using WinGet.  
-    Configures user settings, keybindings, and installs recommended extensions from  
-    the workspace configuration. Also sets up PSGallery as a trusted repository and  
-    configures specific extension settings.  
-
 ### PARAMETERS 
-    -Force [<SwitchParameter>]  
+    -Force  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -645,35 +624,29 @@ EnsureVSCodeInstallation [-Force] [<CommonParameters>]
    Features  
 ```` 
 
-### SYNOPSIS 
-    Displays features from a README.md file.  
-
 ### SYNTAX 
 ```PowerShell 
 Features [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Shows all features from the "## Features" section of a README.md file. Can use  
-    either the README in the current location, PowerShell profile directory, or  
-    OneDrive directory.  
-
 ### PARAMETERS 
-    -UseHomeREADME [<SwitchParameter>]  
-        Use README.md from PowerShell profile directory instead of current location.  
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
         Position?                    1  
-        Default value                False  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Use README.md from OneDrive directory instead of current location.  
-        Required?                    false  
-        Position?                    2  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -690,35 +663,29 @@ Features [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
    Ideas  
 ```` 
 
-### SYNOPSIS 
-    Displays ideas from a README.md file.  
-
 ### SYNTAX 
 ```PowerShell 
 Ideas [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Shows all ideas from the "## Ideas" section of a README.md file. Can use either  
-    the README in the current location, PowerShell profile directory, or OneDrive  
-    directory.  
-
 ### PARAMETERS 
-    -UseHomeREADME [<SwitchParameter>]  
-        Use README.md from PowerShell profile directory instead of current location.  
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
         Position?                    1  
-        Default value                False  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Use README.md from OneDrive directory instead of current location.  
-        Required?                    false  
-        Position?                    2  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -735,35 +702,29 @@ Ideas [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
    Issues  
 ```` 
 
-### SYNOPSIS 
-    Displays issues from a README.md file.  
-
 ### SYNTAX 
 ```PowerShell 
 Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Shows all issues from the "## Issues" section of a README.md file. Can use  
-    either the README in the current location, PowerShell profile directory, or  
-    OneDrive directory.  
-
 ### PARAMETERS 
-    -UseHomeREADME [<SwitchParameter>]  
-        Use README.md from PowerShell profile directory instead of current location.  
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
         Position?                    1  
-        Default value                False  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Use README.md from OneDrive directory instead of current location.  
-        Required?                    false  
-        Position?                    2  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -780,99 +741,92 @@ Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
    Open-SourceFileInIde                 --> editcode  
 ```` 
 
-### SYNOPSIS 
-    Opens a source file in the preferred IDE (Visual Studio Code or Visual Studio).  
-
 ### SYNTAX 
 ```PowerShell 
-Open-SourceFileInIde [-Path] <String> [[-LineNo] <Int32>] [[-KeysToSend] <String[]>] [-Code] [-VisualStudio] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [<CommonParameters>] 
+Open-SourceFileInIde [-Path] <string> [[-LineNo] <int>] [[-KeysToSend] <string[]>] [-Code] [-VisualStudio] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <int>] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function opens a specified source file in either Visual Studio Code or  
-    Visual Studio. It can navigate directly to a specific line number and optionally  
-    send keyboard inputs to the IDE after opening the file. The function will  
-    attempt to determine which IDE to use based on the current host process, running  
-    applications, or user selection.  
-
 ### PARAMETERS 
-    -Path <String>  
-        The path to the source file that should be opened in the IDE. Accepts both  
-        relative and absolute paths, as well as paths with environment variables.  
-        Required?                    true  
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+    -Code  
+        The ide to open the file in  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      c  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -LineNo <Int32>  
-        The line number to navigate to when opening the file. Default is 0, which opens  
-        the file without positioning to a specific line.  
+    -KeysToSend <string[]>  
+        Array of keyboard inputs to send to the application  
         Required?                    false  
         Position?                    2  
-        Default value                0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      keys  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -KeysToSend <String[]>  
-        Array of keyboard inputs to send to the application after opening. The function  
-        will wait 2 seconds before sending the keys to ensure the IDE has loaded.  
+    -LineNo <int>  
+        The line number to navigate to  
         Required?                    false  
-        Position?                    3  
-        Default value                @()  
+        Position?                    1  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Switch parameter to force opening the file in Visual Studio Code regardless  
-        of the current host process or other running IDEs.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+    -Path <string>  
+        The path to the sourcefile to open  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      FullName  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -VisualStudio [<SwitchParameter>]  
-        Switch parameter to force opening the file in Visual Studio regardless of the  
-        current host process or other running IDEs.  
+    -SendKeyDelayMilliSeconds <int>  
+        Delay between different input strings in milliseconds  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      DelayMilliSeconds  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SendKeyEscape [<SwitchParameter>]  
-        When specified, escapes special characters so they are sent as literal text  
-        instead of being interpreted as control sequences.  
+    -SendKeyEscape  
+        Escape control characters and modifiers  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Escape  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SendKeyHoldKeyboardFocus [<SwitchParameter>]  
-        Prevents returning keyboard focus to PowerShell after sending keys.  
+    -SendKeyHoldKeyboardFocus  
+        Hold keyboard focus on target window  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      HoldKeyboardFocus  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SendKeyUseShiftEnter [<SwitchParameter>]  
-        Sends Shift+Enter instead of regular Enter for line breaks.  
+    -SendKeyUseShiftEnter  
+        Use Shift+Enter instead of Enter  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      UseShiftEnter  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SendKeyDelayMilliSeconds <Int32>  
-        Adds delay between sending different key sequences. Useful for slower apps.  
+    -VisualStudio  
+        Open in Visual Studio  
         Required?                    false  
-        Position?                    named  
-        Default value                0  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -889,35 +843,29 @@ Open-SourceFileInIde [-Path] <String> [[-LineNo] <Int32>] [[-KeysToSend] <String
    ReleaseNotes  
 ```` 
 
-### SYNOPSIS 
-    Displays ReleaseNotes from a README.md file.  
-
 ### SYNTAX 
 ```PowerShell 
 ReleaseNotes [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Shows all ReleaseNotes from the "## ReleaseNotes" section of a README.md file. Can use  
-    either the README in the current location, PowerShell profile directory, or  
-    OneDrive directory.  
-
 ### PARAMETERS 
-    -UseHomeREADME [<SwitchParameter>]  
-        Use README.md from PowerShell profile directory instead of current location.  
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
         Position?                    1  
-        Default value                False  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Use README.md from OneDrive directory instead of current location.  
-        Required?                    false  
-        Position?                    2  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -934,35 +882,29 @@ ReleaseNotes [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
    Todoos  
 ```` 
 
-### SYNOPSIS 
-    Displays todo items from a README.md file.  
-
 ### SYNTAX 
 ```PowerShell 
 Todoos [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Shows all todo items from the "## Todoos" section of a README.md file. Can use  
-    either the README in the current location, PowerShell profile directory, or  
-    OneDrive directory.  
-
 ### PARAMETERS 
-    -UseHomeREADME [<SwitchParameter>]  
-        Use README.md from PowerShell profile directory instead of current location.  
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
         Position?                    1  
-        Default value                False  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Use README.md from OneDrive directory instead of current location.  
-        Required?                    false  
-        Position?                    2  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -979,38 +921,29 @@ Todoos [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
    VSCode  
 ```` 
 
-### SYNOPSIS 
-    Opens one or more files in Visual Studio Code.  
-
 ### SYNTAX 
 ```PowerShell 
-VSCode [-FilePath] <String[]> [-Copilot] [<CommonParameters>] 
+VSCode [-FilePath] <string[]> [-Copilot] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function takes file paths and opens them in Visual Studio Code. It expands  
-    paths and validates file existence before attempting to open them. The function  
-    supports both direct file paths and pipeline input, making it ideal for quickly  
-    opening multiple files from terminal searches.  
-
 ### PARAMETERS 
-    -FilePath <String[]>  
-        One or more file paths to open in Visual Studio Code. Accepts pipeline input  
-        and wildcard patterns.  
-        Required?                    true  
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       true (ByValue)  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Copilot [<SwitchParameter>]  
-        When specified, opens the file and triggers the Copilot keyboard shortcut to  
-        start an edit session.  
+    -Copilot  
+        Add sourcefile to Copilot edit-session  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -FilePath <string[]>  
+        The path to the file to open in VSCode  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -1027,7 +960,7 @@ VSCode [-FilePath] <String[]> [-Copilot] [<CommonParameters>]
 ##	Get-GitChangedFiles 
 ```PowerShell 
 
-   Get-GitChangedFiles                  --> Get-GitChangedFile, gitchanged  
+   Get-GitChangedFiles                  --> gitchanged  
 ```` 
 
 ### SYNOPSIS 
@@ -1067,42 +1000,36 @@ Get-GitChangedFiles [-PassThru] [<CommonParameters>]
    New-GitCommit                        --> commit  
 ```` 
 
-### SYNOPSIS 
-    Creates and pushes a new git commit with all changes.  
-
 ### SYNTAX 
 ```PowerShell 
-New-GitCommit [[-Title] <String>] [-WhatIf] [-Confirm] [<CommonParameters>] 
+New-GitCommit [[-Title] <string>] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Stages all changes in the current git repository, creates a commit with the  
-    specified title, and pushes the changes to the remote origin. Automatically sets  
-    up upstream tracking if needed.  
-
 ### PARAMETERS 
-    -Title <String>  
-        The message to use for the git commit. If not specified, defaults to  
-        "Improved scripts".  
+    -Confirm  
         Required?                    false  
-        Position?                    1  
-        Default value                Improved scripts  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -WhatIf [<SwitchParameter>]  
+    -Title <string>  
+        The commit message title to use  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Confirm [<SwitchParameter>]  
+    -WhatIf  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -1119,68 +1046,51 @@ New-GitCommit [[-Title] <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
    PermanentlyDeleteGitFolders  
 ```` 
 
-### SYNOPSIS 
-    Permanently deletes specified folders from all branches in a Git repository.  
-
 ### SYNTAX 
 ```PowerShell 
-PermanentlyDeleteGitFolders [-RepoUri] <String> [-Folders] <String[]> [-WhatIf] [-Confirm] [<CommonParameters>] 
+PermanentlyDeleteGitFolders [-RepoUri] <string> [-Folders] <string[]> [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Cleans a Git repository by removing specified folders from the entire commit  
-    history across all branches. This is done by cloning the repository, using  
-    git filter-branch to remove the folders, and force pushing the changes back.  
-    This operation is destructive and permanently rewrites Git history.  
-
 ### PARAMETERS 
-    -RepoUri <String>  
-        The Git repository URI to clean (HTTPS or SSH format).  
+    -Confirm  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Folders <string[]>  
+        Array of folder paths to permanently remove  
         Required?                    true  
         Position?                    1  
-        Default value                  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Folders <String[]>  
-        Array of folder paths to remove from the repository history. Paths can be  
-        specified with forward or back slashes.  
+    -RepoUri <string>  
+        The URI of the Git repository to clean  
         Required?                    true  
-        Position?                    2  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -WhatIf [<SwitchParameter>]  
+    -WhatIf  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Confirm [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-### NOTES 
-```PowerShell 
-
-       This operation is destructive and cannot be undone. It rewrites Git history and  
-       requires force pushing, which affects all repository users.  
-   -------------------------- EXAMPLE 1 --------------------------  
-   PS C:\> PermanentlyDeleteGitFolders `  
-       -RepoUri "https://github.com/user/repo.git" `  
-       -Folders "bin", "obj"  
-```` 
 
 <br/><hr/><br/>
  
@@ -1215,107 +1125,110 @@ Add-MissingGenXdevUnitTests [<CommonParameters>]
    Assert-GenXdevCmdlet                 --> improvecmdlet  
 ```` 
 
-### SYNOPSIS 
-    Improves GenXdev cmdlet documentation and implementation through AI assistance.  
-
 ### SYNTAX 
 ```PowerShell 
-Assert-GenXdevCmdlet [[-CmdletName] <String>] [-ModuleName <String[]>] [[-PromptKey] <String>] [[-Prompt] <String>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-EditPrompt] [-Integrate] [<CommonParameters>] 
+Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey] <string>] [[-Prompt] <string>] [-ModuleName <string[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-EditPrompt] [-Integrate] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function enhances GenXdev cmdlets by analyzing and improving their code  
-    through AI prompts. It can integrate cmdlets into modules, update documentation,  
-    and verify proper implementation. The function supports custom prompt templates  
-    and can open files in Visual Studio Code or Visual Studio.  
-
 ### PARAMETERS 
-    -CmdletName <String>  
-        The name or search pattern of the cmdlet to improve. Supports wildcards.  
+    -CmdletName <string>  
+        Search pattern to filter cmdlets  
         Required?                    false  
-        Position?                    1  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
-    -ModuleName <String[]>  
+    -Code  
+        Open in Visual Studio Code  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      c  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -EditPrompt  
+        Only edit the AI prompt  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           PromptKey  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -FromScripts  
+        Search in script files  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Integrate  
+        Integrate cmdlet into module  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ModuleName <string[]>  
+        GenXdev module names to search  
+        Required?                    false  
+        Position?                    Named  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Module, BaseModuleName, SubModuleName  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
-    -PromptKey <String>  
-        The key identifying which AI prompt template to use for improvements.  
+    -NoLocal  
+        Skip local module versions  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -OnlyPublished  
+        Only include published versions  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Prompt <string>  
+        Custom AI prompt text to use  
         Required?                    false  
         Position?                    2  
-        Default value                CheckAllRequirements  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Prompt <String>  
-        Custom prompt text to override the template prompt.  
+    -PromptKey <string>  
+        The AI prompt key to use for template selection  
         Required?                    false  
-        Position?                    3  
-        Default value                  
+        Position?                    1  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -NoLocal [<SwitchParameter>]  
-        Skip searching local module versions.  
+    -VisualStudio  
+        Open in Visual Studio  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -OnlyPublished [<SwitchParameter>]  
-        Only search published module versions.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -FromScripts [<SwitchParameter>]  
-        Search in script files rather than module files.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Opens the cmdlet in Visual Studio Code.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -VisualStudio [<SwitchParameter>]  
-        Opens the cmdlet in Visual Studio.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -EditPrompt [<SwitchParameter>]  
-        Only edit the AI prompt template without processing the cmdlet.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Integrate [<SwitchParameter>]  
-        Integrate the cmdlet into a module if it's currently a standalone script.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -1332,74 +1245,73 @@ Assert-GenXdevCmdlet [[-CmdletName] <String>] [-ModuleName <String[]>] [[-Prompt
    Assert-GenXdevCmdletTests            --> improvecmdlettests  
 ```` 
 
-### SYNOPSIS 
-    Asserts and improves unit-tests of a specified GenXdev cmdlet.  
-
 ### SYNTAX 
 ```PowerShell 
-Assert-GenXdevCmdletTests [-CmdletName] <String> [[-Prompt] <String>] [[-PromptKey] <String>] [-EditPrompt] [-AssertFailedTest] [-FromScripts] [-ContinuationHandled] [<CommonParameters>] 
+Assert-GenXdevCmdletTests [-CmdletName] <string> [[-Prompt] <string>] [[-PromptKey] <string>] [-EditPrompt] [-AssertFailedTest] [-FromScripts] [-ContinuationHandled] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function helps maintain and improve unit tests for GenXdev cmdlets by:  
-    1. Creating test files if they do not exist  
-    2. Opening the cmdlet in VS Code  
-    3. Preparing and applying AI prompts for test generation/improvement  
-    4. Managing test execution workflow  
-
 ### PARAMETERS 
-    -CmdletName <String>  
-        The name of the cmdlet to improve unit-tests for. Required.  
-        Required?                    true  
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+    -AssertFailedTest  
+        Indicates to assert a failed test  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Prompt <String>  
-        Custom AI prompt text to use for test generation. Optional.  
+    -CmdletName <string>  
+        The name of the cmdlet to improve unit-tests for  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      cmd  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ContinuationHandled  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -EditPrompt  
+        Switch to only edit the AI prompt  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -FromScripts  
+        Search in script files instead of modules  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Prompt <string>  
+        Custom AI prompt text to use  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -PromptKey <string>  
+        The AI prompt key to use for template selection  
         Required?                    false  
         Position?                    2  
-        Default value                  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -PromptKey <String>  
-        Required?                    false  
-        Position?                    3  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -EditPrompt [<SwitchParameter>]  
-        Switch to only edit the AI prompt without modifying the cmdlet. Optional.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -AssertFailedTest [<SwitchParameter>]  
-        Switch to indicate assertion of a failed test. Optional.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -FromScripts [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -ContinuationHandled [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -1416,40 +1328,30 @@ Assert-GenXdevCmdletTests [-CmdletName] <String> [[-Prompt] <String>] [[-PromptK
    Assert-GenXdevDependencyUsage        --> checkgenxdevdependencies  
 ```` 
 
-### SYNOPSIS 
-    Validates dependency usage across GenXdev modules to ensure proper module  
-    hierarchy is maintained.  
-
 ### SYNTAX 
 ```PowerShell 
-Assert-GenXdevDependencyUsage [[-ModuleName] <String[]>] [-FromScripts] [<CommonParameters>] 
+Assert-GenXdevDependencyUsage [[-ModuleName] <string[]>] [-FromScripts] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function analyzes GenXdev modules to ensure they follow the correct  
-    dependency hierarchy. It checks that modules only reference dependencies  
-    that are listed in their RequiredModules manifest, and prevents circular  
-    dependencies by validating that modules do not reference modules that come  
-    later in the dependency chain.  
-
 ### PARAMETERS 
-    -ModuleName <String[]>  
-        Filter to apply to module names. Must match GenXdev naming pattern. Defaults  
-        to checking all GenXdev modules.  
+    -FromScripts  
+        Search in script files instead of module files  
         Required?                    false  
-        Position?                    2  
-        Default value                @('GenXdev*')  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
-        Accept wildcard characters?  true  
-    -FromScripts [<SwitchParameter>]  
-        Search in script files instead of module files.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
+    -ModuleName <string[]>  
+        Filter to apply to module names  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
@@ -1462,172 +1364,158 @@ Assert-GenXdevDependencyUsage [[-ModuleName] <String[]>] [-FromScripts] [<Common
 ##	Assert-GenXdevTest 
 ```PowerShell 
 
-   Assert-GenXdevTest                   --> Assert-GenXdevUnitTest, rungenxdevtests, testcmdlet  
+   Assert-GenXdevTest                   --> rungenxdevtests  
 ```` 
-
-### SYNOPSIS 
-    Executesunit tests for GenXdev modules, sub-modules, or cmdlets  
-    with intelligent debugging and AI-powered error resolution.  
 
 ### SYNTAX 
 ```PowerShell 
-Assert-GenXdevTest [[-CmdletName] <String>] [[-TestFailedAction] <String>] [[-DefinitionMatches] <String>] [[-ModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-IncludeScripts] [-OnlyReturnModuleNames] [-ExactMatch] [-Verbosity <String>] [-StackTraceVerbosity <String>] [-AllowLongRunningTests] [-SkipModuleImports] [-SkipPSAnalyzerTests] [-SkipPesterTests] [<CommonParameters>] 
+Assert-GenXdevTest [[-CmdletName] <string>] [[-TestFailedAction] {Ask | Continue | Stop | SolveWithAI | Write-Error | Throw}] [[-DefinitionMatches] <string>] [[-ModuleName] <string[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-IncludeScripts] [-OnlyReturnModuleNames] [-ExactMatch] [-Verbosity {None | Normal | Detailed | Diagnostic}] [-StackTraceVerbosity {None | FirstLine | Filtered | Full}] [-AllowLongRunningTests] [-SkipModuleImports] [-SkipPSAnalyzerTests] [-SkipPesterTests] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function provides a testing framework for GenXdev modules,  
-    offering multi-level test execution from entire modules down to individual  
-    cmdlets. It integrates PSScriptAnalyzer for static code analysis, Pester for  
-    unit testing, and Get-Help validation for documentation compliance. The  
-    function includes intelligent error handling with AI-powered resolution  
-    capabilities and detailed progress reporting for development workflows.  
-
 ### PARAMETERS 
-    -CmdletName <String>  
-        Search pattern to filter cmdlets for testing. Supports wildcards and allows  
-        targeting specific cmdlets or groups of cmdlets matching the pattern.  
+    -AllowLongRunningTests  
+        Also selects unit-tests that have long running durations  
         Required?                    false  
-        Position?                    1  
-        Default value                  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -CmdletName <string>  
+        Search pattern to filter cmdlets  
+        Required?                    false  
+        Position?                    0  
         Accept pipeline input?       true (ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
-    -TestFailedAction <String>  
-        Action to take when a test fails. Options include interactive prompting,  
-        automatic continuation, stopping execution, AI-powered resolution, error  
-        logging, or exception throwing for integration scenarios.  
+    -DefinitionMatches <string>  
+        Regular expression to match cmdlet definitions  
         Required?                    false  
         Position?                    2  
-        Default value                Continue  
-        Accept pipeline input?       false  
-        Aliases                        
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -DefinitionMatches <String>  
-        Regular expression to match cmdlet definitions during the search process.  
-        This allows for advanced filtering based on cmdlet implementation patterns.  
+    -ExactMatch  
+        Require exact matches for cmdlet names  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -FromScripts  
+        Search in script files instead of modules  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -IncludeScripts  
+        Includes the scripts directory in addition to regular modules  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           ModuleName  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ModuleName <string[]>  
+        GenXdev module names to search  
         Required?                    false  
         Position?                    3  
-        Default value                  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -ModuleName <String[]>  
-        GenXdev module names to search and test. Must follow the pattern starting  
-        with 'GenXdev' followed by optional sub-module components. Supports wildcards  
-        for broad module selection.  
-        Required?                    false  
-        Position?                    4  
-        Default value                  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Module, BaseModuleName, SubModuleName  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
-    -NoLocal [<SwitchParameter>]  
-        Skip searching in local module paths during cmdlet discovery. When specified,  
-        only published module paths will be considered for testing.  
+    -NoLocal  
+        Skip searching in local module paths  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -OnlyPublished [<SwitchParameter>]  
-        Limit search to published module paths only. This excludes local development  
-        modules and focuses on officially published GenXdev modules.  
+    -OnlyPublished  
+        Only search in published module paths  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -FromScripts [<SwitchParameter>]  
-        Search in script files instead of module files. This allows testing of  
-        standalone PowerShell scripts within the GenXdev ecosystem.  
+    -OnlyReturnModuleNames  
+        Only return unique module names  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -IncludeScripts [<SwitchParameter>]  
-        Include the scripts directory in addition to regular modules. This expands  
-        the test scope to cover both modular and script-based functionality.  
+    -SkipModuleImports  
+        Skips importing GenXdev modules before testing  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           ModuleName  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -OnlyReturnModuleNames [<SwitchParameter>]  
-        Return only unique module names instead of full cmdlet details. Useful for  
-        discovery and inventory operations rather than detailed testing.  
+    -SkipPSAnalyzerTests  
+        Skips invoking PSAnalyzer tests  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ExactMatch [<SwitchParameter>]  
-        Require exact matches for cmdlet names rather than wildcard matching. This  
-        provides precise targeting for specific cmdlet testing scenarios.  
+    -SkipPesterTests  
+        Skips invoking Pester tests  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Verbosity <String>  
-        Output detail level for test execution. Controls the amount of information  
-        displayed during test runs, from minimal to diagnostic output.  
+    -StackTraceVerbosity <string>  
+        Stack trace detail level  
         Required?                    false  
-        Position?                    named  
-        Default value                Normal  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -StackTraceVerbosity <String>  
-        Stack trace detail level for error reporting. Determines how much call stack  
-        information is included when errors occur during testing.  
+    -TestFailedAction <string>  
+        Action to take when a test fails. Options: Ask, Continue, Stop, SolveWithAI, Write-Error, Throw  
         Required?                    false  
-        Position?                    named  
-        Default value                FirstLine  
+        Position?                    1  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -AllowLongRunningTests [<SwitchParameter>]  
-        Include unit tests that have long running durations in the test execution.  
-        This enables testing including performance and integration tests.  
+    -Verbosity <string>  
+        Output detail level  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -SkipModuleImports [<SwitchParameter>]  
-        Skip importing GenXdev modules before testing. This is useful when modules  
-        are already loaded or when testing specific module loading scenarios.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -SkipPSAnalyzerTests [<SwitchParameter>]  
-        Skip invoking PSScriptAnalyzer tests during the test execution. This allows  
-        focusing solely on functional testing when static analysis is not required.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -SkipPesterTests [<SwitchParameter>]  
-        Skip invoking Pester tests during the test execution. This allows focusing  
-        solely on static analysis when functional testing is not required.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -1644,48 +1532,38 @@ Assert-GenXdevTest [[-CmdletName] <String>] [[-TestFailedAction] <String>] [[-De
    Assert-ModuleDefinition  
 ```` 
 
-### SYNOPSIS 
-    Assists in refactoring PowerShell source code files using AI assistance.  
-
 ### SYNTAX 
 ```PowerShell 
-Assert-ModuleDefinition [-ModuleName] <String> [-Prompt <String>] [-EditPrompt] [<CommonParameters>] 
+Assert-ModuleDefinition [-ModuleName] <string> [-Prompt <string>] [-EditPrompt] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function automates the process of refactoring PowerShell code using AI.  
-    It manages prompt templates, detects the active IDE (VS Code or Visual Studio),  
-    and orchestrates the refactoring workflow through keyboard automation.  
-    The function can handle both module manifest (.psd1) and module script (.psm1)  
-    files.  
-
 ### PARAMETERS 
-    -ModuleName <String>  
-        The name of the PowerShell module to refactor. This module must be available  
-        in the PowerShell module path.  
+    -EditPrompt  
+        Switch to only edit the AI prompt  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ModuleName <string>  
+        The name of the module  
         Required?                    true  
-        Position?                    1  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Prompt <String>  
-        Custom AI prompt text to use for the refactoring process. If not specified,  
-        defaults to an error message if module loading fails.  
+    -Prompt <string>  
+        The AI prompt  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -EditPrompt [<SwitchParameter>]  
-        When enabled, only opens the prompt template for editing without executing the  
-        actual refactoring process.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -1702,45 +1580,37 @@ Assert-ModuleDefinition [-ModuleName] <String> [-Prompt <String>] [-EditPrompt] 
    Assert-RefactorFile  
 ```` 
 
-### SYNOPSIS 
-    Executes a refactoring operation on a source file using the specified IDE and  
-    AI prompt template.  
-
 ### SYNTAX 
 ```PowerShell 
-Assert-RefactorFile [-Path] <String> [[-RefactorSettings] <RefactorSettings>] [-AllowLongRunningTests] [<CommonParameters>] 
+Assert-RefactorFile [-Path] <string> [[-RefactorSettings] <RefactorSettings>] [-AllowLongRunningTests] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function automates the refactoring process by preparing an AI prompt based  
-    on the refactor definition, detecting or selecting the appropriate IDE (VS Code  
-    or Visual Studio), and opening the target file with the prepared prompt. The  
-    function handles prompt template processing, IDE detection, and automation of  
-    the refactoring workflow.  
-
 ### PARAMETERS 
-    -Path <String>  
-        The absolute or relative path to the source file that needs to be refactored.  
-        The path will be expanded to an absolute path during processing.  
-        Required?                    true  
-        Position?                    1  
-        Default value                  
+    -AllowLongRunningTests  
+        Required?                    false  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Path <string>  
+        The path to the source file to improve  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      FullName  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     -RefactorSettings <RefactorSettings>  
+        The refactor definition containing settings and prompt template  
         Required?                    false  
-        Position?                    2  
-        Default value                [GenXdev.Helpers.RefactorSettings]::new()  
+        Position?                    1  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -AllowLongRunningTests [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -1757,19 +1627,10 @@ Assert-RefactorFile [-Path] <String> [[-RefactorSettings] <RefactorSettings>] [-
    Clear-GenXdevModules                 --> cleangenxdev  
 ```` 
 
-### SYNOPSIS 
-    Cleans build artifacts from GenXdev PowerShell modules.  
-
 ### SYNTAX 
 ```PowerShell 
 Clear-GenXdevModules [<CommonParameters>] 
 ```` 
-
-### DESCRIPTION 
-    Removes build directories and artifacts from all GenXdev PowerShell modules in  
-    the user's PowerShell Modules directory. Cleans both module root directories and  
-    version-specific subdirectories, removing bin, obj, trash and other build  
-    artifacts.  
 
 ### PARAMETERS 
     <CommonParameters>  
@@ -1787,34 +1648,20 @@ Clear-GenXdevModules [<CommonParameters>]
    Complete-GenXDevREADME  
 ```` 
 
-### SYNOPSIS 
-    Completes the README file for specified GenXDev modules by adding documentation.  
-
 ### SYNTAX 
 ```PowerShell 
-Complete-GenXDevREADME [[-ModuleName] <String[]>] [<CommonParameters>] 
+Complete-GenXDevREADME [[-ModuleName] <string[]>] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function enhances README.md files for GenXDev modules by automatically  
-    generating and inserting a cmdlet index and detailed cmdlet documentation. For  
-    individual modules, it processes and updates existing README.md files with a  
-    standardized format including a command index and detailed help for each cmdlet.  
-    For the main GenXdev module, it creates a concise overview with links to GitHub  
-    repositories instead of concatenating full module content, preventing the README  
-    from becoming too large for parsers. Cmdlet indexes link to the corresponding  
-    sections in the GitHub repository's README files.  
-
 ### PARAMETERS 
-    -ModuleName <String[]>  
-        Specifies which module(s) to process. If omitted, all modules will be processed.  
-        Can accept multiple module names and supports pipeline input. Accepts string  
-        array input.  
+    -ModuleName <string[]>  
+        The name(s) of the module(s) to complete the README for  
         Required?                    false  
-        Position?                    1  
-        Default value                @("GenXdev*")  
+        Position?                    0  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Module, BaseModuleName, SubModuleName  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -1831,20 +1678,10 @@ Complete-GenXDevREADME [[-ModuleName] <String[]>] [<CommonParameters>]
    EnsureCopilotKeyboardShortCut  
 ```` 
 
-### SYNOPSIS 
-    Configures the GitHub Copilot Chat keyboard shortcuts in Visual Studio Code.  
-
 ### SYNTAX 
 ```PowerShell 
 EnsureCopilotKeyboardShortCut [<CommonParameters>] 
 ```` 
-
-### DESCRIPTION 
-    This function ensures that GitHub Copilot Chat's file attachment feature has a proper  
-    keyboard shortcut (Ctrl+Shift+Alt+F12) configured in Visual Studio Code.  
-    It will remove any existing Copilot attachment shortcuts and replace them with the  
-    current correct command (github.copilot.chat.attachFile).  
-    Also adds Alt+` (backtick) shortcut for toggling the maximized panel.  
 
 ### PARAMETERS 
     <CommonParameters>  
@@ -1869,6 +1706,7 @@ EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>]
 
 ### PARAMETERS 
     -Force  
+        Forces recreation of existing refactor definitions by removing them first  
         Required?                    false  
         Position?                    Named  
         Accept pipeline input?       false  
@@ -1891,52 +1729,43 @@ EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>]
    Get-GenXdevCmdletUsageAnalysis  
 ```` 
 
-### SYNOPSIS 
-    Analyzes GenXdev cmdlet usage patterns to identify most frequently called functions.  
-
 ### SYNTAX 
 ```PowerShell 
-Get-GenXdevCmdletUsageAnalysis [[-OutputFormat] <String>] [[-Top] <Int32>] [-IncludeCallChains] [-IncludeScripts] [<CommonParameters>] 
+Get-GenXdevCmdletUsageAnalysis [[-OutputFormat] {Table | List | CSV}] [[-Top] <int>] [-IncludeCallChains] [-IncludeScripts] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This script uses Get-GenXDevCmdlet to scan all GenXdev PowerShell modules and their  
-    functions to analyze which cmdlets are called most frequently by other cmdlets.  
-    This helps prioritize which functions to refactor to C# first, starting with the  
-    most commonly used ones.  
-
 ### PARAMETERS 
-    -OutputFormat <String>  
-        Format for output: Table, List, or CSV. Default is Table.  
+    -IncludeCallChains  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -IncludeScripts  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -OutputFormat <string>  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Top <int>  
         Required?                    false  
         Position?                    1  
-        Default value                Table  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Top <Int32>  
-        Number of top results to show. Default is 50.  
-        Required?                    false  
-        Position?                    2  
-        Default value                50  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -IncludeCallChains [<SwitchParameter>]  
-        Include detailed call chain information showing which functions call which.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -IncludeScripts [<SwitchParameter>]  
-        Include script files in addition to module cmdlets.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -1953,29 +1782,20 @@ Get-GenXdevCmdletUsageAnalysis [[-OutputFormat] <String>] [[-Top] <Int32>] [-Inc
    Get-GenXDevModule  
 ```` 
 
-### SYNOPSIS 
-    Retrieves all GenXDev modules from a specified path.  
-
 ### SYNTAX 
 ```PowerShell 
-Get-GenXDevModule [[-Path] <String>] [<CommonParameters>] 
+Get-GenXDevModule [[-Path] <string>] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function searches through a directory structure for GenXdev modules,  
-    excluding any with '.local' in the name. For each valid module found, it returns  
-    the most recent version folder (1.x) that contains a valid module manifest  
-    (.psd1) file.  
-
 ### PARAMETERS 
-    -Path <String>  
-        The root directory to search for GenXdev modules. If not specified, defaults to  
-        the parent directory of the script's location.  
+    -Path <string>  
+        The root path to search for GenXdev modules  
         Required?                    false  
-        Position?                    1  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      RootPath, FullPath  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -1992,28 +1812,20 @@ Get-GenXDevModule [[-Path] <String>] [<CommonParameters>]
    Get-GenXDevModuleInfo  
 ```` 
 
-### SYNOPSIS 
-    Retrieves detailed information about GenXdev PowerShell modules.  
-
 ### SYNTAX 
 ```PowerShell 
-Get-GenXDevModuleInfo [[-ModuleName] <String[]>] [<CommonParameters>] 
+Get-GenXDevModuleInfo [[-ModuleName] <string[]>] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function examines GenXdev PowerShell modules and returns information about  
-    their configuration, versions, and presence of key files. It can process either  
-    specified modules or all available modules.  
-
 ### PARAMETERS 
-    -ModuleName <String[]>  
-        Array of module names to analyze. If empty, processes all available modules.  
-        GenXdev.Local module is explicitly blocked from processing.  
+    -ModuleName <string[]>  
+        Names of modules to analyze  
         Required?                    false  
-        Position?                    1  
-        Default value                @()  
+        Position?                    0  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Name, Module  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -2030,31 +1842,20 @@ Get-GenXDevModuleInfo [[-ModuleName] <String[]>] [<CommonParameters>]
    Get-GenXDevNewModulesInOrderOfDependency  
 ```` 
 
-### SYNOPSIS 
-    Retrieves GenXDev modules in dependency order.  
-
 ### SYNTAX 
 ```PowerShell 
-Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName] <String[]>] [<CommonParameters>] 
+Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName] <string[]>] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function returns a list of GenXDev modules arranged in the correct dependency  
-    order to ensure proper module loading. It first retrieves all module information  
-    and then orders them based on their dependencies, starting with core modules and  
-    ending with dependent modules. This ensures modules are loaded in the correct  
-    sequence.  
-
 ### PARAMETERS 
-    -ModuleName <String[]>  
-        One or more module names to filter the results. If not provided, all modules are  
-        returned in their dependency order. The function will maintain the correct  
-        dependency chain even when filtering specific modules.  
+    -ModuleName <string[]>  
+        One or more module names to filter by  
         Required?                    false  
-        Position?                    1  
-        Default value                @('GenXdev*')  
+        Position?                    0  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Module, BaseModuleName, SubModuleName  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -2068,43 +1869,32 @@ Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName] <String[]>] [<CommonPara
 ##	Get-ModuleHelpMarkdown 
 ```PowerShell 
 
-   Get-ModuleHelpMarkdown               --> Get-GenXDevModuleHelp  
+   Get-ModuleHelpMarkdown  
 ```` 
-
-### SYNOPSIS 
-    Generates markdown help documentation for specified GenXDev modules.  
 
 ### SYNTAX 
 ```PowerShell 
-Get-ModuleHelpMarkdown [[-ModuleName] <String[]>] [[-CommandNames] <String[]>] [<CommonParameters>] 
+Get-ModuleHelpMarkdown [[-ModuleName] <string[]>] [[-CommandNames] <string[]>] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function generates markdown help documentation for specified GenXDev modules  
-    and their cmdlets. It processes each module and cmdlet, formatting the help  
-    content into markdown with proper sections and code blocks. The output includes  
-    syntax highlighting for PowerShell code blocks and proper formatting for  
-    different help sections.  
-
 ### PARAMETERS 
-    -ModuleName <String[]>  
-        Specifies the name(s) of the module(s) to generate help for. Accepts wildcards.  
-        If not specified, defaults to "GenXdev.*". Can be provided via pipeline.  
+    -CommandNames <string[]>  
+        Optional cmdlet names to filter which to document  
         Required?                    false  
         Position?                    1  
-        Default value                GenXdev.*  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
-        Accept wildcard characters?  true  
-    -CommandNames <String[]>  
-        Optional array of cmdlet names to filter which commands to generate help for.  
-        If not specified, documentation will be generated for all cmdlets in the module.  
-        Supports wildcard patterns like "Get-*".  
-        Required?                    false  
-        Position?                    2  
-        Default value                @()  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+    -ModuleName <string[]>  
+        The name(s) of the module(s) to generate help for  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      Name, Module  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -2118,67 +1908,68 @@ Get-ModuleHelpMarkdown [[-ModuleName] <String[]>] [[-CommandNames] <String[]>] [
 ##	Get-Refactor 
 ```PowerShell 
 
-   Get-Refactor                         --> refactor, refactors, Show-RefactorReport  
+   Get-Refactor                         --> refactors  
 ```` 
-
-### SYNOPSIS 
-    Retrieves refactor definitions from GenXdev preferences based on name patterns.  
 
 ### SYNTAX 
 ```PowerShell 
-Get-Refactor [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-DefaultValue <String>] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
+Get-Refactor [[-Name] <string[]>] [-PreferencesDatabasePath <string>] [-DefaultValue <string>] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Searches for and loads refactor definition sets stored in GenXdev preferences.  
-    Each refactor set is stored as a JSON string in a preference with name starting  
-    with 'refactor_set_'. The function deserializes matching sets into objects.  
-
 ### PARAMETERS 
-    -Name <String[]>  
-        One or more name patterns to match against refactor set names. Patterns are  
-        matched against the portion of the preference name after 'refactor_set_' prefix.  
-        Supports wildcards. If omitted, returns all refactor sets.  
+    -ClearSession  
+        Clear the session setting (Global variable) before retrieving  
         Required?                    false  
-        Position?                    1  
-        Default value                @('*')  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -DefaultValue <string>  
+        The default value if preference is not found  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      DefaultPreference  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Name <string[]>  
+        Pattern(s) to search for refactor definitions  
+        Required?                    false  
+        Position?                    0  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      PreferenceName  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
-    -PreferencesDatabasePath <String>  
+    -PreferencesDatabasePath <string>  
+        Database path for preference data files  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      DatabasePath  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -DefaultValue <String>  
+    -SessionOnly  
+        Use alternative settings stored in session for Data preferences like Language, Database paths, etc  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SessionOnly [<SwitchParameter>]  
+    -SkipSession  
+        Dont use alternative settings stored in session for Data preferences like Language, Database paths, etc  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -ClearSession [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -SkipSession [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      FromPreferences  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -2195,67 +1986,65 @@ Get-Refactor [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-DefaultV
    Get-RefactorReport                   --> refactorreport  
 ```` 
 
-### SYNOPSIS 
-    Generates a detailed report of refactoring operations and their status.  
-
 ### SYNTAX 
 ```PowerShell 
-Get-RefactorReport [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-SessionOnly] [-ClearSession] [-SkipSession] [-AsText] [<CommonParameters>] 
+Get-RefactorReport [[-Name] <string[]>] [-PreferencesDatabasePath <string>] [-SessionOnly] [-ClearSession] [-SkipSession] [-AsText] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Analyzes and reports on the progress of refactoring operations by examining  
-    their current state, completion status, and affected functions. Provides output  
-    in either structured hashtable format or human-readable aligned text columns.  
-    The report includes refactor name, prompt key, priority, status, function count  
-    and completion percentage.  
-
 ### PARAMETERS 
-    -Name <String[]>  
-        The name pattern to filter refactors. Supports wildcards. Multiple names can be  
-        specified. Default value is "*" to display all refactors.  
+    -AsText  
+        Output report in text format instead of Hashtable  
         Required?                    false  
-        Position?                    1  
-        Default value                *  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ClearSession  
+        If set, clear the session cache before running.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Name <string[]>  
+        The name of the refactor, accepts wildcards  
+        Required?                    false  
+        Position?                    0  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
-    -PreferencesDatabasePath <String>  
+    -PreferencesDatabasePath <string>  
+        Specifies the path to the preferences database file.  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      DatabasePath  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SessionOnly [<SwitchParameter>]  
+    -SessionOnly  
+        If set, only use the session cache for refactor data.  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ClearSession [<SwitchParameter>]  
+    -SkipSession  
+        If set, skip loading session cache.  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -SkipSession [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -AsText [<SwitchParameter>]  
-        Outputs the report in human-readable text format with aligned columns instead of  
-        structured hashtable objects. The text format includes headers and separators.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      FromPreferences  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -2272,58 +2061,47 @@ Get-RefactorReport [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-Se
    Invoke-GenXdevPSFormatter  
 ```` 
 
-### SYNOPSIS 
-    Formats PowerShell script files using PSScriptAnalyzer formatting rules.  
-
 ### SYNTAX 
 ```PowerShell 
-Invoke-GenXdevPSFormatter [-Path] <String> [-Settings <Object>] [-Range <Int32[]>] [-Recurse] [<CommonParameters>] 
+Invoke-GenXdevPSFormatter [-Path] <string> [-Settings <Object>] [-Range <int[]>] [-Recurse] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function applies PowerShell formatting rules to script files using  
-    PSScriptAnalyzer's Invoke-Formatter cmdlet. It can process individual files or  
-    recursively format multiple files in directories. The function uses customizable  
-    formatting settings and provides detailed logging of the formatting process.  
-
 ### PARAMETERS 
-    -Path <String>  
-        Specifies the path to the script file or directory to format. Accepts pipeline  
-        input and supports various path aliases for compatibility.  
+    -Path <string>  
+        Specifies the path to the script file to format.  
         Required?                    true  
-        Position?                    1  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Name, FullName, ImagePath, FileName, ScriptFileName  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Range <int[]>  
+        The range within which formatting should take place as an array of four integers: starting line number, starting column number, ending line number, ending column number.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Recurse  
+        Recursively process files in subdirectories.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     -Settings <Object>  
-        A settings hashtable or a path to a PowerShell data file (.psd1) that contains  
-        the formatting settings. If not specified, the function will attempt to load  
-        settings from a predefined location or use built-in defaults.  
+        A settings hashtable or a path to a PowerShell data file (.psd1) that contains the formatting settings.  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Range <Int32[]>  
-        The range within which formatting should take place as an array of four integers:  
-        starting line number, starting column number, ending line number, ending column  
-        number. If not specified, the entire file will be formatted.  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Recurse [<SwitchParameter>]  
-        Recursively process files in subdirectories when the Path parameter points to  
-        a directory.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -2340,72 +2118,66 @@ Invoke-GenXdevPSFormatter [-Path] <String> [-Settings <Object>] [-Range <Int32[]
    Invoke-GenXdevScriptAnalyzer  
 ```` 
 
-### SYNOPSIS 
-    Invokes PowerShell Script Analyzer to analyze PowerShell scripts for compliance  
-    and best practices.  
-
 ### SYNTAX 
 ```PowerShell 
-Invoke-GenXdevScriptAnalyzer [-Path] <String> [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<CommonParameters>]  
-   Invoke-GenXdevScriptAnalyzer -ScriptDefinition <String> [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<CommonParameters>] 
+Invoke-GenXdevScriptAnalyzer [-Path] <string> [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<CommonParameters>]  
+   Invoke-GenXdevScriptAnalyzer -ScriptDefinition <string> [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function provides a wrapper around PSScriptAnalyzer to analyze PowerShell  
-    scripts for compliance issues, best practices violations, and potential bugs.  
-    It supports both file-based analysis and string-based script analysis with  
-    customizable rules and settings.  
-
 ### PARAMETERS 
-    -Path <String>  
-        Specifies the path to the script file to analyze. This parameter is mandatory  
-        when using the Path parameter set.  
+    -EnableExit  
+        Specifies that the tool should exit on error.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Fix  
+        Enables automatic fixing of violations.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Path <string>  
+        Specifies the path to the script file.  
         Required?                    true  
-        Position?                    1  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           Path  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ScriptDefinition <String>  
-        Specifies the script definition as a string to analyze. This parameter is  
-        mandatory when using the Script parameter set.  
+    -Recurse  
+        Recursively process files.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ReportSummary  
+        Reports a summary after analysis.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ScriptDefinition <string>  
+        Specifies the script definition as a string.  
         Required?                    true  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -EnableExit [<SwitchParameter>]  
-        Specifies that the tool should exit on error during analysis.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Fix [<SwitchParameter>]  
-        Enables automatic fixing of violations where possible.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Recurse [<SwitchParameter>]  
-        Recursively processes files in subdirectories when analyzing a directory path.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -ReportSummary [<SwitchParameter>]  
-        Reports a summary after analysis showing the total number of issues found.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           Script  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -2422,108 +2194,108 @@ Invoke-GenXdevScriptAnalyzer [-Path] <String> [-EnableExit] [-Fix] [-Recurse] [-
    New-GenXdevCmdlet                    --> newcmd  
 ```` 
 
-### SYNOPSIS 
-    Creates a new GenXdev PowerShell cmdlet with proper structure and validation.  
-
 ### SYNTAX 
 ```PowerShell 
-New-GenXdevCmdlet [-CmdletName] <String> [[-Synopsis] <String>] [[-Description] <String>] [[-BaseModuleName] <String>] [[-ModuleName] <String>] [[-CmdletAliases] <String[]>] [[-PromptKey] <String>] [[-Prompt] <String>] [-EditPrompt] [-WhatIf] [-Confirm] [<CommonParameters>] 
+New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis] <string>] [[-Description] <string>] [[-BaseModuleName] <string>] [[-ModuleName] <string>] [[-CmdletAliases] <string[]>] [[-PromptKey] <string>] [[-Prompt] <string>] [-EditPrompt] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Creates a new PowerShell cmdlet following GenXdev standards, including parameter  
-    validation, help documentation, and proper verb-noun naming convention. Validates  
-    the verb against approved PowerShell verbs and ensures proper casing of both verb  
-    and noun components. Can integrate new cmdlets into existing module structures.  
-
 ### PARAMETERS 
-    -CmdletName <String>  
-        The name of the cmdlet to create. Must follow the Verb-Noun format using an  
-        approved PowerShell verb.  
-        Required?                    true  
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Synopsis <String>  
-        A brief description of the cmdlet's purpose for help documentation.  
-        Required?                    false  
-        Position?                    2  
-        Default value                todo: A brief description of the cmdlet's purpose  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Description <String>  
-        A detailed description of what the cmdlet does for help documentation.  
+    -BaseModuleName <string>  
+        Integrate the new cmdlet into an existing GenXdev module  
         Required?                    false  
         Position?                    3  
-        Default value                todo: [A detailed description of what the cmdlet does]  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -BaseModuleName <String>  
-        Required?                    false  
-        Position?                    4  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -ModuleName <String>  
-        The name of the base GenXdev module to integrate the cmdlet into.  
-        Must match pattern GenXdev or GenXdev.SubModule.  
-        Required?                    false  
-        Position?                    5  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -CmdletAliases <String[]>  
+    -CmdletAliases <string[]>  
         One or more aliases for the cmdlet. Accepts an array of strings.  
         Required?                    false  
-        Position?                    6  
-        Default value                  
+        Position?                    5  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PromptKey <String>  
-        The AI prompt key used to select a template for generating the cmdlet content.  
-        Defaults to "NewGenXdevCmdLet".  
+    -CmdletName <string>  
+        The name of the cmdlet to create (must use approved verb)  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      cmd  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Confirm  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Description <string>  
+        A detailed description of what the cmdlet does  
+        Required?                    false  
+        Position?                    2  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -EditPrompt  
+        Only edit the AI prompt without creating the cmdlet  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ModuleName <string>  
+        Integrate the new cmdlet into an existing GenXdev sub module  
+        Required?                    false  
+        Position?                    4  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Prompt <string>  
+        Custom AI prompt text to use for cmdlet generation  
         Required?                    false  
         Position?                    7  
-        Default value                NewGenXdevCmdLet  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Prompt <String>  
-        Custom AI prompt text to guide the generation of the cmdlet content.  
+    -PromptKey <string>  
+        The AI prompt key to use for template selection  
         Required?                    false  
-        Position?                    8  
-        Default value                Create a boilerplate GenXdev cmdlet that does what it's name suggests  
+        Position?                    6  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -EditPrompt [<SwitchParameter>]  
-        When specified, only opens the AI prompt for editing without creating the cmdlet.  
+    -Synopsis <string>  
+        A brief description of the cmdlet's purpose  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    1  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -WhatIf [<SwitchParameter>]  
+    -WhatIf  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Confirm [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -2540,63 +2312,54 @@ New-GenXdevCmdlet [-CmdletName] <String> [[-Synopsis] <String>] [[-Description] 
    New-GenXdevModule  
 ```` 
 
-### SYNOPSIS 
-    Creates a new GenXdev PowerShell module with proper structure and configuration.  
-
 ### SYNTAX 
 ```PowerShell 
-New-GenXdevModule [-ModuleName] <String> [-Description] <String> [[-Tags] <String[]>] [-WhatIf] [-Confirm] [<CommonParameters>] 
+New-GenXdevModule [-ModuleName] <string> [-Description] <string> [[-Tags] <string[]>] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Creates a new PowerShell module following GenXdev standards by:  
-    - Generating module manifest (psd1) with proper metadata  
-    - Creating module script file (psm1)  
-    - Setting up directory structure for functions and tests  
-    - Adding required files like LICENSE and README  
-    - Configuring version info and dependencies  
-
 ### PARAMETERS 
-    -ModuleName <String>  
-        The name of the module to create. Must follow GenXdev naming convention starting  
-        with 'GenXdev.' followed by module identifier (e.g. GenXdev.Tools).  
+    -Confirm  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Description <string>  
+        Description of the module's functionality  
         Required?                    true  
         Position?                    1  
-        Default value                  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Description <String>  
-        A brief description of the module's purpose and functionality. This will be used  
-        in the module manifest and documentation.  
+    -ModuleName <string>  
+        Name of the module to create (must follow GenXdev.* pattern)  
         Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Tags <string[]>  
+        Tags for module discovery (no whitespace allowed)  
+        Required?                    false  
         Position?                    2  
-        Default value                  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Tags <String[]>  
-        Optional array of tags for module discovery in PowerShell Gallery. Tags cannot  
-        contain whitespace. Defaults to 'GenXdev'.  
+    -WhatIf  
         Required?                    false  
-        Position?                    3  
-        Default value                @('GenXdev')  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -WhatIf [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Confirm [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -2613,259 +2376,279 @@ New-GenXdevModule [-ModuleName] <String> [-Description] <String> [[-Tags] <Strin
    New-PullRequestForGenXdevModuleChanges --> prgenxdevmodule  
 ```` 
 
-### SYNOPSIS 
-    Creates a pull request for changes made to a GenXdev module.  
-
 ### SYNTAX 
 ```PowerShell 
-New-PullRequestForGenXdevModuleChanges [-ModuleName] <String> [[-CommitMessage] <String>] [[-PullRequestTitle] <String>] [[-PullRequestDescription] <String>] [[-GitUserName] <String>] [[-GitUserEmail] <String>] [-Monitor <Int32>] [-NoBorders] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ShowWindow] [-RestoreFocus] [-PassThru] [-SideBySide] [-FocusWindow] [-SetForeground] [-Maximize] [-KeysToSend <String[]>] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
+New-PullRequestForGenXdevModuleChanges [-ModuleName] {GenXdev.AI | GenXdev.Coding | GenXdev.Media | GenXdev.Console | GenXdev.Data | GenXdev.FileSystem | GenXdev.Helpers | GenXdev.Queries | GenXdev.Webbrowser | GenXdev.Windows} [[-CommitMessage] <string>] [[-PullRequestTitle] <string>] [[-PullRequestDescription] <string>] [[-GitUserName] <string>] [[-GitUserEmail] <string>] [-Monitor <int>] [-NoBorders] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ShowWindow] [-RestoreFocus] [-PassThru] [-SideBySide] [-FocusWindow] [-SetForeground] [-Maximize] [-KeysToSend <string[]>] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function automates the process of creating a pull request for changes made to  
-    a GenXdev module. It handles GitHub authentication, repository forking, pull  
-    request creation, and window positioning using the Set-WindowPosition function.  
-    The function validates module dependencies, runs unit tests, and either creates  
-    a GitHub pull request or uploads to genXdev.net depending on repository  
-    availability.  
-
 ### PARAMETERS 
-    -ModuleName <String>  
-        The name of the GenXdev module to create a pull request for.  
-        Required?                    true  
+    -Bottom  
+        Places window on bottom half of screen  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Centered  
+        Centers window on screen  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ClearSession  
+        Clear alternative settings stored in session for AI preferences  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -CommitMessage <string>  
+        Message for the commit  
+        Required?                    false  
         Position?                    1  
-        Default value                  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -CommitMessage <String>  
-        The commit message to use when committing changes.  
+    -Confirm  
         Required?                    false  
-        Position?                    2  
-        Default value                Improvements to GenXdev module  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PullRequestTitle <String>  
-        The title for the pull request.  
+    -FocusWindow  
+        Focus the window after positioning  
         Required?                    false  
-        Position?                    3  
-        Default value                Module improvements  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      fw, focus  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PullRequestDescription <String>  
-        The description for the pull request.  
-        Required?                    false  
-        Position?                    4  
-        Default value                These changes improve functionality and fix issues I encountered.  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -GitUserName <String>  
-        Git username for commits.  
+    -GitUserEmail <string>  
+        Git email for commits  
         Required?                    false  
         Position?                    5  
-        Default value                Your Name  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -GitUserEmail <String>  
-        Git email for commits.  
+    -GitUserName <string>  
+        Git username for commits  
         Required?                    false  
-        Position?                    6  
-        Default value                you@example.com  
+        Position?                    4  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Monitor <Int32>  
-        Monitor selection: 0=primary, 1+=specific monitor, -1=current, -2=secondary.  
+    -Height <int>  
+        Window height in pixels for positioning applications  
         Required?                    false  
-        Position?                    named  
-        Default value                0  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -NoBorders [<SwitchParameter>]  
-        Removes window borders and title bar for a cleaner appearance.  
+    -KeysToSend <string[]>  
+        Keystrokes to send to the window after positioning  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Width <Int32>  
-        Window width in pixels for positioning applications.  
+    -Left  
+        Places window on left half of screen  
         Required?                    false  
-        Position?                    named  
-        Default value                0  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Height <Int32>  
-        Window height in pixels for positioning applications.  
+    -Maximize  
+        Maximize the window after positioning  
         Required?                    false  
-        Position?                    named  
-        Default value                0  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -X <Int32>  
-        Window horizontal position for positioning applications.  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
+    -ModuleName <string>  
+        Name of the GenXdev module  
+        Required?                    true  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Y <Int32>  
-        Window vertical position for positioning applications.  
+    -Monitor <int>  
+        Monitor selection: 0=primary, 1+=specific monitor, -1=current, -2=secondary  
         Required?                    false  
-        Position?                    named  
-        Default value                0  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      m, mon  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Left [<SwitchParameter>]  
-        Places window on left half of screen.  
+    -NoBorders  
+        Removes window borders and title bar for a cleaner appearance  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      nb  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Right [<SwitchParameter>]  
-        Places window on right half of screen.  
+    -PassThru  
+        Returns window helper object for further manipulation  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      pt  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Top [<SwitchParameter>]  
-        Places window on top half of screen.  
+    -PullRequestDescription <string>  
+        Description for the pull request  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    3  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Bottom [<SwitchParameter>]  
-        Places window on bottom half of screen.  
+    -PullRequestTitle <string>  
+        Title for the pull request  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    2  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Centered [<SwitchParameter>]  
-        Centers window on screen.  
+    -RestoreFocus  
+        Returns focus to PowerShell window after positioning  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      rf, bg  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ShowWindow [<SwitchParameter>]  
+    -Right  
+        Places window on right half of screen  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -RestoreFocus [<SwitchParameter>]  
-        Returns focus to PowerShell window after positioning.  
+    -SessionOnly  
+        Use alternative settings stored in session for AI preferences  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PassThru [<SwitchParameter>]  
-        Returns window helper object for further manipulation.  
+    -SetForeground  
+        Set the window to foreground after positioning  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      fg  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SideBySide [<SwitchParameter>]  
-        Places windows side by side with PowerShell on the same monitor.  
+    -ShowWindow  
+        Maximizes window to fill entire screen  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      sw  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -FocusWindow [<SwitchParameter>]  
-        Focus the window after positioning.  
+    -SideBySide  
+        Places windows side by side with PowerShell on the same monitor  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      sbs  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SetForeground [<SwitchParameter>]  
-        Set the window to foreground after positioning.  
+    -SkipSession  
+        Store settings only in persistent preferences without affecting session  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Maximize [<SwitchParameter>]  
-        Maximize the window after positioning.  
+    -Top  
+        Places window on top half of screen  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -KeysToSend <String[]>  
-        Keystrokes to send to the window after positioning.  
+    -WhatIf  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SessionOnly [<SwitchParameter>]  
-        Use alternative settings stored in session for AI preferences.  
+    -Width <int>  
+        Window width in pixels for positioning applications  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ClearSession [<SwitchParameter>]  
-        Clear alternative settings stored in session for AI preferences.  
+    -X <int>  
+        Window horizontal position for positioning applications  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SkipSession [<SwitchParameter>]  
-        Store settings only in persistent preferences without affecting session.  
+    -Y <int>  
+        Window vertical position for positioning applications  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -WhatIf [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Confirm [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -2882,277 +2665,297 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName] <String> [[-CommitMessage] 
    New-Refactor                         --> newrefactor  
 ```` 
 
-### SYNOPSIS 
-    Creates a new refactoring set for code transformation tasks.  
-
 ### SYNTAX 
 ```PowerShell 
-New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>] [[-SelectionScript] <String>] [[-SelectionPrompt] <String>] [[-LLMQueryType] <String>] [-Model <String>] [-HuggingFaceIdentifier <String>] [-MaxToken <Int32>] [-Cpu <Int32>] [-TTLSeconds <Int32>] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-Temperature <Double>] [-Gpu <Int32>] [-ApiEndpoint <String>] [-ApiKey <String>] [-TimeoutSeconds <Int32>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-FilesToAdd <FileInfo[]>] [-PreferencesDatabasePath <String>] [-AutoAddModifiedFiles] [-Force] [-SessionOnly] [-ClearSession] [-SkipSession] [-Code] [-VisualStudio] [-KeysToSend <String[]>] [-WhatIf] [-Confirm] [<CommonParameters>] 
+New-Refactor [-Name] <string> [-PromptKey] <string> [[-Prompt] <string>] [[-SelectionScript] <string>] [[-SelectionPrompt] <string>] [[-LLMQueryType] {SimpleIntelligence | Knowledge | Pictures | TextTranslation | Coding | ToolUse}] [-Model <string>] [-HuggingFaceIdentifier <string>] [-MaxToken <int>] [-Cpu <int>] [-TTLSeconds <int>] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-Temperature <double>] [-Gpu <int>] [-ApiEndpoint <string>] [-ApiKey <string>] [-TimeoutSeconds <int>] [-Priority <int>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-FilesToAdd <FileInfo[]>] [-PreferencesDatabasePath <string>] [-AutoAddModifiedFiles] [-Force] [-SessionOnly] [-ClearSession] [-SkipSession] [-Code] [-VisualStudio] [-KeysToSend <string[]>] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Creates and configures a new refactoring definition with specified settings for  
-    LLM-based code transformations. The function handles:  
-    - Setting up refactoring configuration  
-    - Configuring selection criteria and prompts  
-    - Managing LLM model settings  
-    - Integrating with development environments  
-    - Persisting refactor definitions  
-
 ### PARAMETERS 
-    -Name <String>  
-        Unique identifier for the refactoring set. Must be non-empty and unique.  
-        Required?                    true  
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -PromptKey <String>  
-        Key identifying which prompt template to use for refactoring operations.  
-        Required?                    true  
-        Position?                    2  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Prompt <String>  
-        Optional custom prompt text to override the template specified by PromptKey.  
+    -ApiEndpoint <string>  
+        The API endpoint URL for AI operations  
         Required?                    false  
-        Position?                    3  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SelectionScript <String>  
-        PowerShell script defining selection criteria for items to refactor.  
+    -ApiKey <string>  
+        The API key for authenticated AI operations  
         Required?                    false  
-        Position?                    4  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SelectionPrompt <String>  
-        Custom prompt text used by the LLM to guide selection of items for refactoring.  
+    -AutoAddModifiedFiles  
+        Will automatically add modified files to the queue  
         Required?                    false  
-        Position?                    5  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -LLMQueryType <String>  
-        The type of LLM query to perform (SimpleIntelligence, Knowledge, Pictures, etc.).  
+    -ClearSession  
+        Clear alternative settings stored in session for AI preferences  
         Required?                    false  
-        Position?                    6  
-        Default value                Coding  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Model <String>  
-        Name or identifier of the specific LLM model to use for processing.  
+    -Code  
+        Open files in Visual Studio Code  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      c  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -HuggingFaceIdentifier <String>  
-        Identifier used to retrieve a specific model from LM Studio.  
+    -Confirm  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -MaxToken <Int32>  
-        Maximum tokens allowed in LLM responses. Use -1 for model default.  
+    -Cpu <int>  
+        The number of CPU cores to dedicate to AI operations  
         Required?                    false  
-        Position?                    named  
-        Default value                0  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Cpu <Int32>  
-        The number of CPU cores to dedicate to AI operations.  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -TTLSeconds <Int32>  
-        Time-to-live in seconds for API-loaded models. Use -1 for no expiration.  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -SelectByFreeRam [<SwitchParameter>]  
-        Select configuration by available system RAM.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -SelectByFreeGpuRam [<SwitchParameter>]  
-        Select configuration by available GPU RAM.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Temperature <Double>  
-        Controls randomness in LLM responses (0.0-1.0). Lower is more deterministic.  
-        Required?                    false  
-        Position?                    named  
-        Default value                -1  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Gpu <Int32>  
-        GPU usage control: -2=Auto, -1=LM Studio default.  
-        Required?                    false  
-        Position?                    named  
-        Default value                -1  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -ApiEndpoint <String>  
-        Custom API endpoint URL for accessing the LLM service.  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -ApiKey <String>  
-        Authentication key required for API access.  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -TimeoutSeconds <Int32>  
-        The timeout in seconds for AI operations.  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Priority <Int32>  
-        Processing priority for this refactor set (higher numbers = higher priority).  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     -ExposedCmdLets <ExposedCmdletDefinition[]>  
-        Array of PowerShell cmdlet definitions to expose as tools to the LLM.  
+        Array of PowerShell command definitions for LLM tools  
         Required?                    false  
-        Position?                    named  
-        Default value                @()  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     -FilesToAdd <FileInfo[]>  
-        Array of files to initially include in the refactoring set.  
+        Array of files to process  
         Required?                    false  
-        Position?                    named  
-        Default value                @()  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PreferencesDatabasePath <String>  
-        Database path for preference data files.  
+    -Force  
+        Force stop LM Studio before initialization  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -AutoAddModifiedFiles [<SwitchParameter>]  
-        When enabled, automatically adds any modified files to the refactoring queue.  
+    -Gpu <int>  
+        How much to offload to the GPU. If 'off', GPU offloading is disabled. If 'max', all layers are offloaded to GPU. If a number between 0 and 1, that fraction of layers will be offloaded to the GPU. -1 = LM Studio will decide how much to offload to the GPU. -2 = Auto  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Force [<SwitchParameter>]  
-        Forces LM Studio to restart before initialization.  
+    -HuggingFaceIdentifier <string>  
+        The LM Studio specific model identifier  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      ModelLMSGetIdentifier  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SessionOnly [<SwitchParameter>]  
-        Use alternative settings stored in session for AI preferences.  
+    -KeysToSend <string[]>  
+        Keystrokes to send after opening files  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      keys  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ClearSession [<SwitchParameter>]  
-        Clear alternative settings stored in session for AI preferences.  
+    -LLMQueryType <string>  
+        The type of LLM query  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    5  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SkipSession [<SwitchParameter>]  
-        Store settings only in persistent preferences without affecting session.  
+    -MaxToken <int>  
+        The maximum number of tokens to use in AI operations  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Opens files in Visual Studio Code when enabled.  
+    -Model <string>  
+        The model identifier or pattern to use for AI operations  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -VisualStudio [<SwitchParameter>]  
-        Opens files in Visual Studio when enabled.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
+    -Name <string>  
+        The name of this new refactor set  
+        Required?                    true  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -KeysToSend <String[]>  
-        Array of keystrokes to send after opening files.  
+    -PreferencesDatabasePath <string>  
+        Database path for preference data files  
         Required?                    false  
-        Position?                    named  
-        Default value                @()  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      DatabasePath  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -WhatIf [<SwitchParameter>]  
+    -Priority <int>  
+        Priority for this refactor set  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Confirm [<SwitchParameter>]  
+    -Prompt <string>  
+        Custom prompt text to override the template  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    2  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -PromptKey <string>  
+        The prompt key indicates which prompt script to use  
+        Required?                    true  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SelectByFreeGpuRam  
+        Select configuration by available GPU RAM  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SelectByFreeRam  
+        Select configuration by available system RAM  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SelectionPrompt <string>  
+        LLM selection guidance prompt  
+        Required?                    false  
+        Position?                    4  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SelectionScript <string>  
+        Powershell script for selecting items to refactor  
+        Required?                    false  
+        Position?                    3  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SessionOnly  
+        Use alternative settings stored in session for AI preferences  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SkipSession  
+        Store settings only in persistent preferences without affecting session  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      FromPreferences  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -TTLSeconds <int>  
+        Time-to-live in seconds for API-loaded models  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Temperature <double>  
+        Temperature for response randomness (0.0-1.0)  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -TimeoutSeconds <int>  
+        The timeout in seconds for AI operations  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -VisualStudio  
+        Open in Visual Studio  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -WhatIf  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -3169,32 +2972,29 @@ New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>] [[-Sele
    Open-GenXdevCmdletsContainingClipboardTextInIde --> vscodesearch  
 ```` 
 
-### SYNOPSIS 
-    Opens files in IDE that contain clipboard text  
-
 ### SYNTAX 
 ```PowerShell 
-Open-GenXdevCmdletsContainingClipboardTextInIde [[-InputObject] <String>] [-Copilot] [<CommonParameters>] 
+Open-GenXdevCmdletsContainingClipboardTextInIde [[-InputObject] <string>] [-Copilot] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    The text in the clipboard is used to search in all GenXdev scripts and when found opens that file in Code or Visual Studio  
-    ##############################################################################  
-
 ### PARAMETERS 
-    -InputObject <String>  
+    -Copilot  
+        Add sourcefile to Copilot edit-session  
         Required?                    false  
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       true (ByValue)  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Copilot [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -InputObject <string>  
+        Search for clipboard text in all GenXdev scripts  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -3211,88 +3011,90 @@ Open-GenXdevCmdletsContainingClipboardTextInIde [[-InputObject] <String>] [-Copi
    Remove-Refactor  
 ```` 
 
-### SYNOPSIS 
-    Removes refactor sets from GenXdev preferences system.  
-
 ### SYNTAX 
 ```PowerShell 
-Remove-Refactor [-Name] <String[]> [[-RemoveDefault]] [-PreferencesDatabasePath <String>] [-DefaultValue <String>] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
+Remove-Refactor [-Name] <string[]> [[-RemoveDefault]] [-PreferencesDatabasePath <string>] [-DefaultValue <string>] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Manages refactor sets in the GenXdev preferences system by removing specified  
-    entries. Works with both custom and default refactor sets. Default sets are  
-    protected unless explicitly allowed for removal. All refactor sets are  
-    identified by the prefix "refactor_set_" in the preferences system.  
-
 ### PARAMETERS 
-    -Name <String[]>  
-        One or more name patterns used to match refactor sets for removal. Supports  
-        wildcard patterns like "*" and "?" for flexible matching. Multiple patterns can  
-        be provided to target specific sets.  
-        Required?                    true  
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
-        Accept wildcard characters?  true  
-    -RemoveDefault [<SwitchParameter>]  
-        Switch parameter that, when enabled, allows the removal of protected default or  
-        standard refactor sets. By default, these sets are protected from deletion.  
+    -ClearSession  
+        Clear the session setting (Global variable) before retrieving  
         Required?                    false  
-        Position?                    2  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PreferencesDatabasePath <String>  
+    -Confirm  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -DefaultValue <String>  
+    -DefaultValue <string>  
+        The default value if preference is not found  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       true (ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      DefaultPreference  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SessionOnly [<SwitchParameter>]  
+    -Name <string[]>  
+        The name of the refactor, accepts wildcards  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      PreferenceName  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+    -PreferencesDatabasePath <string>  
+        Database path for preference data files  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      DatabasePath  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ClearSession [<SwitchParameter>]  
+    -RemoveDefault  
+        Switch to also remove the standard refactor set  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    1  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           All  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SkipSession [<SwitchParameter>]  
+    -SessionOnly  
+        Use alternative settings stored in session for Data preferences like Language, Database paths, etc  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -WhatIf [<SwitchParameter>]  
+    -SkipSession  
+        Dont use alternative settings stored in session for Data preferences like Language, Database paths, etc  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      FromPreferences  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Confirm [<SwitchParameter>]  
+    -WhatIf  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -3309,86 +3111,83 @@ Remove-Refactor [-Name] <String[]> [[-RemoveDefault]] [-PreferencesDatabasePath 
    Search-GenXdevCmdlet                 --> searchcmdlet  
 ```` 
 
-### SYNOPSIS 
-    Searches for a GenXdev cmdlet and optionally opens it in an IDE for editing.  
-
 ### SYNTAX 
 ```PowerShell 
-Search-GenXdevCmdlet [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-EditCmdlet] [<CommonParameters>] 
+Search-GenXdevCmdlet [[-CmdletName] <string>] [[-ModuleName] <string[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-EditCmdlet] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function searches for GenXdev cmdlets using a pattern and optionally opens  
-    the found cmdlet's source file in Visual Studio Code or Visual Studio for  
-    editing. It retrieves cmdlet information and provides keyboard shortcuts to  
-    quickly navigate to the function definition.  
-
 ### PARAMETERS 
-    -CmdletName <String>  
-        Search pattern to filter cmdlets. Supports wildcards. Default is '*' to show  
-        all cmdlets.  
+    -CmdletName <string>  
+        Search pattern to filter cmdlets  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+    -Code  
+        Open the found cmdlet in Visual Studio Code  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      c  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -EditCmdlet  
+        Also opens the file in the editor after finding  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -FromScripts  
+        Search in script files instead of module files  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ModuleName <string[]>  
+        GenXdev module names to search  
         Required?                    false  
         Position?                    1  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  true  
-    -ModuleName <String[]>  
-        GenXdev module names to search. Must match pattern starting with 'GenXdev'.  
-        Default searches all GenXdev modules.  
-        Required?                    false  
-        Position?                    2  
-        Default value                  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Module, BaseModuleName, SubModuleName  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
-    -NoLocal [<SwitchParameter>]  
-        Skip searching in local module paths when finding cmdlets.  
+    -NoLocal  
+        Skip searching in local module paths  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -OnlyPublished [<SwitchParameter>]  
-        Limit search to published module paths only.  
+    -OnlyPublished  
+        Limit search to published module paths only  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -FromScripts [<SwitchParameter>]  
-        Search in script files instead of module files.  
+    -VisualStudio  
+        Open the found cmdlet in Visual Studio  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Open the found cmdlet in Visual Studio Code.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -VisualStudio [<SwitchParameter>]  
-        Open the found cmdlet in Visual Studio.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -EditCmdlet [<SwitchParameter>]  
-        Also opens the file in the editor after finding the cmdlet.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -3402,103 +3201,191 @@ Search-GenXdevCmdlet [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-NoLoc
 ##	Show-GenXdevCmdLetInIde 
 ```PowerShell 
 
-   Show-GenXdevCmdLetInIde              --> editcmdlet  
+   Show-GenXdevCmdLetInIde              --> cmdlet, editcmdlet  
 ```` 
-
-### SYNOPSIS 
-    Opens the specified GenXdev cmdlet in Visual Studio Code.  
 
 ### SYNTAX 
 ```PowerShell 
-Show-GenXdevCmdLetInIde [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-UnitTests] [-KeysToSend <String[]>] [-CoPilot] [-Search] [<CommonParameters>] 
+Show-GenXdevCmdLetInIde [-CmdletName] <string> [[-ModuleName] <string[]>] [[-BaseModuleName] <string>] [[-Synopsis] <string>] [[-Description] <string>] [[-CmdletAliases] <string[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-UnitTests] [-KeysToSend <string[]>] [-CoPilot] [-Search] [-ChangedirectoryOnly] [-New] [-PromptKey <string>] [-Prompt <string>] [-EditPrompt] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function retrieves the script file and line number for the specified GenXdev  
-    cmdlet and opens it in Visual Studio Code. It can open either the main function  
-    implementation or its associated unit tests, based on the UnitTests switch  
-    parameter.  
-
 ### PARAMETERS 
-    -CmdletName <String>  
-        The name of the GenXdev cmdlet to locate and open in Visual Studio Code.  
-        Required?                    false  
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  true  
-    -ModuleName <String[]>  
+    -BaseModuleName <string>  
+        Integrate the new cmdlet into an existing GenXdev module  
         Required?                    false  
         Position?                    2  
-        Default value                  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Accept pipeline input?       false  
+        Parameter set name           New  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ChangedirectoryOnly  
+        When specified, only changes the current PowerShell location\r\nthe respective Cmdlet directory  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      cd  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -CmdletAliases <string[]>  
+        One or more aliases for the cmdlet. Accepts an array of strings.  
+        Required?                    false  
+        Position?                    5  
+        Accept pipeline input?       false  
+        Parameter set name           New  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -CmdletName <string>  
+        Search pattern to filter cmdlets  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
-    -NoLocal [<SwitchParameter>]  
+    -CoPilot  
+        Add to Co-Pilot edit session  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -OnlyPublished [<SwitchParameter>]  
+    -Code  
+        The ide to open the file in  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      c  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -FromScripts [<SwitchParameter>]  
+    -Description <string>  
+        A detailed description of what the cmdlet does  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    4  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           New  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
+    -EditPrompt  
+        Only edit the AI prompt without creating the cmdlet  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -VisualStudio [<SwitchParameter>]  
+    -FromScripts  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -UnitTests [<SwitchParameter>]  
-        When specified, opens the unit test file for the cmdlet instead of the main  
-        implementation file.  
+    -KeysToSend <string[]>  
+        The keys to send  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      keys  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -KeysToSend <String[]>  
+    -ModuleName <string[]>  
+        GenXdev module names to search  
         Required?                    false  
-        Position?                    named  
-        Default value                @()  
+        Position?                    1  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      Module, SubModuleName  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+    -New  
+        Create a new cmdlet  
+        Required?                    false  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           New  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -CoPilot [<SwitchParameter>]  
+    -NoLocal  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Search [<SwitchParameter>]  
+    -OnlyPublished  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Prompt <string>  
+        Custom AI prompt text to use for cmdlet generation  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -PromptKey <string>  
+        The AI prompt key to use for template selection  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           New  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Search  
+        Also global search for the cmdlet  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Synopsis <string>  
+        A brief description of the cmdlet's purpose  
+        Required?                    false  
+        Position?                    3  
+        Accept pipeline input?       false  
+        Parameter set name           New  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -UnitTests  
+        Show the function's unit-tests instead of the function  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -VisualStudio  
+        Open in Visual Studio  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -3515,29 +3402,20 @@ Show-GenXdevCmdLetInIde [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-No
    SplitUpPsm1File  
 ```` 
 
-### SYNOPSIS 
-    Splits a PowerShell module (.psm1) file into individual function files.  
-
 ### SYNTAX 
 ```PowerShell 
-SplitUpPsm1File [-Psm1FilePath] <String> [<CommonParameters>] 
+SplitUpPsm1File [-Psm1FilePath] <string> [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Takes a PowerShell module file and splits each function into separate .ps1 files  
-    in a Functions subdirectory. Each function is extracted with its documentation  
-    and saved in a file matching the function name. The original module file is  
-    updated to dot-source all the split function files.  
-
 ### PARAMETERS 
-    -Psm1FilePath <String>  
-        The full path to the PowerShell module (.psm1) file that needs to be split into  
-        individual function files. This path will be expanded to a full path if relative.  
+    -Psm1FilePath <string>  
+        Path to the .psm1 file to split into functions  
         Required?                    true  
-        Position?                    1  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Path  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -3554,105 +3432,108 @@ SplitUpPsm1File [-Psm1FilePath] <String> [<CommonParameters>]
    Start-NextRefactor                   --> nextrefactor  
 ```` 
 
-### SYNOPSIS 
-    Continues or restarts a code refactoring session.  
-
 ### SYNTAX 
 ```PowerShell 
-Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [[-CleanUpDeletedFiles]] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>] 
+Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [[-CleanUpDeletedFiles]] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Manages code refactoring operations by processing refactor definitions in  
-    priority order. Handles file selection, progress tracking, error handling, and  
-    provides interactive user control over the refactoring process.  
-
 ### PARAMETERS 
-    -Name <String[]>  
-        Name pattern(s) of refactors to process. Accepts wildcards. Default is "*".  
-        Required?                    false  
-        Position?                    1  
-        Default value                @('*')  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
-        Accept wildcard characters?  true  
-    -FilesToAdd <FileInfo[]>  
-        Files to include in the refactoring process.  
-        Required?                    false  
-        Position?                    2  
-        Default value                @()  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -FilesToRemove <FileInfo[]>  
-        Files to exclude from the refactoring process.  
+    -CleanUpDeletedFiles  
+        Clean up deleted files  
         Required?                    false  
         Position?                    3  
-        Default value                @()  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -CleanUpDeletedFiles [<SwitchParameter>]  
-        Remove files that no longer exist from the refactor set.  
+    -Confirm  
         Required?                    false  
-        Position?                    4  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Reset [<SwitchParameter>]  
-        Restart processing from the beginning of the refactor set.  
+    -FilesToAdd <FileInfo[]>  
+        Filenames to add  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    1  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ResetLMSelections [<SwitchParameter>]  
-        Restart all LLM selections in the refactoring process.  
+    -FilesToRemove <FileInfo[]>  
+        Filenames to remove  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    2  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -MarkAllCompleted [<SwitchParameter>]  
-        Marks all files in the refactor set as completed.  
+    -MarkAllCompleted  
+        Mark all files as refactored  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -RedoLast [<SwitchParameter>]  
-        Repeat the last refactoring operation.  
+    -Name <string[]>  
+        The name of the refactor, accepts wildcards  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+    -RedoLast  
+        Redo the last refactor  
+        Required?                    false  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Speak [<SwitchParameter>]  
-        Enables text-to-speech for refactoring progress and notifications.  
+    -Reset  
+        Start from the beginning of the refactor set  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -WhatIf [<SwitchParameter>]  
+    -ResetLMSelections  
+        Restart all LLM selections  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Confirm [<SwitchParameter>]  
+    -Speak  
+        Speak out the details of next refactor  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -WhatIf  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -3669,37 +3550,29 @@ Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToR
    Test-RefactorLLMSelection  
 ```` 
 
-### SYNOPSIS 
-    Evaluates source files for refactoring eligibility using LLM analysis.  
-
 ### SYNTAX 
 ```PowerShell 
-Test-RefactorLLMSelection [-RefactorDefinition] <RefactorDefinition> [-Path] <String> [<CommonParameters>] 
+Test-RefactorLLMSelection [-RefactorDefinition] <RefactorDefinition> [-Path] <string> [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Uses Language Learning Model (LLM) analysis to determine if a source code file  
-    should be selected for refactoring based on specified criteria. The function  
-    processes the file content through an LLM query and returns a boolean response.  
-
 ### PARAMETERS 
-    -RefactorDefinition <RefactorDefinition>  
-        A RefactorDefinition object containing the LLM configuration and selection  
-        criteria settings used to evaluate the source file.  
+    -Path <string>  
+        The path to the source file to evaluate  
         Required?                    true  
         Position?                    1  
-        Default value                  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      FullName  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Path <String>  
-        The full filesystem path to the source code file that needs to be evaluated  
-        for potential refactoring.  
+    -RefactorDefinition <RefactorDefinition>  
+        The refactor definition containing LLM settings  
         Required?                    true  
-        Position?                    2  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -3716,427 +3589,460 @@ Test-RefactorLLMSelection [-RefactorDefinition] <RefactorDefinition> [-Path] <St
    Update-Refactor                      --> updaterefactor  
 ```` 
 
-### SYNOPSIS 
-    Updates and manages refactoring sets including file selection and processing.  
-
 ### SYNTAX 
 ```PowerShell 
-Update-Refactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-SelectByModifiedDateFrom <DateTime>] [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>] [-SelectByCreationDateTo <DateTime>] [-PromptKey <String>] [-Prompt <String>] [-SelectionScript <String>] [-SelectionPrompt <String>] [-LLMQueryType <String>] [-Model <String>] [-HuggingFaceIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>] [-TTLSeconds <Int32>] [-Cpu <Int32>] [-Gpu <Int32>] [-ApiEndpoint <String>] [-ApiKey <String>] [-TimeoutSeconds <Int32>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-KeysToSend <String[]>] [-PreferencesDatabasePath <String>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection] [-PerformAutoSelections] [-PerformAISelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-ReprocessModifiedFiles] [-Force] [-Code] [-VisualStudio] [-Speak] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>]  
-   Update-Refactor [[-Refactor] <RefactorDefinition[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-SelectByModifiedDateFrom <DateTime>] [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>] [-SelectByCreationDateTo <DateTime>] [-PromptKey <String>] [-Prompt <String>] [-SelectionScript <String>] [-SelectionPrompt <String>] [-LLMQueryType <String>] [-Model <String>] [-HuggingFaceIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>] [-TTLSeconds <Int32>] [-Cpu <Int32>] [-Gpu <Int32>] [-ApiEndpoint <String>] [-ApiKey <String>] [-TimeoutSeconds <Int32>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-KeysToSend <String[]>] [-PreferencesDatabasePath <String>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection] [-PerformAutoSelections] [-PerformAISelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-ReprocessModifiedFiles] [-Force] [-Code] [-VisualStudio] [-Speak] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
+Update-Refactor [[-Name] <string[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-SelectByModifiedDateFrom <datetime>] [-SelectByModifiedDateTo <datetime>] [-SelectByCreationDateFrom <datetime>] [-SelectByCreationDateTo <datetime>] [-PromptKey <string>] [-Prompt <string>] [-SelectionScript <string>] [-SelectionPrompt <string>] [-LLMQueryType {SimpleIntelligence | Knowledge | Pictures | TextTranslation | Coding | ToolUse}] [-Model <string>] [-HuggingFaceIdentifier <string>] [-Temperature <double>] [-MaxToken <int>] [-TTLSeconds <int>] [-Cpu <int>] [-Gpu <int>] [-ApiEndpoint <string>] [-ApiKey <string>] [-TimeoutSeconds <int>] [-Priority <int>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-KeysToSend <string[]>] [-PreferencesDatabasePath <string>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection] [-PerformAutoSelections] [-PerformAISelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-ReprocessModifiedFiles] [-Force] [-Code] [-VisualStudio] [-Speak] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>]  
+   Update-Refactor [[-Refactor] <RefactorDefinition[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-SelectByModifiedDateFrom <datetime>] [-SelectByModifiedDateTo <datetime>] [-SelectByCreationDateFrom <datetime>] [-SelectByCreationDateTo <datetime>] [-PromptKey <string>] [-Prompt <string>] [-SelectionScript <string>] [-SelectionPrompt <string>] [-LLMQueryType {SimpleIntelligence | Knowledge | Pictures | TextTranslation | Coding | ToolUse}] [-Model <string>] [-HuggingFaceIdentifier <string>] [-Temperature <double>] [-MaxToken <int>] [-TTLSeconds <int>] [-Cpu <int>] [-Gpu <int>] [-ApiEndpoint <string>] [-ApiKey <string>] [-TimeoutSeconds <int>] [-Priority <int>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-KeysToSend <string[]>] [-PreferencesDatabasePath <string>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection] [-PerformAutoSelections] [-PerformAISelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-ReprocessModifiedFiles] [-Force] [-Code] [-VisualStudio] [-Speak] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Provides comprehensive management of refactoring sets by:  
-    - Adding or removing files from processing queues  
-    - Cleaning up deleted files from the set  
-    - Managing state information and progress tracking  
-    - Handling LLM-based file selection and processing  
-    - Supporting both automatic and manual file management  
-    - Maintaining detailed logs of all operations  
-    - Gracefully handling deleted files (skipped unless CleanUpDeletedFiles is used)  
-
 ### PARAMETERS 
-    -Name <String[]>  
-        Names of refactor sets to update, accepts wildcards. Default is "*".  
+    -ApiEndpoint <string>  
+        The API endpoint URL for AI operations  
         Required?                    false  
-        Position?                    1  
-        Default value                @('*')  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
-        Accept wildcard characters?  true  
-    -Refactor <RefactorDefinition[]>  
-        Direct input of refactor set objects instead of loading by name.  
-        Required?                    false  
-        Position?                    2  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -FilesToAdd <FileInfo[]>  
-        Files to add to the processing queue.  
+    -ApiKey <string>  
+        The API key for authenticated AI operations  
         Required?                    false  
-        Position?                    3  
-        Default value                @()  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -FilesToRemove <FileInfo[]>  
-        Files to remove from the processing queue.  
+    -AskBeforeLLMSelection  
+        Switch to suppress user interaction  
         Required?                    false  
-        Position?                    4  
-        Default value                @()  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SelectByModifiedDateFrom <DateTime>  
-        Select files modified on or after this date.  
+    -CleanUpDeletedFiles  
+        Clean up deleted files  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SelectByModifiedDateTo <DateTime>  
-        Select files modified on or before this date.  
+    -Clear  
+        Clear all files from the refactor set  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SelectByCreationDateFrom <DateTime>  
-        Select files created on or after this date.  
+    -ClearLog  
+        Clear the log of the refactor set  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SelectByCreationDateTo <DateTime>  
-        Select files created on or before this date.  
+    -ClearSession  
+        Clear alternative settings stored in session for AI preferences  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PromptKey <String>  
-        Key identifying which prompt script to use.  
+    -Code  
+        The ide to open the file in  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      c  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Prompt <String>  
-        Direct prompt text to use for processing.  
+    -Confirm  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SelectionScript <String>  
-        PowerShell script for file selection logic.  
+    -Cpu <int>  
+        The number of CPU cores to dedicate to AI operations  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -SelectionPrompt <String>  
-        Content for LLM-based selection prompts.  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -LLMQueryType <String>  
-        Type of LLM query to perform.  
-        Required?                    false  
-        Position?                    named  
-        Default value                Coding  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Model <String>  
-        LLM model identifier for LM-Studio.  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -HuggingFaceIdentifier <String>  
-        Model retrieval identifier for LM-Studio.  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Temperature <Double>  
-        Temperature setting for response randomness (0.0-1.0).  
-        Required?                    false  
-        Position?                    named  
-        Default value                -1  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -MaxToken <Int32>  
-        Maximum tokens allowed in responses (-1 for default).  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -TTLSeconds <Int32>  
-        Time-to-live in seconds for API model requests.  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Cpu <Int32>  
-        Number of CPU cores to dedicate to AI operations.  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Gpu <Int32>  
-        GPU processing control (-2=Auto, -1=LM-Studio default).  
-        Required?                    false  
-        Position?                    named  
-        Default value                -1  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -ApiEndpoint <String>  
-        API endpoint URL for LLM service.  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -ApiKey <String>  
-        Authentication key for API access.  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -TimeoutSeconds <Int32>  
-        The timeout in seconds for AI operations.  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Priority <Int32>  
-        Processing priority level for this refactor set.  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     -ExposedCmdLets <ExposedCmdletDefinition[]>  
-        PowerShell commands available during LLM selection.  
+        Array of PowerShell command definitions to use as tools during LLM selection  
         Required?                    false  
-        Position?                    named  
-        Default value                @()  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -KeysToSend <String[]>  
-        Keystrokes to send after opening file.  
+    -FilesToAdd <FileInfo[]>  
+        Filenames to add  
         Required?                    false  
-        Position?                    named  
-        Default value                @()  
+        Position?                    2  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PreferencesDatabasePath <String>  
-        Database path for preference data files.  
+    -FilesToRemove <FileInfo[]>  
+        Filenames to remove  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    3  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -CleanUpDeletedFiles [<SwitchParameter>]  
-        Remove entries for files that no longer exist on disk. Without this parameter,  
-        deleted files are preserved in collections but gracefully skipped during  
-        processing.  
+    -Force  
+        Force stop LM Studio before initialization  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -AskBeforeLLMSelection [<SwitchParameter>]  
-        Prompt before launching LLM invocations for file selections.  
+    -Gpu <int>  
+        How much to offload to the GPU. If 'off', GPU offloading is disabled. If 'max', all layers are offloaded to GPU. If a number between 0 and 1, that fraction of layers will be offloaded to the GPU. -1 = LM Studio will decide how much to offload to the GPU. -2 = Auto  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PerformAutoSelections [<SwitchParameter>]  
-        Enable LLM-based file selection processing.  
+    -HuggingFaceIdentifier <string>  
+        The LM Studio specific model identifier  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      ModelLMSGetIdentifier  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PerformAISelections [<SwitchParameter>]  
-        Process all files in the refactor set with LLM. Can also be used as  
-        -PerformAISelections.  
+    -KeysToSend <string[]>  
+        The keys to invoke as key strokes after opening the file  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      keys  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -RetryFailedLLMSelections [<SwitchParameter>]  
-        Retry previously failed LLM selections.  
+    -LLMQueryType <string>  
+        The type of LLM query  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Clear [<SwitchParameter>]  
-        Remove all files from the refactor set.  
+    -MarkAllCompleted  
+        Mark all files as refactored  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ClearLog [<SwitchParameter>]  
-        Clear the refactor set's operation log.  
+    -MaxToken <int>  
+        The maximum number of tokens to use in AI operations  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Reset [<SwitchParameter>]  
-        Start processing from beginning of refactor set.  
+    -Model <string>  
+        The model identifier or pattern to use for AI operations  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ResetLMSelections [<SwitchParameter>]  
-        Restart all LLM selections from beginning.  
+    -Name <string[]>  
+        The name of the refactor, accepts wildcards  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           Name  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+    -PerformAISelections  
+        Switch to process all files in the refactor set  
+        Required?                    false  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      PerformAllLLMSelections  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -MarkAllCompleted [<SwitchParameter>]  
-        Mark all files as successfully refactored.  
+    -PerformAutoSelections  
+        Switch to enable LLM-based file selection processing  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -RedoLast [<SwitchParameter>]  
-        Reprocess the last refactoring operation.  
+    -PreferencesDatabasePath <string>  
+        Database path for preference data files  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      DatabasePath  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ReprocessModifiedFiles [<SwitchParameter>]  
-        Automatically reprocess files that have been modified since the last refactor  
-        update.  
+    -Priority <int>  
+        Priority for this refactor set  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Force [<SwitchParameter>]  
-        Force stop LM-Studio before initialization.  
+    -Prompt <string>  
+        The prompt key indicates which prompt script to use  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Open file in Visual Studio Code.  
+    -PromptKey <string>  
+        The prompt key indicates which prompt script to use  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -VisualStudio [<SwitchParameter>]  
-        Open file in Visual Studio.  
+    -RedoLast  
+        Redo the last refactor  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Speak [<SwitchParameter>]  
-        Enable text-to-speech for operation details.  
+    -Refactor <RefactorDefinition[]>  
+        The refactor set to update  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    1  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           Refactor  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SelectByFreeRam [<SwitchParameter>]  
-        Select configuration by available system RAM.  
+    -ReprocessModifiedFiles  
+        Automatically reprocess files modified since last update  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      AutoAddModifiedFiles  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SelectByFreeGpuRam [<SwitchParameter>]  
-        Select configuration by available GPU RAM.  
+    -Reset  
+        Start from the beginning of the refactor set  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SessionOnly [<SwitchParameter>]  
-        Use alternative settings stored in session for AI preferences.  
+    -ResetLMSelections  
+        Restart all LLMSelections  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ClearSession [<SwitchParameter>]  
-        Clear alternative settings stored in session for AI preferences.  
+    -RetryFailedLLMSelections  
+        Switch to retry failed LLM selections  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SkipSession [<SwitchParameter>]  
-        Store settings only in persistent preferences without affecting session.  
+    -SelectByCreationDateFrom <datetime>  
+        Select files by creation date from  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -WhatIf [<SwitchParameter>]  
+    -SelectByCreationDateTo <datetime>  
+        Select files by creation date to  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Confirm [<SwitchParameter>]  
+    -SelectByFreeGpuRam  
+        Select configuration by available GPU RAM  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SelectByFreeRam  
+        Select configuration by available system RAM  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SelectByModifiedDateFrom <datetime>  
+        Select files by modified date from  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SelectByModifiedDateTo <datetime>  
+        Select files by modified date to  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SelectionPrompt <string>  
+        If provided, will invoke LLM to do the selection based on the content of the script  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SelectionScript <string>  
+        Powershell script for function to select items to refactor  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SessionOnly  
+        Use alternative settings stored in session for AI preferences  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SkipSession  
+        Store settings only in persistent preferences without affecting session  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      FromPreferences  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Speak  
+        Speak out the details of next refactor  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -TTLSeconds <int>  
+        Time-to-live in seconds for API-loaded models  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Temperature <double>  
+        Temperature for response randomness (0.0-1.0)  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -TimeoutSeconds <int>  
+        The timeout in seconds for AI operations  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -VisualStudio  
+        Open in Visual Studio  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -WhatIf  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -4156,58 +4062,56 @@ Update-Refactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemo
    Add-FeatureLineToREADME              --> feature  
 ```` 
 
-### SYNOPSIS 
-    Adds a feature line to the README file with a timestamp.  
-
 ### SYNTAX 
 ```PowerShell 
-Add-FeatureLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
+Add-FeatureLineToREADME [[-Line] <string>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Adds a feature line to the specified README file, prefixed with the current date  
-    in yyyyMMdd format. The line can be formatted as code and optionally displayed.  
-
 ### PARAMETERS 
-    -Line <String>  
-        The feature description text to add to the README file.  
+    -Code  
+        Format the line as code  
         Required?                    false  
-        Position?                    1  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Switch to format the line as code in the README file.  
+    -Line <string>  
+        The feature description text to add  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Show [<SwitchParameter>]  
-        Switch to display the README file after adding the line.  
+    -Show  
+        Display the README after adding the line  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -UseHomeREADME [<SwitchParameter>]  
-        Switch to use the README file in the home directory.  
+    -UseHomeREADME  
+        Use README in home directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Switch to use the README file in the OneDrive directory.  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -4224,58 +4128,56 @@ Add-FeatureLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-Us
    Add-IdeaLineToREADME                 --> idea  
 ```` 
 
-### SYNOPSIS 
-    Adds an idea item to the README.md file.  
-
 ### SYNTAX 
 ```PowerShell 
-Add-IdeaLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
+Add-IdeaLineToREADME [[-Line] <string>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Adds a timestamped idea to the "## Ideas" section of a README.md file.  
-    Can display the modified section and open in Visual Studio Code.  
-
 ### PARAMETERS 
-    -Line <String>  
-        The idea text to add. Will be prefixed with current date if not empty.  
+    -Code  
+        Open README in Visual Studio Code  
         Required?                    false  
-        Position?                    1  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Opens the README in Visual Studio Code after modification.  
+    -Line <string>  
+        The idea text to add  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Show [<SwitchParameter>]  
-        Displays the modified section after changes.  
+    -Show  
+        Show the modified section  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -UseHomeREADME [<SwitchParameter>]  
-        Uses README in PowerShell profile directory instead of current location.  
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Uses README in OneDrive directory instead of current location.  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -4292,58 +4194,56 @@ Add-IdeaLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOn
    Add-IssueLineToREADME                --> issue  
 ```` 
 
-### SYNOPSIS 
-    Adds an issue item to the README.md file.  
-
 ### SYNTAX 
 ```PowerShell 
-Add-IssueLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
+Add-IssueLineToREADME [[-Line] <string>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Adds a timestamped issue to the "## Issues" section of a README.md file.  
-    Can display the modified section and open in Visual Studio Code.  
-
 ### PARAMETERS 
-    -Line <String>  
-        The issue text to add. Will be prefixed with current date if not empty.  
+    -Code  
+        Open README in Visual Studio Code  
         Required?                    false  
-        Position?                    1  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Opens the README in Visual Studio Code after modification.  
+    -Line <string>  
+        The issue text to add  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Show [<SwitchParameter>]  
-        Displays the modified section after changes.  
+    -Show  
+        Show the modified section  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -UseHomeREADME [<SwitchParameter>]  
-        Uses README in PowerShell profile directory instead of current location.  
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Uses README in OneDrive directory instead of current location.  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -4360,85 +4260,83 @@ Add-IssueLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseO
    Add-LineToREADME  
 ```` 
 
-### SYNOPSIS 
-    Adds a line to a README.md markdown file in a specified section.  
-
 ### SYNTAX 
 ```PowerShell 
-Add-LineToREADME [[-Line] <String>] [-Section] <String> [-Prefix] <String> [-Code] [-Show] [-Done] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
+Add-LineToREADME [[-Line] <string>] [-Section] <string> [-Prefix] <string> [-Code] [-Show] [-Done] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Finds and modifies a README.md file by adding a new line to a specified section.  
-    Can create the section if it doesn't exist. Supports formatting lines as code  
-    blocks and showing the modified section.  
-    Will look in current directory first, then walk up directories to find the README  
-    location. If not found, will use the README in the PowerShell profile directory.  
-
 ### PARAMETERS 
-    -Line <String>  
-        The line of text to add to the README file.  
+    -Code  
+        Open in Visual Studio Code after modifying  
         Required?                    false  
-        Position?                    1  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Section <String>  
-        The section header where the line should be added.  
+    -Done  
+        Mark the item as completed  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Line <string>  
+        The line to add to the README  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Prefix <string>  
+        The prefix to use for the line  
         Required?                    true  
         Position?                    2  
-        Default value                  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Prefix <String>  
-        The prefix to add before the line (default: "* ").  
+    -Section <string>  
+        The section to add the line to  
         Required?                    true  
-        Position?                    3  
-        Default value                *  
+        Position?                    1  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Switch to open the README in Visual Studio Code after modification.  
+    -Show  
+        Show the modified section  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Show [<SwitchParameter>]  
-        Switch to display the modified section after changes.  
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Done [<SwitchParameter>]  
-        Switch to mark a todo item as completed.  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -UseHomeREADME [<SwitchParameter>]  
-        Switch to use README in PowerShell profile directory.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Switch to use README in OneDrive directory.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -4452,61 +4350,59 @@ Add-LineToREADME [[-Line] <String>] [-Section] <String> [-Prefix] <String> [-Cod
 ##	Add-ReleaseNoteLineToREADME 
 ```PowerShell 
 
-   Add-ReleaseNoteLineToREADME          --> ReleaseNote  
+   Add-ReleaseNoteLineToREADME          --> releasenote  
 ```` 
-
-### SYNOPSIS 
-    Adds a ReleaseNote line to the README file with a timestamp.  
 
 ### SYNTAX 
 ```PowerShell 
-Add-ReleaseNoteLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
+Add-ReleaseNoteLineToREADME [[-Line] <string>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Adds a ReleaseNote line to the specified README file, prefixed with the current date  
-    in yyyyMMdd format. The line can be formatted as code and optionally displayed.  
-
 ### PARAMETERS 
-    -Line <String>  
-        The ReleaseNote description text to add to the README file.  
+    -Code  
+        Format the line as code  
         Required?                    false  
-        Position?                    1  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Switch to format the line as code in the README file.  
+    -Line <string>  
+        The ReleaseNote description text to add  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Show [<SwitchParameter>]  
-        Switch to display the README file after adding the line.  
+    -Show  
+        Display the README after adding the line  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -UseHomeREADME [<SwitchParameter>]  
-        Switch to use the README file in the home directory.  
+    -UseHomeREADME  
+        Use README in home directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Switch to use the README file in the OneDrive directory.  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -4523,67 +4419,65 @@ Add-ReleaseNoteLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] 
    Add-TodoLineToREADME                 --> todo  
 ```` 
 
-### SYNOPSIS 
-    Adds a todo item to the README.md file.  
-
 ### SYNTAX 
 ```PowerShell 
-Add-TodoLineToREADME [[-Line] <String>] [-Code] [-Show] [-Done] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
+Add-TodoLineToREADME [[-Line] <string>] [-Code] [-Show] [-Done] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Adds a timestamped todo item to the "## Todoos" section of a README.md file.  
-    The todo items can be marked as done and the modified section can be displayed.  
-    Each new todo item is automatically timestamped unless marking as done.  
-
 ### PARAMETERS 
-    -Line <String>  
-        The todo item text to add. Will be prefixed with current date if not empty.  
+    -Code  
+        Open README in Visual Studio Code  
         Required?                    false  
-        Position?                    1  
-        Default value                  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Done  
+        Mark todo item as completed  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Line <string>  
+        The todo item text to add  
+        Required?                    false  
+        Position?                    0  
         Accept pipeline input?       true (ByValue)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Opens the README in Visual Studio Code after modification.  
+    -Show  
+        Show the modified section  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Show [<SwitchParameter>]  
-        Displays the modified section after changes.  
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Done [<SwitchParameter>]  
-        Marks the specified todo item as completed.  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -UseHomeREADME [<SwitchParameter>]  
-        Uses README in PowerShell profile directory instead of current location.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Uses README in OneDrive directory instead of current location.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -4600,27 +4494,19 @@ Add-TodoLineToREADME [[-Line] <String>] [-Code] [-Show] [-Done] [-UseHomeREADME]
    EnsureVSCodeInstallation  
 ```` 
 
-### SYNOPSIS 
-    Installs and configures Visual Studio Code with recommended extensions.  
-
 ### SYNTAX 
 ```PowerShell 
 EnsureVSCodeInstallation [-Force] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Checks if Visual Studio Code is installed and if not, installs it using WinGet.  
-    Configures user settings, keybindings, and installs recommended extensions from  
-    the workspace configuration. Also sets up PSGallery as a trusted repository and  
-    configures specific extension settings.  
-
 ### PARAMETERS 
-    -Force [<SwitchParameter>]  
+    -Force  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -4637,35 +4523,29 @@ EnsureVSCodeInstallation [-Force] [<CommonParameters>]
    Features  
 ```` 
 
-### SYNOPSIS 
-    Displays features from a README.md file.  
-
 ### SYNTAX 
 ```PowerShell 
 Features [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Shows all features from the "## Features" section of a README.md file. Can use  
-    either the README in the current location, PowerShell profile directory, or  
-    OneDrive directory.  
-
 ### PARAMETERS 
-    -UseHomeREADME [<SwitchParameter>]  
-        Use README.md from PowerShell profile directory instead of current location.  
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
         Position?                    1  
-        Default value                False  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Use README.md from OneDrive directory instead of current location.  
-        Required?                    false  
-        Position?                    2  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -4682,35 +4562,29 @@ Features [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
    Ideas  
 ```` 
 
-### SYNOPSIS 
-    Displays ideas from a README.md file.  
-
 ### SYNTAX 
 ```PowerShell 
 Ideas [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Shows all ideas from the "## Ideas" section of a README.md file. Can use either  
-    the README in the current location, PowerShell profile directory, or OneDrive  
-    directory.  
-
 ### PARAMETERS 
-    -UseHomeREADME [<SwitchParameter>]  
-        Use README.md from PowerShell profile directory instead of current location.  
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
         Position?                    1  
-        Default value                False  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Use README.md from OneDrive directory instead of current location.  
-        Required?                    false  
-        Position?                    2  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -4727,35 +4601,29 @@ Ideas [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
    Issues  
 ```` 
 
-### SYNOPSIS 
-    Displays issues from a README.md file.  
-
 ### SYNTAX 
 ```PowerShell 
 Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Shows all issues from the "## Issues" section of a README.md file. Can use  
-    either the README in the current location, PowerShell profile directory, or  
-    OneDrive directory.  
-
 ### PARAMETERS 
-    -UseHomeREADME [<SwitchParameter>]  
-        Use README.md from PowerShell profile directory instead of current location.  
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
         Position?                    1  
-        Default value                False  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Use README.md from OneDrive directory instead of current location.  
-        Required?                    false  
-        Position?                    2  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -4772,99 +4640,92 @@ Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
    Open-SourceFileInIde                 --> editcode  
 ```` 
 
-### SYNOPSIS 
-    Opens a source file in the preferred IDE (Visual Studio Code or Visual Studio).  
-
 ### SYNTAX 
 ```PowerShell 
-Open-SourceFileInIde [-Path] <String> [[-LineNo] <Int32>] [[-KeysToSend] <String[]>] [-Code] [-VisualStudio] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [<CommonParameters>] 
+Open-SourceFileInIde [-Path] <string> [[-LineNo] <int>] [[-KeysToSend] <string[]>] [-Code] [-VisualStudio] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <int>] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function opens a specified source file in either Visual Studio Code or  
-    Visual Studio. It can navigate directly to a specific line number and optionally  
-    send keyboard inputs to the IDE after opening the file. The function will  
-    attempt to determine which IDE to use based on the current host process, running  
-    applications, or user selection.  
-
 ### PARAMETERS 
-    -Path <String>  
-        The path to the source file that should be opened in the IDE. Accepts both  
-        relative and absolute paths, as well as paths with environment variables.  
-        Required?                    true  
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+    -Code  
+        The ide to open the file in  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      c  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -LineNo <Int32>  
-        The line number to navigate to when opening the file. Default is 0, which opens  
-        the file without positioning to a specific line.  
+    -KeysToSend <string[]>  
+        Array of keyboard inputs to send to the application  
         Required?                    false  
         Position?                    2  
-        Default value                0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      keys  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -KeysToSend <String[]>  
-        Array of keyboard inputs to send to the application after opening. The function  
-        will wait 2 seconds before sending the keys to ensure the IDE has loaded.  
+    -LineNo <int>  
+        The line number to navigate to  
         Required?                    false  
-        Position?                    3  
-        Default value                @()  
+        Position?                    1  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Switch parameter to force opening the file in Visual Studio Code regardless  
-        of the current host process or other running IDEs.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+    -Path <string>  
+        The path to the sourcefile to open  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      FullName  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -VisualStudio [<SwitchParameter>]  
-        Switch parameter to force opening the file in Visual Studio regardless of the  
-        current host process or other running IDEs.  
+    -SendKeyDelayMilliSeconds <int>  
+        Delay between different input strings in milliseconds  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      DelayMilliSeconds  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SendKeyEscape [<SwitchParameter>]  
-        When specified, escapes special characters so they are sent as literal text  
-        instead of being interpreted as control sequences.  
+    -SendKeyEscape  
+        Escape control characters and modifiers  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Escape  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SendKeyHoldKeyboardFocus [<SwitchParameter>]  
-        Prevents returning keyboard focus to PowerShell after sending keys.  
+    -SendKeyHoldKeyboardFocus  
+        Hold keyboard focus on target window  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      HoldKeyboardFocus  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SendKeyUseShiftEnter [<SwitchParameter>]  
-        Sends Shift+Enter instead of regular Enter for line breaks.  
+    -SendKeyUseShiftEnter  
+        Use Shift+Enter instead of Enter  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      UseShiftEnter  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SendKeyDelayMilliSeconds <Int32>  
-        Adds delay between sending different key sequences. Useful for slower apps.  
+    -VisualStudio  
+        Open in Visual Studio  
         Required?                    false  
-        Position?                    named  
-        Default value                0  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -4881,35 +4742,29 @@ Open-SourceFileInIde [-Path] <String> [[-LineNo] <Int32>] [[-KeysToSend] <String
    ReleaseNotes  
 ```` 
 
-### SYNOPSIS 
-    Displays ReleaseNotes from a README.md file.  
-
 ### SYNTAX 
 ```PowerShell 
 ReleaseNotes [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Shows all ReleaseNotes from the "## ReleaseNotes" section of a README.md file. Can use  
-    either the README in the current location, PowerShell profile directory, or  
-    OneDrive directory.  
-
 ### PARAMETERS 
-    -UseHomeREADME [<SwitchParameter>]  
-        Use README.md from PowerShell profile directory instead of current location.  
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
         Position?                    1  
-        Default value                False  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Use README.md from OneDrive directory instead of current location.  
-        Required?                    false  
-        Position?                    2  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -4926,35 +4781,29 @@ ReleaseNotes [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
    Todoos  
 ```` 
 
-### SYNOPSIS 
-    Displays todo items from a README.md file.  
-
 ### SYNTAX 
 ```PowerShell 
 Todoos [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Shows all todo items from the "## Todoos" section of a README.md file. Can use  
-    either the README in the current location, PowerShell profile directory, or  
-    OneDrive directory.  
-
 ### PARAMETERS 
-    -UseHomeREADME [<SwitchParameter>]  
-        Use README.md from PowerShell profile directory instead of current location.  
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
         Position?                    1  
-        Default value                False  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Use README.md from OneDrive directory instead of current location.  
-        Required?                    false  
-        Position?                    2  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -4971,38 +4820,29 @@ Todoos [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
    VSCode  
 ```` 
 
-### SYNOPSIS 
-    Opens one or more files in Visual Studio Code.  
-
 ### SYNTAX 
 ```PowerShell 
-VSCode [-FilePath] <String[]> [-Copilot] [<CommonParameters>] 
+VSCode [-FilePath] <string[]> [-Copilot] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function takes file paths and opens them in Visual Studio Code. It expands  
-    paths and validates file existence before attempting to open them. The function  
-    supports both direct file paths and pipeline input, making it ideal for quickly  
-    opening multiple files from terminal searches.  
-
 ### PARAMETERS 
-    -FilePath <String[]>  
-        One or more file paths to open in Visual Studio Code. Accepts pipeline input  
-        and wildcard patterns.  
-        Required?                    true  
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       true (ByValue)  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Copilot [<SwitchParameter>]  
-        When specified, opens the file and triggers the Copilot keyboard shortcut to  
-        start an edit session.  
+    -Copilot  
+        Add sourcefile to Copilot edit-session  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -FilePath <string[]>  
+        The path to the file to open in VSCode  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -5019,7 +4859,7 @@ VSCode [-FilePath] <String[]> [-Copilot] [<CommonParameters>]
 ##	Get-GitChangedFiles 
 ```PowerShell 
 
-   Get-GitChangedFiles                  --> Get-GitChangedFile, gitchanged  
+   Get-GitChangedFiles                  --> gitchanged  
 ```` 
 
 ### SYNOPSIS 
@@ -5059,42 +4899,36 @@ Get-GitChangedFiles [-PassThru] [<CommonParameters>]
    New-GitCommit                        --> commit  
 ```` 
 
-### SYNOPSIS 
-    Creates and pushes a new git commit with all changes.  
-
 ### SYNTAX 
 ```PowerShell 
-New-GitCommit [[-Title] <String>] [-WhatIf] [-Confirm] [<CommonParameters>] 
+New-GitCommit [[-Title] <string>] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Stages all changes in the current git repository, creates a commit with the  
-    specified title, and pushes the changes to the remote origin. Automatically sets  
-    up upstream tracking if needed.  
-
 ### PARAMETERS 
-    -Title <String>  
-        The message to use for the git commit. If not specified, defaults to  
-        "Improved scripts".  
+    -Confirm  
         Required?                    false  
-        Position?                    1  
-        Default value                Improved scripts  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -WhatIf [<SwitchParameter>]  
+    -Title <string>  
+        The commit message title to use  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Confirm [<SwitchParameter>]  
+    -WhatIf  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -5111,68 +4945,51 @@ New-GitCommit [[-Title] <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
    PermanentlyDeleteGitFolders  
 ```` 
 
-### SYNOPSIS 
-    Permanently deletes specified folders from all branches in a Git repository.  
-
 ### SYNTAX 
 ```PowerShell 
-PermanentlyDeleteGitFolders [-RepoUri] <String> [-Folders] <String[]> [-WhatIf] [-Confirm] [<CommonParameters>] 
+PermanentlyDeleteGitFolders [-RepoUri] <string> [-Folders] <string[]> [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Cleans a Git repository by removing specified folders from the entire commit  
-    history across all branches. This is done by cloning the repository, using  
-    git filter-branch to remove the folders, and force pushing the changes back.  
-    This operation is destructive and permanently rewrites Git history.  
-
 ### PARAMETERS 
-    -RepoUri <String>  
-        The Git repository URI to clean (HTTPS or SSH format).  
+    -Confirm  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Folders <string[]>  
+        Array of folder paths to permanently remove  
         Required?                    true  
         Position?                    1  
-        Default value                  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Folders <String[]>  
-        Array of folder paths to remove from the repository history. Paths can be  
-        specified with forward or back slashes.  
+    -RepoUri <string>  
+        The URI of the Git repository to clean  
         Required?                    true  
-        Position?                    2  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -WhatIf [<SwitchParameter>]  
+    -WhatIf  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Confirm [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-### NOTES 
-```PowerShell 
-
-       This operation is destructive and cannot be undone. It rewrites Git history and  
-       requires force pushing, which affects all repository users.  
-   -------------------------- EXAMPLE 1 --------------------------  
-   PS C:\> PermanentlyDeleteGitFolders `  
-       -RepoUri "https://github.com/user/repo.git" `  
-       -Folders "bin", "obj"  
-```` 
 
 <br/><hr/><br/>
  
@@ -5207,107 +5024,110 @@ Add-MissingGenXdevUnitTests [<CommonParameters>]
    Assert-GenXdevCmdlet                 --> improvecmdlet  
 ```` 
 
-### SYNOPSIS 
-    Improves GenXdev cmdlet documentation and implementation through AI assistance.  
-
 ### SYNTAX 
 ```PowerShell 
-Assert-GenXdevCmdlet [[-CmdletName] <String>] [-ModuleName <String[]>] [[-PromptKey] <String>] [[-Prompt] <String>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-EditPrompt] [-Integrate] [<CommonParameters>] 
+Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey] <string>] [[-Prompt] <string>] [-ModuleName <string[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-EditPrompt] [-Integrate] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function enhances GenXdev cmdlets by analyzing and improving their code  
-    through AI prompts. It can integrate cmdlets into modules, update documentation,  
-    and verify proper implementation. The function supports custom prompt templates  
-    and can open files in Visual Studio Code or Visual Studio.  
-
 ### PARAMETERS 
-    -CmdletName <String>  
-        The name or search pattern of the cmdlet to improve. Supports wildcards.  
+    -CmdletName <string>  
+        Search pattern to filter cmdlets  
         Required?                    false  
-        Position?                    1  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
-    -ModuleName <String[]>  
+    -Code  
+        Open in Visual Studio Code  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      c  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -EditPrompt  
+        Only edit the AI prompt  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           PromptKey  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -FromScripts  
+        Search in script files  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Integrate  
+        Integrate cmdlet into module  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ModuleName <string[]>  
+        GenXdev module names to search  
+        Required?                    false  
+        Position?                    Named  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Module, BaseModuleName, SubModuleName  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
-    -PromptKey <String>  
-        The key identifying which AI prompt template to use for improvements.  
+    -NoLocal  
+        Skip local module versions  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -OnlyPublished  
+        Only include published versions  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Prompt <string>  
+        Custom AI prompt text to use  
         Required?                    false  
         Position?                    2  
-        Default value                CheckAllRequirements  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Prompt <String>  
-        Custom prompt text to override the template prompt.  
+    -PromptKey <string>  
+        The AI prompt key to use for template selection  
         Required?                    false  
-        Position?                    3  
-        Default value                  
+        Position?                    1  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -NoLocal [<SwitchParameter>]  
-        Skip searching local module versions.  
+    -VisualStudio  
+        Open in Visual Studio  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -OnlyPublished [<SwitchParameter>]  
-        Only search published module versions.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -FromScripts [<SwitchParameter>]  
-        Search in script files rather than module files.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Opens the cmdlet in Visual Studio Code.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -VisualStudio [<SwitchParameter>]  
-        Opens the cmdlet in Visual Studio.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -EditPrompt [<SwitchParameter>]  
-        Only edit the AI prompt template without processing the cmdlet.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Integrate [<SwitchParameter>]  
-        Integrate the cmdlet into a module if it's currently a standalone script.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -5324,74 +5144,73 @@ Assert-GenXdevCmdlet [[-CmdletName] <String>] [-ModuleName <String[]>] [[-Prompt
    Assert-GenXdevCmdletTests            --> improvecmdlettests  
 ```` 
 
-### SYNOPSIS 
-    Asserts and improves unit-tests of a specified GenXdev cmdlet.  
-
 ### SYNTAX 
 ```PowerShell 
-Assert-GenXdevCmdletTests [-CmdletName] <String> [[-Prompt] <String>] [[-PromptKey] <String>] [-EditPrompt] [-AssertFailedTest] [-FromScripts] [-ContinuationHandled] [<CommonParameters>] 
+Assert-GenXdevCmdletTests [-CmdletName] <string> [[-Prompt] <string>] [[-PromptKey] <string>] [-EditPrompt] [-AssertFailedTest] [-FromScripts] [-ContinuationHandled] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function helps maintain and improve unit tests for GenXdev cmdlets by:  
-    1. Creating test files if they do not exist  
-    2. Opening the cmdlet in VS Code  
-    3. Preparing and applying AI prompts for test generation/improvement  
-    4. Managing test execution workflow  
-
 ### PARAMETERS 
-    -CmdletName <String>  
-        The name of the cmdlet to improve unit-tests for. Required.  
-        Required?                    true  
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+    -AssertFailedTest  
+        Indicates to assert a failed test  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Prompt <String>  
-        Custom AI prompt text to use for test generation. Optional.  
+    -CmdletName <string>  
+        The name of the cmdlet to improve unit-tests for  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      cmd  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ContinuationHandled  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -EditPrompt  
+        Switch to only edit the AI prompt  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -FromScripts  
+        Search in script files instead of modules  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Prompt <string>  
+        Custom AI prompt text to use  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -PromptKey <string>  
+        The AI prompt key to use for template selection  
         Required?                    false  
         Position?                    2  
-        Default value                  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -PromptKey <String>  
-        Required?                    false  
-        Position?                    3  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -EditPrompt [<SwitchParameter>]  
-        Switch to only edit the AI prompt without modifying the cmdlet. Optional.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -AssertFailedTest [<SwitchParameter>]  
-        Switch to indicate assertion of a failed test. Optional.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -FromScripts [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -ContinuationHandled [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -5408,40 +5227,30 @@ Assert-GenXdevCmdletTests [-CmdletName] <String> [[-Prompt] <String>] [[-PromptK
    Assert-GenXdevDependencyUsage        --> checkgenxdevdependencies  
 ```` 
 
-### SYNOPSIS 
-    Validates dependency usage across GenXdev modules to ensure proper module  
-    hierarchy is maintained.  
-
 ### SYNTAX 
 ```PowerShell 
-Assert-GenXdevDependencyUsage [[-ModuleName] <String[]>] [-FromScripts] [<CommonParameters>] 
+Assert-GenXdevDependencyUsage [[-ModuleName] <string[]>] [-FromScripts] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function analyzes GenXdev modules to ensure they follow the correct  
-    dependency hierarchy. It checks that modules only reference dependencies  
-    that are listed in their RequiredModules manifest, and prevents circular  
-    dependencies by validating that modules do not reference modules that come  
-    later in the dependency chain.  
-
 ### PARAMETERS 
-    -ModuleName <String[]>  
-        Filter to apply to module names. Must match GenXdev naming pattern. Defaults  
-        to checking all GenXdev modules.  
+    -FromScripts  
+        Search in script files instead of module files  
         Required?                    false  
-        Position?                    2  
-        Default value                @('GenXdev*')  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
-        Accept wildcard characters?  true  
-    -FromScripts [<SwitchParameter>]  
-        Search in script files instead of module files.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
+    -ModuleName <string[]>  
+        Filter to apply to module names  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
@@ -5454,172 +5263,158 @@ Assert-GenXdevDependencyUsage [[-ModuleName] <String[]>] [-FromScripts] [<Common
 ##	Assert-GenXdevTest 
 ```PowerShell 
 
-   Assert-GenXdevTest                   --> Assert-GenXdevUnitTest, rungenxdevtests, testcmdlet  
+   Assert-GenXdevTest                   --> rungenxdevtests  
 ```` 
-
-### SYNOPSIS 
-    Executesunit tests for GenXdev modules, sub-modules, or cmdlets  
-    with intelligent debugging and AI-powered error resolution.  
 
 ### SYNTAX 
 ```PowerShell 
-Assert-GenXdevTest [[-CmdletName] <String>] [[-TestFailedAction] <String>] [[-DefinitionMatches] <String>] [[-ModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-IncludeScripts] [-OnlyReturnModuleNames] [-ExactMatch] [-Verbosity <String>] [-StackTraceVerbosity <String>] [-AllowLongRunningTests] [-SkipModuleImports] [-SkipPSAnalyzerTests] [-SkipPesterTests] [<CommonParameters>] 
+Assert-GenXdevTest [[-CmdletName] <string>] [[-TestFailedAction] {Ask | Continue | Stop | SolveWithAI | Write-Error | Throw}] [[-DefinitionMatches] <string>] [[-ModuleName] <string[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-IncludeScripts] [-OnlyReturnModuleNames] [-ExactMatch] [-Verbosity {None | Normal | Detailed | Diagnostic}] [-StackTraceVerbosity {None | FirstLine | Filtered | Full}] [-AllowLongRunningTests] [-SkipModuleImports] [-SkipPSAnalyzerTests] [-SkipPesterTests] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function provides a testing framework for GenXdev modules,  
-    offering multi-level test execution from entire modules down to individual  
-    cmdlets. It integrates PSScriptAnalyzer for static code analysis, Pester for  
-    unit testing, and Get-Help validation for documentation compliance. The  
-    function includes intelligent error handling with AI-powered resolution  
-    capabilities and detailed progress reporting for development workflows.  
-
 ### PARAMETERS 
-    -CmdletName <String>  
-        Search pattern to filter cmdlets for testing. Supports wildcards and allows  
-        targeting specific cmdlets or groups of cmdlets matching the pattern.  
+    -AllowLongRunningTests  
+        Also selects unit-tests that have long running durations  
         Required?                    false  
-        Position?                    1  
-        Default value                  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -CmdletName <string>  
+        Search pattern to filter cmdlets  
+        Required?                    false  
+        Position?                    0  
         Accept pipeline input?       true (ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
-    -TestFailedAction <String>  
-        Action to take when a test fails. Options include interactive prompting,  
-        automatic continuation, stopping execution, AI-powered resolution, error  
-        logging, or exception throwing for integration scenarios.  
+    -DefinitionMatches <string>  
+        Regular expression to match cmdlet definitions  
         Required?                    false  
         Position?                    2  
-        Default value                Continue  
-        Accept pipeline input?       false  
-        Aliases                        
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -DefinitionMatches <String>  
-        Regular expression to match cmdlet definitions during the search process.  
-        This allows for advanced filtering based on cmdlet implementation patterns.  
+    -ExactMatch  
+        Require exact matches for cmdlet names  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -FromScripts  
+        Search in script files instead of modules  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -IncludeScripts  
+        Includes the scripts directory in addition to regular modules  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           ModuleName  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ModuleName <string[]>  
+        GenXdev module names to search  
         Required?                    false  
         Position?                    3  
-        Default value                  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -ModuleName <String[]>  
-        GenXdev module names to search and test. Must follow the pattern starting  
-        with 'GenXdev' followed by optional sub-module components. Supports wildcards  
-        for broad module selection.  
-        Required?                    false  
-        Position?                    4  
-        Default value                  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Module, BaseModuleName, SubModuleName  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
-    -NoLocal [<SwitchParameter>]  
-        Skip searching in local module paths during cmdlet discovery. When specified,  
-        only published module paths will be considered for testing.  
+    -NoLocal  
+        Skip searching in local module paths  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -OnlyPublished [<SwitchParameter>]  
-        Limit search to published module paths only. This excludes local development  
-        modules and focuses on officially published GenXdev modules.  
+    -OnlyPublished  
+        Only search in published module paths  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -FromScripts [<SwitchParameter>]  
-        Search in script files instead of module files. This allows testing of  
-        standalone PowerShell scripts within the GenXdev ecosystem.  
+    -OnlyReturnModuleNames  
+        Only return unique module names  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -IncludeScripts [<SwitchParameter>]  
-        Include the scripts directory in addition to regular modules. This expands  
-        the test scope to cover both modular and script-based functionality.  
+    -SkipModuleImports  
+        Skips importing GenXdev modules before testing  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           ModuleName  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -OnlyReturnModuleNames [<SwitchParameter>]  
-        Return only unique module names instead of full cmdlet details. Useful for  
-        discovery and inventory operations rather than detailed testing.  
+    -SkipPSAnalyzerTests  
+        Skips invoking PSAnalyzer tests  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ExactMatch [<SwitchParameter>]  
-        Require exact matches for cmdlet names rather than wildcard matching. This  
-        provides precise targeting for specific cmdlet testing scenarios.  
+    -SkipPesterTests  
+        Skips invoking Pester tests  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Verbosity <String>  
-        Output detail level for test execution. Controls the amount of information  
-        displayed during test runs, from minimal to diagnostic output.  
+    -StackTraceVerbosity <string>  
+        Stack trace detail level  
         Required?                    false  
-        Position?                    named  
-        Default value                Normal  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -StackTraceVerbosity <String>  
-        Stack trace detail level for error reporting. Determines how much call stack  
-        information is included when errors occur during testing.  
+    -TestFailedAction <string>  
+        Action to take when a test fails. Options: Ask, Continue, Stop, SolveWithAI, Write-Error, Throw  
         Required?                    false  
-        Position?                    named  
-        Default value                FirstLine  
+        Position?                    1  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -AllowLongRunningTests [<SwitchParameter>]  
-        Include unit tests that have long running durations in the test execution.  
-        This enables testing including performance and integration tests.  
+    -Verbosity <string>  
+        Output detail level  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -SkipModuleImports [<SwitchParameter>]  
-        Skip importing GenXdev modules before testing. This is useful when modules  
-        are already loaded or when testing specific module loading scenarios.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -SkipPSAnalyzerTests [<SwitchParameter>]  
-        Skip invoking PSScriptAnalyzer tests during the test execution. This allows  
-        focusing solely on functional testing when static analysis is not required.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -SkipPesterTests [<SwitchParameter>]  
-        Skip invoking Pester tests during the test execution. This allows focusing  
-        solely on static analysis when functional testing is not required.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -5636,48 +5431,38 @@ Assert-GenXdevTest [[-CmdletName] <String>] [[-TestFailedAction] <String>] [[-De
    Assert-ModuleDefinition  
 ```` 
 
-### SYNOPSIS 
-    Assists in refactoring PowerShell source code files using AI assistance.  
-
 ### SYNTAX 
 ```PowerShell 
-Assert-ModuleDefinition [-ModuleName] <String> [-Prompt <String>] [-EditPrompt] [<CommonParameters>] 
+Assert-ModuleDefinition [-ModuleName] <string> [-Prompt <string>] [-EditPrompt] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function automates the process of refactoring PowerShell code using AI.  
-    It manages prompt templates, detects the active IDE (VS Code or Visual Studio),  
-    and orchestrates the refactoring workflow through keyboard automation.  
-    The function can handle both module manifest (.psd1) and module script (.psm1)  
-    files.  
-
 ### PARAMETERS 
-    -ModuleName <String>  
-        The name of the PowerShell module to refactor. This module must be available  
-        in the PowerShell module path.  
+    -EditPrompt  
+        Switch to only edit the AI prompt  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ModuleName <string>  
+        The name of the module  
         Required?                    true  
-        Position?                    1  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Prompt <String>  
-        Custom AI prompt text to use for the refactoring process. If not specified,  
-        defaults to an error message if module loading fails.  
+    -Prompt <string>  
+        The AI prompt  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -EditPrompt [<SwitchParameter>]  
-        When enabled, only opens the prompt template for editing without executing the  
-        actual refactoring process.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -5694,45 +5479,37 @@ Assert-ModuleDefinition [-ModuleName] <String> [-Prompt <String>] [-EditPrompt] 
    Assert-RefactorFile  
 ```` 
 
-### SYNOPSIS 
-    Executes a refactoring operation on a source file using the specified IDE and  
-    AI prompt template.  
-
 ### SYNTAX 
 ```PowerShell 
-Assert-RefactorFile [-Path] <String> [[-RefactorSettings] <RefactorSettings>] [-AllowLongRunningTests] [<CommonParameters>] 
+Assert-RefactorFile [-Path] <string> [[-RefactorSettings] <RefactorSettings>] [-AllowLongRunningTests] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function automates the refactoring process by preparing an AI prompt based  
-    on the refactor definition, detecting or selecting the appropriate IDE (VS Code  
-    or Visual Studio), and opening the target file with the prepared prompt. The  
-    function handles prompt template processing, IDE detection, and automation of  
-    the refactoring workflow.  
-
 ### PARAMETERS 
-    -Path <String>  
-        The absolute or relative path to the source file that needs to be refactored.  
-        The path will be expanded to an absolute path during processing.  
-        Required?                    true  
-        Position?                    1  
-        Default value                  
+    -AllowLongRunningTests  
+        Required?                    false  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Path <string>  
+        The path to the source file to improve  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      FullName  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     -RefactorSettings <RefactorSettings>  
+        The refactor definition containing settings and prompt template  
         Required?                    false  
-        Position?                    2  
-        Default value                [GenXdev.Helpers.RefactorSettings]::new()  
+        Position?                    1  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -AllowLongRunningTests [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -5749,19 +5526,10 @@ Assert-RefactorFile [-Path] <String> [[-RefactorSettings] <RefactorSettings>] [-
    Clear-GenXdevModules                 --> cleangenxdev  
 ```` 
 
-### SYNOPSIS 
-    Cleans build artifacts from GenXdev PowerShell modules.  
-
 ### SYNTAX 
 ```PowerShell 
 Clear-GenXdevModules [<CommonParameters>] 
 ```` 
-
-### DESCRIPTION 
-    Removes build directories and artifacts from all GenXdev PowerShell modules in  
-    the user's PowerShell Modules directory. Cleans both module root directories and  
-    version-specific subdirectories, removing bin, obj, trash and other build  
-    artifacts.  
 
 ### PARAMETERS 
     <CommonParameters>  
@@ -5779,34 +5547,20 @@ Clear-GenXdevModules [<CommonParameters>]
    Complete-GenXDevREADME  
 ```` 
 
-### SYNOPSIS 
-    Completes the README file for specified GenXDev modules by adding documentation.  
-
 ### SYNTAX 
 ```PowerShell 
-Complete-GenXDevREADME [[-ModuleName] <String[]>] [<CommonParameters>] 
+Complete-GenXDevREADME [[-ModuleName] <string[]>] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function enhances README.md files for GenXDev modules by automatically  
-    generating and inserting a cmdlet index and detailed cmdlet documentation. For  
-    individual modules, it processes and updates existing README.md files with a  
-    standardized format including a command index and detailed help for each cmdlet.  
-    For the main GenXdev module, it creates a concise overview with links to GitHub  
-    repositories instead of concatenating full module content, preventing the README  
-    from becoming too large for parsers. Cmdlet indexes link to the corresponding  
-    sections in the GitHub repository's README files.  
-
 ### PARAMETERS 
-    -ModuleName <String[]>  
-        Specifies which module(s) to process. If omitted, all modules will be processed.  
-        Can accept multiple module names and supports pipeline input. Accepts string  
-        array input.  
+    -ModuleName <string[]>  
+        The name(s) of the module(s) to complete the README for  
         Required?                    false  
-        Position?                    1  
-        Default value                @("GenXdev*")  
+        Position?                    0  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Module, BaseModuleName, SubModuleName  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -5823,20 +5577,10 @@ Complete-GenXDevREADME [[-ModuleName] <String[]>] [<CommonParameters>]
    EnsureCopilotKeyboardShortCut  
 ```` 
 
-### SYNOPSIS 
-    Configures the GitHub Copilot Chat keyboard shortcuts in Visual Studio Code.  
-
 ### SYNTAX 
 ```PowerShell 
 EnsureCopilotKeyboardShortCut [<CommonParameters>] 
 ```` 
-
-### DESCRIPTION 
-    This function ensures that GitHub Copilot Chat's file attachment feature has a proper  
-    keyboard shortcut (Ctrl+Shift+Alt+F12) configured in Visual Studio Code.  
-    It will remove any existing Copilot attachment shortcuts and replace them with the  
-    current correct command (github.copilot.chat.attachFile).  
-    Also adds Alt+` (backtick) shortcut for toggling the maximized panel.  
 
 ### PARAMETERS 
     <CommonParameters>  
@@ -5861,6 +5605,7 @@ EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>]
 
 ### PARAMETERS 
     -Force  
+        Forces recreation of existing refactor definitions by removing them first  
         Required?                    false  
         Position?                    Named  
         Accept pipeline input?       false  
@@ -5883,52 +5628,43 @@ EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>]
    Get-GenXdevCmdletUsageAnalysis  
 ```` 
 
-### SYNOPSIS 
-    Analyzes GenXdev cmdlet usage patterns to identify most frequently called functions.  
-
 ### SYNTAX 
 ```PowerShell 
-Get-GenXdevCmdletUsageAnalysis [[-OutputFormat] <String>] [[-Top] <Int32>] [-IncludeCallChains] [-IncludeScripts] [<CommonParameters>] 
+Get-GenXdevCmdletUsageAnalysis [[-OutputFormat] {Table | List | CSV}] [[-Top] <int>] [-IncludeCallChains] [-IncludeScripts] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This script uses Get-GenXDevCmdlet to scan all GenXdev PowerShell modules and their  
-    functions to analyze which cmdlets are called most frequently by other cmdlets.  
-    This helps prioritize which functions to refactor to C# first, starting with the  
-    most commonly used ones.  
-
 ### PARAMETERS 
-    -OutputFormat <String>  
-        Format for output: Table, List, or CSV. Default is Table.  
+    -IncludeCallChains  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -IncludeScripts  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -OutputFormat <string>  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Top <int>  
         Required?                    false  
         Position?                    1  
-        Default value                Table  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Top <Int32>  
-        Number of top results to show. Default is 50.  
-        Required?                    false  
-        Position?                    2  
-        Default value                50  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -IncludeCallChains [<SwitchParameter>]  
-        Include detailed call chain information showing which functions call which.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -IncludeScripts [<SwitchParameter>]  
-        Include script files in addition to module cmdlets.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -5945,29 +5681,20 @@ Get-GenXdevCmdletUsageAnalysis [[-OutputFormat] <String>] [[-Top] <Int32>] [-Inc
    Get-GenXDevModule  
 ```` 
 
-### SYNOPSIS 
-    Retrieves all GenXDev modules from a specified path.  
-
 ### SYNTAX 
 ```PowerShell 
-Get-GenXDevModule [[-Path] <String>] [<CommonParameters>] 
+Get-GenXDevModule [[-Path] <string>] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function searches through a directory structure for GenXdev modules,  
-    excluding any with '.local' in the name. For each valid module found, it returns  
-    the most recent version folder (1.x) that contains a valid module manifest  
-    (.psd1) file.  
-
 ### PARAMETERS 
-    -Path <String>  
-        The root directory to search for GenXdev modules. If not specified, defaults to  
-        the parent directory of the script's location.  
+    -Path <string>  
+        The root path to search for GenXdev modules  
         Required?                    false  
-        Position?                    1  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      RootPath, FullPath  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -5984,28 +5711,20 @@ Get-GenXDevModule [[-Path] <String>] [<CommonParameters>]
    Get-GenXDevModuleInfo  
 ```` 
 
-### SYNOPSIS 
-    Retrieves detailed information about GenXdev PowerShell modules.  
-
 ### SYNTAX 
 ```PowerShell 
-Get-GenXDevModuleInfo [[-ModuleName] <String[]>] [<CommonParameters>] 
+Get-GenXDevModuleInfo [[-ModuleName] <string[]>] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function examines GenXdev PowerShell modules and returns information about  
-    their configuration, versions, and presence of key files. It can process either  
-    specified modules or all available modules.  
-
 ### PARAMETERS 
-    -ModuleName <String[]>  
-        Array of module names to analyze. If empty, processes all available modules.  
-        GenXdev.Local module is explicitly blocked from processing.  
+    -ModuleName <string[]>  
+        Names of modules to analyze  
         Required?                    false  
-        Position?                    1  
-        Default value                @()  
+        Position?                    0  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Name, Module  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -6022,31 +5741,20 @@ Get-GenXDevModuleInfo [[-ModuleName] <String[]>] [<CommonParameters>]
    Get-GenXDevNewModulesInOrderOfDependency  
 ```` 
 
-### SYNOPSIS 
-    Retrieves GenXDev modules in dependency order.  
-
 ### SYNTAX 
 ```PowerShell 
-Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName] <String[]>] [<CommonParameters>] 
+Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName] <string[]>] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function returns a list of GenXDev modules arranged in the correct dependency  
-    order to ensure proper module loading. It first retrieves all module information  
-    and then orders them based on their dependencies, starting with core modules and  
-    ending with dependent modules. This ensures modules are loaded in the correct  
-    sequence.  
-
 ### PARAMETERS 
-    -ModuleName <String[]>  
-        One or more module names to filter the results. If not provided, all modules are  
-        returned in their dependency order. The function will maintain the correct  
-        dependency chain even when filtering specific modules.  
+    -ModuleName <string[]>  
+        One or more module names to filter by  
         Required?                    false  
-        Position?                    1  
-        Default value                @('GenXdev*')  
+        Position?                    0  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Module, BaseModuleName, SubModuleName  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -6060,43 +5768,32 @@ Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName] <String[]>] [<CommonPara
 ##	Get-ModuleHelpMarkdown 
 ```PowerShell 
 
-   Get-ModuleHelpMarkdown               --> Get-GenXDevModuleHelp  
+   Get-ModuleHelpMarkdown  
 ```` 
-
-### SYNOPSIS 
-    Generates markdown help documentation for specified GenXDev modules.  
 
 ### SYNTAX 
 ```PowerShell 
-Get-ModuleHelpMarkdown [[-ModuleName] <String[]>] [[-CommandNames] <String[]>] [<CommonParameters>] 
+Get-ModuleHelpMarkdown [[-ModuleName] <string[]>] [[-CommandNames] <string[]>] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function generates markdown help documentation for specified GenXDev modules  
-    and their cmdlets. It processes each module and cmdlet, formatting the help  
-    content into markdown with proper sections and code blocks. The output includes  
-    syntax highlighting for PowerShell code blocks and proper formatting for  
-    different help sections.  
-
 ### PARAMETERS 
-    -ModuleName <String[]>  
-        Specifies the name(s) of the module(s) to generate help for. Accepts wildcards.  
-        If not specified, defaults to "GenXdev.*". Can be provided via pipeline.  
+    -CommandNames <string[]>  
+        Optional cmdlet names to filter which to document  
         Required?                    false  
         Position?                    1  
-        Default value                GenXdev.*  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
-        Accept wildcard characters?  true  
-    -CommandNames <String[]>  
-        Optional array of cmdlet names to filter which commands to generate help for.  
-        If not specified, documentation will be generated for all cmdlets in the module.  
-        Supports wildcard patterns like "Get-*".  
-        Required?                    false  
-        Position?                    2  
-        Default value                @()  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+    -ModuleName <string[]>  
+        The name(s) of the module(s) to generate help for  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      Name, Module  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -6110,67 +5807,68 @@ Get-ModuleHelpMarkdown [[-ModuleName] <String[]>] [[-CommandNames] <String[]>] [
 ##	Get-Refactor 
 ```PowerShell 
 
-   Get-Refactor                         --> refactor, refactors, Show-RefactorReport  
+   Get-Refactor                         --> refactors  
 ```` 
-
-### SYNOPSIS 
-    Retrieves refactor definitions from GenXdev preferences based on name patterns.  
 
 ### SYNTAX 
 ```PowerShell 
-Get-Refactor [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-DefaultValue <String>] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
+Get-Refactor [[-Name] <string[]>] [-PreferencesDatabasePath <string>] [-DefaultValue <string>] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Searches for and loads refactor definition sets stored in GenXdev preferences.  
-    Each refactor set is stored as a JSON string in a preference with name starting  
-    with 'refactor_set_'. The function deserializes matching sets into objects.  
-
 ### PARAMETERS 
-    -Name <String[]>  
-        One or more name patterns to match against refactor set names. Patterns are  
-        matched against the portion of the preference name after 'refactor_set_' prefix.  
-        Supports wildcards. If omitted, returns all refactor sets.  
+    -ClearSession  
+        Clear the session setting (Global variable) before retrieving  
         Required?                    false  
-        Position?                    1  
-        Default value                @('*')  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -DefaultValue <string>  
+        The default value if preference is not found  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      DefaultPreference  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Name <string[]>  
+        Pattern(s) to search for refactor definitions  
+        Required?                    false  
+        Position?                    0  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      PreferenceName  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
-    -PreferencesDatabasePath <String>  
+    -PreferencesDatabasePath <string>  
+        Database path for preference data files  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      DatabasePath  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -DefaultValue <String>  
+    -SessionOnly  
+        Use alternative settings stored in session for Data preferences like Language, Database paths, etc  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SessionOnly [<SwitchParameter>]  
+    -SkipSession  
+        Dont use alternative settings stored in session for Data preferences like Language, Database paths, etc  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -ClearSession [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -SkipSession [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      FromPreferences  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -6187,67 +5885,65 @@ Get-Refactor [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-DefaultV
    Get-RefactorReport                   --> refactorreport  
 ```` 
 
-### SYNOPSIS 
-    Generates a detailed report of refactoring operations and their status.  
-
 ### SYNTAX 
 ```PowerShell 
-Get-RefactorReport [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-SessionOnly] [-ClearSession] [-SkipSession] [-AsText] [<CommonParameters>] 
+Get-RefactorReport [[-Name] <string[]>] [-PreferencesDatabasePath <string>] [-SessionOnly] [-ClearSession] [-SkipSession] [-AsText] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Analyzes and reports on the progress of refactoring operations by examining  
-    their current state, completion status, and affected functions. Provides output  
-    in either structured hashtable format or human-readable aligned text columns.  
-    The report includes refactor name, prompt key, priority, status, function count  
-    and completion percentage.  
-
 ### PARAMETERS 
-    -Name <String[]>  
-        The name pattern to filter refactors. Supports wildcards. Multiple names can be  
-        specified. Default value is "*" to display all refactors.  
+    -AsText  
+        Output report in text format instead of Hashtable  
         Required?                    false  
-        Position?                    1  
-        Default value                *  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ClearSession  
+        If set, clear the session cache before running.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Name <string[]>  
+        The name of the refactor, accepts wildcards  
+        Required?                    false  
+        Position?                    0  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
-    -PreferencesDatabasePath <String>  
+    -PreferencesDatabasePath <string>  
+        Specifies the path to the preferences database file.  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      DatabasePath  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SessionOnly [<SwitchParameter>]  
+    -SessionOnly  
+        If set, only use the session cache for refactor data.  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ClearSession [<SwitchParameter>]  
+    -SkipSession  
+        If set, skip loading session cache.  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -SkipSession [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -AsText [<SwitchParameter>]  
-        Outputs the report in human-readable text format with aligned columns instead of  
-        structured hashtable objects. The text format includes headers and separators.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      FromPreferences  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -6264,58 +5960,47 @@ Get-RefactorReport [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-Se
    Invoke-GenXdevPSFormatter  
 ```` 
 
-### SYNOPSIS 
-    Formats PowerShell script files using PSScriptAnalyzer formatting rules.  
-
 ### SYNTAX 
 ```PowerShell 
-Invoke-GenXdevPSFormatter [-Path] <String> [-Settings <Object>] [-Range <Int32[]>] [-Recurse] [<CommonParameters>] 
+Invoke-GenXdevPSFormatter [-Path] <string> [-Settings <Object>] [-Range <int[]>] [-Recurse] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function applies PowerShell formatting rules to script files using  
-    PSScriptAnalyzer's Invoke-Formatter cmdlet. It can process individual files or  
-    recursively format multiple files in directories. The function uses customizable  
-    formatting settings and provides detailed logging of the formatting process.  
-
 ### PARAMETERS 
-    -Path <String>  
-        Specifies the path to the script file or directory to format. Accepts pipeline  
-        input and supports various path aliases for compatibility.  
+    -Path <string>  
+        Specifies the path to the script file to format.  
         Required?                    true  
-        Position?                    1  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Name, FullName, ImagePath, FileName, ScriptFileName  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Range <int[]>  
+        The range within which formatting should take place as an array of four integers: starting line number, starting column number, ending line number, ending column number.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Recurse  
+        Recursively process files in subdirectories.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     -Settings <Object>  
-        A settings hashtable or a path to a PowerShell data file (.psd1) that contains  
-        the formatting settings. If not specified, the function will attempt to load  
-        settings from a predefined location or use built-in defaults.  
+        A settings hashtable or a path to a PowerShell data file (.psd1) that contains the formatting settings.  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Range <Int32[]>  
-        The range within which formatting should take place as an array of four integers:  
-        starting line number, starting column number, ending line number, ending column  
-        number. If not specified, the entire file will be formatted.  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Recurse [<SwitchParameter>]  
-        Recursively process files in subdirectories when the Path parameter points to  
-        a directory.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -6332,72 +6017,66 @@ Invoke-GenXdevPSFormatter [-Path] <String> [-Settings <Object>] [-Range <Int32[]
    Invoke-GenXdevScriptAnalyzer  
 ```` 
 
-### SYNOPSIS 
-    Invokes PowerShell Script Analyzer to analyze PowerShell scripts for compliance  
-    and best practices.  
-
 ### SYNTAX 
 ```PowerShell 
-Invoke-GenXdevScriptAnalyzer [-Path] <String> [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<CommonParameters>]  
-   Invoke-GenXdevScriptAnalyzer -ScriptDefinition <String> [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<CommonParameters>] 
+Invoke-GenXdevScriptAnalyzer [-Path] <string> [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<CommonParameters>]  
+   Invoke-GenXdevScriptAnalyzer -ScriptDefinition <string> [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function provides a wrapper around PSScriptAnalyzer to analyze PowerShell  
-    scripts for compliance issues, best practices violations, and potential bugs.  
-    It supports both file-based analysis and string-based script analysis with  
-    customizable rules and settings.  
-
 ### PARAMETERS 
-    -Path <String>  
-        Specifies the path to the script file to analyze. This parameter is mandatory  
-        when using the Path parameter set.  
+    -EnableExit  
+        Specifies that the tool should exit on error.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Fix  
+        Enables automatic fixing of violations.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Path <string>  
+        Specifies the path to the script file.  
         Required?                    true  
-        Position?                    1  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           Path  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ScriptDefinition <String>  
-        Specifies the script definition as a string to analyze. This parameter is  
-        mandatory when using the Script parameter set.  
+    -Recurse  
+        Recursively process files.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ReportSummary  
+        Reports a summary after analysis.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ScriptDefinition <string>  
+        Specifies the script definition as a string.  
         Required?                    true  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -EnableExit [<SwitchParameter>]  
-        Specifies that the tool should exit on error during analysis.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Fix [<SwitchParameter>]  
-        Enables automatic fixing of violations where possible.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Recurse [<SwitchParameter>]  
-        Recursively processes files in subdirectories when analyzing a directory path.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -ReportSummary [<SwitchParameter>]  
-        Reports a summary after analysis showing the total number of issues found.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           Script  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -6414,108 +6093,108 @@ Invoke-GenXdevScriptAnalyzer [-Path] <String> [-EnableExit] [-Fix] [-Recurse] [-
    New-GenXdevCmdlet                    --> newcmd  
 ```` 
 
-### SYNOPSIS 
-    Creates a new GenXdev PowerShell cmdlet with proper structure and validation.  
-
 ### SYNTAX 
 ```PowerShell 
-New-GenXdevCmdlet [-CmdletName] <String> [[-Synopsis] <String>] [[-Description] <String>] [[-BaseModuleName] <String>] [[-ModuleName] <String>] [[-CmdletAliases] <String[]>] [[-PromptKey] <String>] [[-Prompt] <String>] [-EditPrompt] [-WhatIf] [-Confirm] [<CommonParameters>] 
+New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis] <string>] [[-Description] <string>] [[-BaseModuleName] <string>] [[-ModuleName] <string>] [[-CmdletAliases] <string[]>] [[-PromptKey] <string>] [[-Prompt] <string>] [-EditPrompt] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Creates a new PowerShell cmdlet following GenXdev standards, including parameter  
-    validation, help documentation, and proper verb-noun naming convention. Validates  
-    the verb against approved PowerShell verbs and ensures proper casing of both verb  
-    and noun components. Can integrate new cmdlets into existing module structures.  
-
 ### PARAMETERS 
-    -CmdletName <String>  
-        The name of the cmdlet to create. Must follow the Verb-Noun format using an  
-        approved PowerShell verb.  
-        Required?                    true  
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Synopsis <String>  
-        A brief description of the cmdlet's purpose for help documentation.  
-        Required?                    false  
-        Position?                    2  
-        Default value                todo: A brief description of the cmdlet's purpose  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Description <String>  
-        A detailed description of what the cmdlet does for help documentation.  
+    -BaseModuleName <string>  
+        Integrate the new cmdlet into an existing GenXdev module  
         Required?                    false  
         Position?                    3  
-        Default value                todo: [A detailed description of what the cmdlet does]  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -BaseModuleName <String>  
-        Required?                    false  
-        Position?                    4  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -ModuleName <String>  
-        The name of the base GenXdev module to integrate the cmdlet into.  
-        Must match pattern GenXdev or GenXdev.SubModule.  
-        Required?                    false  
-        Position?                    5  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -CmdletAliases <String[]>  
+    -CmdletAliases <string[]>  
         One or more aliases for the cmdlet. Accepts an array of strings.  
         Required?                    false  
-        Position?                    6  
-        Default value                  
+        Position?                    5  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PromptKey <String>  
-        The AI prompt key used to select a template for generating the cmdlet content.  
-        Defaults to "NewGenXdevCmdLet".  
+    -CmdletName <string>  
+        The name of the cmdlet to create (must use approved verb)  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      cmd  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Confirm  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Description <string>  
+        A detailed description of what the cmdlet does  
+        Required?                    false  
+        Position?                    2  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -EditPrompt  
+        Only edit the AI prompt without creating the cmdlet  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ModuleName <string>  
+        Integrate the new cmdlet into an existing GenXdev sub module  
+        Required?                    false  
+        Position?                    4  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Prompt <string>  
+        Custom AI prompt text to use for cmdlet generation  
         Required?                    false  
         Position?                    7  
-        Default value                NewGenXdevCmdLet  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Prompt <String>  
-        Custom AI prompt text to guide the generation of the cmdlet content.  
+    -PromptKey <string>  
+        The AI prompt key to use for template selection  
         Required?                    false  
-        Position?                    8  
-        Default value                Create a boilerplate GenXdev cmdlet that does what it's name suggests  
+        Position?                    6  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -EditPrompt [<SwitchParameter>]  
-        When specified, only opens the AI prompt for editing without creating the cmdlet.  
+    -Synopsis <string>  
+        A brief description of the cmdlet's purpose  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    1  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -WhatIf [<SwitchParameter>]  
+    -WhatIf  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Confirm [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -6532,63 +6211,54 @@ New-GenXdevCmdlet [-CmdletName] <String> [[-Synopsis] <String>] [[-Description] 
    New-GenXdevModule  
 ```` 
 
-### SYNOPSIS 
-    Creates a new GenXdev PowerShell module with proper structure and configuration.  
-
 ### SYNTAX 
 ```PowerShell 
-New-GenXdevModule [-ModuleName] <String> [-Description] <String> [[-Tags] <String[]>] [-WhatIf] [-Confirm] [<CommonParameters>] 
+New-GenXdevModule [-ModuleName] <string> [-Description] <string> [[-Tags] <string[]>] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Creates a new PowerShell module following GenXdev standards by:  
-    - Generating module manifest (psd1) with proper metadata  
-    - Creating module script file (psm1)  
-    - Setting up directory structure for functions and tests  
-    - Adding required files like LICENSE and README  
-    - Configuring version info and dependencies  
-
 ### PARAMETERS 
-    -ModuleName <String>  
-        The name of the module to create. Must follow GenXdev naming convention starting  
-        with 'GenXdev.' followed by module identifier (e.g. GenXdev.Tools).  
+    -Confirm  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Description <string>  
+        Description of the module's functionality  
         Required?                    true  
         Position?                    1  
-        Default value                  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Description <String>  
-        A brief description of the module's purpose and functionality. This will be used  
-        in the module manifest and documentation.  
+    -ModuleName <string>  
+        Name of the module to create (must follow GenXdev.* pattern)  
         Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Tags <string[]>  
+        Tags for module discovery (no whitespace allowed)  
+        Required?                    false  
         Position?                    2  
-        Default value                  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Tags <String[]>  
-        Optional array of tags for module discovery in PowerShell Gallery. Tags cannot  
-        contain whitespace. Defaults to 'GenXdev'.  
+    -WhatIf  
         Required?                    false  
-        Position?                    3  
-        Default value                @('GenXdev')  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -WhatIf [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Confirm [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -6605,259 +6275,279 @@ New-GenXdevModule [-ModuleName] <String> [-Description] <String> [[-Tags] <Strin
    New-PullRequestForGenXdevModuleChanges --> prgenxdevmodule  
 ```` 
 
-### SYNOPSIS 
-    Creates a pull request for changes made to a GenXdev module.  
-
 ### SYNTAX 
 ```PowerShell 
-New-PullRequestForGenXdevModuleChanges [-ModuleName] <String> [[-CommitMessage] <String>] [[-PullRequestTitle] <String>] [[-PullRequestDescription] <String>] [[-GitUserName] <String>] [[-GitUserEmail] <String>] [-Monitor <Int32>] [-NoBorders] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ShowWindow] [-RestoreFocus] [-PassThru] [-SideBySide] [-FocusWindow] [-SetForeground] [-Maximize] [-KeysToSend <String[]>] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
+New-PullRequestForGenXdevModuleChanges [-ModuleName] {GenXdev.AI | GenXdev.Coding | GenXdev.Media | GenXdev.Console | GenXdev.Data | GenXdev.FileSystem | GenXdev.Helpers | GenXdev.Queries | GenXdev.Webbrowser | GenXdev.Windows} [[-CommitMessage] <string>] [[-PullRequestTitle] <string>] [[-PullRequestDescription] <string>] [[-GitUserName] <string>] [[-GitUserEmail] <string>] [-Monitor <int>] [-NoBorders] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ShowWindow] [-RestoreFocus] [-PassThru] [-SideBySide] [-FocusWindow] [-SetForeground] [-Maximize] [-KeysToSend <string[]>] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function automates the process of creating a pull request for changes made to  
-    a GenXdev module. It handles GitHub authentication, repository forking, pull  
-    request creation, and window positioning using the Set-WindowPosition function.  
-    The function validates module dependencies, runs unit tests, and either creates  
-    a GitHub pull request or uploads to genXdev.net depending on repository  
-    availability.  
-
 ### PARAMETERS 
-    -ModuleName <String>  
-        The name of the GenXdev module to create a pull request for.  
-        Required?                    true  
+    -Bottom  
+        Places window on bottom half of screen  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Centered  
+        Centers window on screen  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ClearSession  
+        Clear alternative settings stored in session for AI preferences  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -CommitMessage <string>  
+        Message for the commit  
+        Required?                    false  
         Position?                    1  
-        Default value                  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -CommitMessage <String>  
-        The commit message to use when committing changes.  
+    -Confirm  
         Required?                    false  
-        Position?                    2  
-        Default value                Improvements to GenXdev module  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PullRequestTitle <String>  
-        The title for the pull request.  
+    -FocusWindow  
+        Focus the window after positioning  
         Required?                    false  
-        Position?                    3  
-        Default value                Module improvements  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      fw, focus  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PullRequestDescription <String>  
-        The description for the pull request.  
-        Required?                    false  
-        Position?                    4  
-        Default value                These changes improve functionality and fix issues I encountered.  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -GitUserName <String>  
-        Git username for commits.  
+    -GitUserEmail <string>  
+        Git email for commits  
         Required?                    false  
         Position?                    5  
-        Default value                Your Name  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -GitUserEmail <String>  
-        Git email for commits.  
+    -GitUserName <string>  
+        Git username for commits  
         Required?                    false  
-        Position?                    6  
-        Default value                you@example.com  
+        Position?                    4  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Monitor <Int32>  
-        Monitor selection: 0=primary, 1+=specific monitor, -1=current, -2=secondary.  
+    -Height <int>  
+        Window height in pixels for positioning applications  
         Required?                    false  
-        Position?                    named  
-        Default value                0  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -NoBorders [<SwitchParameter>]  
-        Removes window borders and title bar for a cleaner appearance.  
+    -KeysToSend <string[]>  
+        Keystrokes to send to the window after positioning  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Width <Int32>  
-        Window width in pixels for positioning applications.  
+    -Left  
+        Places window on left half of screen  
         Required?                    false  
-        Position?                    named  
-        Default value                0  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Height <Int32>  
-        Window height in pixels for positioning applications.  
+    -Maximize  
+        Maximize the window after positioning  
         Required?                    false  
-        Position?                    named  
-        Default value                0  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -X <Int32>  
-        Window horizontal position for positioning applications.  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
+    -ModuleName <string>  
+        Name of the GenXdev module  
+        Required?                    true  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Y <Int32>  
-        Window vertical position for positioning applications.  
+    -Monitor <int>  
+        Monitor selection: 0=primary, 1+=specific monitor, -1=current, -2=secondary  
         Required?                    false  
-        Position?                    named  
-        Default value                0  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      m, mon  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Left [<SwitchParameter>]  
-        Places window on left half of screen.  
+    -NoBorders  
+        Removes window borders and title bar for a cleaner appearance  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      nb  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Right [<SwitchParameter>]  
-        Places window on right half of screen.  
+    -PassThru  
+        Returns window helper object for further manipulation  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      pt  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Top [<SwitchParameter>]  
-        Places window on top half of screen.  
+    -PullRequestDescription <string>  
+        Description for the pull request  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    3  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Bottom [<SwitchParameter>]  
-        Places window on bottom half of screen.  
+    -PullRequestTitle <string>  
+        Title for the pull request  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    2  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Centered [<SwitchParameter>]  
-        Centers window on screen.  
+    -RestoreFocus  
+        Returns focus to PowerShell window after positioning  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      rf, bg  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ShowWindow [<SwitchParameter>]  
+    -Right  
+        Places window on right half of screen  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -RestoreFocus [<SwitchParameter>]  
-        Returns focus to PowerShell window after positioning.  
+    -SessionOnly  
+        Use alternative settings stored in session for AI preferences  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PassThru [<SwitchParameter>]  
-        Returns window helper object for further manipulation.  
+    -SetForeground  
+        Set the window to foreground after positioning  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      fg  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SideBySide [<SwitchParameter>]  
-        Places windows side by side with PowerShell on the same monitor.  
+    -ShowWindow  
+        Maximizes window to fill entire screen  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      sw  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -FocusWindow [<SwitchParameter>]  
-        Focus the window after positioning.  
+    -SideBySide  
+        Places windows side by side with PowerShell on the same monitor  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      sbs  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SetForeground [<SwitchParameter>]  
-        Set the window to foreground after positioning.  
+    -SkipSession  
+        Store settings only in persistent preferences without affecting session  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Maximize [<SwitchParameter>]  
-        Maximize the window after positioning.  
+    -Top  
+        Places window on top half of screen  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -KeysToSend <String[]>  
-        Keystrokes to send to the window after positioning.  
+    -WhatIf  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SessionOnly [<SwitchParameter>]  
-        Use alternative settings stored in session for AI preferences.  
+    -Width <int>  
+        Window width in pixels for positioning applications  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ClearSession [<SwitchParameter>]  
-        Clear alternative settings stored in session for AI preferences.  
+    -X <int>  
+        Window horizontal position for positioning applications  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SkipSession [<SwitchParameter>]  
-        Store settings only in persistent preferences without affecting session.  
+    -Y <int>  
+        Window vertical position for positioning applications  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -WhatIf [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Confirm [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -6874,277 +6564,297 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName] <String> [[-CommitMessage] 
    New-Refactor                         --> newrefactor  
 ```` 
 
-### SYNOPSIS 
-    Creates a new refactoring set for code transformation tasks.  
-
 ### SYNTAX 
 ```PowerShell 
-New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>] [[-SelectionScript] <String>] [[-SelectionPrompt] <String>] [[-LLMQueryType] <String>] [-Model <String>] [-HuggingFaceIdentifier <String>] [-MaxToken <Int32>] [-Cpu <Int32>] [-TTLSeconds <Int32>] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-Temperature <Double>] [-Gpu <Int32>] [-ApiEndpoint <String>] [-ApiKey <String>] [-TimeoutSeconds <Int32>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-FilesToAdd <FileInfo[]>] [-PreferencesDatabasePath <String>] [-AutoAddModifiedFiles] [-Force] [-SessionOnly] [-ClearSession] [-SkipSession] [-Code] [-VisualStudio] [-KeysToSend <String[]>] [-WhatIf] [-Confirm] [<CommonParameters>] 
+New-Refactor [-Name] <string> [-PromptKey] <string> [[-Prompt] <string>] [[-SelectionScript] <string>] [[-SelectionPrompt] <string>] [[-LLMQueryType] {SimpleIntelligence | Knowledge | Pictures | TextTranslation | Coding | ToolUse}] [-Model <string>] [-HuggingFaceIdentifier <string>] [-MaxToken <int>] [-Cpu <int>] [-TTLSeconds <int>] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-Temperature <double>] [-Gpu <int>] [-ApiEndpoint <string>] [-ApiKey <string>] [-TimeoutSeconds <int>] [-Priority <int>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-FilesToAdd <FileInfo[]>] [-PreferencesDatabasePath <string>] [-AutoAddModifiedFiles] [-Force] [-SessionOnly] [-ClearSession] [-SkipSession] [-Code] [-VisualStudio] [-KeysToSend <string[]>] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Creates and configures a new refactoring definition with specified settings for  
-    LLM-based code transformations. The function handles:  
-    - Setting up refactoring configuration  
-    - Configuring selection criteria and prompts  
-    - Managing LLM model settings  
-    - Integrating with development environments  
-    - Persisting refactor definitions  
-
 ### PARAMETERS 
-    -Name <String>  
-        Unique identifier for the refactoring set. Must be non-empty and unique.  
-        Required?                    true  
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -PromptKey <String>  
-        Key identifying which prompt template to use for refactoring operations.  
-        Required?                    true  
-        Position?                    2  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Prompt <String>  
-        Optional custom prompt text to override the template specified by PromptKey.  
+    -ApiEndpoint <string>  
+        The API endpoint URL for AI operations  
         Required?                    false  
-        Position?                    3  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SelectionScript <String>  
-        PowerShell script defining selection criteria for items to refactor.  
+    -ApiKey <string>  
+        The API key for authenticated AI operations  
         Required?                    false  
-        Position?                    4  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SelectionPrompt <String>  
-        Custom prompt text used by the LLM to guide selection of items for refactoring.  
+    -AutoAddModifiedFiles  
+        Will automatically add modified files to the queue  
         Required?                    false  
-        Position?                    5  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -LLMQueryType <String>  
-        The type of LLM query to perform (SimpleIntelligence, Knowledge, Pictures, etc.).  
+    -ClearSession  
+        Clear alternative settings stored in session for AI preferences  
         Required?                    false  
-        Position?                    6  
-        Default value                Coding  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Model <String>  
-        Name or identifier of the specific LLM model to use for processing.  
+    -Code  
+        Open files in Visual Studio Code  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      c  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -HuggingFaceIdentifier <String>  
-        Identifier used to retrieve a specific model from LM Studio.  
+    -Confirm  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -MaxToken <Int32>  
-        Maximum tokens allowed in LLM responses. Use -1 for model default.  
+    -Cpu <int>  
+        The number of CPU cores to dedicate to AI operations  
         Required?                    false  
-        Position?                    named  
-        Default value                0  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Cpu <Int32>  
-        The number of CPU cores to dedicate to AI operations.  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -TTLSeconds <Int32>  
-        Time-to-live in seconds for API-loaded models. Use -1 for no expiration.  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -SelectByFreeRam [<SwitchParameter>]  
-        Select configuration by available system RAM.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -SelectByFreeGpuRam [<SwitchParameter>]  
-        Select configuration by available GPU RAM.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Temperature <Double>  
-        Controls randomness in LLM responses (0.0-1.0). Lower is more deterministic.  
-        Required?                    false  
-        Position?                    named  
-        Default value                -1  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Gpu <Int32>  
-        GPU usage control: -2=Auto, -1=LM Studio default.  
-        Required?                    false  
-        Position?                    named  
-        Default value                -1  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -ApiEndpoint <String>  
-        Custom API endpoint URL for accessing the LLM service.  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -ApiKey <String>  
-        Authentication key required for API access.  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -TimeoutSeconds <Int32>  
-        The timeout in seconds for AI operations.  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Priority <Int32>  
-        Processing priority for this refactor set (higher numbers = higher priority).  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     -ExposedCmdLets <ExposedCmdletDefinition[]>  
-        Array of PowerShell cmdlet definitions to expose as tools to the LLM.  
+        Array of PowerShell command definitions for LLM tools  
         Required?                    false  
-        Position?                    named  
-        Default value                @()  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     -FilesToAdd <FileInfo[]>  
-        Array of files to initially include in the refactoring set.  
+        Array of files to process  
         Required?                    false  
-        Position?                    named  
-        Default value                @()  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PreferencesDatabasePath <String>  
-        Database path for preference data files.  
+    -Force  
+        Force stop LM Studio before initialization  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -AutoAddModifiedFiles [<SwitchParameter>]  
-        When enabled, automatically adds any modified files to the refactoring queue.  
+    -Gpu <int>  
+        How much to offload to the GPU. If 'off', GPU offloading is disabled. If 'max', all layers are offloaded to GPU. If a number between 0 and 1, that fraction of layers will be offloaded to the GPU. -1 = LM Studio will decide how much to offload to the GPU. -2 = Auto  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Force [<SwitchParameter>]  
-        Forces LM Studio to restart before initialization.  
+    -HuggingFaceIdentifier <string>  
+        The LM Studio specific model identifier  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      ModelLMSGetIdentifier  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SessionOnly [<SwitchParameter>]  
-        Use alternative settings stored in session for AI preferences.  
+    -KeysToSend <string[]>  
+        Keystrokes to send after opening files  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      keys  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ClearSession [<SwitchParameter>]  
-        Clear alternative settings stored in session for AI preferences.  
+    -LLMQueryType <string>  
+        The type of LLM query  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    5  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SkipSession [<SwitchParameter>]  
-        Store settings only in persistent preferences without affecting session.  
+    -MaxToken <int>  
+        The maximum number of tokens to use in AI operations  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Opens files in Visual Studio Code when enabled.  
+    -Model <string>  
+        The model identifier or pattern to use for AI operations  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -VisualStudio [<SwitchParameter>]  
-        Opens files in Visual Studio when enabled.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
+    -Name <string>  
+        The name of this new refactor set  
+        Required?                    true  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -KeysToSend <String[]>  
-        Array of keystrokes to send after opening files.  
+    -PreferencesDatabasePath <string>  
+        Database path for preference data files  
         Required?                    false  
-        Position?                    named  
-        Default value                @()  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      DatabasePath  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -WhatIf [<SwitchParameter>]  
+    -Priority <int>  
+        Priority for this refactor set  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Confirm [<SwitchParameter>]  
+    -Prompt <string>  
+        Custom prompt text to override the template  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    2  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -PromptKey <string>  
+        The prompt key indicates which prompt script to use  
+        Required?                    true  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SelectByFreeGpuRam  
+        Select configuration by available GPU RAM  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SelectByFreeRam  
+        Select configuration by available system RAM  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SelectionPrompt <string>  
+        LLM selection guidance prompt  
+        Required?                    false  
+        Position?                    4  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SelectionScript <string>  
+        Powershell script for selecting items to refactor  
+        Required?                    false  
+        Position?                    3  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SessionOnly  
+        Use alternative settings stored in session for AI preferences  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SkipSession  
+        Store settings only in persistent preferences without affecting session  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      FromPreferences  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -TTLSeconds <int>  
+        Time-to-live in seconds for API-loaded models  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Temperature <double>  
+        Temperature for response randomness (0.0-1.0)  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -TimeoutSeconds <int>  
+        The timeout in seconds for AI operations  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -VisualStudio  
+        Open in Visual Studio  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -WhatIf  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -7161,32 +6871,29 @@ New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>] [[-Sele
    Open-GenXdevCmdletsContainingClipboardTextInIde --> vscodesearch  
 ```` 
 
-### SYNOPSIS 
-    Opens files in IDE that contain clipboard text  
-
 ### SYNTAX 
 ```PowerShell 
-Open-GenXdevCmdletsContainingClipboardTextInIde [[-InputObject] <String>] [-Copilot] [<CommonParameters>] 
+Open-GenXdevCmdletsContainingClipboardTextInIde [[-InputObject] <string>] [-Copilot] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    The text in the clipboard is used to search in all GenXdev scripts and when found opens that file in Code or Visual Studio  
-    ##############################################################################  
-
 ### PARAMETERS 
-    -InputObject <String>  
+    -Copilot  
+        Add sourcefile to Copilot edit-session  
         Required?                    false  
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       true (ByValue)  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Copilot [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -InputObject <string>  
+        Search for clipboard text in all GenXdev scripts  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -7203,88 +6910,90 @@ Open-GenXdevCmdletsContainingClipboardTextInIde [[-InputObject] <String>] [-Copi
    Remove-Refactor  
 ```` 
 
-### SYNOPSIS 
-    Removes refactor sets from GenXdev preferences system.  
-
 ### SYNTAX 
 ```PowerShell 
-Remove-Refactor [-Name] <String[]> [[-RemoveDefault]] [-PreferencesDatabasePath <String>] [-DefaultValue <String>] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
+Remove-Refactor [-Name] <string[]> [[-RemoveDefault]] [-PreferencesDatabasePath <string>] [-DefaultValue <string>] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Manages refactor sets in the GenXdev preferences system by removing specified  
-    entries. Works with both custom and default refactor sets. Default sets are  
-    protected unless explicitly allowed for removal. All refactor sets are  
-    identified by the prefix "refactor_set_" in the preferences system.  
-
 ### PARAMETERS 
-    -Name <String[]>  
-        One or more name patterns used to match refactor sets for removal. Supports  
-        wildcard patterns like "*" and "?" for flexible matching. Multiple patterns can  
-        be provided to target specific sets.  
-        Required?                    true  
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
-        Accept wildcard characters?  true  
-    -RemoveDefault [<SwitchParameter>]  
-        Switch parameter that, when enabled, allows the removal of protected default or  
-        standard refactor sets. By default, these sets are protected from deletion.  
+    -ClearSession  
+        Clear the session setting (Global variable) before retrieving  
         Required?                    false  
-        Position?                    2  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PreferencesDatabasePath <String>  
+    -Confirm  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -DefaultValue <String>  
+    -DefaultValue <string>  
+        The default value if preference is not found  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       true (ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      DefaultPreference  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SessionOnly [<SwitchParameter>]  
+    -Name <string[]>  
+        The name of the refactor, accepts wildcards  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      PreferenceName  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+    -PreferencesDatabasePath <string>  
+        Database path for preference data files  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      DatabasePath  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ClearSession [<SwitchParameter>]  
+    -RemoveDefault  
+        Switch to also remove the standard refactor set  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    1  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           All  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SkipSession [<SwitchParameter>]  
+    -SessionOnly  
+        Use alternative settings stored in session for Data preferences like Language, Database paths, etc  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -WhatIf [<SwitchParameter>]  
+    -SkipSession  
+        Dont use alternative settings stored in session for Data preferences like Language, Database paths, etc  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      FromPreferences  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Confirm [<SwitchParameter>]  
+    -WhatIf  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -7301,86 +7010,83 @@ Remove-Refactor [-Name] <String[]> [[-RemoveDefault]] [-PreferencesDatabasePath 
    Search-GenXdevCmdlet                 --> searchcmdlet  
 ```` 
 
-### SYNOPSIS 
-    Searches for a GenXdev cmdlet and optionally opens it in an IDE for editing.  
-
 ### SYNTAX 
 ```PowerShell 
-Search-GenXdevCmdlet [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-EditCmdlet] [<CommonParameters>] 
+Search-GenXdevCmdlet [[-CmdletName] <string>] [[-ModuleName] <string[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-EditCmdlet] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function searches for GenXdev cmdlets using a pattern and optionally opens  
-    the found cmdlet's source file in Visual Studio Code or Visual Studio for  
-    editing. It retrieves cmdlet information and provides keyboard shortcuts to  
-    quickly navigate to the function definition.  
-
 ### PARAMETERS 
-    -CmdletName <String>  
-        Search pattern to filter cmdlets. Supports wildcards. Default is '*' to show  
-        all cmdlets.  
+    -CmdletName <string>  
+        Search pattern to filter cmdlets  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+    -Code  
+        Open the found cmdlet in Visual Studio Code  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      c  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -EditCmdlet  
+        Also opens the file in the editor after finding  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -FromScripts  
+        Search in script files instead of module files  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ModuleName <string[]>  
+        GenXdev module names to search  
         Required?                    false  
         Position?                    1  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  true  
-    -ModuleName <String[]>  
-        GenXdev module names to search. Must match pattern starting with 'GenXdev'.  
-        Default searches all GenXdev modules.  
-        Required?                    false  
-        Position?                    2  
-        Default value                  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Module, BaseModuleName, SubModuleName  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
-    -NoLocal [<SwitchParameter>]  
-        Skip searching in local module paths when finding cmdlets.  
+    -NoLocal  
+        Skip searching in local module paths  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -OnlyPublished [<SwitchParameter>]  
-        Limit search to published module paths only.  
+    -OnlyPublished  
+        Limit search to published module paths only  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -FromScripts [<SwitchParameter>]  
-        Search in script files instead of module files.  
+    -VisualStudio  
+        Open the found cmdlet in Visual Studio  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Open the found cmdlet in Visual Studio Code.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -VisualStudio [<SwitchParameter>]  
-        Open the found cmdlet in Visual Studio.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -EditCmdlet [<SwitchParameter>]  
-        Also opens the file in the editor after finding the cmdlet.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -7394,103 +7100,191 @@ Search-GenXdevCmdlet [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-NoLoc
 ##	Show-GenXdevCmdLetInIde 
 ```PowerShell 
 
-   Show-GenXdevCmdLetInIde              --> editcmdlet  
+   Show-GenXdevCmdLetInIde              --> cmdlet, editcmdlet  
 ```` 
-
-### SYNOPSIS 
-    Opens the specified GenXdev cmdlet in Visual Studio Code.  
 
 ### SYNTAX 
 ```PowerShell 
-Show-GenXdevCmdLetInIde [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-UnitTests] [-KeysToSend <String[]>] [-CoPilot] [-Search] [<CommonParameters>] 
+Show-GenXdevCmdLetInIde [-CmdletName] <string> [[-ModuleName] <string[]>] [[-BaseModuleName] <string>] [[-Synopsis] <string>] [[-Description] <string>] [[-CmdletAliases] <string[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-UnitTests] [-KeysToSend <string[]>] [-CoPilot] [-Search] [-ChangedirectoryOnly] [-New] [-PromptKey <string>] [-Prompt <string>] [-EditPrompt] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function retrieves the script file and line number for the specified GenXdev  
-    cmdlet and opens it in Visual Studio Code. It can open either the main function  
-    implementation or its associated unit tests, based on the UnitTests switch  
-    parameter.  
-
 ### PARAMETERS 
-    -CmdletName <String>  
-        The name of the GenXdev cmdlet to locate and open in Visual Studio Code.  
-        Required?                    false  
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  true  
-    -ModuleName <String[]>  
+    -BaseModuleName <string>  
+        Integrate the new cmdlet into an existing GenXdev module  
         Required?                    false  
         Position?                    2  
-        Default value                  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Accept pipeline input?       false  
+        Parameter set name           New  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ChangedirectoryOnly  
+        When specified, only changes the current PowerShell location\r\nthe respective Cmdlet directory  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      cd  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -CmdletAliases <string[]>  
+        One or more aliases for the cmdlet. Accepts an array of strings.  
+        Required?                    false  
+        Position?                    5  
+        Accept pipeline input?       false  
+        Parameter set name           New  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -CmdletName <string>  
+        Search pattern to filter cmdlets  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
-    -NoLocal [<SwitchParameter>]  
+    -CoPilot  
+        Add to Co-Pilot edit session  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -OnlyPublished [<SwitchParameter>]  
+    -Code  
+        The ide to open the file in  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      c  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -FromScripts [<SwitchParameter>]  
+    -Description <string>  
+        A detailed description of what the cmdlet does  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    4  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           New  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
+    -EditPrompt  
+        Only edit the AI prompt without creating the cmdlet  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -VisualStudio [<SwitchParameter>]  
+    -FromScripts  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -UnitTests [<SwitchParameter>]  
-        When specified, opens the unit test file for the cmdlet instead of the main  
-        implementation file.  
+    -KeysToSend <string[]>  
+        The keys to send  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      keys  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -KeysToSend <String[]>  
+    -ModuleName <string[]>  
+        GenXdev module names to search  
         Required?                    false  
-        Position?                    named  
-        Default value                @()  
+        Position?                    1  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      Module, SubModuleName  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+    -New  
+        Create a new cmdlet  
+        Required?                    false  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           New  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -CoPilot [<SwitchParameter>]  
+    -NoLocal  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Search [<SwitchParameter>]  
+    -OnlyPublished  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Prompt <string>  
+        Custom AI prompt text to use for cmdlet generation  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -PromptKey <string>  
+        The AI prompt key to use for template selection  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           New  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Search  
+        Also global search for the cmdlet  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Synopsis <string>  
+        A brief description of the cmdlet's purpose  
+        Required?                    false  
+        Position?                    3  
+        Accept pipeline input?       false  
+        Parameter set name           New  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -UnitTests  
+        Show the function's unit-tests instead of the function  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -VisualStudio  
+        Open in Visual Studio  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -7507,29 +7301,20 @@ Show-GenXdevCmdLetInIde [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-No
    SplitUpPsm1File  
 ```` 
 
-### SYNOPSIS 
-    Splits a PowerShell module (.psm1) file into individual function files.  
-
 ### SYNTAX 
 ```PowerShell 
-SplitUpPsm1File [-Psm1FilePath] <String> [<CommonParameters>] 
+SplitUpPsm1File [-Psm1FilePath] <string> [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Takes a PowerShell module file and splits each function into separate .ps1 files  
-    in a Functions subdirectory. Each function is extracted with its documentation  
-    and saved in a file matching the function name. The original module file is  
-    updated to dot-source all the split function files.  
-
 ### PARAMETERS 
-    -Psm1FilePath <String>  
-        The full path to the PowerShell module (.psm1) file that needs to be split into  
-        individual function files. This path will be expanded to a full path if relative.  
+    -Psm1FilePath <string>  
+        Path to the .psm1 file to split into functions  
         Required?                    true  
-        Position?                    1  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Path  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -7546,105 +7331,108 @@ SplitUpPsm1File [-Psm1FilePath] <String> [<CommonParameters>]
    Start-NextRefactor                   --> nextrefactor  
 ```` 
 
-### SYNOPSIS 
-    Continues or restarts a code refactoring session.  
-
 ### SYNTAX 
 ```PowerShell 
-Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [[-CleanUpDeletedFiles]] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>] 
+Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [[-CleanUpDeletedFiles]] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Manages code refactoring operations by processing refactor definitions in  
-    priority order. Handles file selection, progress tracking, error handling, and  
-    provides interactive user control over the refactoring process.  
-
 ### PARAMETERS 
-    -Name <String[]>  
-        Name pattern(s) of refactors to process. Accepts wildcards. Default is "*".  
-        Required?                    false  
-        Position?                    1  
-        Default value                @('*')  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
-        Accept wildcard characters?  true  
-    -FilesToAdd <FileInfo[]>  
-        Files to include in the refactoring process.  
-        Required?                    false  
-        Position?                    2  
-        Default value                @()  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -FilesToRemove <FileInfo[]>  
-        Files to exclude from the refactoring process.  
+    -CleanUpDeletedFiles  
+        Clean up deleted files  
         Required?                    false  
         Position?                    3  
-        Default value                @()  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -CleanUpDeletedFiles [<SwitchParameter>]  
-        Remove files that no longer exist from the refactor set.  
+    -Confirm  
         Required?                    false  
-        Position?                    4  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Reset [<SwitchParameter>]  
-        Restart processing from the beginning of the refactor set.  
+    -FilesToAdd <FileInfo[]>  
+        Filenames to add  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    1  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ResetLMSelections [<SwitchParameter>]  
-        Restart all LLM selections in the refactoring process.  
+    -FilesToRemove <FileInfo[]>  
+        Filenames to remove  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    2  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -MarkAllCompleted [<SwitchParameter>]  
-        Marks all files in the refactor set as completed.  
+    -MarkAllCompleted  
+        Mark all files as refactored  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -RedoLast [<SwitchParameter>]  
-        Repeat the last refactoring operation.  
+    -Name <string[]>  
+        The name of the refactor, accepts wildcards  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+    -RedoLast  
+        Redo the last refactor  
+        Required?                    false  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Speak [<SwitchParameter>]  
-        Enables text-to-speech for refactoring progress and notifications.  
+    -Reset  
+        Start from the beginning of the refactor set  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -WhatIf [<SwitchParameter>]  
+    -ResetLMSelections  
+        Restart all LLM selections  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Confirm [<SwitchParameter>]  
+    -Speak  
+        Speak out the details of next refactor  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -WhatIf  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -7661,37 +7449,29 @@ Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToR
    Test-RefactorLLMSelection  
 ```` 
 
-### SYNOPSIS 
-    Evaluates source files for refactoring eligibility using LLM analysis.  
-
 ### SYNTAX 
 ```PowerShell 
-Test-RefactorLLMSelection [-RefactorDefinition] <RefactorDefinition> [-Path] <String> [<CommonParameters>] 
+Test-RefactorLLMSelection [-RefactorDefinition] <RefactorDefinition> [-Path] <string> [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Uses Language Learning Model (LLM) analysis to determine if a source code file  
-    should be selected for refactoring based on specified criteria. The function  
-    processes the file content through an LLM query and returns a boolean response.  
-
 ### PARAMETERS 
-    -RefactorDefinition <RefactorDefinition>  
-        A RefactorDefinition object containing the LLM configuration and selection  
-        criteria settings used to evaluate the source file.  
+    -Path <string>  
+        The path to the source file to evaluate  
         Required?                    true  
         Position?                    1  
-        Default value                  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      FullName  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Path <String>  
-        The full filesystem path to the source code file that needs to be evaluated  
-        for potential refactoring.  
+    -RefactorDefinition <RefactorDefinition>  
+        The refactor definition containing LLM settings  
         Required?                    true  
-        Position?                    2  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -7708,427 +7488,460 @@ Test-RefactorLLMSelection [-RefactorDefinition] <RefactorDefinition> [-Path] <St
    Update-Refactor                      --> updaterefactor  
 ```` 
 
-### SYNOPSIS 
-    Updates and manages refactoring sets including file selection and processing.  
-
 ### SYNTAX 
 ```PowerShell 
-Update-Refactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-SelectByModifiedDateFrom <DateTime>] [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>] [-SelectByCreationDateTo <DateTime>] [-PromptKey <String>] [-Prompt <String>] [-SelectionScript <String>] [-SelectionPrompt <String>] [-LLMQueryType <String>] [-Model <String>] [-HuggingFaceIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>] [-TTLSeconds <Int32>] [-Cpu <Int32>] [-Gpu <Int32>] [-ApiEndpoint <String>] [-ApiKey <String>] [-TimeoutSeconds <Int32>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-KeysToSend <String[]>] [-PreferencesDatabasePath <String>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection] [-PerformAutoSelections] [-PerformAISelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-ReprocessModifiedFiles] [-Force] [-Code] [-VisualStudio] [-Speak] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>]  
-   Update-Refactor [[-Refactor] <RefactorDefinition[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-SelectByModifiedDateFrom <DateTime>] [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>] [-SelectByCreationDateTo <DateTime>] [-PromptKey <String>] [-Prompt <String>] [-SelectionScript <String>] [-SelectionPrompt <String>] [-LLMQueryType <String>] [-Model <String>] [-HuggingFaceIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>] [-TTLSeconds <Int32>] [-Cpu <Int32>] [-Gpu <Int32>] [-ApiEndpoint <String>] [-ApiKey <String>] [-TimeoutSeconds <Int32>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-KeysToSend <String[]>] [-PreferencesDatabasePath <String>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection] [-PerformAutoSelections] [-PerformAISelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-ReprocessModifiedFiles] [-Force] [-Code] [-VisualStudio] [-Speak] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
+Update-Refactor [[-Name] <string[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-SelectByModifiedDateFrom <datetime>] [-SelectByModifiedDateTo <datetime>] [-SelectByCreationDateFrom <datetime>] [-SelectByCreationDateTo <datetime>] [-PromptKey <string>] [-Prompt <string>] [-SelectionScript <string>] [-SelectionPrompt <string>] [-LLMQueryType {SimpleIntelligence | Knowledge | Pictures | TextTranslation | Coding | ToolUse}] [-Model <string>] [-HuggingFaceIdentifier <string>] [-Temperature <double>] [-MaxToken <int>] [-TTLSeconds <int>] [-Cpu <int>] [-Gpu <int>] [-ApiEndpoint <string>] [-ApiKey <string>] [-TimeoutSeconds <int>] [-Priority <int>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-KeysToSend <string[]>] [-PreferencesDatabasePath <string>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection] [-PerformAutoSelections] [-PerformAISelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-ReprocessModifiedFiles] [-Force] [-Code] [-VisualStudio] [-Speak] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>]  
+   Update-Refactor [[-Refactor] <RefactorDefinition[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-SelectByModifiedDateFrom <datetime>] [-SelectByModifiedDateTo <datetime>] [-SelectByCreationDateFrom <datetime>] [-SelectByCreationDateTo <datetime>] [-PromptKey <string>] [-Prompt <string>] [-SelectionScript <string>] [-SelectionPrompt <string>] [-LLMQueryType {SimpleIntelligence | Knowledge | Pictures | TextTranslation | Coding | ToolUse}] [-Model <string>] [-HuggingFaceIdentifier <string>] [-Temperature <double>] [-MaxToken <int>] [-TTLSeconds <int>] [-Cpu <int>] [-Gpu <int>] [-ApiEndpoint <string>] [-ApiKey <string>] [-TimeoutSeconds <int>] [-Priority <int>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-KeysToSend <string[]>] [-PreferencesDatabasePath <string>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection] [-PerformAutoSelections] [-PerformAISelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-ReprocessModifiedFiles] [-Force] [-Code] [-VisualStudio] [-Speak] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Provides comprehensive management of refactoring sets by:  
-    - Adding or removing files from processing queues  
-    - Cleaning up deleted files from the set  
-    - Managing state information and progress tracking  
-    - Handling LLM-based file selection and processing  
-    - Supporting both automatic and manual file management  
-    - Maintaining detailed logs of all operations  
-    - Gracefully handling deleted files (skipped unless CleanUpDeletedFiles is used)  
-
 ### PARAMETERS 
-    -Name <String[]>  
-        Names of refactor sets to update, accepts wildcards. Default is "*".  
+    -ApiEndpoint <string>  
+        The API endpoint URL for AI operations  
         Required?                    false  
-        Position?                    1  
-        Default value                @('*')  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
-        Accept wildcard characters?  true  
-    -Refactor <RefactorDefinition[]>  
-        Direct input of refactor set objects instead of loading by name.  
-        Required?                    false  
-        Position?                    2  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -FilesToAdd <FileInfo[]>  
-        Files to add to the processing queue.  
+    -ApiKey <string>  
+        The API key for authenticated AI operations  
         Required?                    false  
-        Position?                    3  
-        Default value                @()  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -FilesToRemove <FileInfo[]>  
-        Files to remove from the processing queue.  
+    -AskBeforeLLMSelection  
+        Switch to suppress user interaction  
         Required?                    false  
-        Position?                    4  
-        Default value                @()  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SelectByModifiedDateFrom <DateTime>  
-        Select files modified on or after this date.  
+    -CleanUpDeletedFiles  
+        Clean up deleted files  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SelectByModifiedDateTo <DateTime>  
-        Select files modified on or before this date.  
+    -Clear  
+        Clear all files from the refactor set  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SelectByCreationDateFrom <DateTime>  
-        Select files created on or after this date.  
+    -ClearLog  
+        Clear the log of the refactor set  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SelectByCreationDateTo <DateTime>  
-        Select files created on or before this date.  
+    -ClearSession  
+        Clear alternative settings stored in session for AI preferences  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PromptKey <String>  
-        Key identifying which prompt script to use.  
+    -Code  
+        The ide to open the file in  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      c  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Prompt <String>  
-        Direct prompt text to use for processing.  
+    -Confirm  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SelectionScript <String>  
-        PowerShell script for file selection logic.  
+    -Cpu <int>  
+        The number of CPU cores to dedicate to AI operations  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -SelectionPrompt <String>  
-        Content for LLM-based selection prompts.  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -LLMQueryType <String>  
-        Type of LLM query to perform.  
-        Required?                    false  
-        Position?                    named  
-        Default value                Coding  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Model <String>  
-        LLM model identifier for LM-Studio.  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -HuggingFaceIdentifier <String>  
-        Model retrieval identifier for LM-Studio.  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Temperature <Double>  
-        Temperature setting for response randomness (0.0-1.0).  
-        Required?                    false  
-        Position?                    named  
-        Default value                -1  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -MaxToken <Int32>  
-        Maximum tokens allowed in responses (-1 for default).  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -TTLSeconds <Int32>  
-        Time-to-live in seconds for API model requests.  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Cpu <Int32>  
-        Number of CPU cores to dedicate to AI operations.  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Gpu <Int32>  
-        GPU processing control (-2=Auto, -1=LM-Studio default).  
-        Required?                    false  
-        Position?                    named  
-        Default value                -1  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -ApiEndpoint <String>  
-        API endpoint URL for LLM service.  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -ApiKey <String>  
-        Authentication key for API access.  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -TimeoutSeconds <Int32>  
-        The timeout in seconds for AI operations.  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Priority <Int32>  
-        Processing priority level for this refactor set.  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     -ExposedCmdLets <ExposedCmdletDefinition[]>  
-        PowerShell commands available during LLM selection.  
+        Array of PowerShell command definitions to use as tools during LLM selection  
         Required?                    false  
-        Position?                    named  
-        Default value                @()  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -KeysToSend <String[]>  
-        Keystrokes to send after opening file.  
+    -FilesToAdd <FileInfo[]>  
+        Filenames to add  
         Required?                    false  
-        Position?                    named  
-        Default value                @()  
+        Position?                    2  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PreferencesDatabasePath <String>  
-        Database path for preference data files.  
+    -FilesToRemove <FileInfo[]>  
+        Filenames to remove  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    3  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -CleanUpDeletedFiles [<SwitchParameter>]  
-        Remove entries for files that no longer exist on disk. Without this parameter,  
-        deleted files are preserved in collections but gracefully skipped during  
-        processing.  
+    -Force  
+        Force stop LM Studio before initialization  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -AskBeforeLLMSelection [<SwitchParameter>]  
-        Prompt before launching LLM invocations for file selections.  
+    -Gpu <int>  
+        How much to offload to the GPU. If 'off', GPU offloading is disabled. If 'max', all layers are offloaded to GPU. If a number between 0 and 1, that fraction of layers will be offloaded to the GPU. -1 = LM Studio will decide how much to offload to the GPU. -2 = Auto  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PerformAutoSelections [<SwitchParameter>]  
-        Enable LLM-based file selection processing.  
+    -HuggingFaceIdentifier <string>  
+        The LM Studio specific model identifier  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      ModelLMSGetIdentifier  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PerformAISelections [<SwitchParameter>]  
-        Process all files in the refactor set with LLM. Can also be used as  
-        -PerformAISelections.  
+    -KeysToSend <string[]>  
+        The keys to invoke as key strokes after opening the file  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      keys  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -RetryFailedLLMSelections [<SwitchParameter>]  
-        Retry previously failed LLM selections.  
+    -LLMQueryType <string>  
+        The type of LLM query  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Clear [<SwitchParameter>]  
-        Remove all files from the refactor set.  
+    -MarkAllCompleted  
+        Mark all files as refactored  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ClearLog [<SwitchParameter>]  
-        Clear the refactor set's operation log.  
+    -MaxToken <int>  
+        The maximum number of tokens to use in AI operations  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Reset [<SwitchParameter>]  
-        Start processing from beginning of refactor set.  
+    -Model <string>  
+        The model identifier or pattern to use for AI operations  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ResetLMSelections [<SwitchParameter>]  
-        Restart all LLM selections from beginning.  
+    -Name <string[]>  
+        The name of the refactor, accepts wildcards  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           Name  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+    -PerformAISelections  
+        Switch to process all files in the refactor set  
+        Required?                    false  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      PerformAllLLMSelections  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -MarkAllCompleted [<SwitchParameter>]  
-        Mark all files as successfully refactored.  
+    -PerformAutoSelections  
+        Switch to enable LLM-based file selection processing  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -RedoLast [<SwitchParameter>]  
-        Reprocess the last refactoring operation.  
+    -PreferencesDatabasePath <string>  
+        Database path for preference data files  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      DatabasePath  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ReprocessModifiedFiles [<SwitchParameter>]  
-        Automatically reprocess files that have been modified since the last refactor  
-        update.  
+    -Priority <int>  
+        Priority for this refactor set  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Force [<SwitchParameter>]  
-        Force stop LM-Studio before initialization.  
+    -Prompt <string>  
+        The prompt key indicates which prompt script to use  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Open file in Visual Studio Code.  
+    -PromptKey <string>  
+        The prompt key indicates which prompt script to use  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -VisualStudio [<SwitchParameter>]  
-        Open file in Visual Studio.  
+    -RedoLast  
+        Redo the last refactor  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Speak [<SwitchParameter>]  
-        Enable text-to-speech for operation details.  
+    -Refactor <RefactorDefinition[]>  
+        The refactor set to update  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    1  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           Refactor  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SelectByFreeRam [<SwitchParameter>]  
-        Select configuration by available system RAM.  
+    -ReprocessModifiedFiles  
+        Automatically reprocess files modified since last update  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      AutoAddModifiedFiles  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SelectByFreeGpuRam [<SwitchParameter>]  
-        Select configuration by available GPU RAM.  
+    -Reset  
+        Start from the beginning of the refactor set  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SessionOnly [<SwitchParameter>]  
-        Use alternative settings stored in session for AI preferences.  
+    -ResetLMSelections  
+        Restart all LLMSelections  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ClearSession [<SwitchParameter>]  
-        Clear alternative settings stored in session for AI preferences.  
+    -RetryFailedLLMSelections  
+        Switch to retry failed LLM selections  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SkipSession [<SwitchParameter>]  
-        Store settings only in persistent preferences without affecting session.  
+    -SelectByCreationDateFrom <datetime>  
+        Select files by creation date from  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -WhatIf [<SwitchParameter>]  
+    -SelectByCreationDateTo <datetime>  
+        Select files by creation date to  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Confirm [<SwitchParameter>]  
+    -SelectByFreeGpuRam  
+        Select configuration by available GPU RAM  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SelectByFreeRam  
+        Select configuration by available system RAM  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SelectByModifiedDateFrom <datetime>  
+        Select files by modified date from  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SelectByModifiedDateTo <datetime>  
+        Select files by modified date to  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SelectionPrompt <string>  
+        If provided, will invoke LLM to do the selection based on the content of the script  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SelectionScript <string>  
+        Powershell script for function to select items to refactor  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SessionOnly  
+        Use alternative settings stored in session for AI preferences  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SkipSession  
+        Store settings only in persistent preferences without affecting session  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      FromPreferences  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Speak  
+        Speak out the details of next refactor  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -TTLSeconds <int>  
+        Time-to-live in seconds for API-loaded models  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Temperature <double>  
+        Temperature for response randomness (0.0-1.0)  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -TimeoutSeconds <int>  
+        The timeout in seconds for AI operations  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -VisualStudio  
+        Open in Visual Studio  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -WhatIf  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -8148,58 +7961,56 @@ Update-Refactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemo
    Add-FeatureLineToREADME              --> feature  
 ```` 
 
-### SYNOPSIS 
-    Adds a feature line to the README file with a timestamp.  
-
 ### SYNTAX 
 ```PowerShell 
-Add-FeatureLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
+Add-FeatureLineToREADME [[-Line] <string>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Adds a feature line to the specified README file, prefixed with the current date  
-    in yyyyMMdd format. The line can be formatted as code and optionally displayed.  
-
 ### PARAMETERS 
-    -Line <String>  
-        The feature description text to add to the README file.  
+    -Code  
+        Format the line as code  
         Required?                    false  
-        Position?                    1  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Switch to format the line as code in the README file.  
+    -Line <string>  
+        The feature description text to add  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Show [<SwitchParameter>]  
-        Switch to display the README file after adding the line.  
+    -Show  
+        Display the README after adding the line  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -UseHomeREADME [<SwitchParameter>]  
-        Switch to use the README file in the home directory.  
+    -UseHomeREADME  
+        Use README in home directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Switch to use the README file in the OneDrive directory.  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -8216,58 +8027,56 @@ Add-FeatureLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-Us
    Add-IdeaLineToREADME                 --> idea  
 ```` 
 
-### SYNOPSIS 
-    Adds an idea item to the README.md file.  
-
 ### SYNTAX 
 ```PowerShell 
-Add-IdeaLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
+Add-IdeaLineToREADME [[-Line] <string>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Adds a timestamped idea to the "## Ideas" section of a README.md file.  
-    Can display the modified section and open in Visual Studio Code.  
-
 ### PARAMETERS 
-    -Line <String>  
-        The idea text to add. Will be prefixed with current date if not empty.  
+    -Code  
+        Open README in Visual Studio Code  
         Required?                    false  
-        Position?                    1  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Opens the README in Visual Studio Code after modification.  
+    -Line <string>  
+        The idea text to add  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Show [<SwitchParameter>]  
-        Displays the modified section after changes.  
+    -Show  
+        Show the modified section  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -UseHomeREADME [<SwitchParameter>]  
-        Uses README in PowerShell profile directory instead of current location.  
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Uses README in OneDrive directory instead of current location.  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -8284,58 +8093,56 @@ Add-IdeaLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOn
    Add-IssueLineToREADME                --> issue  
 ```` 
 
-### SYNOPSIS 
-    Adds an issue item to the README.md file.  
-
 ### SYNTAX 
 ```PowerShell 
-Add-IssueLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
+Add-IssueLineToREADME [[-Line] <string>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Adds a timestamped issue to the "## Issues" section of a README.md file.  
-    Can display the modified section and open in Visual Studio Code.  
-
 ### PARAMETERS 
-    -Line <String>  
-        The issue text to add. Will be prefixed with current date if not empty.  
+    -Code  
+        Open README in Visual Studio Code  
         Required?                    false  
-        Position?                    1  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Opens the README in Visual Studio Code after modification.  
+    -Line <string>  
+        The issue text to add  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Show [<SwitchParameter>]  
-        Displays the modified section after changes.  
+    -Show  
+        Show the modified section  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -UseHomeREADME [<SwitchParameter>]  
-        Uses README in PowerShell profile directory instead of current location.  
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Uses README in OneDrive directory instead of current location.  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -8352,85 +8159,83 @@ Add-IssueLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseO
    Add-LineToREADME  
 ```` 
 
-### SYNOPSIS 
-    Adds a line to a README.md markdown file in a specified section.  
-
 ### SYNTAX 
 ```PowerShell 
-Add-LineToREADME [[-Line] <String>] [-Section] <String> [-Prefix] <String> [-Code] [-Show] [-Done] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
+Add-LineToREADME [[-Line] <string>] [-Section] <string> [-Prefix] <string> [-Code] [-Show] [-Done] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Finds and modifies a README.md file by adding a new line to a specified section.  
-    Can create the section if it doesn't exist. Supports formatting lines as code  
-    blocks and showing the modified section.  
-    Will look in current directory first, then walk up directories to find the README  
-    location. If not found, will use the README in the PowerShell profile directory.  
-
 ### PARAMETERS 
-    -Line <String>  
-        The line of text to add to the README file.  
+    -Code  
+        Open in Visual Studio Code after modifying  
         Required?                    false  
-        Position?                    1  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Section <String>  
-        The section header where the line should be added.  
+    -Done  
+        Mark the item as completed  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Line <string>  
+        The line to add to the README  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Prefix <string>  
+        The prefix to use for the line  
         Required?                    true  
         Position?                    2  
-        Default value                  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Prefix <String>  
-        The prefix to add before the line (default: "* ").  
+    -Section <string>  
+        The section to add the line to  
         Required?                    true  
-        Position?                    3  
-        Default value                *  
+        Position?                    1  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Switch to open the README in Visual Studio Code after modification.  
+    -Show  
+        Show the modified section  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Show [<SwitchParameter>]  
-        Switch to display the modified section after changes.  
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Done [<SwitchParameter>]  
-        Switch to mark a todo item as completed.  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -UseHomeREADME [<SwitchParameter>]  
-        Switch to use README in PowerShell profile directory.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Switch to use README in OneDrive directory.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -8444,61 +8249,59 @@ Add-LineToREADME [[-Line] <String>] [-Section] <String> [-Prefix] <String> [-Cod
 ##	Add-ReleaseNoteLineToREADME 
 ```PowerShell 
 
-   Add-ReleaseNoteLineToREADME          --> ReleaseNote  
+   Add-ReleaseNoteLineToREADME          --> releasenote  
 ```` 
-
-### SYNOPSIS 
-    Adds a ReleaseNote line to the README file with a timestamp.  
 
 ### SYNTAX 
 ```PowerShell 
-Add-ReleaseNoteLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
+Add-ReleaseNoteLineToREADME [[-Line] <string>] [-Code] [-Show] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Adds a ReleaseNote line to the specified README file, prefixed with the current date  
-    in yyyyMMdd format. The line can be formatted as code and optionally displayed.  
-
 ### PARAMETERS 
-    -Line <String>  
-        The ReleaseNote description text to add to the README file.  
+    -Code  
+        Format the line as code  
         Required?                    false  
-        Position?                    1  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Switch to format the line as code in the README file.  
+    -Line <string>  
+        The ReleaseNote description text to add  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Show [<SwitchParameter>]  
-        Switch to display the README file after adding the line.  
+    -Show  
+        Display the README after adding the line  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -UseHomeREADME [<SwitchParameter>]  
-        Switch to use the README file in the home directory.  
+    -UseHomeREADME  
+        Use README in home directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Switch to use the README file in the OneDrive directory.  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -8515,67 +8318,65 @@ Add-ReleaseNoteLineToREADME [[-Line] <String>] [-Code] [-Show] [-UseHomeREADME] 
    Add-TodoLineToREADME                 --> todo  
 ```` 
 
-### SYNOPSIS 
-    Adds a todo item to the README.md file.  
-
 ### SYNTAX 
 ```PowerShell 
-Add-TodoLineToREADME [[-Line] <String>] [-Code] [-Show] [-Done] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
+Add-TodoLineToREADME [[-Line] <string>] [-Code] [-Show] [-Done] [-UseHomeREADME] [-UseOneDriveREADME] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Adds a timestamped todo item to the "## Todoos" section of a README.md file.  
-    The todo items can be marked as done and the modified section can be displayed.  
-    Each new todo item is automatically timestamped unless marking as done.  
-
 ### PARAMETERS 
-    -Line <String>  
-        The todo item text to add. Will be prefixed with current date if not empty.  
+    -Code  
+        Open README in Visual Studio Code  
         Required?                    false  
-        Position?                    1  
-        Default value                  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Done  
+        Mark todo item as completed  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Line <string>  
+        The todo item text to add  
+        Required?                    false  
+        Position?                    0  
         Accept pipeline input?       true (ByValue)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Opens the README in Visual Studio Code after modification.  
+    -Show  
+        Show the modified section  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Show [<SwitchParameter>]  
-        Displays the modified section after changes.  
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Done [<SwitchParameter>]  
-        Marks the specified todo item as completed.  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -UseHomeREADME [<SwitchParameter>]  
-        Uses README in PowerShell profile directory instead of current location.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Uses README in OneDrive directory instead of current location.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -8592,27 +8393,19 @@ Add-TodoLineToREADME [[-Line] <String>] [-Code] [-Show] [-Done] [-UseHomeREADME]
    EnsureVSCodeInstallation  
 ```` 
 
-### SYNOPSIS 
-    Installs and configures Visual Studio Code with recommended extensions.  
-
 ### SYNTAX 
 ```PowerShell 
 EnsureVSCodeInstallation [-Force] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Checks if Visual Studio Code is installed and if not, installs it using WinGet.  
-    Configures user settings, keybindings, and installs recommended extensions from  
-    the workspace configuration. Also sets up PSGallery as a trusted repository and  
-    configures specific extension settings.  
-
 ### PARAMETERS 
-    -Force [<SwitchParameter>]  
+    -Force  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -8629,35 +8422,29 @@ EnsureVSCodeInstallation [-Force] [<CommonParameters>]
    Features  
 ```` 
 
-### SYNOPSIS 
-    Displays features from a README.md file.  
-
 ### SYNTAX 
 ```PowerShell 
 Features [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Shows all features from the "## Features" section of a README.md file. Can use  
-    either the README in the current location, PowerShell profile directory, or  
-    OneDrive directory.  
-
 ### PARAMETERS 
-    -UseHomeREADME [<SwitchParameter>]  
-        Use README.md from PowerShell profile directory instead of current location.  
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
         Position?                    1  
-        Default value                False  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Use README.md from OneDrive directory instead of current location.  
-        Required?                    false  
-        Position?                    2  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -8674,35 +8461,29 @@ Features [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
    Ideas  
 ```` 
 
-### SYNOPSIS 
-    Displays ideas from a README.md file.  
-
 ### SYNTAX 
 ```PowerShell 
 Ideas [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Shows all ideas from the "## Ideas" section of a README.md file. Can use either  
-    the README in the current location, PowerShell profile directory, or OneDrive  
-    directory.  
-
 ### PARAMETERS 
-    -UseHomeREADME [<SwitchParameter>]  
-        Use README.md from PowerShell profile directory instead of current location.  
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
         Position?                    1  
-        Default value                False  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Use README.md from OneDrive directory instead of current location.  
-        Required?                    false  
-        Position?                    2  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -8719,35 +8500,29 @@ Ideas [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
    Issues  
 ```` 
 
-### SYNOPSIS 
-    Displays issues from a README.md file.  
-
 ### SYNTAX 
 ```PowerShell 
 Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Shows all issues from the "## Issues" section of a README.md file. Can use  
-    either the README in the current location, PowerShell profile directory, or  
-    OneDrive directory.  
-
 ### PARAMETERS 
-    -UseHomeREADME [<SwitchParameter>]  
-        Use README.md from PowerShell profile directory instead of current location.  
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
         Position?                    1  
-        Default value                False  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Use README.md from OneDrive directory instead of current location.  
-        Required?                    false  
-        Position?                    2  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -8764,99 +8539,92 @@ Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
    Open-SourceFileInIde                 --> editcode  
 ```` 
 
-### SYNOPSIS 
-    Opens a source file in the preferred IDE (Visual Studio Code or Visual Studio).  
-
 ### SYNTAX 
 ```PowerShell 
-Open-SourceFileInIde [-Path] <String> [[-LineNo] <Int32>] [[-KeysToSend] <String[]>] [-Code] [-VisualStudio] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <Int32>] [<CommonParameters>] 
+Open-SourceFileInIde [-Path] <string> [[-LineNo] <int>] [[-KeysToSend] <string[]>] [-Code] [-VisualStudio] [-SendKeyEscape] [-SendKeyHoldKeyboardFocus] [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds <int>] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function opens a specified source file in either Visual Studio Code or  
-    Visual Studio. It can navigate directly to a specific line number and optionally  
-    send keyboard inputs to the IDE after opening the file. The function will  
-    attempt to determine which IDE to use based on the current host process, running  
-    applications, or user selection.  
-
 ### PARAMETERS 
-    -Path <String>  
-        The path to the source file that should be opened in the IDE. Accepts both  
-        relative and absolute paths, as well as paths with environment variables.  
-        Required?                    true  
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+    -Code  
+        The ide to open the file in  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      c  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -LineNo <Int32>  
-        The line number to navigate to when opening the file. Default is 0, which opens  
-        the file without positioning to a specific line.  
+    -KeysToSend <string[]>  
+        Array of keyboard inputs to send to the application  
         Required?                    false  
         Position?                    2  
-        Default value                0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      keys  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -KeysToSend <String[]>  
-        Array of keyboard inputs to send to the application after opening. The function  
-        will wait 2 seconds before sending the keys to ensure the IDE has loaded.  
+    -LineNo <int>  
+        The line number to navigate to  
         Required?                    false  
-        Position?                    3  
-        Default value                @()  
+        Position?                    1  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Switch parameter to force opening the file in Visual Studio Code regardless  
-        of the current host process or other running IDEs.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+    -Path <string>  
+        The path to the sourcefile to open  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      FullName  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -VisualStudio [<SwitchParameter>]  
-        Switch parameter to force opening the file in Visual Studio regardless of the  
-        current host process or other running IDEs.  
+    -SendKeyDelayMilliSeconds <int>  
+        Delay between different input strings in milliseconds  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      DelayMilliSeconds  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SendKeyEscape [<SwitchParameter>]  
-        When specified, escapes special characters so they are sent as literal text  
-        instead of being interpreted as control sequences.  
+    -SendKeyEscape  
+        Escape control characters and modifiers  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Escape  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SendKeyHoldKeyboardFocus [<SwitchParameter>]  
-        Prevents returning keyboard focus to PowerShell after sending keys.  
+    -SendKeyHoldKeyboardFocus  
+        Hold keyboard focus on target window  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      HoldKeyboardFocus  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SendKeyUseShiftEnter [<SwitchParameter>]  
-        Sends Shift+Enter instead of regular Enter for line breaks.  
+    -SendKeyUseShiftEnter  
+        Use Shift+Enter instead of Enter  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      UseShiftEnter  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SendKeyDelayMilliSeconds <Int32>  
-        Adds delay between sending different key sequences. Useful for slower apps.  
+    -VisualStudio  
+        Open in Visual Studio  
         Required?                    false  
-        Position?                    named  
-        Default value                0  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -8873,35 +8641,29 @@ Open-SourceFileInIde [-Path] <String> [[-LineNo] <Int32>] [[-KeysToSend] <String
    ReleaseNotes  
 ```` 
 
-### SYNOPSIS 
-    Displays ReleaseNotes from a README.md file.  
-
 ### SYNTAX 
 ```PowerShell 
 ReleaseNotes [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Shows all ReleaseNotes from the "## ReleaseNotes" section of a README.md file. Can use  
-    either the README in the current location, PowerShell profile directory, or  
-    OneDrive directory.  
-
 ### PARAMETERS 
-    -UseHomeREADME [<SwitchParameter>]  
-        Use README.md from PowerShell profile directory instead of current location.  
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
         Position?                    1  
-        Default value                False  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Use README.md from OneDrive directory instead of current location.  
-        Required?                    false  
-        Position?                    2  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -8918,35 +8680,29 @@ ReleaseNotes [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
    Todoos  
 ```` 
 
-### SYNOPSIS 
-    Displays todo items from a README.md file.  
-
 ### SYNTAX 
 ```PowerShell 
 Todoos [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Shows all todo items from the "## Todoos" section of a README.md file. Can use  
-    either the README in the current location, PowerShell profile directory, or  
-    OneDrive directory.  
-
 ### PARAMETERS 
-    -UseHomeREADME [<SwitchParameter>]  
-        Use README.md from PowerShell profile directory instead of current location.  
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
         Required?                    false  
         Position?                    1  
-        Default value                False  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME [<SwitchParameter>]  
-        Use README.md from OneDrive directory instead of current location.  
-        Required?                    false  
-        Position?                    2  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -8963,38 +8719,29 @@ Todoos [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
    VSCode  
 ```` 
 
-### SYNOPSIS 
-    Opens one or more files in Visual Studio Code.  
-
 ### SYNTAX 
 ```PowerShell 
-VSCode [-FilePath] <String[]> [-Copilot] [<CommonParameters>] 
+VSCode [-FilePath] <string[]> [-Copilot] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function takes file paths and opens them in Visual Studio Code. It expands  
-    paths and validates file existence before attempting to open them. The function  
-    supports both direct file paths and pipeline input, making it ideal for quickly  
-    opening multiple files from terminal searches.  
-
 ### PARAMETERS 
-    -FilePath <String[]>  
-        One or more file paths to open in Visual Studio Code. Accepts pipeline input  
-        and wildcard patterns.  
-        Required?                    true  
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       true (ByValue)  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Copilot [<SwitchParameter>]  
-        When specified, opens the file and triggers the Copilot keyboard shortcut to  
-        start an edit session.  
+    -Copilot  
+        Add sourcefile to Copilot edit-session  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -FilePath <string[]>  
+        The path to the file to open in VSCode  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -9011,7 +8758,7 @@ VSCode [-FilePath] <String[]> [-Copilot] [<CommonParameters>]
 ##	Get-GitChangedFiles 
 ```PowerShell 
 
-   Get-GitChangedFiles                  --> Get-GitChangedFile, gitchanged  
+   Get-GitChangedFiles                  --> gitchanged  
 ```` 
 
 ### SYNOPSIS 
@@ -9051,42 +8798,36 @@ Get-GitChangedFiles [-PassThru] [<CommonParameters>]
    New-GitCommit                        --> commit  
 ```` 
 
-### SYNOPSIS 
-    Creates and pushes a new git commit with all changes.  
-
 ### SYNTAX 
 ```PowerShell 
-New-GitCommit [[-Title] <String>] [-WhatIf] [-Confirm] [<CommonParameters>] 
+New-GitCommit [[-Title] <string>] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Stages all changes in the current git repository, creates a commit with the  
-    specified title, and pushes the changes to the remote origin. Automatically sets  
-    up upstream tracking if needed.  
-
 ### PARAMETERS 
-    -Title <String>  
-        The message to use for the git commit. If not specified, defaults to  
-        "Improved scripts".  
+    -Confirm  
         Required?                    false  
-        Position?                    1  
-        Default value                Improved scripts  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -WhatIf [<SwitchParameter>]  
+    -Title <string>  
+        The commit message title to use  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Confirm [<SwitchParameter>]  
+    -WhatIf  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -9103,68 +8844,51 @@ New-GitCommit [[-Title] <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
    PermanentlyDeleteGitFolders  
 ```` 
 
-### SYNOPSIS 
-    Permanently deletes specified folders from all branches in a Git repository.  
-
 ### SYNTAX 
 ```PowerShell 
-PermanentlyDeleteGitFolders [-RepoUri] <String> [-Folders] <String[]> [-WhatIf] [-Confirm] [<CommonParameters>] 
+PermanentlyDeleteGitFolders [-RepoUri] <string> [-Folders] <string[]> [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Cleans a Git repository by removing specified folders from the entire commit  
-    history across all branches. This is done by cloning the repository, using  
-    git filter-branch to remove the folders, and force pushing the changes back.  
-    This operation is destructive and permanently rewrites Git history.  
-
 ### PARAMETERS 
-    -RepoUri <String>  
-        The Git repository URI to clean (HTTPS or SSH format).  
+    -Confirm  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Folders <string[]>  
+        Array of folder paths to permanently remove  
         Required?                    true  
         Position?                    1  
-        Default value                  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Folders <String[]>  
-        Array of folder paths to remove from the repository history. Paths can be  
-        specified with forward or back slashes.  
+    -RepoUri <string>  
+        The URI of the Git repository to clean  
         Required?                    true  
-        Position?                    2  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -WhatIf [<SwitchParameter>]  
+    -WhatIf  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Confirm [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-### NOTES 
-```PowerShell 
-
-       This operation is destructive and cannot be undone. It rewrites Git history and  
-       requires force pushing, which affects all repository users.  
-   -------------------------- EXAMPLE 1 --------------------------  
-   PS C:\> PermanentlyDeleteGitFolders `  
-       -RepoUri "https://github.com/user/repo.git" `  
-       -Folders "bin", "obj"  
-```` 
 
 <br/><hr/><br/>
  
@@ -9199,107 +8923,110 @@ Add-MissingGenXdevUnitTests [<CommonParameters>]
    Assert-GenXdevCmdlet                 --> improvecmdlet  
 ```` 
 
-### SYNOPSIS 
-    Improves GenXdev cmdlet documentation and implementation through AI assistance.  
-
 ### SYNTAX 
 ```PowerShell 
-Assert-GenXdevCmdlet [[-CmdletName] <String>] [-ModuleName <String[]>] [[-PromptKey] <String>] [[-Prompt] <String>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-EditPrompt] [-Integrate] [<CommonParameters>] 
+Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey] <string>] [[-Prompt] <string>] [-ModuleName <string[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-EditPrompt] [-Integrate] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function enhances GenXdev cmdlets by analyzing and improving their code  
-    through AI prompts. It can integrate cmdlets into modules, update documentation,  
-    and verify proper implementation. The function supports custom prompt templates  
-    and can open files in Visual Studio Code or Visual Studio.  
-
 ### PARAMETERS 
-    -CmdletName <String>  
-        The name or search pattern of the cmdlet to improve. Supports wildcards.  
+    -CmdletName <string>  
+        Search pattern to filter cmdlets  
         Required?                    false  
-        Position?                    1  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
-    -ModuleName <String[]>  
+    -Code  
+        Open in Visual Studio Code  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      c  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -EditPrompt  
+        Only edit the AI prompt  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           PromptKey  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -FromScripts  
+        Search in script files  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Integrate  
+        Integrate cmdlet into module  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ModuleName <string[]>  
+        GenXdev module names to search  
+        Required?                    false  
+        Position?                    Named  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Module, BaseModuleName, SubModuleName  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
-    -PromptKey <String>  
-        The key identifying which AI prompt template to use for improvements.  
+    -NoLocal  
+        Skip local module versions  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -OnlyPublished  
+        Only include published versions  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Prompt <string>  
+        Custom AI prompt text to use  
         Required?                    false  
         Position?                    2  
-        Default value                CheckAllRequirements  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Prompt <String>  
-        Custom prompt text to override the template prompt.  
+    -PromptKey <string>  
+        The AI prompt key to use for template selection  
         Required?                    false  
-        Position?                    3  
-        Default value                  
+        Position?                    1  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -NoLocal [<SwitchParameter>]  
-        Skip searching local module versions.  
+    -VisualStudio  
+        Open in Visual Studio  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -OnlyPublished [<SwitchParameter>]  
-        Only search published module versions.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -FromScripts [<SwitchParameter>]  
-        Search in script files rather than module files.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Opens the cmdlet in Visual Studio Code.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -VisualStudio [<SwitchParameter>]  
-        Opens the cmdlet in Visual Studio.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -EditPrompt [<SwitchParameter>]  
-        Only edit the AI prompt template without processing the cmdlet.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Integrate [<SwitchParameter>]  
-        Integrate the cmdlet into a module if it's currently a standalone script.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -9316,74 +9043,73 @@ Assert-GenXdevCmdlet [[-CmdletName] <String>] [-ModuleName <String[]>] [[-Prompt
    Assert-GenXdevCmdletTests            --> improvecmdlettests  
 ```` 
 
-### SYNOPSIS 
-    Asserts and improves unit-tests of a specified GenXdev cmdlet.  
-
 ### SYNTAX 
 ```PowerShell 
-Assert-GenXdevCmdletTests [-CmdletName] <String> [[-Prompt] <String>] [[-PromptKey] <String>] [-EditPrompt] [-AssertFailedTest] [-FromScripts] [-ContinuationHandled] [<CommonParameters>] 
+Assert-GenXdevCmdletTests [-CmdletName] <string> [[-Prompt] <string>] [[-PromptKey] <string>] [-EditPrompt] [-AssertFailedTest] [-FromScripts] [-ContinuationHandled] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function helps maintain and improve unit tests for GenXdev cmdlets by:  
-    1. Creating test files if they do not exist  
-    2. Opening the cmdlet in VS Code  
-    3. Preparing and applying AI prompts for test generation/improvement  
-    4. Managing test execution workflow  
-
 ### PARAMETERS 
-    -CmdletName <String>  
-        The name of the cmdlet to improve unit-tests for. Required.  
-        Required?                    true  
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+    -AssertFailedTest  
+        Indicates to assert a failed test  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Prompt <String>  
-        Custom AI prompt text to use for test generation. Optional.  
+    -CmdletName <string>  
+        The name of the cmdlet to improve unit-tests for  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      cmd  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ContinuationHandled  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -EditPrompt  
+        Switch to only edit the AI prompt  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -FromScripts  
+        Search in script files instead of modules  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Prompt <string>  
+        Custom AI prompt text to use  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -PromptKey <string>  
+        The AI prompt key to use for template selection  
         Required?                    false  
         Position?                    2  
-        Default value                  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -PromptKey <String>  
-        Required?                    false  
-        Position?                    3  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -EditPrompt [<SwitchParameter>]  
-        Switch to only edit the AI prompt without modifying the cmdlet. Optional.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -AssertFailedTest [<SwitchParameter>]  
-        Switch to indicate assertion of a failed test. Optional.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -FromScripts [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -ContinuationHandled [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -9400,40 +9126,30 @@ Assert-GenXdevCmdletTests [-CmdletName] <String> [[-Prompt] <String>] [[-PromptK
    Assert-GenXdevDependencyUsage        --> checkgenxdevdependencies  
 ```` 
 
-### SYNOPSIS 
-    Validates dependency usage across GenXdev modules to ensure proper module  
-    hierarchy is maintained.  
-
 ### SYNTAX 
 ```PowerShell 
-Assert-GenXdevDependencyUsage [[-ModuleName] <String[]>] [-FromScripts] [<CommonParameters>] 
+Assert-GenXdevDependencyUsage [[-ModuleName] <string[]>] [-FromScripts] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function analyzes GenXdev modules to ensure they follow the correct  
-    dependency hierarchy. It checks that modules only reference dependencies  
-    that are listed in their RequiredModules manifest, and prevents circular  
-    dependencies by validating that modules do not reference modules that come  
-    later in the dependency chain.  
-
 ### PARAMETERS 
-    -ModuleName <String[]>  
-        Filter to apply to module names. Must match GenXdev naming pattern. Defaults  
-        to checking all GenXdev modules.  
+    -FromScripts  
+        Search in script files instead of module files  
         Required?                    false  
-        Position?                    2  
-        Default value                @('GenXdev*')  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
-        Accept wildcard characters?  true  
-    -FromScripts [<SwitchParameter>]  
-        Search in script files instead of module files.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
+    -ModuleName <string[]>  
+        Filter to apply to module names  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
@@ -9446,172 +9162,158 @@ Assert-GenXdevDependencyUsage [[-ModuleName] <String[]>] [-FromScripts] [<Common
 ##	Assert-GenXdevTest 
 ```PowerShell 
 
-   Assert-GenXdevTest                   --> Assert-GenXdevUnitTest, rungenxdevtests, testcmdlet  
+   Assert-GenXdevTest                   --> rungenxdevtests  
 ```` 
-
-### SYNOPSIS 
-    Executesunit tests for GenXdev modules, sub-modules, or cmdlets  
-    with intelligent debugging and AI-powered error resolution.  
 
 ### SYNTAX 
 ```PowerShell 
-Assert-GenXdevTest [[-CmdletName] <String>] [[-TestFailedAction] <String>] [[-DefinitionMatches] <String>] [[-ModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-IncludeScripts] [-OnlyReturnModuleNames] [-ExactMatch] [-Verbosity <String>] [-StackTraceVerbosity <String>] [-AllowLongRunningTests] [-SkipModuleImports] [-SkipPSAnalyzerTests] [-SkipPesterTests] [<CommonParameters>] 
+Assert-GenXdevTest [[-CmdletName] <string>] [[-TestFailedAction] {Ask | Continue | Stop | SolveWithAI | Write-Error | Throw}] [[-DefinitionMatches] <string>] [[-ModuleName] <string[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-IncludeScripts] [-OnlyReturnModuleNames] [-ExactMatch] [-Verbosity {None | Normal | Detailed | Diagnostic}] [-StackTraceVerbosity {None | FirstLine | Filtered | Full}] [-AllowLongRunningTests] [-SkipModuleImports] [-SkipPSAnalyzerTests] [-SkipPesterTests] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function provides a testing framework for GenXdev modules,  
-    offering multi-level test execution from entire modules down to individual  
-    cmdlets. It integrates PSScriptAnalyzer for static code analysis, Pester for  
-    unit testing, and Get-Help validation for documentation compliance. The  
-    function includes intelligent error handling with AI-powered resolution  
-    capabilities and detailed progress reporting for development workflows.  
-
 ### PARAMETERS 
-    -CmdletName <String>  
-        Search pattern to filter cmdlets for testing. Supports wildcards and allows  
-        targeting specific cmdlets or groups of cmdlets matching the pattern.  
+    -AllowLongRunningTests  
+        Also selects unit-tests that have long running durations  
         Required?                    false  
-        Position?                    1  
-        Default value                  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -CmdletName <string>  
+        Search pattern to filter cmdlets  
+        Required?                    false  
+        Position?                    0  
         Accept pipeline input?       true (ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
-    -TestFailedAction <String>  
-        Action to take when a test fails. Options include interactive prompting,  
-        automatic continuation, stopping execution, AI-powered resolution, error  
-        logging, or exception throwing for integration scenarios.  
+    -DefinitionMatches <string>  
+        Regular expression to match cmdlet definitions  
         Required?                    false  
         Position?                    2  
-        Default value                Continue  
-        Accept pipeline input?       false  
-        Aliases                        
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -DefinitionMatches <String>  
-        Regular expression to match cmdlet definitions during the search process.  
-        This allows for advanced filtering based on cmdlet implementation patterns.  
+    -ExactMatch  
+        Require exact matches for cmdlet names  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -FromScripts  
+        Search in script files instead of modules  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -IncludeScripts  
+        Includes the scripts directory in addition to regular modules  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           ModuleName  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ModuleName <string[]>  
+        GenXdev module names to search  
         Required?                    false  
         Position?                    3  
-        Default value                  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -ModuleName <String[]>  
-        GenXdev module names to search and test. Must follow the pattern starting  
-        with 'GenXdev' followed by optional sub-module components. Supports wildcards  
-        for broad module selection.  
-        Required?                    false  
-        Position?                    4  
-        Default value                  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Module, BaseModuleName, SubModuleName  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
-    -NoLocal [<SwitchParameter>]  
-        Skip searching in local module paths during cmdlet discovery. When specified,  
-        only published module paths will be considered for testing.  
+    -NoLocal  
+        Skip searching in local module paths  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -OnlyPublished [<SwitchParameter>]  
-        Limit search to published module paths only. This excludes local development  
-        modules and focuses on officially published GenXdev modules.  
+    -OnlyPublished  
+        Only search in published module paths  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -FromScripts [<SwitchParameter>]  
-        Search in script files instead of module files. This allows testing of  
-        standalone PowerShell scripts within the GenXdev ecosystem.  
+    -OnlyReturnModuleNames  
+        Only return unique module names  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -IncludeScripts [<SwitchParameter>]  
-        Include the scripts directory in addition to regular modules. This expands  
-        the test scope to cover both modular and script-based functionality.  
+    -SkipModuleImports  
+        Skips importing GenXdev modules before testing  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           ModuleName  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -OnlyReturnModuleNames [<SwitchParameter>]  
-        Return only unique module names instead of full cmdlet details. Useful for  
-        discovery and inventory operations rather than detailed testing.  
+    -SkipPSAnalyzerTests  
+        Skips invoking PSAnalyzer tests  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ExactMatch [<SwitchParameter>]  
-        Require exact matches for cmdlet names rather than wildcard matching. This  
-        provides precise targeting for specific cmdlet testing scenarios.  
+    -SkipPesterTests  
+        Skips invoking Pester tests  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Verbosity <String>  
-        Output detail level for test execution. Controls the amount of information  
-        displayed during test runs, from minimal to diagnostic output.  
+    -StackTraceVerbosity <string>  
+        Stack trace detail level  
         Required?                    false  
-        Position?                    named  
-        Default value                Normal  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -StackTraceVerbosity <String>  
-        Stack trace detail level for error reporting. Determines how much call stack  
-        information is included when errors occur during testing.  
+    -TestFailedAction <string>  
+        Action to take when a test fails. Options: Ask, Continue, Stop, SolveWithAI, Write-Error, Throw  
         Required?                    false  
-        Position?                    named  
-        Default value                FirstLine  
+        Position?                    1  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -AllowLongRunningTests [<SwitchParameter>]  
-        Include unit tests that have long running durations in the test execution.  
-        This enables testing including performance and integration tests.  
+    -Verbosity <string>  
+        Output detail level  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -SkipModuleImports [<SwitchParameter>]  
-        Skip importing GenXdev modules before testing. This is useful when modules  
-        are already loaded or when testing specific module loading scenarios.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -SkipPSAnalyzerTests [<SwitchParameter>]  
-        Skip invoking PSScriptAnalyzer tests during the test execution. This allows  
-        focusing solely on functional testing when static analysis is not required.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -SkipPesterTests [<SwitchParameter>]  
-        Skip invoking Pester tests during the test execution. This allows focusing  
-        solely on static analysis when functional testing is not required.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -9628,48 +9330,38 @@ Assert-GenXdevTest [[-CmdletName] <String>] [[-TestFailedAction] <String>] [[-De
    Assert-ModuleDefinition  
 ```` 
 
-### SYNOPSIS 
-    Assists in refactoring PowerShell source code files using AI assistance.  
-
 ### SYNTAX 
 ```PowerShell 
-Assert-ModuleDefinition [-ModuleName] <String> [-Prompt <String>] [-EditPrompt] [<CommonParameters>] 
+Assert-ModuleDefinition [-ModuleName] <string> [-Prompt <string>] [-EditPrompt] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function automates the process of refactoring PowerShell code using AI.  
-    It manages prompt templates, detects the active IDE (VS Code or Visual Studio),  
-    and orchestrates the refactoring workflow through keyboard automation.  
-    The function can handle both module manifest (.psd1) and module script (.psm1)  
-    files.  
-
 ### PARAMETERS 
-    -ModuleName <String>  
-        The name of the PowerShell module to refactor. This module must be available  
-        in the PowerShell module path.  
+    -EditPrompt  
+        Switch to only edit the AI prompt  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ModuleName <string>  
+        The name of the module  
         Required?                    true  
-        Position?                    1  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Prompt <String>  
-        Custom AI prompt text to use for the refactoring process. If not specified,  
-        defaults to an error message if module loading fails.  
+    -Prompt <string>  
+        The AI prompt  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -EditPrompt [<SwitchParameter>]  
-        When enabled, only opens the prompt template for editing without executing the  
-        actual refactoring process.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -9686,45 +9378,37 @@ Assert-ModuleDefinition [-ModuleName] <String> [-Prompt <String>] [-EditPrompt] 
    Assert-RefactorFile  
 ```` 
 
-### SYNOPSIS 
-    Executes a refactoring operation on a source file using the specified IDE and  
-    AI prompt template.  
-
 ### SYNTAX 
 ```PowerShell 
-Assert-RefactorFile [-Path] <String> [[-RefactorSettings] <RefactorSettings>] [-AllowLongRunningTests] [<CommonParameters>] 
+Assert-RefactorFile [-Path] <string> [[-RefactorSettings] <RefactorSettings>] [-AllowLongRunningTests] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function automates the refactoring process by preparing an AI prompt based  
-    on the refactor definition, detecting or selecting the appropriate IDE (VS Code  
-    or Visual Studio), and opening the target file with the prepared prompt. The  
-    function handles prompt template processing, IDE detection, and automation of  
-    the refactoring workflow.  
-
 ### PARAMETERS 
-    -Path <String>  
-        The absolute or relative path to the source file that needs to be refactored.  
-        The path will be expanded to an absolute path during processing.  
-        Required?                    true  
-        Position?                    1  
-        Default value                  
+    -AllowLongRunningTests  
+        Required?                    false  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Path <string>  
+        The path to the source file to improve  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      FullName  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     -RefactorSettings <RefactorSettings>  
+        The refactor definition containing settings and prompt template  
         Required?                    false  
-        Position?                    2  
-        Default value                [GenXdev.Helpers.RefactorSettings]::new()  
+        Position?                    1  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -AllowLongRunningTests [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -9741,19 +9425,10 @@ Assert-RefactorFile [-Path] <String> [[-RefactorSettings] <RefactorSettings>] [-
    Clear-GenXdevModules                 --> cleangenxdev  
 ```` 
 
-### SYNOPSIS 
-    Cleans build artifacts from GenXdev PowerShell modules.  
-
 ### SYNTAX 
 ```PowerShell 
 Clear-GenXdevModules [<CommonParameters>] 
 ```` 
-
-### DESCRIPTION 
-    Removes build directories and artifacts from all GenXdev PowerShell modules in  
-    the user's PowerShell Modules directory. Cleans both module root directories and  
-    version-specific subdirectories, removing bin, obj, trash and other build  
-    artifacts.  
 
 ### PARAMETERS 
     <CommonParameters>  
@@ -9771,34 +9446,20 @@ Clear-GenXdevModules [<CommonParameters>]
    Complete-GenXDevREADME  
 ```` 
 
-### SYNOPSIS 
-    Completes the README file for specified GenXDev modules by adding documentation.  
-
 ### SYNTAX 
 ```PowerShell 
-Complete-GenXDevREADME [[-ModuleName] <String[]>] [<CommonParameters>] 
+Complete-GenXDevREADME [[-ModuleName] <string[]>] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function enhances README.md files for GenXDev modules by automatically  
-    generating and inserting a cmdlet index and detailed cmdlet documentation. For  
-    individual modules, it processes and updates existing README.md files with a  
-    standardized format including a command index and detailed help for each cmdlet.  
-    For the main GenXdev module, it creates a concise overview with links to GitHub  
-    repositories instead of concatenating full module content, preventing the README  
-    from becoming too large for parsers. Cmdlet indexes link to the corresponding  
-    sections in the GitHub repository's README files.  
-
 ### PARAMETERS 
-    -ModuleName <String[]>  
-        Specifies which module(s) to process. If omitted, all modules will be processed.  
-        Can accept multiple module names and supports pipeline input. Accepts string  
-        array input.  
+    -ModuleName <string[]>  
+        The name(s) of the module(s) to complete the README for  
         Required?                    false  
-        Position?                    1  
-        Default value                @("GenXdev*")  
+        Position?                    0  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Module, BaseModuleName, SubModuleName  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -9815,20 +9476,10 @@ Complete-GenXDevREADME [[-ModuleName] <String[]>] [<CommonParameters>]
    EnsureCopilotKeyboardShortCut  
 ```` 
 
-### SYNOPSIS 
-    Configures the GitHub Copilot Chat keyboard shortcuts in Visual Studio Code.  
-
 ### SYNTAX 
 ```PowerShell 
 EnsureCopilotKeyboardShortCut [<CommonParameters>] 
 ```` 
-
-### DESCRIPTION 
-    This function ensures that GitHub Copilot Chat's file attachment feature has a proper  
-    keyboard shortcut (Ctrl+Shift+Alt+F12) configured in Visual Studio Code.  
-    It will remove any existing Copilot attachment shortcuts and replace them with the  
-    current correct command (github.copilot.chat.attachFile).  
-    Also adds Alt+` (backtick) shortcut for toggling the maximized panel.  
 
 ### PARAMETERS 
     <CommonParameters>  
@@ -9853,6 +9504,7 @@ EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>]
 
 ### PARAMETERS 
     -Force  
+        Forces recreation of existing refactor definitions by removing them first  
         Required?                    false  
         Position?                    Named  
         Accept pipeline input?       false  
@@ -9875,52 +9527,43 @@ EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>]
    Get-GenXdevCmdletUsageAnalysis  
 ```` 
 
-### SYNOPSIS 
-    Analyzes GenXdev cmdlet usage patterns to identify most frequently called functions.  
-
 ### SYNTAX 
 ```PowerShell 
-Get-GenXdevCmdletUsageAnalysis [[-OutputFormat] <String>] [[-Top] <Int32>] [-IncludeCallChains] [-IncludeScripts] [<CommonParameters>] 
+Get-GenXdevCmdletUsageAnalysis [[-OutputFormat] {Table | List | CSV}] [[-Top] <int>] [-IncludeCallChains] [-IncludeScripts] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This script uses Get-GenXDevCmdlet to scan all GenXdev PowerShell modules and their  
-    functions to analyze which cmdlets are called most frequently by other cmdlets.  
-    This helps prioritize which functions to refactor to C# first, starting with the  
-    most commonly used ones.  
-
 ### PARAMETERS 
-    -OutputFormat <String>  
-        Format for output: Table, List, or CSV. Default is Table.  
+    -IncludeCallChains  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -IncludeScripts  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -OutputFormat <string>  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Top <int>  
         Required?                    false  
         Position?                    1  
-        Default value                Table  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Top <Int32>  
-        Number of top results to show. Default is 50.  
-        Required?                    false  
-        Position?                    2  
-        Default value                50  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -IncludeCallChains [<SwitchParameter>]  
-        Include detailed call chain information showing which functions call which.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -IncludeScripts [<SwitchParameter>]  
-        Include script files in addition to module cmdlets.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -9937,29 +9580,20 @@ Get-GenXdevCmdletUsageAnalysis [[-OutputFormat] <String>] [[-Top] <Int32>] [-Inc
    Get-GenXDevModule  
 ```` 
 
-### SYNOPSIS 
-    Retrieves all GenXDev modules from a specified path.  
-
 ### SYNTAX 
 ```PowerShell 
-Get-GenXDevModule [[-Path] <String>] [<CommonParameters>] 
+Get-GenXDevModule [[-Path] <string>] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function searches through a directory structure for GenXdev modules,  
-    excluding any with '.local' in the name. For each valid module found, it returns  
-    the most recent version folder (1.x) that contains a valid module manifest  
-    (.psd1) file.  
-
 ### PARAMETERS 
-    -Path <String>  
-        The root directory to search for GenXdev modules. If not specified, defaults to  
-        the parent directory of the script's location.  
+    -Path <string>  
+        The root path to search for GenXdev modules  
         Required?                    false  
-        Position?                    1  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      RootPath, FullPath  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -9976,28 +9610,20 @@ Get-GenXDevModule [[-Path] <String>] [<CommonParameters>]
    Get-GenXDevModuleInfo  
 ```` 
 
-### SYNOPSIS 
-    Retrieves detailed information about GenXdev PowerShell modules.  
-
 ### SYNTAX 
 ```PowerShell 
-Get-GenXDevModuleInfo [[-ModuleName] <String[]>] [<CommonParameters>] 
+Get-GenXDevModuleInfo [[-ModuleName] <string[]>] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function examines GenXdev PowerShell modules and returns information about  
-    their configuration, versions, and presence of key files. It can process either  
-    specified modules or all available modules.  
-
 ### PARAMETERS 
-    -ModuleName <String[]>  
-        Array of module names to analyze. If empty, processes all available modules.  
-        GenXdev.Local module is explicitly blocked from processing.  
+    -ModuleName <string[]>  
+        Names of modules to analyze  
         Required?                    false  
-        Position?                    1  
-        Default value                @()  
+        Position?                    0  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Name, Module  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -10014,31 +9640,20 @@ Get-GenXDevModuleInfo [[-ModuleName] <String[]>] [<CommonParameters>]
    Get-GenXDevNewModulesInOrderOfDependency  
 ```` 
 
-### SYNOPSIS 
-    Retrieves GenXDev modules in dependency order.  
-
 ### SYNTAX 
 ```PowerShell 
-Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName] <String[]>] [<CommonParameters>] 
+Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName] <string[]>] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function returns a list of GenXDev modules arranged in the correct dependency  
-    order to ensure proper module loading. It first retrieves all module information  
-    and then orders them based on their dependencies, starting with core modules and  
-    ending with dependent modules. This ensures modules are loaded in the correct  
-    sequence.  
-
 ### PARAMETERS 
-    -ModuleName <String[]>  
-        One or more module names to filter the results. If not provided, all modules are  
-        returned in their dependency order. The function will maintain the correct  
-        dependency chain even when filtering specific modules.  
+    -ModuleName <string[]>  
+        One or more module names to filter by  
         Required?                    false  
-        Position?                    1  
-        Default value                @('GenXdev*')  
+        Position?                    0  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Module, BaseModuleName, SubModuleName  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -10052,43 +9667,32 @@ Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName] <String[]>] [<CommonPara
 ##	Get-ModuleHelpMarkdown 
 ```PowerShell 
 
-   Get-ModuleHelpMarkdown               --> Get-GenXDevModuleHelp  
+   Get-ModuleHelpMarkdown  
 ```` 
-
-### SYNOPSIS 
-    Generates markdown help documentation for specified GenXDev modules.  
 
 ### SYNTAX 
 ```PowerShell 
-Get-ModuleHelpMarkdown [[-ModuleName] <String[]>] [[-CommandNames] <String[]>] [<CommonParameters>] 
+Get-ModuleHelpMarkdown [[-ModuleName] <string[]>] [[-CommandNames] <string[]>] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function generates markdown help documentation for specified GenXDev modules  
-    and their cmdlets. It processes each module and cmdlet, formatting the help  
-    content into markdown with proper sections and code blocks. The output includes  
-    syntax highlighting for PowerShell code blocks and proper formatting for  
-    different help sections.  
-
 ### PARAMETERS 
-    -ModuleName <String[]>  
-        Specifies the name(s) of the module(s) to generate help for. Accepts wildcards.  
-        If not specified, defaults to "GenXdev.*". Can be provided via pipeline.  
+    -CommandNames <string[]>  
+        Optional cmdlet names to filter which to document  
         Required?                    false  
         Position?                    1  
-        Default value                GenXdev.*  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
-        Accept wildcard characters?  true  
-    -CommandNames <String[]>  
-        Optional array of cmdlet names to filter which commands to generate help for.  
-        If not specified, documentation will be generated for all cmdlets in the module.  
-        Supports wildcard patterns like "Get-*".  
-        Required?                    false  
-        Position?                    2  
-        Default value                @()  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+    -ModuleName <string[]>  
+        The name(s) of the module(s) to generate help for  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      Name, Module  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -10102,67 +9706,68 @@ Get-ModuleHelpMarkdown [[-ModuleName] <String[]>] [[-CommandNames] <String[]>] [
 ##	Get-Refactor 
 ```PowerShell 
 
-   Get-Refactor                         --> refactor, refactors, Show-RefactorReport  
+   Get-Refactor                         --> refactors  
 ```` 
-
-### SYNOPSIS 
-    Retrieves refactor definitions from GenXdev preferences based on name patterns.  
 
 ### SYNTAX 
 ```PowerShell 
-Get-Refactor [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-DefaultValue <String>] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
+Get-Refactor [[-Name] <string[]>] [-PreferencesDatabasePath <string>] [-DefaultValue <string>] [-SessionOnly] [-ClearSession] [-SkipSession] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Searches for and loads refactor definition sets stored in GenXdev preferences.  
-    Each refactor set is stored as a JSON string in a preference with name starting  
-    with 'refactor_set_'. The function deserializes matching sets into objects.  
-
 ### PARAMETERS 
-    -Name <String[]>  
-        One or more name patterns to match against refactor set names. Patterns are  
-        matched against the portion of the preference name after 'refactor_set_' prefix.  
-        Supports wildcards. If omitted, returns all refactor sets.  
+    -ClearSession  
+        Clear the session setting (Global variable) before retrieving  
         Required?                    false  
-        Position?                    1  
-        Default value                @('*')  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -DefaultValue <string>  
+        The default value if preference is not found  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      DefaultPreference  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Name <string[]>  
+        Pattern(s) to search for refactor definitions  
+        Required?                    false  
+        Position?                    0  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      PreferenceName  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
-    -PreferencesDatabasePath <String>  
+    -PreferencesDatabasePath <string>  
+        Database path for preference data files  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      DatabasePath  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -DefaultValue <String>  
+    -SessionOnly  
+        Use alternative settings stored in session for Data preferences like Language, Database paths, etc  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SessionOnly [<SwitchParameter>]  
+    -SkipSession  
+        Dont use alternative settings stored in session for Data preferences like Language, Database paths, etc  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -ClearSession [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -SkipSession [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      FromPreferences  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -10179,67 +9784,65 @@ Get-Refactor [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-DefaultV
    Get-RefactorReport                   --> refactorreport  
 ```` 
 
-### SYNOPSIS 
-    Generates a detailed report of refactoring operations and their status.  
-
 ### SYNTAX 
 ```PowerShell 
-Get-RefactorReport [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-SessionOnly] [-ClearSession] [-SkipSession] [-AsText] [<CommonParameters>] 
+Get-RefactorReport [[-Name] <string[]>] [-PreferencesDatabasePath <string>] [-SessionOnly] [-ClearSession] [-SkipSession] [-AsText] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Analyzes and reports on the progress of refactoring operations by examining  
-    their current state, completion status, and affected functions. Provides output  
-    in either structured hashtable format or human-readable aligned text columns.  
-    The report includes refactor name, prompt key, priority, status, function count  
-    and completion percentage.  
-
 ### PARAMETERS 
-    -Name <String[]>  
-        The name pattern to filter refactors. Supports wildcards. Multiple names can be  
-        specified. Default value is "*" to display all refactors.  
+    -AsText  
+        Output report in text format instead of Hashtable  
         Required?                    false  
-        Position?                    1  
-        Default value                *  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ClearSession  
+        If set, clear the session cache before running.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Name <string[]>  
+        The name of the refactor, accepts wildcards  
+        Required?                    false  
+        Position?                    0  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
-    -PreferencesDatabasePath <String>  
+    -PreferencesDatabasePath <string>  
+        Specifies the path to the preferences database file.  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      DatabasePath  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SessionOnly [<SwitchParameter>]  
+    -SessionOnly  
+        If set, only use the session cache for refactor data.  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ClearSession [<SwitchParameter>]  
+    -SkipSession  
+        If set, skip loading session cache.  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -SkipSession [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -AsText [<SwitchParameter>]  
-        Outputs the report in human-readable text format with aligned columns instead of  
-        structured hashtable objects. The text format includes headers and separators.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      FromPreferences  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -10256,58 +9859,47 @@ Get-RefactorReport [[-Name] <String[]>] [-PreferencesDatabasePath <String>] [-Se
    Invoke-GenXdevPSFormatter  
 ```` 
 
-### SYNOPSIS 
-    Formats PowerShell script files using PSScriptAnalyzer formatting rules.  
-
 ### SYNTAX 
 ```PowerShell 
-Invoke-GenXdevPSFormatter [-Path] <String> [-Settings <Object>] [-Range <Int32[]>] [-Recurse] [<CommonParameters>] 
+Invoke-GenXdevPSFormatter [-Path] <string> [-Settings <Object>] [-Range <int[]>] [-Recurse] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function applies PowerShell formatting rules to script files using  
-    PSScriptAnalyzer's Invoke-Formatter cmdlet. It can process individual files or  
-    recursively format multiple files in directories. The function uses customizable  
-    formatting settings and provides detailed logging of the formatting process.  
-
 ### PARAMETERS 
-    -Path <String>  
-        Specifies the path to the script file or directory to format. Accepts pipeline  
-        input and supports various path aliases for compatibility.  
+    -Path <string>  
+        Specifies the path to the script file to format.  
         Required?                    true  
-        Position?                    1  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Name, FullName, ImagePath, FileName, ScriptFileName  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Range <int[]>  
+        The range within which formatting should take place as an array of four integers: starting line number, starting column number, ending line number, ending column number.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Recurse  
+        Recursively process files in subdirectories.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     -Settings <Object>  
-        A settings hashtable or a path to a PowerShell data file (.psd1) that contains  
-        the formatting settings. If not specified, the function will attempt to load  
-        settings from a predefined location or use built-in defaults.  
+        A settings hashtable or a path to a PowerShell data file (.psd1) that contains the formatting settings.  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Range <Int32[]>  
-        The range within which formatting should take place as an array of four integers:  
-        starting line number, starting column number, ending line number, ending column  
-        number. If not specified, the entire file will be formatted.  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Recurse [<SwitchParameter>]  
-        Recursively process files in subdirectories when the Path parameter points to  
-        a directory.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -10324,72 +9916,66 @@ Invoke-GenXdevPSFormatter [-Path] <String> [-Settings <Object>] [-Range <Int32[]
    Invoke-GenXdevScriptAnalyzer  
 ```` 
 
-### SYNOPSIS 
-    Invokes PowerShell Script Analyzer to analyze PowerShell scripts for compliance  
-    and best practices.  
-
 ### SYNTAX 
 ```PowerShell 
-Invoke-GenXdevScriptAnalyzer [-Path] <String> [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<CommonParameters>]  
-   Invoke-GenXdevScriptAnalyzer -ScriptDefinition <String> [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<CommonParameters>] 
+Invoke-GenXdevScriptAnalyzer [-Path] <string> [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<CommonParameters>]  
+   Invoke-GenXdevScriptAnalyzer -ScriptDefinition <string> [-EnableExit] [-Fix] [-Recurse] [-ReportSummary] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function provides a wrapper around PSScriptAnalyzer to analyze PowerShell  
-    scripts for compliance issues, best practices violations, and potential bugs.  
-    It supports both file-based analysis and string-based script analysis with  
-    customizable rules and settings.  
-
 ### PARAMETERS 
-    -Path <String>  
-        Specifies the path to the script file to analyze. This parameter is mandatory  
-        when using the Path parameter set.  
+    -EnableExit  
+        Specifies that the tool should exit on error.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Fix  
+        Enables automatic fixing of violations.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Path <string>  
+        Specifies the path to the script file.  
         Required?                    true  
-        Position?                    1  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           Path  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ScriptDefinition <String>  
-        Specifies the script definition as a string to analyze. This parameter is  
-        mandatory when using the Script parameter set.  
+    -Recurse  
+        Recursively process files.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ReportSummary  
+        Reports a summary after analysis.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ScriptDefinition <string>  
+        Specifies the script definition as a string.  
         Required?                    true  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -EnableExit [<SwitchParameter>]  
-        Specifies that the tool should exit on error during analysis.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Fix [<SwitchParameter>]  
-        Enables automatic fixing of violations where possible.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Recurse [<SwitchParameter>]  
-        Recursively processes files in subdirectories when analyzing a directory path.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -ReportSummary [<SwitchParameter>]  
-        Reports a summary after analysis showing the total number of issues found.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           Script  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -10406,108 +9992,108 @@ Invoke-GenXdevScriptAnalyzer [-Path] <String> [-EnableExit] [-Fix] [-Recurse] [-
    New-GenXdevCmdlet                    --> newcmd  
 ```` 
 
-### SYNOPSIS 
-    Creates a new GenXdev PowerShell cmdlet with proper structure and validation.  
-
 ### SYNTAX 
 ```PowerShell 
-New-GenXdevCmdlet [-CmdletName] <String> [[-Synopsis] <String>] [[-Description] <String>] [[-BaseModuleName] <String>] [[-ModuleName] <String>] [[-CmdletAliases] <String[]>] [[-PromptKey] <String>] [[-Prompt] <String>] [-EditPrompt] [-WhatIf] [-Confirm] [<CommonParameters>] 
+New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis] <string>] [[-Description] <string>] [[-BaseModuleName] <string>] [[-ModuleName] <string>] [[-CmdletAliases] <string[]>] [[-PromptKey] <string>] [[-Prompt] <string>] [-EditPrompt] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Creates a new PowerShell cmdlet following GenXdev standards, including parameter  
-    validation, help documentation, and proper verb-noun naming convention. Validates  
-    the verb against approved PowerShell verbs and ensures proper casing of both verb  
-    and noun components. Can integrate new cmdlets into existing module structures.  
-
 ### PARAMETERS 
-    -CmdletName <String>  
-        The name of the cmdlet to create. Must follow the Verb-Noun format using an  
-        approved PowerShell verb.  
-        Required?                    true  
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Synopsis <String>  
-        A brief description of the cmdlet's purpose for help documentation.  
-        Required?                    false  
-        Position?                    2  
-        Default value                todo: A brief description of the cmdlet's purpose  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Description <String>  
-        A detailed description of what the cmdlet does for help documentation.  
+    -BaseModuleName <string>  
+        Integrate the new cmdlet into an existing GenXdev module  
         Required?                    false  
         Position?                    3  
-        Default value                todo: [A detailed description of what the cmdlet does]  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -BaseModuleName <String>  
-        Required?                    false  
-        Position?                    4  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -ModuleName <String>  
-        The name of the base GenXdev module to integrate the cmdlet into.  
-        Must match pattern GenXdev or GenXdev.SubModule.  
-        Required?                    false  
-        Position?                    5  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -CmdletAliases <String[]>  
+    -CmdletAliases <string[]>  
         One or more aliases for the cmdlet. Accepts an array of strings.  
         Required?                    false  
-        Position?                    6  
-        Default value                  
+        Position?                    5  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PromptKey <String>  
-        The AI prompt key used to select a template for generating the cmdlet content.  
-        Defaults to "NewGenXdevCmdLet".  
+    -CmdletName <string>  
+        The name of the cmdlet to create (must use approved verb)  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      cmd  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Confirm  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Description <string>  
+        A detailed description of what the cmdlet does  
+        Required?                    false  
+        Position?                    2  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -EditPrompt  
+        Only edit the AI prompt without creating the cmdlet  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ModuleName <string>  
+        Integrate the new cmdlet into an existing GenXdev sub module  
+        Required?                    false  
+        Position?                    4  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Prompt <string>  
+        Custom AI prompt text to use for cmdlet generation  
         Required?                    false  
         Position?                    7  
-        Default value                NewGenXdevCmdLet  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Prompt <String>  
-        Custom AI prompt text to guide the generation of the cmdlet content.  
+    -PromptKey <string>  
+        The AI prompt key to use for template selection  
         Required?                    false  
-        Position?                    8  
-        Default value                Create a boilerplate GenXdev cmdlet that does what it's name suggests  
+        Position?                    6  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -EditPrompt [<SwitchParameter>]  
-        When specified, only opens the AI prompt for editing without creating the cmdlet.  
+    -Synopsis <string>  
+        A brief description of the cmdlet's purpose  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    1  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -WhatIf [<SwitchParameter>]  
+    -WhatIf  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Confirm [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -10524,63 +10110,54 @@ New-GenXdevCmdlet [-CmdletName] <String> [[-Synopsis] <String>] [[-Description] 
    New-GenXdevModule  
 ```` 
 
-### SYNOPSIS 
-    Creates a new GenXdev PowerShell module with proper structure and configuration.  
-
 ### SYNTAX 
 ```PowerShell 
-New-GenXdevModule [-ModuleName] <String> [-Description] <String> [[-Tags] <String[]>] [-WhatIf] [-Confirm] [<CommonParameters>] 
+New-GenXdevModule [-ModuleName] <string> [-Description] <string> [[-Tags] <string[]>] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Creates a new PowerShell module following GenXdev standards by:  
-    - Generating module manifest (psd1) with proper metadata  
-    - Creating module script file (psm1)  
-    - Setting up directory structure for functions and tests  
-    - Adding required files like LICENSE and README  
-    - Configuring version info and dependencies  
-
 ### PARAMETERS 
-    -ModuleName <String>  
-        The name of the module to create. Must follow GenXdev naming convention starting  
-        with 'GenXdev.' followed by module identifier (e.g. GenXdev.Tools).  
+    -Confirm  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Description <string>  
+        Description of the module's functionality  
         Required?                    true  
         Position?                    1  
-        Default value                  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Description <String>  
-        A brief description of the module's purpose and functionality. This will be used  
-        in the module manifest and documentation.  
+    -ModuleName <string>  
+        Name of the module to create (must follow GenXdev.* pattern)  
         Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Tags <string[]>  
+        Tags for module discovery (no whitespace allowed)  
+        Required?                    false  
         Position?                    2  
-        Default value                  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Tags <String[]>  
-        Optional array of tags for module discovery in PowerShell Gallery. Tags cannot  
-        contain whitespace. Defaults to 'GenXdev'.  
+    -WhatIf  
         Required?                    false  
-        Position?                    3  
-        Default value                @('GenXdev')  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -WhatIf [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Confirm [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -10597,259 +10174,279 @@ New-GenXdevModule [-ModuleName] <String> [-Description] <String> [[-Tags] <Strin
    New-PullRequestForGenXdevModuleChanges --> prgenxdevmodule  
 ```` 
 
-### SYNOPSIS 
-    Creates a pull request for changes made to a GenXdev module.  
-
 ### SYNTAX 
 ```PowerShell 
-New-PullRequestForGenXdevModuleChanges [-ModuleName] <String> [[-CommitMessage] <String>] [[-PullRequestTitle] <String>] [[-PullRequestDescription] <String>] [[-GitUserName] <String>] [[-GitUserEmail] <String>] [-Monitor <Int32>] [-NoBorders] [-Width <Int32>] [-Height <Int32>] [-X <Int32>] [-Y <Int32>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ShowWindow] [-RestoreFocus] [-PassThru] [-SideBySide] [-FocusWindow] [-SetForeground] [-Maximize] [-KeysToSend <String[]>] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
+New-PullRequestForGenXdevModuleChanges [-ModuleName] {GenXdev.AI | GenXdev.Coding | GenXdev.Media | GenXdev.Console | GenXdev.Data | GenXdev.FileSystem | GenXdev.Helpers | GenXdev.Queries | GenXdev.Webbrowser | GenXdev.Windows} [[-CommitMessage] <string>] [[-PullRequestTitle] <string>] [[-PullRequestDescription] <string>] [[-GitUserName] <string>] [[-GitUserEmail] <string>] [-Monitor <int>] [-NoBorders] [-Width <int>] [-Height <int>] [-X <int>] [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered] [-ShowWindow] [-RestoreFocus] [-PassThru] [-SideBySide] [-FocusWindow] [-SetForeground] [-Maximize] [-KeysToSend <string[]>] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function automates the process of creating a pull request for changes made to  
-    a GenXdev module. It handles GitHub authentication, repository forking, pull  
-    request creation, and window positioning using the Set-WindowPosition function.  
-    The function validates module dependencies, runs unit tests, and either creates  
-    a GitHub pull request or uploads to genXdev.net depending on repository  
-    availability.  
-
 ### PARAMETERS 
-    -ModuleName <String>  
-        The name of the GenXdev module to create a pull request for.  
-        Required?                    true  
+    -Bottom  
+        Places window on bottom half of screen  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Centered  
+        Centers window on screen  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ClearSession  
+        Clear alternative settings stored in session for AI preferences  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -CommitMessage <string>  
+        Message for the commit  
+        Required?                    false  
         Position?                    1  
-        Default value                  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -CommitMessage <String>  
-        The commit message to use when committing changes.  
+    -Confirm  
         Required?                    false  
-        Position?                    2  
-        Default value                Improvements to GenXdev module  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PullRequestTitle <String>  
-        The title for the pull request.  
+    -FocusWindow  
+        Focus the window after positioning  
         Required?                    false  
-        Position?                    3  
-        Default value                Module improvements  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      fw, focus  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PullRequestDescription <String>  
-        The description for the pull request.  
-        Required?                    false  
-        Position?                    4  
-        Default value                These changes improve functionality and fix issues I encountered.  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -GitUserName <String>  
-        Git username for commits.  
+    -GitUserEmail <string>  
+        Git email for commits  
         Required?                    false  
         Position?                    5  
-        Default value                Your Name  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -GitUserEmail <String>  
-        Git email for commits.  
+    -GitUserName <string>  
+        Git username for commits  
         Required?                    false  
-        Position?                    6  
-        Default value                you@example.com  
+        Position?                    4  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Monitor <Int32>  
-        Monitor selection: 0=primary, 1+=specific monitor, -1=current, -2=secondary.  
+    -Height <int>  
+        Window height in pixels for positioning applications  
         Required?                    false  
-        Position?                    named  
-        Default value                0  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -NoBorders [<SwitchParameter>]  
-        Removes window borders and title bar for a cleaner appearance.  
+    -KeysToSend <string[]>  
+        Keystrokes to send to the window after positioning  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Width <Int32>  
-        Window width in pixels for positioning applications.  
+    -Left  
+        Places window on left half of screen  
         Required?                    false  
-        Position?                    named  
-        Default value                0  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Height <Int32>  
-        Window height in pixels for positioning applications.  
+    -Maximize  
+        Maximize the window after positioning  
         Required?                    false  
-        Position?                    named  
-        Default value                0  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -X <Int32>  
-        Window horizontal position for positioning applications.  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
+    -ModuleName <string>  
+        Name of the GenXdev module  
+        Required?                    true  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Y <Int32>  
-        Window vertical position for positioning applications.  
+    -Monitor <int>  
+        Monitor selection: 0=primary, 1+=specific monitor, -1=current, -2=secondary  
         Required?                    false  
-        Position?                    named  
-        Default value                0  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      m, mon  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Left [<SwitchParameter>]  
-        Places window on left half of screen.  
+    -NoBorders  
+        Removes window borders and title bar for a cleaner appearance  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      nb  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Right [<SwitchParameter>]  
-        Places window on right half of screen.  
+    -PassThru  
+        Returns window helper object for further manipulation  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      pt  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Top [<SwitchParameter>]  
-        Places window on top half of screen.  
+    -PullRequestDescription <string>  
+        Description for the pull request  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    3  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Bottom [<SwitchParameter>]  
-        Places window on bottom half of screen.  
+    -PullRequestTitle <string>  
+        Title for the pull request  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    2  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Centered [<SwitchParameter>]  
-        Centers window on screen.  
+    -RestoreFocus  
+        Returns focus to PowerShell window after positioning  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      rf, bg  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ShowWindow [<SwitchParameter>]  
+    -Right  
+        Places window on right half of screen  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -RestoreFocus [<SwitchParameter>]  
-        Returns focus to PowerShell window after positioning.  
+    -SessionOnly  
+        Use alternative settings stored in session for AI preferences  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PassThru [<SwitchParameter>]  
-        Returns window helper object for further manipulation.  
+    -SetForeground  
+        Set the window to foreground after positioning  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      fg  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SideBySide [<SwitchParameter>]  
-        Places windows side by side with PowerShell on the same monitor.  
+    -ShowWindow  
+        Maximizes window to fill entire screen  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      sw  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -FocusWindow [<SwitchParameter>]  
-        Focus the window after positioning.  
+    -SideBySide  
+        Places windows side by side with PowerShell on the same monitor  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      sbs  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SetForeground [<SwitchParameter>]  
-        Set the window to foreground after positioning.  
+    -SkipSession  
+        Store settings only in persistent preferences without affecting session  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Maximize [<SwitchParameter>]  
-        Maximize the window after positioning.  
+    -Top  
+        Places window on top half of screen  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -KeysToSend <String[]>  
-        Keystrokes to send to the window after positioning.  
+    -WhatIf  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SessionOnly [<SwitchParameter>]  
-        Use alternative settings stored in session for AI preferences.  
+    -Width <int>  
+        Window width in pixels for positioning applications  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ClearSession [<SwitchParameter>]  
-        Clear alternative settings stored in session for AI preferences.  
+    -X <int>  
+        Window horizontal position for positioning applications  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SkipSession [<SwitchParameter>]  
-        Store settings only in persistent preferences without affecting session.  
+    -Y <int>  
+        Window vertical position for positioning applications  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -WhatIf [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Confirm [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -10866,277 +10463,297 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName] <String> [[-CommitMessage] 
    New-Refactor                         --> newrefactor  
 ```` 
 
-### SYNOPSIS 
-    Creates a new refactoring set for code transformation tasks.  
-
 ### SYNTAX 
 ```PowerShell 
-New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>] [[-SelectionScript] <String>] [[-SelectionPrompt] <String>] [[-LLMQueryType] <String>] [-Model <String>] [-HuggingFaceIdentifier <String>] [-MaxToken <Int32>] [-Cpu <Int32>] [-TTLSeconds <Int32>] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-Temperature <Double>] [-Gpu <Int32>] [-ApiEndpoint <String>] [-ApiKey <String>] [-TimeoutSeconds <Int32>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-FilesToAdd <FileInfo[]>] [-PreferencesDatabasePath <String>] [-AutoAddModifiedFiles] [-Force] [-SessionOnly] [-ClearSession] [-SkipSession] [-Code] [-VisualStudio] [-KeysToSend <String[]>] [-WhatIf] [-Confirm] [<CommonParameters>] 
+New-Refactor [-Name] <string> [-PromptKey] <string> [[-Prompt] <string>] [[-SelectionScript] <string>] [[-SelectionPrompt] <string>] [[-LLMQueryType] {SimpleIntelligence | Knowledge | Pictures | TextTranslation | Coding | ToolUse}] [-Model <string>] [-HuggingFaceIdentifier <string>] [-MaxToken <int>] [-Cpu <int>] [-TTLSeconds <int>] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-Temperature <double>] [-Gpu <int>] [-ApiEndpoint <string>] [-ApiKey <string>] [-TimeoutSeconds <int>] [-Priority <int>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-FilesToAdd <FileInfo[]>] [-PreferencesDatabasePath <string>] [-AutoAddModifiedFiles] [-Force] [-SessionOnly] [-ClearSession] [-SkipSession] [-Code] [-VisualStudio] [-KeysToSend <string[]>] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Creates and configures a new refactoring definition with specified settings for  
-    LLM-based code transformations. The function handles:  
-    - Setting up refactoring configuration  
-    - Configuring selection criteria and prompts  
-    - Managing LLM model settings  
-    - Integrating with development environments  
-    - Persisting refactor definitions  
-
 ### PARAMETERS 
-    -Name <String>  
-        Unique identifier for the refactoring set. Must be non-empty and unique.  
-        Required?                    true  
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -PromptKey <String>  
-        Key identifying which prompt template to use for refactoring operations.  
-        Required?                    true  
-        Position?                    2  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Prompt <String>  
-        Optional custom prompt text to override the template specified by PromptKey.  
+    -ApiEndpoint <string>  
+        The API endpoint URL for AI operations  
         Required?                    false  
-        Position?                    3  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SelectionScript <String>  
-        PowerShell script defining selection criteria for items to refactor.  
+    -ApiKey <string>  
+        The API key for authenticated AI operations  
         Required?                    false  
-        Position?                    4  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SelectionPrompt <String>  
-        Custom prompt text used by the LLM to guide selection of items for refactoring.  
+    -AutoAddModifiedFiles  
+        Will automatically add modified files to the queue  
         Required?                    false  
-        Position?                    5  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -LLMQueryType <String>  
-        The type of LLM query to perform (SimpleIntelligence, Knowledge, Pictures, etc.).  
+    -ClearSession  
+        Clear alternative settings stored in session for AI preferences  
         Required?                    false  
-        Position?                    6  
-        Default value                Coding  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Model <String>  
-        Name or identifier of the specific LLM model to use for processing.  
+    -Code  
+        Open files in Visual Studio Code  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      c  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -HuggingFaceIdentifier <String>  
-        Identifier used to retrieve a specific model from LM Studio.  
+    -Confirm  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -MaxToken <Int32>  
-        Maximum tokens allowed in LLM responses. Use -1 for model default.  
+    -Cpu <int>  
+        The number of CPU cores to dedicate to AI operations  
         Required?                    false  
-        Position?                    named  
-        Default value                0  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Cpu <Int32>  
-        The number of CPU cores to dedicate to AI operations.  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -TTLSeconds <Int32>  
-        Time-to-live in seconds for API-loaded models. Use -1 for no expiration.  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -SelectByFreeRam [<SwitchParameter>]  
-        Select configuration by available system RAM.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -SelectByFreeGpuRam [<SwitchParameter>]  
-        Select configuration by available GPU RAM.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Temperature <Double>  
-        Controls randomness in LLM responses (0.0-1.0). Lower is more deterministic.  
-        Required?                    false  
-        Position?                    named  
-        Default value                -1  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Gpu <Int32>  
-        GPU usage control: -2=Auto, -1=LM Studio default.  
-        Required?                    false  
-        Position?                    named  
-        Default value                -1  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -ApiEndpoint <String>  
-        Custom API endpoint URL for accessing the LLM service.  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -ApiKey <String>  
-        Authentication key required for API access.  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -TimeoutSeconds <Int32>  
-        The timeout in seconds for AI operations.  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Priority <Int32>  
-        Processing priority for this refactor set (higher numbers = higher priority).  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     -ExposedCmdLets <ExposedCmdletDefinition[]>  
-        Array of PowerShell cmdlet definitions to expose as tools to the LLM.  
+        Array of PowerShell command definitions for LLM tools  
         Required?                    false  
-        Position?                    named  
-        Default value                @()  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     -FilesToAdd <FileInfo[]>  
-        Array of files to initially include in the refactoring set.  
+        Array of files to process  
         Required?                    false  
-        Position?                    named  
-        Default value                @()  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PreferencesDatabasePath <String>  
-        Database path for preference data files.  
+    -Force  
+        Force stop LM Studio before initialization  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -AutoAddModifiedFiles [<SwitchParameter>]  
-        When enabled, automatically adds any modified files to the refactoring queue.  
+    -Gpu <int>  
+        How much to offload to the GPU. If 'off', GPU offloading is disabled. If 'max', all layers are offloaded to GPU. If a number between 0 and 1, that fraction of layers will be offloaded to the GPU. -1 = LM Studio will decide how much to offload to the GPU. -2 = Auto  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Force [<SwitchParameter>]  
-        Forces LM Studio to restart before initialization.  
+    -HuggingFaceIdentifier <string>  
+        The LM Studio specific model identifier  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      ModelLMSGetIdentifier  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SessionOnly [<SwitchParameter>]  
-        Use alternative settings stored in session for AI preferences.  
+    -KeysToSend <string[]>  
+        Keystrokes to send after opening files  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      keys  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ClearSession [<SwitchParameter>]  
-        Clear alternative settings stored in session for AI preferences.  
+    -LLMQueryType <string>  
+        The type of LLM query  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    5  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SkipSession [<SwitchParameter>]  
-        Store settings only in persistent preferences without affecting session.  
+    -MaxToken <int>  
+        The maximum number of tokens to use in AI operations  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Opens files in Visual Studio Code when enabled.  
+    -Model <string>  
+        The model identifier or pattern to use for AI operations  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -VisualStudio [<SwitchParameter>]  
-        Opens files in Visual Studio when enabled.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
+    -Name <string>  
+        The name of this new refactor set  
+        Required?                    true  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -KeysToSend <String[]>  
-        Array of keystrokes to send after opening files.  
+    -PreferencesDatabasePath <string>  
+        Database path for preference data files  
         Required?                    false  
-        Position?                    named  
-        Default value                @()  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      DatabasePath  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -WhatIf [<SwitchParameter>]  
+    -Priority <int>  
+        Priority for this refactor set  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Confirm [<SwitchParameter>]  
+    -Prompt <string>  
+        Custom prompt text to override the template  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    2  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -PromptKey <string>  
+        The prompt key indicates which prompt script to use  
+        Required?                    true  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SelectByFreeGpuRam  
+        Select configuration by available GPU RAM  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SelectByFreeRam  
+        Select configuration by available system RAM  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SelectionPrompt <string>  
+        LLM selection guidance prompt  
+        Required?                    false  
+        Position?                    4  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SelectionScript <string>  
+        Powershell script for selecting items to refactor  
+        Required?                    false  
+        Position?                    3  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SessionOnly  
+        Use alternative settings stored in session for AI preferences  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SkipSession  
+        Store settings only in persistent preferences without affecting session  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      FromPreferences  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -TTLSeconds <int>  
+        Time-to-live in seconds for API-loaded models  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Temperature <double>  
+        Temperature for response randomness (0.0-1.0)  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -TimeoutSeconds <int>  
+        The timeout in seconds for AI operations  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -VisualStudio  
+        Open in Visual Studio  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -WhatIf  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -11153,32 +10770,29 @@ New-Refactor [-Name] <String> [-PromptKey] <String> [[-Prompt] <String>] [[-Sele
    Open-GenXdevCmdletsContainingClipboardTextInIde --> vscodesearch  
 ```` 
 
-### SYNOPSIS 
-    Opens files in IDE that contain clipboard text  
-
 ### SYNTAX 
 ```PowerShell 
-Open-GenXdevCmdletsContainingClipboardTextInIde [[-InputObject] <String>] [-Copilot] [<CommonParameters>] 
+Open-GenXdevCmdletsContainingClipboardTextInIde [[-InputObject] <string>] [-Copilot] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    The text in the clipboard is used to search in all GenXdev scripts and when found opens that file in Code or Visual Studio  
-    ##############################################################################  
-
 ### PARAMETERS 
-    -InputObject <String>  
+    -Copilot  
+        Add sourcefile to Copilot edit-session  
         Required?                    false  
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       true (ByValue)  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Copilot [<SwitchParameter>]  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -InputObject <string>  
+        Search for clipboard text in all GenXdev scripts  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -11195,88 +10809,90 @@ Open-GenXdevCmdletsContainingClipboardTextInIde [[-InputObject] <String>] [-Copi
    Remove-Refactor  
 ```` 
 
-### SYNOPSIS 
-    Removes refactor sets from GenXdev preferences system.  
-
 ### SYNTAX 
 ```PowerShell 
-Remove-Refactor [-Name] <String[]> [[-RemoveDefault]] [-PreferencesDatabasePath <String>] [-DefaultValue <String>] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
+Remove-Refactor [-Name] <string[]> [[-RemoveDefault]] [-PreferencesDatabasePath <string>] [-DefaultValue <string>] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Manages refactor sets in the GenXdev preferences system by removing specified  
-    entries. Works with both custom and default refactor sets. Default sets are  
-    protected unless explicitly allowed for removal. All refactor sets are  
-    identified by the prefix "refactor_set_" in the preferences system.  
-
 ### PARAMETERS 
-    -Name <String[]>  
-        One or more name patterns used to match refactor sets for removal. Supports  
-        wildcard patterns like "*" and "?" for flexible matching. Multiple patterns can  
-        be provided to target specific sets.  
-        Required?                    true  
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
-        Accept wildcard characters?  true  
-    -RemoveDefault [<SwitchParameter>]  
-        Switch parameter that, when enabled, allows the removal of protected default or  
-        standard refactor sets. By default, these sets are protected from deletion.  
+    -ClearSession  
+        Clear the session setting (Global variable) before retrieving  
         Required?                    false  
-        Position?                    2  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PreferencesDatabasePath <String>  
+    -Confirm  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -DefaultValue <String>  
+    -DefaultValue <string>  
+        The default value if preference is not found  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       true (ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      DefaultPreference  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SessionOnly [<SwitchParameter>]  
+    -Name <string[]>  
+        The name of the refactor, accepts wildcards  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      PreferenceName  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+    -PreferencesDatabasePath <string>  
+        Database path for preference data files  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      DatabasePath  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ClearSession [<SwitchParameter>]  
+    -RemoveDefault  
+        Switch to also remove the standard refactor set  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    1  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           All  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SkipSession [<SwitchParameter>]  
+    -SessionOnly  
+        Use alternative settings stored in session for Data preferences like Language, Database paths, etc  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -WhatIf [<SwitchParameter>]  
+    -SkipSession  
+        Dont use alternative settings stored in session for Data preferences like Language, Database paths, etc  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      FromPreferences  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Confirm [<SwitchParameter>]  
+    -WhatIf  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -11293,86 +10909,83 @@ Remove-Refactor [-Name] <String[]> [[-RemoveDefault]] [-PreferencesDatabasePath 
    Search-GenXdevCmdlet                 --> searchcmdlet  
 ```` 
 
-### SYNOPSIS 
-    Searches for a GenXdev cmdlet and optionally opens it in an IDE for editing.  
-
 ### SYNTAX 
 ```PowerShell 
-Search-GenXdevCmdlet [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-EditCmdlet] [<CommonParameters>] 
+Search-GenXdevCmdlet [[-CmdletName] <string>] [[-ModuleName] <string[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-EditCmdlet] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function searches for GenXdev cmdlets using a pattern and optionally opens  
-    the found cmdlet's source file in Visual Studio Code or Visual Studio for  
-    editing. It retrieves cmdlet information and provides keyboard shortcuts to  
-    quickly navigate to the function definition.  
-
 ### PARAMETERS 
-    -CmdletName <String>  
-        Search pattern to filter cmdlets. Supports wildcards. Default is '*' to show  
-        all cmdlets.  
+    -CmdletName <string>  
+        Search pattern to filter cmdlets  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+    -Code  
+        Open the found cmdlet in Visual Studio Code  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      c  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -EditCmdlet  
+        Also opens the file in the editor after finding  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -FromScripts  
+        Search in script files instead of module files  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ModuleName <string[]>  
+        GenXdev module names to search  
         Required?                    false  
         Position?                    1  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  true  
-    -ModuleName <String[]>  
-        GenXdev module names to search. Must match pattern starting with 'GenXdev'.  
-        Default searches all GenXdev modules.  
-        Required?                    false  
-        Position?                    2  
-        Default value                  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Module, BaseModuleName, SubModuleName  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
-    -NoLocal [<SwitchParameter>]  
-        Skip searching in local module paths when finding cmdlets.  
+    -NoLocal  
+        Skip searching in local module paths  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -OnlyPublished [<SwitchParameter>]  
-        Limit search to published module paths only.  
+    -OnlyPublished  
+        Limit search to published module paths only  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -FromScripts [<SwitchParameter>]  
-        Search in script files instead of module files.  
+    -VisualStudio  
+        Open the found cmdlet in Visual Studio  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Open the found cmdlet in Visual Studio Code.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -VisualStudio [<SwitchParameter>]  
-        Open the found cmdlet in Visual Studio.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -EditCmdlet [<SwitchParameter>]  
-        Also opens the file in the editor after finding the cmdlet.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -11386,103 +10999,191 @@ Search-GenXdevCmdlet [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-NoLoc
 ##	Show-GenXdevCmdLetInIde 
 ```PowerShell 
 
-   Show-GenXdevCmdLetInIde              --> editcmdlet  
+   Show-GenXdevCmdLetInIde              --> cmdlet, editcmdlet  
 ```` 
-
-### SYNOPSIS 
-    Opens the specified GenXdev cmdlet in Visual Studio Code.  
 
 ### SYNTAX 
 ```PowerShell 
-Show-GenXdevCmdLetInIde [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-UnitTests] [-KeysToSend <String[]>] [-CoPilot] [-Search] [<CommonParameters>] 
+Show-GenXdevCmdLetInIde [-CmdletName] <string> [[-ModuleName] <string[]>] [[-BaseModuleName] <string>] [[-Synopsis] <string>] [[-Description] <string>] [[-CmdletAliases] <string[]>] [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio] [-UnitTests] [-KeysToSend <string[]>] [-CoPilot] [-Search] [-ChangedirectoryOnly] [-New] [-PromptKey <string>] [-Prompt <string>] [-EditPrompt] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    This function retrieves the script file and line number for the specified GenXdev  
-    cmdlet and opens it in Visual Studio Code. It can open either the main function  
-    implementation or its associated unit tests, based on the UnitTests switch  
-    parameter.  
-
 ### PARAMETERS 
-    -CmdletName <String>  
-        The name of the GenXdev cmdlet to locate and open in Visual Studio Code.  
-        Required?                    false  
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  true  
-    -ModuleName <String[]>  
+    -BaseModuleName <string>  
+        Integrate the new cmdlet into an existing GenXdev module  
         Required?                    false  
         Position?                    2  
-        Default value                  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Accept pipeline input?       false  
+        Parameter set name           New  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -ChangedirectoryOnly  
+        When specified, only changes the current PowerShell location\r\nthe respective Cmdlet directory  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      cd  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -CmdletAliases <string[]>  
+        One or more aliases for the cmdlet. Accepts an array of strings.  
+        Required?                    false  
+        Position?                    5  
+        Accept pipeline input?       false  
+        Parameter set name           New  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -CmdletName <string>  
+        Search pattern to filter cmdlets  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
-    -NoLocal [<SwitchParameter>]  
+    -CoPilot  
+        Add to Co-Pilot edit session  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -OnlyPublished [<SwitchParameter>]  
+    -Code  
+        The ide to open the file in  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      c  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -FromScripts [<SwitchParameter>]  
+    -Description <string>  
+        A detailed description of what the cmdlet does  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    4  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           New  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
+    -EditPrompt  
+        Only edit the AI prompt without creating the cmdlet  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -VisualStudio [<SwitchParameter>]  
+    -FromScripts  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -UnitTests [<SwitchParameter>]  
-        When specified, opens the unit test file for the cmdlet instead of the main  
-        implementation file.  
+    -KeysToSend <string[]>  
+        The keys to send  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      keys  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -KeysToSend <String[]>  
+    -ModuleName <string[]>  
+        GenXdev module names to search  
         Required?                    false  
-        Position?                    named  
-        Default value                @()  
+        Position?                    1  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      Module, SubModuleName  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+    -New  
+        Create a new cmdlet  
+        Required?                    false  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           New  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -CoPilot [<SwitchParameter>]  
+    -NoLocal  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Search [<SwitchParameter>]  
+    -OnlyPublished  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Prompt <string>  
+        Custom AI prompt text to use for cmdlet generation  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -PromptKey <string>  
+        The AI prompt key to use for template selection  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           New  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Search  
+        Also global search for the cmdlet  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Synopsis <string>  
+        A brief description of the cmdlet's purpose  
+        Required?                    false  
+        Position?                    3  
+        Accept pipeline input?       false  
+        Parameter set name           New  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -UnitTests  
+        Show the function's unit-tests instead of the function  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -VisualStudio  
+        Open in Visual Studio  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -11499,29 +11200,20 @@ Show-GenXdevCmdLetInIde [[-CmdletName] <String>] [[-ModuleName] <String[]>] [-No
    SplitUpPsm1File  
 ```` 
 
-### SYNOPSIS 
-    Splits a PowerShell module (.psm1) file into individual function files.  
-
 ### SYNTAX 
 ```PowerShell 
-SplitUpPsm1File [-Psm1FilePath] <String> [<CommonParameters>] 
+SplitUpPsm1File [-Psm1FilePath] <string> [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Takes a PowerShell module file and splits each function into separate .ps1 files  
-    in a Functions subdirectory. Each function is extracted with its documentation  
-    and saved in a file matching the function name. The original module file is  
-    updated to dot-source all the split function files.  
-
 ### PARAMETERS 
-    -Psm1FilePath <String>  
-        The full path to the PowerShell module (.psm1) file that needs to be split into  
-        individual function files. This path will be expanded to a full path if relative.  
+    -Psm1FilePath <string>  
+        Path to the .psm1 file to split into functions  
         Required?                    true  
-        Position?                    1  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      Path  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -11538,105 +11230,108 @@ SplitUpPsm1File [-Psm1FilePath] <String> [<CommonParameters>]
    Start-NextRefactor                   --> nextrefactor  
 ```` 
 
-### SYNOPSIS 
-    Continues or restarts a code refactoring session.  
-
 ### SYNTAX 
 ```PowerShell 
-Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [[-CleanUpDeletedFiles]] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>] 
+Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [[-CleanUpDeletedFiles]] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-Speak] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Manages code refactoring operations by processing refactor definitions in  
-    priority order. Handles file selection, progress tracking, error handling, and  
-    provides interactive user control over the refactoring process.  
-
 ### PARAMETERS 
-    -Name <String[]>  
-        Name pattern(s) of refactors to process. Accepts wildcards. Default is "*".  
-        Required?                    false  
-        Position?                    1  
-        Default value                @('*')  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
-        Accept wildcard characters?  true  
-    -FilesToAdd <FileInfo[]>  
-        Files to include in the refactoring process.  
-        Required?                    false  
-        Position?                    2  
-        Default value                @()  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -FilesToRemove <FileInfo[]>  
-        Files to exclude from the refactoring process.  
+    -CleanUpDeletedFiles  
+        Clean up deleted files  
         Required?                    false  
         Position?                    3  
-        Default value                @()  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -CleanUpDeletedFiles [<SwitchParameter>]  
-        Remove files that no longer exist from the refactor set.  
+    -Confirm  
         Required?                    false  
-        Position?                    4  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Reset [<SwitchParameter>]  
-        Restart processing from the beginning of the refactor set.  
+    -FilesToAdd <FileInfo[]>  
+        Filenames to add  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    1  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ResetLMSelections [<SwitchParameter>]  
-        Restart all LLM selections in the refactoring process.  
+    -FilesToRemove <FileInfo[]>  
+        Filenames to remove  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    2  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -MarkAllCompleted [<SwitchParameter>]  
-        Marks all files in the refactor set as completed.  
+    -MarkAllCompleted  
+        Mark all files as refactored  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -RedoLast [<SwitchParameter>]  
-        Repeat the last refactoring operation.  
+    -Name <string[]>  
+        The name of the refactor, accepts wildcards  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+    -RedoLast  
+        Redo the last refactor  
+        Required?                    false  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Speak [<SwitchParameter>]  
-        Enables text-to-speech for refactoring progress and notifications.  
+    -Reset  
+        Start from the beginning of the refactor set  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -WhatIf [<SwitchParameter>]  
+    -ResetLMSelections  
+        Restart all LLM selections  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Confirm [<SwitchParameter>]  
+    -Speak  
+        Speak out the details of next refactor  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -WhatIf  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -11653,37 +11348,29 @@ Start-NextRefactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToR
    Test-RefactorLLMSelection  
 ```` 
 
-### SYNOPSIS 
-    Evaluates source files for refactoring eligibility using LLM analysis.  
-
 ### SYNTAX 
 ```PowerShell 
-Test-RefactorLLMSelection [-RefactorDefinition] <RefactorDefinition> [-Path] <String> [<CommonParameters>] 
+Test-RefactorLLMSelection [-RefactorDefinition] <RefactorDefinition> [-Path] <string> [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Uses Language Learning Model (LLM) analysis to determine if a source code file  
-    should be selected for refactoring based on specified criteria. The function  
-    processes the file content through an LLM query and returns a boolean response.  
-
 ### PARAMETERS 
-    -RefactorDefinition <RefactorDefinition>  
-        A RefactorDefinition object containing the LLM configuration and selection  
-        criteria settings used to evaluate the source file.  
+    -Path <string>  
+        The path to the source file to evaluate  
         Required?                    true  
         Position?                    1  
-        Default value                  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      FullName  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Path <String>  
-        The full filesystem path to the source code file that needs to be evaluated  
-        for potential refactoring.  
+    -RefactorDefinition <RefactorDefinition>  
+        The refactor definition containing LLM settings  
         Required?                    true  
-        Position?                    2  
-        Default value                  
+        Position?                    0  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
@@ -11700,427 +11387,460 @@ Test-RefactorLLMSelection [-RefactorDefinition] <RefactorDefinition> [-Path] <St
    Update-Refactor                      --> updaterefactor  
 ```` 
 
-### SYNOPSIS 
-    Updates and manages refactoring sets including file selection and processing.  
-
 ### SYNTAX 
 ```PowerShell 
-Update-Refactor [[-Name] <String[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-SelectByModifiedDateFrom <DateTime>] [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>] [-SelectByCreationDateTo <DateTime>] [-PromptKey <String>] [-Prompt <String>] [-SelectionScript <String>] [-SelectionPrompt <String>] [-LLMQueryType <String>] [-Model <String>] [-HuggingFaceIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>] [-TTLSeconds <Int32>] [-Cpu <Int32>] [-Gpu <Int32>] [-ApiEndpoint <String>] [-ApiKey <String>] [-TimeoutSeconds <Int32>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-KeysToSend <String[]>] [-PreferencesDatabasePath <String>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection] [-PerformAutoSelections] [-PerformAISelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-ReprocessModifiedFiles] [-Force] [-Code] [-VisualStudio] [-Speak] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>]  
-   Update-Refactor [[-Refactor] <RefactorDefinition[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-SelectByModifiedDateFrom <DateTime>] [-SelectByModifiedDateTo <DateTime>] [-SelectByCreationDateFrom <DateTime>] [-SelectByCreationDateTo <DateTime>] [-PromptKey <String>] [-Prompt <String>] [-SelectionScript <String>] [-SelectionPrompt <String>] [-LLMQueryType <String>] [-Model <String>] [-HuggingFaceIdentifier <String>] [-Temperature <Double>] [-MaxToken <Int32>] [-TTLSeconds <Int32>] [-Cpu <Int32>] [-Gpu <Int32>] [-ApiEndpoint <String>] [-ApiKey <String>] [-TimeoutSeconds <Int32>] [-Priority <Int32>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-KeysToSend <String[]>] [-PreferencesDatabasePath <String>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection] [-PerformAutoSelections] [-PerformAISelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-ReprocessModifiedFiles] [-Force] [-Code] [-VisualStudio] [-Speak] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
+Update-Refactor [[-Name] <string[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-SelectByModifiedDateFrom <datetime>] [-SelectByModifiedDateTo <datetime>] [-SelectByCreationDateFrom <datetime>] [-SelectByCreationDateTo <datetime>] [-PromptKey <string>] [-Prompt <string>] [-SelectionScript <string>] [-SelectionPrompt <string>] [-LLMQueryType {SimpleIntelligence | Knowledge | Pictures | TextTranslation | Coding | ToolUse}] [-Model <string>] [-HuggingFaceIdentifier <string>] [-Temperature <double>] [-MaxToken <int>] [-TTLSeconds <int>] [-Cpu <int>] [-Gpu <int>] [-ApiEndpoint <string>] [-ApiKey <string>] [-TimeoutSeconds <int>] [-Priority <int>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-KeysToSend <string[]>] [-PreferencesDatabasePath <string>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection] [-PerformAutoSelections] [-PerformAISelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-ReprocessModifiedFiles] [-Force] [-Code] [-VisualStudio] [-Speak] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>]  
+   Update-Refactor [[-Refactor] <RefactorDefinition[]>] [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>] [-SelectByModifiedDateFrom <datetime>] [-SelectByModifiedDateTo <datetime>] [-SelectByCreationDateFrom <datetime>] [-SelectByCreationDateTo <datetime>] [-PromptKey <string>] [-Prompt <string>] [-SelectionScript <string>] [-SelectionPrompt <string>] [-LLMQueryType {SimpleIntelligence | Knowledge | Pictures | TextTranslation | Coding | ToolUse}] [-Model <string>] [-HuggingFaceIdentifier <string>] [-Temperature <double>] [-MaxToken <int>] [-TTLSeconds <int>] [-Cpu <int>] [-Gpu <int>] [-ApiEndpoint <string>] [-ApiKey <string>] [-TimeoutSeconds <int>] [-Priority <int>] [-ExposedCmdLets <ExposedCmdletDefinition[]>] [-KeysToSend <string[]>] [-PreferencesDatabasePath <string>] [-CleanUpDeletedFiles] [-AskBeforeLLMSelection] [-PerformAutoSelections] [-PerformAISelections] [-RetryFailedLLMSelections] [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections] [-MarkAllCompleted] [-RedoLast] [-ReprocessModifiedFiles] [-Force] [-Code] [-VisualStudio] [-Speak] [-SelectByFreeRam] [-SelectByFreeGpuRam] [-SessionOnly] [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```` 
 
-### DESCRIPTION 
-    Provides comprehensive management of refactoring sets by:  
-    - Adding or removing files from processing queues  
-    - Cleaning up deleted files from the set  
-    - Managing state information and progress tracking  
-    - Handling LLM-based file selection and processing  
-    - Supporting both automatic and manual file management  
-    - Maintaining detailed logs of all operations  
-    - Gracefully handling deleted files (skipped unless CleanUpDeletedFiles is used)  
-
 ### PARAMETERS 
-    -Name <String[]>  
-        Names of refactor sets to update, accepts wildcards. Default is "*".  
+    -ApiEndpoint <string>  
+        The API endpoint URL for AI operations  
         Required?                    false  
-        Position?                    1  
-        Default value                @('*')  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Aliases                        
-        Accept wildcard characters?  true  
-    -Refactor <RefactorDefinition[]>  
-        Direct input of refactor set objects instead of loading by name.  
-        Required?                    false  
-        Position?                    2  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -FilesToAdd <FileInfo[]>  
-        Files to add to the processing queue.  
+    -ApiKey <string>  
+        The API key for authenticated AI operations  
         Required?                    false  
-        Position?                    3  
-        Default value                @()  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -FilesToRemove <FileInfo[]>  
-        Files to remove from the processing queue.  
+    -AskBeforeLLMSelection  
+        Switch to suppress user interaction  
         Required?                    false  
-        Position?                    4  
-        Default value                @()  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SelectByModifiedDateFrom <DateTime>  
-        Select files modified on or after this date.  
+    -CleanUpDeletedFiles  
+        Clean up deleted files  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SelectByModifiedDateTo <DateTime>  
-        Select files modified on or before this date.  
+    -Clear  
+        Clear all files from the refactor set  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SelectByCreationDateFrom <DateTime>  
-        Select files created on or after this date.  
+    -ClearLog  
+        Clear the log of the refactor set  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SelectByCreationDateTo <DateTime>  
-        Select files created on or before this date.  
+    -ClearSession  
+        Clear alternative settings stored in session for AI preferences  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PromptKey <String>  
-        Key identifying which prompt script to use.  
+    -Code  
+        The ide to open the file in  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      c  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Prompt <String>  
-        Direct prompt text to use for processing.  
+    -Confirm  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SelectionScript <String>  
-        PowerShell script for file selection logic.  
+    -Cpu <int>  
+        The number of CPU cores to dedicate to AI operations  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -SelectionPrompt <String>  
-        Content for LLM-based selection prompts.  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -LLMQueryType <String>  
-        Type of LLM query to perform.  
-        Required?                    false  
-        Position?                    named  
-        Default value                Coding  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Model <String>  
-        LLM model identifier for LM-Studio.  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -HuggingFaceIdentifier <String>  
-        Model retrieval identifier for LM-Studio.  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Temperature <Double>  
-        Temperature setting for response randomness (0.0-1.0).  
-        Required?                    false  
-        Position?                    named  
-        Default value                -1  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -MaxToken <Int32>  
-        Maximum tokens allowed in responses (-1 for default).  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -TTLSeconds <Int32>  
-        Time-to-live in seconds for API model requests.  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Cpu <Int32>  
-        Number of CPU cores to dedicate to AI operations.  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Gpu <Int32>  
-        GPU processing control (-2=Auto, -1=LM-Studio default).  
-        Required?                    false  
-        Position?                    named  
-        Default value                -1  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -ApiEndpoint <String>  
-        API endpoint URL for LLM service.  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -ApiKey <String>  
-        Authentication key for API access.  
-        Required?                    false  
-        Position?                    named  
-        Default value                  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -TimeoutSeconds <Int32>  
-        The timeout in seconds for AI operations.  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    -Priority <Int32>  
-        Processing priority level for this refactor set.  
-        Required?                    false  
-        Position?                    named  
-        Default value                0  
-        Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     -ExposedCmdLets <ExposedCmdletDefinition[]>  
-        PowerShell commands available during LLM selection.  
+        Array of PowerShell command definitions to use as tools during LLM selection  
         Required?                    false  
-        Position?                    named  
-        Default value                @()  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -KeysToSend <String[]>  
-        Keystrokes to send after opening file.  
+    -FilesToAdd <FileInfo[]>  
+        Filenames to add  
         Required?                    false  
-        Position?                    named  
-        Default value                @()  
+        Position?                    2  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PreferencesDatabasePath <String>  
-        Database path for preference data files.  
+    -FilesToRemove <FileInfo[]>  
+        Filenames to remove  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    3  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -CleanUpDeletedFiles [<SwitchParameter>]  
-        Remove entries for files that no longer exist on disk. Without this parameter,  
-        deleted files are preserved in collections but gracefully skipped during  
-        processing.  
+    -Force  
+        Force stop LM Studio before initialization  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -AskBeforeLLMSelection [<SwitchParameter>]  
-        Prompt before launching LLM invocations for file selections.  
+    -Gpu <int>  
+        How much to offload to the GPU. If 'off', GPU offloading is disabled. If 'max', all layers are offloaded to GPU. If a number between 0 and 1, that fraction of layers will be offloaded to the GPU. -1 = LM Studio will decide how much to offload to the GPU. -2 = Auto  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PerformAutoSelections [<SwitchParameter>]  
-        Enable LLM-based file selection processing.  
+    -HuggingFaceIdentifier <string>  
+        The LM Studio specific model identifier  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      ModelLMSGetIdentifier  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -PerformAISelections [<SwitchParameter>]  
-        Process all files in the refactor set with LLM. Can also be used as  
-        -PerformAISelections.  
+    -KeysToSend <string[]>  
+        The keys to invoke as key strokes after opening the file  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      keys  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -RetryFailedLLMSelections [<SwitchParameter>]  
-        Retry previously failed LLM selections.  
+    -LLMQueryType <string>  
+        The type of LLM query  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Clear [<SwitchParameter>]  
-        Remove all files from the refactor set.  
+    -MarkAllCompleted  
+        Mark all files as refactored  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ClearLog [<SwitchParameter>]  
-        Clear the refactor set's operation log.  
+    -MaxToken <int>  
+        The maximum number of tokens to use in AI operations  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Reset [<SwitchParameter>]  
-        Start processing from beginning of refactor set.  
+    -Model <string>  
+        The model identifier or pattern to use for AI operations  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ResetLMSelections [<SwitchParameter>]  
-        Restart all LLM selections from beginning.  
+    -Name <string[]>  
+        The name of the refactor, accepts wildcards  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           Name  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+    -PerformAISelections  
+        Switch to process all files in the refactor set  
+        Required?                    false  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      PerformAllLLMSelections  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -MarkAllCompleted [<SwitchParameter>]  
-        Mark all files as successfully refactored.  
+    -PerformAutoSelections  
+        Switch to enable LLM-based file selection processing  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -RedoLast [<SwitchParameter>]  
-        Reprocess the last refactoring operation.  
+    -PreferencesDatabasePath <string>  
+        Database path for preference data files  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      DatabasePath  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ReprocessModifiedFiles [<SwitchParameter>]  
-        Automatically reprocess files that have been modified since the last refactor  
-        update.  
+    -Priority <int>  
+        Priority for this refactor set  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Force [<SwitchParameter>]  
-        Force stop LM-Studio before initialization.  
+    -Prompt <string>  
+        The prompt key indicates which prompt script to use  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Code [<SwitchParameter>]  
-        Open file in Visual Studio Code.  
+    -PromptKey <string>  
+        The prompt key indicates which prompt script to use  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -VisualStudio [<SwitchParameter>]  
-        Open file in Visual Studio.  
+    -RedoLast  
+        Redo the last refactor  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Speak [<SwitchParameter>]  
-        Enable text-to-speech for operation details.  
+    -Refactor <RefactorDefinition[]>  
+        The refactor set to update  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    1  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           Refactor  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SelectByFreeRam [<SwitchParameter>]  
-        Select configuration by available system RAM.  
+    -ReprocessModifiedFiles  
+        Automatically reprocess files modified since last update  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      AutoAddModifiedFiles  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SelectByFreeGpuRam [<SwitchParameter>]  
-        Select configuration by available GPU RAM.  
+    -Reset  
+        Start from the beginning of the refactor set  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SessionOnly [<SwitchParameter>]  
-        Use alternative settings stored in session for AI preferences.  
+    -ResetLMSelections  
+        Restart all LLMSelections  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ClearSession [<SwitchParameter>]  
-        Clear alternative settings stored in session for AI preferences.  
+    -RetryFailedLLMSelections  
+        Switch to retry failed LLM selections  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SkipSession [<SwitchParameter>]  
-        Store settings only in persistent preferences without affecting session.  
+    -SelectByCreationDateFrom <datetime>  
+        Select files by creation date from  
         Required?                    false  
-        Position?                    named  
-        Default value                False  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -WhatIf [<SwitchParameter>]  
+    -SelectByCreationDateTo <datetime>  
+        Select files by creation date to  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Confirm [<SwitchParameter>]  
+    -SelectByFreeGpuRam  
+        Select configuration by available GPU RAM  
         Required?                    false  
-        Position?                    named  
-        Default value                  
+        Position?                    Named  
         Accept pipeline input?       false  
-        Aliases                        
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SelectByFreeRam  
+        Select configuration by available system RAM  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SelectByModifiedDateFrom <datetime>  
+        Select files by modified date from  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SelectByModifiedDateTo <datetime>  
+        Select files by modified date to  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SelectionPrompt <string>  
+        If provided, will invoke LLM to do the selection based on the content of the script  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SelectionScript <string>  
+        Powershell script for function to select items to refactor  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SessionOnly  
+        Use alternative settings stored in session for AI preferences  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -SkipSession  
+        Store settings only in persistent preferences without affecting session  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      FromPreferences  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Speak  
+        Speak out the details of next refactor  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -TTLSeconds <int>  
+        Time-to-live in seconds for API-loaded models  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -Temperature <double>  
+        Temperature for response randomness (0.0-1.0)  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -TimeoutSeconds <int>  
+        The timeout in seconds for AI operations  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -VisualStudio  
+        Open in Visual Studio  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+    -WhatIf  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  

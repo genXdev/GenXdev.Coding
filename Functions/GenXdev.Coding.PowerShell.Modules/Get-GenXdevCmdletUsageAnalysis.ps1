@@ -1,4 +1,32 @@
-﻿<#
+<##############################################################################
+Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
+Original cmdlet filename  : Get-GenXdevCmdletUsageAnalysis.ps1
+Original author           : René Vaessen / GenXdev
+Version                   : 1.264.2025
+################################################################################
+MIT License
+
+Copyright 2021-2025 GenXdev
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+################################################################################>
+<#
 .SYNOPSIS
     Analyzes GenXdev cmdlet usage patterns to identify most frequently called functions.
 
@@ -46,7 +74,7 @@ function Get-GenXdevCmdletUsageAnalysis {
         )
 
         try {
-            $content = Microsoft.PowerShell.Management\Get-Content -Path $FilePath -Raw -ErrorAction Stop
+            $content = Microsoft.PowerShell.Management\Get-Content -LiteralPath $FilePath -Raw -ErrorAction Stop
 
             # Remove comments and strings to avoid false positives
             $cleanedContent = $content -replace '#.*$', '' -replace '(?s)<#.*?#>', ''
@@ -145,7 +173,7 @@ function Get-GenXdevCmdletUsageAnalysis {
         $allFunctions = @{}
 
         foreach ($cmdlet in $cmdlets) {
-            if ($cmdlet.ScriptFilePath -and (Microsoft.PowerShell.Management\Test-Path $cmdlet.ScriptFilePath)) {
+            if ($cmdlet.ScriptFilePath -and (Microsoft.PowerShell.Management\Test-Path -LiteralPath $cmdlet.ScriptFilePath)) {
                 $allFunctions[$cmdlet.Name] = @{
                     FilePath     = $cmdlet.ScriptFilePath
                     ModuleName   = $cmdlet.ModuleName

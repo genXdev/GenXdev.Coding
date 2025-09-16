@@ -1,3 +1,31 @@
+<##############################################################################
+Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
+Original cmdlet filename  : Assert-GenXdevTest.ps1
+Original author           : René Vaessen / GenXdev
+Version                   : 1.264.2025
+################################################################################
+MIT License
+
+Copyright 2021-2025 GenXdev
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+################################################################################>
 ################################################################################
 <#
 .SYNOPSIS
@@ -102,7 +130,7 @@ function Assert-GenXdevTest {
 
     [CmdletBinding(DefaultParameterSetName = "ModuleName")]
     [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidGlobalVars", "Global:AllowLongRunningTests")]
-    [Alias("Assert-GenXdevUnitTest", "rungenxdevtests", "testcmdlet")]
+    [Alias("rungenxdevtests")]
 
     param (
         ###############################################################################
@@ -340,7 +368,7 @@ function Assert-GenXdevTest {
                     Microsoft.PowerShell.Utility\Write-Progress `
                         -Activity "Analyzing $($nextCmdlet.Name)" `
                         -CurrentOperation "Processing $($nextCmdlet.Name)" `
-                        -Status "'$((GenXdev.FileSystem\Find-Item ($nextCmdlet.ScriptFilePath) -NoRecurse -RelativeBasePath $rootPath))'"
+                        -Status "'$([IO.Path]::GetFileName($nextCmdlet.ScriptFilePath))'"
 
                     # initialize loop control variables for retry logic
                     $stop = $false
@@ -866,7 +894,7 @@ $($exc.InvocationInfo.ScriptStackTrace)
                     )
                     $exception.Data.Add('ScriptPath', $_)
                     $exception.Data.Add('IssueCount',
-                        ($scriptAnalyzerResults.Count + $testResult.FailedCount))
+                        ($scriptAnalyzerResults.Count + $testResults.FailedCount))
                     $exception.Data.Add('AnalyzerResults', $scriptAnalyzerResults)
                     $exception.Data.Add('TestResults', $testResults)
 
@@ -1005,9 +1033,9 @@ $($exc.InvocationInfo.ScriptStackTrace)
 
             # output final test results with success indicators
             Microsoft.PowerShell.Utility\Write-Output @{
-                Success         = (($testResult.Failed.Count + $scriptAnalyzerResults.Count) -eq 0)
+                Success         = (($testResults.Failed.Count + $scriptAnalyzerResults.Count) -eq 0)
                 ErrorMessage    = ("$($testResults.FailedCount) test(s) failed, " +
-                    "$($testResults.FailedCount - $testResult.Failed.Count) fixed")
+                    "$($testResults.FailedCount - $testResults.Failed.Count) fixed")
                 TestResults     = $testResults
                 AnalyzerResults = $scriptAnalyzerResults
             }

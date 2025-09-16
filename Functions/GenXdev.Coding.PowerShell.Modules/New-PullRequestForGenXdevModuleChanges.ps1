@@ -1,3 +1,31 @@
+<##############################################################################
+Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
+Original cmdlet filename  : New-PullRequestForGenXdevModuleChanges.ps1
+Original author           : René Vaessen / GenXdev
+Version                   : 1.264.2025
+################################################################################
+MIT License
+
+Copyright 2021-2025 GenXdev
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+################################################################################>
 ###############################################################################
 <#
 .SYNOPSIS
@@ -372,15 +400,17 @@ function New-PullRequestForGenXdevModuleChanges {
 
             # initiate device code request for github authentication
             $deviceCodeRequest = Microsoft.PowerShell.Utility\Invoke-RestMethod `
+                -Verbose:$false `
+                -ProgressAction Continue `
                 -Method Post `
                 -Uri 'https://github.com/login/device/code' `
                 -Body @{
-                client_id = $clientId
-                scope     = 'repo'
-            } `
+                    client_id = $clientId
+                    scope     = 'repo'
+                } `
                 -Headers @{
-                Accept = 'application/json'
-            }
+                    Accept = 'application/json'
+                }
 
             # navigate browser to verification url
             GenXdev.Webbrowser\Set-WebbrowserTabLocation ($deviceCodeRequest.verification_uri)
@@ -495,7 +525,7 @@ function New-PullRequestForGenXdevModuleChanges {
 
         # get full path to module directory
         $modulePath = GenXdev.FileSystem\Expand-Path (
-            "$PSScriptRoot\..\..\..\..\$ModuleName\1.260.2025\"
+            "$PSScriptRoot\..\..\..\..\$ModuleName\1.264.2025\"
         )
 
         # verify module manifest exists
@@ -540,6 +570,8 @@ function New-PullRequestForGenXdevModuleChanges {
 
             # search for the repository in genxdev organization
             $repoSearchResult = Microsoft.PowerShell.Utility\Invoke-RestMethod `
+                -Verbose:$false `
+                -ProgressAction Continue `
                 -Method Get `
                 -Uri "https://api.github.com/repos/genXdev/$ModuleName" `
                 -Headers $headers `
@@ -579,6 +611,8 @@ function New-PullRequestForGenXdevModuleChanges {
                 $fileBytes = [System.IO.File]::ReadAllBytes($zipPath)
 
                 $result = Microsoft.PowerShell.Utility\Invoke-RestMethod `
+                    -Verbose:$false `
+                    -ProgressAction Continue `
                     -Uri $uploadUrl `
                     -Method Post `
                     -ContentType 'application/octet-stream' `
@@ -615,10 +649,19 @@ function New-PullRequestForGenXdevModuleChanges {
         )
 
         # Create a fork if doesn't exist
-        $username = (Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Get -Uri 'https://api.github.com/user' -Headers $headers).login
+        $username = (Microsoft.PowerShell.Utility\Invoke-RestMethod `
+            -Verbose:$false `
+            -ProgressAction Continue `
+            -Method Get -Uri 'https://api.github.com/user' `
+            -Headers $headers
+        ).login
 
         try {
-            Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Get -Uri "https://api.github.com/repos/$username/$ModuleName" -Headers $headers
+            Microsoft.PowerShell.Utility\Invoke-RestMethod `
+                -Verbose:$false `
+                -ProgressAction Continue `
+                -Method Get -Uri "https://api.github.com/repos/$username/$ModuleName" `
+                -Headers $headers
             Microsoft.PowerShell.Utility\Write-Verbose 'Fork already exists'
         }
         catch {
@@ -626,7 +669,12 @@ function New-PullRequestForGenXdevModuleChanges {
             if ($PSCmdlet.ShouldProcess("$ModuleName", 'Create fork')) {
                 Microsoft.PowerShell.Utility\Write-Host "Creating fork of $ModuleName..."
                 try {
-                    Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/genXdev/$ModuleName/forks" -Headers $headers
+                    Microsoft.PowerShell.Utility\Invoke-RestMethod `
+                        -Verbose:$false `
+                        -ProgressAction Continue `
+                        -Method Post `
+                        -Uri "https://api.github.com/repos/genXdev/$ModuleName/forks" `
+                        -Headers $headers
                 }
                 catch {
                     Microsoft.PowerShell.Utility\Write-Error "Failed to create fork: $_"
@@ -700,13 +748,18 @@ function New-PullRequestForGenXdevModuleChanges {
         }
 
         # --- Begin Modification ---
-        # Find the commit with the exact message "Release 1.260.2025" in the GenXdev module repository using the GitHub API
-        $releaseCommitMsg = 'Release 1.260.2025'
+        # Find the commit with the exact message "Release 1.264.2025" in the GenXdev module repository using the GitHub API
+        $releaseCommitMsg = 'Release 1.264.2025'
         $commitsApiUrl = "https://api.github.com/repos/genXdev/$ModuleName/commits"
         $releaseCommitHash = $null
 
         try {
-            $commits = Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Get -Uri $commitsApiUrl -Headers $headers
+            $commits = Microsoft.PowerShell.Utility\Invoke-RestMethod `
+                -Verbose:$false `
+                -ProgressAction Continue `
+                -Method Get `
+                -Uri $commitsApiUrl `
+                -Headers $headers
             foreach ($commit in $commits) {
                 if ($commit.commit.message -eq $releaseCommitMsg) {
                     $releaseCommitHash = $commit.sha
@@ -738,7 +791,14 @@ function New-PullRequestForGenXdevModuleChanges {
                 ref = "refs/heads/$newBranchName"
                 sha = $releaseCommitHash
             }
-            Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/$username/$ModuleName/git/refs" -Body ($createBranchBody | Microsoft.PowerShell.Utility\ConvertTo-Json -Depth 10) -Headers $headers -ContentType 'application/json'
+            Microsoft.PowerShell.Utility\Invoke-RestMethod `
+                -Verbose:$false `
+                -ProgressAction Continue `
+                -Method Post `
+                -Uri "https://api.github.com/repos/$username/$ModuleName/git/refs" `
+                -Body ($createBranchBody | Microsoft.PowerShell.Utility\ConvertTo-Json -Depth 10) `
+                -Headers $headers `
+                -ContentType 'application/json'
             Microsoft.PowerShell.Utility\Write-Verbose "Branch '$newBranchName' created in the user's fork."
         }
         catch {
@@ -749,7 +809,13 @@ function New-PullRequestForGenXdevModuleChanges {
         # Fetch GitHub user details
         Microsoft.PowerShell.Utility\Write-Verbose 'Fetching GitHub user details'
         try {
-            $userDetails = Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Get -Uri 'https://api.github.com/user' -Headers $headers -ErrorAction Stop
+            $userDetails = Microsoft.PowerShell.Utility\Invoke-RestMethod `
+                -Verbose:$false `
+                -ProgressAction Continue `
+                -Method Get `
+                -Uri 'https://api.github.com/user' `
+                -Headers $headers `
+                -ErrorAction Stop
             $GitUserName = $userDetails.name
             $GitUserEmail = $userDetails.email
 
@@ -857,7 +923,14 @@ function New-PullRequestForGenXdevModuleChanges {
                 }
 
                 # Create the pull request
-                $pr = Microsoft.PowerShell.Utility\Invoke-RestMethod -Method Post -Uri "https://api.github.com/repos/genXdev/$ModuleName/pulls" -Body ($prBody | Microsoft.PowerShell.Utility\ConvertTo-Json -Depth 10) -Headers $headers -ContentType 'application/json'
+                $pr = Microsoft.PowerShell.Utility\Invoke-RestMethod `
+                    -Verbose:$false `
+                    -ProgressAction Continue `
+                    -Method Post `
+                    -Uri "https://api.github.com/repos/genXdev/$ModuleName/pulls" `
+                    -Body ($prBody | Microsoft.PowerShell.Utility\ConvertTo-Json -Depth 10) `
+                    -Headers $headers `
+                    -ContentType 'application/json'
 
                 Microsoft.PowerShell.Utility\Write-Host "Pull request created successfully: $($pr.html_url)" -ForegroundColor Cyan
                 Microsoft.PowerShell.Utility\Write-Host 'Thank you for contributing to GenXdev!' -ForegroundColor Green

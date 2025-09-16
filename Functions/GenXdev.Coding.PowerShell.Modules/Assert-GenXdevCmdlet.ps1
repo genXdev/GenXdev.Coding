@@ -1,3 +1,31 @@
+<##############################################################################
+Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
+Original cmdlet filename  : Assert-GenXdevCmdlet.ps1
+Original author           : René Vaessen / GenXdev
+Version                   : 1.264.2025
+################################################################################
+MIT License
+
+Copyright 2021-2025 GenXdev
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+################################################################################>
 ###############################################################################
 <#
 .SYNOPSIS
@@ -205,7 +233,7 @@ function Assert-GenXdevCmdlet {
                 $baseDestinationParts = "$($($selected)[0].Label)".Split('.');
                 $baseDestinationModule = $baseDestinationParts[0] + '.' + $baseDestinationParts[1];
                 $ModuleName = "$($($selected)[0].Label)"
-                $destination = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.260.2025\Functions\$ModuleName\$CmdletName.ps1" -CreateDirectory
+                $destination = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.264.2025\Functions\$ModuleName\$CmdletName.ps1" -CreateDirectory
 
                 # move the script file
                 GenXdev.FileSystem\Move-ItemWithTracking -Path $cmdlet.ScriptFilePath -Destination $destination
@@ -232,7 +260,7 @@ function Assert-GenXdevCmdlet {
                 }
 
                 # add dot source reference to corresponding psm1 file
-                GenXdev.Coding\SplitUpPsm1File -Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.260.2025\$ModuleName.psm1"
+                GenXdev.Coding\SplitUpPsm1File -Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.264.2025\$ModuleName.psm1"
 
                 . GenXdev.Helpers\Invoke-OnEachGenXdevModule {
 

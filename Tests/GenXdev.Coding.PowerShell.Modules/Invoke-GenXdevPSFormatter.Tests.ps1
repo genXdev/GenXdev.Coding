@@ -52,7 +52,7 @@ $message
         finally {
             # Clean up
             if (Microsoft.PowerShell.Management\Test-Path -LiteralPath $tempFile) {
-                Microsoft.PowerShell.Management\Remove-Item -Path $tempFile -Force
+                Microsoft.PowerShell.Management\Remove-Item -LiteralPath $tempFile -Force
             }
         }
     }
