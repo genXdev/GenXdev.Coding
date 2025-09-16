@@ -180,4 +180,4 @@ When adding new agents or modifying existing ones:
 ---
 
 *Last updated: August 21, 2025*
-*GenXdev PowerShell Development Environment v1.264.2025*
+*GenXdev PowerShell Development Environment v1.268.2025*

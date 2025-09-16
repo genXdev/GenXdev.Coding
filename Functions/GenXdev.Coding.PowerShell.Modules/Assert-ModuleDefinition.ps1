@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Assert-ModuleDefinition.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.264.2025
+Version                   : 1.268.2025
 ################################################################################
 MIT License
 
