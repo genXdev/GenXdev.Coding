@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Clear-GenXdevModules.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.274.2025
+Version                   : 1.276.2025
 ################################################################################
 MIT License
 
@@ -77,15 +77,15 @@ function Clear-GenXdevModules {
                     GenXdev.FileSystem\Remove-AllItems .\trash -DeleteFolder
 
                     # remove older versions
-                    Microsoft.PowerShell.Management\Get-ChildItem -LiteralPath .\ -Filter "*.*.*" -dir | Microsoft.PowerShell.Core\Where-Object { $_.Name -ne '1.274.2025' } |
+                    Microsoft.PowerShell.Management\Get-ChildItem -LiteralPath .\ -Filter "*.*.*" -dir | Microsoft.PowerShell.Core\Where-Object { $_.Name -ne '1.276.2025' } |
                         Microsoft.PowerShell.Core\ForEach-Object {
                             Microsoft.PowerShell.Utility\Write-Verbose "Removing older version: $($_.Name)"
                             GenXdev.FileSystem\Remove-AllItems $_.FullName -DeleteFolder
                         }
 
                         # enter version-specific subdirectory
-                        Microsoft.PowerShell.Utility\Write-Verbose 'Processing version directory 1.274.2025'
-                        Microsoft.PowerShell.Management\Set-Location -LiteralPath .\1.274.2025
+                        Microsoft.PowerShell.Utility\Write-Verbose 'Processing version directory 1.276.2025'
+                        Microsoft.PowerShell.Management\Set-Location -LiteralPath .\1.276.2025
 
                         # remove build artifacts from version-specific directory
                         Microsoft.PowerShell.Utility\Write-Verbose 'Cleaning version-specific build directories'
