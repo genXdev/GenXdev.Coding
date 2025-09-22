@@ -78,7 +78,7 @@
     IncludeDefaultRules   = $true
     RecurseCustomRulePath = $false
     CustomRulePath        = @(
-        # "~\Documents\PowerShell\Modules\GenXdev.Coding\1.278.2025\Assets\Modules\PSScriptAnalyzer\1.24.0\PSv7\GenXdev.Coding.PowerShell.Modules.ScriptAnalyzer.dll"
+        # "~\Documents\PowerShell\Modules\GenXdev.Coding\1.280.2025\Assets\Modules\PSScriptAnalyzer\1.24.0\PSv7\GenXdev.Coding.PowerShell.Modules.ScriptAnalyzer.dll"
     )
     Rules = @{
         PSUseFullyQualifiedCmdletNames = @{
