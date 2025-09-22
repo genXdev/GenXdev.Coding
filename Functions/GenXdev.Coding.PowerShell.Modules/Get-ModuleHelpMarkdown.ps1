@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Get-ModuleHelpMarkdown.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.276.2025
+Version                   : 1.278.2025
 ################################################################################
 MIT License
 
@@ -218,7 +218,55 @@ function Get-ModuleHelpMarkdown {
                         # handle transitions between powershell and regular text
                         if ($wasInPowerShell) {
                             $s = (GenXdev.Helpers\alignScript $lineBuffer.Trim("`r`n".ToCharArray()) 0);
-                            if ($prevSection -eq "SYNTAX") { $s = $s.Trim() }
+                            if ($prevSection -eq "SYNTAX") {
+                                # Format SYNTAX section with 60-character line wrapping
+                                $s = $s.Trim()
+
+                                # Split into individual syntax lines for processing
+                                $syntaxLines = $s -split "`r`n"
+                                $formattedLines = @()
+
+                                foreach ($syntaxLine in $syntaxLines) {
+                                    $line = $syntaxLine.Trim()
+                                    if ([string]::IsNullOrWhiteSpace($line)) {
+                                        continue
+                                    }
+
+                                    # Handle the command name line differently - don't wrap it
+                                    if ($line -match '^\w+-\w+') {
+                                        # This is the command name line, wrap at 60 chars
+                                        $currentLine = ""
+                                        $words = $line -split '\s+'
+
+                                        foreach ($word in $words) {
+                                            $testLine = if ($currentLine) { "$currentLine $word" } else { $word }
+
+                                            if ($testLine.Length -le 60) {
+                                                $currentLine = $testLine
+                                            } else {
+                                                # Add current line and start new one
+                                                if ($currentLine) {
+                                                    $formattedLines += $currentLine
+                                                }
+                                                $currentLine = "    $word"
+                                            }
+                                        }
+
+                                        # Add the last line
+                                        if ($currentLine) {
+                                            $formattedLines += $currentLine
+                                        }
+                                    } else {
+                                        # Handle other lines normally
+                                        $formattedLines += $line
+                                    }
+                                }
+
+                                $s = $formattedLines -join "`r`n"
+
+                                # Clean up any double line breaks
+                                $s = $s -replace "`r`n`r`n", "`r`n"
+                            }
                             $s
                             $lineBuffer = ''
                             "````````"

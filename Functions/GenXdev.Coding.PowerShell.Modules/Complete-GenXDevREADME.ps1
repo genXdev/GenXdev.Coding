@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Complete-GenXDevREADME.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.276.2025
+Version                   : 1.278.2025
 ################################################################################
 MIT License
 
@@ -213,7 +213,7 @@ function Complete-GenXDevREADME {
                         $subModuleName = $_.SubModuleName
 
                         $modulePath = GenXdev.FileSystem\Expand-Path (
-                            "$($moduleObj2.FullName)\1.276.2025")
+                            "$($moduleObj2.FullName)\1.278.2025")
 
                         $moduleReadmeFilePath = [System.IO.Path]::Combine(
                             $modulePath,
@@ -243,7 +243,7 @@ function Complete-GenXDevREADME {
                             $null = $newHelp.AppendLine()
 
                             # generate cmdlet index with GitHub links
-                            $null = $newHelp.AppendLine("### Cmdlet Index")
+                            $null = $newHelp.AppendLine("# Cmdlet Index")
                             $null = $newHelp.AppendLine()
                             $null = $newHelp.AppendLine("| Command | Aliases | Description |")
                             $null = $newHelp.AppendLine("| :--- | :--- | :--- |")
@@ -296,19 +296,7 @@ function Complete-GenXDevREADME {
 
             # locate section markers for updates
             $summaryIndex = $readmeText.IndexOf("`r`n# Cmdlet Index")
-
-            $cmdsIndex = $readmeText.IndexOf("`r`n# Cmdlets")
-
-            # validate required sections exist
-            if ($cmdsIndex -lt 0) {
-
-                continue
-            }
-
-            if ($summaryIndex -ge 0 -and $summaryIndex -lt $cmdsIndex) {
-
-                $cmdsIndex = $summaryIndex
-            }
+            $cmdsIndex = $summaryIndex
 
             Microsoft.PowerShell.Utility\Write-Verbose (
                 "Generating documentation for $($moduleObj.ModuleName)")
