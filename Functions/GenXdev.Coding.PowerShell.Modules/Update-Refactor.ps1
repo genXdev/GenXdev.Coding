@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Update-Refactor.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.280.2025
+Version                   : 1.284.2025
 ################################################################################
 MIT License
 
@@ -674,7 +674,7 @@ function Update-Refactor {
                             [Version] $version = $null
                             if ([Version]::tryParse($parts[1], [ref]$version)) {
 
-                                $newPath = "$($modulesPath.TrimEnd('\'))\$($parts[0])\1.280.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 3))"
+                                $newPath = "$($modulesPath.TrimEnd('\'))\$($parts[0])\1.284.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 3))"
 
                                 if ($refactorDefinition.State.Refactored.IndexOf($newPath) -lt 0) {
 
@@ -710,7 +710,7 @@ function Update-Refactor {
 
                             if ([Version]::tryParse($parts[1], [ref]$version)) {
 
-                                $newPath = "$($modulesPath.TrimEnd('\'))\$($parts[0])\1.280.2025\$($path.Substring($modulesPath.Length + $parts[0].Length + $parts[1].Length + 3))"
+                                $newPath = "$($modulesPath.TrimEnd('\'))\$($parts[0])\1.284.2025\$($path.Substring($modulesPath.Length + $parts[0].Length + $parts[1].Length + 3))"
 
                                 if ($refactorDefinition.State.Selected.IndexOf($newPath) -lt 0) {
 
@@ -747,7 +747,7 @@ function Update-Refactor {
                             [Version] $version = $null
                             if ([Version]::tryParse($parts[1], [ref]$version)) {
 
-                                $newPath = "$($modulesPath.TrimEnd('\'))\$($parts[0])\1.280.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 3))"
+                                $newPath = "$($modulesPath.TrimEnd('\'))\$($parts[0])\1.284.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 3))"
 
                                 if ($refactorDefinition.State.Unselected.IndexOf($newPath) -lt 0) {
 
