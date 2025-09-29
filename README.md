@@ -128,7 +128,7 @@ Update-Module
 | [Clear-GenXdevModules](#clear-genxdevmodules) | cleangenxdev | Cleans build artifacts from GenXdev PowerShell modules. |
 | [Complete-GenXDevREADME](#complete-genxdevreadme) | &nbsp; | Completes the README file for specified GenXDev modules by adding documentation. |
 | [EnsureCopilotKeyboardShortCut](#ensurecopilotkeyboardshortcut) | &nbsp; | Configures the GitHub Copilot Chat keyboard shortcuts in Visual Studio Code. |
-| [EnsureDefaultGenXdevRefactors](#ensuredefaultgenxdevrefactors) | &nbsp; | Ensures default GenXdev refactor definitions exist with proper configuration. |
+| [EnsureDefaultGenXdevRefactors](#ensuredefaultgenxdevrefactors) | &nbsp; | &nbsp; |
 | [Get-GenXdevCmdletUsageAnalysis](#get-genxdevcmdletusageanalysis) | &nbsp; | Analyzes GenXdev cmdlet usage patterns to identify most frequently called functions. |
 | [Get-GenXDevModule](#get-genxdevmodule) | &nbsp; | Retrieves all GenXDev modules from a specified path. |
 | [Get-GenXDevModuleInfo](#get-genxdevmoduleinfo) | &nbsp; | Retrieves detailed information about GenXdev PowerShell modules. |
@@ -1748,7 +1748,6 @@ EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>]
 
 ### PARAMETERS 
     -Force  
-        Forces recreation of existing refactor definitions by removing them first  
         Required?                    false  
         Position?                    Named  
         Accept pipeline input?       false  
@@ -5806,7 +5805,6 @@ EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>]
 
 ### PARAMETERS 
     -Force  
-        Forces recreation of existing refactor definitions by removing them first  
         Required?                    false  
         Position?                    Named  
         Accept pipeline input?       false  
@@ -9864,7 +9862,6 @@ EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>]
 
 ### PARAMETERS 
     -Force  
-        Forces recreation of existing refactor definitions by removing them first  
         Required?                    false  
         Position?                    Named  
         Accept pipeline input?       false  

@@ -1,8 +1,8 @@
-<##############################################################################
+﻿<##############################################################################
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Assert-GenXdevTest.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.286.2025
+Version                   : 1.288.2025
 ################################################################################
 MIT License
 
@@ -270,7 +270,7 @@ function Assert-GenXdevTest {
         if ($ModuleName -and (-not $SkipModuleImports)) {
 
             # ensure all GenXdev modules are loaded for testing
-            GenXdev.Helpers\Import-GenXdevModules
+            GenXdev.Helpers\Import-GenXdevModules | Microsoft.PowerShell.Core\Out-Host
         }
 
         # output initialization message for test framework startup
@@ -684,7 +684,7 @@ $($exc.InvocationInfo.ScriptStackTrace)
 
                                         # pause for user interaction and reload modules
                                         Microsoft.PowerShell.Utility\Read-Host -Prompt "Press Enter to continue"
-                                        GenXdev.Helpers\Import-GenXdevModules
+                                        GenXdev.Helpers\Import-GenXdevModules | Microsoft.PowerShell.Core\Out-Host
                                         GenXdev.Coding\Assert-GenXdevTest @PSBoundParameters
                                         return
                                     }
@@ -747,7 +747,7 @@ $($exc.InvocationInfo.ScriptStackTrace)
 
                                     # pause for user interaction and reload modules
                                     Microsoft.PowerShell.Utility\Read-Host -Prompt "Press Enter to continue"
-                                    GenXdev.Helpers\Import-GenXdevModules
+                                    GenXdev.Helpers\Import-GenXdevModules | Microsoft.PowerShell.Core\Out-Host
                                     GenXdev.Coding\Assert-GenXdevTest @PSBoundParameters
                                     return
                                 }

@@ -1,0 +1,45 @@
+Primary task:
+Add calls to Confirm-InstallationConsent before installing third-party software in the following PowerShell code.
+
+Secondary task:
+Follow these rules:
+1. Call GenXdev.FileSystem\Confirm-InstallationConsent before any installation command
+2. If the function uses [CmdletBinding(SupportsShouldProcess = $true)], replace it with this new consent mechanism
+3. Set ApplicationName to the name of the software being installed
+4. Set Source to the installation method (e.g., 'Winget', 'PowerShell Gallery', 'apt-get', 'dotnet CLI')
+5. Set Description to a brief explanation of why the software is needed (optional but recommended)
+6. Set Publisher to the vendor or maintainer (optional)
+7. If consent returns $false, skip installation and handle gracefully (e.g., throw error or warn)
+8. Maintain all existing functionality and error handling
+9. Keep verbose messages intact
+10. Add consent check at key installation points
+11. For multiple installations in one function, call consent for each major software
+12. Use meaningful parameter values based on context
+
+After processing, please:
+1. Provide the modified code with consent checks added
+2. Highlight where consent calls were inserted
+3. Note any replaced ShouldProcess usages
+4. Explain handling for denied consent
+
+Never ask if I want to proceed, assume yes in those cases.
+Always proceed by implementing these changes systematically.
+
+PS C:\Users\genXdev> Confirm-InstallationConsent -?
+
+NAME
+    Confirm-InstallationConsent
+
+SYNTAX
+    Confirm-InstallationConsent [-ApplicationName] <string> [-Source] <string> [-Description <string>] [-Publisher <string>] [-ForcePrompt] [<CommonParameters>]
+
+
+ALIASES
+    None
+
+
+REMARKS
+    None
+
+
+$Prompt
