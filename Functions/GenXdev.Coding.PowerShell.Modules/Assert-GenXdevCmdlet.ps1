@@ -1,8 +1,8 @@
-<##############################################################################
+﻿<##############################################################################
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Assert-GenXdevCmdlet.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.288.2025
+Version                   : 1.290.2025
 ################################################################################
 MIT License
 
@@ -233,7 +233,7 @@ function Assert-GenXdevCmdlet {
                 $baseDestinationParts = "$($($selected)[0].Label)".Split('.');
                 $baseDestinationModule = $baseDestinationParts[0] + '.' + $baseDestinationParts[1];
                 $ModuleName = "$($($selected)[0].Label)"
-                $destination = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.288.2025\Functions\$ModuleName\$CmdletName.ps1" -CreateDirectory
+                $destination = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.290.2025\Functions\$ModuleName\$CmdletName.ps1" -CreateDirectory
 
                 # move the script file
                 GenXdev.FileSystem\Move-ItemWithTracking -Path $cmdlet.ScriptFilePath -Destination $destination
@@ -260,7 +260,7 @@ function Assert-GenXdevCmdlet {
                 }
 
                 # add dot source reference to corresponding psm1 file
-                GenXdev.Coding\SplitUpPsm1File -Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.288.2025\$ModuleName.psm1"
+                GenXdev.Coding\SplitUpPsm1File -Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.290.2025\$ModuleName.psm1"
 
                 . GenXdev.Helpers\Invoke-OnEachGenXdevModule {
 
@@ -316,7 +316,6 @@ function Assert-GenXdevCmdlet {
                     $promptFilePath = GenXdev.FileSystem\Expand-Path -CreateFile -FilePath (
                         "$PSScriptRoot\..\..\Prompts\GenXdev.Coding.PowerShell." +
                         "Modules\Assert-$PromptKey-script.txt")
-
                 }
 
                 # load and process template
@@ -366,7 +365,7 @@ function Assert-GenXdevCmdlet {
             # handle prompt editing if requested
             if ($EditPrompt) {
                 p -c
-                code $promptFilePath
+                GenXdev.Coding\VSCode $promptFilePath
                 return
             }
 

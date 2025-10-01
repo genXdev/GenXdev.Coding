@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding
 Original cmdlet filename  : ReleaseNotes.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.288.2025
+Version                   : 1.290.2025
 ################################################################################
 MIT License
 

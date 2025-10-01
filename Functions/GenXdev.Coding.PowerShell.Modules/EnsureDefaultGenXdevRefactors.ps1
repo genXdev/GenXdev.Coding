@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : EnsureDefaultGenXdevRefactors.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.288.2025
+Version                   : 1.290.2025
 ################################################################################
 MIT License
 
@@ -106,9 +106,9 @@ function EnsureDefaultGenXdevRefactors {
         $null = GenXdev.Coding\New-Refactor `
             -Name "AddInstallationConsentPrompt" `
             -PromptKey "AddInstallationConsentPrompt" `
-            -SelectionScript "GenXdev.FileSystem\Find-Item `"$rootPath\Modules\GenXdev.*\*.ps1`" 'winget|EnsureNuGetAssembly|updatewindow' -PassThru -Quiet | Where-Object { -not (([IO.File]::ReadAllText(`$_.FullName)) | Select-String 'Confirm-InstallationConsent' -Quiet) }" `
+            -SelectionScript "GenXdev.FileSystem\Find-Item `"$rootPath\Modules\GenXdev.*\*.ps1`" 'winget' -PassThru -Quiet | Where-Object { -not (([IO.File]::ReadAllText(`$_.FullName)) | Select-String 'Confirm-InstallationConsent' -Quiet) }" `
             -AutoAddModifiedFiles:$false `
-            -Priority -10
+            -Priority 10
     }
 
     GenXdev.Coding\Get-Refactor

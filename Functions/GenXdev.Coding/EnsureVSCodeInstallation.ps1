@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding
 Original cmdlet filename  : EnsureVSCodeInstallation.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.288.2025
+Version                   : 1.290.2025
 ################################################################################
 MIT License
 
@@ -95,6 +95,19 @@ function EnsureVSCodeInstallation {
             Microsoft.PowerShell.Utility\Write-Verbose `
                 'Installing Visual Studio Code...'
 
+            # check installation consent before proceeding
+            $consent = GenXdev.FileSystem\Confirm-InstallationConsent `
+                -ApplicationName 'Visual Studio Code Insiders' `
+                -Source 'Winget' `
+                -Description 'Code editor and development environment for PowerShell module development' `
+                -Publisher 'Microsoft'
+
+            if (-not $consent) {
+                Microsoft.PowerShell.Utility\Write-Warning `
+                    'Visual Studio Code installation cancelled by user.'
+                return
+            }
+
             # install visual studio code insiders using winget
             Microsoft.WinGet.Client\Install-WinGetPackage `
                 -Id 'Microsoft.VisualStudioCode.Insiders' `
@@ -111,6 +124,18 @@ function EnsureVSCodeInstallation {
                 Microsoft.PowerShell.Utility\Write-Verbose `
                     ("Installing recommended VSCode extensions from " +
                     "workspace...")
+
+                # check installation consent for extensions
+                $extensionConsent = GenXdev.FileSystem\Confirm-InstallationConsent `
+                    -ApplicationName 'VSCode Extensions' `
+                    -Source 'VSCode Marketplace' `
+                    -Description 'Recommended workspace extensions for enhanced development experience' `
+                    -Publisher 'Various'
+
+                if (-not $extensionConsent) {
+                    Microsoft.PowerShell.Utility\Write-Warning `
+                        'VSCode extensions installation cancelled by user.'
+                } else {
 
                 # determine workspace folder path
                 $workspaceFolder = if ($Global:WorkspaceFolder) {
@@ -191,6 +216,8 @@ function EnsureVSCodeInstallation {
 
                     Microsoft.PowerShell.Utility\Write-Host `
                         "No .vscode/extensions.json found in workspace."
+                }
+
                 }
 
             } catch {

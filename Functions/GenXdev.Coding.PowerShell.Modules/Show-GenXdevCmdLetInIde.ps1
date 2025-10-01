@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Show-GenXdevCmdLetInIde.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.288.2025
+Version                   : 1.290.2025
 ################################################################################
 MIT License
 
@@ -289,7 +289,8 @@ function Show-GenXdevCmdLetInIde {
             return
         }
 
-        if (-not ([String]::IsNullOrWhiteSpace($PromptKey) -or [string]::IsNullOrWhiteSpace($Prompt))) {
+        if ((-not ([String]::IsNullOrWhiteSpace($PromptKey) -or [string]::IsNullOrWhiteSpace($Prompt))) -and
+            (($null -eq $KeysToSend) -or ($KeysToSend.Count -eq 0))) {
 
             $params = GenXdev.Helpers\Copy-IdenticalParamValues `
                 -BoundParameters $PSBoundParameters `
