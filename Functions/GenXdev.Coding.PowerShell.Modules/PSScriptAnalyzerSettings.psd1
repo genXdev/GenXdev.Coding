@@ -84,5 +84,122 @@
         PSUseFullyQualifiedCmdletNames = @{
             Enabled  = $true
         }
+        PSAvoidDefaultValueSwitchParameter = @{
+            Enabled = $true
+        }
+        PSAvoidUsingCmdletAliases = @{
+            Enabled = $true
+        }
+        PSAvoidAssignmentToAutomaticVariable = @{
+            Enabled = $true
+        }
+        PSAvoidDefaultValueForMandatoryParameter = @{
+            Enabled = $true
+        }
+        PSAvoidExclaimOperator = @{
+            Enabled = $true
+        }
+        PSAvoidGlobalAliases = @{
+            Enabled = $true
+        }
+        PSAvoidGlobalFunctions = @{
+            Enabled = $true
+        }
+        PSAvoidGlobalVars = @{
+            Enabled = $true
+        }
+        PSAvoidLongLines = @{
+            Enabled = $true
+        }
+        PSAvoidNullOrEmptyHelpMessageAttribute = @{
+            Enabled = $true
+        }
+        PSAvoidOverwritingBuiltInCmdlets = @{
+            Enabled = $true
+        }
+        PSReservedCmdletChar = @{
+            Enabled = $true
+        }
+        PSReservedParams = @{
+            Enabled = $true
+        }
+        PSAvoidSemicolonsAsLineTerminators = @{
+            Enabled = $true
+        }
+        PSAvoidShouldContinueWithoutForce = @{
+            Enabled = $true
+        }
+        PSAvoidTrailingWhitespace = @{
+            Enabled = $true
+        }
+        PSAvoidUsingDeprecatedManifestFields = @{
+            Enabled = $true
+        }
+        PSAvoidUsingDoubleQuotesForConstantString = @{
+            Enabled = $true
+        }
+        PSMisleadingBacktick = @{
+            Enabled = $true
+        }
+        PSMissingModuleManifestField = @{
+            Enabled = $true
+        }
+        PSPlaceOpenBrace = @{
+            Enabled = $true
+        }
+        PSPossibleIncorrectComparisonWithNull = @{
+            Enabled = $true
+        }
+        PSPossibleIncorrectUsageOfAssignmentOperator = @{
+            Enabled = $true
+        }
+        PSPossibleIncorrectUsageOfRedirectionOperator = @{
+            Enabled = $true
+        }
+        PSUseApprovedVerbs = @{
+            Enabled = $true
+        }
+        PSUseCmdletCorrectly = @{
+            Enabled = $true
+        }
+        PSUseCompatibleCmdlets = @{
+            Enabled = $true
+        }
+        PSUseConsistentIndentation = @{
+            Enabled = $true
+        }
+        PSUseConsistentWhitespace = @{
+            Enabled = $true
+        }
+        PSUseDeclaredVarsMoreThanAssignments = @{
+            Enabled = $true
+        }
+        PSUseLiteralInitializerForHashtable = @{
+            Enabled = $true
+        }
+        PSUseOutputTypeCorrectly = @{
+            Enabled = $true
+        }
+        PSUseProcessBlockForPipelineCommand = @{
+            Enabled = $true
+        }
+        PSShouldProcess = @{
+            Enabled = $true
+        }
+        PSUseShouldProcessForStateChangingFunctions = @{
+            Enabled = $true
+        }
+        PSUseSingularNouns = @{
+            Enabled = $true
+        }
+        PSUseSupportsShouldProcess = @{
+            Enabled = $true
+        }
+        PSUseToExportFieldsInManifest = @{
+            Enabled = $true
+        }
+        PSUseUsingScopeModifierInNewRunspaces = @{
+            Enabled = $true
+        }
     }
 }

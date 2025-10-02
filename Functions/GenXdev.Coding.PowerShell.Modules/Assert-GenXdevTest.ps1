@@ -364,6 +364,7 @@ function Assert-GenXdevTest {
                     # skip internal cmdlets that start with underscore
 
                     if ($nextCmdlet.Name -like "_*") { continue }
+                    if ($nextCmdlet.ScriptFilePath.EndsWith(".cs")) { continue }
 
                     Microsoft.PowerShell.Utility\Write-Progress `
                         -Activity "Analyzing $($nextCmdlet.Name)" `

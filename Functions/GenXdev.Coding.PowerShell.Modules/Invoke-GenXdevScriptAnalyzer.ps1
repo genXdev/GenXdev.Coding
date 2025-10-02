@@ -78,7 +78,8 @@ function Invoke-GenXdevScriptAnalyzer {
             ParameterSetName = 'Path',
             HelpMessage = 'Specifies the path to the script file.'
         )]
-        [string] $Path,
+        [Alias('Path', 'FullName')]
+        [string] $ScriptFilePath,
         #
         [Parameter(
             Mandatory = $true,
@@ -160,7 +161,7 @@ function Invoke-GenXdevScriptAnalyzer {
 
                 # configure parameters for path-based analysis
                 $invocationParams = @{
-                    Path                  = $Path
+                    Path                  = $ScriptFilePath
                     IncludeRule           = $settings.IncludeRules
                     ExcludeRule           = $settings.ExcludeRules
                     CustomRulePath        = $settings.CustomRulePath
@@ -175,7 +176,7 @@ function Invoke-GenXdevScriptAnalyzer {
 
                 # output verbose information about path analysis
                 Microsoft.PowerShell.Utility\Write-Verbose `
-                    "Analyzing script file: $Path"
+                    "Analyzing script file: $ScriptFilePath"
             }
             else {
 
@@ -251,8 +252,8 @@ function Invoke-GenXdevScriptAnalyzer {
             # create error output for general exceptions
             $errorResult = @{
                 Message     = $_.Exception.Message
-                RuleName    = ($null -eq $Path ? '?' : `
-                        [System.IO.Path]::GetFileNameWithoutExtension($Path)) + `
+                RuleName    = ($null -eq $ScriptFilePath ? '?' : `
+                        [System.IO.Path]::GetFileNameWithoutExtension($ScriptFilePath)) + `
                     ' @ Invocation in Invoke-GenXdevScriptAnalyzer'
                 Description = 'An error occurred while invoking the Script Analyzer.'
             }
