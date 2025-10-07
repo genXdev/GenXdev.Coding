@@ -193,7 +193,7 @@
   "powershell.codeFormatting.alignPropertyValuePairs": true,
   "powershell.codeFormatting.trimWhitespaceAroundPipe": true,
   "powershell.codeFormatting.useConstantStrings": false,
-  "powershell.scriptAnalysis.settingsPath": "./Modules/GenXdev.Coding/1.292.2025/Functions/GenXdev.Coding.PowerShell.Modules/PSScriptAnalyzerSettings.psd1",
+  "powershell.scriptAnalysis.settingsPath": "./Modules/GenXdev.Coding/1.296.2025/Functions/GenXdev.Coding.PowerShell.Modules/PSScriptAnalyzerSettings.psd1",
   "powershell.pester.outputVerbosity": "Normal",
   "powershell.integratedConsole.focusConsoleOnExecute": false,
   "powershell.integratedConsole.startInBackground": true,
