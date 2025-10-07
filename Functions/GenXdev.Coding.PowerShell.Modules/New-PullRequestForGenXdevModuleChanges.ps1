@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : New-PullRequestForGenXdevModuleChanges.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.290.2025
+Version                   : 1.292.2025
 ################################################################################
 MIT License
 
@@ -109,7 +109,10 @@ Focus the window after positioning.
 Set the window to foreground after positioning.
 
 .PARAMETER Maximize
-Maximize the window after positioning.
+Maximize the window after positioning
+
+.PARAMETER SetRestored
+Restore the window to normal state after positioning
 
 .PARAMETER KeysToSend
 Keystrokes to send to the window after positioning.
@@ -315,6 +318,12 @@ function New-PullRequestForGenXdevModuleChanges {
             HelpMessage = 'Maximize the window after positioning'
         )]
         [switch] $Maximize,
+        ########################################################################
+        [Parameter(
+            Mandatory = $false,
+            HelpMessage = 'Restore the window to normal state after positioning'
+        )]
+        [switch] $SetRestored,
         ########################################################################
         [Parameter(
             Mandatory = $false,
@@ -525,7 +534,7 @@ function New-PullRequestForGenXdevModuleChanges {
 
         # get full path to module directory
         $modulePath = GenXdev.FileSystem\Expand-Path (
-            "$PSScriptRoot\..\..\..\..\$ModuleName\1.290.2025\"
+            "$PSScriptRoot\..\..\..\..\$ModuleName\1.292.2025\"
         )
 
         # verify module manifest exists
@@ -748,8 +757,8 @@ function New-PullRequestForGenXdevModuleChanges {
         }
 
         # --- Begin Modification ---
-        # Find the commit with the exact message "Release 1.290.2025" in the GenXdev module repository using the GitHub API
-        $releaseCommitMsg = 'Release 1.290.2025'
+        # Find the commit with the exact message "Release 1.292.2025" in the GenXdev module repository using the GitHub API
+        $releaseCommitMsg = 'Release 1.292.2025'
         $commitsApiUrl = "https://api.github.com/repos/genXdev/$ModuleName/commits"
         $releaseCommitHash = $null
 
