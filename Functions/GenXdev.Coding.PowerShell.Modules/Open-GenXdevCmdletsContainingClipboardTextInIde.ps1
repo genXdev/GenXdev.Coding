@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Open-GenXdevCmdletsContainingClipboardTextInIde.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.296.2025
+Version                   : 1.298.2025
 ################################################################################
 MIT License
 
@@ -92,7 +92,7 @@ function Open-GenXdevCmdletsContainingClipboardTextInIde {
 
             if ($filePaths) {
 
-                $invocationArgs = GenXdev.Helpers\Copy-IdenticalParamValues `
+                $invocationArgs = GenXdev.FileSystem\Copy-IdenticalParamValues `
                     -BoundParameters $PSBoundParameters `
                     -FunctionName 'GenXdev.Coding\Open-SourceFileInIde'
 

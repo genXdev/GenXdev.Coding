@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Show-GenXdevCmdLetInIde.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.296.2025
+Version                   : 1.298.2025
 ################################################################################
 MIT License
 
@@ -213,7 +213,7 @@ function Show-GenXdevCmdLetInIde {
         $null = GenXdev.Coding\EnsureCopilotKeyboardShortCut
 
         # retrieve and validate the target cmdlet exists
-        $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
+        $invocationParams = GenXdev.FileSystem\Copy-IdenticalParamValues `
             -FunctionName 'GenXdev.Helpers\Get-GenXDevCmdlet' `
             -BoundParameters $PSBoundParameters
         $invocationParams.ExactMatch = $true
@@ -277,7 +277,7 @@ function Show-GenXdevCmdLetInIde {
                 $PromptKey = 'NewGenXdevCmdLet'
             }
 
-            $params = GenXdev.Helpers\Copy-IdenticalParamValues `
+            $params = GenXdev.FileSystem\Copy-IdenticalParamValues `
                 -BoundParameters $PSBoundParameters `
                 -FunctionName "GenXdev.Coding\New-GenXdevCmdlet" `
                 -DefaultValues (
@@ -292,7 +292,7 @@ function Show-GenXdevCmdLetInIde {
         if ((-not ([String]::IsNullOrWhiteSpace($PromptKey) -or [string]::IsNullOrWhiteSpace($Prompt))) -and
             (($null -eq $KeysToSend) -or ($KeysToSend.Count -eq 0))) {
 
-            $params = GenXdev.Helpers\Copy-IdenticalParamValues `
+            $params = GenXdev.FileSystem\Copy-IdenticalParamValues `
                 -BoundParameters $PSBoundParameters `
                 -FunctionName "GenXdev.Coding\Assert-GenXdevCmdlet" `
                 -DefaultValues (
@@ -313,7 +313,7 @@ function Show-GenXdevCmdLetInIde {
         }
 
         # open cmdlet in vscode and insert prompt
-        $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
+        $invocationParams = GenXdev.FileSystem\Copy-IdenticalParamValues `
             -FunctionName 'GenXdev.Coding\Open-SourceFileInIde' `
             -BoundParameters $PSBoundParameters
 
@@ -357,7 +357,7 @@ function Show-GenXdevCmdLetInIde {
                 return;
             }
 
-            $invocationArgs = GenXdev.Helpers\Copy-IdenticalParamValues `
+            $invocationArgs = GenXdev.FileSystem\Copy-IdenticalParamValues `
                 -BoundParameters $PSBoundParameters `
                 -FunctionName 'GenXdev.Coding\Search-GenXdevCmdlet'
 

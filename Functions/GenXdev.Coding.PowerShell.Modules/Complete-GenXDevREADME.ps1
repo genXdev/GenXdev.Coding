@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Complete-GenXDevREADME.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.296.2025
+Version                   : 1.298.2025
 ################################################################################
 MIT License
 
@@ -213,7 +213,7 @@ function Complete-GenXDevREADME {
                         $subModuleName = $_.SubModuleName
 
                         $modulePath = GenXdev.FileSystem\Expand-Path (
-                            "$($moduleObj2.FullName)\1.296.2025")
+                            "$($moduleObj2.FullName)\1.298.2025")
 
                         $moduleReadmeFilePath = [System.IO.Path]::Combine(
                             $modulePath,

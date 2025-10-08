@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Get-Refactor.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.296.2025
+Version                   : 1.298.2025
 ################################################################################
 MIT License
 
@@ -118,7 +118,7 @@ function Get-Refactor {
         Microsoft.PowerShell.Utility\Write-Verbose 'Searching for refactor set preferences...'
 
         # Copy identical parameters for Get-GenXdevPreferenceNames
-        $prefNamesParams = GenXdev.Helpers\Copy-IdenticalParamValues `
+        $prefNamesParams = GenXdev.FileSystem\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
             -FunctionName 'GenXdev.Data\Get-GenXdevPreferenceNames' `
             -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -ErrorAction SilentlyContinue)
@@ -144,7 +144,7 @@ function Get-Refactor {
 
                     # attempt to load and parse the JSON content
                     # Copy identical parameters for Get-GenXdevPreference
-                    $prefParams = GenXdev.Helpers\Copy-IdenticalParamValues `
+                    $prefParams = GenXdev.FileSystem\Copy-IdenticalParamValues `
                         -BoundParameters $PSBoundParameters `
                         -FunctionName 'GenXdev.Data\Get-GenXdevPreference' `
                         -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -ErrorAction SilentlyContinue)

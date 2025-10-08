@@ -18,9 +18,9 @@ Read all .md files in the folder, and always take them into concideration.
 - **Internal function naming** - For functions used only internally, skip PowerShell verb-noun convention completely (e.g., use `ProcessImageData` instead of `Get-ProcessedImageData`) to prevent them from appearing in tab completion when users type standard verbs like `Get-` and press TAB
 
 ## Parameter Copying Pattern
-Use GenXdev.Helpers\Copy-IdenticalParamValues for cmdlets that invoke other GenXdev cmdlets:
+Use GenXdev.FileSystem\Copy-IdenticalParamValues for cmdlets that invoke other GenXdev cmdlets:
 ```powershell
-$params = GenXdev.Helpers\Copy-IdenticalParamValues `
+$params = GenXdev.FileSystem\Copy-IdenticalParamValues `
     -BoundParameters $PSBoundParameters `
     -FunctionName 'GenXdev.AI\Get-AIMetaLanguage' `
     -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -ErrorAction SilentlyContinue)
@@ -31,7 +31,7 @@ Copy ALL parameters except those causing wrong behaviors. Remove default values 
 ## MCP Server Integration
 Add PowerShell cmdlets to `Start-GenXdevMCPServer` to make them available as MCP tools:
 - Enables AI integration and remote PowerShell execution
-- Source: `.\Modules\GenXdev.AI\1.296.2025\Functions\GenXdev.AI\Start-GenXdevMCPServer.ps1`
+- Source: `.\Modules\GenXdev.AI\1.298.2025\Functions\GenXdev.AI\Start-GenXdevMCPServer.ps1`
 - Use `[GenXdev.Helpers.ExposedCmdletDefinition]` with Name, Description, AllowedParams, JsonDepth
 - Set `Confirm: false` and `OutputText: true` for most cmdlets
 

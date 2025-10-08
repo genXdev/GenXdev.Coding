@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : New-Refactor.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.296.2025
+Version                   : 1.298.2025
 ################################################################################
 MIT License
 
@@ -392,7 +392,7 @@ function New-Refactor {
         $refactorDefinition.SelectionSettings.LLM.Prompt = $SelectionPrompt
 
         # configure LLM processing settings
-        $llmConfigParams = GenXdev.Helpers\Copy-IdenticalParamValues `
+        $llmConfigParams = GenXdev.FileSystem\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
             -FunctionName 'GenXdev.AI\Get-AILLMSettings' `
             -DefaultValues  (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -ErrorAction SilentlyContinue)

@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Remove-Refactor.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.296.2025
+Version                   : 1.298.2025
 ################################################################################
 MIT License
 
@@ -129,7 +129,7 @@ function Remove-Refactor {
     process {
 
         # copy identical parameters for GenXdev.Data\Get-GenXdevPreferenceNames
-        $params = GenXdev.Helpers\Copy-IdenticalParamValues `
+        $params = GenXdev.FileSystem\Copy-IdenticalParamValues `
             -BoundParameters $PSBoundParameters `
             -FunctionName 'GenXdev.Data\Get-GenXdevPreferenceNames' `
             -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable `
@@ -157,7 +157,7 @@ function Remove-Refactor {
                     }
 
                     # copy identical parameters for Get-GenXdevPreference
-                    $getParams = GenXdev.Helpers\Copy-IdenticalParamValues `
+                    $getParams = GenXdev.FileSystem\Copy-IdenticalParamValues `
                         -BoundParameters $PSBoundParameters `
                         -FunctionName 'GenXdev.Data\Get-GenXdevPreference' `
                         -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable `
@@ -182,7 +182,7 @@ function Remove-Refactor {
                                 "$refactorName")
 
                             # copy identical parameters for Remove-GenXdevPreference
-                            $removeParams = GenXdev.Helpers\Copy-IdenticalParamValues `
+                            $removeParams = GenXdev.FileSystem\Copy-IdenticalParamValues `
                                 -BoundParameters $PSBoundParameters `
                                 -FunctionName 'GenXdev.Data\Remove-GenXdevPreference' `
                                 -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable `

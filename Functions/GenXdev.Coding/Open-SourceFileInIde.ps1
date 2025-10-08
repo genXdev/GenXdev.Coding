@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding
 Original cmdlet filename  : Open-SourceFileInIde.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.296.2025
+Version                   : 1.298.2025
 ################################################################################
 MIT License
 
@@ -442,7 +442,7 @@ function Open-SourceFileInIde {
             $SendKeyDelayMilliSeconds = ($PSBoundParameters.ContainsKey('SendKeyDelayMilliSeconds') ?
                 $SendKeyDelayMilliSeconds : 500)
             # send keyboard inputs with parameters
-            $params = GenXdev.Helpers\Copy-IdenticalParamValues `
+            $params = GenXdev.FileSystem\Copy-IdenticalParamValues `
                 -FunctionName 'GenXdev.Windows\Send-Key' `
                 -BoundParameters $PSBoundParameters `
                 -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -ErrorAction SilentlyContinue)

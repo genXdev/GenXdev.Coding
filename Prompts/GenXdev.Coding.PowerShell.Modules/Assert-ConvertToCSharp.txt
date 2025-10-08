@@ -94,7 +94,7 @@ Ensure compliance with these 25 requirements for C# cmdlet conversion:
     for private fields, and descriptive method names.
 24) Optimize performance-critical sections by avoiding unnecessary object
     allocations and using efficient algorithms.
-25) Ensure the C# cmdlet can call GenXdev.Helpers\Copy-IdenticalParamValues
+25) Ensure the C# cmdlet can call GenXdev.FileSystem\Copy-IdenticalParamValues
     and other GenXdev utility functions via InvokeCommand when needed.
 
 Implementation pattern requirements:

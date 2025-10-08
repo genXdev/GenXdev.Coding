@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Test-RefactorLLMSelection.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.296.2025
+Version                   : 1.298.2025
 ################################################################################
 MIT License
 
@@ -96,7 +96,7 @@ function Test-RefactorLLMSelection {
         }
 
         # prepare the llm query parameters by matching available parameters
-        $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
+        $invocationParams = GenXdev.FileSystem\Copy-IdenticalParamValues `
             -BoundParameters ($RefactorDefinition.SelectionSettings.LLM | GenXdev.Helpers\ConvertTo-HashTable) `
             -FunctionName 'GenXdev.AI\Invoke-LLMBooleanEvaluation' `
             -DefaultValues (Microsoft.PowerShell.Utility\Get-Variable -Scope Local -Name * `

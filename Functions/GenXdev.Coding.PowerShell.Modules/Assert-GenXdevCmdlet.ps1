@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Assert-GenXdevCmdlet.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.296.2025
+Version                   : 1.298.2025
 ################################################################################
 MIT License
 
@@ -168,7 +168,7 @@ function Assert-GenXdevCmdlet {
     begin {
         try {
             # retrieve and validate target cmdlet existence
-            $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
+            $invocationParams = GenXdev.FileSystem\Copy-IdenticalParamValues `
                 -FunctionName 'GenXdev.Helpers\Get-GenXDevCmdlet' `
                 -BoundParameters $PSBoundParameters
             $invocationParams.ExactMatch = $true
@@ -233,7 +233,7 @@ function Assert-GenXdevCmdlet {
                 $baseDestinationParts = "$($($selected)[0].Label)".Split('.');
                 $baseDestinationModule = $baseDestinationParts[0] + '.' + $baseDestinationParts[1];
                 $ModuleName = "$($($selected)[0].Label)"
-                $destination = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.296.2025\Functions\$ModuleName\$CmdletName.ps1" -CreateDirectory
+                $destination = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.298.2025\Functions\$ModuleName\$CmdletName.ps1" -CreateDirectory
 
                 # move the script file
                 GenXdev.FileSystem\Move-ItemWithTracking -Path $cmdlet.ScriptFilePath -Destination $destination
@@ -260,7 +260,7 @@ function Assert-GenXdevCmdlet {
                 }
 
                 # add dot source reference to corresponding psm1 file
-                GenXdev.Coding\SplitUpPsm1File -Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.296.2025\$ModuleName.psm1"
+                GenXdev.Coding\SplitUpPsm1File -Path "$PSScriptRoot\..\..\..\..\..\Modules\$baseDestinationModule\1.298.2025\$ModuleName.psm1"
 
                 . GenXdev.Helpers\Invoke-OnEachGenXdevModule {
 
@@ -276,7 +276,7 @@ function Assert-GenXdevCmdlet {
                 }
 
                 # retrieve information about the target cmdlet
-                $params = GenXdev.Helpers\Copy-IdenticalParamValues `
+                $params = GenXdev.FileSystem\Copy-IdenticalParamValues `
                     -FunctionName 'GenXdev.Helpers\Get-GenXDevCmdlet' `
                     -BoundParameters $PSBoundParameters
                 $params.ExactMatch = $true
@@ -284,7 +284,7 @@ function Assert-GenXdevCmdlet {
                 $cmdlet = GenXdev.Helpers\Get-GenXDevCmdlet @params
 
                 # retrieve and validate the target cmdlet exists
-                $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
+                $invocationParams = GenXdev.FileSystem\Copy-IdenticalParamValues `
                     -FunctionName 'GenXdev.Helpers\Get-GenXDevCmdlet' `
                     -BoundParameters $PSBoundParameters
 
@@ -370,7 +370,7 @@ function Assert-GenXdevCmdlet {
             }
 
             # open cmdlet in vscode and insert prompt
-            $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
+            $invocationParams = GenXdev.FileSystem\Copy-IdenticalParamValues `
                 -FunctionName 'GenXdev.Coding\Show-GenXdevCmdLetInIde' `
                 -BoundParameters $PSBoundParameters
 

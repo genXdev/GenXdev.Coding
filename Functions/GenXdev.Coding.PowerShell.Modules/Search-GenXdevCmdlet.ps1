@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Search-GenXdevCmdlet.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.296.2025
+Version                   : 1.298.2025
 ################################################################################
 MIT License
 
@@ -143,7 +143,7 @@ function Search-GenXdevCmdlet {
     begin {
 
         # retrieve and validate the target cmdlet exists
-        $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
+        $invocationParams = GenXdev.FileSystem\Copy-IdenticalParamValues `
             -FunctionName 'GenXdev.Helpers\Get-GenXDevCmdlet' `
             -BoundParameters $PSBoundParameters
 
@@ -173,7 +173,7 @@ function Search-GenXdevCmdlet {
     process {
 
         # open cmdlet in ide and insert prompt with keyboard shortcuts
-        $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
+        $invocationParams = GenXdev.FileSystem\Copy-IdenticalParamValues `
             -FunctionName 'GenXdev.Coding\Open-SourceFileInIde' `
             -BoundParameters $PSBoundParameters
 
@@ -200,7 +200,7 @@ function Search-GenXdevCmdlet {
         if ($EditCmdlet) {
 
             # copy parameters for editing cmdlet function
-            $invocationArgs = GenXdev.Helpers\Copy-IdenticalParamValues `
+            $invocationArgs = GenXdev.FileSystem\Copy-IdenticalParamValues `
                 -BoundParameters $PSBoundParameters `
                 -FunctionName 'GenXdev.Coding\Show-GenXdevCmdLetInIde'
 

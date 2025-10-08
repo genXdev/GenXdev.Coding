@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Invoke-GenXdevPSFormatter.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.296.2025
+Version                   : 1.298.2025
 ################################################################################
 MIT License
 
@@ -250,7 +250,7 @@ function Invoke-GenXdevPSFormatter {
                 try {
 
                     # prepare parameters for the psscriptanalyzer formatter
-                    $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
+                    $invocationParams = GenXdev.FileSystem\Copy-IdenticalParamValues `
                         -BoundParameters $PSBoundParameters `
                         -FunctionName 'PSScriptAnalyzer\Invoke-Formatter'
 

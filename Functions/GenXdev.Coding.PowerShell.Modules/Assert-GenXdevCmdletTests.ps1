@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Assert-GenXdevCmdletTests.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.296.2025
+Version                   : 1.298.2025
 ################################################################################
 MIT License
 
@@ -116,7 +116,7 @@ function Assert-GenXdevCmdletTests {
     begin {
 
         # get target cmdlet information including script position
-        $params = GenXdev.Helpers\Copy-IdenticalParamValues `
+        $params = GenXdev.FileSystem\Copy-IdenticalParamValues `
             -FunctionName 'GenXdev.Helpers\Get-GenXDevCmdlet' `
             -BoundParameters $PSBoundParameters
         $params.ExactMatch = $true
@@ -221,7 +221,7 @@ function Assert-GenXdevCmdletTests {
         # open cmdlet in vscode and activate copilot
         # open cmdlet in vscode and insert prompt
         # open cmdlet in vscode and insert prompt
-        $invocationParams = GenXdev.Helpers\Copy-IdenticalParamValues `
+        $invocationParams = GenXdev.FileSystem\Copy-IdenticalParamValues `
             -FunctionName 'GenXdev.Coding\Show-GenXdevCmdLetInIde' `
             -BoundParameters $PSBoundParameters
         $invocationParams.UnitTests = $true

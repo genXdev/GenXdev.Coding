@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Assert-RefactorFile.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.296.2025
+Version                   : 1.298.2025
 ################################################################################
 MIT License
 
@@ -254,11 +254,11 @@ function Assert-RefactorFile {
 
             # construct paths for functions and tests directories
             $functionsPath = GenXdev.FileSystem\Expand-Path `
-                "$modulesPath\$baseModuleName\1.296.2025\Functions\" `
+                "$modulesPath\$baseModuleName\1.298.2025\Functions\" `
                 -CreateDirectory
 
             $testsPath = GenXdev.FileSystem\Expand-Path `
-                "$modulesPath\$baseModuleName\1.296.2025\Tests\" `
+                "$modulesPath\$baseModuleName\1.298.2025\Tests\" `
                 -CreateDirectory
 
             # determine the specific module context based on file location
