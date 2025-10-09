@@ -10,39 +10,32 @@
     A Windows PowerShell module that helps being more productive with coding tasks.
 [![GenXdev.Coding](https://img.shields.io/powershellgallery/v/GenXdev.Coding.svg?style=flat-square&label=GenXdev.Coding)](https://www.powershellgallery.com/packages/GenXdev.Coding/) [![License](https://img.shields.io/github/license/genXdev/GenXdev.Coding?style=flat-square)](./LICENSE)
 
-## MIT License
+## APACHE 2.0 License
 
 ````text
-MIT License
+Copyright (c) 2025 René Vaessen / GenXdev
 
-Copyright (c) 2025 GenXdev
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+     http://www.apache.org/licenses/LICENSE-2.0
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
 ````
 
 ### FEATURES
-* ✅ Advanced PowerShell Module Development
+* Advanced PowerShell Module Development
      * Create new cmdlets with proper structure and validation
         using `New-GenXdevCmdlet`
      * Run and manage unit tests with `Assert-GenXdevTest`
 
-* ✅ AI-Powered Code Refactoring
+* AI-Powered Code Refactoring
      * Create and manage refactoring tasks with `New-Refactor`
        and `Update-Refactor`
      * Use LLM-based selection to identify files needing refactoring
@@ -51,24 +44,24 @@ SOFTWARE.
      * Manage all refactors with `Update-Refactor`
      * Generate detailed refactoring reports with `Get-RefactorReport`
 
-* ✅ GenXdev Module Management
+* GenXdev Module Management
      * Improve existing cmdlets with `Assert-GenXdevCmdlet`
      * Enhance unit tests using `Assert-GenXdevCmdletTest`
      * Search and edit cmdlets with `Search-GenXdevCmdlet`
 
-* ✅ Development Environment Integration
+* Development Environment Integration
      * Configure Visual Studio Code with recommended extensions
      * Set up GitHub CLI and Copilot integration
      * Open files in preferred IDE (VS Code/Visual Studio)
      * Manage git operations with `New-GitCommit`
 
-* ✅ Documentation Management
+* Documentation Management
      * Track features, ideas, issues, and todos in README files
      * Add timestamped entries for features, release notes, and todos
      * View and manage documentation sections with dedicated cmdlets
      * Generate and maintain module documentation automatically
 
-* ✅ Safety Features
+* Safety Features
      * Restricted cmdlet access for LLM operations
      * User approval required for file modifications
      * WinMerge integration for safe content comparison

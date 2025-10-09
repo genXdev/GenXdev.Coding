@@ -2,29 +2,21 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : New-GenXdevModule.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.298.2025
+Version                   : 1.300.2025
 ################################################################################
-MIT License
+Copyright (c)  René Vaessen / GenXdev
 
-Copyright 2021-2025 GenXdev
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+    http://www.apache.org/licenses/LICENSE-2.0
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 ################################################################################>
 ###############################################################################
 <#
@@ -109,7 +101,7 @@ Script module or binary module file associated with this manifest.
 RootModule = '$ModuleName.psm1'
 
 Version number of this module.
-ModuleVersion = '1.298.2025'
+ModuleVersion = '1.300.2025'
 
 Supported PSEditions
 CompatiblePSEditions = 'Core'
@@ -148,7 +140,7 @@ Processor architecture (None, X86, Amd64) required by this module
 ProcessorArchitecture = 'Amd64'
 
 Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @(@{ModuleName = 'GenXdev'; ModuleVersion = '1.298.2025'; })
+RequiredModules = @(@{ModuleName = 'GenXdev'; ModuleVersion = '1.300.2025'; })
 
 Assemblies that must be loaded prior to importing this module
 RequiredAssemblies = @()
@@ -184,7 +176,7 @@ List of all modules packaged with this module
 ModuleList = @('$ModuleName')
 
 List of all files packaged with this module
-FileList = '$ModuleName.psm1', '$ModuleName.psd1', 'LICENSE', 'license.txt',
+FileList = '$ModuleName.psm1', '$ModuleName.psd1', 'LICENSE',
            'powershell.jpg', 'README.md'
 
 Private data to pass to the module specified in RootModule/ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
@@ -196,7 +188,7 @@ PrivateData = @{
         Tags = $(($Tags | Microsoft.PowerShell.Core\ForEach-Object { "'$_'" }) -join ', ')
 
         # A URL to the license for this module.
-        LicenseUri = 'https://raw.githubusercontent.com/genXdev/$ModuleName/main/LICENSE'
+        LicenseUri = 'https://www.apache.org/licenses/LICENSE-2.0'
 
         # A URL to the main website for this project.
         ProjectUri = 'https://powershell.genxdev.net/#$ModuleName'
@@ -276,7 +268,7 @@ Update-Module
 
         # create versioned module directory
         $moduleDirectory = GenXdev.FileSystem\Expand-Path `
-            -Path "$moduleRootDirectory\1.298.2025\" `
+            -Path "$moduleRootDirectory\1.300.2025\" `
             -CreateDirectory
 
         # store current location and move to module directory
@@ -305,7 +297,6 @@ Update-Module
 
             # copy required support files from template
             Microsoft.PowerShell.Management\Copy-Item -LiteralPath "$PSScriptRoot\..\..\LICENSE" -Destination .\LICENSE
-            Microsoft.PowerShell.Management\Copy-Item -LiteralPath "$PSScriptRoot\..\..\license.txt" -Destination .\license.txt
             Microsoft.PowerShell.Management\Copy-Item -LiteralPath "$PSScriptRoot\..\..\powershell.jpg" -Destination .\powershell.jpg
 
             # create module documentation

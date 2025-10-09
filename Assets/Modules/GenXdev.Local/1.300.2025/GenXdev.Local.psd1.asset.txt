@@ -9,7 +9,7 @@
     RootModule            = 'GenXdev.Local.psm1'
 
     # Version number of this module.
-    ModuleVersion         = '1.298.2025'
+    ModuleVersion         = '1.300.2025'
 
     # Supported PSEditions
     CompatiblePSEditions  = 'Core'
@@ -48,7 +48,7 @@
     ProcessorArchitecture = 'Amd64'
 
     # Modules that must be imported into the global environment prior to importing this module
-    RequiredModules       = @(@{ModuleName = 'GenXdev'; ModuleVersion = '1.298.2025'; })
+    RequiredModules       = @(@{ModuleName = 'GenXdev'; ModuleVersion = '1.300.2025'; })
 
     # Assemblies that must be loaded prior to importing this module
     # RequiredAssemblies    = 'lib\GenXdev.Local.dll'
@@ -93,9 +93,6 @@
 
             # Tags applied to this module. These help with module discovery in online galleries.
             Tags    = 'Local', 'Shell', 'GenXdev'
-
-            # A URL to the license for this module.
-            # LicenseUri = 'https://raw.githubusercontent.com/genXdev/GenXdev.Local/main/LICENSE'
 
             # A URL to the main website for this project.
             # ProjectUri = 'https://powershell.genxdev.net/#GenXdev.Local'
