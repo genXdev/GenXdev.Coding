@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Assert-RefactorFile.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.300.2025
+Version                   : 1.302.2025
 ################################################################################
 Copyright (c)  René Vaessen / GenXdev
 
@@ -18,7 +18,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ################################################################################>
-################################################################################
 <#
 .SYNOPSIS
 Executes a refactoring operation on a source file using the specified IDE and
@@ -246,11 +245,11 @@ function Assert-RefactorFile {
 
             # construct paths for functions and tests directories
             $functionsPath = GenXdev.FileSystem\Expand-Path `
-                "$modulesPath\$baseModuleName\1.300.2025\Functions\" `
+                "$modulesPath\$baseModuleName\1.302.2025\Functions\" `
                 -CreateDirectory
 
             $testsPath = GenXdev.FileSystem\Expand-Path `
-                "$modulesPath\$baseModuleName\1.300.2025\Tests\" `
+                "$modulesPath\$baseModuleName\1.302.2025\Tests\" `
                 -CreateDirectory
 
             # determine the specific module context based on file location

@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Add-MissingGenXdevUnitTests.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.300.2025
+Version                   : 1.302.2025
 ################################################################################
 Copyright (c)  René Vaessen / GenXdev
 
@@ -21,6 +21,8 @@ limitations under the License.
 ###############################################################################
 function Add-MissingGenXdevUnitTests {
 
+    # dont remove this line [dontrefactor]
+    
     [CmdletBinding()]
     [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', 'Add-MissingGenXdevUnitTests')]
     param()

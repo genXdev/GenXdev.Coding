@@ -89,17 +89,17 @@ Update-Module
 | [Add-FeatureLineToREADME](#add-featurelinetoreadme) | feature | Adds a feature line to the README file with a timestamp. |
 | [Add-IdeaLineToREADME](#add-idealinetoreadme) | idea | Adds an idea item to the README.md file. |
 | [Add-IssueLineToREADME](#add-issuelinetoreadme) | issue | Adds an issue item to the README.md file. |
-| [Add-LineToREADME](#add-linetoreadme) | &nbsp; | Adds a line to a README.md markdown file in a specified section. |
+| [Add-LineToREADME](#add-linetoreadme) | &nbsp; | &nbsp; |
 | [Add-ReleaseNoteLineToREADME](#add-releasenotelinetoreadme) | releasenote | Adds a ReleaseNote line to the README file with a timestamp. |
 | [Add-TodoLineToREADME](#add-todolinetoreadme) | todo | Adds a todo item to the README.md file. |
 | [EnsureVSCodeInstallation](#ensurevscodeinstallation) | &nbsp; | Installs and configures Visual Studio Code with recommended extensions. |
 | [Features](#features) | &nbsp; | Displays features from a README.md file. |
-| [Ideas](#ideas) | &nbsp; | Displays ideas from a README.md file. |
-| [Issues](#issues) | &nbsp; | Displays issues from a README.md file. |
-| [Open-SourceFileInIde](#open-sourcefileinide) | editcode | Opens a source file in the preferred IDE (Visual Studio Code or Visual Studio). |
-| [ReleaseNotes](#releasenotes) | &nbsp; | Displays ReleaseNotes from a README.md file. |
-| [Todoos](#todoos) | &nbsp; | Displays todo items from a README.md file. |
-| [VSCode](#vscode) | &nbsp; | Opens one or more files in Visual Studio Code. |
+| [Ideas](#ideas) | &nbsp; | &nbsp; |
+| [Issues](#issues) | &nbsp; | &nbsp; |
+| [Open-SourceFileInIde](#open-sourcefileinide) | editcode | &nbsp; |
+| [ReleaseNotes](#releasenotes) | &nbsp; | &nbsp; |
+| [Todoos](#todoos) | &nbsp; | &nbsp; |
+| [VSCode](#vscode) | &nbsp; | &nbsp; |
 
 ### GenXdev.Coding.Git
 | Command | Aliases | Description |
@@ -116,33 +116,34 @@ Update-Module
 | [Assert-GenXdevCmdletTests](#assert-genxdevcmdlettests) | improvecmdlettests | Asserts and improves unit-tests of a specified GenXdev cmdlet. |
 | [Assert-GenXdevDependencyUsage](#assert-genxdevdependencyusage) | checkgenxdevdependencies | &nbsp; |
 | [Assert-GenXdevTest](#assert-genxdevtest) | rungenxdevtests | &nbsp; |
-| [Assert-ModuleDefinition](#assert-moduledefinition) | &nbsp; | Assists in refactoring PowerShell source code files using AI assistance. |
+| [Assert-ModuleDefinition](#assert-moduledefinition) | &nbsp; | &nbsp; |
 | [Assert-RefactorFile](#assert-refactorfile) | &nbsp; | &nbsp; |
 | [Clear-GenXdevModules](#clear-genxdevmodules) | cleangenxdev | Cleans build artifacts from GenXdev PowerShell modules. |
-| [Complete-GenXDevREADME](#complete-genxdevreadme) | &nbsp; | Completes the README file for specified GenXDev modules by adding documentation. |
+| [Complete-GenXdevHelpFile](#complete-genxdevhelpfile) | &nbsp; | &nbsp; |
+| [Complete-GenXDevREADME](#complete-genxdevreadme) | &nbsp; | &nbsp; |
 | [EnsureCopilotKeyboardShortCut](#ensurecopilotkeyboardshortcut) | &nbsp; | Configures the GitHub Copilot Chat keyboard shortcuts in Visual Studio Code. |
 | [EnsureDefaultGenXdevRefactors](#ensuredefaultgenxdevrefactors) | &nbsp; | &nbsp; |
-| [Get-GenXdevCmdletUsageAnalysis](#get-genxdevcmdletusageanalysis) | &nbsp; | Analyzes GenXdev cmdlet usage patterns to identify most frequently called functions. |
+| [Get-GenXdevCmdletUsageAnalysis](#get-genxdevcmdletusageanalysis) | &nbsp; | &nbsp; |
 | [Get-GenXDevModule](#get-genxdevmodule) | &nbsp; | Retrieves all GenXDev modules from a specified path. |
-| [Get-GenXDevModuleInfo](#get-genxdevmoduleinfo) | &nbsp; | Retrieves detailed information about GenXdev PowerShell modules. |
+| [Get-GenXDevModuleinfo](#get-genxdevmoduleinfo) | &nbsp; | &nbsp; |
 | [Get-GenXDevNewModulesInOrderOfDependency](#get-genxdevnewmodulesinorderofdependency) | &nbsp; | Retrieves GenXDev modules in dependency order. |
-| [Get-ModuleHelpMarkdown](#get-modulehelpmarkdown) | &nbsp; | Generates markdown help documentation for specified GenXDev modules. |
-| [Get-Refactor](#get-refactor) | refactors | Retrieves refactor definitions from GenXdev preferences based on name patterns. |
+| [Get-ModuleHelpMarkdown](#get-modulehelpmarkdown) | &nbsp; | &nbsp; |
+| [Get-Refactor](#get-refactor) | refactors | &nbsp; |
 | [Get-RefactorReport](#get-refactorreport) | refactorreport | Generates a detailed report of refactoring operations and their status. |
-| [Invoke-GenXdevPSFormatter](#invoke-genxdevpsformatter) | &nbsp; | Formats PowerShell script files using PSScriptAnalyzer formatting rules. |
+| [Invoke-GenXdevPSFormatter](#invoke-genxdevpsformatter) | &nbsp; | &nbsp; |
 | [Invoke-GenXdevScriptAnalyzer](#invoke-genxdevscriptanalyzer) | &nbsp; | &nbsp; |
 | [New-GenXdevCmdlet](#new-genxdevcmdlet) | newcmd | Creates a new GenXdev PowerShell cmdlet with proper structure and validation. |
-| [New-GenXdevModule](#new-genxdevmodule) | &nbsp; | Creates a new GenXdev PowerShell module with proper structure and configuration. |
+| [New-GenXdevModule](#new-genxdevmodule) | &nbsp; | &nbsp; |
 | [New-PullRequestForGenXdevModuleChanges](#new-pullrequestforgenxdevmodulechanges) | prgenxdevmodule | Creates a pull request for changes made to a GenXdev module. |
-| [New-Refactor](#new-refactor) | newrefactor | Creates a new refactoring set for code transformation tasks. |
+| [New-Refactor](#new-refactor) | newrefactor | &nbsp; |
 | [Open-GenXdevCmdletsContainingClipboardTextInIde](#open-genxdevcmdletscontainingclipboardtextinide) | vscodesearch | Opens files in IDE that contain clipboard text |
 | [Remove-Refactor](#remove-refactor) | &nbsp; | Removes refactor sets from GenXdev preferences system. |
 | [Search-GenXdevCmdlet](#search-genxdevcmdlet) | searchcmdlet | Searches for a GenXdev cmdlet and optionally opens it in an IDE for editing. |
 | [Show-GenXdevCmdLetInIde](#show-genxdevcmdletinide) | cmdlet, editcmdlet | Opens the specified GenXdev cmdlet in Visual Studio Code. |
-| [SplitUpPsm1File](#splituppsm1file) | &nbsp; | Splits a PowerShell module (.psm1) file into individual function files. |
-| [Start-NextRefactor](#start-nextrefactor) | nextrefactor | Continues or restarts a code refactoring session. |
+| [SplitUpPsm1File](#splituppsm1file) | &nbsp; | &nbsp; |
+| [Start-NextRefactor](#start-nextrefactor) | nextrefactor | &nbsp; |
 | [Test-RefactorLLMSelection](#test-refactorllmselection) | &nbsp; | Evaluates source files for refactoring eligibility using LLM analysis. |
-| [Update-Refactor](#update-refactor) | updaterefactor | Updates and manages refactoring sets including file selection and processing. |
+| [Update-Refactor](#update-refactor) | updaterefactor | &nbsp; |
 
 <br/><hr/><br/>
 
@@ -152,447 +153,220 @@ Update-Module
 &nbsp;<hr/>
 ###	GenXdev.Coding<hr/> 
 
-##	Add-FeatureLineToREADME 
-```PowerShell 
-
-   Add-FeatureLineToREADME              --> feature  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Add-FeatureLineToREADME [[-Line] <string>] [-Code] [-Show]
-    [-UseHomeREADME] [-UseOneDriveREADME]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Code  
-        Format the line as code  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Line <string>  
-        The feature description text to add  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Show  
-        Display the README after adding the line  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseHomeREADME  
-        Use README in home directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME  
-        Use README in OneDrive directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Add-IdeaLineToREADME 
-```PowerShell 
-
-   Add-IdeaLineToREADME                 --> idea  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Add-IdeaLineToREADME [[-Line] <string>] [-Code] [-Show]
-    [-UseHomeREADME] [-UseOneDriveREADME]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Code  
-        Open README in Visual Studio Code  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Line <string>  
-        The idea text to add  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Show  
-        Show the modified section  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseHomeREADME  
-        Use README in PowerShell profile directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME  
-        Use README in OneDrive directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Add-IssueLineToREADME 
-```PowerShell 
-
-   Add-IssueLineToREADME                --> issue  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Add-IssueLineToREADME [[-Line] <string>] [-Code] [-Show]
-    [-UseHomeREADME] [-UseOneDriveREADME]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Code  
-        Open README in Visual Studio Code  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Line <string>  
-        The issue text to add  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Show  
-        Show the modified section  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseHomeREADME  
-        Use README in PowerShell profile directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME  
-        Use README in OneDrive directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
 ##	Add-LineToREADME 
 ```PowerShell 
 
    Add-LineToREADME  
-```` 
+``` 
+
+### SYNOPSIS 
 
 ### SYNTAX 
 ```PowerShell 
-Add-LineToREADME [[-Line] <string>] [-Section] <string>
-    [-Prefix] <string> [-Code] [-Show] [-Done]
-    [-UseHomeREADME] [-UseOneDriveREADME]
-    [<CommonParameters>] 
-```` 
+ 
+``` 
+
+### DESCRIPTION 
 
 ### PARAMETERS 
-    -Code  
-        Open in Visual Studio Code after modifying  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Done  
-        Mark the item as completed  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Line <string>  
+```yaml 
+ 
+``` 
+```yaml 
+    -Line [<String>]  
         The line to add to the README  
-        Required?                    false  
+        Required?                      
         Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -Prefix <string>  
-        The prefix to use for the line  
-        Required?                    true  
-        Position?                    2  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Section <string>  
+``` 
+```yaml 
+    -Section <String>  
         The section to add the line to  
-        Required?                    true  
+        Required?                      
         Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -Show  
+``` 
+```yaml 
+    -Prefix <String>  
+        The prefix to use for the line  
+        Required?                      
+        Position?                    2  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Code [<SwitchParameter>]  
+        Open in Visual Studio Code after modifying  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show [<SwitchParameter>]  
         Show the modified section  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -UseHomeREADME  
+``` 
+```yaml 
+    -Done [<SwitchParameter>]  
+        Mark the item as completed  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME [<SwitchParameter>]  
         Use README in PowerShell profile directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -UseOneDriveREADME  
+``` 
+```yaml 
+    -UseOneDriveREADME [<SwitchParameter>]  
         Use README in OneDrive directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Add-ReleaseNoteLineToREADME 
-```PowerShell 
-
-   Add-ReleaseNoteLineToREADME          --> releasenote  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Add-ReleaseNoteLineToREADME [[-Line] <string>] [-Code]
-    [-Show] [-UseHomeREADME] [-UseOneDriveREADME]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Code  
-        Format the line as code  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Line <string>  
-        The ReleaseNote description text to add  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Show  
-        Display the README after adding the line  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseHomeREADME  
-        Use README in home directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME  
-        Use README in OneDrive directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Add-TodoLineToREADME 
-```PowerShell 
-
-   Add-TodoLineToREADME                 --> todo  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Add-TodoLineToREADME [[-Line] <string>] [-Code] [-Show]
-    [-Done] [-UseHomeREADME] [-UseOneDriveREADME]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Code  
-        Open README in Visual Studio Code  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Done  
-        Mark todo item as completed  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Line <string>  
-        The todo item text to add  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       true (ByValue)  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Show  
-        Show the modified section  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseHomeREADME  
-        Use README in PowerShell profile directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME  
-        Use README in OneDrive directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -601,14 +375,18 @@ Add-TodoLineToREADME [[-Line] <string>] [-Code] [-Show]
 ```PowerShell 
 
    EnsureVSCodeInstallation  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 EnsureVSCodeInstallation [-Force] [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -Force  
         Required?                    false  
         Position?                    Named  
@@ -617,50 +395,14 @@ EnsureVSCodeInstallation [-Force] [<CommonParameters>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Features 
-```PowerShell 
-
-   Features  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Features [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -UseHomeREADME  
-        Use README in PowerShell profile directory  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME  
-        Use README in OneDrive directory  
-        Required?                    false  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -669,37 +411,52 @@ Features [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
 ```PowerShell 
 
    Ideas  
-```` 
+``` 
+
+### SYNOPSIS 
+    Displays ideas from a README.md file.  
 
 ### SYNTAX 
 ```PowerShell 
 Ideas [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
-```` 
+``` 
+
+### DESCRIPTION 
+    Shows all ideas from the "## Ideas" section of a README.md file. Can use either  
+    the README in the current location, PowerShell profile directory, or OneDrive  
+    directory.  
 
 ### PARAMETERS 
-    -UseHomeREADME  
-        Use README in PowerShell profile directory  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME  
-        Use README in OneDrive directory  
+```yaml 
+ 
+``` 
+```yaml 
+    -UseHomeREADME [<SwitchParameter>]  
+        Use README.md from PowerShell profile directory instead of current location.  
         Required?                    false  
         Position?                    1  
+        Default value                False  
         Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Aliases                        
         Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseOneDriveREADME [<SwitchParameter>]  
+        Use README.md from OneDrive directory instead of current location.  
+        Required?                    false  
+        Position?                    2  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -708,14 +465,18 @@ Ideas [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
 ```PowerShell 
 
    Issues  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -UseHomeREADME  
         Use README in PowerShell profile directory  
         Required?                    false  
@@ -725,6 +486,8 @@ Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -UseOneDriveREADME  
         Use README in OneDrive directory  
         Required?                    false  
@@ -734,11 +497,14 @@ Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -747,104 +513,226 @@ Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
 ```PowerShell 
 
    Open-SourceFileInIde                 --> editcode  
-```` 
+``` 
+
+### SYNOPSIS 
 
 ### SYNTAX 
 ```PowerShell 
-Open-SourceFileInIde [-Path] <string> [[-LineNo] <int>]
-    [[-KeysToSend] <string[]>] [-Code] [-VisualStudio]
-    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
-    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
-    <int>] [<CommonParameters>] 
-```` 
+ 
+``` 
+
+### DESCRIPTION 
 
 ### PARAMETERS 
-    -Code  
-        The ide to open the file in  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      c  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -KeysToSend <string[]>  
-        Array of keyboard inputs to send to the application  
-        Required?                    false  
-        Position?                    2  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      keys  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -LineNo <int>  
-        The line number to navigate to  
-        Required?                    false  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Path <string>  
+```yaml 
+ 
+``` 
+```yaml 
+    -Path <String>  
         The path to the sourcefile to open  
-        Required?                    true  
+        Required?                      
         Position?                    0  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
+        Default value                  
+        Accept pipeline input?       True  
         Aliases                      FullName  
-        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SendKeyDelayMilliSeconds <int>  
-        Delay between different input strings in milliseconds  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      DelayMilliSeconds  
-        Dynamic?                     false  
+``` 
+```yaml 
+    -LineNo [<Int32>]  
+        The line number to navigate to  
+        Required?                      
+        Position?                    1  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -SendKeyEscape  
-        Escape control characters and modifiers  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      Escape  
-        Dynamic?                     false  
+``` 
+```yaml 
+    -KeysToSend [<String[]>]  
+        Array of keyboard inputs to send to the application  
+        Required?                      
+        Position?                    2  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      keys  
         Accept wildcard characters?  false  
-    -SendKeyHoldKeyboardFocus  
-        Hold keyboard focus on target window  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      HoldKeyboardFocus  
-        Dynamic?                     false  
+``` 
+```yaml 
+    -Code [<SwitchParameter>]  
+        The ide to open the file in  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      c  
         Accept wildcard characters?  false  
-    -SendKeyUseShiftEnter  
-        Use Shift+Enter instead of Enter  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      UseShiftEnter  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -VisualStudio  
+``` 
+```yaml 
+    -VisualStudio [<SwitchParameter>]  
         Open in Visual Studio  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
         Aliases                      vs  
-        Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SendKeyEscape [<SwitchParameter>]  
+        Escape control characters and modifiers  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      Escape  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SendKeyHoldKeyboardFocus [<SwitchParameter>]  
+        Hold keyboard focus on target window  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      HoldKeyboardFocus  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SendKeyUseShiftEnter [<SwitchParameter>]  
+        Use Shift+Enter instead of Enter  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      UseShiftEnter  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SendKeyDelayMilliSeconds [<Int32>]  
+        Delay between different input strings in milliseconds  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      DelayMilliSeconds  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -853,14 +741,18 @@ Open-SourceFileInIde [-Path] <string> [[-LineNo] <int>]
 ```PowerShell 
 
    ReleaseNotes  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 ReleaseNotes [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -UseHomeREADME  
         Use README in PowerShell profile directory  
         Required?                    false  
@@ -870,6 +762,8 @@ ReleaseNotes [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -UseOneDriveREADME  
         Use README in OneDrive directory  
         Required?                    false  
@@ -879,11 +773,14 @@ ReleaseNotes [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -892,14 +789,18 @@ ReleaseNotes [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
 ```PowerShell 
 
    Todoos  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 Todoos [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -UseHomeREADME  
         Use README in PowerShell profile directory  
         Required?                    false  
@@ -909,6 +810,8 @@ Todoos [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -UseOneDriveREADME  
         Use README in OneDrive directory  
         Required?                    false  
@@ -918,11 +821,14 @@ Todoos [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -931,14 +837,18 @@ Todoos [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
 ```PowerShell 
 
    VSCode  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 VSCode [-FilePath] <string[]> [-Copilot] [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -Copilot  
         Add sourcefile to Copilot edit-session  
         Required?                    false  
@@ -948,6 +858,8 @@ VSCode [-FilePath] <string[]> [-Copilot] [<CommonParameters>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -FilePath <string[]>  
         The path to the file to open in VSCode  
         Required?                    true  
@@ -957,11 +869,14 @@ VSCode [-FilePath] <string[]> [-Copilot] [<CommonParameters>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -969,102 +884,22 @@ VSCode [-FilePath] <string[]> [-Copilot] [<CommonParameters>]
 &nbsp;<hr/>
 ###	GenXdev.Coding.Git<hr/> 
 
-##	Get-GitChangedFiles 
-```PowerShell 
-
-   Get-GitChangedFiles                  --> gitchanged  
-```` 
-
-### SYNOPSIS 
-    Get the list of changed files in a Git repository.  
-
-### SYNTAX 
-```PowerShell 
-Get-GitChangedFiles [-PassThru] [<CommonParameters>] 
-```` 
-
-### DESCRIPTION 
-    This function retrieves the list of files that have been changed in the current Git repository.  
-    It can be used to identify which files have been modified, added, or deleted.  
-    By default, returns relative paths with .\ prefix. Use -PassThru to get FileInfo objects.  
-
-### PARAMETERS 
-    -PassThru [<SwitchParameter>]  
-        Returns FileInfo objects (like Get-ChildItem) instead of path strings.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	New-GitCommit 
-```PowerShell 
-
-   New-GitCommit                        --> commit  
-```` 
-
-### SYNTAX 
-```PowerShell 
-New-GitCommit [[-Title] <string>] [-WhatIf] [-Confirm]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Confirm  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      cf  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Title <string>  
-        The commit message title to use  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -WhatIf  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      wi  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
 ##	PermanentlyDeleteGitFolders 
 ```PowerShell 
 
    PermanentlyDeleteGitFolders  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
-PermanentlyDeleteGitFolders [-RepoUri] <string> [-Folders] <string[]> [-WhatIf] [-Confirm] [<CommonParameters>] 
-```` 
+PermanentlyDeleteGitFolders [-RepoUri] <string> [-Folders] <string[]> [-tempPath <string>] [-WhatIf] [-Confirm] [<CommonParameters>] 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -Confirm  
         Required?                    false  
         Position?                    Named  
@@ -1073,6 +908,8 @@ PermanentlyDeleteGitFolders [-RepoUri] <string> [-Folders] <string[]> [-WhatIf] 
         Aliases                      cf  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Folders <string[]>  
         Array of folder paths to permanently remove  
         Required?                    true  
@@ -1082,6 +919,8 @@ PermanentlyDeleteGitFolders [-RepoUri] <string> [-Folders] <string[]> [-WhatIf] 
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -RepoUri <string>  
         The URI of the Git repository to clean  
         Required?                    true  
@@ -1091,6 +930,8 @@ PermanentlyDeleteGitFolders [-RepoUri] <string> [-Folders] <string[]> [-WhatIf] 
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -WhatIf  
         Required?                    false  
         Position?                    Named  
@@ -1099,11 +940,24 @@ PermanentlyDeleteGitFolders [-RepoUri] <string> [-Folders] <string[]> [-WhatIf] 
         Aliases                      wi  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
+    -tempPath <string>  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -1115,19 +969,24 @@ PermanentlyDeleteGitFolders [-RepoUri] <string> [-Folders] <string[]> [-WhatIf] 
 ```PowerShell 
 
    Add-MissingGenXdevUnitTests  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 Add-MissingGenXdevUnitTests [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -1136,7 +995,7 @@ Add-MissingGenXdevUnitTests [<CommonParameters>]
 ```PowerShell 
 
    Assert-GenXdevCmdlet                 --> improvecmdlet  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
@@ -1145,9 +1004,13 @@ Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey]
     [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code]
     [-VisualStudio] [-EditPrompt] [-Integrate]
     [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -CmdletName <string>  
         Search pattern to filter cmdlets  
         Required?                    false  
@@ -1157,6 +1020,8 @@ Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey]
         Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
         Dynamic?                     false  
         Accept wildcard characters?  true  
+``` 
+```yaml 
     -Code  
         Open in Visual Studio Code  
         Required?                    false  
@@ -1166,6 +1031,8 @@ Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey]
         Aliases                      c  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -EditPrompt  
         Only edit the AI prompt  
         Required?                    false  
@@ -1175,6 +1042,8 @@ Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -FromScripts  
         Search in script files  
         Required?                    false  
@@ -1184,6 +1053,8 @@ Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Integrate  
         Integrate cmdlet into module  
         Required?                    false  
@@ -1193,6 +1064,8 @@ Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ModuleName <string[]>  
         GenXdev module names to search  
         Required?                    false  
@@ -1202,6 +1075,8 @@ Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey]
         Aliases                      Module, BaseModuleName, SubModuleName  
         Dynamic?                     false  
         Accept wildcard characters?  true  
+``` 
+```yaml 
     -NoLocal  
         Skip local module versions  
         Required?                    false  
@@ -1211,6 +1086,8 @@ Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -OnlyPublished  
         Only include published versions  
         Required?                    false  
@@ -1220,6 +1097,8 @@ Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Prompt <string>  
         Custom AI prompt text to use  
         Required?                    false  
@@ -1229,6 +1108,8 @@ Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -PromptKey <string>  
         The AI prompt key to use for template selection  
         Required?                    false  
@@ -1238,6 +1119,8 @@ Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -VisualStudio  
         Open in Visual Studio  
         Required?                    false  
@@ -1247,97 +1130,14 @@ Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey]
         Aliases                      vs  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Assert-GenXdevCmdletTests 
-```PowerShell 
-
-   Assert-GenXdevCmdletTests            --> improvecmdlettests  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Assert-GenXdevCmdletTests [-CmdletName] <string> [[-Prompt]
-    <string>] [[-PromptKey] <string>] [-EditPrompt]
-    [-AssertFailedTest] [-FromScripts]
-    [-ContinuationHandled] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -AssertFailedTest  
-        Indicates to assert a failed test  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -CmdletName <string>  
-        The name of the cmdlet to improve unit-tests for  
-        Required?                    true  
-        Position?                    0  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      cmd  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ContinuationHandled  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -EditPrompt  
-        Switch to only edit the AI prompt  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -FromScripts  
-        Search in script files instead of modules  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Prompt <string>  
-        Custom AI prompt text to use  
-        Required?                    false  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -PromptKey <string>  
-        The AI prompt key to use for template selection  
-        Required?                    false  
-        Position?                    2  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -1346,38 +1146,57 @@ Assert-GenXdevCmdletTests [-CmdletName] <string> [[-Prompt]
 ```PowerShell 
 
    Assert-GenXdevDependencyUsage        --> checkgenxdevdependencies  
-```` 
+``` 
+
+### SYNOPSIS 
+    Validates dependency usage across GenXdev modules to ensure proper module  
+    hierarchy is maintained.  
 
 ### SYNTAX 
 ```PowerShell 
-Assert-GenXdevDependencyUsage [[-ModuleName] <string[]>]
+Assert-GenXdevDependencyUsage [[-ModuleName] <String[]>]
     [-FromScripts] [<CommonParameters>] 
-```` 
+``` 
+
+### DESCRIPTION 
+    This function analyzes GenXdev modules to ensure they follow the correct  
+    dependency hierarchy. It checks that modules only reference dependencies  
+    that are listed in their RequiredModules manifest, and prevents circular  
+    dependencies by validating that modules do not reference modules that come  
+    later in the dependency chain.  
 
 ### PARAMETERS 
-    -FromScripts  
-        Search in script files instead of module files  
+```yaml 
+ 
+``` 
+```yaml 
+    -ModuleName <String[]>  
+        Filter to apply to module names. Must match GenXdev naming pattern. Defaults  
+        to checking all GenXdev modules.  
         Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ModuleName <string[]>  
-        Filter to apply to module names  
-        Required?                    false  
-        Position?                    1  
+        Position?                    2  
+        Default value                @('GenXdev*')  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Aliases                        
         Accept wildcard characters?  true  
+``` 
+```yaml 
+    -FromScripts [<SwitchParameter>]  
+        Search in script files instead of module files.  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -1386,7 +1205,7 @@ Assert-GenXdevDependencyUsage [[-ModuleName] <string[]>]
 ```PowerShell 
 
    Assert-GenXdevTest                   --> rungenxdevtests  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
@@ -1401,9 +1220,13 @@ Assert-GenXdevTest [[-CmdletName] <string>]
     Full}] [-AllowLongRunningTests] [-SkipModuleImports]
     [-SkipPSAnalyzerTests] [-SkipPesterTests]
     [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -AllowLongRunningTests  
         Also selects unit-tests that have long running durations  
         Required?                    false  
@@ -1413,6 +1236,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -CmdletName <string>  
         Search pattern to filter cmdlets  
         Required?                    false  
@@ -1422,6 +1247,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
         Dynamic?                     false  
         Accept wildcard characters?  true  
+``` 
+```yaml 
     -DefinitionMatches <string>  
         Regular expression to match cmdlet definitions  
         Required?                    false  
@@ -1431,6 +1258,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ExactMatch  
         Require exact matches for cmdlet names  
         Required?                    false  
@@ -1440,6 +1269,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -FromScripts  
         Search in script files instead of modules  
         Required?                    false  
@@ -1449,6 +1280,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -IncludeScripts  
         Includes the scripts directory in addition to regular modules  
         Required?                    false  
@@ -1458,6 +1291,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ModuleName <string[]>  
         GenXdev module names to search  
         Required?                    false  
@@ -1467,6 +1302,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      Module, BaseModuleName, SubModuleName  
         Dynamic?                     false  
         Accept wildcard characters?  true  
+``` 
+```yaml 
     -NoLocal  
         Skip searching in local module paths  
         Required?                    false  
@@ -1476,6 +1313,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -OnlyPublished  
         Only search in published module paths  
         Required?                    false  
@@ -1485,6 +1324,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -OnlyReturnModuleNames  
         Only return unique module names  
         Required?                    false  
@@ -1494,6 +1335,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SkipModuleImports  
         Skips importing GenXdev modules before testing  
         Required?                    false  
@@ -1503,6 +1346,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SkipPSAnalyzerTests  
         Skips invoking PSAnalyzer tests  
         Required?                    false  
@@ -1512,6 +1357,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SkipPesterTests  
         Skips invoking Pester tests  
         Required?                    false  
@@ -1521,6 +1368,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -StackTraceVerbosity <string>  
         Stack trace detail level  
         Required?                    false  
@@ -1530,6 +1379,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -TestFailedAction <string>  
         Action to take when a test fails. Options: Ask, Continue, Stop, SolveWithAI, Write-Error, Throw  
         Required?                    false  
@@ -1539,6 +1390,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Verbosity <string>  
         Output detail level  
         Required?                    false  
@@ -1548,11 +1401,14 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -1561,15 +1417,19 @@ Assert-GenXdevTest [[-CmdletName] <string>]
 ```PowerShell 
 
    Assert-ModuleDefinition  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 Assert-ModuleDefinition [-ModuleName] <string> [-Prompt
     <string>] [-EditPrompt] [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -EditPrompt  
         Switch to only edit the AI prompt  
         Required?                    false  
@@ -1579,6 +1439,8 @@ Assert-ModuleDefinition [-ModuleName] <string> [-Prompt
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ModuleName <string>  
         The name of the module  
         Required?                    true  
@@ -1588,6 +1450,8 @@ Assert-ModuleDefinition [-ModuleName] <string> [-Prompt
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Prompt <string>  
         The AI prompt  
         Required?                    false  
@@ -1597,11 +1461,14 @@ Assert-ModuleDefinition [-ModuleName] <string> [-Prompt
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -1610,16 +1477,20 @@ Assert-ModuleDefinition [-ModuleName] <string> [-Prompt
 ```PowerShell 
 
    Assert-RefactorFile  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 Assert-RefactorFile [-Path] <string> [[-RefactorSettings]
     <RefactorSettings>] [-AllowLongRunningTests]
     [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -AllowLongRunningTests  
         Required?                    false  
         Position?                    Named  
@@ -1628,6 +1499,8 @@ Assert-RefactorFile [-Path] <string> [[-RefactorSettings]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Path <string>  
         The path to the source file to improve  
         Required?                    true  
@@ -1637,6 +1510,8 @@ Assert-RefactorFile [-Path] <string> [[-RefactorSettings]
         Aliases                      FullName  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -RefactorSettings <RefactorSettings>  
         The refactor definition containing settings and prompt template  
         Required?                    false  
@@ -1646,32 +1521,14 @@ Assert-RefactorFile [-Path] <string> [[-RefactorSettings]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Clear-GenXdevModules 
-```PowerShell 
-
-   Clear-GenXdevModules                 --> cleangenxdev  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Clear-GenXdevModules [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -1680,15 +1537,19 @@ Clear-GenXdevModules [<CommonParameters>]
 ```PowerShell 
 
    Complete-GenXDevREADME  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 Complete-GenXDevREADME [[-ModuleName] <string[]>]
     [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -ModuleName <string[]>  
         The name(s) of the module(s) to complete the README for  
         Required?                    false  
@@ -1698,11 +1559,14 @@ Complete-GenXDevREADME [[-ModuleName] <string[]>]
         Aliases                      Module, BaseModuleName, SubModuleName  
         Dynamic?                     false  
         Accept wildcard characters?  true  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -1711,19 +1575,24 @@ Complete-GenXDevREADME [[-ModuleName] <string[]>]
 ```PowerShell 
 
    EnsureCopilotKeyboardShortCut  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 EnsureCopilotKeyboardShortCut [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -1732,15 +1601,20 @@ EnsureCopilotKeyboardShortCut [<CommonParameters>]
 ```PowerShell 
 
    EnsureDefaultGenXdevRefactors  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -Force  
+        Forces recreation of existing refactor definitions  
         Required?                    false  
         Position?                    Named  
         Accept pipeline input?       false  
@@ -1748,11 +1622,14 @@ EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -1761,16 +1638,20 @@ EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>]
 ```PowerShell 
 
    Get-GenXdevCmdletUsageAnalysis  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 Get-GenXdevCmdletUsageAnalysis [[-OutputFormat] {Table |
     List | CSV}] [[-Top] <int>] [-IncludeCallChains]
     [-IncludeScripts] [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -IncludeCallChains  
         Required?                    false  
         Position?                    Named  
@@ -1779,6 +1660,8 @@ Get-GenXdevCmdletUsageAnalysis [[-OutputFormat] {Table |
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -IncludeScripts  
         Required?                    false  
         Position?                    Named  
@@ -1787,6 +1670,8 @@ Get-GenXdevCmdletUsageAnalysis [[-OutputFormat] {Table |
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -OutputFormat <string>  
         Required?                    false  
         Position?                    0  
@@ -1795,6 +1680,8 @@ Get-GenXdevCmdletUsageAnalysis [[-OutputFormat] {Table |
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Top <int>  
         Required?                    false  
         Position?                    1  
@@ -1803,103 +1690,60 @@ Get-GenXdevCmdletUsageAnalysis [[-OutputFormat] {Table |
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
 
-##	Get-GenXDevModule 
-```PowerShell 
-
-   Get-GenXDevModule  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Get-GenXDevModule [[-Path] <string>] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Path <string>  
-        The root path to search for GenXdev modules  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      RootPath, FullPath  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Get-GenXDevModuleInfo 
+##	Get-GenXDevModuleinfo 
 ```PowerShell 
 
    Get-GenXDevModuleInfo  
-```` 
+``` 
+
+### SYNOPSIS 
+    Retrieves detailed information about GenXdev PowerShell modules.  
 
 ### SYNTAX 
 ```PowerShell 
-Get-GenXDevModuleInfo [[-ModuleName] <string[]>]
+Get-GenXDevModuleInfo [[-ModuleName] <String[]>]
     [<CommonParameters>] 
-```` 
+``` 
+
+### DESCRIPTION 
+    This function examines GenXdev PowerShell modules and returns information about  
+    their configuration, versions, and presence of key files. It can process either  
+    specified modules or all available modules.  
 
 ### PARAMETERS 
-    -ModuleName <string[]>  
-        Names of modules to analyze  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      Name, Module  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
+```yaml 
  
-
-##	Get-GenXDevNewModulesInOrderOfDependency 
-```PowerShell 
-
-   Get-GenXDevNewModulesInOrderOfDependency  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName]
-    <string[]>] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -ModuleName <string[]>  
-        One or more module names to filter by  
+``` 
+```yaml 
+    -ModuleName <String[]>  
+        Array of module names to analyze. If empty, processes all available modules.  
+        GenXdev.Local module is explicitly blocked from processing.  
         Required?                    false  
-        Position?                    0  
+        Position?                    1  
+        Default value                @()  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      Module, BaseModuleName, SubModuleName  
-        Dynamic?                     false  
-        Accept wildcard characters?  true  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -1908,15 +1752,19 @@ Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName]
 ```PowerShell 
 
    Get-ModuleHelpMarkdown  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 Get-ModuleHelpMarkdown [[-ModuleName] <string[]>]
     [[-CommandNames] <string[]>] [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -CommandNames <string[]>  
         Optional cmdlet names to filter which to document  
         Required?                    false  
@@ -1926,6 +1774,8 @@ Get-ModuleHelpMarkdown [[-ModuleName] <string[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  true  
+``` 
+```yaml 
     -ModuleName <string[]>  
         The name(s) of the module(s) to generate help for  
         Required?                    false  
@@ -1935,11 +1785,14 @@ Get-ModuleHelpMarkdown [[-ModuleName] <string[]>]
         Aliases                      Name, Module  
         Dynamic?                     false  
         Accept wildcard characters?  true  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -1948,153 +1801,91 @@ Get-ModuleHelpMarkdown [[-ModuleName] <string[]>]
 ```PowerShell 
 
    Get-Refactor                         --> refactors  
-```` 
+``` 
+
+### SYNOPSIS 
+    Retrieves refactor definitions from GenXdev preferences based on name patterns.  
 
 ### SYNTAX 
 ```PowerShell 
-Get-Refactor [[-Name] <string[]>] [-PreferencesDatabasePath
-    <string>] [-DefaultValue <string>] [-SessionOnly]
+Get-Refactor [[-Name] <String[]>] [-PreferencesDatabasePath
+    <String>] [-DefaultValue <String>] [-SessionOnly]
     [-ClearSession] [-SkipSession] [<CommonParameters>] 
-```` 
+``` 
+
+### DESCRIPTION 
+    Searches for and loads refactor definition sets stored in GenXdev preferences.  
+    Each refactor set is stored as a JSON string in a preference with name starting  
+    with 'refactor_set_'. The function deserializes matching sets into objects.  
 
 ### PARAMETERS 
-    -ClearSession  
-        Clear the session setting (Global variable) before retrieving  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -DefaultValue <string>  
-        The default value if preference is not found  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      DefaultPreference  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Name <string[]>  
-        Pattern(s) to search for refactor definitions  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      PreferenceName  
-        Dynamic?                     false  
-        Accept wildcard characters?  true  
-    -PreferencesDatabasePath <string>  
-        Database path for preference data files  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      DatabasePath  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SessionOnly  
-        Use alternative settings stored in session for Data preferences like Language, Database paths, etc  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SkipSession  
-        Dont use alternative settings stored in session for Data preferences like Language, Database paths, etc  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      FromPreferences  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
+```yaml 
  
-
-##	Get-RefactorReport 
-```PowerShell 
-
-   Get-RefactorReport                   --> refactorreport  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Get-RefactorReport [[-Name] <string[]>]
-    [-PreferencesDatabasePath <string>] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [-AsText]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -AsText  
-        Output report in text format instead of Hashtable  
+``` 
+```yaml 
+    -Name <String[]>  
+        One or more name patterns to match against refactor set names. Patterns are  
+        matched against the portion of the preference name after 'refactor_set_' prefix.  
+        Supports wildcards. If omitted, returns all refactor sets.  
         Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ClearSession  
-        If set, clear the session cache before running.  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Name <string[]>  
-        The name of the refactor, accepts wildcards  
-        Required?                    false  
-        Position?                    0  
+        Position?                    1  
+        Default value                @('*')  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Aliases                        
         Accept wildcard characters?  true  
-    -PreferencesDatabasePath <string>  
-        Specifies the path to the preferences database file.  
+``` 
+```yaml 
+    -PreferencesDatabasePath <String>  
         Required?                    false  
-        Position?                    Named  
+        Position?                    named  
+        Default value                  
         Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      DatabasePath  
-        Dynamic?                     false  
+        Aliases                        
         Accept wildcard characters?  false  
-    -SessionOnly  
-        If set, only use the session cache for refactor data.  
+``` 
+```yaml 
+    -DefaultValue <String>  
         Required?                    false  
-        Position?                    Named  
+        Position?                    named  
+        Default value                  
         Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Aliases                        
         Accept wildcard characters?  false  
-    -SkipSession  
-        If set, skip loading session cache.  
+``` 
+```yaml 
+    -SessionOnly [<SwitchParameter>]  
         Required?                    false  
-        Position?                    Named  
+        Position?                    named  
+        Default value                False  
         Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      FromPreferences  
-        Dynamic?                     false  
+        Aliases                        
         Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ClearSession [<SwitchParameter>]  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SkipSession [<SwitchParameter>]  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -2103,16 +1894,20 @@ Get-RefactorReport [[-Name] <string[]>]
 ```PowerShell 
 
    Invoke-GenXdevPSFormatter  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 Invoke-GenXdevPSFormatter [-Path] <string> [-Settings
     <Object>] [-Range <int[]>] [-Recurse]
     [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -Path <string>  
         Specifies the path to the script file to format.  
         Required?                    true  
@@ -2122,6 +1917,8 @@ Invoke-GenXdevPSFormatter [-Path] <string> [-Settings
         Aliases                      Name, FullName, ImagePath, FileName, ScriptFileName  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Range <int[]>  
         The range within which formatting should take place as an array of four integers: starting line number, starting column number, ending line number, ending column number.  
         Required?                    false  
@@ -2131,6 +1928,8 @@ Invoke-GenXdevPSFormatter [-Path] <string> [-Settings
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Recurse  
         Recursively process files in subdirectories.  
         Required?                    false  
@@ -2140,6 +1939,8 @@ Invoke-GenXdevPSFormatter [-Path] <string> [-Settings
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Settings <Object>  
         A settings hashtable or a path to a PowerShell data file (.psd1) that contains the formatting settings.  
         Required?                    false  
@@ -2149,11 +1950,14 @@ Invoke-GenXdevPSFormatter [-Path] <string> [-Settings
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -2162,7 +1966,7 @@ Invoke-GenXdevPSFormatter [-Path] <string> [-Settings
 ```PowerShell 
 
    Invoke-GenXdevScriptAnalyzer  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
@@ -2172,9 +1976,13 @@ Invoke-GenXdevScriptAnalyzer [-ScriptFilePath] <string>
 Invoke-GenXdevScriptAnalyzer -ScriptDefinition <string>
     [-EnableExit] [-Fix] [-Recurse] [-ReportSummary]
     [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -EnableExit  
         Specifies that the tool should exit on error.  
         Required?                    false  
@@ -2184,6 +1992,8 @@ Invoke-GenXdevScriptAnalyzer -ScriptDefinition <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Fix  
         Enables automatic fixing of violations.  
         Required?                    false  
@@ -2193,6 +2003,8 @@ Invoke-GenXdevScriptAnalyzer -ScriptDefinition <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Recurse  
         Recursively process files.  
         Required?                    false  
@@ -2202,6 +2014,8 @@ Invoke-GenXdevScriptAnalyzer -ScriptDefinition <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ReportSummary  
         Reports a summary after analysis.  
         Required?                    false  
@@ -2211,6 +2025,8 @@ Invoke-GenXdevScriptAnalyzer -ScriptDefinition <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ScriptDefinition <string>  
         Specifies the script definition as a string.  
         Required?                    true  
@@ -2220,6 +2036,8 @@ Invoke-GenXdevScriptAnalyzer -ScriptDefinition <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ScriptFilePath <string>  
         Specifies the path to the script file.  
         Required?                    true  
@@ -2229,11 +2047,14 @@ Invoke-GenXdevScriptAnalyzer -ScriptDefinition <string>
         Aliases                      Path, FullName  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -2242,7 +2063,7 @@ Invoke-GenXdevScriptAnalyzer -ScriptDefinition <string>
 ```PowerShell 
 
    New-GenXdevCmdlet                    --> newcmd  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
@@ -2251,9 +2072,13 @@ New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
     <string>] [[-ModuleName] <string>] [[-CmdletAliases]
     <string[]>] [[-PromptKey] <string>] [[-Prompt] <string>]
     [-EditPrompt] [-WhatIf] [-Confirm] [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -BaseModuleName <string>  
         Integrate the new cmdlet into an existing GenXdev module  
         Required?                    false  
@@ -2263,6 +2088,8 @@ New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -CmdletAliases <string[]>  
         One or more aliases for the cmdlet. Accepts an array of strings.  
         Required?                    false  
@@ -2272,6 +2099,8 @@ New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -CmdletName <string>  
         The name of the cmdlet to create (must use approved verb)  
         Required?                    true  
@@ -2281,6 +2110,8 @@ New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
         Aliases                      cmd  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Confirm  
         Required?                    false  
         Position?                    Named  
@@ -2289,6 +2120,8 @@ New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
         Aliases                      cf  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Description <string>  
         A detailed description of what the cmdlet does  
         Required?                    false  
@@ -2298,6 +2131,8 @@ New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -EditPrompt  
         Only edit the AI prompt without creating the cmdlet  
         Required?                    false  
@@ -2307,6 +2142,8 @@ New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ModuleName <string>  
         Integrate the new cmdlet into an existing GenXdev sub module  
         Required?                    false  
@@ -2316,6 +2153,8 @@ New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Prompt <string>  
         Custom AI prompt text to use for cmdlet generation  
         Required?                    false  
@@ -2325,6 +2164,8 @@ New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -PromptKey <string>  
         The AI prompt key to use for template selection  
         Required?                    false  
@@ -2334,6 +2175,8 @@ New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Synopsis <string>  
         A brief description of the cmdlet's purpose  
         Required?                    false  
@@ -2343,6 +2186,8 @@ New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -WhatIf  
         Required?                    false  
         Position?                    Named  
@@ -2351,11 +2196,14 @@ New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
         Aliases                      wi  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -2364,16 +2212,20 @@ New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
 ```PowerShell 
 
    New-GenXdevModule  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 New-GenXdevModule [-ModuleName] <string> [-Description]
     <string> [[-Tags] <string[]>] [-WhatIf] [-Confirm]
     [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -Confirm  
         Required?                    false  
         Position?                    Named  
@@ -2382,6 +2234,8 @@ New-GenXdevModule [-ModuleName] <string> [-Description]
         Aliases                      cf  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Description <string>  
         Description of the module's functionality  
         Required?                    true  
@@ -2391,6 +2245,8 @@ New-GenXdevModule [-ModuleName] <string> [-Description]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ModuleName <string>  
         Name of the module to create (must follow GenXdev.* pattern)  
         Required?                    true  
@@ -2400,6 +2256,8 @@ New-GenXdevModule [-ModuleName] <string> [-Description]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Tags <string[]>  
         Tags for module discovery (no whitespace allowed)  
         Required?                    false  
@@ -2409,6 +2267,8 @@ New-GenXdevModule [-ModuleName] <string> [-Description]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -WhatIf  
         Required?                    false  
         Position?                    Named  
@@ -2417,11 +2277,14 @@ New-GenXdevModule [-ModuleName] <string> [-Description]
         Aliases                      wi  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -2430,7 +2293,7 @@ New-GenXdevModule [-ModuleName] <string> [-Description]
 ```PowerShell 
 
    New-PullRequestForGenXdevModuleChanges --> prgenxdevmodule  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
@@ -2449,9 +2312,13 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
     [-SetRestored] [-KeysToSend <string[]>] [-SessionOnly]
     [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm]
     [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -Bottom  
         Places window on bottom half of screen  
         Required?                    false  
@@ -2461,6 +2328,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Centered  
         Centers window on screen  
         Required?                    false  
@@ -2470,6 +2339,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ClearSession  
         Clear alternative settings stored in session for AI preferences  
         Required?                    false  
@@ -2479,6 +2350,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -CommitMessage <string>  
         Message for the commit  
         Required?                    false  
@@ -2488,6 +2361,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Confirm  
         Required?                    false  
         Position?                    Named  
@@ -2496,6 +2371,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      cf  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -FocusWindow  
         Focus the window after positioning  
         Required?                    false  
@@ -2505,6 +2382,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      fw, focus  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -GitUserEmail <string>  
         Git email for commits  
         Required?                    false  
@@ -2514,6 +2393,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -GitUserName <string>  
         Git username for commits  
         Required?                    false  
@@ -2523,6 +2404,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Height <int>  
         Window height in pixels for positioning applications  
         Required?                    false  
@@ -2532,6 +2415,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -KeysToSend <string[]>  
         Keystrokes to send to the window after positioning  
         Required?                    false  
@@ -2541,6 +2426,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Left  
         Places window on left half of screen  
         Required?                    false  
@@ -2550,6 +2437,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Maximize  
         Maximize the window after positioning  
         Required?                    false  
@@ -2559,6 +2448,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ModuleName <string>  
         Name of the GenXdev module  
         Required?                    true  
@@ -2568,6 +2459,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Monitor <int>  
         Monitor selection: 0=primary, 1+=specific monitor, -1=current, -2=secondary  
         Required?                    false  
@@ -2577,6 +2470,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      m, mon  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -NoBorders  
         Removes window borders and title bar for a cleaner appearance  
         Required?                    false  
@@ -2586,6 +2481,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      nb  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -PassThru  
         Returns window helper object for further manipulation  
         Required?                    false  
@@ -2595,6 +2492,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      pt  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -PullRequestDescription <string>  
         Description for the pull request  
         Required?                    false  
@@ -2604,6 +2503,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -PullRequestTitle <string>  
         Title for the pull request  
         Required?                    false  
@@ -2613,6 +2514,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -RestoreFocus  
         Returns focus to PowerShell window after positioning  
         Required?                    false  
@@ -2622,6 +2525,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      rf, bg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Right  
         Places window on right half of screen  
         Required?                    false  
@@ -2631,6 +2536,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SessionOnly  
         Use alternative settings stored in session for AI preferences  
         Required?                    false  
@@ -2640,6 +2547,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SetForeground  
         Set the window to foreground after positioning  
         Required?                    false  
@@ -2649,6 +2558,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SetRestored  
         Restore the window to normal state after positioning  
         Required?                    false  
@@ -2658,6 +2569,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ShowWindow  
         Maximizes window to fill entire screen  
         Required?                    false  
@@ -2667,6 +2580,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      sw  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SideBySide  
         Places windows side by side with PowerShell on the same monitor  
         Required?                    false  
@@ -2676,6 +2591,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      sbs  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SkipSession  
         Store settings only in persistent preferences without affecting session  
         Required?                    false  
@@ -2685,6 +2602,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Top  
         Places window on top half of screen  
         Required?                    false  
@@ -2694,6 +2613,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -WhatIf  
         Required?                    false  
         Position?                    Named  
@@ -2702,6 +2623,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      wi  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Width <int>  
         Window width in pixels for positioning applications  
         Required?                    false  
@@ -2711,6 +2634,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -X <int>  
         Window horizontal position for positioning applications  
         Required?                    false  
@@ -2720,6 +2645,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Y <int>  
         Window vertical position for positioning applications  
         Required?                    false  
@@ -2729,11 +2656,14 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -2742,7 +2672,7 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
 ```PowerShell 
 
    New-Refactor                         --> newrefactor  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
@@ -2762,9 +2692,13 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
     [-SessionOnly] [-ClearSession] [-SkipSession] [-Code]
     [-VisualStudio] [-KeysToSend <string[]>] [-WhatIf]
     [-Confirm] [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -ApiEndpoint <string>  
         The API endpoint URL for AI operations  
         Required?                    false  
@@ -2774,6 +2708,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ApiKey <string>  
         The API key for authenticated AI operations  
         Required?                    false  
@@ -2783,6 +2719,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -AutoAddModifiedFiles  
         Will automatically add modified files to the queue  
         Required?                    false  
@@ -2792,6 +2730,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ClearSession  
         Clear alternative settings stored in session for AI preferences  
         Required?                    false  
@@ -2801,6 +2741,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Code  
         Open files in Visual Studio Code  
         Required?                    false  
@@ -2810,6 +2752,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      c  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Confirm  
         Required?                    false  
         Position?                    Named  
@@ -2818,6 +2762,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      cf  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Cpu <int>  
         The number of CPU cores to dedicate to AI operations  
         Required?                    false  
@@ -2827,6 +2773,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ExposedCmdLets <ExposedCmdletDefinition[]>  
         Array of PowerShell command definitions for LLM tools  
         Required?                    false  
@@ -2836,6 +2784,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -FilesToAdd <FileInfo[]>  
         Array of files to process  
         Required?                    false  
@@ -2845,6 +2795,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Force  
         Force stop LM Studio before initialization  
         Required?                    false  
@@ -2854,6 +2806,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Gpu <int>  
         How much to offload to the GPU. If 'off', GPU offloading is disabled. If 'max', all layers are offloaded to GPU. If a number between 0 and 1, that fraction of layers will be offloaded to the GPU. -1 = LM Studio will decide how much to offload to the GPU. -2 = Auto  
         Required?                    false  
@@ -2863,6 +2817,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -HuggingFaceIdentifier <string>  
         The LM Studio specific model identifier  
         Required?                    false  
@@ -2872,6 +2828,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      ModelLMSGetIdentifier  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -KeysToSend <string[]>  
         Keystrokes to send after opening files  
         Required?                    false  
@@ -2881,6 +2839,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      keys  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -LLMQueryType <string>  
         The type of LLM query  
         Required?                    false  
@@ -2890,6 +2850,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -MaxToken <int>  
         The maximum number of tokens to use in AI operations  
         Required?                    false  
@@ -2899,6 +2861,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Model <string>  
         The model identifier or pattern to use for AI operations  
         Required?                    false  
@@ -2908,6 +2872,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Name <string>  
         The name of this new refactor set  
         Required?                    true  
@@ -2917,6 +2883,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -PreferencesDatabasePath <string>  
         Database path for preference data files  
         Required?                    false  
@@ -2926,6 +2894,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      DatabasePath  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Priority <int>  
         Priority for this refactor set  
         Required?                    false  
@@ -2935,6 +2905,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Prompt <string>  
         Custom prompt text to override the template  
         Required?                    false  
@@ -2944,6 +2916,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -PromptKey <string>  
         The prompt key indicates which prompt script to use  
         Required?                    true  
@@ -2953,6 +2927,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SelectByFreeGpuRam  
         Select configuration by available GPU RAM  
         Required?                    false  
@@ -2962,6 +2938,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SelectByFreeRam  
         Select configuration by available system RAM  
         Required?                    false  
@@ -2971,6 +2949,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SelectionPrompt <string>  
         LLM selection guidance prompt  
         Required?                    false  
@@ -2980,6 +2960,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SelectionScript <string>  
         Powershell script for selecting items to refactor  
         Required?                    false  
@@ -2989,6 +2971,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SessionOnly  
         Use alternative settings stored in session for AI preferences  
         Required?                    false  
@@ -2998,6 +2982,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SkipSession  
         Store settings only in persistent preferences without affecting session  
         Required?                    false  
@@ -3007,6 +2993,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      FromPreferences  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -TTLSeconds <int>  
         Time-to-live in seconds for API-loaded models  
         Required?                    false  
@@ -3016,6 +3004,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Temperature <double>  
         Temperature for response randomness (0.0-1.0)  
         Required?                    false  
@@ -3025,6 +3015,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -TimeoutSeconds <int>  
         The timeout in seconds for AI operations  
         Required?                    false  
@@ -3034,6 +3026,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -VisualStudio  
         Open in Visual Studio  
         Required?                    false  
@@ -3043,6 +3037,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      vs  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -WhatIf  
         Required?                    false  
         Position?                    Named  
@@ -3051,251 +3047,14 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      wi  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Open-GenXdevCmdletsContainingClipboardTextInIde 
-```PowerShell 
-
-   Open-GenXdevCmdletsContainingClipboardTextInIde --> vscodesearch  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Open-GenXdevCmdletsContainingClipboardTextInIde
-    [[-InputObject] <string>] [-Copilot]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Copilot  
-        Add sourcefile to Copilot edit-session  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -InputObject <string>  
-        Search for clipboard text in all GenXdev scripts  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       true (ByValue)  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Remove-Refactor 
-```PowerShell 
-
-   Remove-Refactor  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Remove-Refactor [-Name] <string[]> [[-RemoveDefault]]
-    [-PreferencesDatabasePath <string>] [-DefaultValue
-    <string>] [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-WhatIf] [-Confirm] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -ClearSession  
-        Clear the session setting (Global variable) before retrieving  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Confirm  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      cf  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -DefaultValue <string>  
-        The default value if preference is not found  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       true (ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      DefaultPreference  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Name <string[]>  
-        The name of the refactor, accepts wildcards  
-        Required?                    true  
-        Position?                    0  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      PreferenceName  
-        Dynamic?                     false  
-        Accept wildcard characters?  true  
-    -PreferencesDatabasePath <string>  
-        Database path for preference data files  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      DatabasePath  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -RemoveDefault  
-        Switch to also remove the standard refactor set  
-        Required?                    false  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           All  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SessionOnly  
-        Use alternative settings stored in session for Data preferences like Language, Database paths, etc  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SkipSession  
-        Dont use alternative settings stored in session for Data preferences like Language, Database paths, etc  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      FromPreferences  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -WhatIf  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      wi  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Search-GenXdevCmdlet 
-```PowerShell 
-
-   Search-GenXdevCmdlet                 --> searchcmdlet  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Search-GenXdevCmdlet [[-CmdletName] <string>] [[-ModuleName]
-    <string[]>] [-NoLocal] [-OnlyPublished] [-FromScripts]
-    [-Code] [-VisualStudio] [-EditCmdlet]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -CmdletName <string>  
-        Search pattern to filter cmdlets  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
-        Dynamic?                     false  
-        Accept wildcard characters?  true  
-    -Code  
-        Open the found cmdlet in Visual Studio Code  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      c  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -EditCmdlet  
-        Also opens the file in the editor after finding  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -FromScripts  
-        Search in script files instead of module files  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ModuleName <string[]>  
-        GenXdev module names to search  
-        Required?                    false  
-        Position?                    1  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      Module, BaseModuleName, SubModuleName  
-        Dynamic?                     false  
-        Accept wildcard characters?  true  
-    -NoLocal  
-        Skip searching in local module paths  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -OnlyPublished  
-        Limit search to published module paths only  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -VisualStudio  
-        Open the found cmdlet in Visual Studio  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      vs  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -3304,7 +3063,7 @@ Search-GenXdevCmdlet [[-CmdletName] <string>] [[-ModuleName]
 ```PowerShell 
 
    Show-GenXdevCmdLetInIde              --> cmdlet, editcmdlet  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
@@ -3317,9 +3076,13 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
     [-Search] [-ChangedirectoryOnly] [-New] [-PromptKey
     <string>] [-Prompt <string>] [-EditPrompt]
     [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -BaseModuleName <string>  
         Integrate the new cmdlet into an existing GenXdev module  
         Required?                    false  
@@ -3329,6 +3092,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ChangedirectoryOnly  
         When specified, only changes the current PowerShell location\r\nthe respective Cmdlet directory  
         Required?                    false  
@@ -3338,6 +3103,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      cd  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -CmdletAliases <string[]>  
         One or more aliases for the cmdlet. Accepts an array of strings.  
         Required?                    false  
@@ -3347,6 +3114,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -CmdletName <string>  
         Search pattern to filter cmdlets  
         Required?                    true  
@@ -3356,6 +3125,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
         Dynamic?                     false  
         Accept wildcard characters?  true  
+``` 
+```yaml 
     -CoPilot  
         Add to Co-Pilot edit session  
         Required?                    false  
@@ -3365,6 +3136,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Code  
         The ide to open the file in  
         Required?                    false  
@@ -3374,6 +3147,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      c  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Description <string>  
         A detailed description of what the cmdlet does  
         Required?                    false  
@@ -3383,6 +3158,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -EditPrompt  
         Only edit the AI prompt without creating the cmdlet  
         Required?                    false  
@@ -3392,6 +3169,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -FromScripts  
         Required?                    false  
         Position?                    Named  
@@ -3400,6 +3179,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -KeysToSend <string[]>  
         The keys to send  
         Required?                    false  
@@ -3409,6 +3190,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      keys  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ModuleName <string[]>  
         GenXdev module names to search  
         Required?                    false  
@@ -3418,6 +3201,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      Module, SubModuleName  
         Dynamic?                     false  
         Accept wildcard characters?  true  
+``` 
+```yaml 
     -New  
         Create a new cmdlet  
         Required?                    false  
@@ -3427,6 +3212,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -NoLocal  
         Required?                    false  
         Position?                    Named  
@@ -3435,6 +3222,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -OnlyPublished  
         Required?                    false  
         Position?                    Named  
@@ -3443,6 +3232,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Prompt <string>  
         Custom AI prompt text to use for cmdlet generation  
         Required?                    false  
@@ -3452,6 +3243,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -PromptKey <string>  
         The AI prompt key to use for template selection  
         Required?                    false  
@@ -3461,6 +3254,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Search  
         Also global search for the cmdlet  
         Required?                    false  
@@ -3470,6 +3265,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Synopsis <string>  
         A brief description of the cmdlet's purpose  
         Required?                    false  
@@ -3479,6 +3276,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -UnitTests  
         Show the function's unit-tests instead of the function  
         Required?                    false  
@@ -3488,6 +3287,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -VisualStudio  
         Open in Visual Studio  
         Required?                    false  
@@ -3497,11 +3298,14 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      vs  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -3510,14 +3314,18 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
 ```PowerShell 
 
    SplitUpPsm1File  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 SplitUpPsm1File [-Psm1FilePath] <string> [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -Psm1FilePath <string>  
         Path to the .psm1 file to split into functions  
         Required?                    true  
@@ -3527,11 +3335,14 @@ SplitUpPsm1File [-Psm1FilePath] <string> [<CommonParameters>]
         Aliases                      Path  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -3540,7 +3351,7 @@ SplitUpPsm1File [-Psm1FilePath] <string> [<CommonParameters>]
 ```PowerShell 
 
    Start-NextRefactor                   --> nextrefactor  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
@@ -3549,9 +3360,13 @@ Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd]
     [[-CleanUpDeletedFiles]] [-Reset] [-ResetLMSelections]
     [-MarkAllCompleted] [-RedoLast] [-Speak] [-WhatIf]
     [-Confirm] [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -CleanUpDeletedFiles  
         Clean up deleted files  
         Required?                    false  
@@ -3561,6 +3376,8 @@ Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Confirm  
         Required?                    false  
         Position?                    Named  
@@ -3569,6 +3386,8 @@ Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd]
         Aliases                      cf  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -FilesToAdd <FileInfo[]>  
         Filenames to add  
         Required?                    false  
@@ -3578,6 +3397,8 @@ Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -FilesToRemove <FileInfo[]>  
         Filenames to remove  
         Required?                    false  
@@ -3587,6 +3408,8 @@ Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -MarkAllCompleted  
         Mark all files as refactored  
         Required?                    false  
@@ -3596,6 +3419,8 @@ Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Name <string[]>  
         The name of the refactor, accepts wildcards  
         Required?                    false  
@@ -3605,6 +3430,8 @@ Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  true  
+``` 
+```yaml 
     -RedoLast  
         Redo the last refactor  
         Required?                    false  
@@ -3614,6 +3441,8 @@ Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Reset  
         Start from the beginning of the refactor set  
         Required?                    false  
@@ -3623,6 +3452,8 @@ Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ResetLMSelections  
         Restart all LLM selections  
         Required?                    false  
@@ -3632,6 +3463,8 @@ Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Speak  
         Speak out the details of next refactor  
         Required?                    false  
@@ -3641,6 +3474,8 @@ Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -WhatIf  
         Required?                    false  
         Position?                    Named  
@@ -3649,52 +3484,14 @@ Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd]
         Aliases                      wi  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Test-RefactorLLMSelection 
-```PowerShell 
-
-   Test-RefactorLLMSelection  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Test-RefactorLLMSelection [-RefactorDefinition]
-    <RefactorDefinition> [-Path] <string>
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Path <string>  
-        The path to the source file to evaluate  
-        Required?                    true  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      FullName  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -RefactorDefinition <RefactorDefinition>  
-        The refactor definition containing LLM settings  
-        Required?                    true  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -3703,7 +3500,7 @@ Test-RefactorLLMSelection [-RefactorDefinition]
 ```PowerShell 
 
    Update-Refactor                      --> updaterefactor  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
@@ -3757,9 +3554,13 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
     [-VisualStudio] [-Speak] [-SelectByFreeRam]
     [-SelectByFreeGpuRam] [-SessionOnly] [-ClearSession]
     [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -ApiEndpoint <string>  
         The API endpoint URL for AI operations  
         Required?                    false  
@@ -3769,6 +3570,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ApiKey <string>  
         The API key for authenticated AI operations  
         Required?                    false  
@@ -3778,6 +3581,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -AskBeforeLLMSelection  
         Switch to suppress user interaction  
         Required?                    false  
@@ -3787,6 +3592,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -CleanUpDeletedFiles  
         Clean up deleted files  
         Required?                    false  
@@ -3796,6 +3603,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Clear  
         Clear all files from the refactor set  
         Required?                    false  
@@ -3805,6 +3614,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ClearLog  
         Clear the log of the refactor set  
         Required?                    false  
@@ -3814,6 +3625,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ClearSession  
         Clear alternative settings stored in session for AI preferences  
         Required?                    false  
@@ -3823,6 +3636,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Code  
         The ide to open the file in  
         Required?                    false  
@@ -3832,6 +3647,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      c  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Confirm  
         Required?                    false  
         Position?                    Named  
@@ -3840,6 +3657,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      cf  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Cpu <int>  
         The number of CPU cores to dedicate to AI operations  
         Required?                    false  
@@ -3849,6 +3668,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ExposedCmdLets <ExposedCmdletDefinition[]>  
         Array of PowerShell command definitions to use as tools during LLM selection  
         Required?                    false  
@@ -3858,6 +3679,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -FilesToAdd <FileInfo[]>  
         Filenames to add  
         Required?                    false  
@@ -3867,6 +3690,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -FilesToRemove <FileInfo[]>  
         Filenames to remove  
         Required?                    false  
@@ -3876,6 +3701,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Force  
         Force stop LM Studio before initialization  
         Required?                    false  
@@ -3885,6 +3712,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Gpu <int>  
         How much to offload to the GPU. If 'off', GPU offloading is disabled. If 'max', all layers are offloaded to GPU. If a number between 0 and 1, that fraction of layers will be offloaded to the GPU. -1 = LM Studio will decide how much to offload to the GPU. -2 = Auto  
         Required?                    false  
@@ -3894,6 +3723,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -HuggingFaceIdentifier <string>  
         The LM Studio specific model identifier  
         Required?                    false  
@@ -3903,6 +3734,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      ModelLMSGetIdentifier  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -KeysToSend <string[]>  
         The keys to invoke as key strokes after opening the file  
         Required?                    false  
@@ -3912,6 +3745,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      keys  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -LLMQueryType <string>  
         The type of LLM query  
         Required?                    false  
@@ -3921,6 +3756,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -MarkAllCompleted  
         Mark all files as refactored  
         Required?                    false  
@@ -3930,6 +3767,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -MaxToken <int>  
         The maximum number of tokens to use in AI operations  
         Required?                    false  
@@ -3939,6 +3778,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Model <string>  
         The model identifier or pattern to use for AI operations  
         Required?                    false  
@@ -3948,6 +3789,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Name <string[]>  
         The name of the refactor, accepts wildcards  
         Required?                    false  
@@ -3957,6 +3800,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  true  
+``` 
+```yaml 
     -PerformAISelections  
         Switch to process all files in the refactor set  
         Required?                    false  
@@ -3966,6 +3811,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      PerformAllLLMSelections  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -PerformAutoSelections  
         Switch to enable LLM-based file selection processing  
         Required?                    false  
@@ -3975,6 +3822,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -PreferencesDatabasePath <string>  
         Database path for preference data files  
         Required?                    false  
@@ -3984,6 +3833,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      DatabasePath  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Priority <int>  
         Priority for this refactor set  
         Required?                    false  
@@ -3993,6 +3844,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Prompt <string>  
         The prompt key indicates which prompt script to use  
         Required?                    false  
@@ -4002,6 +3855,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -PromptKey <string>  
         The prompt key indicates which prompt script to use  
         Required?                    false  
@@ -4011,6 +3866,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -RedoLast  
         Redo the last refactor  
         Required?                    false  
@@ -4020,6 +3877,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Refactor <RefactorDefinition[]>  
         The refactor set to update  
         Required?                    false  
@@ -4029,6 +3888,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ReprocessModifiedFiles  
         Automatically reprocess files modified since last update  
         Required?                    false  
@@ -4038,6 +3899,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      AutoAddModifiedFiles  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Reset  
         Start from the beginning of the refactor set  
         Required?                    false  
@@ -4047,6 +3910,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ResetLMSelections  
         Restart all LLMSelections  
         Required?                    false  
@@ -4056,6 +3921,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -RetryFailedLLMSelections  
         Switch to retry failed LLM selections  
         Required?                    false  
@@ -4065,6 +3932,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SelectByCreationDateFrom <datetime>  
         Select files by creation date from  
         Required?                    false  
@@ -4074,6 +3943,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SelectByCreationDateTo <datetime>  
         Select files by creation date to  
         Required?                    false  
@@ -4083,6 +3954,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SelectByFreeGpuRam  
         Select configuration by available GPU RAM  
         Required?                    false  
@@ -4092,6 +3965,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SelectByFreeRam  
         Select configuration by available system RAM  
         Required?                    false  
@@ -4101,6 +3976,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SelectByModifiedDateFrom <datetime>  
         Select files by modified date from  
         Required?                    false  
@@ -4110,6 +3987,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SelectByModifiedDateTo <datetime>  
         Select files by modified date to  
         Required?                    false  
@@ -4119,6 +3998,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SelectionPrompt <string>  
         If provided, will invoke LLM to do the selection based on the content of the script  
         Required?                    false  
@@ -4128,6 +4009,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SelectionScript <string>  
         Powershell script for function to select items to refactor  
         Required?                    false  
@@ -4137,6 +4020,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SessionOnly  
         Use alternative settings stored in session for AI preferences  
         Required?                    false  
@@ -4146,6 +4031,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SkipSession  
         Store settings only in persistent preferences without affecting session  
         Required?                    false  
@@ -4155,6 +4042,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      FromPreferences  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Speak  
         Speak out the details of next refactor  
         Required?                    false  
@@ -4164,6 +4053,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -TTLSeconds <int>  
         Time-to-live in seconds for API-loaded models  
         Required?                    false  
@@ -4173,6 +4064,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Temperature <double>  
         Temperature for response randomness (0.0-1.0)  
         Required?                    false  
@@ -4182,6 +4075,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -TimeoutSeconds <int>  
         The timeout in seconds for AI operations  
         Required?                    false  
@@ -4191,6 +4086,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -VisualStudio  
         Open in Visual Studio  
         Required?                    false  
@@ -4200,6 +4097,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      vs  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -WhatIf  
         Required?                    false  
         Position?                    Named  
@@ -4208,11 +4107,14 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      wi  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -4224,66 +4126,197 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
 ```PowerShell 
 
    Add-FeatureLineToREADME              --> feature  
-```` 
+``` 
+
+### SYNOPSIS 
 
 ### SYNTAX 
 ```PowerShell 
-Add-FeatureLineToREADME [[-Line] <string>] [-Code] [-Show]
-    [-UseHomeREADME] [-UseOneDriveREADME]
-    [<CommonParameters>] 
-```` 
+ 
+``` 
+
+### DESCRIPTION 
+    Adds a feature line to the README file with a timestamp.  
 
 ### PARAMETERS 
-    -Code  
-        Format the line as code  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Line <string>  
+```yaml 
+ 
+``` 
+```yaml 
+    -Line [<String>]  
         The feature description text to add  
-        Required?                    false  
+        Required?                      
         Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -Show  
-        Display the README after adding the line  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+``` 
+```yaml 
+    -Code [<SwitchParameter>]  
+        Open README in Visual Studio Code  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -UseHomeREADME  
-        Use README in home directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+``` 
+```yaml 
+    -Show [<SwitchParameter>]  
+        Show the modified section  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -UseOneDriveREADME  
+``` 
+```yaml 
+    -Done [<SwitchParameter>]  
+        Mark todo item as completed  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME [<SwitchParameter>]  
+        Use README in PowerShell profile directory  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseOneDriveREADME [<SwitchParameter>]  
         Use README in OneDrive directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -4292,66 +4325,197 @@ Add-FeatureLineToREADME [[-Line] <string>] [-Code] [-Show]
 ```PowerShell 
 
    Add-IdeaLineToREADME                 --> idea  
-```` 
+``` 
+
+### SYNOPSIS 
 
 ### SYNTAX 
 ```PowerShell 
-Add-IdeaLineToREADME [[-Line] <string>] [-Code] [-Show]
-    [-UseHomeREADME] [-UseOneDriveREADME]
-    [<CommonParameters>] 
-```` 
+ 
+``` 
+
+### DESCRIPTION 
+    Adds an idea item to the README.md file.  
 
 ### PARAMETERS 
-    -Code  
-        Open README in Visual Studio Code  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Line <string>  
+```yaml 
+ 
+``` 
+```yaml 
+    -Line [<String>]  
         The idea text to add  
-        Required?                    false  
+        Required?                      
         Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -Show  
+``` 
+```yaml 
+    -Code [<SwitchParameter>]  
+        Open README in Visual Studio Code  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show [<SwitchParameter>]  
         Show the modified section  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -UseHomeREADME  
+``` 
+```yaml 
+    -Done [<SwitchParameter>]  
+        Mark todo item as completed  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME [<SwitchParameter>]  
         Use README in PowerShell profile directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -UseOneDriveREADME  
+``` 
+```yaml 
+    -UseOneDriveREADME [<SwitchParameter>]  
         Use README in OneDrive directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -4360,162 +4524,197 @@ Add-IdeaLineToREADME [[-Line] <string>] [-Code] [-Show]
 ```PowerShell 
 
    Add-IssueLineToREADME                --> issue  
-```` 
+``` 
+
+### SYNOPSIS 
 
 ### SYNTAX 
 ```PowerShell 
-Add-IssueLineToREADME [[-Line] <string>] [-Code] [-Show]
-    [-UseHomeREADME] [-UseOneDriveREADME]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Code  
-        Open README in Visual Studio Code  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Line <string>  
-        The issue text to add  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Show  
-        Show the modified section  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseHomeREADME  
-        Use README in PowerShell profile directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME  
-        Use README in OneDrive directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
  
+``` 
 
-##	Add-LineToREADME 
-```PowerShell 
-
-   Add-LineToREADME  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Add-LineToREADME [[-Line] <string>] [-Section] <string>
-    [-Prefix] <string> [-Code] [-Show] [-Done]
-    [-UseHomeREADME] [-UseOneDriveREADME]
-    [<CommonParameters>] 
-```` 
+### DESCRIPTION 
+    Adds an issue item to the README.md file.  
 
 ### PARAMETERS 
-    -Code  
-        Open in Visual Studio Code after modifying  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Done  
-        Mark the item as completed  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Line <string>  
-        The line to add to the README  
-        Required?                    false  
+```yaml 
+ 
+``` 
+```yaml 
+    -Line [<String>]  
+        The issue text to add  
+        Required?                      
         Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -Prefix <string>  
-        The prefix to use for the line  
-        Required?                    true  
-        Position?                    2  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+``` 
+```yaml 
+    -Code [<SwitchParameter>]  
+        Open README in Visual Studio Code  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -Section <string>  
-        The section to add the line to  
-        Required?                    true  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Show  
+``` 
+```yaml 
+    -Show [<SwitchParameter>]  
         Show the modified section  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -UseHomeREADME  
+``` 
+```yaml 
+    -Done [<SwitchParameter>]  
+        Mark todo item as completed  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME [<SwitchParameter>]  
         Use README in PowerShell profile directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -UseOneDriveREADME  
+``` 
+```yaml 
+    -UseOneDriveREADME [<SwitchParameter>]  
         Use README in OneDrive directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -4524,66 +4723,197 @@ Add-LineToREADME [[-Line] <string>] [-Section] <string>
 ```PowerShell 
 
    Add-ReleaseNoteLineToREADME          --> releasenote  
-```` 
+``` 
+
+### SYNOPSIS 
 
 ### SYNTAX 
 ```PowerShell 
-Add-ReleaseNoteLineToREADME [[-Line] <string>] [-Code]
-    [-Show] [-UseHomeREADME] [-UseOneDriveREADME]
-    [<CommonParameters>] 
-```` 
+ 
+``` 
+
+### DESCRIPTION 
+    Adds a ReleaseNote line to the README file with a timestamp.  
 
 ### PARAMETERS 
-    -Code  
-        Format the line as code  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Line <string>  
+```yaml 
+ 
+``` 
+```yaml 
+    -Line [<String>]  
         The ReleaseNote description text to add  
-        Required?                    false  
+        Required?                      
         Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -Show  
-        Display the README after adding the line  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+``` 
+```yaml 
+    -Code [<SwitchParameter>]  
+        Open README in Visual Studio Code  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -UseHomeREADME  
-        Use README in home directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+``` 
+```yaml 
+    -Show [<SwitchParameter>]  
+        Show the modified section  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -UseOneDriveREADME  
+``` 
+```yaml 
+    -Done [<SwitchParameter>]  
+        Mark todo item as completed  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME [<SwitchParameter>]  
+        Use README in PowerShell profile directory  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseOneDriveREADME [<SwitchParameter>]  
         Use README in OneDrive directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -4592,444 +4922,200 @@ Add-ReleaseNoteLineToREADME [[-Line] <string>] [-Code]
 ```PowerShell 
 
    Add-TodoLineToREADME                 --> todo  
-```` 
+``` 
+
+### SYNOPSIS 
 
 ### SYNTAX 
 ```PowerShell 
-Add-TodoLineToREADME [[-Line] <string>] [-Code] [-Show]
-    [-Done] [-UseHomeREADME] [-UseOneDriveREADME]
-    [<CommonParameters>] 
-```` 
+ 
+``` 
+
+### DESCRIPTION 
+    Adds a todo item to the README.md file.  
 
 ### PARAMETERS 
-    -Code  
-        Open README in Visual Studio Code  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Done  
-        Mark todo item as completed  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Line <string>  
+```yaml 
+ 
+``` 
+```yaml 
+    -Line [<String>]  
         The todo item text to add  
-        Required?                    false  
+        Required?                      
         Position?                    0  
-        Accept pipeline input?       true (ByValue)  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Default value                  
+        Accept pipeline input?       True  
+        Aliases                        
         Accept wildcard characters?  false  
-    -Show  
+``` 
+```yaml 
+    -Code [<SwitchParameter>]  
+        Open README in Visual Studio Code  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show [<SwitchParameter>]  
         Show the modified section  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -UseHomeREADME  
+``` 
+```yaml 
+    -Done [<SwitchParameter>]  
+        Mark todo item as completed  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME [<SwitchParameter>]  
         Use README in PowerShell profile directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -UseOneDriveREADME  
+``` 
+```yaml 
+    -UseOneDriveREADME [<SwitchParameter>]  
         Use README in OneDrive directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
-
-##	EnsureVSCodeInstallation 
-```PowerShell 
-
-   EnsureVSCodeInstallation  
-```` 
-
-### SYNTAX 
-```PowerShell 
-EnsureVSCodeInstallation [-Force] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Force  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Features 
-```PowerShell 
-
-   Features  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Features [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -UseHomeREADME  
-        Use README in PowerShell profile directory  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME  
-        Use README in OneDrive directory  
-        Required?                    false  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Ideas 
-```PowerShell 
-
-   Ideas  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Ideas [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -UseHomeREADME  
-        Use README in PowerShell profile directory  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME  
-        Use README in OneDrive directory  
-        Required?                    false  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Issues 
-```PowerShell 
-
-   Issues  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -UseHomeREADME  
-        Use README in PowerShell profile directory  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME  
-        Use README in OneDrive directory  
-        Required?                    false  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Open-SourceFileInIde 
-```PowerShell 
-
-   Open-SourceFileInIde                 --> editcode  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Open-SourceFileInIde [-Path] <string> [[-LineNo] <int>]
-    [[-KeysToSend] <string[]>] [-Code] [-VisualStudio]
-    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
-    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
-    <int>] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Code  
-        The ide to open the file in  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      c  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -KeysToSend <string[]>  
-        Array of keyboard inputs to send to the application  
-        Required?                    false  
-        Position?                    2  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      keys  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -LineNo <int>  
-        The line number to navigate to  
-        Required?                    false  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Path <string>  
-        The path to the sourcefile to open  
-        Required?                    true  
-        Position?                    0  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      FullName  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SendKeyDelayMilliSeconds <int>  
-        Delay between different input strings in milliseconds  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      DelayMilliSeconds  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SendKeyEscape  
-        Escape control characters and modifiers  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      Escape  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SendKeyHoldKeyboardFocus  
-        Hold keyboard focus on target window  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      HoldKeyboardFocus  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SendKeyUseShiftEnter  
-        Use Shift+Enter instead of Enter  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      UseShiftEnter  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -VisualStudio  
-        Open in Visual Studio  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      vs  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	ReleaseNotes 
-```PowerShell 
-
-   ReleaseNotes  
-```` 
-
-### SYNTAX 
-```PowerShell 
-ReleaseNotes [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -UseHomeREADME  
-        Use README in PowerShell profile directory  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME  
-        Use README in OneDrive directory  
-        Required?                    false  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Todoos 
-```PowerShell 
-
-   Todoos  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Todoos [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -UseHomeREADME  
-        Use README in PowerShell profile directory  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME  
-        Use README in OneDrive directory  
-        Required?                    false  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	VSCode 
-```PowerShell 
-
-   VSCode  
-```` 
-
-### SYNTAX 
-```PowerShell 
-VSCode [-FilePath] <string[]> [-Copilot] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Copilot  
-        Add sourcefile to Copilot edit-session  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -FilePath <string[]>  
-        The path to the file to open in VSCode  
-        Required?                    true  
-        Position?                    0  
-        Accept pipeline input?       true (ByValue)  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
 
 <br/><hr/><br/>
  
@@ -5041,35 +5127,147 @@ VSCode [-FilePath] <string[]> [-Copilot] [<CommonParameters>]
 ```PowerShell 
 
    Get-GitChangedFiles                  --> gitchanged  
-```` 
+``` 
 
 ### SYNOPSIS 
-    Get the list of changed files in a Git repository.  
 
 ### SYNTAX 
 ```PowerShell 
-Get-GitChangedFiles [-PassThru] [<CommonParameters>] 
-```` 
+ 
+``` 
 
 ### DESCRIPTION 
-    This function retrieves the list of files that have been changed in the current Git repository.  
-    It can be used to identify which files have been modified, added, or deleted.  
-    By default, returns relative paths with .\ prefix. Use -PassThru to get FileInfo objects.  
+    Get the list of changed files in a Git repository.  
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -PassThru [<SwitchParameter>]  
         Returns FileInfo objects (like Get-ChildItem) instead of path strings.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
         Aliases                        
         Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -5078,100 +5276,147 @@ Get-GitChangedFiles [-PassThru] [<CommonParameters>]
 ```PowerShell 
 
    New-GitCommit                        --> commit  
-```` 
+``` 
+
+### SYNOPSIS 
 
 ### SYNTAX 
 ```PowerShell 
-New-GitCommit [[-Title] <string>] [-WhatIf] [-Confirm]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Confirm  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      cf  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Title <string>  
-        The commit message title to use  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -WhatIf  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      wi  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
  
+``` 
 
-##	PermanentlyDeleteGitFolders 
-```PowerShell 
-
-   PermanentlyDeleteGitFolders  
-```` 
-
-### SYNTAX 
-```PowerShell 
-PermanentlyDeleteGitFolders [-RepoUri] <string> [-Folders] <string[]> [-WhatIf] [-Confirm] [<CommonParameters>] 
-```` 
+### DESCRIPTION 
+    Creates and pushes a new git commit with all changes.  
 
 ### PARAMETERS 
-    -Confirm  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      cf  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Folders <string[]>  
-        Array of folder paths to permanently remove  
-        Required?                    true  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -RepoUri <string>  
-        The URI of the Git repository to clean  
-        Required?                    true  
+```yaml 
+ 
+``` 
+```yaml 
+    -Title [<String>]  
+        The commit message title to use  
+        Required?                      
         Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -WhatIf  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      wi  
-        Dynamic?                     false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
         Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -5179,546 +5424,210 @@ PermanentlyDeleteGitFolders [-RepoUri] <string> [-Folders] <string[]> [-WhatIf] 
 &nbsp;<hr/>
 ###	GenXdev.Coding.PowerShell.Modules<hr/> 
 
-##	Add-MissingGenXdevUnitTests 
-```PowerShell 
-
-   Add-MissingGenXdevUnitTests  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Add-MissingGenXdevUnitTests [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Assert-GenXdevCmdlet 
-```PowerShell 
-
-   Assert-GenXdevCmdlet                 --> improvecmdlet  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey]
-    <string>] [[-Prompt] <string>] [-ModuleName <string[]>]
-    [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code]
-    [-VisualStudio] [-EditPrompt] [-Integrate]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -CmdletName <string>  
-        Search pattern to filter cmdlets  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
-        Dynamic?                     false  
-        Accept wildcard characters?  true  
-    -Code  
-        Open in Visual Studio Code  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      c  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -EditPrompt  
-        Only edit the AI prompt  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           PromptKey  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -FromScripts  
-        Search in script files  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Integrate  
-        Integrate cmdlet into module  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ModuleName <string[]>  
-        GenXdev module names to search  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      Module, BaseModuleName, SubModuleName  
-        Dynamic?                     false  
-        Accept wildcard characters?  true  
-    -NoLocal  
-        Skip local module versions  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -OnlyPublished  
-        Only include published versions  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Prompt <string>  
-        Custom AI prompt text to use  
-        Required?                    false  
-        Position?                    2  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -PromptKey <string>  
-        The AI prompt key to use for template selection  
-        Required?                    false  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -VisualStudio  
-        Open in Visual Studio  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      vs  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
 ##	Assert-GenXdevCmdletTests 
 ```PowerShell 
 
    Assert-GenXdevCmdletTests            --> improvecmdlettests  
-```` 
+``` 
+
+### SYNOPSIS 
 
 ### SYNTAX 
 ```PowerShell 
-Assert-GenXdevCmdletTests [-CmdletName] <string> [[-Prompt]
-    <string>] [[-PromptKey] <string>] [-EditPrompt]
-    [-AssertFailedTest] [-FromScripts]
-    [-ContinuationHandled] [<CommonParameters>] 
-```` 
+ 
+``` 
+
+### DESCRIPTION 
+    Asserts and improves unit-tests of a specified GenXdev cmdlet.  
 
 ### PARAMETERS 
-    -AssertFailedTest  
-        Indicates to assert a failed test  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -CmdletName <string>  
+```yaml 
+ 
+``` 
+```yaml 
+    -CmdletName <String>  
         The name of the cmdlet to improve unit-tests for  
-        Required?                    true  
+        Required?                      
         Position?                    0  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
+        Default value                  
+        Accept pipeline input?       True  
         Aliases                      cmd  
-        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -ContinuationHandled  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -EditPrompt  
-        Switch to only edit the AI prompt  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -FromScripts  
-        Search in script files instead of modules  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Prompt <string>  
+``` 
+```yaml 
+    -Prompt [<String>]  
         Custom AI prompt text to use  
-        Required?                    false  
+        Required?                      
         Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -PromptKey <string>  
+``` 
+```yaml 
+    -PromptKey [<String>]  
         The AI prompt key to use for template selection  
-        Required?                    false  
+        Required?                      
         Position?                    2  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Assert-GenXdevDependencyUsage 
-```PowerShell 
-
-   Assert-GenXdevDependencyUsage        --> checkgenxdevdependencies  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Assert-GenXdevDependencyUsage [[-ModuleName] <string[]>]
-    [-FromScripts] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -FromScripts  
-        Search in script files instead of module files  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ModuleName <string[]>  
-        Filter to apply to module names  
-        Required?                    false  
-        Position?                    1  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  true  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Assert-GenXdevTest 
-```PowerShell 
-
-   Assert-GenXdevTest                   --> rungenxdevtests  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Assert-GenXdevTest [[-CmdletName] <string>]
-    [[-TestFailedAction] {Ask | Continue | Stop |
-    SolveWithAI | Write-Error | Throw}]
-    [[-DefinitionMatches] <string>] [[-ModuleName]
-    <string[]>] [-NoLocal] [-OnlyPublished] [-FromScripts]
-    [-IncludeScripts] [-OnlyReturnModuleNames] [-ExactMatch]
-    [-Verbosity {None | Normal | Detailed | Diagnostic}]
-    [-StackTraceVerbosity {None | FirstLine | Filtered |
-    Full}] [-AllowLongRunningTests] [-SkipModuleImports]
-    [-SkipPSAnalyzerTests] [-SkipPesterTests]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -AllowLongRunningTests  
-        Also selects unit-tests that have long running durations  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -CmdletName <string>  
-        Search pattern to filter cmdlets  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       true (ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
-        Dynamic?                     false  
-        Accept wildcard characters?  true  
-    -DefinitionMatches <string>  
-        Regular expression to match cmdlet definitions  
-        Required?                    false  
-        Position?                    2  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ExactMatch  
-        Require exact matches for cmdlet names  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -FromScripts  
-        Search in script files instead of modules  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -IncludeScripts  
-        Includes the scripts directory in addition to regular modules  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           ModuleName  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ModuleName <string[]>  
-        GenXdev module names to search  
-        Required?                    false  
-        Position?                    3  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      Module, BaseModuleName, SubModuleName  
-        Dynamic?                     false  
-        Accept wildcard characters?  true  
-    -NoLocal  
-        Skip searching in local module paths  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -OnlyPublished  
-        Only search in published module paths  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -OnlyReturnModuleNames  
-        Only return unique module names  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SkipModuleImports  
-        Skips importing GenXdev modules before testing  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           ModuleName  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SkipPSAnalyzerTests  
-        Skips invoking PSAnalyzer tests  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SkipPesterTests  
-        Skips invoking Pester tests  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -StackTraceVerbosity <string>  
-        Stack trace detail level  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -TestFailedAction <string>  
-        Action to take when a test fails. Options: Ask, Continue, Stop, SolveWithAI, Write-Error, Throw  
-        Required?                    false  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Verbosity <string>  
-        Output detail level  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Assert-ModuleDefinition 
-```PowerShell 
-
-   Assert-ModuleDefinition  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Assert-ModuleDefinition [-ModuleName] <string> [-Prompt
-    <string>] [-EditPrompt] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -EditPrompt  
+``` 
+```yaml 
+    -EditPrompt [<SwitchParameter>]  
         Switch to only edit the AI prompt  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -ModuleName <string>  
-        The name of the module  
-        Required?                    true  
-        Position?                    0  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+``` 
+```yaml 
+    -AssertFailedTest [<SwitchParameter>]  
+        Indicates to assert a failed test  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -Prompt <string>  
-        The AI prompt  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+``` 
+```yaml 
+    -FromScripts [<SwitchParameter>]  
+        Search in script files instead of modules  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ContinuationHandled [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Assert-RefactorFile 
-```PowerShell 
-
-   Assert-RefactorFile  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Assert-RefactorFile [-Path] <string> [[-RefactorSettings]
-    <RefactorSettings>] [-AllowLongRunningTests]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -AllowLongRunningTests  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Path <string>  
-        The path to the source file to improve  
-        Required?                    true  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      FullName  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -RefactorSettings <RefactorSettings>  
-        The refactor definition containing settings and prompt template  
-        Required?                    false  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -5727,155 +5636,285 @@ Assert-RefactorFile [-Path] <string> [[-RefactorSettings]
 ```PowerShell 
 
    Clear-GenXdevModules                 --> cleangenxdev  
-```` 
+``` 
+
+### SYNOPSIS 
 
 ### SYNTAX 
 ```PowerShell 
-Clear-GenXdevModules [<CommonParameters>] 
-```` 
+ 
+``` 
+
+### DESCRIPTION 
+    Cleans build artifacts from GenXdev PowerShell modules.  
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
 
-##	Complete-GenXDevREADME 
+##	Complete-GenXdevHelpFile 
 ```PowerShell 
 
-   Complete-GenXDevREADME  
-```` 
+   Complete-GenXdevHelpFile  
+``` 
+
+### SYNOPSIS 
 
 ### SYNTAX 
 ```PowerShell 
-Complete-GenXDevREADME [[-ModuleName] <string[]>]
-    [<CommonParameters>] 
-```` 
+ 
+``` 
+
+### DESCRIPTION 
 
 ### PARAMETERS 
-    -ModuleName <string[]>  
-        The name(s) of the module(s) to complete the README for  
-        Required?                    false  
+```yaml 
+ 
+``` 
+```yaml 
+    -ModuleName [<String[]>]  
+        Names of modules to analyze  
+        Required?                      
         Position?                    0  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      Module, BaseModuleName, SubModuleName  
-        Dynamic?                     false  
-        Accept wildcard characters?  true  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      Name, Module  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	EnsureCopilotKeyboardShortCut 
-```PowerShell 
-
-   EnsureCopilotKeyboardShortCut  
-```` 
-
-### SYNTAX 
-```PowerShell 
-EnsureCopilotKeyboardShortCut [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	EnsureDefaultGenXdevRefactors 
-```PowerShell 
-
-   EnsureDefaultGenXdevRefactors  
-```` 
-
-### SYNTAX 
-```PowerShell 
-EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Force  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Get-GenXdevCmdletUsageAnalysis 
-```PowerShell 
-
-   Get-GenXdevCmdletUsageAnalysis  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Get-GenXdevCmdletUsageAnalysis [[-OutputFormat] {Table |
-    List | CSV}] [[-Top] <int>] [-IncludeCallChains]
-    [-IncludeScripts] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -IncludeCallChains  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -IncludeScripts  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -OutputFormat <string>  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Top <int>  
-        Required?                    false  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -5884,59 +5923,147 @@ Get-GenXdevCmdletUsageAnalysis [[-OutputFormat] {Table |
 ```PowerShell 
 
    Get-GenXDevModule  
-```` 
+``` 
+
+### SYNOPSIS 
 
 ### SYNTAX 
 ```PowerShell 
-Get-GenXDevModule [[-Path] <string>] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Path <string>  
-        The root path to search for GenXdev modules  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      RootPath, FullPath  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
  
+``` 
 
-##	Get-GenXDevModuleInfo 
-```PowerShell 
-
-   Get-GenXDevModuleInfo  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Get-GenXDevModuleInfo [[-ModuleName] <string[]>]
-    [<CommonParameters>] 
-```` 
+### DESCRIPTION 
+    Retrieves all GenXDev modules from a specified path.  
 
 ### PARAMETERS 
-    -ModuleName <string[]>  
-        Names of modules to analyze  
-        Required?                    false  
+```yaml 
+ 
+``` 
+```yaml 
+    -Path [<String>]  
+        The root path to search for GenXdev modules  
+        Required?                      
         Position?                    0  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      Name, Module  
-        Dynamic?                     false  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      RootPath, FullPath  
         Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -5945,146 +6072,147 @@ Get-GenXDevModuleInfo [[-ModuleName] <string[]>]
 ```PowerShell 
 
    Get-GenXDevNewModulesInOrderOfDependency  
-```` 
+``` 
+
+### SYNOPSIS 
 
 ### SYNTAX 
 ```PowerShell 
-Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName]
-    <string[]>] [<CommonParameters>] 
-```` 
+ 
+``` 
+
+### DESCRIPTION 
+    Retrieves GenXDev modules in dependency order.  
 
 ### PARAMETERS 
-    -ModuleName <string[]>  
+```yaml 
+ 
+``` 
+```yaml 
+    -ModuleName [<String[]>]  
         One or more module names to filter by  
-        Required?                    false  
+        Required?                      
         Position?                    0  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
+        Default value                  
+        Accept pipeline input?       True  
         Aliases                      Module, BaseModuleName, SubModuleName  
-        Dynamic?                     false  
         Accept wildcard characters?  true  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Get-ModuleHelpMarkdown 
-```PowerShell 
-
-   Get-ModuleHelpMarkdown  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Get-ModuleHelpMarkdown [[-ModuleName] <string[]>]
-    [[-CommandNames] <string[]>] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -CommandNames <string[]>  
-        Optional cmdlet names to filter which to document  
-        Required?                    false  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  true  
-    -ModuleName <string[]>  
-        The name(s) of the module(s) to generate help for  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      Name, Module  
-        Dynamic?                     false  
-        Accept wildcard characters?  true  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Get-Refactor 
-```PowerShell 
-
-   Get-Refactor                         --> refactors  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Get-Refactor [[-Name] <string[]>] [-PreferencesDatabasePath
-    <string>] [-DefaultValue <string>] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -ClearSession  
-        Clear the session setting (Global variable) before retrieving  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -DefaultValue <string>  
-        The default value if preference is not found  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      DefaultPreference  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Name <string[]>  
-        Pattern(s) to search for refactor definitions  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      PreferenceName  
-        Dynamic?                     false  
-        Accept wildcard characters?  true  
-    -PreferencesDatabasePath <string>  
-        Database path for preference data files  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      DatabasePath  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SessionOnly  
-        Use alternative settings stored in session for Data preferences like Language, Database paths, etc  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SkipSession  
-        Dont use alternative settings stored in session for Data preferences like Language, Database paths, etc  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      FromPreferences  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -6093,1037 +6221,197 @@ Get-Refactor [[-Name] <string[]>] [-PreferencesDatabasePath
 ```PowerShell 
 
    Get-RefactorReport                   --> refactorreport  
-```` 
+``` 
+
+### SYNOPSIS 
 
 ### SYNTAX 
 ```PowerShell 
-Get-RefactorReport [[-Name] <string[]>]
-    [-PreferencesDatabasePath <string>] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [-AsText]
-    [<CommonParameters>] 
-```` 
+ 
+``` 
+
+### DESCRIPTION 
+    Generates a detailed report of refactoring operations and their status.  
 
 ### PARAMETERS 
-    -AsText  
-        Output report in text format instead of Hashtable  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ClearSession  
-        If set, clear the session cache before running.  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Name <string[]>  
+```yaml 
+ 
+``` 
+```yaml 
+    -Name [<String[]>]  
         The name of the refactor, accepts wildcards  
-        Required?                    false  
+        Required?                      
         Position?                    0  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Default value                  
+        Accept pipeline input?       True  
+        Aliases                        
         Accept wildcard characters?  true  
-    -PreferencesDatabasePath <string>  
+``` 
+```yaml 
+    -PreferencesDatabasePath [<String>]  
         Specifies the path to the preferences database file.  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
         Aliases                      DatabasePath  
-        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SessionOnly  
+``` 
+```yaml 
+    -SessionOnly [<SwitchParameter>]  
         If set, only use the session cache for refactor data.  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -SkipSession  
+``` 
+```yaml 
+    -ClearSession [<SwitchParameter>]  
+        If set, clear the session cache before running.  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SkipSession [<SwitchParameter>]  
         If set, skip loading session cache.  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
         Aliases                      FromPreferences  
-        Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
+    -AsText [<SwitchParameter>]  
+        Output report in text format instead of Hashtable  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Invoke-GenXdevPSFormatter 
-```PowerShell 
-
-   Invoke-GenXdevPSFormatter  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Invoke-GenXdevPSFormatter [-Path] <string> [-Settings
-    <Object>] [-Range <int[]>] [-Recurse]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Path <string>  
-        Specifies the path to the script file to format.  
-        Required?                    true  
-        Position?                    0  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      Name, FullName, ImagePath, FileName, ScriptFileName  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Range <int[]>  
-        The range within which formatting should take place as an array of four integers: starting line number, starting column number, ending line number, ending column number.  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Recurse  
-        Recursively process files in subdirectories.  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Settings <Object>  
-        A settings hashtable or a path to a PowerShell data file (.psd1) that contains the formatting settings.  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Invoke-GenXdevScriptAnalyzer 
-```PowerShell 
-
-   Invoke-GenXdevScriptAnalyzer  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Invoke-GenXdevScriptAnalyzer [-ScriptFilePath] <string>
-    [-EnableExit] [-Fix] [-Recurse] [-ReportSummary]
-    [<CommonParameters>]
-Invoke-GenXdevScriptAnalyzer -ScriptDefinition <string>
-    [-EnableExit] [-Fix] [-Recurse] [-ReportSummary]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -EnableExit  
-        Specifies that the tool should exit on error.  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Fix  
-        Enables automatic fixing of violations.  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Recurse  
-        Recursively process files.  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ReportSummary  
-        Reports a summary after analysis.  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ScriptDefinition <string>  
-        Specifies the script definition as a string.  
-        Required?                    true  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           Script  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ScriptFilePath <string>  
-        Specifies the path to the script file.  
-        Required?                    true  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           Path  
-        Aliases                      Path, FullName  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	New-GenXdevCmdlet 
-```PowerShell 
-
-   New-GenXdevCmdlet                    --> newcmd  
-```` 
-
-### SYNTAX 
-```PowerShell 
-New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
-    <string>] [[-Description] <string>] [[-BaseModuleName]
-    <string>] [[-ModuleName] <string>] [[-CmdletAliases]
-    <string[]>] [[-PromptKey] <string>] [[-Prompt] <string>]
-    [-EditPrompt] [-WhatIf] [-Confirm] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -BaseModuleName <string>  
-        Integrate the new cmdlet into an existing GenXdev module  
-        Required?                    false  
-        Position?                    3  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -CmdletAliases <string[]>  
-        One or more aliases for the cmdlet. Accepts an array of strings.  
-        Required?                    false  
-        Position?                    5  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -CmdletName <string>  
-        The name of the cmdlet to create (must use approved verb)  
-        Required?                    true  
-        Position?                    0  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      cmd  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Confirm  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      cf  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Description <string>  
-        A detailed description of what the cmdlet does  
-        Required?                    false  
-        Position?                    2  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -EditPrompt  
-        Only edit the AI prompt without creating the cmdlet  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ModuleName <string>  
-        Integrate the new cmdlet into an existing GenXdev sub module  
-        Required?                    false  
-        Position?                    4  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Prompt <string>  
-        Custom AI prompt text to use for cmdlet generation  
-        Required?                    false  
-        Position?                    7  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -PromptKey <string>  
-        The AI prompt key to use for template selection  
-        Required?                    false  
-        Position?                    6  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Synopsis <string>  
-        A brief description of the cmdlet's purpose  
-        Required?                    false  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -WhatIf  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      wi  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	New-GenXdevModule 
-```PowerShell 
-
-   New-GenXdevModule  
-```` 
-
-### SYNTAX 
-```PowerShell 
-New-GenXdevModule [-ModuleName] <string> [-Description]
-    <string> [[-Tags] <string[]>] [-WhatIf] [-Confirm]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Confirm  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      cf  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Description <string>  
-        Description of the module's functionality  
-        Required?                    true  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ModuleName <string>  
-        Name of the module to create (must follow GenXdev.* pattern)  
-        Required?                    true  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Tags <string[]>  
-        Tags for module discovery (no whitespace allowed)  
-        Required?                    false  
-        Position?                    2  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -WhatIf  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      wi  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	New-PullRequestForGenXdevModuleChanges 
-```PowerShell 
-
-   New-PullRequestForGenXdevModuleChanges --> prgenxdevmodule  
-```` 
-
-### SYNTAX 
-```PowerShell 
-New-PullRequestForGenXdevModuleChanges [-ModuleName]
-    {GenXdev.AI | GenXdev.Coding | GenXdev.Media |
-    GenXdev.Console | GenXdev.Data | GenXdev.FileSystem |
-    GenXdev.Helpers | GenXdev.Queries | GenXdev.Webbrowser |
-    GenXdev.Windows} [[-CommitMessage] <string>]
-    [[-PullRequestTitle] <string>]
-    [[-PullRequestDescription] <string>] [[-GitUserName]
-    <string>] [[-GitUserEmail] <string>] [-Monitor <int>]
-    [-NoBorders] [-Width <int>] [-Height <int>] [-X <int>]
-    [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
-    [-ShowWindow] [-RestoreFocus] [-PassThru] [-SideBySide]
-    [-FocusWindow] [-SetForeground] [-Maximize]
-    [-SetRestored] [-KeysToSend <string[]>] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Bottom  
-        Places window on bottom half of screen  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Centered  
-        Centers window on screen  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ClearSession  
-        Clear alternative settings stored in session for AI preferences  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -CommitMessage <string>  
-        Message for the commit  
-        Required?                    false  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Confirm  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      cf  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -FocusWindow  
-        Focus the window after positioning  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      fw, focus  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -GitUserEmail <string>  
-        Git email for commits  
-        Required?                    false  
-        Position?                    5  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -GitUserName <string>  
-        Git username for commits  
-        Required?                    false  
-        Position?                    4  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Height <int>  
-        Window height in pixels for positioning applications  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -KeysToSend <string[]>  
-        Keystrokes to send to the window after positioning  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Left  
-        Places window on left half of screen  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Maximize  
-        Maximize the window after positioning  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ModuleName <string>  
-        Name of the GenXdev module  
-        Required?                    true  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Monitor <int>  
-        Monitor selection: 0=primary, 1+=specific monitor, -1=current, -2=secondary  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      m, mon  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -NoBorders  
-        Removes window borders and title bar for a cleaner appearance  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      nb  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -PassThru  
-        Returns window helper object for further manipulation  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      pt  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -PullRequestDescription <string>  
-        Description for the pull request  
-        Required?                    false  
-        Position?                    3  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -PullRequestTitle <string>  
-        Title for the pull request  
-        Required?                    false  
-        Position?                    2  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -RestoreFocus  
-        Returns focus to PowerShell window after positioning  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      rf, bg  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Right  
-        Places window on right half of screen  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SessionOnly  
-        Use alternative settings stored in session for AI preferences  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SetForeground  
-        Set the window to foreground after positioning  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      fg  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SetRestored  
-        Restore the window to normal state after positioning  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ShowWindow  
-        Maximizes window to fill entire screen  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      sw  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SideBySide  
-        Places windows side by side with PowerShell on the same monitor  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      sbs  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SkipSession  
-        Store settings only in persistent preferences without affecting session  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Top  
-        Places window on top half of screen  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -WhatIf  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      wi  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Width <int>  
-        Window width in pixels for positioning applications  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -X <int>  
-        Window horizontal position for positioning applications  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Y <int>  
-        Window vertical position for positioning applications  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	New-Refactor 
-```PowerShell 
-
-   New-Refactor                         --> newrefactor  
-```` 
-
-### SYNTAX 
-```PowerShell 
-New-Refactor [-Name] <string> [-PromptKey] <string>
-    [[-Prompt] <string>] [[-SelectionScript] <string>]
-    [[-SelectionPrompt] <string>] [[-LLMQueryType]
-    {SimpleIntelligence | Knowledge | Pictures |
-    TextTranslation | Coding | ToolUse}] [-Model <string>]
-    [-HuggingFaceIdentifier <string>] [-MaxToken <int>]
-    [-Cpu <int>] [-TTLSeconds <int>] [-SelectByFreeRam]
-    [-SelectByFreeGpuRam] [-Temperature <double>] [-Gpu
-    <int>] [-ApiEndpoint <string>] [-ApiKey <string>]
-    [-TimeoutSeconds <int>] [-Priority <int>]
-    [-ExposedCmdLets <ExposedCmdletDefinition[]>]
-    [-FilesToAdd <FileInfo[]>] [-PreferencesDatabasePath
-    <string>] [-AutoAddModifiedFiles] [-Force]
-    [-SessionOnly] [-ClearSession] [-SkipSession] [-Code]
-    [-VisualStudio] [-KeysToSend <string[]>] [-WhatIf]
-    [-Confirm] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -ApiEndpoint <string>  
-        The API endpoint URL for AI operations  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ApiKey <string>  
-        The API key for authenticated AI operations  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -AutoAddModifiedFiles  
-        Will automatically add modified files to the queue  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ClearSession  
-        Clear alternative settings stored in session for AI preferences  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Code  
-        Open files in Visual Studio Code  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      c  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Confirm  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      cf  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Cpu <int>  
-        The number of CPU cores to dedicate to AI operations  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ExposedCmdLets <ExposedCmdletDefinition[]>  
-        Array of PowerShell command definitions for LLM tools  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -FilesToAdd <FileInfo[]>  
-        Array of files to process  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Force  
-        Force stop LM Studio before initialization  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Gpu <int>  
-        How much to offload to the GPU. If 'off', GPU offloading is disabled. If 'max', all layers are offloaded to GPU. If a number between 0 and 1, that fraction of layers will be offloaded to the GPU. -1 = LM Studio will decide how much to offload to the GPU. -2 = Auto  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -HuggingFaceIdentifier <string>  
-        The LM Studio specific model identifier  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      ModelLMSGetIdentifier  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -KeysToSend <string[]>  
-        Keystrokes to send after opening files  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      keys  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -LLMQueryType <string>  
-        The type of LLM query  
-        Required?                    false  
-        Position?                    5  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -MaxToken <int>  
-        The maximum number of tokens to use in AI operations  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Model <string>  
-        The model identifier or pattern to use for AI operations  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Name <string>  
-        The name of this new refactor set  
-        Required?                    true  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -PreferencesDatabasePath <string>  
-        Database path for preference data files  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      DatabasePath  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Priority <int>  
-        Priority for this refactor set  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Prompt <string>  
-        Custom prompt text to override the template  
-        Required?                    false  
-        Position?                    2  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -PromptKey <string>  
-        The prompt key indicates which prompt script to use  
-        Required?                    true  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SelectByFreeGpuRam  
-        Select configuration by available GPU RAM  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SelectByFreeRam  
-        Select configuration by available system RAM  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SelectionPrompt <string>  
-        LLM selection guidance prompt  
-        Required?                    false  
-        Position?                    4  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SelectionScript <string>  
-        Powershell script for selecting items to refactor  
-        Required?                    false  
-        Position?                    3  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SessionOnly  
-        Use alternative settings stored in session for AI preferences  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SkipSession  
-        Store settings only in persistent preferences without affecting session  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      FromPreferences  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -TTLSeconds <int>  
-        Time-to-live in seconds for API-loaded models  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Temperature <double>  
-        Temperature for response randomness (0.0-1.0)  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -TimeoutSeconds <int>  
-        The timeout in seconds for AI operations  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -VisualStudio  
-        Open in Visual Studio  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      vs  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -WhatIf  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      wi  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -7132,39 +6420,157 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
 ```PowerShell 
 
    Open-GenXdevCmdletsContainingClipboardTextInIde --> vscodesearch  
-```` 
+``` 
+
+### SYNOPSIS 
 
 ### SYNTAX 
 ```PowerShell 
-Open-GenXdevCmdletsContainingClipboardTextInIde
-    [[-InputObject] <string>] [-Copilot]
-    [<CommonParameters>] 
-```` 
+ 
+``` 
+
+### DESCRIPTION 
+    Opens files in IDE that contain clipboard text  
 
 ### PARAMETERS 
-    -Copilot  
-        Add sourcefile to Copilot edit-session  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -InputObject <string>  
+```yaml 
+ 
+``` 
+```yaml 
+    -InputObject [<String>]  
         Search for clipboard text in all GenXdev scripts  
-        Required?                    false  
+        Required?                      
         Position?                    0  
-        Accept pipeline input?       true (ByValue)  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Default value                  
+        Accept pipeline input?       True  
+        Aliases                        
         Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Copilot [<SwitchParameter>]  
+        Add sourcefile to Copilot edit-session  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -7173,101 +6579,225 @@ Open-GenXdevCmdletsContainingClipboardTextInIde
 ```PowerShell 
 
    Remove-Refactor  
-```` 
+``` 
+
+### SYNOPSIS 
 
 ### SYNTAX 
 ```PowerShell 
-Remove-Refactor [-Name] <string[]> [[-RemoveDefault]]
-    [-PreferencesDatabasePath <string>] [-DefaultValue
-    <string>] [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-WhatIf] [-Confirm] [<CommonParameters>] 
-```` 
+ 
+``` 
+
+### DESCRIPTION 
+    Removes refactor sets from GenXdev preferences system.  
 
 ### PARAMETERS 
-    -ClearSession  
-        Clear the session setting (Global variable) before retrieving  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Confirm  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      cf  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -DefaultValue <string>  
-        The default value if preference is not found  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       true (ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      DefaultPreference  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Name <string[]>  
+```yaml 
+ 
+``` 
+```yaml 
+    -Name <String[]>  
         The name of the refactor, accepts wildcards  
-        Required?                    true  
+        Required?                      
         Position?                    0  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
+        Default value                  
+        Accept pipeline input?       True  
         Aliases                      PreferenceName  
-        Dynamic?                     false  
-        Accept wildcard characters?  true  
-    -PreferencesDatabasePath <string>  
-        Database path for preference data files  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      DatabasePath  
-        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -RemoveDefault  
+``` 
+```yaml 
+    -RemoveDefault [<SwitchParameter>]  
         Switch to also remove the standard refactor set  
-        Required?                    false  
+        Required?                      
         Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           All  
-        Aliases                      None  
-        Dynamic?                     false  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -SessionOnly  
+``` 
+```yaml 
+    -PreferencesDatabasePath [<String>]  
+        Database path for preference data files  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      DatabasePath  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -DefaultValue [<String>]  
+        The default value if preference is not found  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      DefaultPreference  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SessionOnly [<SwitchParameter>]  
         Use alternative settings stored in session for Data preferences like Language, Database paths, etc  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -SkipSession  
+``` 
+```yaml 
+    -ClearSession [<SwitchParameter>]  
+        Clear the session setting (Global variable) before retrieving  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SkipSession [<SwitchParameter>]  
         Dont use alternative settings stored in session for Data preferences like Language, Database paths, etc  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
         Aliases                      FromPreferences  
-        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -WhatIf  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WhatIf [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
         Aliases                      wi  
-        Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Confirm [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      cf  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -7276,452 +6806,217 @@ Remove-Refactor [-Name] <string[]> [[-RemoveDefault]]
 ```PowerShell 
 
    Search-GenXdevCmdlet                 --> searchcmdlet  
-```` 
+``` 
+
+### SYNOPSIS 
 
 ### SYNTAX 
 ```PowerShell 
-Search-GenXdevCmdlet [[-CmdletName] <string>] [[-ModuleName]
-    <string[]>] [-NoLocal] [-OnlyPublished] [-FromScripts]
-    [-Code] [-VisualStudio] [-EditCmdlet]
-    [<CommonParameters>] 
-```` 
+ 
+``` 
+
+### DESCRIPTION 
+    Searches for a GenXdev cmdlet and optionally opens it in an IDE for editing.  
 
 ### PARAMETERS 
-    -CmdletName <string>  
+```yaml 
+ 
+``` 
+```yaml 
+    -CmdletName [<String>]  
         Search pattern to filter cmdlets  
-        Required?                    false  
+        Required?                      
         Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
+        Default value                  
+        Accept pipeline input?       False  
         Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
-        Dynamic?                     false  
         Accept wildcard characters?  true  
-    -Code  
-        Open the found cmdlet in Visual Studio Code  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      c  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -EditCmdlet  
-        Also opens the file in the editor after finding  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -FromScripts  
-        Search in script files instead of module files  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ModuleName <string[]>  
+``` 
+```yaml 
+    -ModuleName [<String[]>]  
         GenXdev module names to search  
-        Required?                    false  
+        Required?                      
         Position?                    1  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
+        Default value                  
+        Accept pipeline input?       True  
         Aliases                      Module, BaseModuleName, SubModuleName  
-        Dynamic?                     false  
         Accept wildcard characters?  true  
-    -NoLocal  
+``` 
+```yaml 
+    -NoLocal [<SwitchParameter>]  
         Skip searching in local module paths  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -OnlyPublished  
+``` 
+```yaml 
+    -OnlyPublished [<SwitchParameter>]  
         Limit search to published module paths only  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -VisualStudio  
-        Open the found cmdlet in Visual Studio  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      vs  
-        Dynamic?                     false  
+``` 
+```yaml 
+    -FromScripts [<SwitchParameter>]  
+        Search in script files instead of module files  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Show-GenXdevCmdLetInIde 
-```PowerShell 
-
-   Show-GenXdevCmdLetInIde              --> cmdlet, editcmdlet  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Show-GenXdevCmdLetInIde [-CmdletName] <string>
-    [[-ModuleName] <string[]>] [[-BaseModuleName] <string>]
-    [[-Synopsis] <string>] [[-Description] <string>]
-    [[-CmdletAliases] <string[]>] [-NoLocal]
-    [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio]
-    [-UnitTests] [-KeysToSend <string[]>] [-CoPilot]
-    [-Search] [-ChangedirectoryOnly] [-New] [-PromptKey
-    <string>] [-Prompt <string>] [-EditPrompt]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -BaseModuleName <string>  
-        Integrate the new cmdlet into an existing GenXdev module  
-        Required?                    false  
-        Position?                    2  
-        Accept pipeline input?       false  
-        Parameter set name           New  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ChangedirectoryOnly  
-        When specified, only changes the current PowerShell location\r\nthe respective Cmdlet directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      cd  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -CmdletAliases <string[]>  
-        One or more aliases for the cmdlet. Accepts an array of strings.  
-        Required?                    false  
-        Position?                    5  
-        Accept pipeline input?       false  
-        Parameter set name           New  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -CmdletName <string>  
-        Search pattern to filter cmdlets  
-        Required?                    true  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
-        Dynamic?                     false  
-        Accept wildcard characters?  true  
-    -CoPilot  
-        Add to Co-Pilot edit session  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Code  
-        The ide to open the file in  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
+``` 
+```yaml 
+    -Code [<SwitchParameter>]  
+        Open the found cmdlet in Visual Studio Code  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
         Aliases                      c  
-        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -Description <string>  
-        A detailed description of what the cmdlet does  
-        Required?                    false  
-        Position?                    4  
-        Accept pipeline input?       false  
-        Parameter set name           New  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -EditPrompt  
-        Only edit the AI prompt without creating the cmdlet  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -FromScripts  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -KeysToSend <string[]>  
-        The keys to send  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      keys  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ModuleName <string[]>  
-        GenXdev module names to search  
-        Required?                    false  
-        Position?                    1  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      Module, SubModuleName  
-        Dynamic?                     false  
-        Accept wildcard characters?  true  
-    -New  
-        Create a new cmdlet  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           New  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -NoLocal  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -OnlyPublished  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Prompt <string>  
-        Custom AI prompt text to use for cmdlet generation  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -PromptKey <string>  
-        The AI prompt key to use for template selection  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           New  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Search  
-        Also global search for the cmdlet  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Synopsis <string>  
-        A brief description of the cmdlet's purpose  
-        Required?                    false  
-        Position?                    3  
-        Accept pipeline input?       false  
-        Parameter set name           New  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UnitTests  
-        Show the function's unit-tests instead of the function  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -VisualStudio  
-        Open in Visual Studio  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
+``` 
+```yaml 
+    -VisualStudio [<SwitchParameter>]  
+        Open the found cmdlet in Visual Studio  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
         Aliases                      vs  
-        Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
+    -EditCmdlet [<SwitchParameter>]  
+        Also opens the file in the editor after finding  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	SplitUpPsm1File 
-```PowerShell 
-
-   SplitUpPsm1File  
-```` 
-
-### SYNTAX 
-```PowerShell 
-SplitUpPsm1File [-Psm1FilePath] <string> [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Psm1FilePath <string>  
-        Path to the .psm1 file to split into functions  
-        Required?                    true  
-        Position?                    0  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      Path  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Start-NextRefactor 
-```PowerShell 
-
-   Start-NextRefactor                   --> nextrefactor  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd]
-    <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>]
-    [[-CleanUpDeletedFiles]] [-Reset] [-ResetLMSelections]
-    [-MarkAllCompleted] [-RedoLast] [-Speak] [-WhatIf]
-    [-Confirm] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -CleanUpDeletedFiles  
-        Clean up deleted files  
-        Required?                    false  
-        Position?                    3  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Confirm  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      cf  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -FilesToAdd <FileInfo[]>  
-        Filenames to add  
-        Required?                    false  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -FilesToRemove <FileInfo[]>  
-        Filenames to remove  
-        Required?                    false  
-        Position?                    2  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -MarkAllCompleted  
-        Mark all files as refactored  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Name <string[]>  
-        The name of the refactor, accepts wildcards  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  true  
-    -RedoLast  
-        Redo the last refactor  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Reset  
-        Start from the beginning of the refactor set  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ResetLMSelections  
-        Restart all LLM selections  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Speak  
-        Speak out the details of next refactor  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -WhatIf  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      wi  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -7730,557 +7025,157 @@ Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd]
 ```PowerShell 
 
    Test-RefactorLLMSelection  
-```` 
+``` 
+
+### SYNOPSIS 
 
 ### SYNTAX 
 ```PowerShell 
-Test-RefactorLLMSelection [-RefactorDefinition]
-    <RefactorDefinition> [-Path] <string>
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Path <string>  
-        The path to the source file to evaluate  
-        Required?                    true  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      FullName  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -RefactorDefinition <RefactorDefinition>  
-        The refactor definition containing LLM settings  
-        Required?                    true  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
  
+``` 
 
-##	Update-Refactor 
-```PowerShell 
-
-   Update-Refactor                      --> updaterefactor  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Update-Refactor [[-Name] <string[]>] [[-FilesToAdd]
-    <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>]
-    [-SelectByModifiedDateFrom <datetime>]
-    [-SelectByModifiedDateTo <datetime>]
-    [-SelectByCreationDateFrom <datetime>]
-    [-SelectByCreationDateTo <datetime>] [-PromptKey
-    <string>] [-Prompt <string>] [-SelectionScript <string>]
-    [-SelectionPrompt <string>] [-LLMQueryType
-    {SimpleIntelligence | Knowledge | Pictures |
-    TextTranslation | Coding | ToolUse}] [-Model <string>]
-    [-HuggingFaceIdentifier <string>] [-Temperature
-    <double>] [-MaxToken <int>] [-TTLSeconds <int>] [-Cpu
-    <int>] [-Gpu <int>] [-ApiEndpoint <string>] [-ApiKey
-    <string>] [-TimeoutSeconds <int>] [-Priority <int>]
-    [-ExposedCmdLets <ExposedCmdletDefinition[]>]
-    [-KeysToSend <string[]>] [-PreferencesDatabasePath
-    <string>] [-CleanUpDeletedFiles]
-    [-AskBeforeLLMSelection] [-PerformAutoSelections]
-    [-PerformAISelections] [-RetryFailedLLMSelections]
-    [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections]
-    [-MarkAllCompleted] [-RedoLast]
-    [-ReprocessModifiedFiles] [-Force] [-Code]
-    [-VisualStudio] [-Speak] [-SelectByFreeRam]
-    [-SelectByFreeGpuRam] [-SessionOnly] [-ClearSession]
-    [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>]
-Update-Refactor [[-Refactor] <RefactorDefinition[]>]
-    [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove]
-    <FileInfo[]>] [-SelectByModifiedDateFrom <datetime>]
-    [-SelectByModifiedDateTo <datetime>]
-    [-SelectByCreationDateFrom <datetime>]
-    [-SelectByCreationDateTo <datetime>] [-PromptKey
-    <string>] [-Prompt <string>] [-SelectionScript <string>]
-    [-SelectionPrompt <string>] [-LLMQueryType
-    {SimpleIntelligence | Knowledge | Pictures |
-    TextTranslation | Coding | ToolUse}] [-Model <string>]
-    [-HuggingFaceIdentifier <string>] [-Temperature
-    <double>] [-MaxToken <int>] [-TTLSeconds <int>] [-Cpu
-    <int>] [-Gpu <int>] [-ApiEndpoint <string>] [-ApiKey
-    <string>] [-TimeoutSeconds <int>] [-Priority <int>]
-    [-ExposedCmdLets <ExposedCmdletDefinition[]>]
-    [-KeysToSend <string[]>] [-PreferencesDatabasePath
-    <string>] [-CleanUpDeletedFiles]
-    [-AskBeforeLLMSelection] [-PerformAutoSelections]
-    [-PerformAISelections] [-RetryFailedLLMSelections]
-    [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections]
-    [-MarkAllCompleted] [-RedoLast]
-    [-ReprocessModifiedFiles] [-Force] [-Code]
-    [-VisualStudio] [-Speak] [-SelectByFreeRam]
-    [-SelectByFreeGpuRam] [-SessionOnly] [-ClearSession]
-    [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
-```` 
+### DESCRIPTION 
+    Evaluates source files for refactoring eligibility using LLM analysis.  
 
 ### PARAMETERS 
-    -ApiEndpoint <string>  
-        The API endpoint URL for AI operations  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ApiKey <string>  
-        The API key for authenticated AI operations  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -AskBeforeLLMSelection  
-        Switch to suppress user interaction  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -CleanUpDeletedFiles  
-        Clean up deleted files  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Clear  
-        Clear all files from the refactor set  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ClearLog  
-        Clear the log of the refactor set  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ClearSession  
-        Clear alternative settings stored in session for AI preferences  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Code  
-        The ide to open the file in  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      c  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Confirm  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      cf  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Cpu <int>  
-        The number of CPU cores to dedicate to AI operations  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ExposedCmdLets <ExposedCmdletDefinition[]>  
-        Array of PowerShell command definitions to use as tools during LLM selection  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -FilesToAdd <FileInfo[]>  
-        Filenames to add  
-        Required?                    false  
-        Position?                    2  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -FilesToRemove <FileInfo[]>  
-        Filenames to remove  
-        Required?                    false  
-        Position?                    3  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Force  
-        Force stop LM Studio before initialization  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Gpu <int>  
-        How much to offload to the GPU. If 'off', GPU offloading is disabled. If 'max', all layers are offloaded to GPU. If a number between 0 and 1, that fraction of layers will be offloaded to the GPU. -1 = LM Studio will decide how much to offload to the GPU. -2 = Auto  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -HuggingFaceIdentifier <string>  
-        The LM Studio specific model identifier  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      ModelLMSGetIdentifier  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -KeysToSend <string[]>  
-        The keys to invoke as key strokes after opening the file  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      keys  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -LLMQueryType <string>  
-        The type of LLM query  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -MarkAllCompleted  
-        Mark all files as refactored  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -MaxToken <int>  
-        The maximum number of tokens to use in AI operations  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Model <string>  
-        The model identifier or pattern to use for AI operations  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Name <string[]>  
-        The name of the refactor, accepts wildcards  
-        Required?                    false  
+```yaml 
+ 
+``` 
+```yaml 
+    -RefactorDefinition <Object>  
+        The refactor definition containing LLM settings  
+        Required?                      
         Position?                    0  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           Name  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  true  
-    -PerformAISelections  
-        Switch to process all files in the refactor set  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      PerformAllLLMSelections  
-        Dynamic?                     false  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -PerformAutoSelections  
-        Switch to enable LLM-based file selection processing  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -PreferencesDatabasePath <string>  
-        Database path for preference data files  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      DatabasePath  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Priority <int>  
-        Priority for this refactor set  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Prompt <string>  
-        The prompt key indicates which prompt script to use  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -PromptKey <string>  
-        The prompt key indicates which prompt script to use  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -RedoLast  
-        Redo the last refactor  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Refactor <RefactorDefinition[]>  
-        The refactor set to update  
-        Required?                    false  
+``` 
+```yaml 
+    -Path <String>  
+        The path to the source file to evaluate  
+        Required?                      
         Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           Refactor  
-        Aliases                      None  
-        Dynamic?                     false  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      FullName  
         Accept wildcard characters?  false  
-    -ReprocessModifiedFiles  
-        Automatically reprocess files modified since last update  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      AutoAddModifiedFiles  
-        Dynamic?                     false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
         Accept wildcard characters?  false  
-    -Reset  
-        Start from the beginning of the refactor set  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
         Accept wildcard characters?  false  
-    -ResetLMSelections  
-        Restart all LLMSelections  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
         Accept wildcard characters?  false  
-    -RetryFailedLLMSelections  
-        Switch to retry failed LLM selections  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
         Accept wildcard characters?  false  
-    -SelectByCreationDateFrom <datetime>  
-        Select files by creation date from  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
         Accept wildcard characters?  false  
-    -SelectByCreationDateTo <datetime>  
-        Select files by creation date to  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
         Accept wildcard characters?  false  
-    -SelectByFreeGpuRam  
-        Select configuration by available GPU RAM  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
         Accept wildcard characters?  false  
-    -SelectByFreeRam  
-        Select configuration by available system RAM  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
         Accept wildcard characters?  false  
-    -SelectByModifiedDateFrom <datetime>  
-        Select files by modified date from  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
         Accept wildcard characters?  false  
-    -SelectByModifiedDateTo <datetime>  
-        Select files by modified date to  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
         Accept wildcard characters?  false  
-    -SelectionPrompt <string>  
-        If provided, will invoke LLM to do the selection based on the content of the script  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
         Accept wildcard characters?  false  
-    -SelectionScript <string>  
-        Powershell script for function to select items to refactor  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
         Accept wildcard characters?  false  
-    -SessionOnly  
-        Use alternative settings stored in session for AI preferences  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SkipSession  
-        Store settings only in persistent preferences without affecting session  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      FromPreferences  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Speak  
-        Speak out the details of next refactor  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -TTLSeconds <int>  
-        Time-to-live in seconds for API-loaded models  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Temperature <double>  
-        Temperature for response randomness (0.0-1.0)  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -TimeoutSeconds <int>  
-        The timeout in seconds for AI operations  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -VisualStudio  
-        Open in Visual Studio  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      vs  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -WhatIf  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      wi  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -8288,447 +7183,220 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
 &nbsp;<hr/>
 ###	GenXdev.Coding<hr/> 
 
-##	Add-FeatureLineToREADME 
-```PowerShell 
-
-   Add-FeatureLineToREADME              --> feature  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Add-FeatureLineToREADME [[-Line] <string>] [-Code] [-Show]
-    [-UseHomeREADME] [-UseOneDriveREADME]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Code  
-        Format the line as code  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Line <string>  
-        The feature description text to add  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Show  
-        Display the README after adding the line  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseHomeREADME  
-        Use README in home directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME  
-        Use README in OneDrive directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Add-IdeaLineToREADME 
-```PowerShell 
-
-   Add-IdeaLineToREADME                 --> idea  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Add-IdeaLineToREADME [[-Line] <string>] [-Code] [-Show]
-    [-UseHomeREADME] [-UseOneDriveREADME]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Code  
-        Open README in Visual Studio Code  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Line <string>  
-        The idea text to add  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Show  
-        Show the modified section  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseHomeREADME  
-        Use README in PowerShell profile directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME  
-        Use README in OneDrive directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Add-IssueLineToREADME 
-```PowerShell 
-
-   Add-IssueLineToREADME                --> issue  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Add-IssueLineToREADME [[-Line] <string>] [-Code] [-Show]
-    [-UseHomeREADME] [-UseOneDriveREADME]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Code  
-        Open README in Visual Studio Code  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Line <string>  
-        The issue text to add  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Show  
-        Show the modified section  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseHomeREADME  
-        Use README in PowerShell profile directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME  
-        Use README in OneDrive directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
 ##	Add-LineToREADME 
 ```PowerShell 
 
    Add-LineToREADME  
-```` 
+``` 
+
+### SYNOPSIS 
 
 ### SYNTAX 
 ```PowerShell 
-Add-LineToREADME [[-Line] <string>] [-Section] <string>
-    [-Prefix] <string> [-Code] [-Show] [-Done]
-    [-UseHomeREADME] [-UseOneDriveREADME]
-    [<CommonParameters>] 
-```` 
+ 
+``` 
+
+### DESCRIPTION 
 
 ### PARAMETERS 
-    -Code  
-        Open in Visual Studio Code after modifying  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Done  
-        Mark the item as completed  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Line <string>  
+```yaml 
+ 
+``` 
+```yaml 
+    -Line [<String>]  
         The line to add to the README  
-        Required?                    false  
+        Required?                      
         Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -Prefix <string>  
-        The prefix to use for the line  
-        Required?                    true  
-        Position?                    2  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Section <string>  
+``` 
+```yaml 
+    -Section <String>  
         The section to add the line to  
-        Required?                    true  
+        Required?                      
         Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -Show  
+``` 
+```yaml 
+    -Prefix <String>  
+        The prefix to use for the line  
+        Required?                      
+        Position?                    2  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Code [<SwitchParameter>]  
+        Open in Visual Studio Code after modifying  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show [<SwitchParameter>]  
         Show the modified section  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -UseHomeREADME  
+``` 
+```yaml 
+    -Done [<SwitchParameter>]  
+        Mark the item as completed  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME [<SwitchParameter>]  
         Use README in PowerShell profile directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -UseOneDriveREADME  
+``` 
+```yaml 
+    -UseOneDriveREADME [<SwitchParameter>]  
         Use README in OneDrive directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Add-ReleaseNoteLineToREADME 
-```PowerShell 
-
-   Add-ReleaseNoteLineToREADME          --> releasenote  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Add-ReleaseNoteLineToREADME [[-Line] <string>] [-Code]
-    [-Show] [-UseHomeREADME] [-UseOneDriveREADME]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Code  
-        Format the line as code  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Line <string>  
-        The ReleaseNote description text to add  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Show  
-        Display the README after adding the line  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseHomeREADME  
-        Use README in home directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME  
-        Use README in OneDrive directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Add-TodoLineToREADME 
-```PowerShell 
-
-   Add-TodoLineToREADME                 --> todo  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Add-TodoLineToREADME [[-Line] <string>] [-Code] [-Show]
-    [-Done] [-UseHomeREADME] [-UseOneDriveREADME]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Code  
-        Open README in Visual Studio Code  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Done  
-        Mark todo item as completed  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Line <string>  
-        The todo item text to add  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       true (ByValue)  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Show  
-        Show the modified section  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseHomeREADME  
-        Use README in PowerShell profile directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME  
-        Use README in OneDrive directory  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -8737,14 +7405,18 @@ Add-TodoLineToREADME [[-Line] <string>] [-Code] [-Show]
 ```PowerShell 
 
    EnsureVSCodeInstallation  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 EnsureVSCodeInstallation [-Force] [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -Force  
         Required?                    false  
         Position?                    Named  
@@ -8753,50 +7425,14 @@ EnsureVSCodeInstallation [-Force] [<CommonParameters>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Features 
-```PowerShell 
-
-   Features  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Features [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -UseHomeREADME  
-        Use README in PowerShell profile directory  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME  
-        Use README in OneDrive directory  
-        Required?                    false  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -8805,37 +7441,52 @@ Features [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
 ```PowerShell 
 
    Ideas  
-```` 
+``` 
+
+### SYNOPSIS 
+    Displays ideas from a README.md file.  
 
 ### SYNTAX 
 ```PowerShell 
 Ideas [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
-```` 
+``` 
+
+### DESCRIPTION 
+    Shows all ideas from the "## Ideas" section of a README.md file. Can use either  
+    the README in the current location, PowerShell profile directory, or OneDrive  
+    directory.  
 
 ### PARAMETERS 
-    -UseHomeREADME  
-        Use README in PowerShell profile directory  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -UseOneDriveREADME  
-        Use README in OneDrive directory  
+```yaml 
+ 
+``` 
+```yaml 
+    -UseHomeREADME [<SwitchParameter>]  
+        Use README.md from PowerShell profile directory instead of current location.  
         Required?                    false  
         Position?                    1  
+        Default value                False  
         Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Aliases                        
         Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseOneDriveREADME [<SwitchParameter>]  
+        Use README.md from OneDrive directory instead of current location.  
+        Required?                    false  
+        Position?                    2  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -8844,14 +7495,18 @@ Ideas [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
 ```PowerShell 
 
    Issues  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -UseHomeREADME  
         Use README in PowerShell profile directory  
         Required?                    false  
@@ -8861,6 +7516,8 @@ Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -UseOneDriveREADME  
         Use README in OneDrive directory  
         Required?                    false  
@@ -8870,11 +7527,14 @@ Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -8883,104 +7543,226 @@ Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
 ```PowerShell 
 
    Open-SourceFileInIde                 --> editcode  
-```` 
+``` 
+
+### SYNOPSIS 
 
 ### SYNTAX 
 ```PowerShell 
-Open-SourceFileInIde [-Path] <string> [[-LineNo] <int>]
-    [[-KeysToSend] <string[]>] [-Code] [-VisualStudio]
-    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
-    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
-    <int>] [<CommonParameters>] 
-```` 
+ 
+``` 
+
+### DESCRIPTION 
 
 ### PARAMETERS 
-    -Code  
-        The ide to open the file in  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      c  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -KeysToSend <string[]>  
-        Array of keyboard inputs to send to the application  
-        Required?                    false  
-        Position?                    2  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      keys  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -LineNo <int>  
-        The line number to navigate to  
-        Required?                    false  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Path <string>  
+```yaml 
+ 
+``` 
+```yaml 
+    -Path <String>  
         The path to the sourcefile to open  
-        Required?                    true  
+        Required?                      
         Position?                    0  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
+        Default value                  
+        Accept pipeline input?       True  
         Aliases                      FullName  
-        Dynamic?                     false  
         Accept wildcard characters?  false  
-    -SendKeyDelayMilliSeconds <int>  
-        Delay between different input strings in milliseconds  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      DelayMilliSeconds  
-        Dynamic?                     false  
+``` 
+```yaml 
+    -LineNo [<Int32>]  
+        The line number to navigate to  
+        Required?                      
+        Position?                    1  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
         Accept wildcard characters?  false  
-    -SendKeyEscape  
-        Escape control characters and modifiers  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      Escape  
-        Dynamic?                     false  
+``` 
+```yaml 
+    -KeysToSend [<String[]>]  
+        Array of keyboard inputs to send to the application  
+        Required?                      
+        Position?                    2  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      keys  
         Accept wildcard characters?  false  
-    -SendKeyHoldKeyboardFocus  
-        Hold keyboard focus on target window  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      HoldKeyboardFocus  
-        Dynamic?                     false  
+``` 
+```yaml 
+    -Code [<SwitchParameter>]  
+        The ide to open the file in  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      c  
         Accept wildcard characters?  false  
-    -SendKeyUseShiftEnter  
-        Use Shift+Enter instead of Enter  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      UseShiftEnter  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -VisualStudio  
+``` 
+```yaml 
+    -VisualStudio [<SwitchParameter>]  
         Open in Visual Studio  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
         Aliases                      vs  
-        Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SendKeyEscape [<SwitchParameter>]  
+        Escape control characters and modifiers  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      Escape  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SendKeyHoldKeyboardFocus [<SwitchParameter>]  
+        Hold keyboard focus on target window  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      HoldKeyboardFocus  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SendKeyUseShiftEnter [<SwitchParameter>]  
+        Use Shift+Enter instead of Enter  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      UseShiftEnter  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SendKeyDelayMilliSeconds [<Int32>]  
+        Delay between different input strings in milliseconds  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      DelayMilliSeconds  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -8989,14 +7771,18 @@ Open-SourceFileInIde [-Path] <string> [[-LineNo] <int>]
 ```PowerShell 
 
    ReleaseNotes  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 ReleaseNotes [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -UseHomeREADME  
         Use README in PowerShell profile directory  
         Required?                    false  
@@ -9006,6 +7792,8 @@ ReleaseNotes [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -UseOneDriveREADME  
         Use README in OneDrive directory  
         Required?                    false  
@@ -9015,11 +7803,14 @@ ReleaseNotes [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -9028,14 +7819,18 @@ ReleaseNotes [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
 ```PowerShell 
 
    Todoos  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 Todoos [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -UseHomeREADME  
         Use README in PowerShell profile directory  
         Required?                    false  
@@ -9045,6 +7840,8 @@ Todoos [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -UseOneDriveREADME  
         Use README in OneDrive directory  
         Required?                    false  
@@ -9054,11 +7851,14 @@ Todoos [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -9067,14 +7867,18 @@ Todoos [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
 ```PowerShell 
 
    VSCode  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 VSCode [-FilePath] <string[]> [-Copilot] [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -Copilot  
         Add sourcefile to Copilot edit-session  
         Required?                    false  
@@ -9084,6 +7888,8 @@ VSCode [-FilePath] <string[]> [-Copilot] [<CommonParameters>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -FilePath <string[]>  
         The path to the file to open in VSCode  
         Required?                    true  
@@ -9093,11 +7899,1012 @@ VSCode [-FilePath] <string[]> [-Copilot] [<CommonParameters>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Add-FeatureLineToREADME 
+```PowerShell 
+
+   Add-FeatureLineToREADME              --> feature  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Adds a feature line to the README file with a timestamp.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Line [<String>]  
+        The feature description text to add  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Code [<SwitchParameter>]  
+        Open README in Visual Studio Code  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show [<SwitchParameter>]  
+        Show the modified section  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Done [<SwitchParameter>]  
+        Mark todo item as completed  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME [<SwitchParameter>]  
+        Use README in PowerShell profile directory  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseOneDriveREADME [<SwitchParameter>]  
+        Use README in OneDrive directory  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Add-IdeaLineToREADME 
+```PowerShell 
+
+   Add-IdeaLineToREADME                 --> idea  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Adds an idea item to the README.md file.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Line [<String>]  
+        The idea text to add  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Code [<SwitchParameter>]  
+        Open README in Visual Studio Code  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show [<SwitchParameter>]  
+        Show the modified section  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Done [<SwitchParameter>]  
+        Mark todo item as completed  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME [<SwitchParameter>]  
+        Use README in PowerShell profile directory  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseOneDriveREADME [<SwitchParameter>]  
+        Use README in OneDrive directory  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Add-IssueLineToREADME 
+```PowerShell 
+
+   Add-IssueLineToREADME                --> issue  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Adds an issue item to the README.md file.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Line [<String>]  
+        The issue text to add  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Code [<SwitchParameter>]  
+        Open README in Visual Studio Code  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show [<SwitchParameter>]  
+        Show the modified section  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Done [<SwitchParameter>]  
+        Mark todo item as completed  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME [<SwitchParameter>]  
+        Use README in PowerShell profile directory  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseOneDriveREADME [<SwitchParameter>]  
+        Use README in OneDrive directory  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Add-ReleaseNoteLineToREADME 
+```PowerShell 
+
+   Add-ReleaseNoteLineToREADME          --> releasenote  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Adds a ReleaseNote line to the README file with a timestamp.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Line [<String>]  
+        The ReleaseNote description text to add  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Code [<SwitchParameter>]  
+        Open README in Visual Studio Code  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show [<SwitchParameter>]  
+        Show the modified section  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Done [<SwitchParameter>]  
+        Mark todo item as completed  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME [<SwitchParameter>]  
+        Use README in PowerShell profile directory  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseOneDriveREADME [<SwitchParameter>]  
+        Use README in OneDrive directory  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Add-TodoLineToREADME 
+```PowerShell 
+
+   Add-TodoLineToREADME                 --> todo  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Adds a todo item to the README.md file.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Line [<String>]  
+        The todo item text to add  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       True  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Code [<SwitchParameter>]  
+        Open README in Visual Studio Code  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show [<SwitchParameter>]  
+        Show the modified section  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Done [<SwitchParameter>]  
+        Mark todo item as completed  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME [<SwitchParameter>]  
+        Use README in PowerShell profile directory  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseOneDriveREADME [<SwitchParameter>]  
+        Use README in OneDrive directory  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
 
 <br/><hr/><br/>
  
@@ -9105,102 +8912,22 @@ VSCode [-FilePath] <string[]> [-Copilot] [<CommonParameters>]
 &nbsp;<hr/>
 ###	GenXdev.Coding.Git<hr/> 
 
-##	Get-GitChangedFiles 
-```PowerShell 
-
-   Get-GitChangedFiles                  --> gitchanged  
-```` 
-
-### SYNOPSIS 
-    Get the list of changed files in a Git repository.  
-
-### SYNTAX 
-```PowerShell 
-Get-GitChangedFiles [-PassThru] [<CommonParameters>] 
-```` 
-
-### DESCRIPTION 
-    This function retrieves the list of files that have been changed in the current Git repository.  
-    It can be used to identify which files have been modified, added, or deleted.  
-    By default, returns relative paths with .\ prefix. Use -PassThru to get FileInfo objects.  
-
-### PARAMETERS 
-    -PassThru [<SwitchParameter>]  
-        Returns FileInfo objects (like Get-ChildItem) instead of path strings.  
-        Required?                    false  
-        Position?                    named  
-        Default value                False  
-        Accept pipeline input?       false  
-        Aliases                        
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	New-GitCommit 
-```PowerShell 
-
-   New-GitCommit                        --> commit  
-```` 
-
-### SYNTAX 
-```PowerShell 
-New-GitCommit [[-Title] <string>] [-WhatIf] [-Confirm]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Confirm  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      cf  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Title <string>  
-        The commit message title to use  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -WhatIf  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      wi  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
 ##	PermanentlyDeleteGitFolders 
 ```PowerShell 
 
    PermanentlyDeleteGitFolders  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
-PermanentlyDeleteGitFolders [-RepoUri] <string> [-Folders] <string[]> [-WhatIf] [-Confirm] [<CommonParameters>] 
-```` 
+PermanentlyDeleteGitFolders [-RepoUri] <string> [-Folders] <string[]> [-tempPath <string>] [-WhatIf] [-Confirm] [<CommonParameters>] 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -Confirm  
         Required?                    false  
         Position?                    Named  
@@ -9209,6 +8936,8 @@ PermanentlyDeleteGitFolders [-RepoUri] <string> [-Folders] <string[]> [-WhatIf] 
         Aliases                      cf  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Folders <string[]>  
         Array of folder paths to permanently remove  
         Required?                    true  
@@ -9218,6 +8947,8 @@ PermanentlyDeleteGitFolders [-RepoUri] <string> [-Folders] <string[]> [-WhatIf] 
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -RepoUri <string>  
         The URI of the Git repository to clean  
         Required?                    true  
@@ -9227,6 +8958,8 @@ PermanentlyDeleteGitFolders [-RepoUri] <string> [-Folders] <string[]> [-WhatIf] 
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -WhatIf  
         Required?                    false  
         Position?                    Named  
@@ -9235,11 +8968,322 @@ PermanentlyDeleteGitFolders [-RepoUri] <string> [-Folders] <string[]> [-WhatIf] 
         Aliases                      wi  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
+    -tempPath <string>  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Get-GitChangedFiles 
+```PowerShell 
+
+   Get-GitChangedFiles                  --> gitchanged  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Get the list of changed files in a Git repository.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -PassThru [<SwitchParameter>]  
+        Returns FileInfo objects (like Get-ChildItem) instead of path strings.  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	New-GitCommit 
+```PowerShell 
+
+   New-GitCommit                        --> commit  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Creates and pushes a new git commit with all changes.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Title [<String>]  
+        The commit message title to use  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -9251,19 +9295,24 @@ PermanentlyDeleteGitFolders [-RepoUri] <string> [-Folders] <string[]> [-WhatIf] 
 ```PowerShell 
 
    Add-MissingGenXdevUnitTests  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 Add-MissingGenXdevUnitTests [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -9272,7 +9321,7 @@ Add-MissingGenXdevUnitTests [<CommonParameters>]
 ```PowerShell 
 
    Assert-GenXdevCmdlet                 --> improvecmdlet  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
@@ -9281,9 +9330,13 @@ Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey]
     [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code]
     [-VisualStudio] [-EditPrompt] [-Integrate]
     [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -CmdletName <string>  
         Search pattern to filter cmdlets  
         Required?                    false  
@@ -9293,6 +9346,8 @@ Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey]
         Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
         Dynamic?                     false  
         Accept wildcard characters?  true  
+``` 
+```yaml 
     -Code  
         Open in Visual Studio Code  
         Required?                    false  
@@ -9302,6 +9357,8 @@ Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey]
         Aliases                      c  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -EditPrompt  
         Only edit the AI prompt  
         Required?                    false  
@@ -9311,6 +9368,8 @@ Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -FromScripts  
         Search in script files  
         Required?                    false  
@@ -9320,6 +9379,8 @@ Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Integrate  
         Integrate cmdlet into module  
         Required?                    false  
@@ -9329,6 +9390,8 @@ Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ModuleName <string[]>  
         GenXdev module names to search  
         Required?                    false  
@@ -9338,6 +9401,8 @@ Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey]
         Aliases                      Module, BaseModuleName, SubModuleName  
         Dynamic?                     false  
         Accept wildcard characters?  true  
+``` 
+```yaml 
     -NoLocal  
         Skip local module versions  
         Required?                    false  
@@ -9347,6 +9412,8 @@ Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -OnlyPublished  
         Only include published versions  
         Required?                    false  
@@ -9356,6 +9423,8 @@ Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Prompt <string>  
         Custom AI prompt text to use  
         Required?                    false  
@@ -9365,6 +9434,8 @@ Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -PromptKey <string>  
         The AI prompt key to use for template selection  
         Required?                    false  
@@ -9374,6 +9445,8 @@ Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -VisualStudio  
         Open in Visual Studio  
         Required?                    false  
@@ -9383,97 +9456,14 @@ Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey]
         Aliases                      vs  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Assert-GenXdevCmdletTests 
-```PowerShell 
-
-   Assert-GenXdevCmdletTests            --> improvecmdlettests  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Assert-GenXdevCmdletTests [-CmdletName] <string> [[-Prompt]
-    <string>] [[-PromptKey] <string>] [-EditPrompt]
-    [-AssertFailedTest] [-FromScripts]
-    [-ContinuationHandled] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -AssertFailedTest  
-        Indicates to assert a failed test  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -CmdletName <string>  
-        The name of the cmdlet to improve unit-tests for  
-        Required?                    true  
-        Position?                    0  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      cmd  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ContinuationHandled  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -EditPrompt  
-        Switch to only edit the AI prompt  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -FromScripts  
-        Search in script files instead of modules  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Prompt <string>  
-        Custom AI prompt text to use  
-        Required?                    false  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -PromptKey <string>  
-        The AI prompt key to use for template selection  
-        Required?                    false  
-        Position?                    2  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -9482,38 +9472,57 @@ Assert-GenXdevCmdletTests [-CmdletName] <string> [[-Prompt]
 ```PowerShell 
 
    Assert-GenXdevDependencyUsage        --> checkgenxdevdependencies  
-```` 
+``` 
+
+### SYNOPSIS 
+    Validates dependency usage across GenXdev modules to ensure proper module  
+    hierarchy is maintained.  
 
 ### SYNTAX 
 ```PowerShell 
-Assert-GenXdevDependencyUsage [[-ModuleName] <string[]>]
+Assert-GenXdevDependencyUsage [[-ModuleName] <String[]>]
     [-FromScripts] [<CommonParameters>] 
-```` 
+``` 
+
+### DESCRIPTION 
+    This function analyzes GenXdev modules to ensure they follow the correct  
+    dependency hierarchy. It checks that modules only reference dependencies  
+    that are listed in their RequiredModules manifest, and prevents circular  
+    dependencies by validating that modules do not reference modules that come  
+    later in the dependency chain.  
 
 ### PARAMETERS 
-    -FromScripts  
-        Search in script files instead of module files  
+```yaml 
+ 
+``` 
+```yaml 
+    -ModuleName <String[]>  
+        Filter to apply to module names. Must match GenXdev naming pattern. Defaults  
+        to checking all GenXdev modules.  
         Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ModuleName <string[]>  
-        Filter to apply to module names  
-        Required?                    false  
-        Position?                    1  
+        Position?                    2  
+        Default value                @('GenXdev*')  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Aliases                        
         Accept wildcard characters?  true  
+``` 
+```yaml 
+    -FromScripts [<SwitchParameter>]  
+        Search in script files instead of module files.  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -9522,7 +9531,7 @@ Assert-GenXdevDependencyUsage [[-ModuleName] <string[]>]
 ```PowerShell 
 
    Assert-GenXdevTest                   --> rungenxdevtests  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
@@ -9537,9 +9546,13 @@ Assert-GenXdevTest [[-CmdletName] <string>]
     Full}] [-AllowLongRunningTests] [-SkipModuleImports]
     [-SkipPSAnalyzerTests] [-SkipPesterTests]
     [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -AllowLongRunningTests  
         Also selects unit-tests that have long running durations  
         Required?                    false  
@@ -9549,6 +9562,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -CmdletName <string>  
         Search pattern to filter cmdlets  
         Required?                    false  
@@ -9558,6 +9573,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
         Dynamic?                     false  
         Accept wildcard characters?  true  
+``` 
+```yaml 
     -DefinitionMatches <string>  
         Regular expression to match cmdlet definitions  
         Required?                    false  
@@ -9567,6 +9584,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ExactMatch  
         Require exact matches for cmdlet names  
         Required?                    false  
@@ -9576,6 +9595,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -FromScripts  
         Search in script files instead of modules  
         Required?                    false  
@@ -9585,6 +9606,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -IncludeScripts  
         Includes the scripts directory in addition to regular modules  
         Required?                    false  
@@ -9594,6 +9617,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ModuleName <string[]>  
         GenXdev module names to search  
         Required?                    false  
@@ -9603,6 +9628,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      Module, BaseModuleName, SubModuleName  
         Dynamic?                     false  
         Accept wildcard characters?  true  
+``` 
+```yaml 
     -NoLocal  
         Skip searching in local module paths  
         Required?                    false  
@@ -9612,6 +9639,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -OnlyPublished  
         Only search in published module paths  
         Required?                    false  
@@ -9621,6 +9650,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -OnlyReturnModuleNames  
         Only return unique module names  
         Required?                    false  
@@ -9630,6 +9661,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SkipModuleImports  
         Skips importing GenXdev modules before testing  
         Required?                    false  
@@ -9639,6 +9672,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SkipPSAnalyzerTests  
         Skips invoking PSAnalyzer tests  
         Required?                    false  
@@ -9648,6 +9683,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SkipPesterTests  
         Skips invoking Pester tests  
         Required?                    false  
@@ -9657,6 +9694,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -StackTraceVerbosity <string>  
         Stack trace detail level  
         Required?                    false  
@@ -9666,6 +9705,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -TestFailedAction <string>  
         Action to take when a test fails. Options: Ask, Continue, Stop, SolveWithAI, Write-Error, Throw  
         Required?                    false  
@@ -9675,6 +9716,8 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Verbosity <string>  
         Output detail level  
         Required?                    false  
@@ -9684,11 +9727,14 @@ Assert-GenXdevTest [[-CmdletName] <string>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -9697,15 +9743,19 @@ Assert-GenXdevTest [[-CmdletName] <string>]
 ```PowerShell 
 
    Assert-ModuleDefinition  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 Assert-ModuleDefinition [-ModuleName] <string> [-Prompt
     <string>] [-EditPrompt] [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -EditPrompt  
         Switch to only edit the AI prompt  
         Required?                    false  
@@ -9715,6 +9765,8 @@ Assert-ModuleDefinition [-ModuleName] <string> [-Prompt
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ModuleName <string>  
         The name of the module  
         Required?                    true  
@@ -9724,6 +9776,8 @@ Assert-ModuleDefinition [-ModuleName] <string> [-Prompt
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Prompt <string>  
         The AI prompt  
         Required?                    false  
@@ -9733,11 +9787,14 @@ Assert-ModuleDefinition [-ModuleName] <string> [-Prompt
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -9746,16 +9803,20 @@ Assert-ModuleDefinition [-ModuleName] <string> [-Prompt
 ```PowerShell 
 
    Assert-RefactorFile  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 Assert-RefactorFile [-Path] <string> [[-RefactorSettings]
     <RefactorSettings>] [-AllowLongRunningTests]
     [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -AllowLongRunningTests  
         Required?                    false  
         Position?                    Named  
@@ -9764,6 +9825,8 @@ Assert-RefactorFile [-Path] <string> [[-RefactorSettings]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Path <string>  
         The path to the source file to improve  
         Required?                    true  
@@ -9773,6 +9836,8 @@ Assert-RefactorFile [-Path] <string> [[-RefactorSettings]
         Aliases                      FullName  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -RefactorSettings <RefactorSettings>  
         The refactor definition containing settings and prompt template  
         Required?                    false  
@@ -9782,32 +9847,14 @@ Assert-RefactorFile [-Path] <string> [[-RefactorSettings]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Clear-GenXdevModules 
-```PowerShell 
-
-   Clear-GenXdevModules                 --> cleangenxdev  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Clear-GenXdevModules [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -9816,15 +9863,19 @@ Clear-GenXdevModules [<CommonParameters>]
 ```PowerShell 
 
    Complete-GenXDevREADME  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 Complete-GenXDevREADME [[-ModuleName] <string[]>]
     [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -ModuleName <string[]>  
         The name(s) of the module(s) to complete the README for  
         Required?                    false  
@@ -9834,11 +9885,14 @@ Complete-GenXDevREADME [[-ModuleName] <string[]>]
         Aliases                      Module, BaseModuleName, SubModuleName  
         Dynamic?                     false  
         Accept wildcard characters?  true  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -9847,19 +9901,24 @@ Complete-GenXDevREADME [[-ModuleName] <string[]>]
 ```PowerShell 
 
    EnsureCopilotKeyboardShortCut  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 EnsureCopilotKeyboardShortCut [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -9868,15 +9927,20 @@ EnsureCopilotKeyboardShortCut [<CommonParameters>]
 ```PowerShell 
 
    EnsureDefaultGenXdevRefactors  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -Force  
+        Forces recreation of existing refactor definitions  
         Required?                    false  
         Position?                    Named  
         Accept pipeline input?       false  
@@ -9884,11 +9948,14 @@ EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -9897,16 +9964,20 @@ EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>]
 ```PowerShell 
 
    Get-GenXdevCmdletUsageAnalysis  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 Get-GenXdevCmdletUsageAnalysis [[-OutputFormat] {Table |
     List | CSV}] [[-Top] <int>] [-IncludeCallChains]
     [-IncludeScripts] [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -IncludeCallChains  
         Required?                    false  
         Position?                    Named  
@@ -9915,6 +9986,8 @@ Get-GenXdevCmdletUsageAnalysis [[-OutputFormat] {Table |
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -IncludeScripts  
         Required?                    false  
         Position?                    Named  
@@ -9923,6 +9996,8 @@ Get-GenXdevCmdletUsageAnalysis [[-OutputFormat] {Table |
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -OutputFormat <string>  
         Required?                    false  
         Position?                    0  
@@ -9931,6 +10006,8 @@ Get-GenXdevCmdletUsageAnalysis [[-OutputFormat] {Table |
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Top <int>  
         Required?                    false  
         Position?                    1  
@@ -9939,103 +10016,60 @@ Get-GenXdevCmdletUsageAnalysis [[-OutputFormat] {Table |
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
 
-##	Get-GenXDevModule 
-```PowerShell 
-
-   Get-GenXDevModule  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Get-GenXDevModule [[-Path] <string>] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Path <string>  
-        The root path to search for GenXdev modules  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      RootPath, FullPath  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Get-GenXDevModuleInfo 
+##	Get-GenXDevModuleinfo 
 ```PowerShell 
 
    Get-GenXDevModuleInfo  
-```` 
+``` 
+
+### SYNOPSIS 
+    Retrieves detailed information about GenXdev PowerShell modules.  
 
 ### SYNTAX 
 ```PowerShell 
-Get-GenXDevModuleInfo [[-ModuleName] <string[]>]
+Get-GenXDevModuleInfo [[-ModuleName] <String[]>]
     [<CommonParameters>] 
-```` 
+``` 
+
+### DESCRIPTION 
+    This function examines GenXdev PowerShell modules and returns information about  
+    their configuration, versions, and presence of key files. It can process either  
+    specified modules or all available modules.  
 
 ### PARAMETERS 
-    -ModuleName <string[]>  
-        Names of modules to analyze  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      Name, Module  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
+```yaml 
  
-
-##	Get-GenXDevNewModulesInOrderOfDependency 
-```PowerShell 
-
-   Get-GenXDevNewModulesInOrderOfDependency  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName]
-    <string[]>] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -ModuleName <string[]>  
-        One or more module names to filter by  
+``` 
+```yaml 
+    -ModuleName <String[]>  
+        Array of module names to analyze. If empty, processes all available modules.  
+        GenXdev.Local module is explicitly blocked from processing.  
         Required?                    false  
-        Position?                    0  
+        Position?                    1  
+        Default value                @()  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      Module, BaseModuleName, SubModuleName  
-        Dynamic?                     false  
-        Accept wildcard characters?  true  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -10044,15 +10078,19 @@ Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName]
 ```PowerShell 
 
    Get-ModuleHelpMarkdown  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 Get-ModuleHelpMarkdown [[-ModuleName] <string[]>]
     [[-CommandNames] <string[]>] [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -CommandNames <string[]>  
         Optional cmdlet names to filter which to document  
         Required?                    false  
@@ -10062,6 +10100,8 @@ Get-ModuleHelpMarkdown [[-ModuleName] <string[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  true  
+``` 
+```yaml 
     -ModuleName <string[]>  
         The name(s) of the module(s) to generate help for  
         Required?                    false  
@@ -10071,11 +10111,14 @@ Get-ModuleHelpMarkdown [[-ModuleName] <string[]>]
         Aliases                      Name, Module  
         Dynamic?                     false  
         Accept wildcard characters?  true  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -10084,153 +10127,91 @@ Get-ModuleHelpMarkdown [[-ModuleName] <string[]>]
 ```PowerShell 
 
    Get-Refactor                         --> refactors  
-```` 
+``` 
+
+### SYNOPSIS 
+    Retrieves refactor definitions from GenXdev preferences based on name patterns.  
 
 ### SYNTAX 
 ```PowerShell 
-Get-Refactor [[-Name] <string[]>] [-PreferencesDatabasePath
-    <string>] [-DefaultValue <string>] [-SessionOnly]
+Get-Refactor [[-Name] <String[]>] [-PreferencesDatabasePath
+    <String>] [-DefaultValue <String>] [-SessionOnly]
     [-ClearSession] [-SkipSession] [<CommonParameters>] 
-```` 
+``` 
+
+### DESCRIPTION 
+    Searches for and loads refactor definition sets stored in GenXdev preferences.  
+    Each refactor set is stored as a JSON string in a preference with name starting  
+    with 'refactor_set_'. The function deserializes matching sets into objects.  
 
 ### PARAMETERS 
-    -ClearSession  
-        Clear the session setting (Global variable) before retrieving  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -DefaultValue <string>  
-        The default value if preference is not found  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      DefaultPreference  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Name <string[]>  
-        Pattern(s) to search for refactor definitions  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      PreferenceName  
-        Dynamic?                     false  
-        Accept wildcard characters?  true  
-    -PreferencesDatabasePath <string>  
-        Database path for preference data files  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      DatabasePath  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SessionOnly  
-        Use alternative settings stored in session for Data preferences like Language, Database paths, etc  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SkipSession  
-        Dont use alternative settings stored in session for Data preferences like Language, Database paths, etc  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      FromPreferences  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
+```yaml 
  
-
-##	Get-RefactorReport 
-```PowerShell 
-
-   Get-RefactorReport                   --> refactorreport  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Get-RefactorReport [[-Name] <string[]>]
-    [-PreferencesDatabasePath <string>] [-SessionOnly]
-    [-ClearSession] [-SkipSession] [-AsText]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -AsText  
-        Output report in text format instead of Hashtable  
+``` 
+```yaml 
+    -Name <String[]>  
+        One or more name patterns to match against refactor set names. Patterns are  
+        matched against the portion of the preference name after 'refactor_set_' prefix.  
+        Supports wildcards. If omitted, returns all refactor sets.  
         Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ClearSession  
-        If set, clear the session cache before running.  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Name <string[]>  
-        The name of the refactor, accepts wildcards  
-        Required?                    false  
-        Position?                    0  
+        Position?                    1  
+        Default value                @('*')  
         Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Aliases                        
         Accept wildcard characters?  true  
-    -PreferencesDatabasePath <string>  
-        Specifies the path to the preferences database file.  
+``` 
+```yaml 
+    -PreferencesDatabasePath <String>  
         Required?                    false  
-        Position?                    Named  
+        Position?                    named  
+        Default value                  
         Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      DatabasePath  
-        Dynamic?                     false  
+        Aliases                        
         Accept wildcard characters?  false  
-    -SessionOnly  
-        If set, only use the session cache for refactor data.  
+``` 
+```yaml 
+    -DefaultValue <String>  
         Required?                    false  
-        Position?                    Named  
+        Position?                    named  
+        Default value                  
         Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
+        Aliases                        
         Accept wildcard characters?  false  
-    -SkipSession  
-        If set, skip loading session cache.  
+``` 
+```yaml 
+    -SessionOnly [<SwitchParameter>]  
         Required?                    false  
-        Position?                    Named  
+        Position?                    named  
+        Default value                False  
         Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      FromPreferences  
-        Dynamic?                     false  
+        Aliases                        
         Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ClearSession [<SwitchParameter>]  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SkipSession [<SwitchParameter>]  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -10239,16 +10220,20 @@ Get-RefactorReport [[-Name] <string[]>]
 ```PowerShell 
 
    Invoke-GenXdevPSFormatter  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 Invoke-GenXdevPSFormatter [-Path] <string> [-Settings
     <Object>] [-Range <int[]>] [-Recurse]
     [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -Path <string>  
         Specifies the path to the script file to format.  
         Required?                    true  
@@ -10258,6 +10243,8 @@ Invoke-GenXdevPSFormatter [-Path] <string> [-Settings
         Aliases                      Name, FullName, ImagePath, FileName, ScriptFileName  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Range <int[]>  
         The range within which formatting should take place as an array of four integers: starting line number, starting column number, ending line number, ending column number.  
         Required?                    false  
@@ -10267,6 +10254,8 @@ Invoke-GenXdevPSFormatter [-Path] <string> [-Settings
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Recurse  
         Recursively process files in subdirectories.  
         Required?                    false  
@@ -10276,6 +10265,8 @@ Invoke-GenXdevPSFormatter [-Path] <string> [-Settings
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Settings <Object>  
         A settings hashtable or a path to a PowerShell data file (.psd1) that contains the formatting settings.  
         Required?                    false  
@@ -10285,11 +10276,14 @@ Invoke-GenXdevPSFormatter [-Path] <string> [-Settings
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -10298,7 +10292,7 @@ Invoke-GenXdevPSFormatter [-Path] <string> [-Settings
 ```PowerShell 
 
    Invoke-GenXdevScriptAnalyzer  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
@@ -10308,9 +10302,13 @@ Invoke-GenXdevScriptAnalyzer [-ScriptFilePath] <string>
 Invoke-GenXdevScriptAnalyzer -ScriptDefinition <string>
     [-EnableExit] [-Fix] [-Recurse] [-ReportSummary]
     [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -EnableExit  
         Specifies that the tool should exit on error.  
         Required?                    false  
@@ -10320,6 +10318,8 @@ Invoke-GenXdevScriptAnalyzer -ScriptDefinition <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Fix  
         Enables automatic fixing of violations.  
         Required?                    false  
@@ -10329,6 +10329,8 @@ Invoke-GenXdevScriptAnalyzer -ScriptDefinition <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Recurse  
         Recursively process files.  
         Required?                    false  
@@ -10338,6 +10340,8 @@ Invoke-GenXdevScriptAnalyzer -ScriptDefinition <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ReportSummary  
         Reports a summary after analysis.  
         Required?                    false  
@@ -10347,6 +10351,8 @@ Invoke-GenXdevScriptAnalyzer -ScriptDefinition <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ScriptDefinition <string>  
         Specifies the script definition as a string.  
         Required?                    true  
@@ -10356,6 +10362,8 @@ Invoke-GenXdevScriptAnalyzer -ScriptDefinition <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ScriptFilePath <string>  
         Specifies the path to the script file.  
         Required?                    true  
@@ -10365,11 +10373,14 @@ Invoke-GenXdevScriptAnalyzer -ScriptDefinition <string>
         Aliases                      Path, FullName  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -10378,7 +10389,7 @@ Invoke-GenXdevScriptAnalyzer -ScriptDefinition <string>
 ```PowerShell 
 
    New-GenXdevCmdlet                    --> newcmd  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
@@ -10387,9 +10398,13 @@ New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
     <string>] [[-ModuleName] <string>] [[-CmdletAliases]
     <string[]>] [[-PromptKey] <string>] [[-Prompt] <string>]
     [-EditPrompt] [-WhatIf] [-Confirm] [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -BaseModuleName <string>  
         Integrate the new cmdlet into an existing GenXdev module  
         Required?                    false  
@@ -10399,6 +10414,8 @@ New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -CmdletAliases <string[]>  
         One or more aliases for the cmdlet. Accepts an array of strings.  
         Required?                    false  
@@ -10408,6 +10425,8 @@ New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -CmdletName <string>  
         The name of the cmdlet to create (must use approved verb)  
         Required?                    true  
@@ -10417,6 +10436,8 @@ New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
         Aliases                      cmd  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Confirm  
         Required?                    false  
         Position?                    Named  
@@ -10425,6 +10446,8 @@ New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
         Aliases                      cf  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Description <string>  
         A detailed description of what the cmdlet does  
         Required?                    false  
@@ -10434,6 +10457,8 @@ New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -EditPrompt  
         Only edit the AI prompt without creating the cmdlet  
         Required?                    false  
@@ -10443,6 +10468,8 @@ New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ModuleName <string>  
         Integrate the new cmdlet into an existing GenXdev sub module  
         Required?                    false  
@@ -10452,6 +10479,8 @@ New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Prompt <string>  
         Custom AI prompt text to use for cmdlet generation  
         Required?                    false  
@@ -10461,6 +10490,8 @@ New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -PromptKey <string>  
         The AI prompt key to use for template selection  
         Required?                    false  
@@ -10470,6 +10501,8 @@ New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Synopsis <string>  
         A brief description of the cmdlet's purpose  
         Required?                    false  
@@ -10479,6 +10512,8 @@ New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -WhatIf  
         Required?                    false  
         Position?                    Named  
@@ -10487,11 +10522,14 @@ New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
         Aliases                      wi  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -10500,16 +10538,20 @@ New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
 ```PowerShell 
 
    New-GenXdevModule  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 New-GenXdevModule [-ModuleName] <string> [-Description]
     <string> [[-Tags] <string[]>] [-WhatIf] [-Confirm]
     [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -Confirm  
         Required?                    false  
         Position?                    Named  
@@ -10518,6 +10560,8 @@ New-GenXdevModule [-ModuleName] <string> [-Description]
         Aliases                      cf  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Description <string>  
         Description of the module's functionality  
         Required?                    true  
@@ -10527,6 +10571,8 @@ New-GenXdevModule [-ModuleName] <string> [-Description]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ModuleName <string>  
         Name of the module to create (must follow GenXdev.* pattern)  
         Required?                    true  
@@ -10536,6 +10582,8 @@ New-GenXdevModule [-ModuleName] <string> [-Description]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Tags <string[]>  
         Tags for module discovery (no whitespace allowed)  
         Required?                    false  
@@ -10545,6 +10593,8 @@ New-GenXdevModule [-ModuleName] <string> [-Description]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -WhatIf  
         Required?                    false  
         Position?                    Named  
@@ -10553,11 +10603,14 @@ New-GenXdevModule [-ModuleName] <string> [-Description]
         Aliases                      wi  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -10566,7 +10619,7 @@ New-GenXdevModule [-ModuleName] <string> [-Description]
 ```PowerShell 
 
    New-PullRequestForGenXdevModuleChanges --> prgenxdevmodule  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
@@ -10585,9 +10638,13 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
     [-SetRestored] [-KeysToSend <string[]>] [-SessionOnly]
     [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm]
     [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -Bottom  
         Places window on bottom half of screen  
         Required?                    false  
@@ -10597,6 +10654,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Centered  
         Centers window on screen  
         Required?                    false  
@@ -10606,6 +10665,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ClearSession  
         Clear alternative settings stored in session for AI preferences  
         Required?                    false  
@@ -10615,6 +10676,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -CommitMessage <string>  
         Message for the commit  
         Required?                    false  
@@ -10624,6 +10687,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Confirm  
         Required?                    false  
         Position?                    Named  
@@ -10632,6 +10697,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      cf  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -FocusWindow  
         Focus the window after positioning  
         Required?                    false  
@@ -10641,6 +10708,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      fw, focus  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -GitUserEmail <string>  
         Git email for commits  
         Required?                    false  
@@ -10650,6 +10719,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -GitUserName <string>  
         Git username for commits  
         Required?                    false  
@@ -10659,6 +10730,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Height <int>  
         Window height in pixels for positioning applications  
         Required?                    false  
@@ -10668,6 +10741,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -KeysToSend <string[]>  
         Keystrokes to send to the window after positioning  
         Required?                    false  
@@ -10677,6 +10752,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Left  
         Places window on left half of screen  
         Required?                    false  
@@ -10686,6 +10763,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Maximize  
         Maximize the window after positioning  
         Required?                    false  
@@ -10695,6 +10774,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ModuleName <string>  
         Name of the GenXdev module  
         Required?                    true  
@@ -10704,6 +10785,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Monitor <int>  
         Monitor selection: 0=primary, 1+=specific monitor, -1=current, -2=secondary  
         Required?                    false  
@@ -10713,6 +10796,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      m, mon  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -NoBorders  
         Removes window borders and title bar for a cleaner appearance  
         Required?                    false  
@@ -10722,6 +10807,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      nb  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -PassThru  
         Returns window helper object for further manipulation  
         Required?                    false  
@@ -10731,6 +10818,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      pt  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -PullRequestDescription <string>  
         Description for the pull request  
         Required?                    false  
@@ -10740,6 +10829,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -PullRequestTitle <string>  
         Title for the pull request  
         Required?                    false  
@@ -10749,6 +10840,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -RestoreFocus  
         Returns focus to PowerShell window after positioning  
         Required?                    false  
@@ -10758,6 +10851,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      rf, bg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Right  
         Places window on right half of screen  
         Required?                    false  
@@ -10767,6 +10862,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SessionOnly  
         Use alternative settings stored in session for AI preferences  
         Required?                    false  
@@ -10776,6 +10873,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SetForeground  
         Set the window to foreground after positioning  
         Required?                    false  
@@ -10785,6 +10884,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      fg  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SetRestored  
         Restore the window to normal state after positioning  
         Required?                    false  
@@ -10794,6 +10895,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ShowWindow  
         Maximizes window to fill entire screen  
         Required?                    false  
@@ -10803,6 +10906,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      sw  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SideBySide  
         Places windows side by side with PowerShell on the same monitor  
         Required?                    false  
@@ -10812,6 +10917,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      sbs  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SkipSession  
         Store settings only in persistent preferences without affecting session  
         Required?                    false  
@@ -10821,6 +10928,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Top  
         Places window on top half of screen  
         Required?                    false  
@@ -10830,6 +10939,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -WhatIf  
         Required?                    false  
         Position?                    Named  
@@ -10838,6 +10949,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      wi  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Width <int>  
         Window width in pixels for positioning applications  
         Required?                    false  
@@ -10847,6 +10960,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -X <int>  
         Window horizontal position for positioning applications  
         Required?                    false  
@@ -10856,6 +10971,8 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Y <int>  
         Window vertical position for positioning applications  
         Required?                    false  
@@ -10865,11 +10982,14 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -10878,7 +10998,7 @@ New-PullRequestForGenXdevModuleChanges [-ModuleName]
 ```PowerShell 
 
    New-Refactor                         --> newrefactor  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
@@ -10898,9 +11018,13 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
     [-SessionOnly] [-ClearSession] [-SkipSession] [-Code]
     [-VisualStudio] [-KeysToSend <string[]>] [-WhatIf]
     [-Confirm] [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -ApiEndpoint <string>  
         The API endpoint URL for AI operations  
         Required?                    false  
@@ -10910,6 +11034,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ApiKey <string>  
         The API key for authenticated AI operations  
         Required?                    false  
@@ -10919,6 +11045,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -AutoAddModifiedFiles  
         Will automatically add modified files to the queue  
         Required?                    false  
@@ -10928,6 +11056,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ClearSession  
         Clear alternative settings stored in session for AI preferences  
         Required?                    false  
@@ -10937,6 +11067,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Code  
         Open files in Visual Studio Code  
         Required?                    false  
@@ -10946,6 +11078,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      c  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Confirm  
         Required?                    false  
         Position?                    Named  
@@ -10954,6 +11088,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      cf  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Cpu <int>  
         The number of CPU cores to dedicate to AI operations  
         Required?                    false  
@@ -10963,6 +11099,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ExposedCmdLets <ExposedCmdletDefinition[]>  
         Array of PowerShell command definitions for LLM tools  
         Required?                    false  
@@ -10972,6 +11110,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -FilesToAdd <FileInfo[]>  
         Array of files to process  
         Required?                    false  
@@ -10981,6 +11121,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Force  
         Force stop LM Studio before initialization  
         Required?                    false  
@@ -10990,6 +11132,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Gpu <int>  
         How much to offload to the GPU. If 'off', GPU offloading is disabled. If 'max', all layers are offloaded to GPU. If a number between 0 and 1, that fraction of layers will be offloaded to the GPU. -1 = LM Studio will decide how much to offload to the GPU. -2 = Auto  
         Required?                    false  
@@ -10999,6 +11143,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -HuggingFaceIdentifier <string>  
         The LM Studio specific model identifier  
         Required?                    false  
@@ -11008,6 +11154,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      ModelLMSGetIdentifier  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -KeysToSend <string[]>  
         Keystrokes to send after opening files  
         Required?                    false  
@@ -11017,6 +11165,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      keys  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -LLMQueryType <string>  
         The type of LLM query  
         Required?                    false  
@@ -11026,6 +11176,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -MaxToken <int>  
         The maximum number of tokens to use in AI operations  
         Required?                    false  
@@ -11035,6 +11187,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Model <string>  
         The model identifier or pattern to use for AI operations  
         Required?                    false  
@@ -11044,6 +11198,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Name <string>  
         The name of this new refactor set  
         Required?                    true  
@@ -11053,6 +11209,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -PreferencesDatabasePath <string>  
         Database path for preference data files  
         Required?                    false  
@@ -11062,6 +11220,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      DatabasePath  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Priority <int>  
         Priority for this refactor set  
         Required?                    false  
@@ -11071,6 +11231,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Prompt <string>  
         Custom prompt text to override the template  
         Required?                    false  
@@ -11080,6 +11242,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -PromptKey <string>  
         The prompt key indicates which prompt script to use  
         Required?                    true  
@@ -11089,6 +11253,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SelectByFreeGpuRam  
         Select configuration by available GPU RAM  
         Required?                    false  
@@ -11098,6 +11264,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SelectByFreeRam  
         Select configuration by available system RAM  
         Required?                    false  
@@ -11107,6 +11275,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SelectionPrompt <string>  
         LLM selection guidance prompt  
         Required?                    false  
@@ -11116,6 +11286,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SelectionScript <string>  
         Powershell script for selecting items to refactor  
         Required?                    false  
@@ -11125,6 +11297,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SessionOnly  
         Use alternative settings stored in session for AI preferences  
         Required?                    false  
@@ -11134,6 +11308,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SkipSession  
         Store settings only in persistent preferences without affecting session  
         Required?                    false  
@@ -11143,6 +11319,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      FromPreferences  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -TTLSeconds <int>  
         Time-to-live in seconds for API-loaded models  
         Required?                    false  
@@ -11152,6 +11330,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Temperature <double>  
         Temperature for response randomness (0.0-1.0)  
         Required?                    false  
@@ -11161,6 +11341,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -TimeoutSeconds <int>  
         The timeout in seconds for AI operations  
         Required?                    false  
@@ -11170,6 +11352,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -VisualStudio  
         Open in Visual Studio  
         Required?                    false  
@@ -11179,6 +11363,8 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      vs  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -WhatIf  
         Required?                    false  
         Position?                    Named  
@@ -11187,251 +11373,14 @@ New-Refactor [-Name] <string> [-PromptKey] <string>
         Aliases                      wi  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Open-GenXdevCmdletsContainingClipboardTextInIde 
-```PowerShell 
-
-   Open-GenXdevCmdletsContainingClipboardTextInIde --> vscodesearch  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Open-GenXdevCmdletsContainingClipboardTextInIde
-    [[-InputObject] <string>] [-Copilot]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Copilot  
-        Add sourcefile to Copilot edit-session  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -InputObject <string>  
-        Search for clipboard text in all GenXdev scripts  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       true (ByValue)  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Remove-Refactor 
-```PowerShell 
-
-   Remove-Refactor  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Remove-Refactor [-Name] <string[]> [[-RemoveDefault]]
-    [-PreferencesDatabasePath <string>] [-DefaultValue
-    <string>] [-SessionOnly] [-ClearSession] [-SkipSession]
-    [-WhatIf] [-Confirm] [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -ClearSession  
-        Clear the session setting (Global variable) before retrieving  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Confirm  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      cf  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -DefaultValue <string>  
-        The default value if preference is not found  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       true (ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      DefaultPreference  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -Name <string[]>  
-        The name of the refactor, accepts wildcards  
-        Required?                    true  
-        Position?                    0  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      PreferenceName  
-        Dynamic?                     false  
-        Accept wildcard characters?  true  
-    -PreferencesDatabasePath <string>  
-        Database path for preference data files  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      DatabasePath  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -RemoveDefault  
-        Switch to also remove the standard refactor set  
-        Required?                    false  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           All  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SessionOnly  
-        Use alternative settings stored in session for Data preferences like Language, Database paths, etc  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -SkipSession  
-        Dont use alternative settings stored in session for Data preferences like Language, Database paths, etc  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      FromPreferences  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -WhatIf  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      wi  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Search-GenXdevCmdlet 
-```PowerShell 
-
-   Search-GenXdevCmdlet                 --> searchcmdlet  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Search-GenXdevCmdlet [[-CmdletName] <string>] [[-ModuleName]
-    <string[]>] [-NoLocal] [-OnlyPublished] [-FromScripts]
-    [-Code] [-VisualStudio] [-EditCmdlet]
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -CmdletName <string>  
-        Search pattern to filter cmdlets  
-        Required?                    false  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
-        Dynamic?                     false  
-        Accept wildcard characters?  true  
-    -Code  
-        Open the found cmdlet in Visual Studio Code  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      c  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -EditCmdlet  
-        Also opens the file in the editor after finding  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -FromScripts  
-        Search in script files instead of module files  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -ModuleName <string[]>  
-        GenXdev module names to search  
-        Required?                    false  
-        Position?                    1  
-        Accept pipeline input?       true (ByValue, ByPropertyName)  
-        Parameter set name           (All)  
-        Aliases                      Module, BaseModuleName, SubModuleName  
-        Dynamic?                     false  
-        Accept wildcard characters?  true  
-    -NoLocal  
-        Skip searching in local module paths  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -OnlyPublished  
-        Limit search to published module paths only  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -VisualStudio  
-        Open the found cmdlet in Visual Studio  
-        Required?                    false  
-        Position?                    Named  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      vs  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -11440,7 +11389,7 @@ Search-GenXdevCmdlet [[-CmdletName] <string>] [[-ModuleName]
 ```PowerShell 
 
    Show-GenXdevCmdLetInIde              --> cmdlet, editcmdlet  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
@@ -11453,9 +11402,13 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
     [-Search] [-ChangedirectoryOnly] [-New] [-PromptKey
     <string>] [-Prompt <string>] [-EditPrompt]
     [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -BaseModuleName <string>  
         Integrate the new cmdlet into an existing GenXdev module  
         Required?                    false  
@@ -11465,6 +11418,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ChangedirectoryOnly  
         When specified, only changes the current PowerShell location\r\nthe respective Cmdlet directory  
         Required?                    false  
@@ -11474,6 +11429,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      cd  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -CmdletAliases <string[]>  
         One or more aliases for the cmdlet. Accepts an array of strings.  
         Required?                    false  
@@ -11483,6 +11440,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -CmdletName <string>  
         Search pattern to filter cmdlets  
         Required?                    true  
@@ -11492,6 +11451,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
         Dynamic?                     false  
         Accept wildcard characters?  true  
+``` 
+```yaml 
     -CoPilot  
         Add to Co-Pilot edit session  
         Required?                    false  
@@ -11501,6 +11462,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Code  
         The ide to open the file in  
         Required?                    false  
@@ -11510,6 +11473,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      c  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Description <string>  
         A detailed description of what the cmdlet does  
         Required?                    false  
@@ -11519,6 +11484,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -EditPrompt  
         Only edit the AI prompt without creating the cmdlet  
         Required?                    false  
@@ -11528,6 +11495,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -FromScripts  
         Required?                    false  
         Position?                    Named  
@@ -11536,6 +11505,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -KeysToSend <string[]>  
         The keys to send  
         Required?                    false  
@@ -11545,6 +11516,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      keys  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ModuleName <string[]>  
         GenXdev module names to search  
         Required?                    false  
@@ -11554,6 +11527,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      Module, SubModuleName  
         Dynamic?                     false  
         Accept wildcard characters?  true  
+``` 
+```yaml 
     -New  
         Create a new cmdlet  
         Required?                    false  
@@ -11563,6 +11538,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -NoLocal  
         Required?                    false  
         Position?                    Named  
@@ -11571,6 +11548,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -OnlyPublished  
         Required?                    false  
         Position?                    Named  
@@ -11579,6 +11558,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Prompt <string>  
         Custom AI prompt text to use for cmdlet generation  
         Required?                    false  
@@ -11588,6 +11569,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -PromptKey <string>  
         The AI prompt key to use for template selection  
         Required?                    false  
@@ -11597,6 +11580,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Search  
         Also global search for the cmdlet  
         Required?                    false  
@@ -11606,6 +11591,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Synopsis <string>  
         A brief description of the cmdlet's purpose  
         Required?                    false  
@@ -11615,6 +11602,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -UnitTests  
         Show the function's unit-tests instead of the function  
         Required?                    false  
@@ -11624,6 +11613,8 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -VisualStudio  
         Open in Visual Studio  
         Required?                    false  
@@ -11633,11 +11624,14 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
         Aliases                      vs  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -11646,14 +11640,18 @@ Show-GenXdevCmdLetInIde [-CmdletName] <string>
 ```PowerShell 
 
    SplitUpPsm1File  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
 SplitUpPsm1File [-Psm1FilePath] <string> [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -Psm1FilePath <string>  
         Path to the .psm1 file to split into functions  
         Required?                    true  
@@ -11663,11 +11661,14 @@ SplitUpPsm1File [-Psm1FilePath] <string> [<CommonParameters>]
         Aliases                      Path  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -11676,7 +11677,7 @@ SplitUpPsm1File [-Psm1FilePath] <string> [<CommonParameters>]
 ```PowerShell 
 
    Start-NextRefactor                   --> nextrefactor  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
@@ -11685,9 +11686,13 @@ Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd]
     [[-CleanUpDeletedFiles]] [-Reset] [-ResetLMSelections]
     [-MarkAllCompleted] [-RedoLast] [-Speak] [-WhatIf]
     [-Confirm] [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -CleanUpDeletedFiles  
         Clean up deleted files  
         Required?                    false  
@@ -11697,6 +11702,8 @@ Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Confirm  
         Required?                    false  
         Position?                    Named  
@@ -11705,6 +11712,8 @@ Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd]
         Aliases                      cf  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -FilesToAdd <FileInfo[]>  
         Filenames to add  
         Required?                    false  
@@ -11714,6 +11723,8 @@ Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -FilesToRemove <FileInfo[]>  
         Filenames to remove  
         Required?                    false  
@@ -11723,6 +11734,8 @@ Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -MarkAllCompleted  
         Mark all files as refactored  
         Required?                    false  
@@ -11732,6 +11745,8 @@ Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Name <string[]>  
         The name of the refactor, accepts wildcards  
         Required?                    false  
@@ -11741,6 +11756,8 @@ Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  true  
+``` 
+```yaml 
     -RedoLast  
         Redo the last refactor  
         Required?                    false  
@@ -11750,6 +11767,8 @@ Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Reset  
         Start from the beginning of the refactor set  
         Required?                    false  
@@ -11759,6 +11778,8 @@ Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ResetLMSelections  
         Restart all LLM selections  
         Required?                    false  
@@ -11768,6 +11789,8 @@ Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Speak  
         Speak out the details of next refactor  
         Required?                    false  
@@ -11777,6 +11800,8 @@ Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -WhatIf  
         Required?                    false  
         Position?                    Named  
@@ -11785,52 +11810,14 @@ Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd]
         Aliases                      wi  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-
-<br/><hr/><br/>
- 
-
-##	Test-RefactorLLMSelection 
-```PowerShell 
-
-   Test-RefactorLLMSelection  
-```` 
-
-### SYNTAX 
-```PowerShell 
-Test-RefactorLLMSelection [-RefactorDefinition]
-    <RefactorDefinition> [-Path] <string>
-    [<CommonParameters>] 
-```` 
-
-### PARAMETERS 
-    -Path <string>  
-        The path to the source file to evaluate  
-        Required?                    true  
-        Position?                    1  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      FullName  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    -RefactorDefinition <RefactorDefinition>  
-        The refactor definition containing LLM settings  
-        Required?                    true  
-        Position?                    0  
-        Accept pipeline input?       false  
-        Parameter set name           (All)  
-        Aliases                      None  
-        Dynamic?                     false  
-        Accept wildcard characters?  false  
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>
  
@@ -11839,7 +11826,7 @@ Test-RefactorLLMSelection [-RefactorDefinition]
 ```PowerShell 
 
    Update-Refactor                      --> updaterefactor  
-```` 
+``` 
 
 ### SYNTAX 
 ```PowerShell 
@@ -11893,9 +11880,13 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
     [-VisualStudio] [-Speak] [-SelectByFreeRam]
     [-SelectByFreeGpuRam] [-SessionOnly] [-ClearSession]
     [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
-```` 
+``` 
 
 ### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
     -ApiEndpoint <string>  
         The API endpoint URL for AI operations  
         Required?                    false  
@@ -11905,6 +11896,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ApiKey <string>  
         The API key for authenticated AI operations  
         Required?                    false  
@@ -11914,6 +11907,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -AskBeforeLLMSelection  
         Switch to suppress user interaction  
         Required?                    false  
@@ -11923,6 +11918,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -CleanUpDeletedFiles  
         Clean up deleted files  
         Required?                    false  
@@ -11932,6 +11929,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Clear  
         Clear all files from the refactor set  
         Required?                    false  
@@ -11941,6 +11940,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ClearLog  
         Clear the log of the refactor set  
         Required?                    false  
@@ -11950,6 +11951,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ClearSession  
         Clear alternative settings stored in session for AI preferences  
         Required?                    false  
@@ -11959,6 +11962,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Code  
         The ide to open the file in  
         Required?                    false  
@@ -11968,6 +11973,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      c  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Confirm  
         Required?                    false  
         Position?                    Named  
@@ -11976,6 +11983,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      cf  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Cpu <int>  
         The number of CPU cores to dedicate to AI operations  
         Required?                    false  
@@ -11985,6 +11994,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ExposedCmdLets <ExposedCmdletDefinition[]>  
         Array of PowerShell command definitions to use as tools during LLM selection  
         Required?                    false  
@@ -11994,6 +12005,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -FilesToAdd <FileInfo[]>  
         Filenames to add  
         Required?                    false  
@@ -12003,6 +12016,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -FilesToRemove <FileInfo[]>  
         Filenames to remove  
         Required?                    false  
@@ -12012,6 +12027,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Force  
         Force stop LM Studio before initialization  
         Required?                    false  
@@ -12021,6 +12038,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Gpu <int>  
         How much to offload to the GPU. If 'off', GPU offloading is disabled. If 'max', all layers are offloaded to GPU. If a number between 0 and 1, that fraction of layers will be offloaded to the GPU. -1 = LM Studio will decide how much to offload to the GPU. -2 = Auto  
         Required?                    false  
@@ -12030,6 +12049,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -HuggingFaceIdentifier <string>  
         The LM Studio specific model identifier  
         Required?                    false  
@@ -12039,6 +12060,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      ModelLMSGetIdentifier  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -KeysToSend <string[]>  
         The keys to invoke as key strokes after opening the file  
         Required?                    false  
@@ -12048,6 +12071,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      keys  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -LLMQueryType <string>  
         The type of LLM query  
         Required?                    false  
@@ -12057,6 +12082,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -MarkAllCompleted  
         Mark all files as refactored  
         Required?                    false  
@@ -12066,6 +12093,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -MaxToken <int>  
         The maximum number of tokens to use in AI operations  
         Required?                    false  
@@ -12075,6 +12104,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Model <string>  
         The model identifier or pattern to use for AI operations  
         Required?                    false  
@@ -12084,6 +12115,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Name <string[]>  
         The name of the refactor, accepts wildcards  
         Required?                    false  
@@ -12093,6 +12126,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  true  
+``` 
+```yaml 
     -PerformAISelections  
         Switch to process all files in the refactor set  
         Required?                    false  
@@ -12102,6 +12137,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      PerformAllLLMSelections  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -PerformAutoSelections  
         Switch to enable LLM-based file selection processing  
         Required?                    false  
@@ -12111,6 +12148,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -PreferencesDatabasePath <string>  
         Database path for preference data files  
         Required?                    false  
@@ -12120,6 +12159,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      DatabasePath  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Priority <int>  
         Priority for this refactor set  
         Required?                    false  
@@ -12129,6 +12170,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Prompt <string>  
         The prompt key indicates which prompt script to use  
         Required?                    false  
@@ -12138,6 +12181,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -PromptKey <string>  
         The prompt key indicates which prompt script to use  
         Required?                    false  
@@ -12147,6 +12192,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -RedoLast  
         Redo the last refactor  
         Required?                    false  
@@ -12156,6 +12203,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Refactor <RefactorDefinition[]>  
         The refactor set to update  
         Required?                    false  
@@ -12165,6 +12214,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ReprocessModifiedFiles  
         Automatically reprocess files modified since last update  
         Required?                    false  
@@ -12174,6 +12225,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      AutoAddModifiedFiles  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Reset  
         Start from the beginning of the refactor set  
         Required?                    false  
@@ -12183,6 +12236,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -ResetLMSelections  
         Restart all LLMSelections  
         Required?                    false  
@@ -12192,6 +12247,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -RetryFailedLLMSelections  
         Switch to retry failed LLM selections  
         Required?                    false  
@@ -12201,6 +12258,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SelectByCreationDateFrom <datetime>  
         Select files by creation date from  
         Required?                    false  
@@ -12210,6 +12269,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SelectByCreationDateTo <datetime>  
         Select files by creation date to  
         Required?                    false  
@@ -12219,6 +12280,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SelectByFreeGpuRam  
         Select configuration by available GPU RAM  
         Required?                    false  
@@ -12228,6 +12291,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SelectByFreeRam  
         Select configuration by available system RAM  
         Required?                    false  
@@ -12237,6 +12302,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SelectByModifiedDateFrom <datetime>  
         Select files by modified date from  
         Required?                    false  
@@ -12246,6 +12313,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SelectByModifiedDateTo <datetime>  
         Select files by modified date to  
         Required?                    false  
@@ -12255,6 +12324,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SelectionPrompt <string>  
         If provided, will invoke LLM to do the selection based on the content of the script  
         Required?                    false  
@@ -12264,6 +12335,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SelectionScript <string>  
         Powershell script for function to select items to refactor  
         Required?                    false  
@@ -12273,6 +12346,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SessionOnly  
         Use alternative settings stored in session for AI preferences  
         Required?                    false  
@@ -12282,6 +12357,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -SkipSession  
         Store settings only in persistent preferences without affecting session  
         Required?                    false  
@@ -12291,6 +12368,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      FromPreferences  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Speak  
         Speak out the details of next refactor  
         Required?                    false  
@@ -12300,6 +12379,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -TTLSeconds <int>  
         Time-to-live in seconds for API-loaded models  
         Required?                    false  
@@ -12309,6 +12390,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -Temperature <double>  
         Temperature for response randomness (0.0-1.0)  
         Required?                    false  
@@ -12318,6 +12401,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -TimeoutSeconds <int>  
         The timeout in seconds for AI operations  
         Required?                    false  
@@ -12327,6 +12412,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      None  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -VisualStudio  
         Open in Visual Studio  
         Required?                    false  
@@ -12336,6 +12423,8 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      vs  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     -WhatIf  
         Required?                    false  
         Position?                    Named  
@@ -12344,10 +12433,8790 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
         Aliases                      wi  
         Dynamic?                     false  
         Accept wildcard characters?  false  
+``` 
+```yaml 
     <CommonParameters>  
         This cmdlet supports the common parameters: Verbose, Debug,  
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
         OutBuffer, PipelineVariable, and OutVariable. For more information, see  
         about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Assert-GenXdevCmdletTests 
+```PowerShell 
+
+   Assert-GenXdevCmdletTests            --> improvecmdlettests  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Asserts and improves unit-tests of a specified GenXdev cmdlet.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -CmdletName <String>  
+        The name of the cmdlet to improve unit-tests for  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       True  
+        Aliases                      cmd  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Prompt [<String>]  
+        Custom AI prompt text to use  
+        Required?                      
+        Position?                    1  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PromptKey [<String>]  
+        The AI prompt key to use for template selection  
+        Required?                      
+        Position?                    2  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -EditPrompt [<SwitchParameter>]  
+        Switch to only edit the AI prompt  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -AssertFailedTest [<SwitchParameter>]  
+        Indicates to assert a failed test  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -FromScripts [<SwitchParameter>]  
+        Search in script files instead of modules  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ContinuationHandled [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Clear-GenXdevModules 
+```PowerShell 
+
+   Clear-GenXdevModules                 --> cleangenxdev  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Cleans build artifacts from GenXdev PowerShell modules.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Complete-GenXdevHelpFile 
+```PowerShell 
+
+   Complete-GenXdevHelpFile  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -ModuleName [<String[]>]  
+        Names of modules to analyze  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      Name, Module  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Get-GenXDevModule 
+```PowerShell 
+
+   Get-GenXDevModule  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Retrieves all GenXDev modules from a specified path.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Path [<String>]  
+        The root path to search for GenXdev modules  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      RootPath, FullPath  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Get-GenXDevNewModulesInOrderOfDependency 
+```PowerShell 
+
+   Get-GenXDevNewModulesInOrderOfDependency  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Retrieves GenXDev modules in dependency order.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -ModuleName [<String[]>]  
+        One or more module names to filter by  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       True  
+        Aliases                      Module, BaseModuleName, SubModuleName  
+        Accept wildcard characters?  true  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Get-RefactorReport 
+```PowerShell 
+
+   Get-RefactorReport                   --> refactorreport  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Generates a detailed report of refactoring operations and their status.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Name [<String[]>]  
+        The name of the refactor, accepts wildcards  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       True  
+        Aliases                        
+        Accept wildcard characters?  true  
+``` 
+```yaml 
+    -PreferencesDatabasePath [<String>]  
+        Specifies the path to the preferences database file.  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      DatabasePath  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SessionOnly [<SwitchParameter>]  
+        If set, only use the session cache for refactor data.  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ClearSession [<SwitchParameter>]  
+        If set, clear the session cache before running.  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SkipSession [<SwitchParameter>]  
+        If set, skip loading session cache.  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      FromPreferences  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -AsText [<SwitchParameter>]  
+        Output report in text format instead of Hashtable  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Open-GenXdevCmdletsContainingClipboardTextInIde 
+```PowerShell 
+
+   Open-GenXdevCmdletsContainingClipboardTextInIde --> vscodesearch  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Opens files in IDE that contain clipboard text  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -InputObject [<String>]  
+        Search for clipboard text in all GenXdev scripts  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       True  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Copilot [<SwitchParameter>]  
+        Add sourcefile to Copilot edit-session  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Remove-Refactor 
+```PowerShell 
+
+   Remove-Refactor  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Removes refactor sets from GenXdev preferences system.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Name <String[]>  
+        The name of the refactor, accepts wildcards  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       True  
+        Aliases                      PreferenceName  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -RemoveDefault [<SwitchParameter>]  
+        Switch to also remove the standard refactor set  
+        Required?                      
+        Position?                    1  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PreferencesDatabasePath [<String>]  
+        Database path for preference data files  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      DatabasePath  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -DefaultValue [<String>]  
+        The default value if preference is not found  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      DefaultPreference  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SessionOnly [<SwitchParameter>]  
+        Use alternative settings stored in session for Data preferences like Language, Database paths, etc  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ClearSession [<SwitchParameter>]  
+        Clear the session setting (Global variable) before retrieving  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SkipSession [<SwitchParameter>]  
+        Dont use alternative settings stored in session for Data preferences like Language, Database paths, etc  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      FromPreferences  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WhatIf [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wi  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Confirm [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      cf  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Search-GenXdevCmdlet 
+```PowerShell 
+
+   Search-GenXdevCmdlet                 --> searchcmdlet  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Searches for a GenXdev cmdlet and optionally opens it in an IDE for editing.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -CmdletName [<String>]  
+        Search pattern to filter cmdlets  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
+        Accept wildcard characters?  true  
+``` 
+```yaml 
+    -ModuleName [<String[]>]  
+        GenXdev module names to search  
+        Required?                      
+        Position?                    1  
+        Default value                  
+        Accept pipeline input?       True  
+        Aliases                      Module, BaseModuleName, SubModuleName  
+        Accept wildcard characters?  true  
+``` 
+```yaml 
+    -NoLocal [<SwitchParameter>]  
+        Skip searching in local module paths  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OnlyPublished [<SwitchParameter>]  
+        Limit search to published module paths only  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -FromScripts [<SwitchParameter>]  
+        Search in script files instead of module files  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Code [<SwitchParameter>]  
+        Open the found cmdlet in Visual Studio Code  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      c  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -VisualStudio [<SwitchParameter>]  
+        Open the found cmdlet in Visual Studio  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vs  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -EditCmdlet [<SwitchParameter>]  
+        Also opens the file in the editor after finding  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Test-RefactorLLMSelection 
+```PowerShell 
+
+   Test-RefactorLLMSelection  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Evaluates source files for refactoring eligibility using LLM analysis.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -RefactorDefinition <Object>  
+        The refactor definition containing LLM settings  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Path <String>  
+        The path to the source file to evaluate  
+        Required?                      
+        Position?                    1  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      FullName  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+&nbsp;<hr/>
+###	GenXdev.Coding<hr/> 
+
+##	Add-LineToREADME 
+```PowerShell 
+
+   Add-LineToREADME  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Line [<String>]  
+        The line to add to the README  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Section <String>  
+        The section to add the line to  
+        Required?                      
+        Position?                    1  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Prefix <String>  
+        The prefix to use for the line  
+        Required?                      
+        Position?                    2  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Code [<SwitchParameter>]  
+        Open in Visual Studio Code after modifying  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show [<SwitchParameter>]  
+        Show the modified section  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Done [<SwitchParameter>]  
+        Mark the item as completed  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME [<SwitchParameter>]  
+        Use README in PowerShell profile directory  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseOneDriveREADME [<SwitchParameter>]  
+        Use README in OneDrive directory  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	EnsureVSCodeInstallation 
+```PowerShell 
+
+   EnsureVSCodeInstallation  
+``` 
+
+### SYNTAX 
+```PowerShell 
+EnsureVSCodeInstallation [-Force] [<CommonParameters>] 
+``` 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Force  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Ideas 
+```PowerShell 
+
+   Ideas  
+``` 
+
+### SYNOPSIS 
+    Displays ideas from a README.md file.  
+
+### SYNTAX 
+```PowerShell 
+Ideas [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
+``` 
+
+### DESCRIPTION 
+    Shows all ideas from the "## Ideas" section of a README.md file. Can use either  
+    the README in the current location, PowerShell profile directory, or OneDrive  
+    directory.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -UseHomeREADME [<SwitchParameter>]  
+        Use README.md from PowerShell profile directory instead of current location.  
+        Required?                    false  
+        Position?                    1  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseOneDriveREADME [<SwitchParameter>]  
+        Use README.md from OneDrive directory instead of current location.  
+        Required?                    false  
+        Position?                    2  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Issues 
+```PowerShell 
+
+   Issues  
+``` 
+
+### SYNTAX 
+```PowerShell 
+Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
+``` 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Open-SourceFileInIde 
+```PowerShell 
+
+   Open-SourceFileInIde                 --> editcode  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Path <String>  
+        The path to the sourcefile to open  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       True  
+        Aliases                      FullName  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -LineNo [<Int32>]  
+        The line number to navigate to  
+        Required?                      
+        Position?                    1  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -KeysToSend [<String[]>]  
+        Array of keyboard inputs to send to the application  
+        Required?                      
+        Position?                    2  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      keys  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Code [<SwitchParameter>]  
+        The ide to open the file in  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      c  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -VisualStudio [<SwitchParameter>]  
+        Open in Visual Studio  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vs  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SendKeyEscape [<SwitchParameter>]  
+        Escape control characters and modifiers  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      Escape  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SendKeyHoldKeyboardFocus [<SwitchParameter>]  
+        Hold keyboard focus on target window  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      HoldKeyboardFocus  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SendKeyUseShiftEnter [<SwitchParameter>]  
+        Use Shift+Enter instead of Enter  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      UseShiftEnter  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SendKeyDelayMilliSeconds [<Int32>]  
+        Delay between different input strings in milliseconds  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      DelayMilliSeconds  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	ReleaseNotes 
+```PowerShell 
+
+   ReleaseNotes  
+``` 
+
+### SYNTAX 
+```PowerShell 
+ReleaseNotes [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
+``` 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Todoos 
+```PowerShell 
+
+   Todoos  
+``` 
+
+### SYNTAX 
+```PowerShell 
+Todoos [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>] 
+``` 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -UseHomeREADME  
+        Use README in PowerShell profile directory  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseOneDriveREADME  
+        Use README in OneDrive directory  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	VSCode 
+```PowerShell 
+
+   VSCode  
+``` 
+
+### SYNTAX 
+```PowerShell 
+VSCode [-FilePath] <string[]> [-Copilot] [<CommonParameters>] 
+``` 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Copilot  
+        Add sourcefile to Copilot edit-session  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -FilePath <string[]>  
+        The path to the file to open in VSCode  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Add-FeatureLineToREADME 
+```PowerShell 
+
+   Add-FeatureLineToREADME              --> feature  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Adds a feature line to the README file with a timestamp.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Line [<String>]  
+        The feature description text to add  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Code [<SwitchParameter>]  
+        Open README in Visual Studio Code  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show [<SwitchParameter>]  
+        Show the modified section  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Done [<SwitchParameter>]  
+        Mark todo item as completed  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME [<SwitchParameter>]  
+        Use README in PowerShell profile directory  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseOneDriveREADME [<SwitchParameter>]  
+        Use README in OneDrive directory  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Add-IdeaLineToREADME 
+```PowerShell 
+
+   Add-IdeaLineToREADME                 --> idea  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Adds an idea item to the README.md file.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Line [<String>]  
+        The idea text to add  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Code [<SwitchParameter>]  
+        Open README in Visual Studio Code  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show [<SwitchParameter>]  
+        Show the modified section  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Done [<SwitchParameter>]  
+        Mark todo item as completed  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME [<SwitchParameter>]  
+        Use README in PowerShell profile directory  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseOneDriveREADME [<SwitchParameter>]  
+        Use README in OneDrive directory  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Add-IssueLineToREADME 
+```PowerShell 
+
+   Add-IssueLineToREADME                --> issue  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Adds an issue item to the README.md file.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Line [<String>]  
+        The issue text to add  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Code [<SwitchParameter>]  
+        Open README in Visual Studio Code  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show [<SwitchParameter>]  
+        Show the modified section  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Done [<SwitchParameter>]  
+        Mark todo item as completed  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME [<SwitchParameter>]  
+        Use README in PowerShell profile directory  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseOneDriveREADME [<SwitchParameter>]  
+        Use README in OneDrive directory  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Add-ReleaseNoteLineToREADME 
+```PowerShell 
+
+   Add-ReleaseNoteLineToREADME          --> releasenote  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Adds a ReleaseNote line to the README file with a timestamp.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Line [<String>]  
+        The ReleaseNote description text to add  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Code [<SwitchParameter>]  
+        Open README in Visual Studio Code  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show [<SwitchParameter>]  
+        Show the modified section  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Done [<SwitchParameter>]  
+        Mark todo item as completed  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME [<SwitchParameter>]  
+        Use README in PowerShell profile directory  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseOneDriveREADME [<SwitchParameter>]  
+        Use README in OneDrive directory  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Add-TodoLineToREADME 
+```PowerShell 
+
+   Add-TodoLineToREADME                 --> todo  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Adds a todo item to the README.md file.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Line [<String>]  
+        The todo item text to add  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       True  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Code [<SwitchParameter>]  
+        Open README in Visual Studio Code  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show [<SwitchParameter>]  
+        Show the modified section  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Done [<SwitchParameter>]  
+        Mark todo item as completed  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME [<SwitchParameter>]  
+        Use README in PowerShell profile directory  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseOneDriveREADME [<SwitchParameter>]  
+        Use README in OneDrive directory  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+<br/><hr/><br/>
+ 
+
+&nbsp;<hr/>
+###	GenXdev.Coding.Git<hr/> 
+
+##	PermanentlyDeleteGitFolders 
+```PowerShell 
+
+   PermanentlyDeleteGitFolders  
+``` 
+
+### SYNTAX 
+```PowerShell 
+PermanentlyDeleteGitFolders [-RepoUri] <string> [-Folders] <string[]> [-tempPath <string>] [-WhatIf] [-Confirm] [<CommonParameters>] 
+``` 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Confirm  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Folders <string[]>  
+        Array of folder paths to permanently remove  
+        Required?                    true  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -RepoUri <string>  
+        The URI of the Git repository to clean  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WhatIf  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -tempPath <string>  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Get-GitChangedFiles 
+```PowerShell 
+
+   Get-GitChangedFiles                  --> gitchanged  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Get the list of changed files in a Git repository.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -PassThru [<SwitchParameter>]  
+        Returns FileInfo objects (like Get-ChildItem) instead of path strings.  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	New-GitCommit 
+```PowerShell 
+
+   New-GitCommit                        --> commit  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Creates and pushes a new git commit with all changes.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Title [<String>]  
+        The commit message title to use  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+&nbsp;<hr/>
+###	GenXdev.Coding.PowerShell.Modules<hr/> 
+
+##	Add-MissingGenXdevUnitTests 
+```PowerShell 
+
+   Add-MissingGenXdevUnitTests  
+``` 
+
+### SYNTAX 
+```PowerShell 
+Add-MissingGenXdevUnitTests [<CommonParameters>] 
+``` 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Assert-GenXdevCmdlet 
+```PowerShell 
+
+   Assert-GenXdevCmdlet                 --> improvecmdlet  
+``` 
+
+### SYNTAX 
+```PowerShell 
+Assert-GenXdevCmdlet [[-CmdletName] <string>] [[-PromptKey]
+    <string>] [[-Prompt] <string>] [-ModuleName <string[]>]
+    [-NoLocal] [-OnlyPublished] [-FromScripts] [-Code]
+    [-VisualStudio] [-EditPrompt] [-Integrate]
+    [<CommonParameters>] 
+``` 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -CmdletName <string>  
+        Search pattern to filter cmdlets  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+``` 
+```yaml 
+    -Code  
+        Open in Visual Studio Code  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      c  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -EditPrompt  
+        Only edit the AI prompt  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           PromptKey  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -FromScripts  
+        Search in script files  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Integrate  
+        Integrate cmdlet into module  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ModuleName <string[]>  
+        GenXdev module names to search  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      Module, BaseModuleName, SubModuleName  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+``` 
+```yaml 
+    -NoLocal  
+        Skip local module versions  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OnlyPublished  
+        Only include published versions  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Prompt <string>  
+        Custom AI prompt text to use  
+        Required?                    false  
+        Position?                    2  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PromptKey <string>  
+        The AI prompt key to use for template selection  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -VisualStudio  
+        Open in Visual Studio  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Assert-GenXdevDependencyUsage 
+```PowerShell 
+
+   Assert-GenXdevDependencyUsage        --> checkgenxdevdependencies  
+``` 
+
+### SYNOPSIS 
+    Validates dependency usage across GenXdev modules to ensure proper module  
+    hierarchy is maintained.  
+
+### SYNTAX 
+```PowerShell 
+Assert-GenXdevDependencyUsage [[-ModuleName] <String[]>]
+    [-FromScripts] [<CommonParameters>] 
+``` 
+
+### DESCRIPTION 
+    This function analyzes GenXdev modules to ensure they follow the correct  
+    dependency hierarchy. It checks that modules only reference dependencies  
+    that are listed in their RequiredModules manifest, and prevents circular  
+    dependencies by validating that modules do not reference modules that come  
+    later in the dependency chain.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -ModuleName <String[]>  
+        Filter to apply to module names. Must match GenXdev naming pattern. Defaults  
+        to checking all GenXdev modules.  
+        Required?                    false  
+        Position?                    2  
+        Default value                @('GenXdev*')  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Aliases                        
+        Accept wildcard characters?  true  
+``` 
+```yaml 
+    -FromScripts [<SwitchParameter>]  
+        Search in script files instead of module files.  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Assert-GenXdevTest 
+```PowerShell 
+
+   Assert-GenXdevTest                   --> rungenxdevtests  
+``` 
+
+### SYNTAX 
+```PowerShell 
+Assert-GenXdevTest [[-CmdletName] <string>]
+    [[-TestFailedAction] {Ask | Continue | Stop |
+    SolveWithAI | Write-Error | Throw}]
+    [[-DefinitionMatches] <string>] [[-ModuleName]
+    <string[]>] [-NoLocal] [-OnlyPublished] [-FromScripts]
+    [-IncludeScripts] [-OnlyReturnModuleNames] [-ExactMatch]
+    [-Verbosity {None | Normal | Detailed | Diagnostic}]
+    [-StackTraceVerbosity {None | FirstLine | Filtered |
+    Full}] [-AllowLongRunningTests] [-SkipModuleImports]
+    [-SkipPSAnalyzerTests] [-SkipPesterTests]
+    [<CommonParameters>] 
+``` 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -AllowLongRunningTests  
+        Also selects unit-tests that have long running durations  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -CmdletName <string>  
+        Search pattern to filter cmdlets  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       true (ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+``` 
+```yaml 
+    -DefinitionMatches <string>  
+        Regular expression to match cmdlet definitions  
+        Required?                    false  
+        Position?                    2  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ExactMatch  
+        Require exact matches for cmdlet names  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -FromScripts  
+        Search in script files instead of modules  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -IncludeScripts  
+        Includes the scripts directory in addition to regular modules  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           ModuleName  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ModuleName <string[]>  
+        GenXdev module names to search  
+        Required?                    false  
+        Position?                    3  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      Module, BaseModuleName, SubModuleName  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+``` 
+```yaml 
+    -NoLocal  
+        Skip searching in local module paths  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OnlyPublished  
+        Only search in published module paths  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OnlyReturnModuleNames  
+        Only return unique module names  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SkipModuleImports  
+        Skips importing GenXdev modules before testing  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           ModuleName  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SkipPSAnalyzerTests  
+        Skips invoking PSAnalyzer tests  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SkipPesterTests  
+        Skips invoking Pester tests  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -StackTraceVerbosity <string>  
+        Stack trace detail level  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -TestFailedAction <string>  
+        Action to take when a test fails. Options: Ask, Continue, Stop, SolveWithAI, Write-Error, Throw  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbosity <string>  
+        Output detail level  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Assert-ModuleDefinition 
+```PowerShell 
+
+   Assert-ModuleDefinition  
+``` 
+
+### SYNTAX 
+```PowerShell 
+Assert-ModuleDefinition [-ModuleName] <string> [-Prompt
+    <string>] [-EditPrompt] [<CommonParameters>] 
+``` 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -EditPrompt  
+        Switch to only edit the AI prompt  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ModuleName <string>  
+        The name of the module  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Prompt <string>  
+        The AI prompt  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Assert-RefactorFile 
+```PowerShell 
+
+   Assert-RefactorFile  
+``` 
+
+### SYNTAX 
+```PowerShell 
+Assert-RefactorFile [-Path] <string> [[-RefactorSettings]
+    <RefactorSettings>] [-AllowLongRunningTests]
+    [<CommonParameters>] 
+``` 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -AllowLongRunningTests  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Path <string>  
+        The path to the source file to improve  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      FullName  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -RefactorSettings <RefactorSettings>  
+        The refactor definition containing settings and prompt template  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Complete-GenXDevREADME 
+```PowerShell 
+
+   Complete-GenXDevREADME  
+``` 
+
+### SYNTAX 
+```PowerShell 
+Complete-GenXDevREADME [[-ModuleName] <string[]>]
+    [<CommonParameters>] 
+``` 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -ModuleName <string[]>  
+        The name(s) of the module(s) to complete the README for  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      Module, BaseModuleName, SubModuleName  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	EnsureCopilotKeyboardShortCut 
+```PowerShell 
+
+   EnsureCopilotKeyboardShortCut  
+``` 
+
+### SYNTAX 
+```PowerShell 
+EnsureCopilotKeyboardShortCut [<CommonParameters>] 
+``` 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	EnsureDefaultGenXdevRefactors 
+```PowerShell 
+
+   EnsureDefaultGenXdevRefactors  
+``` 
+
+### SYNTAX 
+```PowerShell 
+EnsureDefaultGenXdevRefactors [-Force] [<CommonParameters>] 
+``` 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Force  
+        Forces recreation of existing refactor definitions  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Get-GenXdevCmdletUsageAnalysis 
+```PowerShell 
+
+   Get-GenXdevCmdletUsageAnalysis  
+``` 
+
+### SYNTAX 
+```PowerShell 
+Get-GenXdevCmdletUsageAnalysis [[-OutputFormat] {Table |
+    List | CSV}] [[-Top] <int>] [-IncludeCallChains]
+    [-IncludeScripts] [<CommonParameters>] 
+``` 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -IncludeCallChains  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -IncludeScripts  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutputFormat <string>  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Top <int>  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Get-GenXDevModuleinfo 
+```PowerShell 
+
+   Get-GenXDevModuleInfo  
+``` 
+
+### SYNOPSIS 
+    Retrieves detailed information about GenXdev PowerShell modules.  
+
+### SYNTAX 
+```PowerShell 
+Get-GenXDevModuleInfo [[-ModuleName] <String[]>]
+    [<CommonParameters>] 
+``` 
+
+### DESCRIPTION 
+    This function examines GenXdev PowerShell modules and returns information about  
+    their configuration, versions, and presence of key files. It can process either  
+    specified modules or all available modules.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -ModuleName <String[]>  
+        Array of module names to analyze. If empty, processes all available modules.  
+        GenXdev.Local module is explicitly blocked from processing.  
+        Required?                    false  
+        Position?                    1  
+        Default value                @()  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Get-ModuleHelpMarkdown 
+```PowerShell 
+
+   Get-ModuleHelpMarkdown  
+``` 
+
+### SYNTAX 
+```PowerShell 
+Get-ModuleHelpMarkdown [[-ModuleName] <string[]>]
+    [[-CommandNames] <string[]>] [<CommonParameters>] 
+``` 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -CommandNames <string[]>  
+        Optional cmdlet names to filter which to document  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+``` 
+```yaml 
+    -ModuleName <string[]>  
+        The name(s) of the module(s) to generate help for  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      Name, Module  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Get-Refactor 
+```PowerShell 
+
+   Get-Refactor                         --> refactors  
+``` 
+
+### SYNOPSIS 
+    Retrieves refactor definitions from GenXdev preferences based on name patterns.  
+
+### SYNTAX 
+```PowerShell 
+Get-Refactor [[-Name] <String[]>] [-PreferencesDatabasePath
+    <String>] [-DefaultValue <String>] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [<CommonParameters>] 
+``` 
+
+### DESCRIPTION 
+    Searches for and loads refactor definition sets stored in GenXdev preferences.  
+    Each refactor set is stored as a JSON string in a preference with name starting  
+    with 'refactor_set_'. The function deserializes matching sets into objects.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Name <String[]>  
+        One or more name patterns to match against refactor set names. Patterns are  
+        matched against the portion of the preference name after 'refactor_set_' prefix.  
+        Supports wildcards. If omitted, returns all refactor sets.  
+        Required?                    false  
+        Position?                    1  
+        Default value                @('*')  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Aliases                        
+        Accept wildcard characters?  true  
+``` 
+```yaml 
+    -PreferencesDatabasePath <String>  
+        Required?                    false  
+        Position?                    named  
+        Default value                  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -DefaultValue <String>  
+        Required?                    false  
+        Position?                    named  
+        Default value                  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SessionOnly [<SwitchParameter>]  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ClearSession [<SwitchParameter>]  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SkipSession [<SwitchParameter>]  
+        Required?                    false  
+        Position?                    named  
+        Default value                False  
+        Accept pipeline input?       false  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Invoke-GenXdevPSFormatter 
+```PowerShell 
+
+   Invoke-GenXdevPSFormatter  
+``` 
+
+### SYNTAX 
+```PowerShell 
+Invoke-GenXdevPSFormatter [-Path] <string> [-Settings
+    <Object>] [-Range <int[]>] [-Recurse]
+    [<CommonParameters>] 
+``` 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Path <string>  
+        Specifies the path to the script file to format.  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      Name, FullName, ImagePath, FileName, ScriptFileName  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Range <int[]>  
+        The range within which formatting should take place as an array of four integers: starting line number, starting column number, ending line number, ending column number.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Recurse  
+        Recursively process files in subdirectories.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Settings <Object>  
+        A settings hashtable or a path to a PowerShell data file (.psd1) that contains the formatting settings.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Invoke-GenXdevScriptAnalyzer 
+```PowerShell 
+
+   Invoke-GenXdevScriptAnalyzer  
+``` 
+
+### SYNTAX 
+```PowerShell 
+Invoke-GenXdevScriptAnalyzer [-ScriptFilePath] <string>
+    [-EnableExit] [-Fix] [-Recurse] [-ReportSummary]
+    [<CommonParameters>]
+Invoke-GenXdevScriptAnalyzer -ScriptDefinition <string>
+    [-EnableExit] [-Fix] [-Recurse] [-ReportSummary]
+    [<CommonParameters>] 
+``` 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -EnableExit  
+        Specifies that the tool should exit on error.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Fix  
+        Enables automatic fixing of violations.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Recurse  
+        Recursively process files.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ReportSummary  
+        Reports a summary after analysis.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ScriptDefinition <string>  
+        Specifies the script definition as a string.  
+        Required?                    true  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           Script  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ScriptFilePath <string>  
+        Specifies the path to the script file.  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           Path  
+        Aliases                      Path, FullName  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	New-GenXdevCmdlet 
+```PowerShell 
+
+   New-GenXdevCmdlet                    --> newcmd  
+``` 
+
+### SYNTAX 
+```PowerShell 
+New-GenXdevCmdlet [-CmdletName] <string> [[-Synopsis]
+    <string>] [[-Description] <string>] [[-BaseModuleName]
+    <string>] [[-ModuleName] <string>] [[-CmdletAliases]
+    <string[]>] [[-PromptKey] <string>] [[-Prompt] <string>]
+    [-EditPrompt] [-WhatIf] [-Confirm] [<CommonParameters>] 
+``` 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -BaseModuleName <string>  
+        Integrate the new cmdlet into an existing GenXdev module  
+        Required?                    false  
+        Position?                    3  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -CmdletAliases <string[]>  
+        One or more aliases for the cmdlet. Accepts an array of strings.  
+        Required?                    false  
+        Position?                    5  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -CmdletName <string>  
+        The name of the cmdlet to create (must use approved verb)  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      cmd  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Confirm  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Description <string>  
+        A detailed description of what the cmdlet does  
+        Required?                    false  
+        Position?                    2  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -EditPrompt  
+        Only edit the AI prompt without creating the cmdlet  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ModuleName <string>  
+        Integrate the new cmdlet into an existing GenXdev sub module  
+        Required?                    false  
+        Position?                    4  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Prompt <string>  
+        Custom AI prompt text to use for cmdlet generation  
+        Required?                    false  
+        Position?                    7  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PromptKey <string>  
+        The AI prompt key to use for template selection  
+        Required?                    false  
+        Position?                    6  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Synopsis <string>  
+        A brief description of the cmdlet's purpose  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WhatIf  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	New-GenXdevModule 
+```PowerShell 
+
+   New-GenXdevModule  
+``` 
+
+### SYNTAX 
+```PowerShell 
+New-GenXdevModule [-ModuleName] <string> [-Description]
+    <string> [[-Tags] <string[]>] [-WhatIf] [-Confirm]
+    [<CommonParameters>] 
+``` 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Confirm  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Description <string>  
+        Description of the module's functionality  
+        Required?                    true  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ModuleName <string>  
+        Name of the module to create (must follow GenXdev.* pattern)  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Tags <string[]>  
+        Tags for module discovery (no whitespace allowed)  
+        Required?                    false  
+        Position?                    2  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WhatIf  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	New-PullRequestForGenXdevModuleChanges 
+```PowerShell 
+
+   New-PullRequestForGenXdevModuleChanges --> prgenxdevmodule  
+``` 
+
+### SYNTAX 
+```PowerShell 
+New-PullRequestForGenXdevModuleChanges [-ModuleName]
+    {GenXdev.AI | GenXdev.Coding | GenXdev.Media |
+    GenXdev.Console | GenXdev.Data | GenXdev.FileSystem |
+    GenXdev.Helpers | GenXdev.Queries | GenXdev.Webbrowser |
+    GenXdev.Windows} [[-CommitMessage] <string>]
+    [[-PullRequestTitle] <string>]
+    [[-PullRequestDescription] <string>] [[-GitUserName]
+    <string>] [[-GitUserEmail] <string>] [-Monitor <int>]
+    [-NoBorders] [-Width <int>] [-Height <int>] [-X <int>]
+    [-Y <int>] [-Left] [-Right] [-Top] [-Bottom] [-Centered]
+    [-ShowWindow] [-RestoreFocus] [-PassThru] [-SideBySide]
+    [-FocusWindow] [-SetForeground] [-Maximize]
+    [-SetRestored] [-KeysToSend <string[]>] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [-WhatIf] [-Confirm]
+    [<CommonParameters>] 
+``` 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Bottom  
+        Places window on bottom half of screen  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Centered  
+        Centers window on screen  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ClearSession  
+        Clear alternative settings stored in session for AI preferences  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -CommitMessage <string>  
+        Message for the commit  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Confirm  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -FocusWindow  
+        Focus the window after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      fw, focus  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -GitUserEmail <string>  
+        Git email for commits  
+        Required?                    false  
+        Position?                    5  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -GitUserName <string>  
+        Git username for commits  
+        Required?                    false  
+        Position?                    4  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Height <int>  
+        Window height in pixels for positioning applications  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -KeysToSend <string[]>  
+        Keystrokes to send to the window after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Left  
+        Places window on left half of screen  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Maximize  
+        Maximize the window after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ModuleName <string>  
+        Name of the GenXdev module  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Monitor <int>  
+        Monitor selection: 0=primary, 1+=specific monitor, -1=current, -2=secondary  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      m, mon  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -NoBorders  
+        Removes window borders and title bar for a cleaner appearance  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      nb  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PassThru  
+        Returns window helper object for further manipulation  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      pt  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PullRequestDescription <string>  
+        Description for the pull request  
+        Required?                    false  
+        Position?                    3  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PullRequestTitle <string>  
+        Title for the pull request  
+        Required?                    false  
+        Position?                    2  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -RestoreFocus  
+        Returns focus to PowerShell window after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      rf, bg  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Right  
+        Places window on right half of screen  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SessionOnly  
+        Use alternative settings stored in session for AI preferences  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SetForeground  
+        Set the window to foreground after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      fg  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SetRestored  
+        Restore the window to normal state after positioning  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ShowWindow  
+        Maximizes window to fill entire screen  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      sw  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SideBySide  
+        Places windows side by side with PowerShell on the same monitor  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      sbs  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SkipSession  
+        Store settings only in persistent preferences without affecting session  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Top  
+        Places window on top half of screen  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WhatIf  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Width <int>  
+        Window width in pixels for positioning applications  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -X <int>  
+        Window horizontal position for positioning applications  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Y <int>  
+        Window vertical position for positioning applications  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	New-Refactor 
+```PowerShell 
+
+   New-Refactor                         --> newrefactor  
+``` 
+
+### SYNTAX 
+```PowerShell 
+New-Refactor [-Name] <string> [-PromptKey] <string>
+    [[-Prompt] <string>] [[-SelectionScript] <string>]
+    [[-SelectionPrompt] <string>] [[-LLMQueryType]
+    {SimpleIntelligence | Knowledge | Pictures |
+    TextTranslation | Coding | ToolUse}] [-Model <string>]
+    [-HuggingFaceIdentifier <string>] [-MaxToken <int>]
+    [-Cpu <int>] [-TTLSeconds <int>] [-SelectByFreeRam]
+    [-SelectByFreeGpuRam] [-Temperature <double>] [-Gpu
+    <int>] [-ApiEndpoint <string>] [-ApiKey <string>]
+    [-TimeoutSeconds <int>] [-Priority <int>]
+    [-ExposedCmdLets <ExposedCmdletDefinition[]>]
+    [-FilesToAdd <FileInfo[]>] [-PreferencesDatabasePath
+    <string>] [-AutoAddModifiedFiles] [-Force]
+    [-SessionOnly] [-ClearSession] [-SkipSession] [-Code]
+    [-VisualStudio] [-KeysToSend <string[]>] [-WhatIf]
+    [-Confirm] [<CommonParameters>] 
+``` 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -ApiEndpoint <string>  
+        The API endpoint URL for AI operations  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ApiKey <string>  
+        The API key for authenticated AI operations  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -AutoAddModifiedFiles  
+        Will automatically add modified files to the queue  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ClearSession  
+        Clear alternative settings stored in session for AI preferences  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Code  
+        Open files in Visual Studio Code  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      c  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Confirm  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Cpu <int>  
+        The number of CPU cores to dedicate to AI operations  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ExposedCmdLets <ExposedCmdletDefinition[]>  
+        Array of PowerShell command definitions for LLM tools  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -FilesToAdd <FileInfo[]>  
+        Array of files to process  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Force  
+        Force stop LM Studio before initialization  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Gpu <int>  
+        How much to offload to the GPU. If 'off', GPU offloading is disabled. If 'max', all layers are offloaded to GPU. If a number between 0 and 1, that fraction of layers will be offloaded to the GPU. -1 = LM Studio will decide how much to offload to the GPU. -2 = Auto  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -HuggingFaceIdentifier <string>  
+        The LM Studio specific model identifier  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      ModelLMSGetIdentifier  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -KeysToSend <string[]>  
+        Keystrokes to send after opening files  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      keys  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -LLMQueryType <string>  
+        The type of LLM query  
+        Required?                    false  
+        Position?                    5  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -MaxToken <int>  
+        The maximum number of tokens to use in AI operations  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Model <string>  
+        The model identifier or pattern to use for AI operations  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Name <string>  
+        The name of this new refactor set  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PreferencesDatabasePath <string>  
+        Database path for preference data files  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      DatabasePath  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Priority <int>  
+        Priority for this refactor set  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Prompt <string>  
+        Custom prompt text to override the template  
+        Required?                    false  
+        Position?                    2  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PromptKey <string>  
+        The prompt key indicates which prompt script to use  
+        Required?                    true  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SelectByFreeGpuRam  
+        Select configuration by available GPU RAM  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SelectByFreeRam  
+        Select configuration by available system RAM  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SelectionPrompt <string>  
+        LLM selection guidance prompt  
+        Required?                    false  
+        Position?                    4  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SelectionScript <string>  
+        Powershell script for selecting items to refactor  
+        Required?                    false  
+        Position?                    3  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SessionOnly  
+        Use alternative settings stored in session for AI preferences  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SkipSession  
+        Store settings only in persistent preferences without affecting session  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      FromPreferences  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -TTLSeconds <int>  
+        Time-to-live in seconds for API-loaded models  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Temperature <double>  
+        Temperature for response randomness (0.0-1.0)  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -TimeoutSeconds <int>  
+        The timeout in seconds for AI operations  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -VisualStudio  
+        Open in Visual Studio  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WhatIf  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Show-GenXdevCmdLetInIde 
+```PowerShell 
+
+   Show-GenXdevCmdLetInIde              --> cmdlet, editcmdlet  
+``` 
+
+### SYNTAX 
+```PowerShell 
+Show-GenXdevCmdLetInIde [-CmdletName] <string>
+    [[-ModuleName] <string[]>] [[-BaseModuleName] <string>]
+    [[-Synopsis] <string>] [[-Description] <string>]
+    [[-CmdletAliases] <string[]>] [-NoLocal]
+    [-OnlyPublished] [-FromScripts] [-Code] [-VisualStudio]
+    [-UnitTests] [-KeysToSend <string[]>] [-CoPilot]
+    [-Search] [-ChangedirectoryOnly] [-New] [-PromptKey
+    <string>] [-Prompt <string>] [-EditPrompt]
+    [<CommonParameters>] 
+``` 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -BaseModuleName <string>  
+        Integrate the new cmdlet into an existing GenXdev module  
+        Required?                    false  
+        Position?                    2  
+        Accept pipeline input?       false  
+        Parameter set name           New  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ChangedirectoryOnly  
+        When specified, only changes the current PowerShell location\r\nthe respective Cmdlet directory  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      cd  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -CmdletAliases <string[]>  
+        One or more aliases for the cmdlet. Accepts an array of strings.  
+        Required?                    false  
+        Position?                    5  
+        Accept pipeline input?       false  
+        Parameter set name           New  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -CmdletName <string>  
+        Search pattern to filter cmdlets  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+``` 
+```yaml 
+    -CoPilot  
+        Add to Co-Pilot edit session  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Code  
+        The ide to open the file in  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      c  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Description <string>  
+        A detailed description of what the cmdlet does  
+        Required?                    false  
+        Position?                    4  
+        Accept pipeline input?       false  
+        Parameter set name           New  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -EditPrompt  
+        Only edit the AI prompt without creating the cmdlet  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -FromScripts  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -KeysToSend <string[]>  
+        The keys to send  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      keys  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ModuleName <string[]>  
+        GenXdev module names to search  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      Module, SubModuleName  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+``` 
+```yaml 
+    -New  
+        Create a new cmdlet  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           New  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -NoLocal  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OnlyPublished  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Prompt <string>  
+        Custom AI prompt text to use for cmdlet generation  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PromptKey <string>  
+        The AI prompt key to use for template selection  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           New  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Search  
+        Also global search for the cmdlet  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Synopsis <string>  
+        A brief description of the cmdlet's purpose  
+        Required?                    false  
+        Position?                    3  
+        Accept pipeline input?       false  
+        Parameter set name           New  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UnitTests  
+        Show the function's unit-tests instead of the function  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -VisualStudio  
+        Open in Visual Studio  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	SplitUpPsm1File 
+```PowerShell 
+
+   SplitUpPsm1File  
+``` 
+
+### SYNTAX 
+```PowerShell 
+SplitUpPsm1File [-Psm1FilePath] <string> [<CommonParameters>] 
+``` 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Psm1FilePath <string>  
+        Path to the .psm1 file to split into functions  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      Path  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Start-NextRefactor 
+```PowerShell 
+
+   Start-NextRefactor                   --> nextrefactor  
+``` 
+
+### SYNTAX 
+```PowerShell 
+Start-NextRefactor [[-Name] <string[]>] [[-FilesToAdd]
+    <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>]
+    [[-CleanUpDeletedFiles]] [-Reset] [-ResetLMSelections]
+    [-MarkAllCompleted] [-RedoLast] [-Speak] [-WhatIf]
+    [-Confirm] [<CommonParameters>] 
+``` 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -CleanUpDeletedFiles  
+        Clean up deleted files  
+        Required?                    false  
+        Position?                    3  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Confirm  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -FilesToAdd <FileInfo[]>  
+        Filenames to add  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -FilesToRemove <FileInfo[]>  
+        Filenames to remove  
+        Required?                    false  
+        Position?                    2  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -MarkAllCompleted  
+        Mark all files as refactored  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Name <string[]>  
+        The name of the refactor, accepts wildcards  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+``` 
+```yaml 
+    -RedoLast  
+        Redo the last refactor  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Reset  
+        Start from the beginning of the refactor set  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ResetLMSelections  
+        Restart all LLM selections  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Speak  
+        Speak out the details of next refactor  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WhatIf  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Update-Refactor 
+```PowerShell 
+
+   Update-Refactor                      --> updaterefactor  
+``` 
+
+### SYNTAX 
+```PowerShell 
+Update-Refactor [[-Name] <string[]>] [[-FilesToAdd]
+    <FileInfo[]>] [[-FilesToRemove] <FileInfo[]>]
+    [-SelectByModifiedDateFrom <datetime>]
+    [-SelectByModifiedDateTo <datetime>]
+    [-SelectByCreationDateFrom <datetime>]
+    [-SelectByCreationDateTo <datetime>] [-PromptKey
+    <string>] [-Prompt <string>] [-SelectionScript <string>]
+    [-SelectionPrompt <string>] [-LLMQueryType
+    {SimpleIntelligence | Knowledge | Pictures |
+    TextTranslation | Coding | ToolUse}] [-Model <string>]
+    [-HuggingFaceIdentifier <string>] [-Temperature
+    <double>] [-MaxToken <int>] [-TTLSeconds <int>] [-Cpu
+    <int>] [-Gpu <int>] [-ApiEndpoint <string>] [-ApiKey
+    <string>] [-TimeoutSeconds <int>] [-Priority <int>]
+    [-ExposedCmdLets <ExposedCmdletDefinition[]>]
+    [-KeysToSend <string[]>] [-PreferencesDatabasePath
+    <string>] [-CleanUpDeletedFiles]
+    [-AskBeforeLLMSelection] [-PerformAutoSelections]
+    [-PerformAISelections] [-RetryFailedLLMSelections]
+    [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections]
+    [-MarkAllCompleted] [-RedoLast]
+    [-ReprocessModifiedFiles] [-Force] [-Code]
+    [-VisualStudio] [-Speak] [-SelectByFreeRam]
+    [-SelectByFreeGpuRam] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>]
+Update-Refactor [[-Refactor] <RefactorDefinition[]>]
+    [[-FilesToAdd] <FileInfo[]>] [[-FilesToRemove]
+    <FileInfo[]>] [-SelectByModifiedDateFrom <datetime>]
+    [-SelectByModifiedDateTo <datetime>]
+    [-SelectByCreationDateFrom <datetime>]
+    [-SelectByCreationDateTo <datetime>] [-PromptKey
+    <string>] [-Prompt <string>] [-SelectionScript <string>]
+    [-SelectionPrompt <string>] [-LLMQueryType
+    {SimpleIntelligence | Knowledge | Pictures |
+    TextTranslation | Coding | ToolUse}] [-Model <string>]
+    [-HuggingFaceIdentifier <string>] [-Temperature
+    <double>] [-MaxToken <int>] [-TTLSeconds <int>] [-Cpu
+    <int>] [-Gpu <int>] [-ApiEndpoint <string>] [-ApiKey
+    <string>] [-TimeoutSeconds <int>] [-Priority <int>]
+    [-ExposedCmdLets <ExposedCmdletDefinition[]>]
+    [-KeysToSend <string[]>] [-PreferencesDatabasePath
+    <string>] [-CleanUpDeletedFiles]
+    [-AskBeforeLLMSelection] [-PerformAutoSelections]
+    [-PerformAISelections] [-RetryFailedLLMSelections]
+    [-Clear] [-ClearLog] [-Reset] [-ResetLMSelections]
+    [-MarkAllCompleted] [-RedoLast]
+    [-ReprocessModifiedFiles] [-Force] [-Code]
+    [-VisualStudio] [-Speak] [-SelectByFreeRam]
+    [-SelectByFreeGpuRam] [-SessionOnly] [-ClearSession]
+    [-SkipSession] [-WhatIf] [-Confirm] [<CommonParameters>] 
+``` 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -ApiEndpoint <string>  
+        The API endpoint URL for AI operations  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ApiKey <string>  
+        The API key for authenticated AI operations  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -AskBeforeLLMSelection  
+        Switch to suppress user interaction  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -CleanUpDeletedFiles  
+        Clean up deleted files  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Clear  
+        Clear all files from the refactor set  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ClearLog  
+        Clear the log of the refactor set  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ClearSession  
+        Clear alternative settings stored in session for AI preferences  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Code  
+        The ide to open the file in  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      c  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Confirm  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      cf  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Cpu <int>  
+        The number of CPU cores to dedicate to AI operations  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ExposedCmdLets <ExposedCmdletDefinition[]>  
+        Array of PowerShell command definitions to use as tools during LLM selection  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -FilesToAdd <FileInfo[]>  
+        Filenames to add  
+        Required?                    false  
+        Position?                    2  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -FilesToRemove <FileInfo[]>  
+        Filenames to remove  
+        Required?                    false  
+        Position?                    3  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Force  
+        Force stop LM Studio before initialization  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Gpu <int>  
+        How much to offload to the GPU. If 'off', GPU offloading is disabled. If 'max', all layers are offloaded to GPU. If a number between 0 and 1, that fraction of layers will be offloaded to the GPU. -1 = LM Studio will decide how much to offload to the GPU. -2 = Auto  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -HuggingFaceIdentifier <string>  
+        The LM Studio specific model identifier  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      ModelLMSGetIdentifier  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -KeysToSend <string[]>  
+        The keys to invoke as key strokes after opening the file  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      keys  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -LLMQueryType <string>  
+        The type of LLM query  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -MarkAllCompleted  
+        Mark all files as refactored  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -MaxToken <int>  
+        The maximum number of tokens to use in AI operations  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Model <string>  
+        The model identifier or pattern to use for AI operations  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Name <string[]>  
+        The name of the refactor, accepts wildcards  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           Name  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+``` 
+```yaml 
+    -PerformAISelections  
+        Switch to process all files in the refactor set  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      PerformAllLLMSelections  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PerformAutoSelections  
+        Switch to enable LLM-based file selection processing  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PreferencesDatabasePath <string>  
+        Database path for preference data files  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      DatabasePath  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Priority <int>  
+        Priority for this refactor set  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Prompt <string>  
+        The prompt key indicates which prompt script to use  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PromptKey <string>  
+        The prompt key indicates which prompt script to use  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -RedoLast  
+        Redo the last refactor  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Refactor <RefactorDefinition[]>  
+        The refactor set to update  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           Refactor  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ReprocessModifiedFiles  
+        Automatically reprocess files modified since last update  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      AutoAddModifiedFiles  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Reset  
+        Start from the beginning of the refactor set  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ResetLMSelections  
+        Restart all LLMSelections  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -RetryFailedLLMSelections  
+        Switch to retry failed LLM selections  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SelectByCreationDateFrom <datetime>  
+        Select files by creation date from  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SelectByCreationDateTo <datetime>  
+        Select files by creation date to  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SelectByFreeGpuRam  
+        Select configuration by available GPU RAM  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SelectByFreeRam  
+        Select configuration by available system RAM  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SelectByModifiedDateFrom <datetime>  
+        Select files by modified date from  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SelectByModifiedDateTo <datetime>  
+        Select files by modified date to  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SelectionPrompt <string>  
+        If provided, will invoke LLM to do the selection based on the content of the script  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SelectionScript <string>  
+        Powershell script for function to select items to refactor  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SessionOnly  
+        Use alternative settings stored in session for AI preferences  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SkipSession  
+        Store settings only in persistent preferences without affecting session  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      FromPreferences  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Speak  
+        Speak out the details of next refactor  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -TTLSeconds <int>  
+        Time-to-live in seconds for API-loaded models  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Temperature <double>  
+        Temperature for response randomness (0.0-1.0)  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -TimeoutSeconds <int>  
+        The timeout in seconds for AI operations  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -VisualStudio  
+        Open in Visual Studio  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WhatIf  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Assert-GenXdevCmdletTests 
+```PowerShell 
+
+   Assert-GenXdevCmdletTests            --> improvecmdlettests  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Asserts and improves unit-tests of a specified GenXdev cmdlet.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -CmdletName <String>  
+        The name of the cmdlet to improve unit-tests for  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       True  
+        Aliases                      cmd  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Prompt [<String>]  
+        Custom AI prompt text to use  
+        Required?                      
+        Position?                    1  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PromptKey [<String>]  
+        The AI prompt key to use for template selection  
+        Required?                      
+        Position?                    2  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -EditPrompt [<SwitchParameter>]  
+        Switch to only edit the AI prompt  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -AssertFailedTest [<SwitchParameter>]  
+        Indicates to assert a failed test  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -FromScripts [<SwitchParameter>]  
+        Search in script files instead of modules  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ContinuationHandled [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Clear-GenXdevModules 
+```PowerShell 
+
+   Clear-GenXdevModules                 --> cleangenxdev  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Cleans build artifacts from GenXdev PowerShell modules.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Complete-GenXdevHelpFile 
+```PowerShell 
+
+   Complete-GenXdevHelpFile  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -ModuleName [<String[]>]  
+        Names of modules to analyze  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      Name, Module  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Get-GenXDevModule 
+```PowerShell 
+
+   Get-GenXDevModule  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Retrieves all GenXDev modules from a specified path.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Path [<String>]  
+        The root path to search for GenXdev modules  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      RootPath, FullPath  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Get-GenXDevNewModulesInOrderOfDependency 
+```PowerShell 
+
+   Get-GenXDevNewModulesInOrderOfDependency  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Retrieves GenXDev modules in dependency order.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -ModuleName [<String[]>]  
+        One or more module names to filter by  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       True  
+        Aliases                      Module, BaseModuleName, SubModuleName  
+        Accept wildcard characters?  true  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Get-RefactorReport 
+```PowerShell 
+
+   Get-RefactorReport                   --> refactorreport  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Generates a detailed report of refactoring operations and their status.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Name [<String[]>]  
+        The name of the refactor, accepts wildcards  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       True  
+        Aliases                        
+        Accept wildcard characters?  true  
+``` 
+```yaml 
+    -PreferencesDatabasePath [<String>]  
+        Specifies the path to the preferences database file.  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      DatabasePath  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SessionOnly [<SwitchParameter>]  
+        If set, only use the session cache for refactor data.  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ClearSession [<SwitchParameter>]  
+        If set, clear the session cache before running.  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SkipSession [<SwitchParameter>]  
+        If set, skip loading session cache.  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      FromPreferences  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -AsText [<SwitchParameter>]  
+        Output report in text format instead of Hashtable  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Open-GenXdevCmdletsContainingClipboardTextInIde 
+```PowerShell 
+
+   Open-GenXdevCmdletsContainingClipboardTextInIde --> vscodesearch  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Opens files in IDE that contain clipboard text  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -InputObject [<String>]  
+        Search for clipboard text in all GenXdev scripts  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       True  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Copilot [<SwitchParameter>]  
+        Add sourcefile to Copilot edit-session  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Remove-Refactor 
+```PowerShell 
+
+   Remove-Refactor  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Removes refactor sets from GenXdev preferences system.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -Name <String[]>  
+        The name of the refactor, accepts wildcards  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       True  
+        Aliases                      PreferenceName  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -RemoveDefault [<SwitchParameter>]  
+        Switch to also remove the standard refactor set  
+        Required?                      
+        Position?                    1  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PreferencesDatabasePath [<String>]  
+        Database path for preference data files  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      DatabasePath  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -DefaultValue [<String>]  
+        The default value if preference is not found  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      DefaultPreference  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SessionOnly [<SwitchParameter>]  
+        Use alternative settings stored in session for Data preferences like Language, Database paths, etc  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ClearSession [<SwitchParameter>]  
+        Clear the session setting (Global variable) before retrieving  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SkipSession [<SwitchParameter>]  
+        Dont use alternative settings stored in session for Data preferences like Language, Database paths, etc  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      FromPreferences  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WhatIf [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wi  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Confirm [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      cf  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Search-GenXdevCmdlet 
+```PowerShell 
+
+   Search-GenXdevCmdlet                 --> searchcmdlet  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Searches for a GenXdev cmdlet and optionally opens it in an IDE for editing.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -CmdletName [<String>]  
+        Search pattern to filter cmdlets  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
+        Accept wildcard characters?  true  
+``` 
+```yaml 
+    -ModuleName [<String[]>]  
+        GenXdev module names to search  
+        Required?                      
+        Position?                    1  
+        Default value                  
+        Accept pipeline input?       True  
+        Aliases                      Module, BaseModuleName, SubModuleName  
+        Accept wildcard characters?  true  
+``` 
+```yaml 
+    -NoLocal [<SwitchParameter>]  
+        Skip searching in local module paths  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OnlyPublished [<SwitchParameter>]  
+        Limit search to published module paths only  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -FromScripts [<SwitchParameter>]  
+        Search in script files instead of module files  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Code [<SwitchParameter>]  
+        Open the found cmdlet in Visual Studio Code  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      c  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -VisualStudio [<SwitchParameter>]  
+        Open the found cmdlet in Visual Studio  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vs  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -EditCmdlet [<SwitchParameter>]  
+        Also opens the file in the editor after finding  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
+
+<br/><hr/><br/>
+ 
+
+##	Test-RefactorLLMSelection 
+```PowerShell 
+
+   Test-RefactorLLMSelection  
+``` 
+
+### SYNOPSIS 
+
+### SYNTAX 
+```PowerShell 
+ 
+``` 
+
+### DESCRIPTION 
+    Evaluates source files for refactoring eligibility using LLM analysis.  
+
+### PARAMETERS 
+```yaml 
+ 
+``` 
+```yaml 
+    -RefactorDefinition <Object>  
+        The refactor definition containing LLM settings  
+        Required?                      
+        Position?                    0  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                        
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Path <String>  
+        The path to the source file to evaluate  
+        Required?                      
+        Position?                    1  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      FullName  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Verbose [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      vb  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Debug [<SwitchParameter>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      db  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ea  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      infa  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ProgressAction [<ActionPreference>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      proga  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ErrorVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ev  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WarningVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      wv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -InformationVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      iv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ov  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -OutBuffer [<Int32>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      ob  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PipelineVariable [<String>]  
+        Required?                      
+        Position?                    -2147483648  
+        Default value                  
+        Accept pipeline input?       False  
+        Aliases                      pv  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    <CommonParameters>  
+        This cmdlet supports the common parameters: Verbose, Debug,  
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
+        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
+``` 
 
 <br/><hr/><br/>

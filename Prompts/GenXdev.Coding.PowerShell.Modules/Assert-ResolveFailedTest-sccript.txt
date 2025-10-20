@@ -102,3 +102,8 @@ this is already performed using scripting.
 
 Beware this is a script file from the scripts folder, and should NOT
 have a 'function somename' block arround it, as module scripts would have.
+
+IMPORTANT
+Whenever we finish discussing new rules for porting .ps1 to .cs cmdlets,
+you update this text for me, with those rules, and update it in file
+.\Modules\GenXdev.Coding\1.302.2025\Prompts\GenXdev.Coding.PowerShell.Modules\Assert-ResolveFailedTest-sccript.txt

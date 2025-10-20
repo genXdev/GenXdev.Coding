@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Complete-GenXDevREADME.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.300.2025
+Version                   : 1.302.2025
 ################################################################################
 Copyright (c)  René Vaessen / GenXdev
 
@@ -18,7 +18,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ################################################################################>
-################################################################################
 <#
 .SYNOPSIS
 Completes the README file for specified GenXDev modules by adding documentation.
@@ -205,7 +204,7 @@ function Complete-GenXDevREADME {
                         $subModuleName = $_.SubModuleName
 
                         $modulePath = GenXdev.FileSystem\Expand-Path (
-                            "$($moduleObj2.FullName)\1.300.2025")
+                            "$($moduleObj2.FullName)\1.302.2025")
 
                         $moduleReadmeFilePath = [System.IO.Path]::Combine(
                             $modulePath,

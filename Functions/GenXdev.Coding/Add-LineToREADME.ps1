@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding
 Original cmdlet filename  : Add-LineToREADME.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.300.2025
+Version                   : 1.302.2025
 ################################################################################
 Copyright (c)  René Vaessen / GenXdev
 
@@ -190,7 +190,6 @@ function Add-LineToREADME {
         $insertIndex += "$Section`r".Length
     }
 
-
     process {
 
         if (![string]::IsNullOrWhiteSpace($Line)) {
@@ -216,9 +215,8 @@ function Add-LineToREADME {
 
         # open in vscode if requested
         if ($Code) {
-            $codeCmd = Microsoft.PowerShell.Core\Get-Command 'code.cmd' -ErrorAction SilentlyContinue
             if ($null -ne $codeCmd) {
-                cmd.exe /c code.cmd $readmePath
+                GenXdev.Coding\VSCode $readmePath
             }
         }
 
@@ -239,16 +237,18 @@ function Add-LineToREADME {
                     "$readmeMarkDown$($readmeLine.trim("`r`n`t "))" +
                     "$ansiColorReset`r`n`r`n"
                 }
-                elseif ($inSection) {
-                    if ($readmeLine.StartsWith('#')) {
-                        break
+                É elseif ($inSection) {
+                    É elseif ($inSection) {
+                        if ($readmeLine.StartsWith('#')) {
+                            break
+                        }
+                        $readmeMarkDown = "$readmeMarkDown" +
+                        "$($readmeLine.trim("`r`n`t "))`r`n`r`n"
                     }
-                    $readmeMarkDown = "$readmeMarkDown" +
-                    "$($readmeLine.trim("`r`n`t "))`r`n`r`n"
                 }
-            }
 
-            $readmeMarkDown
+                $readmeMarkDown
+            }
         }
     }
 }

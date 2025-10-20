@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Update-Refactor.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.300.2025
+Version                   : 1.302.2025
 ################################################################################
 Copyright (c)  René Vaessen / GenXdev
 
@@ -666,7 +666,7 @@ function Update-Refactor {
                             [Version] $version = $null
                             if ([Version]::tryParse($parts[1], [ref]$version)) {
 
-                                $newPath = "$($modulesPath.TrimEnd('\'))\$($parts[0])\1.300.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 3))"
+                                $newPath = "$($modulesPath.TrimEnd('\'))\$($parts[0])\1.302.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 3))"
 
                                 if ($refactorDefinition.State.Refactored.IndexOf($newPath) -lt 0) {
 
@@ -702,7 +702,7 @@ function Update-Refactor {
 
                             if ([Version]::tryParse($parts[1], [ref]$version)) {
 
-                                $newPath = "$($modulesPath.TrimEnd('\'))\$($parts[0])\1.300.2025\$($path.Substring($modulesPath.Length + $parts[0].Length + $parts[1].Length + 3))"
+                                $newPath = "$($modulesPath.TrimEnd('\'))\$($parts[0])\1.302.2025\$($path.Substring($modulesPath.Length + $parts[0].Length + $parts[1].Length + 3))"
 
                                 if ($refactorDefinition.State.Selected.IndexOf($newPath) -lt 0) {
 
@@ -739,7 +739,7 @@ function Update-Refactor {
                             [Version] $version = $null
                             if ([Version]::tryParse($parts[1], [ref]$version)) {
 
-                                $newPath = "$($modulesPath.TrimEnd('\'))\$($parts[0])\1.300.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 3))"
+                                $newPath = "$($modulesPath.TrimEnd('\'))\$($parts[0])\1.302.2025\$($path.Substring($modulesPath.Length + $parts[0].Length+ $parts[1].Length + 3))"
 
                                 if ($refactorDefinition.State.Unselected.IndexOf($newPath) -lt 0) {
 
@@ -1757,19 +1757,16 @@ function Update-Refactor {
                                     -PreferencesDatabasePath $PreferencesDatabasePath `
                                     -ErrorAction SilentlyContinue
                             )
-                            if ($null -eq $latestJson) {
+                            if ($null -ne $latestJson) {
 
-                                Microsoft.PowerShell.Utility\Write-Warning 'Refactor set has been deleted'
-                                break;
-                            }
+                                $latest = $latestJson | Microsoft.PowerShell.Utility\ConvertFrom-Json -ErrorAction SilentlyContinue
+                                if ($null -ne $latest -and ($latest.State.LastUpdated -gt $refactorDefinition.State.LastUpdated)) {
 
-                            $latest = $latestJson | Microsoft.PowerShell.Utility\ConvertFrom-Json -ErrorAction SilentlyContinue
-                            if ($null -ne $latest -and ($latest.State.LastUpdated -gt $refactorDefinition.State.LastUpdated)) {
+                                    $latest.State = $refactorDefinition.State;
+                                    $latest.Log = $refactorDefinition.Log;
 
-                                $latest.State = $refactorDefinition.State;
-                                $latest.Log = $refactorDefinition.Log;
-
-                                $refactorDefinition = $latest;
+                                    $refactorDefinition = $latest;
+                                }
                             }
 
                             $now = GenXdev.Console\UtcNow
@@ -1851,11 +1848,6 @@ function Update-Refactor {
                             -PreferencesDatabasePath $PreferencesDatabasePath `
                             -ErrorAction SilentlyContinue
                     )
-                    if ($null -eq $latestJson) {
-
-                        Microsoft.PowerShell.Utility\Write-Warning 'Refactor set has been deleted'
-                        break;
-                    }
 
                     $now = GenXdev.Console\UtcNow
                     $refactorDefinition.State.LastUpdated = $now

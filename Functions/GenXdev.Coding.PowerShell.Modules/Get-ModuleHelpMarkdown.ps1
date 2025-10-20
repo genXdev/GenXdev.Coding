@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Get-ModuleHelpMarkdown.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.300.2025
+Version                   : 1.302.2025
 ################################################################################
 Copyright (c)  René Vaessen / GenXdev
 
@@ -50,7 +50,7 @@ Uses pipeline to generate documentation for all cmdlets in GenXdev.Helpers.
 function Get-ModuleHelpMarkdown {
 
     [CmdletBinding()]
-
+    [OutputType([string])]
     param(
         ########################################################################
         [Alias('Name', 'Module')]
@@ -63,6 +63,8 @@ function Get-ModuleHelpMarkdown {
         )]
         [SupportsWildcards()]
         [string[]] $ModuleName = 'GenXdev.*',
+
+
 
         ########################################################################
         [parameter(
@@ -94,12 +96,12 @@ function Get-ModuleHelpMarkdown {
                     $ModuleObj
                 }
             } |
-            Microsoft.PowerShell.Core\Where-Object { ($null -ne $_) }|
+                Microsoft.PowerShell.Core\Where-Object { ($null -ne $_) } |
                 Microsoft.PowerShell.Utility\Select-Object -Unique |
                 Microsoft.PowerShell.Utility\Sort-Object { $_.Name.Length.ToString().PadLeft(4, '0') + '_' + "$($_.Name)" } | Microsoft.PowerShell.Core\ForEach-Object {
 
                     GenXdev.Helpers\Get-GenXDevCmdlet -ModuleName ("$($_.Name)") | Microsoft.PowerShell.Core\ForEach-Object {
-                         $_
+                        $_
                     }
                 }
     }
@@ -120,7 +122,6 @@ function Get-ModuleHelpMarkdown {
 
             # track current module name
             $lastModule = $current.ModuleName
-
             # filter cmdlets if specific command names were requested
             if ($CommandNames.Length -gt 0) {
                 $found = $false
@@ -164,12 +165,13 @@ function Get-ModuleHelpMarkdown {
 
             # initialize state tracking for help content processing
             $inPowerShell = $false
+            $inParameters = $false
+
             [bool] $hide = $false
             $lineBuffer = ''
             $inName = $false
+            $wasInName = $false
             $prevSection = ""
-            # Removed unused variable $inSyntax
-
             # process each line of help content
             foreach ($line in $lines) {
                 # normalize line endings and tabs
@@ -181,7 +183,9 @@ function Get-ModuleHelpMarkdown {
                         $section = $line
                         $wasInPowerShell = $inPowerShell
                         $hide = $false
+                        $wasInName = $inName
                         $inName = $false
+                        $inParameters = $false
                         # process different help sections
                         switch ($section) {
                             'NAME' {
@@ -196,10 +200,16 @@ function Get-ModuleHelpMarkdown {
                                 }
                                 break
                             }
-                            'SYNOPSIS' { $inPowerShell = $false; break }
-                            'SYNTAX' { $inPowerShell = $true; break }
+                            'SYNOPSIS' {
+                                $inPowerShell = $false;
+                                break
+                            }
+                            'SYNTAX' {
+                                $inPowerShell = $true
+                                break
+                            }
                             'DESCRIPTION' { $inPowerShell = $false; break }
-                            'PARAMETERS' { $inPowerShell = $false; break }
+                            'PARAMETERS' { $inParameters = $true; $inPowerShell = $true; break }
                             'NOTES' { $inPowerShell = $true; break }
                             default {
                                 $inPowerShell = $false
@@ -235,7 +245,8 @@ function Get-ModuleHelpMarkdown {
 
                                             if ($testLine.Length -le 60) {
                                                 $currentLine = $testLine
-                                            } else {
+                                            }
+                                            else {
                                                 # Add current line and start new one
                                                 if ($currentLine) {
                                                     $formattedLines += $currentLine
@@ -248,7 +259,8 @@ function Get-ModuleHelpMarkdown {
                                         if ($currentLine) {
                                             $formattedLines += $currentLine
                                         }
-                                    } else {
+                                    }
+                                    else {
                                         # Handle other lines normally
                                         $formattedLines += $line
                                     }
@@ -261,8 +273,9 @@ function Get-ModuleHelpMarkdown {
                             }
                             $s
                             $lineBuffer = ''
-                            "````````"
+                            "``````"
                         }
+
                         if (!$hide) {
                             if ($inName) {
                                 "`r`n##`t$CmdletName"
@@ -271,8 +284,17 @@ function Get-ModuleHelpMarkdown {
                                 "`r`n### $section"
                             }
                         }
+
                         if ($inPowerShell) {
-                            "``````PowerShell"
+
+                            if ($inParameters) {
+
+                                # New parameter, add extra line break for clarity
+                                "``````yaml"
+                            }
+                            else {
+                                "``````PowerShell"
+                            }
                         }
                     }
                     else {
@@ -290,10 +312,18 @@ function Get-ModuleHelpMarkdown {
                             $line = $line.Replace('PS > ', 'PS C:\> ').Replace('PS C:\>', 'PS C:\> ').Replace('PS C:\>  ', 'PS C:\> ').Replace("Don't", 'Do not').Replace("don't", 'do not').Replace("isn't", 'is not').Replace("asn't", 'as not').Replace('(https://go', '    (https://go').Replace('PS D:\Downloads>', 'PS D:\Downloads> ').Replace('PS D:\Downloads>  ', 'PS D:\Downloads> ').Replace("It's", 'It is')
                             if ($inPowerShell) {
                                 if (![string]::IsNullOrWhiteSpace($line)) {
+                                    if ($inParameters -and -not $wasInName) {
+                                        if ($line.Trim().StartsWith("-") -or $line.Trim().StartsWith('<CommonParameters>')) {
+
+                                            $line = "```````r`n``````yaml`r`n$line"
+                                        }
+                                    }
+
                                     $lineBuffer = "$lineBuffer `r`n$($line.Replace("`r`n", " `r`n")) ".Trim("`r`n".ToCharArray())
                                 }
                             }
                             else {
+
                                 $line = $line.Trim("`r`n".ToCharArray())
                                 if (![string]::IsNullOrWhiteSpace($line)) {
                                     "$($line.Replace("`r`n", " `r`n")) "

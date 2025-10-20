@@ -18,6 +18,10 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
+  "[markdown]": {
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": false
+   },
   "files.autoSave": "afterDelay",
   "files.trimTrailingWhitespace": true,
   "files.defaultLanguage": "powershell",
@@ -35,7 +39,7 @@
   "powershell.codeFolding.enable": true,
   "powershell.buttons.showRunButtons": true,
   "powershell.integratedConsole.suppressStartupBanner": true,
-  "powershell.codeFormatting.useCorrectCasing": true,
+  "powershell.codeFormatting.useCorrectCasing": false,
   "workbench.panel.defaultLocation": "bottom",
   "debug.javascript.usePreview": true,
   "debug.console.closeOnEnd": true,
@@ -102,7 +106,7 @@
     "GenXdev.Local.Queries.psm1",
     "GenXdev.Local.Webbrowser.psm1",
     "GenXdev.Local.Windows.psm1",
-    "GenXdev.Helpers.Math.Physics.psm1",
+    "GenXdev.Helpers.Physics.psm1",
     "GenXdev.Helpers.psm1",
     "GenXdev.FileSystem.psm1",
     "GenXdev.Data.KeyValueStore.psm1",
@@ -193,7 +197,7 @@
   "powershell.codeFormatting.alignPropertyValuePairs": true,
   "powershell.codeFormatting.trimWhitespaceAroundPipe": true,
   "powershell.codeFormatting.useConstantStrings": false,
-  "powershell.scriptAnalysis.settingsPath": "./Modules/GenXdev.Coding/1.300.2025/Functions/GenXdev.Coding.PowerShell.Modules/PSScriptAnalyzerSettings.psd1",
+  "powershell.scriptAnalysis.settingsPath": "./Modules/GenXdev.Coding/1.302.2025/Functions/GenXdev.Coding.PowerShell.Modules/PSScriptAnalyzerSettings.psd1",
   "powershell.pester.outputVerbosity": "Normal",
   "powershell.integratedConsole.focusConsoleOnExecute": false,
   "powershell.integratedConsole.startInBackground": true,

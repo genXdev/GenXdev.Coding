@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Assert-GenXdevDependencyUsage.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.300.2025
+Version                   : 1.302.2025
 ################################################################################
 Copyright (c)  René Vaessen / GenXdev
 
@@ -18,6 +18,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ################################################################################>
+# Don't remove this line [dontrefactor]
+
 ################################################################################
 <#
 .SYNOPSIS
@@ -75,8 +77,8 @@ function Assert-GenXdevDependencyUsage {
 
         # retrieve ordered list of all genxdev modules by dependency hierarchy
         $dependencies = @(GenXdev.Coding\Get-GenXDevNewModulesInOrderOfDependency |
-            Microsoft.PowerShell.Core\ForEach-Object ModuleName) +
-            @('GenXdev.Local')
+                Microsoft.PowerShell.Core\ForEach-Object ModuleName) +
+        @('GenXdev.Local')
     }
 
     process {
@@ -117,7 +119,7 @@ function Assert-GenXdevDependencyUsage {
             }
 
             # check for invalid references to modules later in dependency chain
-            for ($i = $index+1; $i -lt $dependencies.Count; $i++) {
+            for ($i = $index + 1; $i -lt $dependencies.Count; $i++) {
 
                 # get dependency name from current position
                 $dependency = $dependencies[$i]
@@ -153,21 +155,21 @@ function Assert-GenXdevDependencyUsage {
                     $references |
                         Microsoft.PowerShell.Core\ForEach-Object {
 
-                        # read file content to check for allowed reference patterns
-                        [string] $content = [IO.File]::ReadAllText($_)
+                            # read file content to check for allowed reference patterns
+                            [string] $content = [IO.File]::ReadAllText($_)
 
-                        # skip files with install-module commands or allowed local references
-                        if ($content.Contains("Install-Module $dependency") -or
-                            $content.Contains('GenXdev.Local\KeyValueStores') -or
-                            $content.Contains("`"`$PSScriptRoot\..\..\..\..\GenXdev.Local\")) {
+                            # skip files with install-module commands or allowed local references
+                            if ($content.Contains("Install-Module $dependency") -or
+                                $content.Contains('GenXdev.Local\KeyValueStores') -or
+                                $content.Contains("`"`$PSScriptRoot\..\..\..\..\GenXdev.Local\")) {
 
-                            return
+                                return
+                            }
+
+                            # report dependency violation
+                            Microsoft.PowerShell.Utility\Write-Error (
+                                "Module $moduleName references $dependency in file $_")
                         }
-
-                        # report dependency violation
-                        Microsoft.PowerShell.Utility\Write-Error (
-                            "Module $moduleName references $dependency in file $_")
-                    }
                 }
             }
 
@@ -208,31 +210,31 @@ function Assert-GenXdevDependencyUsage {
                     $references |
                         Microsoft.PowerShell.Core\ForEach-Object {
 
-                        # check if dependency is properly declared in module manifest
-                        $hasDependency = ($dependency -eq $moduleName) -or
+                            # check if dependency is properly declared in module manifest
+                            $hasDependency = ($dependency -eq $moduleName) -or
                             (@($moduleManifest.RequiredModules.ModuleName |
-                                Microsoft.PowerShell.Core\Where-Object {
-                                    $_ -like $dependency }).Count -gt 0);
+                                    Microsoft.PowerShell.Core\Where-Object {
+                                        $_ -like $dependency }).Count -gt 0);
 
-                        # validate dependency declaration
-                        if (-not $hasDependency) {
+                                # validate dependency declaration
+                                if (-not $hasDependency) {
 
-                            # allow install-module references without manifest declaration
-                            if ([IO.File]::ReadAllText($_).Contains("Install-Module $dependency")) {
+                                    # allow install-module references without manifest declaration
+                                    if ([IO.File]::ReadAllText($_).Contains("Install-Module $dependency")) {
 
-                                Microsoft.PowerShell.Utility\Write-Verbose (
-                                    ("Module $moduleName references $dependency in file, " +
-                                    "but has Install-Module $dependency in file. File: $_"))
-                                return
+                                        Microsoft.PowerShell.Utility\Write-Verbose (
+                                            ("Module $moduleName references $dependency in file, " +
+                                            "but has Install-Module $dependency in file. File: $_"))
+                                        return
+                                    }
+
+                                    # report missing dependency in module manifest
+                                    Microsoft.PowerShell.Utility\Write-Error (
+                                        ("Module $moduleName references $dependency in file, " +
+                                        "but has module $dependency not listed in " +
+                                        "RequiredModules of $moduleManifestPath. File: $_"))
+                                }
                             }
-
-                            # report missing dependency in module manifest
-                            Microsoft.PowerShell.Utility\Write-Error (
-                                ("Module $moduleName references $dependency in file, " +
-                                "but has module $dependency not listed in " +
-                                "RequiredModules of $moduleManifestPath. File: $_"))
-                        }
-                    }
                 }
             }
         }

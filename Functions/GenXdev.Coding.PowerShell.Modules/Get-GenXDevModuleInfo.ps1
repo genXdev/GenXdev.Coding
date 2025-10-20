@@ -1,8 +1,8 @@
 <##############################################################################
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
-Original cmdlet filename  : Get-GenXDevModuleInfo.ps1
+Original cmdlet filename  : Get-GenXDevModuleinfo.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.300.2025
+Version                   : 1.302.2025
 ################################################################################
 Copyright (c)  René Vaessen / GenXdev
 
@@ -18,6 +18,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ################################################################################>
+# Don't remove this line [dontrefactor]
+
 ###############################################################################
 <#
 .SYNOPSIS
@@ -61,7 +63,6 @@ function Get-GenXDevModuleInfo {
         Microsoft.PowerShell.Utility\Write-Verbose 'Retrieving all available GenXdev modules'
         [System.IO.FileSystemInfo[]] $AllModules = @(GenXdev.Coding\Get-GenXDevModule)
     }
-
 
     process {
 

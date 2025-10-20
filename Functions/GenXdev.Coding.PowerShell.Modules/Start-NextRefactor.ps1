@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Start-NextRefactor.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.300.2025
+Version                   : 1.302.2025
 ################################################################################
 Copyright (c)  René Vaessen / GenXdev
 
@@ -18,7 +18,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ################################################################################>
-################################################################################
 <#
 .SYNOPSIS
 Continues or restarts a code refactoring session.
@@ -209,6 +208,14 @@ function Start-NextRefactor {
                         # get next file from selection queue
                         $next = $refactorDefinition.State.Selected[0]
                         $null = $refactorDefinition.State.Selected.RemoveAt(0)
+
+                        # skip files that no longer exist on disk
+                        if (-not (Microsoft.PowerShell.Management\Test-Path -LiteralPath $next -PathType Leaf)) {
+                            Microsoft.PowerShell.Utility\Write-Verbose (
+                                "Skipping non-existent file: $next"
+                            )
+                            continue
+                        }
 
                         # update selection tracking index after removing item
                         $refactorDefinition.State.SelectedIndex = [Math]::Max(

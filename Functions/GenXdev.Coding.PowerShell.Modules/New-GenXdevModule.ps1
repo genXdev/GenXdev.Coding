@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : New-GenXdevModule.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.300.2025
+Version                   : 1.302.2025
 ################################################################################
 Copyright (c)  René Vaessen / GenXdev
 
@@ -101,7 +101,7 @@ Script module or binary module file associated with this manifest.
 RootModule = '$ModuleName.psm1'
 
 Version number of this module.
-ModuleVersion = '1.300.2025'
+ModuleVersion = '1.302.2025'
 
 Supported PSEditions
 CompatiblePSEditions = 'Core'
@@ -140,7 +140,7 @@ Processor architecture (None, X86, Amd64) required by this module
 ProcessorArchitecture = 'Amd64'
 
 Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @(@{ModuleName = 'GenXdev'; ModuleVersion = '1.300.2025'; })
+RequiredModules = @(@{ModuleName = 'GenXdev'; ModuleVersion = '1.302.2025'; })
 
 Assemblies that must be loaded prior to importing this module
 RequiredAssemblies = @()
@@ -241,14 +241,14 @@ FEATURES
 DEPENDENCIES
 [![WinOS - Windows-10 or later](https://img.shields.io/badge/WinOS-Windows--10--10.0.19041--SP0-brightgreen)](https://www.microsoft.com/en-us/windows/get-windows-10)  [![GenXdev](https://img.shields.io/powershellgallery/v/GenXdev.svg?style=flat-square&label=GenXdev)](https://www.powershellgallery.com/packages/GenXdev/)
 INSTALLATION
-````````PowerShell
+``````PowerShell
 Install-Module `"$ModuleName`"
 Import-Module `"$ModuleName`"
-````````
+``````
 UPDATE
-````````PowerShell
+``````PowerShell
 Update-Module
-````````
+``````
 <br/><hr/><br/>
 
 # Cmdlet Index
@@ -268,7 +268,7 @@ Update-Module
 
         # create versioned module directory
         $moduleDirectory = GenXdev.FileSystem\Expand-Path `
-            -Path "$moduleRootDirectory\1.300.2025\" `
+            -Path "$moduleRootDirectory\1.302.2025\" `
             -CreateDirectory
 
         # store current location and move to module directory
@@ -283,11 +283,11 @@ Update-Module
         if ($PSCmdlet.ShouldProcess($moduleDirectory, "Create new PowerShell module '$ModuleName'")) {
             # create the initial module script file with sample cmdlet import
             "# . `"$PSScriptRoot\Functions\$ModuleName\My-Cmdlet.ps1`"`r`n" |
-                Microsoft.PowerShell.Utility\Out-File  ".\$ModuleName.psm1"
+                Microsoft.PowerShell.Utility\Out-File ".\$ModuleName.psm1"
 
             # create the module manifest with all required metadata
             $newModulePsm |
-                Microsoft.PowerShell.Utility\Out-File  .\$ModuleName.psd1 -Force
+                Microsoft.PowerShell.Utility\Out-File .\$ModuleName.psd1 -Force
 
             # create standard module directory structure
             $null = GenXdev.FileSystem\Expand-Path `

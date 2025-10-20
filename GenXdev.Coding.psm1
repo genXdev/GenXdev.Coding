@@ -11,14 +11,8 @@ if ($major -ne 10) {
 
 
 
-. "$PSScriptRoot\Functions\GenXdev.Coding\Add-FeatureLineToREADME.ps1"
-. "$PSScriptRoot\Functions\GenXdev.Coding\Add-IdeaLineToREADME.ps1"
-. "$PSScriptRoot\Functions\GenXdev.Coding\Add-IssueLineToREADME.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding\Add-LineToREADME.ps1"
-. "$PSScriptRoot\Functions\GenXdev.Coding\Add-ReleaseNoteLineToREADME.ps1"
-. "$PSScriptRoot\Functions\GenXdev.Coding\Add-TodoLineToREADME.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding\EnsureVSCodeInstallation.ps1"
-. "$PSScriptRoot\Functions\GenXdev.Coding\Features.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding\Ideas.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding\Issues.ps1"
 . "$PSScriptRoot\Functions\GenXdev.Coding\Open-SourceFileInIde.ps1"

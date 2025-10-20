@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Invoke-GenXdevPSFormatter.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.300.2025
+Version                   : 1.302.2025
 ################################################################################
 Copyright (c)  René Vaessen / GenXdev
 
@@ -18,7 +18,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ################################################################################>
-################################################################################
 <#
 .SYNOPSIS
 Formats PowerShell script files using PSScriptAnalyzer formatting rules.
@@ -135,6 +134,7 @@ function Invoke-GenXdevPSFormatter {
                             'PSUseFullyQualifiedCmdletNames',
                             'PSPlaceOpenBrace',
                             'PSUseConsistentIndentation',
+                            'PSUseConsistentWhitespace',
                             'PSAvoidUsingDoubleQuotesForConstantString',
                             'PSAlignAssignmentStatement'
                         )
@@ -150,6 +150,9 @@ function Invoke-GenXdevPSFormatter {
                                 Enable                      = $true
                                 IndentationSize             = 4
                                 ContinuationIndentationSize = 4
+                            }
+                            PSUseConsistentWhitespace                 = @{
+                                Enable = $true
                             }
                             PSAvoidUsingDoubleQuotesForConstantString = @{
                                 Enable = $true

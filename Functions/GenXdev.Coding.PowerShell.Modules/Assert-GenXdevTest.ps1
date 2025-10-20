@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Assert-GenXdevTest.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.300.2025
+Version                   : 1.302.2025
 ################################################################################
 Copyright (c)  René Vaessen / GenXdev
 
@@ -18,7 +18,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ################################################################################>
-################################################################################
 <#
 .SYNOPSIS
 Executesunit tests for GenXdev modules, sub-modules, or cmdlets
@@ -373,7 +372,7 @@ function Assert-GenXdevTest {
 
                         try {
                             # extract script file path and function name for testing
-                            $scriptFile = $nextCmdlet.ScriptFilePath
+                            $scriptFile = [string]$nextCmdlet.ScriptFilePath
                             $fn = $nextCmdlet.Name
 
                             # perform Get-Help validation tests for documentation
@@ -912,30 +911,43 @@ $($exc.InvocationInfo.ScriptStackTrace)
 
                         # extract cmdlet name from failed test path for debugging
                         $failedCmdletName = [System.IO.Path]::GetFileNameWithoutExtension(
-                            $failedTest.Path).Replace('.Tests', '')
+                            $failedTest.ScriptBlock.File).Replace('.Tests', '')
 
                         # output warning for current failed test
                         Microsoft.PowerShell.Utility\Write-Warning (
                             "Test failed: $($failedTest.Name) in $failedCmdletName")
 
                         # determine if test is from scripts directory
-                        $isFromScripts = (GenXdev.FileSystem\Expand-Path $failedTest.Path).StartsWith("$scriptPath\")
+                        $isFromScripts = (GenXdev.FileSystem\Expand-Path $failedTest.ScriptBlock.File).StartsWith("$scriptPath\")
 
                         # construct script file path based on test location
-                        $scriptFilePath = ($isFromScripts ?
-                            (GenXdev.FileSystem\Expand-Path (
-                                "$([IO.Path]::GetDirectoryName($failedTest.Path))" +
-                                "\$([IO.Path]::GetFileNameWithoutExtension($failedTest.Path).Replace('.Tests', '')).ps1"
-                            )) :
-                            (GenXdev.FileSystem\Expand-Path (
-                                "$([IO.Path]::GetDirectoryName($failedTest.Path))" +
-                                "\..\..\Functions" +
-                                "\$([IO.Path]::GetFileNameWithoutExtension($failedTest.Path).Replace('.Tests', '')).ps1"
+                        $testFilePath = $failedTest.ScriptBlock.File
+                        $moduleName = [IO.Path]::GetFileName(
+                            ([IO.Path]::GetDirectoryName(  # modules\modulename\
+                                ([IO.Path]::GetDirectoryName(  # modules\modulename\version\
+                                    ([IO.Path]::GetDirectoryName(  # modules\modulename\version\tests\
+                                        ([IO.Path]::GetDirectoryName(  # modules\modulename\version\tests\submodule
+                                            $testFilePath
+                                        ))
+                                    ))
+                                ))
                             ))
-                        )
+                        );
+                        # Ensure moduleName is a string
+                        if ($moduleName -is [array]) {
+                            $moduleName = $moduleName | Microsoft.PowerShell.Utility\Select-Object -First 1
+                        }
+                        Microsoft.PowerShell.Utility\Write-Verbose "failedTest.ScriptBlock.File: $($testFilePath)"
+                        Microsoft.PowerShell.Utility\Write-Verbose "MODULE NAME: $moduleName"
+                        $fullCmdletName = ([string]::IsNullOrWhiteSpace($moduleName) ? "" : "$moduleName\") + (
+                            [IO.Path]::GetFileNameWithoutExtension($testFilePath).Replace('.Tests', '')
+                        );
+                        Microsoft.PowerShell.Utility\Write-Verbose "fullCmdletName: $fullCmdletName"
+                        $scriptFilePath = [string](GenXdev.Helpers\Get-GenXDevCmdlet $fullCmdletName).ScriptFilePath
+                        Microsoft.PowerShell.Utility\Write-Verbose "scriptFilePath: $scriptFilePath"
 
                         # open failed test in VS Code with Copilot integration
-                        $failedTest.Path | GenXdev.Coding\VsCode -Copilot
+                        $failedTest.ScriptBlock.File | GenXdev.Coding\VsCode -Copilot
 
                         # initialize loop control for AI resolution attempts
                         $stopped = $false
@@ -950,12 +962,17 @@ $($exc.InvocationInfo.ScriptStackTrace)
                                 [GenXdev.Helpers.RefactorSettings] @{
                                     Code      = $true
                                     PromptKey = "ResolveFailedTest"
-                                    Prompt    = Prompt (
-                                        "Pester test failed for:`r`n" +
-                                        "$($ft |
-                                                Microsoft.PowerShell.Utility\ConvertTo-Json `
-                                                    -Depth 5)"
-                                    )
+                                    Prompt    = @"
+Pester test failed for cmdlet: $fullCmdletName
+Test Name: $($ft.Name)
+Test File: $scriptFilePath
+Error: $($ft.ErrorRecord.Exception.Message)
+
+Failed Test Details:
+$($ft | Microsoft.PowerShell.Utility\ConvertTo-Json -Depth 5)
+
+Please analyze this test failure and suggest code fixes to make the test pass.
+"@
                                 }
                             ) `
                                 -Path $scriptFilePath

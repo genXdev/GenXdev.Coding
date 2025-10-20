@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.Git
 Original cmdlet filename  : PermanentlyDeleteGitFolders.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.300.2025
+Version                   : 1.302.2025
 ################################################################################
 Copyright (c)  René Vaessen / GenXdev
 
@@ -63,11 +63,17 @@ function PermanentlyDeleteGitFolders {
             Mandatory = $true,
             HelpMessage = 'Array of folder paths to permanently remove'
         )]
-        [string[]] $Folders
+        [string[]] $Folders,
+        ########################################################################
+        [parameter(Mandatory = $false)]
+        [string] $tempPath = "~\convert.tmp\"
         ########################################################################
     )
 
     begin {
+
+        $oldErrorActionPreference = $ErrorActionPreference
+        $ErrorActionPreference = 'Stop'
 
         # display prominent warnings about the destructive nature of this operation
         Microsoft.PowerShell.Utility\Write-Warning '!!! DANGER - PERMANENT DESTRUCTIVE OPERATION !!!'
@@ -79,9 +85,7 @@ function PermanentlyDeleteGitFolders {
             'or reset their local copies')
 
         # create unique temp directory using UTC ticks for isolation
-        $tempPath = GenXdev.FileSystem\Expand-Path (
-            "$Env:TEMP\$([datetime]::UtcNow.Ticks)"
-        ) -CreateDirectory
+        $tempPath = GenXdev.FileSystem\Expand-Path $tempPath -CreateDirectory
         Microsoft.PowerShell.Utility\Write-Verbose "Using temp directory: $tempPath"
 
         # store current location to restore at end
@@ -103,6 +107,7 @@ function PermanentlyDeleteGitFolders {
         }
 
         try {
+            
             # change to temp directory
             Microsoft.PowerShell.Management\Set-Location -LiteralPath $tempPath
             Microsoft.PowerShell.Utility\Write-Verbose 'Changed to temp directory'
@@ -174,11 +179,12 @@ function PermanentlyDeleteGitFolders {
             }
             finally {
                 # restore original working directory
-                Microsoft.PowerShell.Management\Pop-Location
                 Microsoft.PowerShell.Utility\Write-Verbose 'Restored original location'
             }
         }
 
         end {
+            $ErrorActionPreference = $oldErrorActionPreference
+            Microsoft.PowerShell.Management\Pop-Location
         }
     }

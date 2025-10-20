@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Invoke-GenXdevScriptAnalyzer.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.300.2025
+Version                   : 1.302.2025
 ################################################################################
 Copyright (c)  René Vaessen / GenXdev
 
@@ -18,7 +18,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ################################################################################>
-################################################################################
 <#
 .SYNOPSIS
 Invokes PowerShell Script Analyzer to analyze PowerShell scripts for compliance
@@ -30,7 +29,7 @@ scripts for compliance issues, best practices violations, and potential bugs.
 It supports both file-based analysis and string-based script analysis with
 customizable rules and settings.
 
-.PARAMETER Path
+.PARAMETER ScriptFilePath
 Specifies the path to the script file to analyze. This parameter is mandatory
 when using the Path parameter set.
 
@@ -63,7 +62,7 @@ function Invoke-GenXdevScriptAnalyzer {
 
     [CmdletBinding(DefaultParameterSetName = 'Path')]
     param (
-        #
+        ###############################################################################
         [Parameter(
             Position = 0,
             Mandatory = $true,
@@ -72,32 +71,32 @@ function Invoke-GenXdevScriptAnalyzer {
         )]
         [Alias('Path', 'FullName')]
         [string] $ScriptFilePath,
-        #
+        ###############################################################################
         [Parameter(
             Mandatory = $true,
             ParameterSetName = 'Script',
             HelpMessage = 'Specifies the script definition as a string.'
         )]
         [string] $ScriptDefinition,
-        #
+        ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Specifies that the tool should exit on error.'
         )]
         [switch] $EnableExit,
-        #
+        ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Enables automatic fixing of violations.'
         )]
         [switch] $Fix,
-        #
+        ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Recursively process files.'
         )]
         [switch] $Recurse,
-        #
+        ###############################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Reports a summary after analysis.'
@@ -108,25 +107,32 @@ function Invoke-GenXdevScriptAnalyzer {
 
     begin {
 
+        # check if psscriptanalyzer module is loaded
         $loaded = Microsoft.PowerShell.Core\Get-Module -Name PSScriptAnalyzer -ErrorAction SilentlyContinue
 
         if (-not $loaded) {
 
+            # define the folder path for psscriptanalyzer installation
             $folder = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\PSScriptAnalyzer\1.24.0\"
+
+            # define the path to the script analyzer dll
             $path = GenXdev.FileSystem\Expand-Path "$folder\PSv7\GenXdev.Coding.PowerShell.Modules.ScriptAnalyzer.dll"
 
             if (-not (Microsoft.PowerShell.Management\Test-Path -LiteralPath $folder)) {
 
+                # install psscriptanalyzer module if folder does not exist
                 $null = PowerShellGet\Install-Module -Name PSScriptAnalyzer -RequiredVersion 1.24.0 -Scope CurrentUser -Force
             }
 
             if (-not (Microsoft.PowerShell.Management\Test-Path -LiteralPath $path)) {
 
+                # copy assets if dll does not exist
                 $source = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\assets\Modules\PSScriptAnalyzer\1.24.0\*"
 
                 $null = GenXdev.FileSystem\Start-RoboCopy $source "$folder\"
             }
 
+            # import the psscriptanalyzer module
             $null = Microsoft.PowerShell.Core\Import-Module PSScriptAnalyzer
         }
 
@@ -191,8 +197,12 @@ function Invoke-GenXdevScriptAnalyzer {
                 Microsoft.PowerShell.Utility\Write-Verbose `
                     'Analyzing script definition content'
             }
+
+            # set retry count for handling transient errors
             [int] $retries = 3;
+
             while ($retries-- -gt 0) {
+
                 try {
 
                     # invoke script analyzer with configured parameters
@@ -201,6 +211,7 @@ function Invoke-GenXdevScriptAnalyzer {
                     # output verbose information about analysis results
                     Microsoft.PowerShell.Utility\Write-Verbose `
                         "Analysis completed with $($results.Count) results"
+
                     break;
                 }
                 catch {
@@ -229,10 +240,20 @@ function Invoke-GenXdevScriptAnalyzer {
                         $resultHashTable = $_ |
                             GenXdev.Helpers\ConvertTo-HashTable
 
-                            # add rule description to the result
-                            $resultHashTable.Description = `
-                            (PSScriptAnalyzer\Get-ScriptAnalyzerRule `
-                                    -Name $resultHashTable.RuleName).Description
+                            # get the rule details safely
+                            $ruleDetails = PSScriptAnalyzer\Get-ScriptAnalyzerRule `
+                                -Name $resultHashTable.RuleName
+
+                            # add rule description with null check
+                            $resultHashTable['Description'] = `
+                                if ($ruleDetails -and $ruleDetails.Description) {
+
+                                $ruleDetails.Description
+                            }
+                            else {
+
+                                'No description available'
+                            }
 
                             # output the enhanced result
                             Microsoft.PowerShell.Utility\Write-Output $resultHashTable
@@ -258,4 +279,4 @@ function Invoke-GenXdevScriptAnalyzer {
     end {
     }
 }
-################################################################################
+#################################################################################
