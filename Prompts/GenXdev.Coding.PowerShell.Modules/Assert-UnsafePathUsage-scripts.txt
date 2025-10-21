@@ -174,4 +174,4 @@ $Prompt
 IMPORTANT
 Whenever we finish discussing new rules for porting .ps1 to .cs cmdlets,
 you update this text for me, with those rules, and update it in file
-.\Modules\GenXdev.Coding\1.302.2025\Prompts\GenXdev.Coding.PowerShell.Modules\Assert-UnsafePathUsage-scripts.txt
+.\Modules\GenXdev.Coding\1.304.2025\Prompts\GenXdev.Coding.PowerShell.Modules\Assert-UnsafePathUsage-scripts.txt

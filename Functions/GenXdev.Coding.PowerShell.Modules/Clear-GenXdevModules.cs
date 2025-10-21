@@ -2,7 +2,7 @@
 // Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 // Original cmdlet filename  : Clear-GenXdevModules.cs
 // Original author           : René Vaessen / GenXdev
-// Version                   : 1.302.2025
+// Version                   : 1.304.2025
 // ################################################################################
 // Copyright (c)  René Vaessen / GenXdev
 //
@@ -97,7 +97,7 @@ namespace GenXdev.Coding.PowerShell.Modules
                     {
                         var dirName = Path.GetFileName(versionDir);
 
-                        if (dirName != "1.302.2025")
+                        if (dirName != "1.304.2025")
                         {
                             WriteVerbose($"Removing older version: {dirName}");
                             RemoveDirectoryIfExists(versionDir);
@@ -105,11 +105,11 @@ namespace GenXdev.Coding.PowerShell.Modules
                     }
 
                     // Process the current version directory
-                    var versionPath = Path.Combine(dir, "1.302.2025");
+                    var versionPath = Path.Combine(dir, "1.304.2025");
 
                     if (Directory.Exists(versionPath))
                     {
-                        WriteVerbose("Processing version directory 1.302.2025");
+                        WriteVerbose("Processing version directory 1.304.2025");
                         Directory.SetCurrentDirectory(versionPath);
 
                         WriteVerbose("Cleaning version-specific build directories");

@@ -1,0 +1,189 @@
+using System.Collections;
+using System.Management.Automation;
+using System.Management.Automation.Runspaces;
+using System.Text;
+using System.Linq;
+using System.Windows.Input;
+
+namespace GenXdev.Coding.PowerShell.Modules
+{
+    [Cmdlet("Get", "GenXdevCmdletMetaData")]
+    [OutputType(typeof(CmdletMetadata))]
+    public class GetGenXdevCmdletMetadataCommand : PSGenXdevCmdlet
+    {
+        [Parameter(
+            Mandatory = true,
+            Position = 0,
+            HelpMessage = "Names of modules to analyze"
+        )]
+        public string Path { get; set; }
+
+        private string FileContent;
+        private CommandInfo CmdletInfo;
+        private CmdletMetadata Result = new CmdletMetadata();
+        protected override void BeginProcessing()
+        {
+            Path = ExpandPath(Path);
+
+            if (!System.IO.File.Exists(Path))
+            {
+                throw new FileNotFoundException(Path);
+            }
+
+            FileContent = System.IO.File.ReadAllText(Path);
+
+            var dir = System.IO.Path.GetDirectoryName(Path);
+            var cmdletName = System.IO.Path.GetFileNameWithoutExtension(Path.Replace(".Cmdlet.cs", ".cs"));
+            var parentDir = System.IO.Path.GetDirectoryName(dir);
+            var moduleVersionDir = System.IO.Path.GetDirectoryName(parentDir);
+            var moduleDir = System.IO.Path.GetDirectoryName(moduleVersionDir);
+            var baseModule = System.IO.Path.GetFileName(moduleDir);
+            var subModule = System.IO.Path.GetFileName(parentDir);
+
+            if (!baseModule.StartsWith("GenXdev."))
+            {
+                throw new InvalidOperationException($"basemodule '{baseModule}' not a GenXdev module");
+            }
+
+            if (!subModule.StartsWith("GenXdev."))
+            {
+                throw new InvalidOperationException($"modulename '{subModule}' not a GenXdev module");
+            }
+
+            Result.Cmdletname = $"{baseModule}\\{cmdletName}";
+            Result.SourceFilePath = Path;
+
+            CmdletInfo = GetCachedCommandInfo(Result.Cmdletname);
+
+            if (CmdletInfo == null)
+            {
+                throw new InvalidOperationException("Could not retreive commandinfo for " + cmdletName);
+            }
+
+            Result.OutputTypes = (from q in CmdletInfo.OutputType select q.Name).ToArray<string>();
+        }
+
+        protected override void EndProcessing()
+        {
+            if (Path.ToLowerInvariant().EndsWith(".cs"))
+            {
+                ProcessCSharp();
+            }
+            else if (Path.ToLowerInvariant().EndsWith(".ps1"))
+            {
+                ProcessPS1();
+            }
+            else
+            {
+                throw new InvalidOperationException("unsupported file extension");
+            }
+
+            WriteObject(Result);
+        }
+
+        #region C-Sharp
+
+        private void ProcessCSharp()
+        {
+            int iStartFunction = FileContent.IndexOf(": PSGenXdevCmdlet");
+            if (iStartFunction < 0)
+            {
+                throw new InvalidOperationException("Not a PSGenXdevCmdlet");
+            }
+
+            string[] startLines = FileContent.Substring(0, iStartFunction).Split('\r');
+            string[] xmlLines = (from q in startLines
+                                 where q.Trim().StartsWith("\\\\\\")
+                                 select q.Trim().Substring(3)).ToArray<string>();
+
+            bool inSummary = false;
+            bool inPara = false;
+            bool inSynopsis = false;
+            bool inParaDescription = false;
+            bool inParaParameter = false;
+            bool inExample = false;
+            bool inCode = false;
+            bool inNotes = false;
+
+            foreach (var xmlLine in xmlLines)
+            {
+                switch (xmlLine)
+                {
+                    case "<summary>":
+                        inSummary = true;
+                        inPara = false;
+                        inSynopsis = false;
+                        inParaDescription = false;
+                        inParaParameter = false;
+                        break;
+                    case "</summary>":
+                        inSummary = false;
+                        inPara = false;
+                        inSynopsis = false;
+                        inParaDescription = false;
+                        inParaParameter = false;
+                        break;
+                    case "<para type=\"synopsis\">":
+                        inSummary = true;
+                        inPara = true;
+                        inSynopsis = true;
+                        inParaDescription = false;
+                        inParaParameter = false;
+                        break;
+                    case "</para>":
+                        inPara = false;
+                        inSynopsis = false;
+                        inParaDescription = false;
+                        inParaParameter = false;
+                        break;
+
+                }
+            }
+        }
+
+        #endregion
+
+        #region ps1
+
+        private void ProcessPS1()
+        {
+        }
+
+        #endregion
+    }
+
+    public class CmdletMetadata
+    {
+        public string Cmdletname { get; set; }
+        public string SourceFilePath { get; set; }
+        public string[] Aliases { get; set; }
+        public string Synopsis { get; set; }
+        public string Description { get; set; }
+        public string Notes { get; set; }
+        public string Syntax { get; set; }
+        public string[] OutputTypes { get; set; }
+        public CmdletExampleMetaData[] Examples { get; set; }
+        public string[] Warnings { get; set; }
+    }
+
+    public class CmdletParaMetaData
+    {
+        public string Name { get; set; }
+        public string[] Aliases { get; set; }
+        public string HelpText { get; set; }
+        public string HelpTextXml { get; set; }
+        public bool AllowGlobbing { get; set; }
+        public bool Required { get; set; }
+        public int Position { get; set; }
+        public bool Dynamic { get; set; }
+        public bool AcceptPipelineInput { get; set; }
+        public string ParameterSetName { get; set; }
+        public string[] Warnings { get; set; }
+    }
+
+    public class CmdletExampleMetaData
+    {
+        public string[] Info { get; set; }
+        public string[] Code { get; set; }
+    }
+}

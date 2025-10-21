@@ -2,7 +2,7 @@
 // Part of PowerShell module : GenXdev.Coding.Git
 // Original cmdlet filename  : Get-GitChangedFiles.cs
 // Original author           : René Vaessen / GenXdev
-// Version                   : 1.302.2025
+// Version                   : 1.304.2025
 // ################################################################################
 // Copyright (c)  René Vaessen / GenXdev
 //
@@ -54,7 +54,7 @@ namespace GenXdev.Coding.Git
     ///
     /// <example>
     /// <para>Get changed files as relative paths</para>
-    /// <para>Returns relative paths like ".\Modules\GenXdev.AI\1.302.2025\README.md"</para>
+    /// <para>Returns relative paths like ".\Modules\GenXdev.AI\1.304.2025\README.md"</para>
     /// <code>
     /// Get-GitChangedFiles
     /// </code>

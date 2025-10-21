@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Complete-GenXDevREADME.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.302.2025
+Version                   : 1.304.2025
 ################################################################################
 Copyright (c)  René Vaessen / GenXdev
 
@@ -204,7 +204,7 @@ function Complete-GenXDevREADME {
                         $subModuleName = $_.SubModuleName
 
                         $modulePath = GenXdev.FileSystem\Expand-Path (
-                            "$($moduleObj2.FullName)\1.302.2025")
+                            "$($moduleObj2.FullName)\1.304.2025")
 
                         $moduleReadmeFilePath = [System.IO.Path]::Combine(
                             $modulePath,
@@ -250,7 +250,7 @@ function Complete-GenXDevREADME {
 
                                     # create GitHub raw URL for cmdlet documentation
                                     # $githubUrl = "https://github.com/genXdev/$baseModuleName/blob/main/README.md#$anchor"
-                                    $githubUrl = "https://github.com/genXdev/$baseModuleName/tree/main#$anchor"
+                                    $githubUrl = "https://github.com/genXdev/$baseModuleName/tree/main?tab=readme-ov-file#$anchor"
 
                                     $aliasText = if ([String]::IsNullOrWhiteSpace($_.Aliases)) {
                                         "&nbsp;"

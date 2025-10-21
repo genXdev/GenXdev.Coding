@@ -119,7 +119,6 @@ Update-Module
 | [Assert-ModuleDefinition](#assert-moduledefinition) | &nbsp; | &nbsp; |
 | [Assert-RefactorFile](#assert-refactorfile) | &nbsp; | &nbsp; |
 | [Clear-GenXdevModules](#clear-genxdevmodules) | cleangenxdev | Cleans build artifacts from GenXdev PowerShell modules. |
-| [Complete-GenXdevHelpFile](#complete-genxdevhelpfile) | &nbsp; | &nbsp; |
 | [Complete-GenXDevREADME](#complete-genxdevreadme) | &nbsp; | &nbsp; |
 | [EnsureCopilotKeyboardShortCut](#ensurecopilotkeyboardshortcut) | &nbsp; | Configures the GitHub Copilot Chat keyboard shortcuts in Visual Studio Code. |
 | [EnsureDefaultGenXdevRefactors](#ensuredefaultgenxdevrefactors) | &nbsp; | &nbsp; |
@@ -159,205 +158,104 @@ Update-Module
    Add-LineToREADME  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Add-LineToREADME [[-Line] <string>] [-Section] <string>
+    [-Prefix] <string> [-Code] [-Show] [-Done]
+    [-UseHomeREADME] [-UseOneDriveREADME]
+    [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Line [<String>]  
-        The line to add to the README  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Section <String>  
-        The section to add the line to  
-        Required?                      
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Prefix <String>  
-        The prefix to use for the line  
-        Required?                      
-        Position?                    2  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Code [<SwitchParameter>]  
+    -Code  
         Open in Visual Studio Code after modifying  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Show [<SwitchParameter>]  
-        Show the modified section  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Done [<SwitchParameter>]  
+    -Done  
         Mark the item as completed  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseHomeREADME [<SwitchParameter>]  
+    -Line <string>  
+        The line to add to the README  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Prefix <string>  
+        The prefix to use for the line  
+        Required?                    true  
+        Position?                    2  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Section <string>  
+        The section to add the line to  
+        Required?                    true  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show  
+        Show the modified section  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME  
         Use README in PowerShell profile directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseOneDriveREADME [<SwitchParameter>]  
+    -UseOneDriveREADME  
         Use README in OneDrive directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -515,215 +413,116 @@ Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
    Open-SourceFileInIde                 --> editcode  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Open-SourceFileInIde [-Path] <string> [[-LineNo] <int>]
+    [[-KeysToSend] <string[]>] [-Code] [-VisualStudio]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Path <String>  
-        The path to the sourcefile to open  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       True  
-        Aliases                      FullName  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -LineNo [<Int32>]  
-        The line number to navigate to  
-        Required?                      
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -KeysToSend [<String[]>]  
-        Array of keyboard inputs to send to the application  
-        Required?                      
-        Position?                    2  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      keys  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Code [<SwitchParameter>]  
+    -Code  
         The ide to open the file in  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
         Aliases                      c  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -VisualStudio [<SwitchParameter>]  
-        Open in Visual Studio  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vs  
+    -KeysToSend <string[]>  
+        Array of keyboard inputs to send to the application  
+        Required?                    false  
+        Position?                    2  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      keys  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -SendKeyEscape [<SwitchParameter>]  
-        Escape control characters and modifiers  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      Escape  
+    -LineNo <int>  
+        The line number to navigate to  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -SendKeyHoldKeyboardFocus [<SwitchParameter>]  
-        Hold keyboard focus on target window  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      HoldKeyboardFocus  
+    -Path <string>  
+        The path to the sourcefile to open  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      FullName  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -SendKeyUseShiftEnter [<SwitchParameter>]  
-        Use Shift+Enter instead of Enter  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      UseShiftEnter  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -SendKeyDelayMilliSeconds [<Int32>]  
+    -SendKeyDelayMilliSeconds <int>  
         Delay between different input strings in milliseconds  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
         Aliases                      DelayMilliSeconds  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
+    -SendKeyEscape  
+        Escape control characters and modifiers  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      Escape  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
+    -SendKeyHoldKeyboardFocus  
+        Hold keyboard focus on target window  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      HoldKeyboardFocus  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
+    -SendKeyUseShiftEnter  
+        Use Shift+Enter instead of Enter  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      UseShiftEnter  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+    -VisualStudio  
+        Open in Visual Studio  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -4128,186 +3927,81 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Add-FeatureLineToREADME              --> feature  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Add-FeatureLineToREADME [[-Line] <string>] [-Code] [-Show]
+    [-Done] [-UseHomeREADME] [-UseOneDriveREADME]
+    [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Adds a feature line to the README file with a timestamp.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Line [<String>]  
-        The feature description text to add  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Code [<SwitchParameter>]  
+    -Code  
         Open README in Visual Studio Code  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Show [<SwitchParameter>]  
-        Show the modified section  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Done [<SwitchParameter>]  
+    -Done  
         Mark todo item as completed  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseHomeREADME [<SwitchParameter>]  
+    -Line <string>  
+        The feature description text to add  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show  
+        Show the modified section  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME  
         Use README in PowerShell profile directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseOneDriveREADME [<SwitchParameter>]  
+    -UseOneDriveREADME  
         Use README in OneDrive directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -4327,186 +4021,81 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Add-IdeaLineToREADME                 --> idea  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Add-IdeaLineToREADME [[-Line] <string>] [-Code] [-Show]
+    [-Done] [-UseHomeREADME] [-UseOneDriveREADME]
+    [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Adds an idea item to the README.md file.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Line [<String>]  
-        The idea text to add  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Code [<SwitchParameter>]  
+    -Code  
         Open README in Visual Studio Code  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Show [<SwitchParameter>]  
-        Show the modified section  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Done [<SwitchParameter>]  
+    -Done  
         Mark todo item as completed  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseHomeREADME [<SwitchParameter>]  
+    -Line <string>  
+        The idea text to add  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show  
+        Show the modified section  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME  
         Use README in PowerShell profile directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseOneDriveREADME [<SwitchParameter>]  
+    -UseOneDriveREADME  
         Use README in OneDrive directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -4526,186 +4115,81 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Add-IssueLineToREADME                --> issue  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Add-IssueLineToREADME [[-Line] <string>] [-Code] [-Show]
+    [-Done] [-UseHomeREADME] [-UseOneDriveREADME]
+    [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Adds an issue item to the README.md file.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Line [<String>]  
-        The issue text to add  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Code [<SwitchParameter>]  
+    -Code  
         Open README in Visual Studio Code  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Show [<SwitchParameter>]  
-        Show the modified section  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Done [<SwitchParameter>]  
+    -Done  
         Mark todo item as completed  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseHomeREADME [<SwitchParameter>]  
+    -Line <string>  
+        The issue text to add  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show  
+        Show the modified section  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME  
         Use README in PowerShell profile directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseOneDriveREADME [<SwitchParameter>]  
+    -UseOneDriveREADME  
         Use README in OneDrive directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -4725,186 +4209,81 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Add-ReleaseNoteLineToREADME          --> releasenote  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Add-ReleaseNoteLineToREADME [[-Line] <string>] [-Code]
+    [-Show] [-Done] [-UseHomeREADME] [-UseOneDriveREADME]
+    [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Adds a ReleaseNote line to the README file with a timestamp.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Line [<String>]  
-        The ReleaseNote description text to add  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Code [<SwitchParameter>]  
+    -Code  
         Open README in Visual Studio Code  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Show [<SwitchParameter>]  
-        Show the modified section  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Done [<SwitchParameter>]  
+    -Done  
         Mark todo item as completed  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseHomeREADME [<SwitchParameter>]  
+    -Line <string>  
+        The ReleaseNote description text to add  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show  
+        Show the modified section  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME  
         Use README in PowerShell profile directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseOneDriveREADME [<SwitchParameter>]  
+    -UseOneDriveREADME  
         Use README in OneDrive directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -4924,186 +4303,81 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Add-TodoLineToREADME                 --> todo  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Add-TodoLineToREADME [[-Line] <string>] [-Code] [-Show]
+    [-Done] [-UseHomeREADME] [-UseOneDriveREADME]
+    [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Adds a todo item to the README.md file.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Line [<String>]  
-        The todo item text to add  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       True  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Code [<SwitchParameter>]  
+    -Code  
         Open README in Visual Studio Code  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Show [<SwitchParameter>]  
-        Show the modified section  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Done [<SwitchParameter>]  
+    -Done  
         Mark todo item as completed  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseHomeREADME [<SwitchParameter>]  
+    -Line <string>  
+        The todo item text to add  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show  
+        Show the modified section  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME  
         Use README in PowerShell profile directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseOneDriveREADME [<SwitchParameter>]  
+    -UseOneDriveREADME  
         Use README in OneDrive directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -5129,136 +4403,24 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Get-GitChangedFiles                  --> gitchanged  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Get-GitChangedFiles [-PassThru] [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Get the list of changed files in a Git repository.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -PassThru [<SwitchParameter>]  
+    -PassThru  
         Returns FileInfo objects (like Get-ChildItem) instead of path strings.  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -5278,136 +4440,24 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    New-GitCommit                        --> commit  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+New-GitCommit [[-Title] <string>] [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Creates and pushes a new git commit with all changes.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Title [<String>]  
+    -Title <string>  
         The commit message title to use  
-        Required?                      
+        Required?                    false  
         Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -5430,195 +4480,92 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Assert-GenXdevCmdletTests            --> improvecmdlettests  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Assert-GenXdevCmdletTests [-CmdletName] <string> [[-Prompt]
+    <string>] [[-PromptKey] <string>] [-EditPrompt]
+    [-AssertFailedTest] [-FromScripts]
+    [-ContinuationHandled] [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Asserts and improves unit-tests of a specified GenXdev cmdlet.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -CmdletName <String>  
-        The name of the cmdlet to improve unit-tests for  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       True  
-        Aliases                      cmd  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Prompt [<String>]  
-        Custom AI prompt text to use  
-        Required?                      
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PromptKey [<String>]  
-        The AI prompt key to use for template selection  
-        Required?                      
-        Position?                    2  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -EditPrompt [<SwitchParameter>]  
-        Switch to only edit the AI prompt  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -AssertFailedTest [<SwitchParameter>]  
+    -AssertFailedTest  
         Indicates to assert a failed test  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -FromScripts [<SwitchParameter>]  
+    -CmdletName <string>  
+        The name of the cmdlet to improve unit-tests for  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      cmd  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ContinuationHandled  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -EditPrompt  
+        Switch to only edit the AI prompt  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -FromScripts  
         Search in script files instead of modules  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -ContinuationHandled [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+    -Prompt <string>  
+        Custom AI prompt text to use  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+    -PromptKey <string>  
+        The AI prompt key to use for template selection  
+        Required?                    false  
+        Position?                    2  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -5638,275 +4585,14 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Clear-GenXdevModules                 --> cleangenxdev  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Clear-GenXdevModules [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Cleans build artifacts from GenXdev PowerShell modules.  
 
 ### PARAMETERS 
 ```yaml 
  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-``` 
-
-<br/><hr/><br/>
- 
-
-##	Complete-GenXdevHelpFile 
-```PowerShell 
-
-   Complete-GenXdevHelpFile  
-``` 
-
-### SYNOPSIS 
-
-### SYNTAX 
-```PowerShell 
- 
-``` 
-
-### DESCRIPTION 
-
-### PARAMETERS 
-```yaml 
- 
-``` 
-```yaml 
-    -ModuleName [<String[]>]  
-        Names of modules to analyze  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      Name, Module  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
-        Accept wildcard characters?  false  
 ``` 
 ```yaml 
     <CommonParameters>  
@@ -5925,136 +4611,24 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Get-GenXDevModule  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Get-GenXDevModule [[-Path] <string>] [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Retrieves all GenXDev modules from a specified path.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Path [<String>]  
+    -Path <string>  
         The root path to search for GenXdev modules  
-        Required?                      
+        Required?                    false  
         Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
         Aliases                      RootPath, FullPath  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -6074,137 +4648,26 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Get-GenXDevNewModulesInOrderOfDependency  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName]
+    <string[]>] [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Retrieves GenXDev modules in dependency order.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -ModuleName [<String[]>]  
+    -ModuleName <string[]>  
         One or more module names to filter by  
-        Required?                      
+        Required?                    false  
         Position?                    0  
-        Default value                  
-        Accept pipeline input?       True  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
         Aliases                      Module, BaseModuleName, SubModuleName  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
-        Accept wildcard characters?  false  
 ``` 
 ```yaml 
     <CommonParameters>  
@@ -6223,186 +4686,82 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Get-RefactorReport                   --> refactorreport  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Get-RefactorReport [[-Name] <string[]>]
+    [-PreferencesDatabasePath <string>] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [-AsText]
+    [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Generates a detailed report of refactoring operations and their status.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Name [<String[]>]  
+    -AsText  
+        Output report in text format instead of Hashtable  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ClearSession  
+        If set, clear the session cache before running.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Name <string[]>  
         The name of the refactor, accepts wildcards  
-        Required?                      
+        Required?                    false  
         Position?                    0  
-        Default value                  
-        Accept pipeline input?       True  
-        Aliases                        
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
 ``` 
 ```yaml 
-    -PreferencesDatabasePath [<String>]  
+    -PreferencesDatabasePath <string>  
         Specifies the path to the preferences database file.  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
         Aliases                      DatabasePath  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -SessionOnly [<SwitchParameter>]  
+    -SessionOnly  
         If set, only use the session cache for refactor data.  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -ClearSession [<SwitchParameter>]  
-        If set, clear the session cache before running.  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -SkipSession [<SwitchParameter>]  
+    -SkipSession  
         If set, skip loading session cache.  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
         Aliases                      FromPreferences  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -AsText [<SwitchParameter>]  
-        Output report in text format instead of Hashtable  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -6422,146 +4781,37 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Open-GenXdevCmdletsContainingClipboardTextInIde --> vscodesearch  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Open-GenXdevCmdletsContainingClipboardTextInIde
+    [[-InputObject] <string>] [-Copilot]
+    [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Opens files in IDE that contain clipboard text  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -InputObject [<String>]  
-        Search for clipboard text in all GenXdev scripts  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       True  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Copilot [<SwitchParameter>]  
+    -Copilot  
         Add sourcefile to Copilot edit-session  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+    -InputObject <string>  
+        Search for clipboard text in all GenXdev scripts  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -6581,214 +4831,113 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Remove-Refactor  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Remove-Refactor [-Name] <string[]> [[-RemoveDefault]]
+    [-PreferencesDatabasePath <string>] [-DefaultValue
+    <string>] [-SessionOnly] [-ClearSession] [-SkipSession]
+    [-WhatIf] [-Confirm] [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Removes refactor sets from GenXdev preferences system.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Name <String[]>  
-        The name of the refactor, accepts wildcards  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       True  
-        Aliases                      PreferenceName  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -RemoveDefault [<SwitchParameter>]  
-        Switch to also remove the standard refactor set  
-        Required?                      
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PreferencesDatabasePath [<String>]  
-        Database path for preference data files  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      DatabasePath  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -DefaultValue [<String>]  
-        The default value if preference is not found  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      DefaultPreference  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -SessionOnly [<SwitchParameter>]  
-        Use alternative settings stored in session for Data preferences like Language, Database paths, etc  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ClearSession [<SwitchParameter>]  
+    -ClearSession  
         Clear the session setting (Global variable) before retrieving  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -SkipSession [<SwitchParameter>]  
-        Dont use alternative settings stored in session for Data preferences like Language, Database paths, etc  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      FromPreferences  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WhatIf [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wi  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Confirm [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
+    -Confirm  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
         Aliases                      cf  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -DefaultValue <string>  
+        The default value if preference is not found  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       true (ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      DefaultPreference  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Name <string[]>  
+        The name of the refactor, accepts wildcards  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      PreferenceName  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PreferencesDatabasePath <string>  
+        Database path for preference data files  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      DatabasePath  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -RemoveDefault  
+        Switch to also remove the standard refactor set  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           All  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SessionOnly  
+        Use alternative settings stored in session for Data preferences like Language, Database paths, etc  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SkipSession  
+        Dont use alternative settings stored in session for Data preferences like Language, Database paths, etc  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      FromPreferences  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WhatIf  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -6808,206 +4957,104 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Search-GenXdevCmdlet                 --> searchcmdlet  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Search-GenXdevCmdlet [[-CmdletName] <string>] [[-ModuleName]
+    <string[]>] [-NoLocal] [-OnlyPublished] [-FromScripts]
+    [-Code] [-VisualStudio] [-EditCmdlet]
+    [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Searches for a GenXdev cmdlet and optionally opens it in an IDE for editing.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -CmdletName [<String>]  
+    -CmdletName <string>  
         Search pattern to filter cmdlets  
-        Required?                      
+        Required?                    false  
         Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
         Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
 ``` 
 ```yaml 
-    -ModuleName [<String[]>]  
-        GenXdev module names to search  
-        Required?                      
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       True  
-        Aliases                      Module, BaseModuleName, SubModuleName  
-        Accept wildcard characters?  true  
-``` 
-```yaml 
-    -NoLocal [<SwitchParameter>]  
-        Skip searching in local module paths  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OnlyPublished [<SwitchParameter>]  
-        Limit search to published module paths only  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -FromScripts [<SwitchParameter>]  
-        Search in script files instead of module files  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Code [<SwitchParameter>]  
+    -Code  
         Open the found cmdlet in Visual Studio Code  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
         Aliases                      c  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -VisualStudio [<SwitchParameter>]  
-        Open the found cmdlet in Visual Studio  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vs  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -EditCmdlet [<SwitchParameter>]  
+    -EditCmdlet  
         Also opens the file in the editor after finding  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
+    -FromScripts  
+        Search in script files instead of module files  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
+    -ModuleName <string[]>  
+        GenXdev module names to search  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      Module, BaseModuleName, SubModuleName  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+``` 
+```yaml 
+    -NoLocal  
+        Skip searching in local module paths  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
+    -OnlyPublished  
+        Limit search to published module paths only  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+    -VisualStudio  
+        Open the found cmdlet in Visual Studio  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -7027,146 +5074,36 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Test-RefactorLLMSelection  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Test-RefactorLLMSelection [-RefactorDefinition] <Object>
+    [-Path] <string> [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Evaluates source files for refactoring eligibility using LLM analysis.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
+    -Path <string>  
+        The path to the source file to evaluate  
+        Required?                    true  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      FullName  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     -RefactorDefinition <Object>  
         The refactor definition containing LLM settings  
-        Required?                      
+        Required?                    true  
         Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Path <String>  
-        The path to the source file to evaluate  
-        Required?                      
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      FullName  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -7189,205 +5126,104 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Add-LineToREADME  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Add-LineToREADME [[-Line] <string>] [-Section] <string>
+    [-Prefix] <string> [-Code] [-Show] [-Done]
+    [-UseHomeREADME] [-UseOneDriveREADME]
+    [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Line [<String>]  
-        The line to add to the README  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Section <String>  
-        The section to add the line to  
-        Required?                      
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Prefix <String>  
-        The prefix to use for the line  
-        Required?                      
-        Position?                    2  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Code [<SwitchParameter>]  
+    -Code  
         Open in Visual Studio Code after modifying  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Show [<SwitchParameter>]  
-        Show the modified section  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Done [<SwitchParameter>]  
+    -Done  
         Mark the item as completed  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseHomeREADME [<SwitchParameter>]  
+    -Line <string>  
+        The line to add to the README  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Prefix <string>  
+        The prefix to use for the line  
+        Required?                    true  
+        Position?                    2  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Section <string>  
+        The section to add the line to  
+        Required?                    true  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show  
+        Show the modified section  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME  
         Use README in PowerShell profile directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseOneDriveREADME [<SwitchParameter>]  
+    -UseOneDriveREADME  
         Use README in OneDrive directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -7545,215 +5381,116 @@ Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
    Open-SourceFileInIde                 --> editcode  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Open-SourceFileInIde [-Path] <string> [[-LineNo] <int>]
+    [[-KeysToSend] <string[]>] [-Code] [-VisualStudio]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Path <String>  
-        The path to the sourcefile to open  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       True  
-        Aliases                      FullName  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -LineNo [<Int32>]  
-        The line number to navigate to  
-        Required?                      
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -KeysToSend [<String[]>]  
-        Array of keyboard inputs to send to the application  
-        Required?                      
-        Position?                    2  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      keys  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Code [<SwitchParameter>]  
+    -Code  
         The ide to open the file in  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
         Aliases                      c  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -VisualStudio [<SwitchParameter>]  
-        Open in Visual Studio  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vs  
+    -KeysToSend <string[]>  
+        Array of keyboard inputs to send to the application  
+        Required?                    false  
+        Position?                    2  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      keys  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -SendKeyEscape [<SwitchParameter>]  
-        Escape control characters and modifiers  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      Escape  
+    -LineNo <int>  
+        The line number to navigate to  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -SendKeyHoldKeyboardFocus [<SwitchParameter>]  
-        Hold keyboard focus on target window  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      HoldKeyboardFocus  
+    -Path <string>  
+        The path to the sourcefile to open  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      FullName  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -SendKeyUseShiftEnter [<SwitchParameter>]  
-        Use Shift+Enter instead of Enter  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      UseShiftEnter  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -SendKeyDelayMilliSeconds [<Int32>]  
+    -SendKeyDelayMilliSeconds <int>  
         Delay between different input strings in milliseconds  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
         Aliases                      DelayMilliSeconds  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
+    -SendKeyEscape  
+        Escape control characters and modifiers  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      Escape  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
+    -SendKeyHoldKeyboardFocus  
+        Hold keyboard focus on target window  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      HoldKeyboardFocus  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
+    -SendKeyUseShiftEnter  
+        Use Shift+Enter instead of Enter  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      UseShiftEnter  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+    -VisualStudio  
+        Open in Visual Studio  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -7917,186 +5654,81 @@ VSCode [-FilePath] <string[]> [-Copilot] [<CommonParameters>]
    Add-FeatureLineToREADME              --> feature  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Add-FeatureLineToREADME [[-Line] <string>] [-Code] [-Show]
+    [-Done] [-UseHomeREADME] [-UseOneDriveREADME]
+    [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Adds a feature line to the README file with a timestamp.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Line [<String>]  
-        The feature description text to add  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Code [<SwitchParameter>]  
+    -Code  
         Open README in Visual Studio Code  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Show [<SwitchParameter>]  
-        Show the modified section  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Done [<SwitchParameter>]  
+    -Done  
         Mark todo item as completed  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseHomeREADME [<SwitchParameter>]  
+    -Line <string>  
+        The feature description text to add  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show  
+        Show the modified section  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME  
         Use README in PowerShell profile directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseOneDriveREADME [<SwitchParameter>]  
+    -UseOneDriveREADME  
         Use README in OneDrive directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -8116,186 +5748,81 @@ VSCode [-FilePath] <string[]> [-Copilot] [<CommonParameters>]
    Add-IdeaLineToREADME                 --> idea  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Add-IdeaLineToREADME [[-Line] <string>] [-Code] [-Show]
+    [-Done] [-UseHomeREADME] [-UseOneDriveREADME]
+    [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Adds an idea item to the README.md file.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Line [<String>]  
-        The idea text to add  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Code [<SwitchParameter>]  
+    -Code  
         Open README in Visual Studio Code  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Show [<SwitchParameter>]  
-        Show the modified section  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Done [<SwitchParameter>]  
+    -Done  
         Mark todo item as completed  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseHomeREADME [<SwitchParameter>]  
+    -Line <string>  
+        The idea text to add  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show  
+        Show the modified section  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME  
         Use README in PowerShell profile directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseOneDriveREADME [<SwitchParameter>]  
+    -UseOneDriveREADME  
         Use README in OneDrive directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -8315,186 +5842,81 @@ VSCode [-FilePath] <string[]> [-Copilot] [<CommonParameters>]
    Add-IssueLineToREADME                --> issue  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Add-IssueLineToREADME [[-Line] <string>] [-Code] [-Show]
+    [-Done] [-UseHomeREADME] [-UseOneDriveREADME]
+    [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Adds an issue item to the README.md file.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Line [<String>]  
-        The issue text to add  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Code [<SwitchParameter>]  
+    -Code  
         Open README in Visual Studio Code  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Show [<SwitchParameter>]  
-        Show the modified section  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Done [<SwitchParameter>]  
+    -Done  
         Mark todo item as completed  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseHomeREADME [<SwitchParameter>]  
+    -Line <string>  
+        The issue text to add  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show  
+        Show the modified section  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME  
         Use README in PowerShell profile directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseOneDriveREADME [<SwitchParameter>]  
+    -UseOneDriveREADME  
         Use README in OneDrive directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -8514,186 +5936,81 @@ VSCode [-FilePath] <string[]> [-Copilot] [<CommonParameters>]
    Add-ReleaseNoteLineToREADME          --> releasenote  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Add-ReleaseNoteLineToREADME [[-Line] <string>] [-Code]
+    [-Show] [-Done] [-UseHomeREADME] [-UseOneDriveREADME]
+    [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Adds a ReleaseNote line to the README file with a timestamp.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Line [<String>]  
-        The ReleaseNote description text to add  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Code [<SwitchParameter>]  
+    -Code  
         Open README in Visual Studio Code  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Show [<SwitchParameter>]  
-        Show the modified section  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Done [<SwitchParameter>]  
+    -Done  
         Mark todo item as completed  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseHomeREADME [<SwitchParameter>]  
+    -Line <string>  
+        The ReleaseNote description text to add  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show  
+        Show the modified section  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME  
         Use README in PowerShell profile directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseOneDriveREADME [<SwitchParameter>]  
+    -UseOneDriveREADME  
         Use README in OneDrive directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -8713,186 +6030,81 @@ VSCode [-FilePath] <string[]> [-Copilot] [<CommonParameters>]
    Add-TodoLineToREADME                 --> todo  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Add-TodoLineToREADME [[-Line] <string>] [-Code] [-Show]
+    [-Done] [-UseHomeREADME] [-UseOneDriveREADME]
+    [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Adds a todo item to the README.md file.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Line [<String>]  
-        The todo item text to add  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       True  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Code [<SwitchParameter>]  
+    -Code  
         Open README in Visual Studio Code  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Show [<SwitchParameter>]  
-        Show the modified section  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Done [<SwitchParameter>]  
+    -Done  
         Mark todo item as completed  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseHomeREADME [<SwitchParameter>]  
+    -Line <string>  
+        The todo item text to add  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show  
+        Show the modified section  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME  
         Use README in PowerShell profile directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseOneDriveREADME [<SwitchParameter>]  
+    -UseOneDriveREADME  
         Use README in OneDrive directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -8996,136 +6208,24 @@ PermanentlyDeleteGitFolders [-RepoUri] <string> [-Folders] <string[]> [-tempPath
    Get-GitChangedFiles                  --> gitchanged  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Get-GitChangedFiles [-PassThru] [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Get the list of changed files in a Git repository.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -PassThru [<SwitchParameter>]  
+    -PassThru  
         Returns FileInfo objects (like Get-ChildItem) instead of path strings.  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -9145,136 +6245,24 @@ PermanentlyDeleteGitFolders [-RepoUri] <string> [-Folders] <string[]> [-tempPath
    New-GitCommit                        --> commit  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+New-GitCommit [[-Title] <string>] [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Creates and pushes a new git commit with all changes.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Title [<String>]  
+    -Title <string>  
         The commit message title to use  
-        Required?                      
+        Required?                    false  
         Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -12451,195 +9439,92 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Assert-GenXdevCmdletTests            --> improvecmdlettests  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Assert-GenXdevCmdletTests [-CmdletName] <string> [[-Prompt]
+    <string>] [[-PromptKey] <string>] [-EditPrompt]
+    [-AssertFailedTest] [-FromScripts]
+    [-ContinuationHandled] [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Asserts and improves unit-tests of a specified GenXdev cmdlet.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -CmdletName <String>  
-        The name of the cmdlet to improve unit-tests for  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       True  
-        Aliases                      cmd  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Prompt [<String>]  
-        Custom AI prompt text to use  
-        Required?                      
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PromptKey [<String>]  
-        The AI prompt key to use for template selection  
-        Required?                      
-        Position?                    2  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -EditPrompt [<SwitchParameter>]  
-        Switch to only edit the AI prompt  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -AssertFailedTest [<SwitchParameter>]  
+    -AssertFailedTest  
         Indicates to assert a failed test  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -FromScripts [<SwitchParameter>]  
+    -CmdletName <string>  
+        The name of the cmdlet to improve unit-tests for  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      cmd  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ContinuationHandled  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -EditPrompt  
+        Switch to only edit the AI prompt  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -FromScripts  
         Search in script files instead of modules  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -ContinuationHandled [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+    -Prompt <string>  
+        Custom AI prompt text to use  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+    -PromptKey <string>  
+        The AI prompt key to use for template selection  
+        Required?                    false  
+        Position?                    2  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -12659,275 +9544,14 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Clear-GenXdevModules                 --> cleangenxdev  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Clear-GenXdevModules [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Cleans build artifacts from GenXdev PowerShell modules.  
 
 ### PARAMETERS 
 ```yaml 
  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-``` 
-
-<br/><hr/><br/>
- 
-
-##	Complete-GenXdevHelpFile 
-```PowerShell 
-
-   Complete-GenXdevHelpFile  
-``` 
-
-### SYNOPSIS 
-
-### SYNTAX 
-```PowerShell 
- 
-``` 
-
-### DESCRIPTION 
-
-### PARAMETERS 
-```yaml 
- 
-``` 
-```yaml 
-    -ModuleName [<String[]>]  
-        Names of modules to analyze  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      Name, Module  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
-        Accept wildcard characters?  false  
 ``` 
 ```yaml 
     <CommonParameters>  
@@ -12946,136 +9570,24 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Get-GenXDevModule  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Get-GenXDevModule [[-Path] <string>] [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Retrieves all GenXDev modules from a specified path.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Path [<String>]  
+    -Path <string>  
         The root path to search for GenXdev modules  
-        Required?                      
+        Required?                    false  
         Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
         Aliases                      RootPath, FullPath  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -13095,137 +9607,26 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Get-GenXDevNewModulesInOrderOfDependency  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName]
+    <string[]>] [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Retrieves GenXDev modules in dependency order.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -ModuleName [<String[]>]  
+    -ModuleName <string[]>  
         One or more module names to filter by  
-        Required?                      
+        Required?                    false  
         Position?                    0  
-        Default value                  
-        Accept pipeline input?       True  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
         Aliases                      Module, BaseModuleName, SubModuleName  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
-        Accept wildcard characters?  false  
 ``` 
 ```yaml 
     <CommonParameters>  
@@ -13244,186 +9645,82 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Get-RefactorReport                   --> refactorreport  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Get-RefactorReport [[-Name] <string[]>]
+    [-PreferencesDatabasePath <string>] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [-AsText]
+    [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Generates a detailed report of refactoring operations and their status.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Name [<String[]>]  
+    -AsText  
+        Output report in text format instead of Hashtable  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ClearSession  
+        If set, clear the session cache before running.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Name <string[]>  
         The name of the refactor, accepts wildcards  
-        Required?                      
+        Required?                    false  
         Position?                    0  
-        Default value                  
-        Accept pipeline input?       True  
-        Aliases                        
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
 ``` 
 ```yaml 
-    -PreferencesDatabasePath [<String>]  
+    -PreferencesDatabasePath <string>  
         Specifies the path to the preferences database file.  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
         Aliases                      DatabasePath  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -SessionOnly [<SwitchParameter>]  
+    -SessionOnly  
         If set, only use the session cache for refactor data.  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -ClearSession [<SwitchParameter>]  
-        If set, clear the session cache before running.  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -SkipSession [<SwitchParameter>]  
+    -SkipSession  
         If set, skip loading session cache.  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
         Aliases                      FromPreferences  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -AsText [<SwitchParameter>]  
-        Output report in text format instead of Hashtable  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -13443,146 +9740,37 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Open-GenXdevCmdletsContainingClipboardTextInIde --> vscodesearch  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Open-GenXdevCmdletsContainingClipboardTextInIde
+    [[-InputObject] <string>] [-Copilot]
+    [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Opens files in IDE that contain clipboard text  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -InputObject [<String>]  
-        Search for clipboard text in all GenXdev scripts  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       True  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Copilot [<SwitchParameter>]  
+    -Copilot  
         Add sourcefile to Copilot edit-session  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+    -InputObject <string>  
+        Search for clipboard text in all GenXdev scripts  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -13602,214 +9790,113 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Remove-Refactor  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Remove-Refactor [-Name] <string[]> [[-RemoveDefault]]
+    [-PreferencesDatabasePath <string>] [-DefaultValue
+    <string>] [-SessionOnly] [-ClearSession] [-SkipSession]
+    [-WhatIf] [-Confirm] [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Removes refactor sets from GenXdev preferences system.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Name <String[]>  
-        The name of the refactor, accepts wildcards  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       True  
-        Aliases                      PreferenceName  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -RemoveDefault [<SwitchParameter>]  
-        Switch to also remove the standard refactor set  
-        Required?                      
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PreferencesDatabasePath [<String>]  
-        Database path for preference data files  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      DatabasePath  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -DefaultValue [<String>]  
-        The default value if preference is not found  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      DefaultPreference  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -SessionOnly [<SwitchParameter>]  
-        Use alternative settings stored in session for Data preferences like Language, Database paths, etc  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ClearSession [<SwitchParameter>]  
+    -ClearSession  
         Clear the session setting (Global variable) before retrieving  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -SkipSession [<SwitchParameter>]  
-        Dont use alternative settings stored in session for Data preferences like Language, Database paths, etc  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      FromPreferences  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WhatIf [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wi  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Confirm [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
+    -Confirm  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
         Aliases                      cf  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -DefaultValue <string>  
+        The default value if preference is not found  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       true (ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      DefaultPreference  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Name <string[]>  
+        The name of the refactor, accepts wildcards  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      PreferenceName  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PreferencesDatabasePath <string>  
+        Database path for preference data files  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      DatabasePath  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -RemoveDefault  
+        Switch to also remove the standard refactor set  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           All  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SessionOnly  
+        Use alternative settings stored in session for Data preferences like Language, Database paths, etc  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SkipSession  
+        Dont use alternative settings stored in session for Data preferences like Language, Database paths, etc  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      FromPreferences  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WhatIf  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -13829,206 +9916,104 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Search-GenXdevCmdlet                 --> searchcmdlet  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Search-GenXdevCmdlet [[-CmdletName] <string>] [[-ModuleName]
+    <string[]>] [-NoLocal] [-OnlyPublished] [-FromScripts]
+    [-Code] [-VisualStudio] [-EditCmdlet]
+    [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Searches for a GenXdev cmdlet and optionally opens it in an IDE for editing.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -CmdletName [<String>]  
+    -CmdletName <string>  
         Search pattern to filter cmdlets  
-        Required?                      
+        Required?                    false  
         Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
         Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
 ``` 
 ```yaml 
-    -ModuleName [<String[]>]  
-        GenXdev module names to search  
-        Required?                      
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       True  
-        Aliases                      Module, BaseModuleName, SubModuleName  
-        Accept wildcard characters?  true  
-``` 
-```yaml 
-    -NoLocal [<SwitchParameter>]  
-        Skip searching in local module paths  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OnlyPublished [<SwitchParameter>]  
-        Limit search to published module paths only  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -FromScripts [<SwitchParameter>]  
-        Search in script files instead of module files  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Code [<SwitchParameter>]  
+    -Code  
         Open the found cmdlet in Visual Studio Code  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
         Aliases                      c  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -VisualStudio [<SwitchParameter>]  
-        Open the found cmdlet in Visual Studio  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vs  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -EditCmdlet [<SwitchParameter>]  
+    -EditCmdlet  
         Also opens the file in the editor after finding  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
+    -FromScripts  
+        Search in script files instead of module files  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
+    -ModuleName <string[]>  
+        GenXdev module names to search  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      Module, BaseModuleName, SubModuleName  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+``` 
+```yaml 
+    -NoLocal  
+        Skip searching in local module paths  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
+    -OnlyPublished  
+        Limit search to published module paths only  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+    -VisualStudio  
+        Open the found cmdlet in Visual Studio  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -14048,146 +10033,36 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Test-RefactorLLMSelection  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Test-RefactorLLMSelection [-RefactorDefinition] <Object>
+    [-Path] <string> [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Evaluates source files for refactoring eligibility using LLM analysis.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
+    -Path <string>  
+        The path to the source file to evaluate  
+        Required?                    true  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      FullName  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     -RefactorDefinition <Object>  
         The refactor definition containing LLM settings  
-        Required?                      
+        Required?                    true  
         Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Path <String>  
-        The path to the source file to evaluate  
-        Required?                      
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      FullName  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -14210,205 +10085,104 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Add-LineToREADME  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Add-LineToREADME [[-Line] <string>] [-Section] <string>
+    [-Prefix] <string> [-Code] [-Show] [-Done]
+    [-UseHomeREADME] [-UseOneDriveREADME]
+    [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Line [<String>]  
-        The line to add to the README  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Section <String>  
-        The section to add the line to  
-        Required?                      
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Prefix <String>  
-        The prefix to use for the line  
-        Required?                      
-        Position?                    2  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Code [<SwitchParameter>]  
+    -Code  
         Open in Visual Studio Code after modifying  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Show [<SwitchParameter>]  
-        Show the modified section  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Done [<SwitchParameter>]  
+    -Done  
         Mark the item as completed  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseHomeREADME [<SwitchParameter>]  
+    -Line <string>  
+        The line to add to the README  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Prefix <string>  
+        The prefix to use for the line  
+        Required?                    true  
+        Position?                    2  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Section <string>  
+        The section to add the line to  
+        Required?                    true  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show  
+        Show the modified section  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME  
         Use README in PowerShell profile directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseOneDriveREADME [<SwitchParameter>]  
+    -UseOneDriveREADME  
         Use README in OneDrive directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -14566,215 +10340,116 @@ Issues [[-UseHomeREADME]] [[-UseOneDriveREADME]] [<CommonParameters>]
    Open-SourceFileInIde                 --> editcode  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Open-SourceFileInIde [-Path] <string> [[-LineNo] <int>]
+    [[-KeysToSend] <string[]>] [-Code] [-VisualStudio]
+    [-SendKeyEscape] [-SendKeyHoldKeyboardFocus]
+    [-SendKeyUseShiftEnter] [-SendKeyDelayMilliSeconds
+    <int>] [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Path <String>  
-        The path to the sourcefile to open  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       True  
-        Aliases                      FullName  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -LineNo [<Int32>]  
-        The line number to navigate to  
-        Required?                      
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -KeysToSend [<String[]>]  
-        Array of keyboard inputs to send to the application  
-        Required?                      
-        Position?                    2  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      keys  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Code [<SwitchParameter>]  
+    -Code  
         The ide to open the file in  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
         Aliases                      c  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -VisualStudio [<SwitchParameter>]  
-        Open in Visual Studio  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vs  
+    -KeysToSend <string[]>  
+        Array of keyboard inputs to send to the application  
+        Required?                    false  
+        Position?                    2  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      keys  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -SendKeyEscape [<SwitchParameter>]  
-        Escape control characters and modifiers  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      Escape  
+    -LineNo <int>  
+        The line number to navigate to  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -SendKeyHoldKeyboardFocus [<SwitchParameter>]  
-        Hold keyboard focus on target window  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      HoldKeyboardFocus  
+    -Path <string>  
+        The path to the sourcefile to open  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      FullName  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -SendKeyUseShiftEnter [<SwitchParameter>]  
-        Use Shift+Enter instead of Enter  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      UseShiftEnter  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -SendKeyDelayMilliSeconds [<Int32>]  
+    -SendKeyDelayMilliSeconds <int>  
         Delay between different input strings in milliseconds  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
         Aliases                      DelayMilliSeconds  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
+    -SendKeyEscape  
+        Escape control characters and modifiers  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      Escape  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
+    -SendKeyHoldKeyboardFocus  
+        Hold keyboard focus on target window  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      HoldKeyboardFocus  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
+    -SendKeyUseShiftEnter  
+        Use Shift+Enter instead of Enter  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      UseShiftEnter  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+    -VisualStudio  
+        Open in Visual Studio  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -14938,186 +10613,81 @@ VSCode [-FilePath] <string[]> [-Copilot] [<CommonParameters>]
    Add-FeatureLineToREADME              --> feature  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Add-FeatureLineToREADME [[-Line] <string>] [-Code] [-Show]
+    [-Done] [-UseHomeREADME] [-UseOneDriveREADME]
+    [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Adds a feature line to the README file with a timestamp.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Line [<String>]  
-        The feature description text to add  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Code [<SwitchParameter>]  
+    -Code  
         Open README in Visual Studio Code  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Show [<SwitchParameter>]  
-        Show the modified section  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Done [<SwitchParameter>]  
+    -Done  
         Mark todo item as completed  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseHomeREADME [<SwitchParameter>]  
+    -Line <string>  
+        The feature description text to add  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show  
+        Show the modified section  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME  
         Use README in PowerShell profile directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseOneDriveREADME [<SwitchParameter>]  
+    -UseOneDriveREADME  
         Use README in OneDrive directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -15137,186 +10707,81 @@ VSCode [-FilePath] <string[]> [-Copilot] [<CommonParameters>]
    Add-IdeaLineToREADME                 --> idea  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Add-IdeaLineToREADME [[-Line] <string>] [-Code] [-Show]
+    [-Done] [-UseHomeREADME] [-UseOneDriveREADME]
+    [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Adds an idea item to the README.md file.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Line [<String>]  
-        The idea text to add  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Code [<SwitchParameter>]  
+    -Code  
         Open README in Visual Studio Code  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Show [<SwitchParameter>]  
-        Show the modified section  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Done [<SwitchParameter>]  
+    -Done  
         Mark todo item as completed  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseHomeREADME [<SwitchParameter>]  
+    -Line <string>  
+        The idea text to add  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show  
+        Show the modified section  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME  
         Use README in PowerShell profile directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseOneDriveREADME [<SwitchParameter>]  
+    -UseOneDriveREADME  
         Use README in OneDrive directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -15336,186 +10801,81 @@ VSCode [-FilePath] <string[]> [-Copilot] [<CommonParameters>]
    Add-IssueLineToREADME                --> issue  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Add-IssueLineToREADME [[-Line] <string>] [-Code] [-Show]
+    [-Done] [-UseHomeREADME] [-UseOneDriveREADME]
+    [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Adds an issue item to the README.md file.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Line [<String>]  
-        The issue text to add  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Code [<SwitchParameter>]  
+    -Code  
         Open README in Visual Studio Code  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Show [<SwitchParameter>]  
-        Show the modified section  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Done [<SwitchParameter>]  
+    -Done  
         Mark todo item as completed  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseHomeREADME [<SwitchParameter>]  
+    -Line <string>  
+        The issue text to add  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show  
+        Show the modified section  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME  
         Use README in PowerShell profile directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseOneDriveREADME [<SwitchParameter>]  
+    -UseOneDriveREADME  
         Use README in OneDrive directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -15535,186 +10895,81 @@ VSCode [-FilePath] <string[]> [-Copilot] [<CommonParameters>]
    Add-ReleaseNoteLineToREADME          --> releasenote  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Add-ReleaseNoteLineToREADME [[-Line] <string>] [-Code]
+    [-Show] [-Done] [-UseHomeREADME] [-UseOneDriveREADME]
+    [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Adds a ReleaseNote line to the README file with a timestamp.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Line [<String>]  
-        The ReleaseNote description text to add  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Code [<SwitchParameter>]  
+    -Code  
         Open README in Visual Studio Code  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Show [<SwitchParameter>]  
-        Show the modified section  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Done [<SwitchParameter>]  
+    -Done  
         Mark todo item as completed  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseHomeREADME [<SwitchParameter>]  
+    -Line <string>  
+        The ReleaseNote description text to add  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show  
+        Show the modified section  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME  
         Use README in PowerShell profile directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseOneDriveREADME [<SwitchParameter>]  
+    -UseOneDriveREADME  
         Use README in OneDrive directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -15734,186 +10989,81 @@ VSCode [-FilePath] <string[]> [-Copilot] [<CommonParameters>]
    Add-TodoLineToREADME                 --> todo  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Add-TodoLineToREADME [[-Line] <string>] [-Code] [-Show]
+    [-Done] [-UseHomeREADME] [-UseOneDriveREADME]
+    [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Adds a todo item to the README.md file.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Line [<String>]  
-        The todo item text to add  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       True  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Code [<SwitchParameter>]  
+    -Code  
         Open README in Visual Studio Code  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Show [<SwitchParameter>]  
-        Show the modified section  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Done [<SwitchParameter>]  
+    -Done  
         Mark todo item as completed  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseHomeREADME [<SwitchParameter>]  
+    -Line <string>  
+        The todo item text to add  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Show  
+        Show the modified section  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -UseHomeREADME  
         Use README in PowerShell profile directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -UseOneDriveREADME [<SwitchParameter>]  
+    -UseOneDriveREADME  
         Use README in OneDrive directory  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -16017,136 +11167,24 @@ PermanentlyDeleteGitFolders [-RepoUri] <string> [-Folders] <string[]> [-tempPath
    Get-GitChangedFiles                  --> gitchanged  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Get-GitChangedFiles [-PassThru] [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Get the list of changed files in a Git repository.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -PassThru [<SwitchParameter>]  
+    -PassThru  
         Returns FileInfo objects (like Get-ChildItem) instead of path strings.  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -16166,136 +11204,24 @@ PermanentlyDeleteGitFolders [-RepoUri] <string> [-Folders] <string[]> [-tempPath
    New-GitCommit                        --> commit  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+New-GitCommit [[-Title] <string>] [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Creates and pushes a new git commit with all changes.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Title [<String>]  
+    -Title <string>  
         The commit message title to use  
-        Required?                      
+        Required?                    false  
         Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -19472,195 +14398,92 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Assert-GenXdevCmdletTests            --> improvecmdlettests  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Assert-GenXdevCmdletTests [-CmdletName] <string> [[-Prompt]
+    <string>] [[-PromptKey] <string>] [-EditPrompt]
+    [-AssertFailedTest] [-FromScripts]
+    [-ContinuationHandled] [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Asserts and improves unit-tests of a specified GenXdev cmdlet.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -CmdletName <String>  
-        The name of the cmdlet to improve unit-tests for  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       True  
-        Aliases                      cmd  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Prompt [<String>]  
-        Custom AI prompt text to use  
-        Required?                      
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PromptKey [<String>]  
-        The AI prompt key to use for template selection  
-        Required?                      
-        Position?                    2  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -EditPrompt [<SwitchParameter>]  
-        Switch to only edit the AI prompt  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -AssertFailedTest [<SwitchParameter>]  
+    -AssertFailedTest  
         Indicates to assert a failed test  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -FromScripts [<SwitchParameter>]  
+    -CmdletName <string>  
+        The name of the cmdlet to improve unit-tests for  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      cmd  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ContinuationHandled  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -EditPrompt  
+        Switch to only edit the AI prompt  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -FromScripts  
         Search in script files instead of modules  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -ContinuationHandled [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+    -Prompt <string>  
+        Custom AI prompt text to use  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+    -PromptKey <string>  
+        The AI prompt key to use for template selection  
+        Required?                    false  
+        Position?                    2  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -19680,275 +14503,14 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Clear-GenXdevModules                 --> cleangenxdev  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Clear-GenXdevModules [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Cleans build artifacts from GenXdev PowerShell modules.  
 
 ### PARAMETERS 
 ```yaml 
  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    <CommonParameters>  
-        This cmdlet supports the common parameters: Verbose, Debug,  
-        ErrorAction, ErrorVariable, WarningAction, WarningVariable,  
-        OutBuffer, PipelineVariable, and OutVariable. For more information, see  
-        about_CommonParameters     (https://go.microsoft.com/fwlink/?LinkID=113216).   
-``` 
-
-<br/><hr/><br/>
- 
-
-##	Complete-GenXdevHelpFile 
-```PowerShell 
-
-   Complete-GenXdevHelpFile  
-``` 
-
-### SYNOPSIS 
-
-### SYNTAX 
-```PowerShell 
- 
-``` 
-
-### DESCRIPTION 
-
-### PARAMETERS 
-```yaml 
- 
-``` 
-```yaml 
-    -ModuleName [<String[]>]  
-        Names of modules to analyze  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      Name, Module  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
-        Accept wildcard characters?  false  
 ``` 
 ```yaml 
     <CommonParameters>  
@@ -19967,136 +14529,24 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Get-GenXDevModule  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Get-GenXDevModule [[-Path] <string>] [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Retrieves all GenXDev modules from a specified path.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Path [<String>]  
+    -Path <string>  
         The root path to search for GenXdev modules  
-        Required?                      
+        Required?                    false  
         Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
         Aliases                      RootPath, FullPath  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -20116,137 +14566,26 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Get-GenXDevNewModulesInOrderOfDependency  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Get-GenXDevNewModulesInOrderOfDependency [[-ModuleName]
+    <string[]>] [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Retrieves GenXDev modules in dependency order.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -ModuleName [<String[]>]  
+    -ModuleName <string[]>  
         One or more module names to filter by  
-        Required?                      
+        Required?                    false  
         Position?                    0  
-        Default value                  
-        Accept pipeline input?       True  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
         Aliases                      Module, BaseModuleName, SubModuleName  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
-        Accept wildcard characters?  false  
 ``` 
 ```yaml 
     <CommonParameters>  
@@ -20265,186 +14604,82 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Get-RefactorReport                   --> refactorreport  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Get-RefactorReport [[-Name] <string[]>]
+    [-PreferencesDatabasePath <string>] [-SessionOnly]
+    [-ClearSession] [-SkipSession] [-AsText]
+    [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Generates a detailed report of refactoring operations and their status.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Name [<String[]>]  
+    -AsText  
+        Output report in text format instead of Hashtable  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -ClearSession  
+        If set, clear the session cache before running.  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Name <string[]>  
         The name of the refactor, accepts wildcards  
-        Required?                      
+        Required?                    false  
         Position?                    0  
-        Default value                  
-        Accept pipeline input?       True  
-        Aliases                        
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
 ``` 
 ```yaml 
-    -PreferencesDatabasePath [<String>]  
+    -PreferencesDatabasePath <string>  
         Specifies the path to the preferences database file.  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
         Aliases                      DatabasePath  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -SessionOnly [<SwitchParameter>]  
+    -SessionOnly  
         If set, only use the session cache for refactor data.  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -ClearSession [<SwitchParameter>]  
-        If set, clear the session cache before running.  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -SkipSession [<SwitchParameter>]  
+    -SkipSession  
         If set, skip loading session cache.  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
         Aliases                      FromPreferences  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -AsText [<SwitchParameter>]  
-        Output report in text format instead of Hashtable  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -20464,146 +14699,37 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Open-GenXdevCmdletsContainingClipboardTextInIde --> vscodesearch  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Open-GenXdevCmdletsContainingClipboardTextInIde
+    [[-InputObject] <string>] [-Copilot]
+    [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Opens files in IDE that contain clipboard text  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -InputObject [<String>]  
-        Search for clipboard text in all GenXdev scripts  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       True  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Copilot [<SwitchParameter>]  
+    -Copilot  
         Add sourcefile to Copilot edit-session  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+    -InputObject <string>  
+        Search for clipboard text in all GenXdev scripts  
+        Required?                    false  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue)  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -20623,214 +14749,113 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Remove-Refactor  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Remove-Refactor [-Name] <string[]> [[-RemoveDefault]]
+    [-PreferencesDatabasePath <string>] [-DefaultValue
+    <string>] [-SessionOnly] [-ClearSession] [-SkipSession]
+    [-WhatIf] [-Confirm] [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Removes refactor sets from GenXdev preferences system.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -Name <String[]>  
-        The name of the refactor, accepts wildcards  
-        Required?                      
-        Position?                    0  
-        Default value                  
-        Accept pipeline input?       True  
-        Aliases                      PreferenceName  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -RemoveDefault [<SwitchParameter>]  
-        Switch to also remove the standard refactor set  
-        Required?                      
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PreferencesDatabasePath [<String>]  
-        Database path for preference data files  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      DatabasePath  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -DefaultValue [<String>]  
-        The default value if preference is not found  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      DefaultPreference  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -SessionOnly [<SwitchParameter>]  
-        Use alternative settings stored in session for Data preferences like Language, Database paths, etc  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ClearSession [<SwitchParameter>]  
+    -ClearSession  
         Clear the session setting (Global variable) before retrieving  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -SkipSession [<SwitchParameter>]  
-        Dont use alternative settings stored in session for Data preferences like Language, Database paths, etc  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      FromPreferences  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WhatIf [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wi  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Confirm [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
+    -Confirm  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
         Aliases                      cf  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -DefaultValue <string>  
+        The default value if preference is not found  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       true (ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      DefaultPreference  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -Name <string[]>  
+        The name of the refactor, accepts wildcards  
+        Required?                    true  
+        Position?                    0  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      PreferenceName  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -PreferencesDatabasePath <string>  
+        Database path for preference data files  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      DatabasePath  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -RemoveDefault  
+        Switch to also remove the standard refactor set  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           All  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SessionOnly  
+        Use alternative settings stored in session for Data preferences like Language, Database paths, etc  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -SkipSession  
+        Dont use alternative settings stored in session for Data preferences like Language, Database paths, etc  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      FromPreferences  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
+    -WhatIf  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      wi  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -20850,206 +14875,104 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Search-GenXdevCmdlet                 --> searchcmdlet  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Search-GenXdevCmdlet [[-CmdletName] <string>] [[-ModuleName]
+    <string[]>] [-NoLocal] [-OnlyPublished] [-FromScripts]
+    [-Code] [-VisualStudio] [-EditCmdlet]
+    [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Searches for a GenXdev cmdlet and optionally opens it in an IDE for editing.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
-    -CmdletName [<String>]  
+    -CmdletName <string>  
         Search pattern to filter cmdlets  
-        Required?                      
+        Required?                    false  
         Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
         Aliases                      Filter, CmdLet, Cmd, FunctionName, Name  
+        Dynamic?                     false  
         Accept wildcard characters?  true  
 ``` 
 ```yaml 
-    -ModuleName [<String[]>]  
-        GenXdev module names to search  
-        Required?                      
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       True  
-        Aliases                      Module, BaseModuleName, SubModuleName  
-        Accept wildcard characters?  true  
-``` 
-```yaml 
-    -NoLocal [<SwitchParameter>]  
-        Skip searching in local module paths  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OnlyPublished [<SwitchParameter>]  
-        Limit search to published module paths only  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -FromScripts [<SwitchParameter>]  
-        Search in script files instead of module files  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Code [<SwitchParameter>]  
+    -Code  
         Open the found cmdlet in Visual Studio Code  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
         Aliases                      c  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -VisualStudio [<SwitchParameter>]  
-        Open the found cmdlet in Visual Studio  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vs  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -EditCmdlet [<SwitchParameter>]  
+    -EditCmdlet  
         Also opens the file in the editor after finding  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
+    -FromScripts  
+        Search in script files instead of module files  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
+    -ModuleName <string[]>  
+        GenXdev module names to search  
+        Required?                    false  
+        Position?                    1  
+        Accept pipeline input?       true (ByValue, ByPropertyName)  
+        Parameter set name           (All)  
+        Aliases                      Module, BaseModuleName, SubModuleName  
+        Dynamic?                     false  
+        Accept wildcard characters?  true  
+``` 
+```yaml 
+    -NoLocal  
+        Skip searching in local module paths  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
+    -OnlyPublished  
+        Limit search to published module paths only  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+    -VisualStudio  
+        Open the found cmdlet in Visual Studio  
+        Required?                    false  
+        Position?                    Named  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      vs  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
@@ -21069,146 +14992,36 @@ Update-Refactor [[-Refactor] <RefactorDefinition[]>]
    Test-RefactorLLMSelection  
 ``` 
 
-### SYNOPSIS 
-
 ### SYNTAX 
 ```PowerShell 
- 
+Test-RefactorLLMSelection [-RefactorDefinition] <Object>
+    [-Path] <string> [<CommonParameters>] 
 ``` 
-
-### DESCRIPTION 
-    Evaluates source files for refactoring eligibility using LLM analysis.  
 
 ### PARAMETERS 
 ```yaml 
  
 ``` 
 ```yaml 
+    -Path <string>  
+        The path to the source file to evaluate  
+        Required?                    true  
+        Position?                    1  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      FullName  
+        Dynamic?                     false  
+        Accept wildcard characters?  false  
+``` 
+```yaml 
     -RefactorDefinition <Object>  
         The refactor definition containing LLM settings  
-        Required?                      
+        Required?                    true  
         Position?                    0  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                        
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Path <String>  
-        The path to the source file to evaluate  
-        Required?                      
-        Position?                    1  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      FullName  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Verbose [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      vb  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -Debug [<SwitchParameter>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      db  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ea  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      infa  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ProgressAction [<ActionPreference>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      proga  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -ErrorVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ev  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -WarningVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      wv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -InformationVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      iv  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ov  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -OutBuffer [<Int32>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      ob  
-        Accept wildcard characters?  false  
-``` 
-```yaml 
-    -PipelineVariable [<String>]  
-        Required?                      
-        Position?                    -2147483648  
-        Default value                  
-        Accept pipeline input?       False  
-        Aliases                      pv  
+        Accept pipeline input?       false  
+        Parameter set name           (All)  
+        Aliases                      None  
+        Dynamic?                     false  
         Accept wildcard characters?  false  
 ``` 
 ```yaml 
