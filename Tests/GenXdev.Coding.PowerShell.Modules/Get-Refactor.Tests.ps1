@@ -38,8 +38,10 @@ $message
 
         # Expected default refactor names
         $expectedRefactorNames = @(
-            'DocumentationAndFormatting',
-            'DocumentationAndFormattingCSharp',
+            'Documentation',
+            'DocumentationCSharp',
+            'MissingDocumentation',
+            'MissingDocumentationCSharp',
             'ConvertToCSharp',
             'AddInstallationConsentPrompt'
         )
@@ -48,13 +50,6 @@ $message
         foreach ($expectedName in $expectedRefactorNames) {
             $refactorExists = $allRefactors | Microsoft.PowerShell.Core\Where-Object { $_.Name -eq $expectedName }
             $refactorExists | Pester\Should -Not -BeNullOrEmpty -Because "Default refactor '$expectedName' should exist after EnsureDefaultGenXdevRefactors"
-        }
-
-        # Verify that deprecated refactors have been removed
-        $deprecatedRefactorNames = @('MissingDocumentation', 'OnlyDocumentation', 'TooManyParameters')
-        foreach ($deprecatedName in $deprecatedRefactorNames) {
-            $deprecatedExists = $allRefactors | Microsoft.PowerShell.Core\Where-Object { $_.Name -eq $deprecatedName }
-            $deprecatedExists | Pester\Should -BeNullOrEmpty -Because "Deprecated refactor '$deprecatedName' should not exist"
         }
 
         # Verify that refactors are sorted by Priority descending

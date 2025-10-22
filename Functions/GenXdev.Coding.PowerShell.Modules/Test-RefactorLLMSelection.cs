@@ -2,7 +2,7 @@
 // Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 // Original cmdlet filename  : Test-RefactorLLMSelection.cs
 // Original author           : René Vaessen / GenXdev
-// Version                   : 1.304.2025
+// Version                   : 1.308.2025
 // ################################################################################
 // Copyright (c)  René Vaessen / GenXdev
 //

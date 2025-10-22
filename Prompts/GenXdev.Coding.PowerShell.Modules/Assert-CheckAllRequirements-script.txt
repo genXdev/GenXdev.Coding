@@ -158,6 +158,6 @@ Always proceed by implementing these changes systematically.
 $Prompt
 
 IMPORTANT
-Whenever we finish discussing new rules for porting .ps1 to .cs cmdlets,
+Whenever we finish discussing new updates to these rules,
 you update this text for me, with those rules, and update it in file
-.\Modules\GenXdev.Coding\1.304.2025\Prompts\GenXdev.Coding.PowerShell.Modules\Assert-CheckAllRequirements-script.txt
+.\Modules\GenXdev.Coding\1.308.2025\Prompts\GenXdev.Coding.PowerShell.Modules\Assert-CheckAllRequirements-script.txt

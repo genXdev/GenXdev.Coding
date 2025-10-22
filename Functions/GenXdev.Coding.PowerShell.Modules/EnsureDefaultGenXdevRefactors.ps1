@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : EnsureDefaultGenXdevRefactors.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.304.2025
+Version                   : 1.308.2025
 ################################################################################
 Copyright (c)  René Vaessen / GenXdev
 
@@ -60,7 +60,7 @@ function EnsureDefaultGenXdevRefactors {
         $rootPath = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\..\"
 
         # list of deprecated refactor names to remove
-        $depricated = @("MissingDocumentation", "OnlyDocumentation", "TooManyParameters")
+        $depricated = @("MissingDocumentation", "OnlyDocumentation", "TooManyParameters", "DocumentationAndFormatting", "DocumentationAndFormattingCSharp")
 
         # remove any deprecated refactors that still exist
         foreach ($name in $depricated) {
@@ -77,8 +77,8 @@ function EnsureDefaultGenXdevRefactors {
             }
         }
 
-        # DocumentationAndFormatting refactor setup
-        $obj = GenXdev.Coding\Get-Refactor -Name "DocumentationAndFormatting" `
+        # Documentation refactor setup
+        $obj = GenXdev.Coding\Get-Refactor -Name "Documentation" `
             -ErrorAction SilentlyContinue
 
         # if force is specified and refactor exists, remove it first
@@ -95,17 +95,17 @@ function EnsureDefaultGenXdevRefactors {
             # create a refactor definition for recently modified files
             # this refactor will only include files that have been modified in the last 7 days
             # and will not prompt the user for any input.
-            Microsoft.PowerShell.Utility\Write-Verbose "Creating DocumentationAndFormatting refactor"
+            Microsoft.PowerShell.Utility\Write-Verbose "Creating Documentation refactor"
             $null = GenXdev.Coding\New-Refactor `
-                -Name "DocumentationAndFormatting" `
+                -Name "Documentation" `
                 -PromptKey "OnlyDocumentation" `
-                -SelectionScript "GenXdev.FileSystem\Find-Item `"$PSScriptRoot\..\..\..\..\GenXdev.*\1.304.2025\functions\*.ps1`" -PassThru -Exclude `"*\_*`" | Microsoft.PowerShell.Utility\Sort-Object -property LastWriteTime" `
+                -SelectionScript "GenXdev.FileSystem\Find-Item `"$PSScriptRoot\..\..\..\..\GenXdev.*\1.308.2025\functions\*.ps1`" -PassThru -Exclude `"*\_*`" | Microsoft.PowerShell.Utility\Sort-Object -property LastWriteTime" `
                 -AutoAddModifiedFiles `
                 -Priority 0
         }
 
-        # DocumentationAndFormattingCSharp refactor setup
-        $obj = GenXdev.Coding\Get-Refactor -Name "DocumentationAndFormattingCSharp" `
+        # DocumentationCSharp refactor setup
+        $obj = GenXdev.Coding\Get-Refactor -Name "DocumentationCSharp" `
             -ErrorAction SilentlyContinue
 
         # if force is specified and refactor exists, remove it first
@@ -122,15 +122,71 @@ function EnsureDefaultGenXdevRefactors {
             # create a refactor definition for recently modified files
             # this refactor will only include files that have been modified in the last 7 days
             # and will not prompt the user for any input.
-            Microsoft.PowerShell.Utility\Write-Verbose "Creating DocumentationAndFormattingCSharp refactor"
+            Microsoft.PowerShell.Utility\Write-Verbose "Creating DocumentationCSharp refactor"
             $null = GenXdev.Coding\New-Refactor `
-                -Name "DocumentationAndFormattingCSharp" `
+                -Name "DocumentationCSharp" `
                 -PromptKey "OnlyCSharpDocumentation" `
-                -SelectionScript "GenXdev.FileSystem\Find-Item `"$PSScriptRoot\..\..\..\..\GenXdev.*\1.304.2025\functions\*.cs`" -PassThru  -Exclude `"*\_*`" | Microsoft.PowerShell.Utility\Sort-Object -property LastWriteTime" `
+                -SelectionScript "GenXdev.FileSystem\Find-Item `"$PSScriptRoot\..\..\..\..\GenXdev.*\1.308.2025\functions\*.cs`" -PassThru  -Exclude `"*\_*`" | Microsoft.PowerShell.Utility\Sort-Object -property LastWriteTime" `
                 -AutoAddModifiedFiles `
                 -Priority 0
         }
+####
 
+        # Documentation refactor setup
+        $obj = GenXdev.Coding\Get-Refactor -Name "MissingDocumentation" `
+            -ErrorAction SilentlyContinue
+
+        # if force is specified and refactor exists, remove it first
+        if ($Force -and ($null -ne $obj)) {
+
+            # remove existing refactor when force is used
+            $null = GenXdev.Coding\Remove-Refactor -Name $obj.Name
+            $obj = $null
+        }
+
+        # create the refactor if it doesn't exist
+        if (-not $obj) {
+
+            # create a refactor definition for recently modified files
+            # this refactor will only include files that have been modified in the last 7 days
+            # and will not prompt the user for any input.
+            Microsoft.PowerShell.Utility\Write-Verbose "Creating MissingDocumentation refactor"
+            $null = GenXdev.Coding\New-Refactor `
+                -Name "MissingDocumentation" `
+                -PromptKey "OnlyDocumentation" `
+                -SelectionScript "GenXdev.FileSystem\Find-Item `"$PSScriptRoot\..\..\..\..\GenXdev.*\1.308.2025\functions\*.ps1`" -PassThru -Exclude `"*\_*`" -Quiet -NoMatch -Content `"SYNOPSIS`" | Microsoft.PowerShell.Utility\Sort-Object -property LastWriteTime" `
+                -AutoAddModifiedFiles `
+                -Priority 2000
+        }
+
+        # DocumentationCSharp refactor setup
+        $obj = GenXdev.Coding\Get-Refactor -Name "MissingDocumentationCSharp" `
+            -ErrorAction SilentlyContinue
+
+        # if force is specified and refactor exists, remove it first
+        if ($Force -and ($null -ne $obj)) {
+
+            # remove existing refactor when force is used
+            $null = GenXdev.Coding\Remove-Refactor -Name $obj.Name
+            $obj = $null
+        }
+
+        # create the refactor if it doesn't exist
+        if (-not $obj) {
+
+            # create a refactor definition for recently modified files
+            # this refactor will only include files that have been modified in the last 7 days
+            # and will not prompt the user for any input.
+            Microsoft.PowerShell.Utility\Write-Verbose "Creating MissingDocumentationCSharp refactor"
+            $null = GenXdev.Coding\New-Refactor `
+                -Name "MissingDocumentationCSharp" `
+                -PromptKey "OnlyCSharpDocumentation" `
+                -SelectionScript "GenXdev.FileSystem\Find-Item `"$PSScriptRoot\..\..\..\..\GenXdev.*\1.308.2025\functions\*.cs`" -PassThru -Exclude `"*\_*`"  -Quiet -NoMatch -Content `"SYNOPSIS`" | Microsoft.PowerShell.Utility\Sort-Object -property LastWriteTime" `
+                -AutoAddModifiedFiles `
+                -Priority 2000
+        }
+
+####
         # ConvertToCSharp refactor setup
         $obj = GenXdev.Coding\Get-Refactor -Name "ConvertToCSharp" -ErrorAction SilentlyContinue
 
@@ -152,7 +208,7 @@ function EnsureDefaultGenXdevRefactors {
             $null = GenXdev.Coding\New-Refactor `
                 -Name "ConvertToCSharp" `
                 -PromptKey "ConvertToCSharp" `
-                -SelectionScript "GenXdev.FileSystem\Find-Item `"$PSScriptRoot\..\..\..\..\GenXdev.*\1.304.2025\functions\*-*.ps1`" -PassThru -Exclude `"*\_*`", `"*Ensure*`" | ? { `$dir = [io.path]::GetDirectoryName(`$_); `$fn = [io.path]::GetFileNameWithoutExtension(`$_); if (-not (Test-Path `"`$dir\`${fn}.cs`")) { if (-not ([IO.file]::ReadAllText(`$_).Contains('dontrefactor'))) { `$_ } } } | Sort-Object Length" `
+                -SelectionScript "GenXdev.FileSystem\Find-Item `"$PSScriptRoot\..\..\..\..\GenXdev.*\1.308.2025\functions\*-*.ps1`" -PassThru -Exclude `"*\_*`", `"*Ensure*`" | ? { `$dir = [io.path]::GetDirectoryName(`$_); `$fn = [io.path]::GetFileNameWithoutExtension(`$_); if (-not (Test-Path `"`$dir\`${fn}.cs`")) { if (-not ([IO.file]::ReadAllText(`$_).Contains('dontrefactor'))) { `$_ } } } | Sort-Object Length" `
                 -AutoAddModifiedFiles:$false `
                 -Priority 1000
         }
@@ -205,7 +261,7 @@ function EnsureDefaultGenXdevRefactors {
             $null = GenXdev.Coding\New-Refactor `
                 -Name "CheckCSharpInvocations" `
                 -PromptKey "CheckCSharpInvocations" `
-                -SelectionScript "GenXdev.FileSystem\Find-Item `"$PSScriptRoot\..\..\..\..\GenXdev.*\1.304.2025\functions\*.cs`" -PassThru -Exclude `"*\_*`" -Quiet -Content 'Confirm-InstallationConsent|Get-Variable|Copy-IdenticalParamValues|Expand-Path|LOCALAPPDATA|\.\.\\\.\.\\|\\Scripts' | Sort-Object Length" `
+                -SelectionScript "GenXdev.FileSystem\Find-Item `"$PSScriptRoot\..\..\..\..\GenXdev.*\1.308.2025\functions\*.cs`" -PassThru -Exclude `"*\_*`" -Quiet -Content 'Confirm-InstallationConsent|Get-Variable|Copy-IdenticalParamValues|Expand-Path|LOCALAPPDATA|\.\.\\\.\.\\|\\Scripts' | Sort-Object Length" `
                 -AutoAddModifiedFiles:$false `
                 -Priority 1500
         }
