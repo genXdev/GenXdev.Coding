@@ -2,7 +2,7 @@
 // Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 // Original cmdlet filename  : Get-GenXDevModule.cs
 // Original author           : René Vaessen / GenXdev
-// Version                   : 1.308.2025
+// Version                   : 2.1.2025
 // ################################################################################
 // Copyright (c)  René Vaessen / GenXdev
 //
@@ -116,8 +116,8 @@ namespace GenXdev.Coding.PowerShell.Modules
                     continue;
                 }
 
-                // Find the highest numbered 1.x version directory
-                var versionDirs = Directory.EnumerateDirectories(moduleDir, "1.*")
+                // Find the highest numbered version directory
+                var versionDirs = Directory.EnumerateDirectories(moduleDir, "2*")
                     .Select(d => new DirectoryInfo(d))
                     .OrderByDescending(d => d.Name)
                     .FirstOrDefault();

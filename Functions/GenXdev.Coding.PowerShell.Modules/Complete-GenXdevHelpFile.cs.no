@@ -2,7 +2,7 @@
 // Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 // Original cmdlet filename  : Complete-GenXdevHelpFile.cs
 // Original author           : René Vaessen / GenXdev
-// Version                   : 1.308.2025
+// Version                   : 2.1.2025
 // ################################################################################
 // Copyright (c)  René Vaessen / GenXdev
 //
@@ -102,8 +102,8 @@ public class CompleteGenXdevHelpFileCommand : PSGenXdevCmdlet
         "LineNo": 0,
         "Description": "Retrieves and lists all GenXdev cmdlets and their details.",
         "Aliases": "gcmds",
-        "ScriptFilePath": "C:\\Users\\renev\\Documents\\PowerShell\\Modules\\GenXdev.Helpers\\1.308.2025\\Functions\\GenXdev.Helpers\\Get-GenXDevCmdlet.ps1",
-        "ScriptTestFilePath": "C:\\Users\\renev\\Documents\\PowerShell\\Modules\\GenXdev.Helpers\\1.308.2025\\Tests\\GenXdev.Helpers\\Get-GenXDevCmdlet.Tests.ps1"
+        "ScriptFilePath": "C:\\Users\\renev\\Documents\\PowerShell\\Modules\\GenXdev.Helpers\\2.1.2025\\Functions\\GenXdev.Helpers\\Get-GenXDevCmdlet.ps1",
+        "ScriptTestFilePath": "C:\\Users\\renev\\Documents\\PowerShell\\Modules\\GenXdev.Helpers\\2.1.2025\\Tests\\GenXdev.Helpers\\Get-GenXDevCmdlet.Tests.ps1"
         }
 
 

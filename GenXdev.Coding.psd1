@@ -12,7 +12,7 @@
 RootModule = 'GenXdev.Coding.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.308.2025'
+ModuleVersion = '2.1.2025'
 
 # Supported PSEditions
 CompatiblePSEditions = 'Core'
@@ -33,7 +33,7 @@ Copyright = 'Copyright 2021-2025 GenXdev'
 Description = 'A Windows PowerShell module that helps being more productive with coding tasks.'
 
 # Minimum version of the PowerShell engine required by this module
-PowerShellVersion = '7.5.0'
+PowerShellVersion = '7.5.4'
 
 # Name of the PowerShell host required by this module
 # PowerShellHostName = ''
@@ -51,7 +51,7 @@ ClrVersion = '9.0.0.1'
 ProcessorArchitecture = 'Amd64'
 
 # Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @(@{ModuleName = 'GenXdev.AI'; ModuleVersion = '1.308.2025'; })
+RequiredModules = @(@{ModuleName = 'GenXdev.AI'; ModuleVersion = '2.1.2025'; })
 
 # Assemblies that must be loaded prior to importing this module
 RequiredAssemblies = 'lib\GenXdev.Coding.dll'
@@ -114,52 +114,47 @@ AliasesToExport = 'checkgenxdevdependencies', 'cleangenxdev', 'cmdlet', 'commit'
 ModuleList = @('GenXdev.Coding')
 
 # List of all files packaged with this module
-FileList = '.gitignore', 'GenXdev.Coding.csproj', 'GenXdev.Coding.Git.psm1', 
-               'GenXdev.Coding.PowerShell.Modules.psm1', 'GenXdev.Coding.psd1', 
-               'GenXdev.Coding.psm1', 'LICENSE', 'powershell.jpg', 'README.md', 
-               'Assets\agents md.asset.txt', 
+FileList = '.gitignore', 'favicon.ico', 'GenXdev.Coding.csproj', 
+               'GenXdev.Coding.Git.psm1', 'GenXdev.Coding.PowerShell.Modules.psm1', 
+               'GenXdev.Coding.psd1', 'GenXdev.Coding.psm1', 'LICENSE', 
+               'powershell.jpg', 'README.md', 'Assets\agents md.asset.txt', 
                'Assets\Microsoft.PowerShell.Debug_profile.ps1.asset.txt', 
                'Assets\Microsoft.PowerShell_profile.ps1.asset.txt', 
                'Assets\powershell.jpg.asset.txt', 'Assets\README.md.asset.txt', 
                'lib\GenXdev.Coding.deps.json', 'lib\GenXdev.Coding.dll', 
                'Functions\GenXdev.Coding.Git\Get-GitChangedFiles.cs', 
-               'Functions\GenXdev.Coding\Add-FeatureLineToREADME.cs', 
                'Functions\GenXdev.Coding.Git\New-GitCommit.cs', 
-               'Functions\GenXdev.Coding\Add-IdeaLineToREADME.cs', 
                'Functions\GenXdev.Coding.Git\PermanentlyDeleteGitFolders.ps1', 
+               'Functions\GenXdev.Coding\Add-FeatureLineToREADME.cs', 
+               'Functions\GenXdev.Coding\Add-IdeaLineToREADME.cs', 
                'Functions\GenXdev.Coding\Add-IssueLineToREADME.cs', 
                'Functions\GenXdev.Coding\Add-LineToREADME.ps1', 
-               'Functions\GenXdev.Coding.PowerShell.Modules\Add-MissingGenXdevUnitTests.ps1', 
-               'Assets\.github\copilot-instructions.md.asset.txt', 
-               'Functions\GenXdev.Coding.PowerShell.Modules\Assert-GenXdevCmdlet.ps1', 
                'Functions\GenXdev.Coding\Add-ReleaseNoteLineToREADME.cs', 
-               'Functions\GenXdev.Coding.PowerShell.Modules\Assert-GenXdevCmdletTests.cs', 
                'Functions\GenXdev.Coding\Add-TodoLineToREADME.cs', 
                'Functions\GenXdev.Coding\EnsureVSCodeInstallation.ps1', 
-               'Functions\GenXdev.Coding.PowerShell.Modules\Assert-GenXdevDependencyUsage.ps1', 
                'Functions\GenXdev.Coding\Features.cs', 
+               'Functions\GenXdev.Coding\Ideas.ps1', 
+               'Functions\GenXdev.Coding\Issues.ps1', 
+               'Functions\GenXdev.Coding\Open-SourceFileInIde.ps1', 
+               'Functions\GenXdev.Coding\ReleaseNotes.ps1', 
+               'Functions\GenXdev.Coding\Todoos.ps1', 
+               'Functions\GenXdev.Coding\VSCode.ps1', 
+               'Assets\.github\copilot-instructions.md.asset.txt', 
+               'Functions\GenXdev.Coding.PowerShell.Modules\Add-MissingGenXdevUnitTests.ps1', 
+               'Functions\GenXdev.Coding.PowerShell.Modules\Assert-GenXdevCmdlet.ps1', 
+               'Functions\GenXdev.Coding.PowerShell.Modules\Assert-GenXdevCmdletTests.cs', 
+               'Functions\GenXdev.Coding.PowerShell.Modules\Assert-GenXdevDependencyUsage.ps1', 
                'Functions\GenXdev.Coding.PowerShell.Modules\Assert-GenXdevTest.ps1', 
                'Functions\GenXdev.Coding.PowerShell.Modules\Assert-ModuleDefinition.ps1', 
-               'Functions\GenXdev.Coding\Ideas.ps1', 
                'Functions\GenXdev.Coding.PowerShell.Modules\Assert-RefactorFile.ps1', 
-               'Functions\GenXdev.Coding\Issues.ps1', 
                'Functions\GenXdev.Coding.PowerShell.Modules\Clear-GenXdevModules.cs', 
-               'Functions\GenXdev.Coding\Open-SourceFileInIde.ps1', 
                'Functions\GenXdev.Coding.PowerShell.Modules\Complete-GenXdevHelpFile.cs.no', 
-               'Functions\GenXdev.Coding\ReleaseNotes.ps1', 
                'Functions\GenXdev.Coding.PowerShell.Modules\Complete-GenXDevREADME.ps1', 
-               'Functions\GenXdev.Coding\Todoos.ps1', 
                'Functions\GenXdev.Coding.PowerShell.Modules\EnsureCopilotKeyboardShortCut.ps1', 
-               'Functions\GenXdev.Coding\VSCode.ps1', 
                'Functions\GenXdev.Coding.PowerShell.Modules\EnsureDefaultGenXdevRefactors.ps1', 
-               'Assets\.vscode\extensions.json.asset.txt', 
                'Functions\GenXdev.Coding.PowerShell.Modules\Get-GenXdevCmdletMetadata.cs.no', 
-               'Assets\.vscode\launch.json.asset.txt', 
                'Functions\GenXdev.Coding.PowerShell.Modules\Get-GenXdevCmdletUsageAnalysis.ps1', 
-               'Assets\.vscode\mcp.json.asset.txt', 
                'Functions\GenXdev.Coding.PowerShell.Modules\Get-GenXDevModule.cs', 
-               'Assets\.vscode\settings.json.asset.txt', 
-               'Assets\.vscode\tasks.json.asset.txt', 
                'Functions\GenXdev.Coding.PowerShell.Modules\Get-GenXDevModuleinfo.ps1', 
                'Functions\GenXdev.Coding.PowerShell.Modules\Get-GenXDevNewModulesInOrderOfDependency.cs', 
                'Functions\GenXdev.Coding.PowerShell.Modules\Get-ModuleHelpMarkdown.ps1', 
@@ -169,9 +164,14 @@ FileList = '.gitignore', 'GenXdev.Coding.csproj', 'GenXdev.Coding.Git.psm1',
                'Functions\GenXdev.Coding.PowerShell.Modules\Invoke-GenXdevScriptAnalyzer.ps1', 
                'Functions\GenXdev.Coding.PowerShell.Modules\New-GenXdevCmdlet.ps1', 
                'Functions\GenXdev.Coding.PowerShell.Modules\New-GenXdevModule.ps1', 
+               'Assets\.vscode\extensions.json.asset.txt', 
                'Functions\GenXdev.Coding.PowerShell.Modules\New-PullRequestForGenXdevModuleChanges.ps1', 
+               'Assets\.vscode\launch.json.asset.txt', 
+               'Assets\.vscode\mcp.json.asset.txt', 
                'Functions\GenXdev.Coding.PowerShell.Modules\New-Refactor.ps1', 
+               'Assets\.vscode\settings.json.asset.txt', 
                'Functions\GenXdev.Coding.PowerShell.Modules\Open-GenXdevCmdletsContainingClipboardTextInIde.cs', 
+               'Assets\.vscode\tasks.json.asset.txt', 
                'Functions\GenXdev.Coding.PowerShell.Modules\PSScriptAnalyzerSettings.psd1', 
                'Functions\GenXdev.Coding.PowerShell.Modules\Remove-Refactor.cs', 
                'Functions\GenXdev.Coding.PowerShell.Modules\Search-GenXdevCmdlet.cs', 
@@ -180,9 +180,11 @@ FileList = '.gitignore', 'GenXdev.Coding.csproj', 'GenXdev.Coding.Git.psm1',
                'Functions\GenXdev.Coding.PowerShell.Modules\Start-NextRefactor.ps1', 
                'Functions\GenXdev.Coding.PowerShell.Modules\Test-RefactorLLMSelection.cs', 
                'Functions\GenXdev.Coding.PowerShell.Modules\Update-Refactor.ps1', 
-               'lib\lib\Microsoft.Extensions.Configuration.UserSecrets.dll', 
+               'Tests\GenXdev.Coding.PowerShell.Modules\Get-Refactor.Tests.ps1', 
+               'Tests\GenXdev.Coding.PowerShell.Modules\Invoke-GenXdevPSFormatter.Tests.ps1', 
                'Prompts\GenXdev.Coding.PowerShell.Modules\Assert-AddInstallationConsentPrompt-script.txt', 
                'Prompts\GenXdev.Coding.PowerShell.Modules\Assert-AddInstallationConsentPrompt.txt', 
+               'Tests\GenXdev.Coding.PowerShell.Modules\Invoke-GenXdevScriptAnalyzer.Tests.ps1', 
                'Prompts\GenXdev.Coding.PowerShell.Modules\Assert-AddProgressSupport-script.txt', 
                'Prompts\GenXdev.Coding.PowerShell.Modules\Assert-AddProgressSupport.txt', 
                'Prompts\GenXdev.Coding.PowerShell.Modules\Assert-CheckAllRequirements-script.txt', 
@@ -201,11 +203,8 @@ FileList = '.gitignore', 'GenXdev.Coding.csproj', 'GenXdev.Coding.Git.psm1',
                'Prompts\GenXdev.Coding.PowerShell.Modules\Assert-NewGenXdevCmdLet.txt', 
                'Prompts\GenXdev.Coding.PowerShell.Modules\Assert-none.txt', 
                'Prompts\GenXdev.Coding.PowerShell.Modules\Assert-OnlyCSharpDocumentation.txt', 
-               'Tests\GenXdev.Coding.PowerShell.Modules\Get-Refactor.Tests.ps1', 
                'Prompts\GenXdev.Coding.PowerShell.Modules\Assert-OnlyDocumentation-script.txt', 
-               'Tests\GenXdev.Coding.PowerShell.Modules\Invoke-GenXdevPSFormatter.Tests.ps1', 
                'Prompts\GenXdev.Coding.PowerShell.Modules\Assert-OnlyDocumentation.txt', 
-               'Tests\GenXdev.Coding.PowerShell.Modules\Invoke-GenXdevScriptAnalyzer.Tests.ps1', 
                'Prompts\GenXdev.Coding.PowerShell.Modules\Assert-ParameterSplatting-scripts.txt', 
                'Prompts\GenXdev.Coding.PowerShell.Modules\Assert-ParameterSplatting.txt', 
                'Prompts\GenXdev.Coding.PowerShell.Modules\Assert-PSExceptionHandling-script.txt', 
@@ -217,24 +216,10 @@ FileList = '.gitignore', 'GenXdev.Coding.csproj', 'GenXdev.Coding.Git.psm1',
                'Prompts\GenXdev.Coding.PowerShell.Modules\Assert-StandardRequirements.txt', 
                'Prompts\GenXdev.Coding.PowerShell.Modules\Assert-UnsafePathUsage-scripts.txt', 
                'Prompts\GenXdev.Coding.PowerShell.Modules\Assert-UnsafePathUsage.txt', 
-               'lib\runtimes\win-arm64\ggml-base-whisper.dll', 
-               'lib\runtimes\win-arm64\ggml-cpu-whisper.dll', 
-               'lib\runtimes\win-arm64\ggml-whisper.dll', 
-               'lib\runtimes\win-x64\ggml-base-whisper.dll', 
-               'lib\runtimes\win-arm64\whisper.dll', 
-               'lib\runtimes\win-x64\ggml-cpu-whisper.dll', 
-               'lib\runtimes\win-x64\ggml-whisper.dll', 
-               'lib\runtimes\win-x64\whisper.dll', 
-               'lib\runtimes\win-x86\ggml-base-whisper.dll', 
-               'lib\runtimes\win-x86\ggml-cpu-whisper.dll', 
-               'lib\runtimes\win-x86\ggml-whisper.dll', 
-               'lib\runtimes\win-x86\whisper.dll', 
-               'Assets\Modules\GenXdev.Local\1.308.2025\GenXdev.Local.psd1.asset.txt', 
-               'Assets\Modules\GenXdev.Local\1.308.2025\GenXdev.Local.psm1.asset.txt', 
-               'Assets\Modules\GenXdev.Local\1.308.2025\powershell.jpg.asset.txt', 
-               'Assets\Modules\GenXdev.Local\1.308.2025\README.md.asset.txt', 
-               'Assets\Modules\PSScriptAnalyzer\1.24.0\GenXdev.Coding.PowerShell.Modules.ScriptAnalyzer.dll', 
-               'Assets\Modules\PSScriptAnalyzer\1.24.0\PSv7\GenXdev.Coding.PowerShell.Modules.ScriptAnalyzer.dll'
+               'Assets\Modules\GenXdev.Local\2.1.2025\GenXdev.Local.psd1.asset.txt', 
+               'Assets\Modules\GenXdev.Local\2.1.2025\GenXdev.Local.psm1.asset.txt', 
+               'Assets\Modules\GenXdev.Local\2.1.2025\powershell.jpg.asset.txt', 
+               'Assets\Modules\GenXdev.Local\2.1.2025\README.md.asset.txt'
 
 # Private data to pass to the module specified in RootModule/ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
 PrivateData = @{

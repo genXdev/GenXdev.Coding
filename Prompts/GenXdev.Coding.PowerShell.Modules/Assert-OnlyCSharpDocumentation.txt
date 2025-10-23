@@ -57,7 +57,7 @@ An example of how it should look technically and cosmetically:
 // Part of PowerShell module : GenXdev.FileSystem
 // Original cmdlet filename  : Find-Item.cs
 // Original author           : René Vaessen / GenXdev
-// Version                   : 1.308.2025
+// Version                   : 2.1.2025
 // ###############################################################################
 // Copyright (c)  René Vaessen / GenXdev
 //
@@ -167,4 +167,4 @@ $Prompt
 IMPORTANT
 Whenever we finish discussing new rules for improving C# cmdlet documentation,
 you update this text for me, with those rules, and update it in file
-.\Modules\GenXdev.Coding\1.308.2025\Prompts\GenXdev.Coding.PowerShell.Modules\Assert-OnlyCSharpDocumentation.txt
+.\Modules\GenXdev.Coding\2.1.2025\Prompts\GenXdev.Coding.PowerShell.Modules\Assert-OnlyCSharpDocumentation.txt

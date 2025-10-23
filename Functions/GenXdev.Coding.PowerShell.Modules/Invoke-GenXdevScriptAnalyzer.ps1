@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Invoke-GenXdevScriptAnalyzer.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.308.2025
+Version                   : 2.1.2025
 ################################################################################
 Copyright (c)  René Vaessen / GenXdev
 
@@ -115,21 +115,10 @@ function Invoke-GenXdevScriptAnalyzer {
             # define the folder path for psscriptanalyzer installation
             $folder = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\..\..\PSScriptAnalyzer\1.24.0\"
 
-            # define the path to the script analyzer dll
-            $path = GenXdev.FileSystem\Expand-Path "$folder\PSv7\GenXdev.Coding.PowerShell.Modules.ScriptAnalyzer.dll"
-
             if (-not (Microsoft.PowerShell.Management\Test-Path -LiteralPath $folder)) {
 
                 # install psscriptanalyzer module if folder does not exist
                 $null = PowerShellGet\Install-Module -Name PSScriptAnalyzer -RequiredVersion 1.24.0 -Scope CurrentUser -Force
-            }
-
-            if (-not (Microsoft.PowerShell.Management\Test-Path -LiteralPath $path)) {
-
-                # copy assets if dll does not exist
-                $source = GenXdev.FileSystem\Expand-Path "$PSScriptRoot\..\..\assets\Modules\PSScriptAnalyzer\1.24.0\*"
-
-                $null = GenXdev.FileSystem\Start-RoboCopy $source "$folder\"
             }
 
             # import the psscriptanalyzer module

@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Add-MissingGenXdevUnitTests.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 1.308.2025
+Version                   : 2.1.2025
 ################################################################################
 Copyright (c)  René Vaessen / GenXdev
 
@@ -19,10 +19,23 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ################################################################################>
 ###############################################################################
+<#
+.SYNOPSIS
+    Adds missing unit tests for GenXdev cmdlets.
+
+.DESCRIPTION
+    This function scans all GenXdev cmdlets and creates basic unit test files
+    for those that don't have tests yet. The tests include PSScriptAnalyzer
+    rule checks.
+
+.EXAMPLE
+    Add-MissingGenXdevUnitTests
+#>
+###############################################################################
 function Add-MissingGenXdevUnitTests {
 
     # dont remove this line [dontrefactor]
-    
+
     [CmdletBinding()]
     [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', 'Add-MissingGenXdevUnitTests')]
     param()
