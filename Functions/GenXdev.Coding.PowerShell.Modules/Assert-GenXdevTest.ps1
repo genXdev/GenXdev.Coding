@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : Assert-GenXdevTest.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 2.1.2025
+Version                   : 2.3.2026
 ################################################################################
 Copyright (c)  René Vaessen / GenXdev
 
@@ -1073,4 +1073,4 @@ Please analyze this test failure and suggest code fixes to make the test pass.
         $ProgressPreference = $originalProgressPreference
     }
 }
-################################################################################É
+################################################################################

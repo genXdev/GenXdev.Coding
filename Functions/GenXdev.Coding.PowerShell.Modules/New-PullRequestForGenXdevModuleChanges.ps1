@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : New-PullRequestForGenXdevModuleChanges.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 2.1.2025
+Version                   : 2.3.2026
 ################################################################################
 Copyright (c)  René Vaessen / GenXdev
 
@@ -197,7 +197,7 @@ function New-PullRequestForGenXdevModuleChanges {
             HelpMessage = 'Monitor selection: 0=primary, 1+=specific monitor, -1=current, -2=secondary'
         )]
         [Alias('m', 'mon')]
-        [int] $Monitor,
+        [int] $Monitor = -1,
         ########################################################################
         [Parameter(
             Mandatory = $false,
@@ -210,25 +210,25 @@ function New-PullRequestForGenXdevModuleChanges {
             Mandatory = $false,
             HelpMessage = 'Window width in pixels for positioning applications'
         )]
-        [int] $Width,
+        [int] $Width = -1,
         ########################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Window height in pixels for positioning applications'
         )]
-        [int] $Height,
+        [int] $Height = -1,
         ########################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Window horizontal position for positioning applications'
         )]
-        [int] $X,
+        [int] $X = -999999,
         ########################################################################
         [Parameter(
             Mandatory = $false,
             HelpMessage = 'Window vertical position for positioning applications'
         )]
-        [int] $Y,
+        [int] $Y = -999999,
         ########################################################################
         [Parameter(
             Mandatory = $false,
@@ -526,7 +526,7 @@ function New-PullRequestForGenXdevModuleChanges {
 
         # get full path to module directory
         $modulePath = GenXdev.FileSystem\Expand-Path (
-            "$PSScriptRoot\..\..\..\..\$ModuleName\2.1.2025\"
+            "$PSScriptRoot\..\..\..\..\$ModuleName\2.3.2026\"
         )
 
         # verify module manifest exists
@@ -749,8 +749,8 @@ function New-PullRequestForGenXdevModuleChanges {
         }
 
         # --- Begin Modification ---
-        # Find the commit with the exact message "Release 2.1.2025" in the GenXdev module repository using the GitHub API
-        $releaseCommitMsg = 'Release 2.1.2025'
+        # Find the commit with the exact message "Release 2.3.2026" in the GenXdev module repository using the GitHub API
+        $releaseCommitMsg = 'Release 2.3.2026'
         $commitsApiUrl = "https://api.github.com/repos/genXdev/$ModuleName/commits"
         $releaseCommitHash = $null
 

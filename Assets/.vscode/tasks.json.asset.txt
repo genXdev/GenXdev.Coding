@@ -89,7 +89,7 @@
         "-MTA",
         "-NoExit",
         "-Command",
-        "Import-Module GenXdev -Force; Start-GenXdevMCPServer -Verbose"
+        "$token = [System.Environment]::GetEnvironmentVariable('GENXDEV_MCP_TOKEN', 'User'); Import-Module GenXdev -Force; Start-GenXdevMCPServer -Verbose -Token $token"
       ],
       "type": "process",
       "label": "Start GenXdev MVP Server Verbose",
@@ -122,7 +122,7 @@
         "-MTA",
         "-NoExit",
         "-Command",
-        "Import-Module GenXdev -Force; Start-GenXdevMCPServer"
+        "$token = [System.Environment]::GetEnvironmentVariable('GENXDEV_MCP_TOKEN', 'User'); Import-Module GenXdev -Force; Start-GenXdevMCPServer -Token $token"
       ],
       "type": "process",
       "label": "Start GenXdev MVP Server",

@@ -2,7 +2,7 @@
 // Part of PowerShell module : GenXdev.Coding
 // Original cmdlet filename  : Features.cs
 // Original author           : René Vaessen / GenXdev
-// Version                   : 2.1.2025
+// Version                   : 2.3.2026
 // ################################################################################
 // Copyright (c)  René Vaessen / GenXdev
 //
@@ -21,9 +21,8 @@
 
 
 
-using System;
 using System.Management.Automation;
-using System.Collections.ObjectModel;
+using System.Collections;
 
 namespace GenXdev.Coding
 {
@@ -65,6 +64,7 @@ namespace GenXdev.Coding
     /// </example>
     /// </summary>
     [Cmdlet(VerbsCommon.Get, "Features")]
+    [Alias("features")]
     [OutputType(typeof(PSObject))]
     public class GetFeaturesCommand : PSGenXdevCmdlet
     {
@@ -101,20 +101,11 @@ namespace GenXdev.Coding
         /// </summary>
         protected override void ProcessRecord()
         {
-            // Build the script to call the PowerShell function
-            var script = "GenXdev.Coding\\Add-FeatureLineToREADME -Show";
-            if (UseHomeREADME.ToBool())
-            {
-                script += " -UseHomeREADME";
-            }
-            if (UseOneDriveREADME.ToBool())
-            {
-                script += " -UseOneDriveREADME";
-            }
-
             // Invoke the script and write the results
-            Collection<PSObject> results = InvokeCommand.InvokeScript(script);
-            foreach (PSObject result in results)
+            Hashtable ht = new System.Collections.Hashtable();
+            ht["Show"] = true;
+            string[] results = InvokeCmdlet<string>("GenXdev.Coding\\Add-FeatureLineToREADME", ht, true).ToArray<string>();
+            foreach (string result in results)
             {
                 WriteObject(result);
             }

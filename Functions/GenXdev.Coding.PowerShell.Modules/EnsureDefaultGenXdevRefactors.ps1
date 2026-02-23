@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : EnsureDefaultGenXdevRefactors.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 2.1.2025
+Version                   : 2.3.2026
 ################################################################################
 Copyright (c)  René Vaessen / GenXdev
 
@@ -99,7 +99,7 @@ function EnsureDefaultGenXdevRefactors {
             $null = GenXdev.Coding\New-Refactor `
                 -Name "Documentation" `
                 -PromptKey "OnlyDocumentation" `
-                -SelectionScript "GenXdev.FileSystem\Find-Item `"$PSScriptRoot\..\..\..\..\GenXdev.*\2.1.2025\functions\*.ps1`" -PassThru -Exclude `"*\_*`" | Microsoft.PowerShell.Utility\Sort-Object -property LastWriteTime" `
+                -SelectionScript "GenXdev.FileSystem\Find-Item `"$PSScriptRoot\..\..\..\..\GenXdev.*\2.3.2026\functions\*.ps1`" -PassThru -Exclude `"*\_*`" | Microsoft.PowerShell.Utility\Sort-Object -property LastWriteTime" `
                 -AutoAddModifiedFiles `
                 -Priority 0
         }
@@ -126,7 +126,7 @@ function EnsureDefaultGenXdevRefactors {
             $null = GenXdev.Coding\New-Refactor `
                 -Name "DocumentationCSharp" `
                 -PromptKey "OnlyCSharpDocumentation" `
-                -SelectionScript "GenXdev.FileSystem\Find-Item `"$PSScriptRoot\..\..\..\..\GenXdev.*\2.1.2025\functions\*.cs`" -PassThru  -Exclude `"*\_*`" | Microsoft.PowerShell.Utility\Sort-Object -property LastWriteTime" `
+                -SelectionScript "GenXdev.FileSystem\Find-Item `"$PSScriptRoot\..\..\..\..\GenXdev.*\2.3.2026\functions\*.cs`" -PassThru  -Exclude `"*\_*`" | Microsoft.PowerShell.Utility\Sort-Object -property LastWriteTime" `
                 -AutoAddModifiedFiles `
                 -Priority 0
         }
@@ -154,7 +154,7 @@ function EnsureDefaultGenXdevRefactors {
             $null = GenXdev.Coding\New-Refactor `
                 -Name "MissingDocumentation" `
                 -PromptKey "OnlyDocumentation" `
-                -SelectionScript "GenXdev.FileSystem\Find-Item `"$PSScriptRoot\..\..\..\..\GenXdev.*\2.1.2025\functions\*.ps1`" -PassThru -Exclude `"*\_*`" -Quiet -NotMatch -Content `"SYNOPSIS`" | Microsoft.PowerShell.Utility\Sort-Object -property LastWriteTime" `
+                -SelectionScript "GenXdev.FileSystem\Find-Item `"$PSScriptRoot\..\..\..\..\GenXdev.*\2.3.2026\functions\*.ps1`" -PassThru -Exclude `"*\_*`" -Quiet -NotMatch -Content `"SYNOPSIS`" | Microsoft.PowerShell.Utility\Sort-Object -property LastWriteTime" `
                 -AutoAddModifiedFiles `
                 -Priority 2000
         }
@@ -181,7 +181,7 @@ function EnsureDefaultGenXdevRefactors {
             $null = GenXdev.Coding\New-Refactor `
                 -Name "MissingDocumentationCSharp" `
                 -PromptKey "OnlyCSharpDocumentation" `
-                -SelectionScript "GenXdev.FileSystem\Find-Item `"$PSScriptRoot\..\..\..\..\GenXdev.*\2.1.2025\functions\*.cs`" -PassThru -Exclude `"*\_*`" -Quiet -NotMatch -Content `"SYNOPSIS`" | Microsoft.PowerShell.Utility\Sort-Object -property LastWriteTime" `
+                -SelectionScript "GenXdev.FileSystem\Find-Item `"$PSScriptRoot\..\..\..\..\GenXdev.*\2.3.2026\functions\*.cs`" -PassThru -Exclude `"*\_*`" -Quiet -NotMatch -Content `"SYNOPSIS`" | Microsoft.PowerShell.Utility\Sort-Object -property LastWriteTime" `
                 -AutoAddModifiedFiles `
                 -Priority 2000
         }
@@ -208,7 +208,7 @@ function EnsureDefaultGenXdevRefactors {
             $null = GenXdev.Coding\New-Refactor `
                 -Name "ConvertToCSharp" `
                 -PromptKey "ConvertToCSharp" `
-                -SelectionScript "GenXdev.FileSystem\Find-Item `"$PSScriptRoot\..\..\..\..\GenXdev.*\2.1.2025\functions\*-*.ps1`" -PassThru -Exclude `"*\_*`", `"*Ensure*`" | ? { `$dir = [io.path]::GetDirectoryName(`$_); `$fn = [io.path]::GetFileNameWithoutExtension(`$_); if (-not (Test-Path `"`$dir\`${fn}.cs`")) { if (-not ([IO.file]::ReadAllText(`$_).Contains('dontrefactor'))) { `$_ } } } | Sort-Object Length" `
+                -SelectionScript "GenXdev.FileSystem\Find-Item `"$PSScriptRoot\..\..\..\..\GenXdev.*\2.3.2026\functions\*-*.ps1`" -PassThru -Exclude `"*\_*`", `"*Ensure*`" | ? { `$dir = [io.path]::GetDirectoryName(`$_); `$fn = [io.path]::GetFileNameWithoutExtension(`$_); if (-not (Test-Path `"`$dir\`${fn}.cs`")) { if (-not ([IO.file]::ReadAllText(`$_).Contains('dontrefactor'))) { `$_ } } } | Sort-Object Length" `
                 -AutoAddModifiedFiles:$false `
                 -Priority 1000
         }
@@ -261,7 +261,7 @@ function EnsureDefaultGenXdevRefactors {
             $null = GenXdev.Coding\New-Refactor `
                 -Name "CheckCSharpInvocations" `
                 -PromptKey "CheckCSharpInvocations" `
-                -SelectionScript "GenXdev.FileSystem\Find-Item `"$PSScriptRoot\..\..\..\..\GenXdev.*\2.1.2025\functions\*.cs`" -PassThru -Exclude `"*\_*`" -Quiet -Content 'Confirm-InstallationConsent|Get-Variable|Copy-IdenticalParamValues|Expand-Path|LOCALAPPDATA|\.\.\\\.\.\\|\\Scripts' | Sort-Object Length" `
+                -SelectionScript "GenXdev.FileSystem\Find-Item `"$PSScriptRoot\..\..\..\..\GenXdev.*\2.3.2026\functions\*.cs`" -PassThru -Exclude `"*\_*`" -Quiet -Content 'Confirm-InstallationConsent|Get-Variable|Copy-IdenticalParamValues|Expand-Path|LOCALAPPDATA|\.\.\\\.\.\\|\\Scripts' | Sort-Object Length" `
                 -AutoAddModifiedFiles:$false `
                 -Priority 1500
         }

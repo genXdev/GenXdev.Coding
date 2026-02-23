@@ -2,7 +2,7 @@
 // Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 // Original cmdlet filename  : Open-GenXdevCmdletsContainingClipboardTextInIde.cs
 // Original author           : René Vaessen / GenXdev
-// Version                   : 2.1.2025
+// Version                   : 2.3.2026
 // ################################################################################
 // Copyright (c)  René Vaessen / GenXdev
 //
@@ -21,9 +21,6 @@
 
 
 
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Management.Automation;
 using System.Text.RegularExpressions;
 

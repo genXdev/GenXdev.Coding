@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding
 Original cmdlet filename  : EnsureVSCodeInstallation.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 2.1.2025
+Version                   : 2.3.2026
 ################################################################################
 Copyright (c)  René Vaessen / GenXdev
 
@@ -77,7 +77,7 @@ function EnsureVSCodeInstallation {
         # check if vscode executable is available in path
         $vSCodeMissing = $idePath -eq 'code'
         Microsoft.PowerShell.Utility\Write-Verbose `
-            ("VSCode installation check: $($vSCodeMissing ? 'Missing' : 'Found')")
+        ("VSCode installation check: $($vSCodeMissing ? 'Missing' : 'Found')")
     }
 
     process {
@@ -114,7 +114,7 @@ function EnsureVSCodeInstallation {
             try {
 
                 Microsoft.PowerShell.Utility\Write-Verbose `
-                    ("Installing recommended VSCode extensions from " +
+                ("Installing recommended VSCode extensions from " +
                     "workspace...")
 
                 # check installation consent for extensions
@@ -127,94 +127,141 @@ function EnsureVSCodeInstallation {
                 if (-not $extensionConsent) {
                     Microsoft.PowerShell.Utility\Write-Warning `
                         'VSCode extensions installation cancelled by user.'
-                } else {
-
-                # determine workspace folder path
-                $workspaceFolder = if ($Global:WorkspaceFolder) {
-
-                    $Global:WorkspaceFolder
-
-                } else {
-
-                    GenXdev.FileSystem\Expand-Path `
-                        "$PSScriptRoot\..\..\..\..\..\"
                 }
+                else {
 
-                # build path to extensions configuration file
-                $extFile = Microsoft.PowerShell.Management\Join-Path `
-                    $workspaceFolder ".vscode/extensions.json"
+                    # determine workspace folder path
+                    $workspaceFolder = if ($Global:WorkspaceFolder) {
 
-                # check if extensions configuration file exists
-                if (Microsoft.PowerShell.Management\Test-Path `
-                    -LiteralPath $extFile) {
+                        $Global:WorkspaceFolder
 
-                    # read and parse extensions configuration
-                    $plugins = Microsoft.PowerShell.Management\Get-Content `
-                        -LiteralPath $extFile `
-                        -Raw |
-                        Microsoft.PowerShell.Utility\ConvertFrom-Json
+                    }
+                    else {
 
-                    if ($plugins.recommendations) {
-
-                        $i = 0
-
-                        $total = $plugins.recommendations.Count
-
-                        # install each recommended extension
-                        foreach ($ext in $plugins.recommendations) {
-
-                            # calculate installation progress percentage
-                            $percent = if ($total -gt 0) {
-
-                                [Convert]::ToInt32([Math]::Round(
-                                    (100 / $total) * $i, 0))
-
-                            } else {
-
-                                0
-                            }
-
-                            # display progress information
-                            Microsoft.PowerShell.Utility\Write-Progress `
-                                -Id 1 `
-                                -Status "Installing VSCode extension $ext" `
-                                -PercentComplete $percent `
-                                -Activity "VSCode extensions"
-
-                            try {
-
-                                # install extension using vscode command line
-                                & code --install-extension $ext --force
-
-                            } catch {
-
-                                Microsoft.PowerShell.Utility\Write-Warning `
-                                    "Failed to install VSCode extension: $ext"
-                            }
-
-                            $i++
-                        }
-
-                        Microsoft.PowerShell.Utility\Write-Host `
-                            "VSCode recommended extensions installed."
-
-                    } else {
-
-                        Microsoft.PowerShell.Utility\Write-Host `
-                            "No recommended extensions found in $extFile."
+                        GenXdev.FileSystem\Expand-Path `
+                            "$PSScriptRoot\..\..\..\..\..\"
                     }
 
-                } else {
+                    # build path to extensions configuration file
+                    $extFile = Microsoft.PowerShell.Management\Join-Path `
+                        $workspaceFolder ".vscode/extensions.json"
 
-                    Microsoft.PowerShell.Utility\Write-Host `
-                        "No .vscode/extensions.json found in workspace."
+                    # check if extensions configuration file exists
+                    if (Microsoft.PowerShell.Management\Test-Path `
+                            -LiteralPath $extFile) {
+
+                        # read and parse extensions configuration
+                        $plugins = Microsoft.PowerShell.Management\Get-Content `
+                            -LiteralPath $extFile `
+                            -Raw |
+                            Microsoft.PowerShell.Utility\ConvertFrom-Json
+
+                        if ($plugins.recommendations) {
+
+                            $i = 0
+
+                            $total = $plugins.recommendations.Count
+
+                            # install each recommended extension
+                            foreach ($ext in $plugins.recommendations) {
+
+                                # calculate installation progress percentage
+                                $percent = if ($total -gt 0) {
+
+                                    [Convert]::ToInt32([Math]::Round(
+                                            (100 / $total) * $i, 0))
+
+                                }
+                                else {
+
+                                    0
+                                }
+
+                                # display progress information
+                                Microsoft.PowerShell.Utility\Write-Progress `
+                                    -Id 1 `
+                                    -Status "Installing VSCode extension $ext" `
+                                    -PercentComplete $percent `
+                                    -Activity "VSCode extensions"
+
+                                try {
+
+                                    # install extension using vscode command line
+                                    & code --install-extension $ext --force
+
+                                }
+                                catch {
+
+                                    Microsoft.PowerShell.Utility\Write-Warning `
+                                        "Failed to install VSCode extension: $ext"
+                                }
+
+                                $i++
+                            }
+
+                            Microsoft.PowerShell.Utility\Write-Host `
+                                "VSCode recommended extensions installed."
+
+                        }
+                        else {
+
+                            Microsoft.PowerShell.Utility\Write-Host `
+                                "No recommended extensions found in $extFile."
+                        }
+
+                    }
+                    else {
+
+                        Microsoft.PowerShell.Utility\Write-Host `
+                            "No .vscode/extensions.json found in workspace."
+                    }
+
                 }
 
-                }
-
-            } catch {
+            }
+            catch {
 
                 Microsoft.PowerShell.Utility\Write-Warning $_
+            }
+
+            # generate and store MCP server authentication token if not already configured
+            try {
+
+                Microsoft.PowerShell.Utility\Write-Verbose `
+                    "Checking MCP server authentication token..."
+
+                $existingToken = [System.Environment]::GetEnvironmentVariable(
+                    'GENXDEV_MCP_TOKEN', 'User')
+
+                if ([string]::IsNullOrEmpty($existingToken)) {
+
+                    Microsoft.PowerShell.Utility\Write-Host `
+                        "Generating secure MCP server authentication token..." `
+                        -ForegroundColor Yellow
+
+                    # generate and store token without prompting
+                    $null = GenXdev.AI\New-GenXdevMCPToken `
+                        -SetEnvironmentVariable `
+                        -Force
+
+                    Microsoft.PowerShell.Utility\Write-Host `
+                    ("MCP server authentication token generated and " +
+                        "stored in GENXDEV_MCP_TOKEN environment variable.") `
+                        -ForegroundColor Green
+
+                }
+                else {
+
+                    Microsoft.PowerShell.Utility\Write-Verbose `
+                        "MCP server authentication token already configured."
+                }
+
+            }
+            catch {
+
+                Microsoft.PowerShell.Utility\Write-Warning `
+                ("Failed to generate MCP server token: " +
+                    "$($_.Exception.Message)")
             }
 
             # copy asset files to workspace
@@ -229,32 +276,32 @@ function EnsureVSCodeInstallation {
                 -RelativeBasePath $sourcePath |
                 Microsoft.PowerShell.Core\ForEach-Object {
 
-                # build source and target file paths
-                $sourceFile = GenXdev.FileSystem\Expand-Path `
-                    "$sourcePath\$PSItem"
+                    # build source and target file paths
+                    $sourceFile = GenXdev.FileSystem\Expand-Path `
+                        "$sourcePath\$PSItem"
 
-                $targetFile = GenXdev.FileSystem\Expand-Path `
+                    $targetFile = GenXdev.FileSystem\Expand-Path `
                     ("$targetPath\$PSItem".Replace('.asset.txt', '')) `
-                    -CreateDirectory
+                        -CreateDirectory
 
-                # determine if file should be overwritten
-                $doOverwrite = ($targetFile -like "\.vscode\tasks.json") -and `
+                    # determine if file should be overwritten
+                    $doOverwrite = ($targetFile -like "\.vscode\tasks.json") -and `
                     (Microsoft.PowerShell.Management\Test-Path `
-                    -LiteralPath $targetFile) -and `
+                            -LiteralPath $targetFile) -and `
                     ([IO.File]::ReadAllText($targetFile) -like `
-                    "*-DebugFailedTests*")
+                            "*-DebugFailedTests*")
 
-                # skip if target file exists and overwrite is not needed
-                if ([IO.File]::Exists($targetFile) -and (-not $doOverwrite)) {
+                    # skip if target file exists and overwrite is not needed
+                    if ([IO.File]::Exists($targetFile) -and (-not $doOverwrite)) {
 
-                    return
+                        return
+                    }
+
+                    # copy asset file to target location
+                    Microsoft.PowerShell.Management\Copy-Item `
+                        -LiteralPath $sourceFile `
+                        -Destination $targetFile
                 }
-
-                # copy asset file to target location
-                Microsoft.PowerShell.Management\Copy-Item `
-                    -LiteralPath $sourceFile `
-                    -Destination $targetFile
-            }
         }
     }
 

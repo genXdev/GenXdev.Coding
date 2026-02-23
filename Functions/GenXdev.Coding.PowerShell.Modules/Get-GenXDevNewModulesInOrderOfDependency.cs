@@ -2,7 +2,7 @@
 // Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 // Original cmdlet filename  : Get-GenXDevNewModulesInOrderOfDependency.cs
 // Original author           : René Vaessen / GenXdev
-// Version                   : 2.1.2025
+// Version                   : 2.3.2026
 // ################################################################################
 // Copyright (c)  René Vaessen / GenXdev
 //
@@ -21,8 +21,6 @@
 
 
 
-using System.Collections.Generic;
-using System.Linq;
 using System.Management.Automation;
 
 namespace GenXdev.Coding.PowerShell.Modules

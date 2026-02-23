@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding
 Original cmdlet filename  : Add-LineToREADME.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 2.1.2025
+Version                   : 2.3.2026
 ################################################################################
 Copyright (c)  René Vaessen / GenXdev
 
@@ -18,6 +18,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ################################################################################>
+# Don't remove this line [dontrefactor]
 ###############################################################################
 <#
 .SYNOPSIS
@@ -237,14 +238,12 @@ function Add-LineToREADME {
                     "$readmeMarkDown$($readmeLine.trim("`r`n`t "))" +
                     "$ansiColorReset`r`n`r`n"
                 }
-                É elseif ($inSection) {
-                    É elseif ($inSection) {
-                        if ($readmeLine.StartsWith('#')) {
-                            break
-                        }
-                        $readmeMarkDown = "$readmeMarkDown" +
-                        "$($readmeLine.trim("`r`n`t "))`r`n`r`n"
+                 elseif ($inSection) {
+                    if ($readmeLine.StartsWith('#')) {
+                        break
                     }
+                    $readmeMarkDown = "$readmeMarkDown" +
+                    "$($readmeLine.trim("`r`n`t "))`r`n`r`n"
                 }
 
                 $readmeMarkDown

@@ -2,7 +2,10 @@
     "servers": {
         "GenXdev": {
             "type": "http",
-            "url": "http://localhost:2175/mcp"
+            "url": "http://localhost:2175/mcp",
+            "headers": {
+                "Authorization": "Bearer ${env:GENXDEV_MCP_TOKEN}"
+            }
         }
     }
 }
