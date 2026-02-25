@@ -2,7 +2,7 @@
 // Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 // Original cmdlet filename  : Clear-GenXdevModules.cs
 // Original author           : René Vaessen / GenXdev
-// Version                   : 2.3.2026
+// Version                   : 3.3.2026
 // ################################################################################
 // Copyright (c)  René Vaessen / GenXdev
 //
@@ -96,7 +96,7 @@ namespace GenXdev.Coding.PowerShell.Modules
                     {
                         var dirName = Path.GetFileName(versionDir);
 
-                        if (dirName != "2.3.2026")
+                        if (dirName != "3.3.2026")
                         {
                             WriteVerbose($"Removing older version: {dirName}");
                             RemoveDirectoryIfExists(versionDir);
@@ -104,11 +104,11 @@ namespace GenXdev.Coding.PowerShell.Modules
                     }
 
                     // Process the current version directory
-                    var versionPath = Path.Combine(dir, "2.3.2026");
+                    var versionPath = Path.Combine(dir, "3.3.2026");
 
                     if (Directory.Exists(versionPath))
                     {
-                        WriteVerbose("Processing version directory 2.3.2026");
+                        WriteVerbose("Processing version directory 3.3.2026");
                         Directory.SetCurrentDirectory(versionPath);
 
                         WriteVerbose("Cleaning version-specific build directories");

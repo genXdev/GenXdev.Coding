@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : New-GenXdevModule.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 2.3.2026
+Version                   : 3.3.2026
 ################################################################################
 Copyright (c)  René Vaessen / GenXdev
 
@@ -101,7 +101,7 @@ Script module or binary module file associated with this manifest.
 RootModule = '$ModuleName.psm1'
 
 Version number of this module.
-ModuleVersion = '2.3.2026'
+ModuleVersion = '3.3.2026'
 
 Supported PSEditions
 CompatiblePSEditions = 'Core'
@@ -140,7 +140,7 @@ Processor architecture (None, X86, Amd64) required by this module
 ProcessorArchitecture = 'Amd64'
 
 Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @(@{ModuleName = 'GenXdev'; ModuleVersion = '2.3.2026'; })
+RequiredModules = @(@{ModuleName = 'GenXdev'; ModuleVersion = '3.3.2026'; })
 
 Assemblies that must be loaded prior to importing this module
 RequiredAssemblies = @()
@@ -268,7 +268,7 @@ Update-Module
 
         # create versioned module directory
         $moduleDirectory = GenXdev.FileSystem\Expand-Path `
-            -Path "$moduleRootDirectory\2.3.2026\" `
+            -Path "$moduleRootDirectory\3.3.2026\" `
             -CreateDirectory
 
         # store current location and move to module directory

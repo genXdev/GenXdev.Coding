@@ -2,7 +2,7 @@
 Part of PowerShell module : GenXdev.Coding.PowerShell.Modules
 Original cmdlet filename  : New-PullRequestForGenXdevModuleChanges.ps1
 Original author           : René Vaessen / GenXdev
-Version                   : 2.3.2026
+Version                   : 3.3.2026
 ################################################################################
 Copyright (c)  René Vaessen / GenXdev
 
@@ -526,7 +526,7 @@ function New-PullRequestForGenXdevModuleChanges {
 
         # get full path to module directory
         $modulePath = GenXdev.FileSystem\Expand-Path (
-            "$PSScriptRoot\..\..\..\..\$ModuleName\2.3.2026\"
+            "$PSScriptRoot\..\..\..\..\$ModuleName\3.3.2026\"
         )
 
         # verify module manifest exists
@@ -749,8 +749,8 @@ function New-PullRequestForGenXdevModuleChanges {
         }
 
         # --- Begin Modification ---
-        # Find the commit with the exact message "Release 2.3.2026" in the GenXdev module repository using the GitHub API
-        $releaseCommitMsg = 'Release 2.3.2026'
+        # Find the commit with the exact message "Release 3.3.2026" in the GenXdev module repository using the GitHub API
+        $releaseCommitMsg = 'Release 3.3.2026'
         $commitsApiUrl = "https://api.github.com/repos/genXdev/$ModuleName/commits"
         $releaseCommitHash = $null
 
